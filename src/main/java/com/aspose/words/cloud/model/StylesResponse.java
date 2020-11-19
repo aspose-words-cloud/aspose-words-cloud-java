@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/styles.
+ * The REST response with an array of styles.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles.")
+@ApiModel(description = "The REST response with an array of styles.")
 public class StylesResponse extends WordsResponse {
     @SerializedName("Styles")
     private List<Style> styles = null;
@@ -64,10 +63,10 @@ public class StylesResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets styles which are contained in document.
+     * Gets or sets the array of styles.
     * @return styles
     **/
-    @ApiModelProperty(value = "Gets or sets styles which are contained in document.")
+    @ApiModelProperty(value = "Gets or sets the array of styles.")
     public List<Style> getStyles() {
         return styles;
     }

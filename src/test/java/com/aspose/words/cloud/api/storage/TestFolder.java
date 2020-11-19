@@ -102,6 +102,7 @@ public class TestFolder  extends TestCase
 
         FilesList result = TestInitializer.wordsApi.getFilesList(request);
         assertNotNull(result);
+        assertNotNull(result.getValue());
     }
 
     /*

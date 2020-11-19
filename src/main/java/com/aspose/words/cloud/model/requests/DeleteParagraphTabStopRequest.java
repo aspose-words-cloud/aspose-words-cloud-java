@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class DeleteParagraphTabStopRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * a tab stop position to remove.
+     * The position of a tab stop to remove.
      */
     private Double position;
 
@@ -54,7 +54,7 @@ public class DeleteParagraphTabStopRequest implements RequestIfc {
     private Integer index;
 
     /*
-     * Path to the node which contains paragraph.
+     * The path to the node in the document tree.
      */
     private String nodePath;
 
@@ -86,10 +86,10 @@ public class DeleteParagraphTabStopRequest implements RequestIfc {
     /*
      * Initializes a new instance of the DeleteParagraphTabStopRequest class.
      *
-     * @param String name The document name.
-     * @param Double position a tab stop position to remove.
+     * @param String name The filename of the input document.
+     * @param Double position The position of a tab stop to remove.
      * @param Integer index Object index.
-     * @param String nodePath Path to the node which contains paragraph.
+     * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,28 +109,28 @@ public class DeleteParagraphTabStopRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets a tab stop position to remove.
+     * Gets The position of a tab stop to remove.
      */
     public Double getPosition() {
         return this.position;
     }
 
     /*
-     * Sets a tab stop position to remove.
+     * Sets The position of a tab stop to remove.
      */
     public void setPosition(Double value) {
         this.position = value;
@@ -151,14 +151,14 @@ public class DeleteParagraphTabStopRequest implements RequestIfc {
     }
 
     /*
-     * Gets Path to the node which contains paragraph.
+     * Gets The path to the node in the document tree.
      */
     public String getNodePath() {
         return this.nodePath;
     }
 
     /*
-     * Sets Path to the node which contains paragraph.
+     * Sets The path to the node in the document tree.
      */
     public void setNodePath(String value) {
         this.nodePath = value;

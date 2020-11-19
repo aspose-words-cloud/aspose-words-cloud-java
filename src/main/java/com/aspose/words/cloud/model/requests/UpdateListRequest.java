@@ -39,17 +39,17 @@ import java.util.*;
  */
 public class UpdateListRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * List object.
+     * The properties of the list.
      */
     private ListUpdate listUpdate;
 
     /*
-     * List unique identifier.
+     * The list Id.
      */
     private Integer listId;
 
@@ -91,9 +91,9 @@ public class UpdateListRequest implements RequestIfc {
     /*
      * Initializes a new instance of the UpdateListRequest class.
      *
-     * @param String name The document name.
-     * @param ListUpdate listUpdate List object.
-     * @param Integer listId List unique identifier.
+     * @param String name The filename of the input document.
+     * @param ListUpdate listUpdate The properties of the list.
+     * @param Integer listId The list Id.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -116,42 +116,42 @@ public class UpdateListRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets List object.
+     * Gets The properties of the list.
      */
     public ListUpdate getListUpdate() {
         return this.listUpdate;
     }
 
     /*
-     * Sets List object.
+     * Sets The properties of the list.
      */
     public void setListUpdate(ListUpdate value) {
         this.listUpdate = value;
     }
 
     /*
-     * Gets List unique identifier.
+     * Gets The list Id.
      */
     public Integer getListId() {
         return this.listId;
     }
 
     /*
-     * Sets List unique identifier.
+     * Sets The list Id.
      */
     public void setListId(Integer value) {
         this.listId = value;

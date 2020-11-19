@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class RenderPageRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Comment index.
+     * The index of the page.
      */
     private Integer pageIndex;
 
@@ -81,8 +81,8 @@ public class RenderPageRequest implements RequestIfc {
     /*
      * Initializes a new instance of the RenderPageRequest class.
      *
-     * @param String name The document name.
-     * @param Integer pageIndex Comment index.
+     * @param String name The filename of the input document.
+     * @param Integer pageIndex The index of the page.
      * @param String format The destination format.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -102,28 +102,28 @@ public class RenderPageRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Comment index.
+     * Gets The index of the page.
      */
     public Integer getPageIndex() {
         return this.pageIndex;
     }
 
     /*
-     * Sets Comment index.
+     * Sets The index of the page.
      */
     public void setPageIndex(Integer value) {
         this.pageIndex = value;

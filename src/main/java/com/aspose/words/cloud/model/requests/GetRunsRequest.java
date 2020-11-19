@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class GetRunsRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Path to parent paragraph.
+     * The path to the paragraph in the document tree.
      */
     private String paragraphPath;
 
@@ -71,8 +71,8 @@ public class GetRunsRequest implements RequestIfc {
     /*
      * Initializes a new instance of the GetRunsRequest class.
      *
-     * @param String name The document name.
-     * @param String paragraphPath Path to parent paragraph.
+     * @param String name The filename of the input document.
+     * @param String paragraphPath The path to the paragraph in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -88,28 +88,28 @@ public class GetRunsRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Path to parent paragraph.
+     * Gets The path to the paragraph in the document tree.
      */
     public String getParagraphPath() {
         return this.paragraphPath;
     }
 
     /*
-     * Sets Path to parent paragraph.
+     * Sets The path to the paragraph in the document tree.
      */
     public void setParagraphPath(String value) {
         this.paragraphPath = value;

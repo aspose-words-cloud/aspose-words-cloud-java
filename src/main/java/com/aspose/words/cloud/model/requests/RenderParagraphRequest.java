@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class RenderParagraphRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
@@ -54,7 +54,7 @@ public class RenderParagraphRequest implements RequestIfc {
     private Integer index;
 
     /*
-     * Path to the node, which contains paragraphs.
+     * The path to the node in the document tree.
      */
     private String nodePath;
 
@@ -86,10 +86,10 @@ public class RenderParagraphRequest implements RequestIfc {
     /*
      * Initializes a new instance of the RenderParagraphRequest class.
      *
-     * @param String name The document name.
+     * @param String name The filename of the input document.
      * @param String format The destination format.
      * @param Integer index Object index.
-     * @param String nodePath Path to the node, which contains paragraphs.
+     * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,14 +109,14 @@ public class RenderParagraphRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
@@ -151,14 +151,14 @@ public class RenderParagraphRequest implements RequestIfc {
     }
 
     /*
-     * Gets Path to the node, which contains paragraphs.
+     * Gets The path to the node in the document tree.
      */
     public String getNodePath() {
         return this.nodePath;
     }
 
     /*
-     * Sets Path to the node, which contains paragraphs.
+     * Sets The path to the node in the document tree.
      */
     public void setNodePath(String value) {
         this.nodePath = value;

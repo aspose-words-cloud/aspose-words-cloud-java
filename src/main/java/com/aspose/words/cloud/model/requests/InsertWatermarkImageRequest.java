@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class InsertWatermarkImageRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
@@ -84,19 +84,19 @@ public class InsertWatermarkImageRequest implements RequestIfc {
     private String revisionDateTime;
 
     /*
-     * The watermark rotation angle.
+     * The rotation angle of the watermark.
      */
     private Double rotationAngle;
 
     /*
-     * The image file server full name. If the name is empty the image is expected in request content.
+     * The filename of the image. If the parameter value is missing — the image data is expected in the request content.
      */
     private String image;
 
     /*
      * Initializes a new instance of the InsertWatermarkImageRequest class.
      *
-     * @param String name The document name.
+     * @param String name The filename of the input document.
      * @param byte[] imageFile File with image.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -105,8 +105,8 @@ public class InsertWatermarkImageRequest implements RequestIfc {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param Double rotationAngle The watermark rotation angle.
-     * @param String image The image file server full name. If the name is empty the image is expected in request content.
+     * @param Double rotationAngle The rotation angle of the watermark.
+     * @param String image The filename of the image. If the parameter value is missing — the image data is expected in the request content.
      */
     public InsertWatermarkImageRequest(String name, byte[] imageFile, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime, Double rotationAngle, String image) {
         this.name = name;
@@ -123,14 +123,14 @@ public class InsertWatermarkImageRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
@@ -249,28 +249,28 @@ public class InsertWatermarkImageRequest implements RequestIfc {
     }
 
     /*
-     * Gets The watermark rotation angle.
+     * Gets The rotation angle of the watermark.
      */
     public Double getRotationAngle() {
         return this.rotationAngle;
     }
 
     /*
-     * Sets The watermark rotation angle.
+     * Sets The rotation angle of the watermark.
      */
     public void setRotationAngle(Double value) {
         this.rotationAngle = value;
     }
 
     /*
-     * Gets The image file server full name. If the name is empty the image is expected in request content.
+     * Gets The filename of the image. If the parameter value is missing — the image data is expected in the request content.
      */
     public String getImage() {
         return this.image;
     }
 
     /*
-     * Sets The image file server full name. If the name is empty the image is expected in request content.
+     * Sets The filename of the image. If the parameter value is missing — the image data is expected in the request content.
      */
     public void setImage(String value) {
         this.image = value;

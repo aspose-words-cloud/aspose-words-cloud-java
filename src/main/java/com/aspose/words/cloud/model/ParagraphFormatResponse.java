@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/format.
+ * The REST response with the formatting properties of a paragraph.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/format.")
+@ApiModel(description = "The REST response with the formatting properties of a paragraph.")
 public class ParagraphFormatResponse extends WordsResponse {
     @SerializedName("ParagraphFormat")
     private ParagraphFormat paragraphFormat = null;
@@ -56,10 +55,10 @@ public class ParagraphFormatResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets represents all the formatting for a paragraph.
+     * Gets or sets the formatting properties of a paragraph.
     * @return paragraphFormat
     **/
-    @ApiModelProperty(value = "Gets or sets represents all the formatting for a paragraph.")
+    @ApiModelProperty(value = "Gets or sets the formatting properties of a paragraph.")
     public ParagraphFormat getParagraphFormat() {
         return paragraphFormat;
     }

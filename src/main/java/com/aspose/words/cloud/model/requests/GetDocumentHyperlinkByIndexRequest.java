@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class GetDocumentHyperlinkByIndexRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * The hyperlink index.
+     * The index of the hyperlink.
      */
     private Integer hyperlinkIndex;
 
@@ -71,8 +71,8 @@ public class GetDocumentHyperlinkByIndexRequest implements RequestIfc {
     /*
      * Initializes a new instance of the GetDocumentHyperlinkByIndexRequest class.
      *
-     * @param String name The document name.
-     * @param Integer hyperlinkIndex The hyperlink index.
+     * @param String name The filename of the input document.
+     * @param Integer hyperlinkIndex The index of the hyperlink.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -88,28 +88,28 @@ public class GetDocumentHyperlinkByIndexRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets The hyperlink index.
+     * Gets The index of the hyperlink.
      */
     public Integer getHyperlinkIndex() {
         return this.hyperlinkIndex;
     }
 
     /*
-     * Sets The hyperlink index.
+     * Sets The index of the hyperlink.
      */
     public void setHyperlinkIndex(Integer value) {
         this.hyperlinkIndex = value;

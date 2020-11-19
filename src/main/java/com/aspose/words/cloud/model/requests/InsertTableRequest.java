@@ -39,17 +39,17 @@ import java.util.*;
  */
 public class InsertTableRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Table parameters/.
+     * The properties of the table.
      */
     private TableInsert table;
 
     /*
-     * Path to the node, which contains tables.
+     * The path to the node in the document tree.
      */
     private String nodePath;
 
@@ -91,9 +91,9 @@ public class InsertTableRequest implements RequestIfc {
     /*
      * Initializes a new instance of the InsertTableRequest class.
      *
-     * @param String name The document name.
-     * @param TableInsert table Table parameters/.
-     * @param String nodePath Path to the node, which contains tables.
+     * @param String name The filename of the input document.
+     * @param TableInsert table The properties of the table.
+     * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -116,42 +116,42 @@ public class InsertTableRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Table parameters/.
+     * Gets The properties of the table.
      */
     public TableInsert getTable() {
         return this.table;
     }
 
     /*
-     * Sets Table parameters/.
+     * Sets The properties of the table.
      */
     public void setTable(TableInsert value) {
         this.table = value;
     }
 
     /*
-     * Gets Path to the node, which contains tables.
+     * Gets The path to the node in the document tree.
      */
     public String getNodePath() {
         return this.nodePath;
     }
 
     /*
-     * Sets Path to the node, which contains tables.
+     * Sets The path to the node in the document tree.
      */
     public void setNodePath(String value) {
         this.nodePath = value;

@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class GetDocumentFieldNamesRequest implements RequestIfc {
     /*
-     * The template name.
+     * The filename of the input document.
      */
     private String name;
 
@@ -64,19 +64,19 @@ public class GetDocumentFieldNamesRequest implements RequestIfc {
     private String password;
 
     /*
-     * If true, result includes "mustache" field names.
+     * The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
     private Boolean useNonMergeFields;
 
     /*
      * Initializes a new instance of the GetDocumentFieldNamesRequest class.
      *
-     * @param String name The template name.
+     * @param String name The filename of the input document.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param Boolean useNonMergeFields If true, result includes "mustache" field names.
+     * @param Boolean useNonMergeFields The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
     public GetDocumentFieldNamesRequest(String name, String folder, String storage, String loadEncoding, String password, Boolean useNonMergeFields) {
         this.name = name;
@@ -88,14 +88,14 @@ public class GetDocumentFieldNamesRequest implements RequestIfc {
     }
 
     /*
-     * Gets The template name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The template name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
@@ -158,14 +158,14 @@ public class GetDocumentFieldNamesRequest implements RequestIfc {
     }
 
     /*
-     * Gets If true, result includes "mustache" field names.
+     * Gets The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
     public Boolean getUseNonMergeFields() {
         return this.useNonMergeFields;
     }
 
     /*
-     * Sets If true, result includes "mustache" field names.
+     * Sets The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
     public void setUseNonMergeFields(Boolean value) {
         this.useNonMergeFields = value;

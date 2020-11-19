@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Response for the request of the document's statistical data.
+ * The REST response with document's statistical data.
  */
-@ApiModel(description = "Response for the request of the document's statistical data.")
+@ApiModel(description = "The REST response with document's statistical data.")
 public class StatDataResponse extends WordsResponse {
     @SerializedName("DocumentLink")
     private FileLink documentLink = null;
@@ -58,10 +58,10 @@ public class StatDataResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets link to the document.
+     * Gets or sets the link to the document.
     * @return documentLink
     **/
-    @ApiModelProperty(value = "Gets or sets link to the document.")
+    @ApiModelProperty(value = "Gets or sets the link to the document.")
     public FileLink getDocumentLink() {
         return documentLink;
     }
@@ -76,10 +76,10 @@ public class StatDataResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets statistical data of the document.
+     * Gets or sets the statistical data of the document.
     * @return statData
     **/
-    @ApiModelProperty(value = "Gets or sets statistical data of the document.")
+    @ApiModelProperty(value = "Gets or sets the statistical data of the document.")
     public DocumentStatData getStatData() {
         return statData;
     }

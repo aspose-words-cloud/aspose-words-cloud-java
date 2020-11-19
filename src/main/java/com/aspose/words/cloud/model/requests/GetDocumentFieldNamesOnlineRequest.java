@@ -44,7 +44,7 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
     private byte[] template;
 
     /*
-     * Use non merge fields or not.
+     * The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
     private Boolean useNonMergeFields;
 
@@ -52,7 +52,7 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
      * Initializes a new instance of the GetDocumentFieldNamesOnlineRequest class.
      *
      * @param byte[] template File with template.
-     * @param Boolean useNonMergeFields Use non merge fields or not.
+     * @param Boolean useNonMergeFields The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
     public GetDocumentFieldNamesOnlineRequest(byte[] template, Boolean useNonMergeFields) {
         this.template = template;
@@ -74,14 +74,14 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets Use non merge fields or not.
+     * Gets The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
     public Boolean getUseNonMergeFields() {
         return this.useNonMergeFields;
     }
 
     /*
-     * Sets Use non merge fields or not.
+     * Sets The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
     public void setUseNonMergeFields(Boolean value) {
         this.useNonMergeFields = value;

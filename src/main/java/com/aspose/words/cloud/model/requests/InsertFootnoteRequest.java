@@ -39,17 +39,17 @@ import java.util.*;
  */
 public class InsertFootnoteRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Footnote data.
+     * The properties of the footnote.
      */
     private FootnoteInsert footnoteDto;
 
     /*
-     * Path to the node, which contains collection of footnotes.
+     * The path to the node in the document tree.
      */
     private String nodePath;
 
@@ -91,9 +91,9 @@ public class InsertFootnoteRequest implements RequestIfc {
     /*
      * Initializes a new instance of the InsertFootnoteRequest class.
      *
-     * @param String name The document name.
-     * @param FootnoteInsert footnoteDto Footnote data.
-     * @param String nodePath Path to the node, which contains collection of footnotes.
+     * @param String name The filename of the input document.
+     * @param FootnoteInsert footnoteDto The properties of the footnote.
+     * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -116,42 +116,42 @@ public class InsertFootnoteRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Footnote data.
+     * Gets The properties of the footnote.
      */
     public FootnoteInsert getFootnoteDto() {
         return this.footnoteDto;
     }
 
     /*
-     * Sets Footnote data.
+     * Sets The properties of the footnote.
      */
     public void setFootnoteDto(FootnoteInsert value) {
         this.footnoteDto = value;
     }
 
     /*
-     * Gets Path to the node, which contains collection of footnotes.
+     * Gets The path to the node in the document tree.
      */
     public String getNodePath() {
         return this.nodePath;
     }
 
     /*
-     * Sets Path to the node, which contains collection of footnotes.
+     * Sets The path to the node in the document tree.
      */
     public void setNodePath(String value) {
         this.nodePath = value;

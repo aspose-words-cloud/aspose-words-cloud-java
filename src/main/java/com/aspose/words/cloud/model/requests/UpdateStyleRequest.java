@@ -39,17 +39,17 @@ import java.util.*;
  */
 public class UpdateStyleRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Style properties to update.
+     * The properties of the style.
      */
     private StyleUpdate styleUpdate;
 
     /*
-     * Style name.
+     * The name of the style.
      */
     private String styleName;
 
@@ -91,9 +91,9 @@ public class UpdateStyleRequest implements RequestIfc {
     /*
      * Initializes a new instance of the UpdateStyleRequest class.
      *
-     * @param String name The document name.
-     * @param StyleUpdate styleUpdate Style properties to update.
-     * @param String styleName Style name.
+     * @param String name The filename of the input document.
+     * @param StyleUpdate styleUpdate The properties of the style.
+     * @param String styleName The name of the style.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -116,42 +116,42 @@ public class UpdateStyleRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Style properties to update.
+     * Gets The properties of the style.
      */
     public StyleUpdate getStyleUpdate() {
         return this.styleUpdate;
     }
 
     /*
-     * Sets Style properties to update.
+     * Sets The properties of the style.
      */
     public void setStyleUpdate(StyleUpdate value) {
         this.styleUpdate = value;
     }
 
     /*
-     * Gets Style name.
+     * Gets The name of the style.
      */
     public String getStyleName() {
         return this.styleName;
     }
 
     /*
-     * Sets Style name.
+     * Sets The name of the style.
      */
     public void setStyleName(String value) {
         this.styleName = value;

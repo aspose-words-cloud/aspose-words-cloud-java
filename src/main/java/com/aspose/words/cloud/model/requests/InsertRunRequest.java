@@ -39,17 +39,17 @@ import java.util.*;
  */
 public class InsertRunRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Path to parent paragraph.
+     * The path to the paragraph in the document tree.
      */
     private String paragraphPath;
 
     /*
-     * Run data.
+     * The properties of the Run object.
      */
     private RunInsert run;
 
@@ -89,16 +89,16 @@ public class InsertRunRequest implements RequestIfc {
     private String revisionDateTime;
 
     /*
-     * Paragraph will be inserted before node with index.
+     * The index of the node. A new Run object will be inserted before the node with the specified node Id.
      */
     private String insertBeforeNode;
 
     /*
      * Initializes a new instance of the InsertRunRequest class.
      *
-     * @param String name The document name.
-     * @param String paragraphPath Path to parent paragraph.
-     * @param RunInsert run Run data.
+     * @param String name The filename of the input document.
+     * @param String paragraphPath The path to the paragraph in the document tree.
+     * @param RunInsert run The properties of the Run object.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -106,7 +106,7 @@ public class InsertRunRequest implements RequestIfc {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String insertBeforeNode Paragraph will be inserted before node with index.
+     * @param String insertBeforeNode The index of the node. A new Run object will be inserted before the node with the specified node Id.
      */
     public InsertRunRequest(String name, String paragraphPath, RunInsert run, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime, String insertBeforeNode) {
         this.name = name;
@@ -123,42 +123,42 @@ public class InsertRunRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Path to parent paragraph.
+     * Gets The path to the paragraph in the document tree.
      */
     public String getParagraphPath() {
         return this.paragraphPath;
     }
 
     /*
-     * Sets Path to parent paragraph.
+     * Sets The path to the paragraph in the document tree.
      */
     public void setParagraphPath(String value) {
         this.paragraphPath = value;
     }
 
     /*
-     * Gets Run data.
+     * Gets The properties of the Run object.
      */
     public RunInsert getRun() {
         return this.run;
     }
 
     /*
-     * Sets Run data.
+     * Sets The properties of the Run object.
      */
     public void setRun(RunInsert value) {
         this.run = value;
@@ -263,14 +263,14 @@ public class InsertRunRequest implements RequestIfc {
     }
 
     /*
-     * Gets Paragraph will be inserted before node with index.
+     * Gets The index of the node. A new Run object will be inserted before the node with the specified node Id.
      */
     public String getInsertBeforeNode() {
         return this.insertBeforeNode;
     }
 
     /*
-     * Sets Paragraph will be inserted before node with index.
+     * Sets The index of the node. A new Run object will be inserted before the node with the specified node Id.
      */
     public void setInsertBeforeNode(String value) {
         this.insertBeforeNode = value;

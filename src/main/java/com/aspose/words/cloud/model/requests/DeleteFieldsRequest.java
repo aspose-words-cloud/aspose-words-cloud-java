@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class DeleteFieldsRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Path to the node, which contains collection of fields.
+     * The path to the node in the document tree.
      */
     private String nodePath;
 
@@ -86,8 +86,8 @@ public class DeleteFieldsRequest implements RequestIfc {
     /*
      * Initializes a new instance of the DeleteFieldsRequest class.
      *
-     * @param String name The document name.
-     * @param String nodePath Path to the node, which contains collection of fields.
+     * @param String name The filename of the input document.
+     * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,28 +109,28 @@ public class DeleteFieldsRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Path to the node, which contains collection of fields.
+     * Gets The path to the node in the document tree.
      */
     public String getNodePath() {
         return this.nodePath;
     }
 
     /*
-     * Sets Path to the node, which contains collection of fields.
+     * Sets The path to the node in the document tree.
      */
     public void setNodePath(String value) {
         this.nodePath = value;

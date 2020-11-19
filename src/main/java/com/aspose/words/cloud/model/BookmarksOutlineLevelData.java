@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * container class for individual bookmarks outline level.
+ * Container class for individual bookmarks outline level.
  */
-@ApiModel(description = "container class for individual bookmarks outline level.")
+@ApiModel(description = "Container class for individual bookmarks outline level.")
 public class BookmarksOutlineLevelData {
     @SerializedName("BookmarksOutlineLevel")
     private Integer bookmarksOutlineLevel = null;
@@ -58,10 +58,10 @@ public class BookmarksOutlineLevelData {
     }
 
     /**
-     * Gets or sets specify the bookmark's level.
+     * Gets or sets the bookmark's level.
     * @return bookmarksOutlineLevel
     **/
-    @ApiModelProperty(value = "Gets or sets specify the bookmark's level.")
+    @ApiModelProperty(value = "Gets or sets the bookmark's level.")
     public Integer getBookmarksOutlineLevel() {
         return bookmarksOutlineLevel;
     }
@@ -76,10 +76,10 @@ public class BookmarksOutlineLevelData {
     }
 
     /**
-     * Gets or sets specify the bookmark's name.
+     * Gets or sets the bookmark's name.
     * @return name
     **/
-    @ApiModelProperty(value = "Gets or sets specify the bookmark's name.")
+    @ApiModelProperty(value = "Gets or sets the bookmark's name.")
     public String getName() {
         return name;
     }

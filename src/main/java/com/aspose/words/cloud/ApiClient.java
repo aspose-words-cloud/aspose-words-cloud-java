@@ -56,7 +56,7 @@ public class ApiClient {
     private String apiVersion = "v4.0";
     private String baseUrl = "https://api.aspose.cloud";
     private String basePath = baseUrl + "/" + apiVersion;
-    private String clientVersion = "20.10";
+    private String clientVersion = "20.11";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -70,13 +70,13 @@ public class ApiClient {
 
     private String accessToken;
     private String refreshToken;
-    private String appKey;
-    private String appSid;
+    private String ClientSecret;
+    private String clientId;
 
-    public ApiClient(String appSid, String appKey, String baseUrl) {
+    public ApiClient(String clientId, String clientSecret, String baseUrl) {
         this();
-        this.appSid = appSid;
-        this.appKey = appKey;
+        this.clientId = clientId;
+        this.ClientSecret = clientSecret;
         if (baseUrl != null) {
             this.setBaseUrl(baseUrl);
         }
@@ -92,7 +92,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-         setUserAgent("Swagger-Codegen/1.0.0/java");
+        setUserAgent("Swagger-Codegen/1.0.0/java");
         addDefaultHeader("x-aspose-client", "java sdk");
         addDefaultHeader("x-aspose-client-version", clientVersion);
         setConnectTimeout(5 * 60 * 1000);
@@ -102,7 +102,7 @@ public class ApiClient {
      /**
      * Get NotAuth http code
      *
-     * @return App Key
+     * @return NotAuth http code
      */
     public Integer getNotAuthCode() {
         return notAuthCode;
@@ -111,49 +111,49 @@ public class ApiClient {
     /**
      * Get BadRequest http code
      *
-     * @return App Key
+     * @return BadRequest http code
      */
     public Integer getBadRequestCode() {
         return badRequestCode;
     }
 
-     /**
-     * Get App Key
+    /**
+     * Get client ID
      *
-     * @return App Key
+     * @return client ID
      */
-    public String getAppKey() {
-        return appKey;
+    public String getClientId() {
+        return clientId;
     }
 
     /**
-     * Set App Key
+     * Set client ID
      *
-     * @param appKey App Key
+     * @param clientId client ID
      * @return An instance of OkHttpClient
      */
-    public ApiClient setAppKey(String appKey) {
-        this.appKey = appKey;
+    public ApiClient setClientId(String clientId) {
+        this.clientId = clientId;
         return this;
     }
 
-     /**
-     * Get App Sid
+    /**
+     * Get client secret
      *
-     * @return App Sid
+     * @return client secret
      */
-    public String getAppSid() {
-        return appSid;
+    public String getClientSecret() {
+        return ClientSecret;
     }
 
     /**
-     * Set App Sid
+     * Set client secret
      *
-     * @param appSid App Sid
+     * @param clientSecret client secret
      * @return An instance of OkHttpClient
      */
-    public ApiClient setAppSid(String appSid) {
-        this.appSid = appSid;
+    public ApiClient setClientSecret(String clientSecret) {
+        this.ClientSecret = clientSecret;
         return this;
     }
 
@@ -1125,8 +1125,8 @@ public class ApiClient {
         try {
             RequestBody requestBody = new FormEncodingBuilder()
                     .addEncoded("grant_type", "client_credentials")
-                    .addEncoded("client_id", getAppSid())
-                    .addEncoded("client_secret", getAppKey())
+                    .addEncoded("client_id", getClientId())
+                    .addEncoded("client_secret", getClientSecret())
                     .build();
 
             String url = baseUrl + "/connect/token";

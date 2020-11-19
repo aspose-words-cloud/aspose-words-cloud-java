@@ -63,10 +63,10 @@ public class StoryChildNodes {
     }
 
     /**
-     * Gets or sets child nodes.
+     * Gets or sets the list of child nodes.
     * @return childNodes
     **/
-    @ApiModelProperty(value = "Gets or sets child nodes.")
+    @ApiModelProperty(value = "Gets or sets the list of child nodes.")
     public List<NodeLink> getChildNodes() {
         return childNodes;
     }

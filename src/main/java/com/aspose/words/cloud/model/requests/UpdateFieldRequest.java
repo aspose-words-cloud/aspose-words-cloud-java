@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class UpdateFieldRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Field data.
+     * The properties of the field.
      */
     private FieldUpdate field;
 
@@ -54,7 +54,7 @@ public class UpdateFieldRequest implements RequestIfc {
     private Integer index;
 
     /*
-     * Path to the node, which contains collection of fields.
+     * The path to the node in the document tree.
      */
     private String nodePath;
 
@@ -96,10 +96,10 @@ public class UpdateFieldRequest implements RequestIfc {
     /*
      * Initializes a new instance of the UpdateFieldRequest class.
      *
-     * @param String name The document name.
-     * @param FieldUpdate field Field data.
+     * @param String name The filename of the input document.
+     * @param FieldUpdate field The properties of the field.
      * @param Integer index Object index.
-     * @param String nodePath Path to the node, which contains collection of fields.
+     * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -123,28 +123,28 @@ public class UpdateFieldRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Field data.
+     * Gets The properties of the field.
      */
     public FieldUpdate getField() {
         return this.field;
     }
 
     /*
-     * Sets Field data.
+     * Sets The properties of the field.
      */
     public void setField(FieldUpdate value) {
         this.field = value;
@@ -165,14 +165,14 @@ public class UpdateFieldRequest implements RequestIfc {
     }
 
     /*
-     * Gets Path to the node, which contains collection of fields.
+     * Gets The path to the node in the document tree.
      */
     public String getNodePath() {
         return this.nodePath;
     }
 
     /*
-     * Sets Path to the node, which contains collection of fields.
+     * Sets The path to the node in the document tree.
      */
     public void setNodePath(String value) {
         this.nodePath = value;

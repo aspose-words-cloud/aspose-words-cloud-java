@@ -76,10 +76,10 @@ public class Bookmark extends LinkElement {
     }
 
     /**
-     * Gets or sets the text enclosed in the bookmark.
+     * Gets or sets text, enclosed in the bookmark.
     * @return text
     **/
-    @ApiModelProperty(value = "Gets or sets the text enclosed in the bookmark.")
+    @ApiModelProperty(value = "Gets or sets text, enclosed in the bookmark.")
     public String getText() {
         return text;
     }

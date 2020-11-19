@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Paragraph format tab stop.
+ * DTO container with paragraph format tab stop.
  */
-@ApiModel(description = "Paragraph format tab stop.")
+@ApiModel(description = "DTO container with paragraph format tab stop.")
 public class TabStop extends TabStopBase {
     @SerializedName("IsClear")
     private Boolean isClear = null;

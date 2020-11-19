@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * container class for rtf save options.
+ * Container class for rtf save options.
  */
-@ApiModel(description = "container class for rtf save options.")
+@ApiModel(description = "Container class for rtf save options.")
 public class RtfSaveOptionsData extends SaveOptionsData {
     @SerializedName("ExportCompactSize")
     private Boolean exportCompactSize = null;
@@ -64,10 +64,10 @@ public class RtfSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
+     * Gets or sets a value indicating whether to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
     * @return exportCompactSize
     **/
-    @ApiModelProperty(value = "Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.")
     public Boolean getExportCompactSize() {
         return exportCompactSize;
     }
@@ -82,10 +82,10 @@ public class RtfSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies whether the keywords for "old readers" are written to RTF or not.
+     * Gets or sets a value indicating whether the keywords for "old readers" are written to RTF or not.
     * @return exportImagesForOldReaders
     **/
-    @ApiModelProperty(value = "Gets or sets specifies whether the keywords for \"old readers\" are written to RTF or not.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the keywords for \"old readers\" are written to RTF or not.")
     public Boolean getExportImagesForOldReaders() {
         return exportImagesForOldReaders;
     }
@@ -100,10 +100,10 @@ public class RtfSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies whether or not use pretty formats output.
+     * Gets or sets a value indicating whether to use pretty formats output.
     * @return prettyFormat
     **/
-    @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to use pretty formats output.")
     public Boolean getPrettyFormat() {
         return prettyFormat;
     }

@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Provides information for the words api resource link.
+ * Provides information for the words API resource link.
  */
-@ApiModel(description = "Provides information for the words api resource link.")
+@ApiModel(description = "Provides information for the words API resource link.")
 public class WordsApiLink extends Link {
 
     @Override

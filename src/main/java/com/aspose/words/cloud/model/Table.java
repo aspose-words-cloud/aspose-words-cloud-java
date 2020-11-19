@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Table element.
+ * DTO container with a table element.
  */
-@ApiModel(description = "Table element.")
+@ApiModel(description = "DTO container with a table element.")
 public class Table extends NodeLink {
     @SerializedName("TableProperties")
     private TableProperties tableProperties = null;
@@ -84,10 +84,10 @@ public class Table extends NodeLink {
     }
 
     /**
-     * Gets or sets collection of table's rows.
+     * Gets or sets the collection of table's rows.
     * @return tableRowList
     **/
-    @ApiModelProperty(value = "Gets or sets collection of table's rows.")
+    @ApiModelProperty(value = "Gets or sets the collection of table's rows.")
     public List<TableRow> getTableRowList() {
         return tableRowList;
     }

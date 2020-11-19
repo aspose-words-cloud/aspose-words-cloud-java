@@ -55,10 +55,10 @@ public class EpubSaveOptionsData extends HtmlSaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies the maximum level of headings populated to the navigation map when exporting.
+     * Gets or sets the maximum level of headings populated to the navigation map when exporting.
     * @return epubNavigationMapLevel
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the maximum level of headings populated to the navigation map when exporting.")
+    @ApiModelProperty(value = "Gets or sets the maximum level of headings populated to the navigation map when exporting.")
     public Integer getEpubNavigationMapLevel() {
         return epubNavigationMapLevel;
     }

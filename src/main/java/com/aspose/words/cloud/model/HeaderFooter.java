@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Section element.
+ * DTO container with a section element.
  */
-@ApiModel(description = "Section element.")
+@ApiModel(description = "DTO container with a section element.")
 public class HeaderFooter extends HeaderFooterLink {
     @SerializedName("ChildNodes")
     private List<NodeLink> childNodes = null;
@@ -69,10 +69,10 @@ public class HeaderFooter extends HeaderFooterLink {
     }
 
     /**
-     * Gets or sets child nodes.
+     * Gets or sets the child nodes.
     * @return childNodes
     **/
-    @ApiModelProperty(value = "Gets or sets child nodes.")
+    @ApiModelProperty(value = "Gets or sets the child nodes.")
     public List<NodeLink> getChildNodes() {
         return childNodes;
     }
@@ -87,10 +87,10 @@ public class HeaderFooter extends HeaderFooterLink {
     }
 
     /**
-     * Gets or sets link to DrawingObjects resource.
+     * Gets or sets the link to DrawingObjects resource.
     * @return drawingObjects
     **/
-    @ApiModelProperty(value = "Gets or sets link to DrawingObjects resource.")
+    @ApiModelProperty(value = "Gets or sets the link to DrawingObjects resource.")
     public LinkElement getDrawingObjects() {
         return drawingObjects;
     }
@@ -105,10 +105,10 @@ public class HeaderFooter extends HeaderFooterLink {
     }
 
     /**
-     * Gets or sets link to Paragraphs resource.
+     * Gets or sets the link to Paragraphs resource.
     * @return paragraphs
     **/
-    @ApiModelProperty(value = "Gets or sets link to Paragraphs resource.")
+    @ApiModelProperty(value = "Gets or sets the link to Paragraphs resource.")
     public LinkElement getParagraphs() {
         return paragraphs;
     }

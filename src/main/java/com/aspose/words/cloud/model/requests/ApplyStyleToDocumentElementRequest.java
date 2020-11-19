@@ -39,17 +39,17 @@ import java.util.*;
  */
 public class ApplyStyleToDocumentElementRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Style to apply.
+     * The style to apply.
      */
     private StyleApply styleApply;
 
     /*
-     * The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
+     * The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
      */
     private String styledNodePath;
 
@@ -91,9 +91,9 @@ public class ApplyStyleToDocumentElementRequest implements RequestIfc {
     /*
      * Initializes a new instance of the ApplyStyleToDocumentElementRequest class.
      *
-     * @param String name The document name.
-     * @param StyleApply styleApply Style to apply.
-     * @param String styledNodePath The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
+     * @param String name The filename of the input document.
+     * @param StyleApply styleApply The style to apply.
+     * @param String styledNodePath The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -116,42 +116,42 @@ public class ApplyStyleToDocumentElementRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Style to apply.
+     * Gets The style to apply.
      */
     public StyleApply getStyleApply() {
         return this.styleApply;
     }
 
     /*
-     * Sets Style to apply.
+     * Sets The style to apply.
      */
     public void setStyleApply(StyleApply value) {
         this.styleApply = value;
     }
 
     /*
-     * Gets The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
+     * Gets The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
      */
     public String getStyledNodePath() {
         return this.styledNodePath;
     }
 
     /*
-     * Sets The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
+     * Sets The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
      */
     public void setStyledNodePath(String value) {
         this.styledNodePath = value;

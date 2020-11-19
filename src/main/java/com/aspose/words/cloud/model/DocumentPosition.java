@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents a position in the document tree.
+ * DTO container with a position in the document tree.
  */
-@ApiModel(description = "Represents a position in the document tree.")
+@ApiModel(description = "DTO container with a position in the document tree.")
 public class DocumentPosition {
     @SerializedName("Node")
     private NodeLink node = null;
@@ -58,10 +58,10 @@ public class DocumentPosition {
     }
 
     /**
-     * Gets or sets link to  node.
+     * Gets or sets the link to a node.
     * @return node
     **/
-    @ApiModelProperty(value = "Gets or sets link to  node.")
+    @ApiModelProperty(value = "Gets or sets the link to a node.")
     public NodeLink getNode() {
         return node;
     }
@@ -76,10 +76,10 @@ public class DocumentPosition {
     }
 
     /**
-     * Gets or sets offset into the node.
+     * Gets or sets the offset in the node.
     * @return offset
     **/
-    @ApiModelProperty(value = "Gets or sets offset into the node.")
+    @ApiModelProperty(value = "Gets or sets the offset in the node.")
     public Integer getOffset() {
         return offset;
     }

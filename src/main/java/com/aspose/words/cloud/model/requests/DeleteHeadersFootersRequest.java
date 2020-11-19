@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class DeleteHeadersFootersRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Path to parent section.
+     * The path to the section in the document tree.
      */
     private String sectionPath;
 
@@ -84,15 +84,15 @@ public class DeleteHeadersFootersRequest implements RequestIfc {
     private String revisionDateTime;
 
     /*
-     * List of types of headers and footers.
+     * The list of HeaderFooter types.
      */
     private String headersFootersTypes;
 
     /*
      * Initializes a new instance of the DeleteHeadersFootersRequest class.
      *
-     * @param String name The document name.
-     * @param String sectionPath Path to parent section.
+     * @param String name The filename of the input document.
+     * @param String sectionPath The path to the section in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -100,7 +100,7 @@ public class DeleteHeadersFootersRequest implements RequestIfc {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String headersFootersTypes List of types of headers and footers.
+     * @param String headersFootersTypes The list of HeaderFooter types.
      */
     public DeleteHeadersFootersRequest(String name, String sectionPath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime, String headersFootersTypes) {
         this.name = name;
@@ -116,28 +116,28 @@ public class DeleteHeadersFootersRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Path to parent section.
+     * Gets The path to the section in the document tree.
      */
     public String getSectionPath() {
         return this.sectionPath;
     }
 
     /*
-     * Sets Path to parent section.
+     * Sets The path to the section in the document tree.
      */
     public void setSectionPath(String value) {
         this.sectionPath = value;
@@ -242,14 +242,14 @@ public class DeleteHeadersFootersRequest implements RequestIfc {
     }
 
     /*
-     * Gets List of types of headers and footers.
+     * Gets The list of HeaderFooter types.
      */
     public String getHeadersFootersTypes() {
         return this.headersFootersTypes;
     }
 
     /*
-     * Sets List of types of headers and footers.
+     * Sets The list of HeaderFooter types.
      */
     public void setHeadersFootersTypes(String value) {
         this.headersFootersTypes = value;

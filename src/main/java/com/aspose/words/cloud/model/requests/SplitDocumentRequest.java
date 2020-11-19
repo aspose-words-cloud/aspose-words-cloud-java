@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class SplitDocumentRequest implements RequestIfc {
     /*
-     * Original document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Format to split.
+     * The format to split.
      */
     private String format;
 
@@ -74,17 +74,17 @@ public class SplitDocumentRequest implements RequestIfc {
     private String destFileName;
 
     /*
-     * Start page.
+     * The start page.
      */
     private Integer from;
 
     /*
-     * End page.
+     * The end page.
      */
     private Integer to;
 
     /*
-     * ZipOutput or not.
+     * The flag indicating whether to ZIP the output.
      */
     private Boolean zipOutput;
 
@@ -96,16 +96,16 @@ public class SplitDocumentRequest implements RequestIfc {
     /*
      * Initializes a new instance of the SplitDocumentRequest class.
      *
-     * @param String name Original document name.
-     * @param String format Format to split.
+     * @param String name The filename of the input document.
+     * @param String format The format to split.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param Integer from Start page.
-     * @param Integer to End page.
-     * @param Boolean zipOutput ZipOutput or not.
+     * @param Integer from The start page.
+     * @param Integer to The end page.
+     * @param Boolean zipOutput The flag indicating whether to ZIP the output.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
     public SplitDocumentRequest(String name, String format, String folder, String storage, String loadEncoding, String password, String destFileName, Integer from, Integer to, Boolean zipOutput, String fontsLocation) {
@@ -123,28 +123,28 @@ public class SplitDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets Original document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets Original document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Format to split.
+     * Gets The format to split.
      */
     public String getFormat() {
         return this.format;
     }
 
     /*
-     * Sets Format to split.
+     * Sets The format to split.
      */
     public void setFormat(String value) {
         this.format = value;
@@ -221,42 +221,42 @@ public class SplitDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets Start page.
+     * Gets The start page.
      */
     public Integer getFrom() {
         return this.from;
     }
 
     /*
-     * Sets Start page.
+     * Sets The start page.
      */
     public void setFrom(Integer value) {
         this.from = value;
     }
 
     /*
-     * Gets End page.
+     * Gets The end page.
      */
     public Integer getTo() {
         return this.to;
     }
 
     /*
-     * Sets End page.
+     * Sets The end page.
      */
     public void setTo(Integer value) {
         this.to = value;
     }
 
     /*
-     * Gets ZipOutput or not.
+     * Gets The flag indicating whether to ZIP the output.
      */
     public Boolean getZipOutput() {
         return this.zipOutput;
     }
 
     /*
-     * Sets ZipOutput or not.
+     * Sets The flag indicating whether to ZIP the output.
      */
     public void setZipOutput(Boolean value) {
         this.zipOutput = value;

@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Paragraph element.
+ * DTO container with a paragraph element.
  */
-@ApiModel(description = "Paragraph element.")
+@ApiModel(description = "DTO container with a paragraph element.")
 public class Paragraph extends NodeLink {
     @SerializedName("ChildNodes")
     private List<NodeLink> childNodes = null;
@@ -63,10 +63,10 @@ public class Paragraph extends NodeLink {
     }
 
     /**
-     * Gets or sets child nodes.
+     * Gets or sets the list of child nodes.
     * @return childNodes
     **/
-    @ApiModelProperty(value = "Gets or sets child nodes.")
+    @ApiModelProperty(value = "Gets or sets the list of child nodes.")
     public List<NodeLink> getChildNodes() {
         return childNodes;
     }

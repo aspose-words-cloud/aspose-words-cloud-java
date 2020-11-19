@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class CopyStyleRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Style to copy.
+     * The properties of the style.
      */
     private StyleCopy styleCopy;
 
@@ -86,8 +86,8 @@ public class CopyStyleRequest implements RequestIfc {
     /*
      * Initializes a new instance of the CopyStyleRequest class.
      *
-     * @param String name The document name.
-     * @param StyleCopy styleCopy Style to copy.
+     * @param String name The filename of the input document.
+     * @param StyleCopy styleCopy The properties of the style.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,28 +109,28 @@ public class CopyStyleRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Style to copy.
+     * Gets The properties of the style.
      */
     public StyleCopy getStyleCopy() {
         return this.styleCopy;
     }
 
     /*
-     * Sets Style to copy.
+     * Sets The properties of the style.
      */
     public void setStyleCopy(StyleCopy value) {
         this.styleCopy = value;

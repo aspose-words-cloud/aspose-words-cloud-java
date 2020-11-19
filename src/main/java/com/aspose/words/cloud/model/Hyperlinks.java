@@ -63,10 +63,10 @@ public class Hyperlinks extends LinkElement {
     }
 
     /**
-     * Gets or sets array of Hyperlink.
+     * Gets or sets the array of Hyperlink.
     * @return hyperlinkList
     **/
-    @ApiModelProperty(value = "Gets or sets array of Hyperlink.")
+    @ApiModelProperty(value = "Gets or sets the array of Hyperlink.")
     public List<Hyperlink> getHyperlinkList() {
         return hyperlinkList;
     }

@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class InsertPageNumbersRequest implements RequestIfc {
     /*
-     * A document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * PageNumber with the page numbers settings.
+     * The page numbers settings.
      */
     private PageNumber pageNumber;
 
@@ -86,8 +86,8 @@ public class InsertPageNumbersRequest implements RequestIfc {
     /*
      * Initializes a new instance of the InsertPageNumbersRequest class.
      *
-     * @param String name A document name.
-     * @param PageNumber pageNumber PageNumber with the page numbers settings.
+     * @param String name The filename of the input document.
+     * @param PageNumber pageNumber The page numbers settings.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,28 +109,28 @@ public class InsertPageNumbersRequest implements RequestIfc {
     }
 
     /*
-     * Gets A document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets A document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets PageNumber with the page numbers settings.
+     * Gets The page numbers settings.
      */
     public PageNumber getPageNumber() {
         return this.pageNumber;
     }
 
     /*
-     * Sets PageNumber with the page numbers settings.
+     * Sets The page numbers settings.
      */
     public void setPageNumber(PageNumber value) {
         this.pageNumber = value;

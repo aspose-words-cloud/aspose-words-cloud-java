@@ -39,17 +39,17 @@ import java.util.*;
  */
 public class UpdateBookmarkRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * BookmarkData with new bookmark data.
+     * The properties of the bookmark.
      */
     private BookmarkData bookmarkData;
 
     /*
-     * The bookmark name.
+     * The name of the bookmark.
      */
     private String bookmarkName;
 
@@ -91,9 +91,9 @@ public class UpdateBookmarkRequest implements RequestIfc {
     /*
      * Initializes a new instance of the UpdateBookmarkRequest class.
      *
-     * @param String name The document name.
-     * @param BookmarkData bookmarkData BookmarkData with new bookmark data.
-     * @param String bookmarkName The bookmark name.
+     * @param String name The filename of the input document.
+     * @param BookmarkData bookmarkData The properties of the bookmark.
+     * @param String bookmarkName The name of the bookmark.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -116,42 +116,42 @@ public class UpdateBookmarkRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets BookmarkData with new bookmark data.
+     * Gets The properties of the bookmark.
      */
     public BookmarkData getBookmarkData() {
         return this.bookmarkData;
     }
 
     /*
-     * Sets BookmarkData with new bookmark data.
+     * Sets The properties of the bookmark.
      */
     public void setBookmarkData(BookmarkData value) {
         this.bookmarkData = value;
     }
 
     /*
-     * Gets The bookmark name.
+     * Gets The name of the bookmark.
      */
     public String getBookmarkName() {
         return this.bookmarkName;
     }
 
     /*
-     * Sets The bookmark name.
+     * Sets The name of the bookmark.
      */
     public void setBookmarkName(String value) {
         this.bookmarkName = value;

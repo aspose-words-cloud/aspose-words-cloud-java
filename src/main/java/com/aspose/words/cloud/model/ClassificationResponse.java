@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * PUT https://api.aspose.cloud/v4.0/words/classify.
+ * The REST response with data on multi-class text classification.
  */
-@ApiModel(description = "This response should be returned by the service when handling: PUT https://api.aspose.cloud/v4.0/words/classify.")
+@ApiModel(description = "The REST response with data on multi-class text classification.")
 public class ClassificationResponse extends WordsResponse {
     @SerializedName("BestClassName")
     private String bestClassName = null;
@@ -62,10 +61,10 @@ public class ClassificationResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets best class name.
+     * Gets or sets the best class name.
     * @return bestClassName
     **/
-    @ApiModelProperty(value = "Gets or sets best class name.")
+    @ApiModelProperty(value = "Gets or sets the best class name.")
     public String getBestClassName() {
         return bestClassName;
     }
@@ -80,10 +79,10 @@ public class ClassificationResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets best class probability.
+     * Gets or sets the best class probability.
     * @return bestClassProbability
     **/
-    @ApiModelProperty(value = "Gets or sets best class probability.")
+    @ApiModelProperty(value = "Gets or sets the best class probability.")
     public Double getBestClassProbability() {
         return bestClassProbability;
     }
@@ -106,10 +105,10 @@ public class ClassificationResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets array of best classes results.
+     * Gets or sets the array of best classes results.
     * @return bestResults
     **/
-    @ApiModelProperty(value = "Gets or sets array of best classes results.")
+    @ApiModelProperty(value = "Gets or sets the array of best classes results.")
     public List<ClassificationResult> getBestResults() {
         return bestResults;
     }

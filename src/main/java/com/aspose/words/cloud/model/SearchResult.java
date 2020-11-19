@@ -58,10 +58,10 @@ public class SearchResult {
     }
 
     /**
-     * Gets or sets link to result range end node.
+     * Gets or sets the link to result range end node.
     * @return rangeEnd
     **/
-    @ApiModelProperty(value = "Gets or sets link to result range end node.")
+    @ApiModelProperty(value = "Gets or sets the link to result range end node.")
     public DocumentPosition getRangeEnd() {
         return rangeEnd;
     }
@@ -76,10 +76,10 @@ public class SearchResult {
     }
 
     /**
-     * Gets or sets link to result range start node.
+     * Gets or sets the link to result range start node.
     * @return rangeStart
     **/
-    @ApiModelProperty(value = "Gets or sets link to result range start node.")
+    @ApiModelProperty(value = "Gets or sets the link to result range start node.")
     public DocumentPosition getRangeStart() {
         return rangeStart;
     }

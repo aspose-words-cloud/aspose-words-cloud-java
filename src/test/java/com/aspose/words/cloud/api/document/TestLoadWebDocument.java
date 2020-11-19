@@ -75,5 +75,8 @@ public class TestLoadWebDocument  extends TestCase
 
         SaveResponse result = TestInitializer.wordsApi.loadWebDocument(request);
         assertNotNull(result);
+        assertNotNull(result.getSaveResult());
+        assertNotNull(result.getSaveResult().getDestDocument());
+        assertEquals("google.doc", result.getSaveResult().getDestDocument().getHref());
     }
 }

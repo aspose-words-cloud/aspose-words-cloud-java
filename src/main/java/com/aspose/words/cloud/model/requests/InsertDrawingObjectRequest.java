@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class InsertDrawingObjectRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
@@ -54,7 +54,7 @@ public class InsertDrawingObjectRequest implements RequestIfc {
     private byte[] imageFile;
 
     /*
-     * Path to the node, which contains collection of drawing objects.
+     * The path to the node in the document tree.
      */
     private String nodePath;
 
@@ -96,10 +96,10 @@ public class InsertDrawingObjectRequest implements RequestIfc {
     /*
      * Initializes a new instance of the InsertDrawingObjectRequest class.
      *
-     * @param String name The document name.
+     * @param String name The filename of the input document.
      * @param DrawingObjectInsert drawingObject Drawing object parameters.
      * @param byte[] imageFile File with image.
-     * @param String nodePath Path to the node, which contains collection of drawing objects.
+     * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -123,14 +123,14 @@ public class InsertDrawingObjectRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
@@ -165,14 +165,14 @@ public class InsertDrawingObjectRequest implements RequestIfc {
     }
 
     /*
-     * Gets Path to the node, which contains collection of drawing objects.
+     * Gets The path to the node in the document tree.
      */
     public String getNodePath() {
         return this.nodePath;
     }
 
     /*
-     * Sets Path to the node, which contains collection of drawing objects.
+     * Sets The path to the node in the document tree.
      */
     public void setNodePath(String value) {
         this.nodePath = value;

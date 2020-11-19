@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class CompareDocumentRequest implements RequestIfc {
     /*
-     * Original document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * CompareData with a document to compare.
+     * The properties of the document to compare with.
      */
     private CompareData compareData;
 
@@ -76,8 +76,8 @@ public class CompareDocumentRequest implements RequestIfc {
     /*
      * Initializes a new instance of the CompareDocumentRequest class.
      *
-     * @param String name Original document name.
-     * @param CompareData compareData CompareData with a document to compare.
+     * @param String name The filename of the input document.
+     * @param CompareData compareData The properties of the document to compare with.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -95,28 +95,28 @@ public class CompareDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets Original document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets Original document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets CompareData with a document to compare.
+     * Gets The properties of the document to compare with.
      */
     public CompareData getCompareData() {
         return this.compareData;
     }
 
     /*
-     * Sets CompareData with a document to compare.
+     * Sets The properties of the document to compare with.
      */
     public void setCompareData(CompareData value) {
         this.compareData = value;

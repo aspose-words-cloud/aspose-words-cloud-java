@@ -58,10 +58,10 @@ public class ParagraphFormat extends ParagraphFormatBase {
     }
 
     /**
-     * Gets or sets True when the paragraph style is one of the built-in Heading styles.
+     * Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
     * @return isHeading
     **/
-    @ApiModelProperty(value = "Gets or sets True when the paragraph style is one of the built-in Heading styles.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.")
     public Boolean getIsHeading() {
         return isHeading;
     }
@@ -76,10 +76,10 @@ public class ParagraphFormat extends ParagraphFormatBase {
     }
 
     /**
-     * Gets or sets True when the paragraph is an item in a bulleted or numbered list.
+     * Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.
     * @return isListItem
     **/
-    @ApiModelProperty(value = "Gets or sets True when the paragraph is an item in a bulleted or numbered list.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.")
     public Boolean getIsListItem() {
         return isListItem;
     }

@@ -58,10 +58,10 @@ public class PclSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.
+     * Gets or sets the font name, that will be used if no expected font is found in printer and built-in fonts collections.
     * @return falllbackFontName
     **/
-    @ApiModelProperty(value = "Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.")
+    @ApiModelProperty(value = "Gets or sets the font name, that will be used if no expected font is found in printer and built-in fonts collections.")
     public String getFalllbackFontName() {
         return falllbackFontName;
     }
@@ -76,10 +76,10 @@ public class PclSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.
+     * Gets or sets a value indicating whether complex transformed elements should be rasterized before saving to PCL document.. The default value is true.
     * @return rasterizeTransformedElements
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether complex transformed elements should be rasterized before saving to PCL document.. The default value is true.")
     public Boolean getRasterizeTransformedElements() {
         return rasterizeTransformedElements;
     }

@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Paragraph list format element.
+ * DTO container with a paragraph list format element.
  */
-@ApiModel(description = "Paragraph list format element.")
+@ApiModel(description = "DTO container with a paragraph list format element.")
 public class ListFormat extends LinkElement {
     @SerializedName("IsListItem")
     private Boolean isListItem = null;

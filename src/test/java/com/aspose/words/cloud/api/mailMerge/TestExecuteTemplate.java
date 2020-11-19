@@ -84,6 +84,8 @@ public class TestExecuteTemplate  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.executeMailMerge(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestExecuteTemplate.docx", result.getDocument().getFileName());
     }
 
     /*

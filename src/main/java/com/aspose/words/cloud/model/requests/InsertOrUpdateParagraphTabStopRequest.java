@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Paragraph tab stop.
+     * The properties of the paragraph tab stop.
      */
     private TabStopInsert dto;
 
@@ -54,7 +54,7 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
     private Integer index;
 
     /*
-     * Path to the node which contains paragraph.
+     * The path to the node in the document tree.
      */
     private String nodePath;
 
@@ -86,10 +86,10 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
     /*
      * Initializes a new instance of the InsertOrUpdateParagraphTabStopRequest class.
      *
-     * @param String name The document name.
-     * @param TabStopInsert dto Paragraph tab stop.
+     * @param String name The filename of the input document.
+     * @param TabStopInsert dto The properties of the paragraph tab stop.
      * @param Integer index Object index.
-     * @param String nodePath Path to the node which contains paragraph.
+     * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,28 +109,28 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Paragraph tab stop.
+     * Gets The properties of the paragraph tab stop.
      */
     public TabStopInsert getDto() {
         return this.dto;
     }
 
     /*
-     * Sets Paragraph tab stop.
+     * Sets The properties of the paragraph tab stop.
      */
     public void setDto(TabStopInsert value) {
         this.dto = value;
@@ -151,14 +151,14 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
     }
 
     /*
-     * Gets Path to the node which contains paragraph.
+     * Gets The path to the node in the document tree.
      */
     public String getNodePath() {
         return this.nodePath;
     }
 
     /*
-     * Sets Path to the node which contains paragraph.
+     * Sets The path to the node in the document tree.
      */
     public void setNodePath(String value) {
         this.nodePath = value;

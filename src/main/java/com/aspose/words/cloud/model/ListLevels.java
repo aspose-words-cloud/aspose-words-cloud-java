@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents a single document list.
+ * DTO container with a single document list.
  */
-@ApiModel(description = "Represents a single document list.")
+@ApiModel(description = "DTO container with a single document list.")
 public class ListLevels extends LinkElement {
     @SerializedName("ListLevel")
     private List<ListLevel> listLevel = null;

@@ -78,6 +78,7 @@ public class TestRange  extends TestCase
 
         RangeTextResponse result = TestInitializer.wordsApi.getRangeText(request);
         assertNotNull(result);
+        assertEquals("This is HEADER ", result.getText());
     }
 
     /*
@@ -106,6 +107,8 @@ public class TestRange  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.removeRange(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestRemoveRange.docx", result.getDocument().getFileName());
     }
 
     /*
@@ -137,6 +140,8 @@ public class TestRange  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.saveAsRange(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("NewDoc.docx", result.getDocument().getFileName());
     }
 
     /*
@@ -169,5 +174,7 @@ public class TestRange  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.replaceWithText(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestReplaceWithText.docx", result.getDocument().getFileName());
     }
 }

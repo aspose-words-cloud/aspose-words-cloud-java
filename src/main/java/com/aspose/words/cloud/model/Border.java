@@ -230,10 +230,10 @@ public class Border extends LinkElement {
     }
 
     /**
-     * Gets or sets distance of the border from text or from the page edge in points.
+     * Gets or sets the distance of the border from text or from the page edge in points.
     * @return distanceFromText
     **/
-    @ApiModelProperty(value = "Gets or sets distance of the border from text or from the page edge in points.")
+    @ApiModelProperty(value = "Gets or sets the distance of the border from text or from the page edge in points.")
     public Double getDistanceFromText() {
         return distanceFromText;
     }

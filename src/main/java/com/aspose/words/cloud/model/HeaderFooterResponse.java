@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/headersfooters/{0}.
+ * The REST response with a HeaderFooter.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/headersfooters/{0}.")
+@ApiModel(description = "The REST response with a HeaderFooter.")
 public class HeaderFooterResponse extends WordsResponse {
     @SerializedName("HeaderFooter")
     private HeaderFooter headerFooter = null;
@@ -56,10 +55,10 @@ public class HeaderFooterResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets headerFooter.
+     * Gets or sets the HeaderFooter.
     * @return headerFooter
     **/
-    @ApiModelProperty(value = "Gets or sets headerFooter.")
+    @ApiModelProperty(value = "Gets or sets the HeaderFooter.")
     public HeaderFooter getHeaderFooter() {
         return headerFooter;
     }

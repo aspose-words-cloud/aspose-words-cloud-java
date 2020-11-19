@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Paragraph format shading element.
+ * DTO container with a paragraph format shading element.
  */
-@ApiModel(description = "Paragraph format shading element.")
+@ApiModel(description = "DTO container with a paragraph format shading element.")
 public class Shading {
     /**
      * Gets or sets the shading texture.

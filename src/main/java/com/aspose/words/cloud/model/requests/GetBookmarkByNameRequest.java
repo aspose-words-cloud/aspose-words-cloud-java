@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class GetBookmarkByNameRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * The bookmark name.
+     * The name of the bookmark.
      */
     private String bookmarkName;
 
@@ -71,8 +71,8 @@ public class GetBookmarkByNameRequest implements RequestIfc {
     /*
      * Initializes a new instance of the GetBookmarkByNameRequest class.
      *
-     * @param String name The document name.
-     * @param String bookmarkName The bookmark name.
+     * @param String name The filename of the input document.
+     * @param String bookmarkName The name of the bookmark.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -88,28 +88,28 @@ public class GetBookmarkByNameRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets The bookmark name.
+     * Gets The name of the bookmark.
      */
     public String getBookmarkName() {
         return this.bookmarkName;
     }
 
     /*
-     * Sets The bookmark name.
+     * Sets The name of the bookmark.
      */
     public void setBookmarkName(String value) {
         this.bookmarkName = value;

@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Reference to document.
+ * Reference to a document.
  */
-@ApiModel(description = "Reference to document.")
+@ApiModel(description = "Reference to a document.")
 public class LinkElement {
     @SerializedName("Link")
     private WordsApiLink link = null;
@@ -55,10 +55,10 @@ public class LinkElement {
     }
 
     /**
-     * Gets or sets link to the document.
+     * Gets or sets the link to the document.
     * @return link
     **/
-    @ApiModelProperty(value = "Gets or sets link to the document.")
+    @ApiModelProperty(value = "Gets or sets the link to the document.")
     public WordsApiLink getLink() {
         return link;
     }

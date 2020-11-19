@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat.
+ * The REST response with the formatting properties of a table row.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat.")
+@ApiModel(description = "The REST response with the formatting properties of a table row.")
 public class TableRowFormatResponse extends WordsResponse {
     @SerializedName("RowFormat")
     private TableRowFormat rowFormat = null;
@@ -56,10 +55,10 @@ public class TableRowFormatResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets table.
+     * Gets or sets the formatting properties of a table row.
     * @return rowFormat
     **/
-    @ApiModelProperty(value = "Gets or sets table.")
+    @ApiModelProperty(value = "Gets or sets the formatting properties of a table row.")
     public TableRowFormat getRowFormat() {
         return rowFormat;
     }

@@ -39,17 +39,17 @@ import java.util.*;
  */
 public class UpdateRunFontRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Font dto object.
+     * The font properties of a Run object.
      */
     private Font fontDto;
 
     /*
-     * Path to parent paragraph.
+     * The path to the paragraph in the document tree.
      */
     private String paragraphPath;
 
@@ -96,9 +96,9 @@ public class UpdateRunFontRequest implements RequestIfc {
     /*
      * Initializes a new instance of the UpdateRunFontRequest class.
      *
-     * @param String name The document name.
-     * @param Font fontDto Font dto object.
-     * @param String paragraphPath Path to parent paragraph.
+     * @param String name The filename of the input document.
+     * @param Font fontDto The font properties of a Run object.
+     * @param String paragraphPath The path to the paragraph in the document tree.
      * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -123,42 +123,42 @@ public class UpdateRunFontRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Font dto object.
+     * Gets The font properties of a Run object.
      */
     public Font getFontDto() {
         return this.fontDto;
     }
 
     /*
-     * Sets Font dto object.
+     * Sets The font properties of a Run object.
      */
     public void setFontDto(Font value) {
         this.fontDto = value;
     }
 
     /*
-     * Gets Path to parent paragraph.
+     * Gets The path to the paragraph in the document tree.
      */
     public String getParagraphPath() {
         return this.paragraphPath;
     }
 
     /*
-     * Sets Path to parent paragraph.
+     * Sets The path to the paragraph in the document tree.
      */
     public void setParagraphPath(String value) {
         this.paragraphPath = value;

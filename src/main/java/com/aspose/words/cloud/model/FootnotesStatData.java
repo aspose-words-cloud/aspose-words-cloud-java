@@ -58,10 +58,10 @@ public class FootnotesStatData {
     }
 
     /**
-     * Gets or sets total count of paragraphs in footnotes.
+     * Gets or sets the total count of paragraphs in footnotes.
     * @return paragraphCount
     **/
-    @ApiModelProperty(value = "Gets or sets total count of paragraphs in footnotes.")
+    @ApiModelProperty(value = "Gets or sets the total count of paragraphs in footnotes.")
     public Integer getParagraphCount() {
         return paragraphCount;
     }
@@ -76,10 +76,10 @@ public class FootnotesStatData {
     }
 
     /**
-     * Gets or sets total count of words in footnotes.
+     * Gets or sets the total count of words in footnotes.
     * @return wordCount
     **/
-    @ApiModelProperty(value = "Gets or sets total count of words in footnotes.")
+    @ApiModelProperty(value = "Gets or sets the total count of words in footnotes.")
     public Integer getWordCount() {
         return wordCount;
     }

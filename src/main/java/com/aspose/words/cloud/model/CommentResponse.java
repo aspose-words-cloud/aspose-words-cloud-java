@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/comments/0.
+ * The REST response with a comment.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/comments/0.")
+@ApiModel(description = "The REST response with a comment.")
 public class CommentResponse extends WordsResponse {
     @SerializedName("Comment")
     private Comment comment = null;
@@ -56,10 +55,10 @@ public class CommentResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets comment information.
+     * Gets or sets the comment.
     * @return comment
     **/
-    @ApiModelProperty(value = "Gets or sets comment information.")
+    @ApiModelProperty(value = "Gets or sets the comment.")
     public Comment getComment() {
         return comment;
     }

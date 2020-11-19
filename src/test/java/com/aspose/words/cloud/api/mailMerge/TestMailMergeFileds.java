@@ -68,6 +68,10 @@ public class TestMailMergeFileds  extends TestCase
 
         FieldNamesResponse result = TestInitializer.wordsApi.getDocumentFieldNamesOnline(request);
         assertNotNull(result);
+        assertNotNull(result.getFieldNames());
+        assertNotNull(result.getFieldNames().getNames());
+        assertEquals(15, result.getFieldNames().getNames().size());
+        assertEquals("TableStart:Order", result.getFieldNames().getNames().get(0));
     }
 
     /*
@@ -94,5 +98,8 @@ public class TestMailMergeFileds  extends TestCase
 
         FieldNamesResponse result = TestInitializer.wordsApi.getDocumentFieldNames(request);
         assertNotNull(result);
+        assertNotNull(result.getFieldNames());
+        assertNotNull(result.getFieldNames().getNames());
+        assertEquals(0, result.getFieldNames().getNames().size());
     }
 }

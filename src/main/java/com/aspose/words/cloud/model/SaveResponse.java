@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Save response.
+ * The REST response with a save result.
  */
-@ApiModel(description = "Save response.")
+@ApiModel(description = "The REST response with a save result.")
 public class SaveResponse extends WordsResponse {
     @SerializedName("SaveResult")
     private SaveResult saveResult = null;
@@ -55,10 +55,10 @@ public class SaveResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets save result.
+     * Gets or sets the save result.
     * @return saveResult
     **/
-    @ApiModelProperty(value = "Gets or sets save result.")
+    @ApiModelProperty(value = "Gets or sets the save result.")
     public SaveResult getSaveResult() {
         return saveResult;
     }

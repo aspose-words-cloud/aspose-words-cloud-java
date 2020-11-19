@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class DeleteHeaderFooterRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Path to parent section.
+     * The path to the section in the document tree.
      */
     private String sectionPath;
 
@@ -91,8 +91,8 @@ public class DeleteHeaderFooterRequest implements RequestIfc {
     /*
      * Initializes a new instance of the DeleteHeaderFooterRequest class.
      *
-     * @param String name The document name.
-     * @param String sectionPath Path to parent section.
+     * @param String name The filename of the input document.
+     * @param String sectionPath The path to the section in the document tree.
      * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -116,28 +116,28 @@ public class DeleteHeaderFooterRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Path to parent section.
+     * Gets The path to the section in the document tree.
      */
     public String getSectionPath() {
         return this.sectionPath;
     }
 
     /*
-     * Sets Path to parent section.
+     * Sets The path to the section in the document tree.
      */
     public void setSectionPath(String value) {
         this.sectionPath = value;

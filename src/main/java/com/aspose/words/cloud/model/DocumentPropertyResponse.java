@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:  GET documentProperties/{propertyName}.
+ * The REST response with a document property.
  */
-@ApiModel(description = "This response should be returned by the service when handling:  GET documentProperties/{propertyName}.")
+@ApiModel(description = "The REST response with a document property.")
 public class DocumentPropertyResponse extends WordsResponse {
     @SerializedName("DocumentProperty")
     private DocumentProperty documentProperty = null;
@@ -55,10 +55,10 @@ public class DocumentPropertyResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets document property.
+     * Gets or sets the document property.
     * @return documentProperty
     **/
-    @ApiModelProperty(value = "Gets or sets document property.")
+    @ApiModelProperty(value = "Gets or sets the document property.")
     public DocumentProperty getDocumentProperty() {
         return documentProperty;
     }

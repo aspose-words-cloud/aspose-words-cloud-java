@@ -54,7 +54,7 @@ public class BuildReportOnlineRequest implements RequestIfc {
     private ReportEngineSettings reportEngineSettings;
 
     /*
-     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
     private String documentFileName;
 
@@ -64,7 +64,7 @@ public class BuildReportOnlineRequest implements RequestIfc {
      * @param byte[] template File with template.
      * @param String data A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
      * @param ReportEngineSettings reportEngineSettings An object providing a settings of report engine.
-     * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * @param String documentFileName The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
     public BuildReportOnlineRequest(byte[] template, String data, ReportEngineSettings reportEngineSettings, String documentFileName) {
         this.template = template;
@@ -116,14 +116,14 @@ public class BuildReportOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * Gets The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
     public String getDocumentFileName() {
         return this.documentFileName;
     }
 
     /*
-     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * Sets The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
     public void setDocumentFileName(String value) {
         this.documentFileName = value;

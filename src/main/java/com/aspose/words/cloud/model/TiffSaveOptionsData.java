@@ -80,10 +80,10 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies method used while converting images to 1 bpp format.
+     * Gets or sets the method used while converting images to 1 bpp format.
     * @return tiffBinarizationMethod
     **/
-    @ApiModelProperty(value = "Gets or sets specifies method used while converting images to 1 bpp format.")
+    @ApiModelProperty(value = "Gets or sets the method used while converting images to 1 bpp format.")
     public String getTiffBinarizationMethod() {
         return tiffBinarizationMethod;
     }
@@ -98,10 +98,10 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
     }
 
     /**
-     * Gets or sets type of compression.
+     * Gets or sets the type of compression.
     * @return tiffCompression
     **/
-    @ApiModelProperty(value = "Gets or sets type of compression.")
+    @ApiModelProperty(value = "Gets or sets the type of compression.")
     public String getTiffCompression() {
         return tiffCompression;
     }

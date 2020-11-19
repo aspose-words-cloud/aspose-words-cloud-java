@@ -121,10 +121,10 @@ public class ReplaceTextParameters {
     }
 
     /**
-     * Gets or sets new text value to replace by.
+     * Gets or sets the new text value to replace by.
     * @return newValue
     **/
-    @ApiModelProperty(value = "Gets or sets new text value to replace by.")
+    @ApiModelProperty(value = "Gets or sets the new text value to replace by.")
     public String getNewValue() {
         return newValue;
     }
@@ -139,10 +139,10 @@ public class ReplaceTextParameters {
     }
 
     /**
-     * Gets or sets old text value (or regex pattern IsOldValueRegex) to replace.
+     * Gets or sets the old text value (or regex pattern IsOldValueRegex) to replace.
     * @return oldValue
     **/
-    @ApiModelProperty(value = "Gets or sets old text value (or regex pattern IsOldValueRegex) to replace.")
+    @ApiModelProperty(value = "Gets or sets the old text value (or regex pattern IsOldValueRegex) to replace.")
     public String getOldValue() {
         return oldValue;
     }

@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/formfields.
+ * The REST response with a collection of form fields.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/formfields.")
+@ApiModel(description = "The REST response with a collection of form fields.")
 public class FormFieldsResponse extends WordsResponse {
     @SerializedName("FormFields")
     private FormFieldCollection formFields = null;
@@ -56,10 +55,10 @@ public class FormFieldsResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets collection of form fields.
+     * Gets or sets the collection of form fields.
     * @return formFields
     **/
-    @ApiModelProperty(value = "Gets or sets collection of form fields.")
+    @ApiModelProperty(value = "Gets or sets the collection of form fields.")
     public FormFieldCollection getFormFields() {
         return formFields;
     }

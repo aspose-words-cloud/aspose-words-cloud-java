@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Table cell element.
+ * DTO container with a table cell.
  */
-@ApiModel(description = "Table cell element.")
+@ApiModel(description = "DTO container with a table cell.")
 public class TableCellInsert {
     @SerializedName("InsertAfter")
     private Integer insertAfter = null;
@@ -55,10 +55,10 @@ public class TableCellInsert {
     }
 
     /**
-     * Gets or sets table cell will be inserted after cell with specified 0-based index.
+     * Gets or sets the 0-based index, the table cell will be inserted after.
     * @return insertAfter
     **/
-    @ApiModelProperty(value = "Gets or sets table cell will be inserted after cell with specified 0-based index.")
+    @ApiModelProperty(value = "Gets or sets the 0-based index, the table cell will be inserted after.")
     public Integer getInsertAfter() {
         return insertAfter;
     }

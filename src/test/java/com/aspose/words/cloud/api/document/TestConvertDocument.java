@@ -83,6 +83,8 @@ public class TestConvertDocument  extends TestCase
 
         SaveResponse result = TestInitializer.wordsApi.saveAs(request);
         assertNotNull(result);
+        assertNotNull(result.getSaveResult());
+        assertNotNull(result.getSaveResult().getDestDocument());
     }
 
     /*
@@ -115,6 +117,8 @@ public class TestConvertDocument  extends TestCase
 
         SaveResponse result = TestInitializer.wordsApi.saveAs(request);
         assertNotNull(result);
+        assertNotNull(result.getSaveResult());
+        assertNotNull(result.getSaveResult().getDestDocument());
     }
 
     /*
@@ -164,6 +168,8 @@ public class TestConvertDocument  extends TestCase
 
         SaveResponse result = TestInitializer.wordsApi.saveAsTiff(request);
         assertNotNull(result);
+        assertNotNull(result.getSaveResult());
+        assertNotNull(result.getSaveResult().getDestDocument());
     }
 
     /*

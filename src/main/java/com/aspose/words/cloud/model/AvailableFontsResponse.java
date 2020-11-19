@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * The list of fonts, available for document processing.
+ * The REST response with data on system, additional and custom fonts, available for document processing.
  */
-@ApiModel(description = "The list of fonts, available for document processing.")
+@ApiModel(description = "The REST response with data on system, additional and custom fonts, available for document processing.")
 public class AvailableFontsResponse extends WordsResponse {
     @SerializedName("AdditionalFonts")
     private List<FontInfo> additionalFonts = null;
@@ -69,10 +69,10 @@ public class AvailableFontsResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets the list of addititional fonts, provided by aspose team.
+     * Gets or sets the list of additional fonts, provided by Aspose team.
     * @return additionalFonts
     **/
-    @ApiModelProperty(value = "Gets or sets the list of addititional fonts, provided by aspose team.")
+    @ApiModelProperty(value = "Gets or sets the list of additional fonts, provided by Aspose team.")
     public List<FontInfo> getAdditionalFonts() {
         return additionalFonts;
     }
@@ -95,10 +95,10 @@ public class AvailableFontsResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets custom user fonts (from user file storage). To use them, you should specify "fontsLocation" parameter in any request.
+     * Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify "fontsLocation" parameter in any request.
     * @return customFonts
     **/
-    @ApiModelProperty(value = "Gets or sets custom user fonts (from user file storage). To use them, you should specify \"fontsLocation\" parameter in any request.")
+    @ApiModelProperty(value = "Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify \"fontsLocation\" parameter in any request.")
     public List<FontInfo> getCustomFonts() {
         return customFonts;
     }
@@ -121,10 +121,10 @@ public class AvailableFontsResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets the list of system fonts, availiable on the server.
+     * Gets or sets the list of system fonts, available on the server.
     * @return systemFonts
     **/
-    @ApiModelProperty(value = "Gets or sets the list of system fonts, availiable on the server.")
+    @ApiModelProperty(value = "Gets or sets the list of system fonts, available on the server.")
     public List<FontInfo> getSystemFonts() {
         return systemFonts;
     }

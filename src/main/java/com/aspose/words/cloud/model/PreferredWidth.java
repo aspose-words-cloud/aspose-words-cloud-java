@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Preferred width.
+ * DTO container with a preferred width value.
  */
-@ApiModel(description = "Preferred width.")
+@ApiModel(description = "DTO container with a preferred width value.")
 public class PreferredWidth {
     /**
      * Gets or sets the unit of measure used for this preferred width value.

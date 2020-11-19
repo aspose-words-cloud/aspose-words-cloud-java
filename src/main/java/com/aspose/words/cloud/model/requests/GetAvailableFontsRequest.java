@@ -39,28 +39,28 @@ import java.util.*;
  */
 public class GetAvailableFontsRequest implements RequestIfc {
     /*
-     * Folder in filestorage with custom fonts.
+     * The folder in cloud storage with custom fonts.
      */
     private String fontsLocation;
 
     /*
      * Initializes a new instance of the GetAvailableFontsRequest class.
      *
-     * @param String fontsLocation Folder in filestorage with custom fonts.
+     * @param String fontsLocation The folder in cloud storage with custom fonts.
      */
     public GetAvailableFontsRequest(String fontsLocation) {
         this.fontsLocation = fontsLocation;
     }
 
     /*
-     * Gets Folder in filestorage with custom fonts.
+     * Gets The folder in cloud storage with custom fonts.
      */
     public String getFontsLocation() {
         return this.fontsLocation;
     }
 
     /*
-     * Sets Folder in filestorage with custom fonts.
+     * Sets The folder in cloud storage with custom fonts.
      */
     public void setFontsLocation(String value) {
         this.fontsLocation = value;

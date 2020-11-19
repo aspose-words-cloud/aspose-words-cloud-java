@@ -43,12 +43,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * container class for docx/docm/dotx/dotm/flatopc save options.
+ * Container class for docx/docm/dotx/dotm/flatopc save options.
  */
-@ApiModel(description = "container class for docx/docm/dotx/dotm/flatopc save options.")
+@ApiModel(description = "Container class for docx/docm/dotx/dotm/flatopc save options.")
 public class OoxmlSaveOptionsData extends SaveOptionsData {
     /**
-     * Gets or sets compression level.
+     * Gets or sets the compression level.
      */
     @JsonAdapter(CompressionLevelEnum.Adapter.class)
     public enum CompressionLevelEnum {
@@ -112,10 +112,10 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies the OOXML version for the output document.
+     * Gets or sets the oOXML version for the output document.
     * @return compliance
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the OOXML version for the output document.")
+    @ApiModelProperty(value = "Gets or sets the oOXML version for the output document.")
     public String getCompliance() {
         return compliance;
     }
@@ -130,10 +130,10 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets compression level.
+     * Gets or sets the compression level.
     * @return compressionLevel
     **/
-    @ApiModelProperty(value = "Gets or sets compression level.")
+    @ApiModelProperty(value = "Gets or sets the compression level.")
     public CompressionLevelEnum getCompressionLevel() {
         return compressionLevel;
     }
@@ -148,10 +148,10 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.
+     * Gets or sets the password to encrypt document using ECMA376 Standard encryption algorithm.
     * @return password
     **/
-    @ApiModelProperty(value = "Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.")
+    @ApiModelProperty(value = "Gets or sets the password to encrypt document using ECMA376 Standard encryption algorithm.")
     public String getPassword() {
         return password;
     }
@@ -166,10 +166,10 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies whether or not use pretty formats output.
+     * Gets or sets a value indicating whether to use pretty formats output.
     * @return prettyFormat
     **/
-    @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to use pretty formats output.")
     public Boolean getPrettyFormat() {
         return prettyFormat;
     }

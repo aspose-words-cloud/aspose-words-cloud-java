@@ -44,12 +44,12 @@ public class CreateDocumentRequest implements RequestIfc {
     private String storage;
 
     /*
-     * The document name.
+     * The filename of the document.
      */
     private String fileName;
 
     /*
-     * The document folder.
+     * The path to the document folder.
      */
     private String folder;
 
@@ -57,8 +57,8 @@ public class CreateDocumentRequest implements RequestIfc {
      * Initializes a new instance of the CreateDocumentRequest class.
      *
      * @param String storage Original document storage.
-     * @param String fileName The document name.
-     * @param String folder The document folder.
+     * @param String fileName The filename of the document.
+     * @param String folder The path to the document folder.
      */
     public CreateDocumentRequest(String storage, String fileName, String folder) {
         this.storage = storage;
@@ -81,28 +81,28 @@ public class CreateDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the document.
      */
     public String getFileName() {
         return this.fileName;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the document.
      */
     public void setFileName(String value) {
         this.fileName = value;
     }
 
     /*
-     * Gets The document folder.
+     * Gets The path to the document folder.
      */
     public String getFolder() {
         return this.folder;
     }
 
     /*
-     * Sets The document folder.
+     * Sets The path to the document folder.
      */
     public void setFolder(String value) {
         this.folder = value;

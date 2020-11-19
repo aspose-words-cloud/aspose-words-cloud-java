@@ -61,10 +61,10 @@ public class DownsampleOptionsData {
     }
 
     /**
-     * Gets or sets specifies whether images should be downsampled.
+     * Gets or sets a value indicating whether images should be downsampled.
     * @return downsampleImages
     **/
-    @ApiModelProperty(value = "Gets or sets specifies whether images should be downsampled.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether images should be downsampled.")
     public Boolean getDownsampleImages() {
         return downsampleImages;
     }
@@ -79,10 +79,10 @@ public class DownsampleOptionsData {
     }
 
     /**
-     * Gets or sets specifies the resolution in pixels per inch which the images should be downsampled to.
+     * Gets or sets the resolution in pixels per inch which the images should be downsampled to.
     * @return resolution
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the resolution in pixels per inch which the images should be downsampled to.")
+    @ApiModelProperty(value = "Gets or sets the resolution in pixels per inch which the images should be downsampled to.")
     public Integer getResolution() {
         return resolution;
     }
@@ -97,13 +97,10 @@ public class DownsampleOptionsData {
     }
 
     /**
-     * Gets or sets specifies the threshold resolution in pixels per inch.
-     * If resolution of an image in the document is less than threshold value,
-     * the downsampling algorithm will not be applied.
-     * A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
+     * Gets or sets the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
     * @return resolutionThreshold
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.")
+    @ApiModelProperty(value = "Gets or sets the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.")
     public Integer getResolutionThreshold() {
         return resolutionThreshold;
     }

@@ -48,7 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "HeaderFooter link element.")
 public class HeaderFooterLink extends LinkElement {
     /**
-     * Gets or sets paragraph's text.
+     * Gets or sets the paragraph's text.
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
@@ -105,10 +105,10 @@ public class HeaderFooterLink extends LinkElement {
     }
 
     /**
-     * Gets or sets paragraph's text.
+     * Gets or sets the paragraph's text.
     * @return type
     **/
-    @ApiModelProperty(value = "Gets or sets paragraph's text.")
+    @ApiModelProperty(value = "Gets or sets the paragraph's text.")
     public TypeEnum getType() {
         return type;
     }

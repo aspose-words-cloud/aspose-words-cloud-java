@@ -55,10 +55,10 @@ public class DocumentPropertyBase {
     }
 
     /**
-     * Gets or sets string value of the document property.
+     * Gets or sets the value of the document property.
     * @return value
     **/
-    @ApiModelProperty(value = "Gets or sets string value of the document property.")
+    @ApiModelProperty(value = "Gets or sets the value of the document property.")
     public String getValue() {
         return value;
     }

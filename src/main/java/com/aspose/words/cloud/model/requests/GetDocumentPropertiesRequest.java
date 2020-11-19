@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class GetDocumentPropertiesRequest implements RequestIfc {
     /*
-     * The document's name.
+     * The filename of the input document.
      */
     private String name;
 
@@ -66,7 +66,7 @@ public class GetDocumentPropertiesRequest implements RequestIfc {
     /*
      * Initializes a new instance of the GetDocumentPropertiesRequest class.
      *
-     * @param String name The document's name.
+     * @param String name The filename of the input document.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -81,14 +81,14 @@ public class GetDocumentPropertiesRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document's name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document's name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;

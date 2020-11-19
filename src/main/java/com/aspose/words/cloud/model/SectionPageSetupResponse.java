@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup.
+ * The REST response with a page setup of a section.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup.")
+@ApiModel(description = "The REST response with a page setup of a section.")
 public class SectionPageSetupResponse extends WordsResponse {
     @SerializedName("PageSetup")
     private PageSetup pageSetup = null;
@@ -56,10 +55,10 @@ public class SectionPageSetupResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets section.
+     * Gets or sets the page setup of a section.
     * @return pageSetup
     **/
-    @ApiModelProperty(value = "Gets or sets section.")
+    @ApiModelProperty(value = "Gets or sets the page setup of a section.")
     public PageSetup getPageSetup() {
         return pageSetup;
     }

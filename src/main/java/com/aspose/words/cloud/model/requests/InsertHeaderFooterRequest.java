@@ -39,17 +39,17 @@ import java.util.*;
  */
 public class InsertHeaderFooterRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Type of header/footer.
+     * The type of a HeaderFooter object.
      */
     private String headerFooterType;
 
     /*
-     * Path to parent section.
+     * The path to the section in the document tree.
      */
     private String sectionPath;
 
@@ -91,9 +91,9 @@ public class InsertHeaderFooterRequest implements RequestIfc {
     /*
      * Initializes a new instance of the InsertHeaderFooterRequest class.
      *
-     * @param String name The document name.
-     * @param String headerFooterType Type of header/footer.
-     * @param String sectionPath Path to parent section.
+     * @param String name The filename of the input document.
+     * @param String headerFooterType The type of a HeaderFooter object.
+     * @param String sectionPath The path to the section in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -116,42 +116,42 @@ public class InsertHeaderFooterRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Type of header/footer.
+     * Gets The type of a HeaderFooter object.
      */
     public String getHeaderFooterType() {
         return this.headerFooterType;
     }
 
     /*
-     * Sets Type of header/footer.
+     * Sets The type of a HeaderFooter object.
      */
     public void setHeaderFooterType(String value) {
         this.headerFooterType = value;
     }
 
     /*
-     * Gets Path to parent section.
+     * Gets The path to the section in the document tree.
      */
     public String getSectionPath() {
         return this.sectionPath;
     }
 
     /*
-     * Sets Path to parent section.
+     * Sets The path to the section in the document tree.
      */
     public void setSectionPath(String value) {
         this.sectionPath = value;

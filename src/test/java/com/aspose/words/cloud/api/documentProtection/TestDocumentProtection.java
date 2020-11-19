@@ -67,7 +67,8 @@ public class TestDocumentProtection  extends TestCase
         );
 
         ProtectionRequest requestProtectionRequest = new ProtectionRequest();
-        requestProtectionRequest.setNewPassword("123");
+        requestProtectionRequest.setPassword("123");
+        requestProtectionRequest.setProtectionType("ReadOnly");
 
         ProtectDocumentRequest request = new ProtectDocumentRequest(
             remoteFileName,
@@ -81,6 +82,8 @@ public class TestDocumentProtection  extends TestCase
 
         ProtectionDataResponse result = TestInitializer.wordsApi.protectDocument(request);
         assertNotNull(result);
+        assertNotNull(result.getProtectionData());
+        assertEquals("ReadOnly", result.getProtectionData().getProtectionType());
     }
 
     /*
@@ -89,10 +92,11 @@ public class TestDocumentProtection  extends TestCase
     @Test
     public void testGetDocumentProtection() throws ApiException, IOException
     {
+        String localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
         String remoteFileName = "TestGetDocumentProtection.docx";
 
         TestInitializer.UploadFile(
-            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            PathUtil.get(TestInitializer.LocalTestFolder, localFilePath),
             remoteDataFolder + "/" + remoteFileName
         );
 
@@ -106,36 +110,8 @@ public class TestDocumentProtection  extends TestCase
 
         ProtectionDataResponse result = TestInitializer.wordsApi.getDocumentProtection(request);
         assertNotNull(result);
-    }
-
-    /*
-     * Test for changing document protection.
-     */
-    @Test
-    public void testChangeDocumentProtection() throws ApiException, IOException
-    {
-        String remoteFileName = "TestChangeDocumentProtection.docx";
-
-        TestInitializer.UploadFile(
-            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
-            remoteDataFolder + "/" + remoteFileName
-        );
-
-        ProtectionRequest requestProtectionRequest = new ProtectionRequest();
-        requestProtectionRequest.setNewPassword("321");
-
-        ProtectDocumentRequest request = new ProtectDocumentRequest(
-            remoteFileName,
-            requestProtectionRequest,
-            remoteDataFolder,
-            null,
-            null,
-            null,
-            null
-        );
-
-        ProtectionDataResponse result = TestInitializer.wordsApi.protectDocument(request);
-        assertNotNull(result);
+        assertNotNull(result.getProtectionData());
+        assertEquals("ReadOnly", result.getProtectionData().getProtectionType());
     }
 
     /*
@@ -167,5 +143,7 @@ public class TestDocumentProtection  extends TestCase
 
         ProtectionDataResponse result = TestInitializer.wordsApi.unprotectDocument(request);
         assertNotNull(result);
+        assertNotNull(result.getProtectionData());
+        assertEquals("NoProtection", result.getProtectionData().getProtectionType());
     }
 }

@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/{paragraphPath}/runs.
+ * The REST response with a collection of Run elements.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{paragraphPath}/runs.")
+@ApiModel(description = "The REST response with a collection of Run elements.")
 public class RunsResponse extends WordsResponse {
     @SerializedName("Runs")
     private Runs runs = null;
@@ -56,10 +55,10 @@ public class RunsResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets collection of runs.
+     * Gets or sets the collection of Run elements.
     * @return runs
     **/
-    @ApiModelProperty(value = "Gets or sets collection of runs.")
+    @ApiModelProperty(value = "Gets or sets the collection of Run elements.")
     public Runs getRuns() {
         return runs;
     }

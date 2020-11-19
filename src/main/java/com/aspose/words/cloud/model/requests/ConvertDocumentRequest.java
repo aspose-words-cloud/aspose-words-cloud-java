@@ -44,7 +44,7 @@ public class ConvertDocumentRequest implements RequestIfc {
     private byte[] document;
 
     /*
-     * Format to convert.
+     * The format to convert.
      */
     private String format;
 
@@ -54,12 +54,12 @@ public class ConvertDocumentRequest implements RequestIfc {
     private String storage;
 
     /*
-     * Path for saving operation result to the local storage.
+     * The path to the output document on a local storage.
      */
     private String outPath;
 
     /*
-     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
+     * The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "sourceFilename" will be used instead.
      */
     private String fileNameFieldValue;
 
@@ -72,10 +72,10 @@ public class ConvertDocumentRequest implements RequestIfc {
      * Initializes a new instance of the ConvertDocumentRequest class.
      *
      * @param byte[] document Converting document.
-     * @param String format Format to convert.
+     * @param String format The format to convert.
      * @param String storage Original document storage.
-     * @param String outPath Path for saving operation result to the local storage.
-     * @param String fileNameFieldValue This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
+     * @param String outPath The path to the output document on a local storage.
+     * @param String fileNameFieldValue The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "sourceFilename" will be used instead.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
     public ConvertDocumentRequest(byte[] document, String format, String storage, String outPath, String fileNameFieldValue, String fontsLocation) {
@@ -102,14 +102,14 @@ public class ConvertDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets Format to convert.
+     * Gets The format to convert.
      */
     public String getFormat() {
         return this.format;
     }
 
     /*
-     * Sets Format to convert.
+     * Sets The format to convert.
      */
     public void setFormat(String value) {
         this.format = value;
@@ -130,28 +130,28 @@ public class ConvertDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets Path for saving operation result to the local storage.
+     * Gets The path to the output document on a local storage.
      */
     public String getOutPath() {
         return this.outPath;
     }
 
     /*
-     * Sets Path for saving operation result to the local storage.
+     * Sets The path to the output document on a local storage.
      */
     public void setOutPath(String value) {
         this.outPath = value;
     }
 
     /*
-     * Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
+     * Gets The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "sourceFilename" will be used instead.
      */
     public String getFileNameFieldValue() {
         return this.fileNameFieldValue;
     }
 
     /*
-     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
+     * Sets The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "sourceFilename" will be used instead.
      */
     public void setFileNameFieldValue(String value) {
         this.fileNameFieldValue = value;

@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Collection of OfficeMath objects.
+ * DTO container with a collection of OfficeMath objects.
  */
-@ApiModel(description = "Collection of OfficeMath objects.")
+@ApiModel(description = "DTO container with a collection of OfficeMath objects.")
 public class OfficeMathObjectsCollection extends LinkElement {
     @SerializedName("List")
     private List<OfficeMathObject> list = null;
@@ -63,10 +63,10 @@ public class OfficeMathObjectsCollection extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of OfficeMath objects.
+     * Gets or sets the collection of OfficeMath objects.
     * @return list
     **/
-    @ApiModelProperty(value = "Gets or sets collection of OfficeMath objects.")
+    @ApiModelProperty(value = "Gets or sets the collection of OfficeMath objects.")
     public List<OfficeMathObject> getList() {
         return list;
     }

@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Table cell element.
+ * DTO container with a table cell element.
  */
-@ApiModel(description = "Table cell element.")
+@ApiModel(description = "DTO container with a table cell element.")
 public class TableCell extends NodeLink {
     @SerializedName("ChildNodes")
     private List<NodeLink> childNodes = null;
@@ -63,10 +63,10 @@ public class TableCell extends NodeLink {
     }
 
     /**
-     * Gets or sets child nodes.
+     * Gets or sets the list of child nodes.
     * @return childNodes
     **/
-    @ApiModelProperty(value = "Gets or sets child nodes.")
+    @ApiModelProperty(value = "Gets or sets the list of child nodes.")
     public List<NodeLink> getChildNodes() {
         return childNodes;
     }

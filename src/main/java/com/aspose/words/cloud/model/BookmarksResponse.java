@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:  GET bookmarks.
+ * The REST response with a collection of bookmarks.
  */
-@ApiModel(description = "This response should be returned by the service when handling:  GET bookmarks.")
+@ApiModel(description = "The REST response with a collection of bookmarks.")
 public class BookmarksResponse extends WordsResponse {
     @SerializedName("Bookmarks")
     private Bookmarks bookmarks = null;
@@ -55,10 +55,10 @@ public class BookmarksResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets bookmarks which are contained in document.
+     * Gets or sets the collection of bookmarks.
     * @return bookmarks
     **/
-    @ApiModelProperty(value = "Gets or sets bookmarks which are contained in document.")
+    @ApiModelProperty(value = "Gets or sets the collection of bookmarks.")
     public Bookmarks getBookmarks() {
         return bookmarks;
     }

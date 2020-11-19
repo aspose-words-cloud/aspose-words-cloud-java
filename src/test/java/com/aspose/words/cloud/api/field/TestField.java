@@ -79,6 +79,10 @@ public class TestField  extends TestCase
 
         FieldsResponse result = TestInitializer.wordsApi.getFields(request);
         assertNotNull(result);
+        assertNotNull(result.getFields());
+        assertNotNull(result.getFields().getList());
+        assertEquals(1, result.getFields().getList().size());
+        assertEquals("1", result.getFields().getList().get(0).getResult());
     }
 
     /*
@@ -106,6 +110,10 @@ public class TestField  extends TestCase
 
         FieldsResponse result = TestInitializer.wordsApi.getFields(request);
         assertNotNull(result);
+        assertNotNull(result.getFields());
+        assertNotNull(result.getFields().getList());
+        assertEquals(1, result.getFields().getList().size());
+        assertEquals("1", result.getFields().getList().get(0).getResult());
     }
 
     /*
@@ -134,6 +142,8 @@ public class TestField  extends TestCase
 
         FieldResponse result = TestInitializer.wordsApi.getField(request);
         assertNotNull(result);
+        assertNotNull(result.getField());
+        assertEquals("1", result.getField().getResult());
     }
 
     /*
@@ -162,6 +172,8 @@ public class TestField  extends TestCase
 
         FieldResponse result = TestInitializer.wordsApi.getField(request);
         assertNotNull(result);
+        assertNotNull(result.getField());
+        assertEquals("1", result.getField().getResult());
     }
 
     /*
@@ -197,6 +209,9 @@ public class TestField  extends TestCase
 
         FieldResponse result = TestInitializer.wordsApi.insertField(request);
         assertNotNull(result);
+        assertNotNull(result.getField());
+        assertEquals("{ NUMPAGES }", result.getField().getFieldCode());
+        assertEquals("0.0.0.1", result.getField().getNodeId());
     }
 
     /*
@@ -232,6 +247,9 @@ public class TestField  extends TestCase
 
         FieldResponse result = TestInitializer.wordsApi.insertField(request);
         assertNotNull(result);
+        assertNotNull(result.getField());
+        assertEquals("{ NUMPAGES }", result.getField().getFieldCode());
+        assertEquals("5.0.22.0", result.getField().getNodeId());
     }
 
     /*
@@ -267,6 +285,9 @@ public class TestField  extends TestCase
 
         FieldResponse result = TestInitializer.wordsApi.updateField(request);
         assertNotNull(result);
+        assertNotNull(result.getField());
+        assertEquals("{ NUMPAGES }", result.getField().getFieldCode());
+        assertEquals("0.0.0.0", result.getField().getNodeId());
     }
 
     /*
@@ -301,6 +322,8 @@ public class TestField  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.insertPageNumbers(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestInsertPageNumbers.docx", result.getDocument().getFileName());
     }
 
     /*
@@ -562,5 +585,7 @@ public class TestField  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.updateFields(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestUpdateDocumentFields.docx", result.getDocument().getFileName());
     }
 }

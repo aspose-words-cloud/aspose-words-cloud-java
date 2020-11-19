@@ -97,10 +97,10 @@ public class FormFieldCheckbox extends FormField {
     }
 
     /**
-     * Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.
+     * Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
     * @return isCheckBoxExactSize
     **/
-    @ApiModelProperty(value = "Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.")
     public Boolean getIsCheckBoxExactSize() {
         return isCheckBoxExactSize;
     }

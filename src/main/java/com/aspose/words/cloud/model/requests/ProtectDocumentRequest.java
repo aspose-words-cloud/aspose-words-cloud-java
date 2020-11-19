@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class ProtectDocumentRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * ProtectionRequest with protection settings.
+     * The protection settings.
      */
     private ProtectionRequest protectionRequest;
 
@@ -76,8 +76,8 @@ public class ProtectDocumentRequest implements RequestIfc {
     /*
      * Initializes a new instance of the ProtectDocumentRequest class.
      *
-     * @param String name The document name.
-     * @param ProtectionRequest protectionRequest ProtectionRequest with protection settings.
+     * @param String name The filename of the input document.
+     * @param ProtectionRequest protectionRequest The protection settings.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -95,28 +95,28 @@ public class ProtectDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets ProtectionRequest with protection settings.
+     * Gets The protection settings.
      */
     public ProtectionRequest getProtectionRequest() {
         return this.protectionRequest;
     }
 
     /*
-     * Sets ProtectionRequest with protection settings.
+     * Sets The protection settings.
      */
     public void setProtectionRequest(ProtectionRequest value) {
         this.protectionRequest = value;

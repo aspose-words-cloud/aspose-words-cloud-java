@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents DTO for collection of fields.
+ * DTO container with a collection of fields.
  */
-@ApiModel(description = "Represents DTO for collection of fields.")
+@ApiModel(description = "DTO container with a collection of fields.")
 public class FieldCollection extends LinkElement {
     @SerializedName("List")
     private List<Field> list = null;
@@ -63,10 +63,10 @@ public class FieldCollection extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of fields.
+     * Gets or sets the collection of fields.
     * @return list
     **/
-    @ApiModelProperty(value = "Gets or sets collection of fields.")
+    @ApiModelProperty(value = "Gets or sets the collection of fields.")
     public List<Field> getList() {
         return list;
     }

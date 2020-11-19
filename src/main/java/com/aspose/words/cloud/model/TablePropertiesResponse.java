@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/properties.
+ * The REST response with a table.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/properties.")
+@ApiModel(description = "The REST response with a table.")
 public class TablePropertiesResponse extends WordsResponse {
     @SerializedName("Properties")
     private TableProperties properties = null;
@@ -56,10 +55,10 @@ public class TablePropertiesResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets table.
+     * Gets or sets the table.
     * @return properties
     **/
-    @ApiModelProperty(value = "Gets or sets table.")
+    @ApiModelProperty(value = "Gets or sets the table.")
     public TableProperties getProperties() {
         return properties;
     }

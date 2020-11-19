@@ -113,5 +113,7 @@ public class TestBuildReport  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.buildReport(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestBuildReport.docx", result.getDocument().getFileName());
     }
 }
