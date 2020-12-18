@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class GetFilesListRequest implements RequestIfc {
     /*
-     * Folder path e.g. /Folder1.
+     * Folder path e.g. '/folder'.
      */
     private String path;
 
@@ -51,7 +51,7 @@ public class GetFilesListRequest implements RequestIfc {
     /*
      * Initializes a new instance of the GetFilesListRequest class.
      *
-     * @param String path Folder path e.g. /Folder1.
+     * @param String path Folder path e.g. '/folder'.
      * @param String storageName Storage name.
      */
     public GetFilesListRequest(String path, String storageName) {
@@ -60,14 +60,14 @@ public class GetFilesListRequest implements RequestIfc {
     }
 
     /*
-     * Gets Folder path e.g. /Folder1.
+     * Gets Folder path e.g. '/folder'.
      */
     public String getPath() {
         return this.path;
     }
 
     /*
-     * Sets Folder path e.g. /Folder1.
+     * Sets Folder path e.g. '/folder'.
      */
     public void setPath(String value) {
         this.path = value;

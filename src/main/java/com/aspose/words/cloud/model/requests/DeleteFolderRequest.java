@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class DeleteFolderRequest implements RequestIfc {
     /*
-     * Folder path e.g. /Folder1s.
+     * Folder path e.g. '/folder'.
      */
     private String path;
 
@@ -56,7 +56,7 @@ public class DeleteFolderRequest implements RequestIfc {
     /*
      * Initializes a new instance of the DeleteFolderRequest class.
      *
-     * @param String path Folder path e.g. /Folder1s.
+     * @param String path Folder path e.g. '/folder'.
      * @param String storageName Storage name.
      * @param Boolean recursive Enable to delete folders, subfolders and files.
      */
@@ -67,14 +67,14 @@ public class DeleteFolderRequest implements RequestIfc {
     }
 
     /*
-     * Gets Folder path e.g. /Folder1s.
+     * Gets Folder path e.g. '/folder'.
      */
     public String getPath() {
         return this.path;
     }
 
     /*
-     * Sets Folder path e.g. /Folder1s.
+     * Sets Folder path e.g. '/folder'.
      */
     public void setPath(String value) {
         this.path = value;
