@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class DeleteFileRequest implements RequestIfc {
     /*
-     * File path e.g. '/folder/file.ext'.
+     * Path of the file including the file name and extension e.g. /folder1/file.ext.
      */
     private String path;
 
@@ -56,7 +56,7 @@ public class DeleteFileRequest implements RequestIfc {
     /*
      * Initializes a new instance of the DeleteFileRequest class.
      *
-     * @param String path File path e.g. '/folder/file.ext'.
+     * @param String path Path of the file including the file name and extension e.g. /folder1/file.ext.
      * @param String storageName Storage name.
      * @param String versionId File version ID to delete.
      */
@@ -67,14 +67,14 @@ public class DeleteFileRequest implements RequestIfc {
     }
 
     /*
-     * Gets File path e.g. '/folder/file.ext'.
+     * Gets Path of the file including the file name and extension e.g. /folder1/file.ext.
      */
     public String getPath() {
         return this.path;
     }
 
     /*
-     * Sets File path e.g. '/folder/file.ext'.
+     * Sets Path of the file including the file name and extension e.g. /folder1/file.ext.
      */
     public void setPath(String value) {
         this.path = value;

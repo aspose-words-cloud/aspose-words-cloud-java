@@ -119,8 +119,8 @@ public class TestFolder  extends TestCase
         );
 
         CopyFolderRequest request = new CopyFolderRequest(
-            folderToCopy + "Src",
             folderToCopy + "Dest",
+            folderToCopy + "Src",
             null,
             null
         );
@@ -140,8 +140,8 @@ public class TestFolder  extends TestCase
         );
 
         MoveFolderRequest request = new MoveFolderRequest(
-            remoteDataFolder + "/TestMoveFolderSrc",
             TestInitializer.RemoteTestOut + "/TestMoveFolderDest_" + java.util.UUID.randomUUID().toString(),
+            remoteDataFolder + "/TestMoveFolderSrc",
             null,
             null
         );

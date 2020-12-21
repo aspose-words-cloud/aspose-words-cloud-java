@@ -39,14 +39,14 @@ import java.util.*;
  */
 public class MoveFileRequest implements RequestIfc {
     /*
-     * Source file path e.g. '/src.ext'.
-     */
-    private String srcPath;
-
-    /*
      * Destination file path e.g. '/dest.ext'.
      */
     private String destPath;
+
+    /*
+     * Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'.
+     */
+    private String srcPath;
 
     /*
      * Source storage name.
@@ -66,32 +66,18 @@ public class MoveFileRequest implements RequestIfc {
     /*
      * Initializes a new instance of the MoveFileRequest class.
      *
-     * @param String srcPath Source file path e.g. '/src.ext'.
      * @param String destPath Destination file path e.g. '/dest.ext'.
+     * @param String srcPath Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'.
      * @param String srcStorageName Source storage name.
      * @param String destStorageName Destination storage name.
      * @param String versionId File version ID to move.
      */
-    public MoveFileRequest(String srcPath, String destPath, String srcStorageName, String destStorageName, String versionId) {
-        this.srcPath = srcPath;
+    public MoveFileRequest(String destPath, String srcPath, String srcStorageName, String destStorageName, String versionId) {
         this.destPath = destPath;
+        this.srcPath = srcPath;
         this.srcStorageName = srcStorageName;
         this.destStorageName = destStorageName;
         this.versionId = versionId;
-    }
-
-    /*
-     * Gets Source file path e.g. '/src.ext'.
-     */
-    public String getSrcPath() {
-        return this.srcPath;
-    }
-
-    /*
-     * Sets Source file path e.g. '/src.ext'.
-     */
-    public void setSrcPath(String value) {
-        this.srcPath = value;
     }
 
     /*
@@ -106,6 +92,20 @@ public class MoveFileRequest implements RequestIfc {
      */
     public void setDestPath(String value) {
         this.destPath = value;
+    }
+
+    /*
+     * Gets Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'.
+     */
+    public String getSrcPath() {
+        return this.srcPath;
+    }
+
+    /*
+     * Sets Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'.
+     */
+    public void setSrcPath(String value) {
+        this.srcPath = value;
     }
 
     /*
@@ -158,14 +158,14 @@ public class MoveFileRequest implements RequestIfc {
      * @throws IOException If fail to serialize the request body object
      */
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
-        // verify the required parameter 'SrcPath' is set
-        if (getSrcPath() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SrcPath' when calling moveFile");
-        }
-
         // verify the required parameter 'DestPath' is set
         if (getDestPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DestPath' when calling moveFile");
+        }
+
+        // verify the required parameter 'SrcPath' is set
+        if (getSrcPath() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SrcPath' when calling moveFile");
         }
 
         Object localVarPostBody = null;

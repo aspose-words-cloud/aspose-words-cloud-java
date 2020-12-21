@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class CreateFolderRequest implements RequestIfc {
     /*
-     * Folder path to create e.g. 'folder_1/folder_2/'.
+     * Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively.
      */
     private String path;
 
@@ -51,7 +51,7 @@ public class CreateFolderRequest implements RequestIfc {
     /*
      * Initializes a new instance of the CreateFolderRequest class.
      *
-     * @param String path Folder path to create e.g. 'folder_1/folder_2/'.
+     * @param String path Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively.
      * @param String storageName Storage name.
      */
     public CreateFolderRequest(String path, String storageName) {
@@ -60,14 +60,14 @@ public class CreateFolderRequest implements RequestIfc {
     }
 
     /*
-     * Gets Folder path to create e.g. 'folder_1/folder_2/'.
+     * Gets Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively.
      */
     public String getPath() {
         return this.path;
     }
 
     /*
-     * Sets Folder path to create e.g. 'folder_1/folder_2/'.
+     * Sets Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively.
      */
     public void setPath(String value) {
         this.path = value;

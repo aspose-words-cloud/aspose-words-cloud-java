@@ -88,8 +88,8 @@ public class TestFile  extends TestCase
         );
 
         CopyFileRequest request = new CopyFileRequest(
-            remoteDataFolder + "/" + remoteFileName,
             remoteDataFolder + "/TestCopyFileDest.docx",
+            remoteDataFolder + "/" + remoteFileName,
             null,
             null,
             null
@@ -112,8 +112,8 @@ public class TestFile  extends TestCase
         );
 
         MoveFileRequest request = new MoveFileRequest(
-            remoteDataFolder + "/" + remoteFileName,
             TestInitializer.RemoteTestOut + "/TestMoveFileDest_" + java.util.UUID.randomUUID().toString() + ".docx",
+            remoteDataFolder + "/" + remoteFileName,
             null,
             null,
             null

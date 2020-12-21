@@ -39,14 +39,14 @@ import java.util.*;
  */
 public class CopyFolderRequest implements RequestIfc {
     /*
-     * Source folder path e.g. '/src'.
-     */
-    private String srcPath;
-
-    /*
      * Destination folder path e.g. '/dst'.
      */
     private String destPath;
+
+    /*
+     * Source folder path e.g. /Folder1.
+     */
+    private String srcPath;
 
     /*
      * Source storage name.
@@ -61,30 +61,16 @@ public class CopyFolderRequest implements RequestIfc {
     /*
      * Initializes a new instance of the CopyFolderRequest class.
      *
-     * @param String srcPath Source folder path e.g. '/src'.
      * @param String destPath Destination folder path e.g. '/dst'.
+     * @param String srcPath Source folder path e.g. /Folder1.
      * @param String srcStorageName Source storage name.
      * @param String destStorageName Destination storage name.
      */
-    public CopyFolderRequest(String srcPath, String destPath, String srcStorageName, String destStorageName) {
-        this.srcPath = srcPath;
+    public CopyFolderRequest(String destPath, String srcPath, String srcStorageName, String destStorageName) {
         this.destPath = destPath;
+        this.srcPath = srcPath;
         this.srcStorageName = srcStorageName;
         this.destStorageName = destStorageName;
-    }
-
-    /*
-     * Gets Source folder path e.g. '/src'.
-     */
-    public String getSrcPath() {
-        return this.srcPath;
-    }
-
-    /*
-     * Sets Source folder path e.g. '/src'.
-     */
-    public void setSrcPath(String value) {
-        this.srcPath = value;
     }
 
     /*
@@ -99,6 +85,20 @@ public class CopyFolderRequest implements RequestIfc {
      */
     public void setDestPath(String value) {
         this.destPath = value;
+    }
+
+    /*
+     * Gets Source folder path e.g. /Folder1.
+     */
+    public String getSrcPath() {
+        return this.srcPath;
+    }
+
+    /*
+     * Sets Source folder path e.g. /Folder1.
+     */
+    public void setSrcPath(String value) {
+        this.srcPath = value;
     }
 
     /*
@@ -137,14 +137,14 @@ public class CopyFolderRequest implements RequestIfc {
      * @throws IOException If fail to serialize the request body object
      */
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
-        // verify the required parameter 'SrcPath' is set
-        if (getSrcPath() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SrcPath' when calling copyFolder");
-        }
-
         // verify the required parameter 'DestPath' is set
         if (getDestPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DestPath' when calling copyFolder");
+        }
+
+        // verify the required parameter 'SrcPath' is set
+        if (getSrcPath() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SrcPath' when calling copyFolder");
         }
 
         Object localVarPostBody = null;
