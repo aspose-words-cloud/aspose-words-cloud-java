@@ -55,10 +55,10 @@ public class FieldLink extends NodeLink {
     }
 
     /**
-     * Gets or sets field code.
+     * Gets or sets the field code.
     * @return fieldCode
     **/
-    @ApiModelProperty(value = "Gets or sets field code.")
+    @ApiModelProperty(value = "Gets or sets the field code.")
     public String getFieldCode() {
         return fieldCode;
     }

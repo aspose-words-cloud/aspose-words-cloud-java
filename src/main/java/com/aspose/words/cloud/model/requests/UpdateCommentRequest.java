@@ -27,25 +27,30 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for updateComment operation.
  */
-public class UpdateCommentRequest {
+public class UpdateCommentRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * The comment index.
+     * The index of the comment.
      */
     private Integer commentIndex;
 
     /*
-     * The comment data.
+     * Comment data.
      */
     private CommentUpdate comment;
 
@@ -87,9 +92,9 @@ public class UpdateCommentRequest {
     /*
      * Initializes a new instance of the UpdateCommentRequest class.
      *
-     * @param String name The document name.
-     * @param Integer commentIndex The comment index.
-     * @param CommentUpdate comment The comment data.
+     * @param String name The filename of the input document.
+     * @param Integer commentIndex The index of the comment.
+     * @param CommentUpdate comment Comment data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -112,42 +117,42 @@ public class UpdateCommentRequest {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets The comment index.
+     * Gets The index of the comment.
      */
     public Integer getCommentIndex() {
         return this.commentIndex;
     }
 
     /*
-     * Sets The comment index.
+     * Sets The index of the comment.
      */
     public void setCommentIndex(Integer value) {
         this.commentIndex = value;
     }
 
     /*
-     * Gets The comment data.
+     * Gets Comment data.
      */
     public CommentUpdate getComment() {
         return this.comment;
     }
 
     /*
-     * Sets The comment data.
+     * Sets Comment data.
      */
     public void setComment(CommentUpdate value) {
         this.comment = value;
@@ -249,5 +254,84 @@ public class UpdateCommentRequest {
      */
     public void setRevisionDateTime(String value) {
         this.revisionDateTime = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateComment");
+        }
+
+        // verify the required parameter 'CommentIndex' is set
+        if (getCommentIndex() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CommentIndex' when calling updateComment");
+        }
+
+        // verify the required parameter 'Comment' is set
+        if (getComment() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Comment' when calling updateComment");
+        }
+
+        Object localVarPostBody = getComment();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/comments/{commentIndex}";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = apiClient.addParameterToPath(localVarPath, "commentIndex", getCommentIndex());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return CommentResponse.class;
     }
 }

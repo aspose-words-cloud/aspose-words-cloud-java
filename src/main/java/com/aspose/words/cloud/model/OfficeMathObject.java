@@ -43,13 +43,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * OfficeMath object.
+ * DTO container with an OfficeMath object.
  */
-@ApiModel(description = "OfficeMath object.")
+@ApiModel(description = "DTO container with an OfficeMath object.")
 public class OfficeMathObject extends OfficeMathLink {
     /**
-     * Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text
-     * or displayed on its own line.
+     * Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line.
      */
     @JsonAdapter(DisplayTypeEnum.Adapter.class)
     public enum DisplayTypeEnum {
@@ -95,7 +94,7 @@ public class OfficeMathObject extends OfficeMathLink {
     }
 
     /**
-     * Gets or sets /sets Office Math justification.
+     * Gets or sets the justification of the OfficeMath object.
      */
     @JsonAdapter(JustificationEnum.Adapter.class)
     public enum JustificationEnum {
@@ -145,7 +144,7 @@ public class OfficeMathObject extends OfficeMathLink {
     }
 
     /**
-     * Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
+     * Gets or sets the type of the OfficeMath object.
      */
     @JsonAdapter(MathObjectTypeEnum.Adapter.class)
     public enum MathObjectTypeEnum {
@@ -235,10 +234,10 @@ public class OfficeMathObject extends OfficeMathLink {
     }
 
     /**
-     * Gets or sets content of footnote.
+     * Gets or sets the content of a footnote.
     * @return content
     **/
-    @ApiModelProperty(value = "Gets or sets content of footnote.")
+    @ApiModelProperty(value = "Gets or sets the content of a footnote.")
     public StoryChildNodes getContent() {
         return content;
     }
@@ -253,11 +252,10 @@ public class OfficeMathObject extends OfficeMathLink {
     }
 
     /**
-     * Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text
-     * or displayed on its own line.
+     * Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line.
     * @return displayType
     **/
-    @ApiModelProperty(value = "Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.")
+    @ApiModelProperty(value = "Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line.")
     public DisplayTypeEnum getDisplayType() {
         return displayType;
     }
@@ -272,10 +270,10 @@ public class OfficeMathObject extends OfficeMathLink {
     }
 
     /**
-     * Gets or sets /sets Office Math justification.
+     * Gets or sets the justification of the OfficeMath object.
     * @return justification
     **/
-    @ApiModelProperty(value = "Gets or sets /sets Office Math justification.")
+    @ApiModelProperty(value = "Gets or sets the justification of the OfficeMath object.")
     public JustificationEnum getJustification() {
         return justification;
     }
@@ -290,10 +288,10 @@ public class OfficeMathObject extends OfficeMathLink {
     }
 
     /**
-     * Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
+     * Gets or sets the type of the OfficeMath object.
     * @return mathObjectType
     **/
-    @ApiModelProperty(value = "Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.")
+    @ApiModelProperty(value = "Gets or sets the type of the OfficeMath object.")
     public MathObjectTypeEnum getMathObjectType() {
         return mathObjectType;
     }

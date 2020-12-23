@@ -27,20 +27,25 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for deleteRun operation.
  */
-public class DeleteRunRequest {
+public class DeleteRunRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Path to parent paragraph.
+     * The path to the paragraph in the document tree.
      */
     private String paragraphPath;
 
@@ -87,8 +92,8 @@ public class DeleteRunRequest {
     /*
      * Initializes a new instance of the DeleteRunRequest class.
      *
-     * @param String name The document name.
-     * @param String paragraphPath Path to parent paragraph.
+     * @param String name The filename of the input document.
+     * @param String paragraphPath The path to the paragraph in the document tree.
      * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -112,28 +117,28 @@ public class DeleteRunRequest {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Path to parent paragraph.
+     * Gets The path to the paragraph in the document tree.
      */
     public String getParagraphPath() {
         return this.paragraphPath;
     }
 
     /*
-     * Sets Path to parent paragraph.
+     * Sets The path to the paragraph in the document tree.
      */
     public void setParagraphPath(String value) {
         this.paragraphPath = value;
@@ -249,5 +254,73 @@ public class DeleteRunRequest {
      */
     public void setRevisionDateTime(String value) {
         this.revisionDateTime = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling deleteRun");
+        }
+
+        // verify the required parameter 'ParagraphPath' is set
+        if (getParagraphPath() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphPath' when calling deleteRun");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (getIndex() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling deleteRun");
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = apiClient.addParameterToPath(localVarPath, "paragraphPath", getParagraphPath());
+        localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return null;
     }
 }

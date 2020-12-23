@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.font;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -74,5 +75,6 @@ public class TestFont  extends TestCase
 
         AvailableFontsResponse result = TestInitializer.wordsApi.getAvailableFonts(request);
         assertNotNull(result);
+        assertNotNull(result.getSystemFonts());
     }
 }

@@ -27,13 +27,18 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for saveAsOnline operation.
  */
-public class SaveAsOnlineRequest {
+public class SaveAsOnlineRequest implements RequestIfc {
     /*
      * The document.
      */
@@ -45,6 +50,16 @@ public class SaveAsOnlineRequest {
     private SaveOptionsData saveOptionsData;
 
     /*
+     * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     */
+    private String loadEncoding;
+
+    /*
+     * Password for opening an encrypted document.
+     */
+    private String password;
+
+    /*
      * Folder in filestorage with custom fonts.
      */
     private String fontsLocation;
@@ -54,11 +69,15 @@ public class SaveAsOnlineRequest {
      *
      * @param byte[] document The document.
      * @param SaveOptionsData saveOptionsData Save options.
+     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param String password Password for opening an encrypted document.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public SaveAsOnlineRequest(byte[] document, SaveOptionsData saveOptionsData, String fontsLocation) {
+    public SaveAsOnlineRequest(byte[] document, SaveOptionsData saveOptionsData, String loadEncoding, String password, String fontsLocation) {
         this.document = document;
         this.saveOptionsData = saveOptionsData;
+        this.loadEncoding = loadEncoding;
+        this.password = password;
         this.fontsLocation = fontsLocation;
     }
 
@@ -91,6 +110,34 @@ public class SaveAsOnlineRequest {
     }
 
     /*
+     * Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     */
+    public String getLoadEncoding() {
+        return this.loadEncoding;
+    }
+
+    /*
+     * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     */
+    public void setLoadEncoding(String value) {
+        this.loadEncoding = value;
+    }
+
+    /*
+     * Gets Password for opening an encrypted document.
+     */
+    public String getPassword() {
+        return this.password;
+    }
+
+    /*
+     * Sets Password for opening an encrypted document.
+     */
+    public void setPassword(String value) {
+        this.password = value;
+    }
+
+    /*
      * Gets Folder in filestorage with custom fonts.
      */
     public String getFontsLocation() {
@@ -102,5 +149,78 @@ public class SaveAsOnlineRequest {
      */
     public void setFontsLocation(String value) {
         this.fontsLocation = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Document' is set
+        if (getDocument() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling saveAsOnline");
+        }
+
+        // verify the required parameter 'SaveOptionsData' is set
+        if (getSaveOptionsData() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SaveOptionsData' when calling saveAsOnline");
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/online/saveAs";
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "fontsLocation", getFontsLocation());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (getDocument() != null)
+            localVarFormParams.put("Document", getDocument());
+
+        if (getSaveOptionsData() != null)
+            localVarFormParams.put("SaveOptionsData", getSaveOptionsData());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return SaveAsOnlineResponse.class;
     }
 }

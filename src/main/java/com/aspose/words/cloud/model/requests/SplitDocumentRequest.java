@@ -27,20 +27,25 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for splitDocument operation.
  */
-public class SplitDocumentRequest {
+public class SplitDocumentRequest implements RequestIfc {
     /*
-     * Original document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Format to split.
+     * The format to split.
      */
     private String format;
 
@@ -70,17 +75,17 @@ public class SplitDocumentRequest {
     private String destFileName;
 
     /*
-     * Start page.
+     * The start page.
      */
     private Integer from;
 
     /*
-     * End page.
+     * The end page.
      */
     private Integer to;
 
     /*
-     * ZipOutput or not.
+     * The flag indicating whether to ZIP the output.
      */
     private Boolean zipOutput;
 
@@ -92,16 +97,16 @@ public class SplitDocumentRequest {
     /*
      * Initializes a new instance of the SplitDocumentRequest class.
      *
-     * @param String name Original document name.
-     * @param String format Format to split.
+     * @param String name The filename of the input document.
+     * @param String format The format to split.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param Integer from Start page.
-     * @param Integer to End page.
-     * @param Boolean zipOutput ZipOutput or not.
+     * @param Integer from The start page.
+     * @param Integer to The end page.
+     * @param Boolean zipOutput The flag indicating whether to ZIP the output.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
     public SplitDocumentRequest(String name, String format, String folder, String storage, String loadEncoding, String password, String destFileName, Integer from, Integer to, Boolean zipOutput, String fontsLocation) {
@@ -119,28 +124,28 @@ public class SplitDocumentRequest {
     }
 
     /*
-     * Gets Original document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets Original document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Format to split.
+     * Gets The format to split.
      */
     public String getFormat() {
         return this.format;
     }
 
     /*
-     * Sets Format to split.
+     * Sets The format to split.
      */
     public void setFormat(String value) {
         this.format = value;
@@ -217,42 +222,42 @@ public class SplitDocumentRequest {
     }
 
     /*
-     * Gets Start page.
+     * Gets The start page.
      */
     public Integer getFrom() {
         return this.from;
     }
 
     /*
-     * Sets Start page.
+     * Sets The start page.
      */
     public void setFrom(Integer value) {
         this.from = value;
     }
 
     /*
-     * Gets End page.
+     * Gets The end page.
      */
     public Integer getTo() {
         return this.to;
     }
 
     /*
-     * Sets End page.
+     * Sets The end page.
      */
     public void setTo(Integer value) {
         this.to = value;
     }
 
     /*
-     * Gets ZipOutput or not.
+     * Gets The flag indicating whether to ZIP the output.
      */
     public Boolean getZipOutput() {
         return this.zipOutput;
     }
 
     /*
-     * Sets ZipOutput or not.
+     * Sets The flag indicating whether to ZIP the output.
      */
     public void setZipOutput(Boolean value) {
         this.zipOutput = value;
@@ -270,5 +275,69 @@ public class SplitDocumentRequest {
      */
     public void setFontsLocation(String value) {
         this.fontsLocation = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling splitDocument");
+        }
+
+        // verify the required parameter 'Format' is set
+        if (getFormat() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling splitDocument");
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/split";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "format", getFormat());
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
+        apiClient.addParameterToQuery(localVarQueryParams, "from", getFrom());
+        apiClient.addParameterToQuery(localVarQueryParams, "to", getTo());
+        apiClient.addParameterToQuery(localVarQueryParams, "zipOutput", getZipOutput());
+        apiClient.addParameterToQuery(localVarQueryParams, "fontsLocation", getFontsLocation());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return SplitDocumentResponse.class;
     }
 }

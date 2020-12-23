@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Table row element.
+ * DTO container with a table row element.
  */
-@ApiModel(description = "Table row element.")
+@ApiModel(description = "DTO container with a table row element.")
 public class TableRow extends NodeLink {
     @SerializedName("RowFormat")
     private TableRowFormat rowFormat = null;
@@ -58,10 +58,10 @@ public class TableRow extends NodeLink {
     }
 
     /**
-     * Gets or sets provides access to the formatting properties of the row.
+     * Gets or sets the formatting properties of a row.
     * @return rowFormat
     **/
-    @ApiModelProperty(value = "Gets or sets provides access to the formatting properties of the row.")
+    @ApiModelProperty(value = "Gets or sets the formatting properties of a row.")
     public TableRowFormat getRowFormat() {
         return rowFormat;
     }
@@ -84,10 +84,10 @@ public class TableRow extends NodeLink {
     }
 
     /**
-     * Gets or sets collection of table's rows.
+     * Gets or sets the collection of rows.
     * @return tableCellList
     **/
-    @ApiModelProperty(value = "Gets or sets collection of table's rows.")
+    @ApiModelProperty(value = "Gets or sets the collection of rows.")
     public List<TableCell> getTableCellList() {
         return tableCellList;
     }

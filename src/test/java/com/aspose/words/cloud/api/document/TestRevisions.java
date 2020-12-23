@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -77,6 +78,25 @@ public class TestRevisions  extends TestCase
 
         RevisionsModificationResponse result = TestInitializer.wordsApi.acceptAllRevisions(request);
         assertNotNull(result);
+        assertNotNull(result.getResult());
+        assertNotNull(result.getResult().getDest());
+    }
+
+    /*
+     * Test for accepting revisions in document online.
+     */
+    @Test
+    public void testAcceptAllRevisionsOnline() throws ApiException, IOException
+    {
+        AcceptAllRevisionsOnlineRequest request = new AcceptAllRevisionsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null,
+            null
+        );
+
+        AcceptAllRevisionsOnlineResponse result = TestInitializer.wordsApi.acceptAllRevisionsOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -102,6 +122,25 @@ public class TestRevisions  extends TestCase
         );
 
         RevisionsModificationResponse result = TestInitializer.wordsApi.rejectAllRevisions(request);
+        assertNotNull(result);
+        assertNotNull(result.getResult());
+        assertNotNull(result.getResult().getDest());
+    }
+
+    /*
+     * Test for rejecting revisions in document online.
+     */
+    @Test
+    public void testRejectAllRevisionsOnline() throws ApiException, IOException
+    {
+        RejectAllRevisionsOnlineRequest request = new RejectAllRevisionsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null,
+            null
+        );
+
+        RejectAllRevisionsOnlineResponse result = TestInitializer.wordsApi.rejectAllRevisionsOnline(request);
         assertNotNull(result);
     }
 }

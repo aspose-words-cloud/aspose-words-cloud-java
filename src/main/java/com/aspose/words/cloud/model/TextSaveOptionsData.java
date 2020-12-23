@@ -61,11 +61,11 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     }
 
     /**
-     * Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format.
+     * Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format.
      * The default value is true.
     * @return addBidiMarks
     **/
-    @ApiModelProperty(value = "Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.")
     public Boolean getAddBidiMarks() {
         return addBidiMarks;
     }
@@ -80,10 +80,10 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     }
 
     /**
-     * Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.
+     * Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
     * @return preserveTableLayout
     **/
-    @ApiModelProperty(value = "Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.")
     public Boolean getPreserveTableLayout() {
         return preserveTableLayout;
     }
@@ -98,10 +98,10 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     }
 
     /**
-     * Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
+     * Gets or sets a value indicating whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
     * @return simplifyListLabels
     **/
-    @ApiModelProperty(value = "Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.")
     public Boolean getSimplifyListLabels() {
         return simplifyListLabels;
     }

@@ -27,22 +27,22 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for updateTableProperties operation.
  */
-public class UpdateTablePropertiesRequest {
+public class UpdateTablePropertiesRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
-
-    /*
-     * The properties.
-     */
-    private TableProperties properties;
 
     /*
      * Object index.
@@ -50,7 +50,12 @@ public class UpdateTablePropertiesRequest {
     private Integer index;
 
     /*
-     * Path to the node, which contains tables.
+     * The properties.
+     */
+    private TableProperties properties;
+
+    /*
+     * The path to the node in the document tree.
      */
     private String nodePath;
 
@@ -92,10 +97,10 @@ public class UpdateTablePropertiesRequest {
     /*
      * Initializes a new instance of the UpdateTablePropertiesRequest class.
      *
-     * @param String name The document name.
-     * @param TableProperties properties The properties.
+     * @param String name The filename of the input document.
      * @param Integer index Object index.
-     * @param String nodePath Path to the node, which contains tables.
+     * @param TableProperties properties The properties.
+     * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -104,10 +109,10 @@ public class UpdateTablePropertiesRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateTablePropertiesRequest(String name, TableProperties properties, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateTablePropertiesRequest(String name, Integer index, TableProperties properties, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.properties = properties;
         this.index = index;
+        this.properties = properties;
         this.nodePath = nodePath;
         this.folder = folder;
         this.storage = storage;
@@ -119,31 +124,17 @@ public class UpdateTablePropertiesRequest {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
-    }
-
-    /*
-     * Gets The properties.
-     */
-    public TableProperties getProperties() {
-        return this.properties;
-    }
-
-    /*
-     * Sets The properties.
-     */
-    public void setProperties(TableProperties value) {
-        this.properties = value;
     }
 
     /*
@@ -161,14 +152,28 @@ public class UpdateTablePropertiesRequest {
     }
 
     /*
-     * Gets Path to the node, which contains tables.
+     * Gets The properties.
+     */
+    public TableProperties getProperties() {
+        return this.properties;
+    }
+
+    /*
+     * Sets The properties.
+     */
+    public void setProperties(TableProperties value) {
+        this.properties = value;
+    }
+
+    /*
+     * Gets The path to the node in the document tree.
      */
     public String getNodePath() {
         return this.nodePath;
     }
 
     /*
-     * Sets Path to the node, which contains tables.
+     * Sets The path to the node in the document tree.
      */
     public void setNodePath(String value) {
         this.nodePath = value;
@@ -270,5 +275,85 @@ public class UpdateTablePropertiesRequest {
      */
     public void setRevisionDateTime(String value) {
         this.revisionDateTime = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateTableProperties");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (getIndex() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateTableProperties");
+        }
+
+        // verify the required parameter 'Properties' is set
+        if (getProperties() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Properties' when calling updateTableProperties");
+        }
+
+        Object localVarPostBody = getProperties();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
+        localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return TablePropertiesResponse.class;
     }
 }

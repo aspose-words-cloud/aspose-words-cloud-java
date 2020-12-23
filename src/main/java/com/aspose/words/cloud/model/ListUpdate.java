@@ -55,10 +55,10 @@ public class ListUpdate {
     }
 
     /**
-     * Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+     * Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
     * @return isRestartAtEachSection
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether list should be restarted at each section. The default value is false.")
     public Boolean getIsRestartAtEachSection() {
         return isRestartAtEachSection;
     }

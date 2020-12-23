@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.footnote;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -85,6 +86,34 @@ public class TestFootnote  extends TestCase
 
         FootnoteResponse result = TestInitializer.wordsApi.insertFootnote(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnote());
+        assertEquals("0.1.7.1", result.getFootnote().getNodeId());
+        assertEquals(" test endnote" + "\r\n", result.getFootnote().getText());
+    }
+
+    /*
+     * Test for adding footnote online.
+     */
+    @Test
+    public void testInsertFootnoteOnline() throws ApiException, IOException
+    {
+        FootnoteInsert requestFootnoteDto = new FootnoteInsert();
+        requestFootnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
+        requestFootnoteDto.setText("test endnote");
+
+        InsertFootnoteOnlineRequest request = new InsertFootnoteOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath()),
+            requestFootnoteDto,
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertFootnoteOnlineResponse result = TestInitializer.wordsApi.insertFootnoteOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -119,6 +148,9 @@ public class TestFootnote  extends TestCase
 
         FootnoteResponse result = TestInitializer.wordsApi.insertFootnote(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnote());
+        assertEquals("0.1.7.1", result.getFootnote().getNodeId());
+        assertEquals(" test endnote" + "\r\n", result.getFootnote().getText());
     }
 
     /*
@@ -148,6 +180,27 @@ public class TestFootnote  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteFootnote(request);
+    }
+
+    /*
+     * Test for deleting footnote online.
+     */
+    @Test
+    public void testDeleteFootnoteOnline() throws ApiException, IOException
+    {
+        DeleteFootnoteOnlineRequest request = new DeleteFootnoteOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath()),
+            0,
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteFootnoteOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -203,6 +256,27 @@ public class TestFootnote  extends TestCase
 
         FootnotesResponse result = TestInitializer.wordsApi.getFootnotes(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnotes());
+        assertNotNull(result.getFootnotes().getList());
+        assertEquals(6, result.getFootnotes().getList().size());
+        assertEquals(" Footnote 1." + "\r\n", result.getFootnotes().getList().get(0).getText());
+    }
+
+    /*
+     * Test for getting footnotes online.
+     */
+    @Test
+    public void testGetFootnotesOnline() throws ApiException, IOException
+    {
+        GetFootnotesOnlineRequest request = new GetFootnotesOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath()),
+            "",
+            null,
+            null
+        );
+
+        FootnotesResponse result = TestInitializer.wordsApi.getFootnotesOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -229,6 +303,10 @@ public class TestFootnote  extends TestCase
 
         FootnotesResponse result = TestInitializer.wordsApi.getFootnotes(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnotes());
+        assertNotNull(result.getFootnotes().getList());
+        assertEquals(6, result.getFootnotes().getList().size());
+        assertEquals(" Footnote 1." + "\r\n", result.getFootnotes().getList().get(0).getText());
     }
 
     /*
@@ -255,6 +333,26 @@ public class TestFootnote  extends TestCase
         );
 
         FootnoteResponse result = TestInitializer.wordsApi.getFootnote(request);
+        assertNotNull(result);
+        assertNotNull(result.getFootnote());
+        assertEquals(" Footnote 1." + "\r\n", result.getFootnote().getText());
+    }
+
+    /*
+     * Test for getting footnote online.
+     */
+    @Test
+    public void testGetFootnoteOnline() throws ApiException, IOException
+    {
+        GetFootnoteOnlineRequest request = new GetFootnoteOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath()),
+            0,
+            "",
+            null,
+            null
+        );
+
+        FootnoteResponse result = TestInitializer.wordsApi.getFootnoteOnline(request);
         assertNotNull(result);
     }
 
@@ -283,6 +381,8 @@ public class TestFootnote  extends TestCase
 
         FootnoteResponse result = TestInitializer.wordsApi.getFootnote(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnote());
+        assertEquals(" Footnote 1." + "\r\n", result.getFootnote().getText());
     }
 
     /*
@@ -303,8 +403,8 @@ public class TestFootnote  extends TestCase
 
         UpdateFootnoteRequest request = new UpdateFootnoteRequest(
             remoteFileName,
-            requestFootnoteDto,
             0,
+            requestFootnoteDto,
             "",
             remoteDataFolder,
             null,
@@ -316,6 +416,33 @@ public class TestFootnote  extends TestCase
         );
 
         FootnoteResponse result = TestInitializer.wordsApi.updateFootnote(request);
+        assertNotNull(result);
+        assertNotNull(result.getFootnote());
+        assertEquals(" new text is here" + "\r\n", result.getFootnote().getText());
+    }
+
+    /*
+     * Test for updating footnote online.
+     */
+    @Test
+    public void testUpdateFootnoteOnline() throws ApiException, IOException
+    {
+        FootnoteUpdate requestFootnoteDto = new FootnoteUpdate();
+        requestFootnoteDto.setText("new text is here");
+
+        UpdateFootnoteOnlineRequest request = new UpdateFootnoteOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath()),
+            requestFootnoteDto,
+            0,
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateFootnoteOnlineResponse result = TestInitializer.wordsApi.updateFootnoteOnline(request);
         assertNotNull(result);
     }
 
@@ -337,8 +464,8 @@ public class TestFootnote  extends TestCase
 
         UpdateFootnoteRequest request = new UpdateFootnoteRequest(
             remoteFileName,
-            requestFootnoteDto,
             0,
+            requestFootnoteDto,
             null,
             remoteDataFolder,
             null,
@@ -351,5 +478,7 @@ public class TestFootnote  extends TestCase
 
         FootnoteResponse result = TestInitializer.wordsApi.updateFootnote(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnote());
+        assertEquals(" new text is here" + "\r\n", result.getFootnote().getText());
     }
 }

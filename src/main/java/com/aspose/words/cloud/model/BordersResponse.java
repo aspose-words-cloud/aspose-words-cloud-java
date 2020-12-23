@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET {nodeWithBorders}/borders.
+ * The REST response with a collection of borders.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET {nodeWithBorders}/borders.")
+@ApiModel(description = "The REST response with a collection of borders.")
 public class BordersResponse extends WordsResponse {
     @SerializedName("Borders")
     private BordersCollection borders = null;
@@ -56,10 +55,10 @@ public class BordersResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets table.
+     * Gets or sets the collection of borders.
     * @return borders
     **/
-    @ApiModelProperty(value = "Gets or sets table.")
+    @ApiModelProperty(value = "Gets or sets the collection of borders.")
     public BordersCollection getBorders() {
         return borders;
     }

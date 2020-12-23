@@ -27,27 +27,32 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for insertTableRow operation.
  */
-public class InsertTableRowRequest {
+public class InsertTableRowRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Table row parameters/.
-     */
-    private TableRowInsert row;
-
-    /*
-     * Path to table.
+     * The path to the table in the document tree.
      */
     private String tablePath;
+
+    /*
+     * Table row parameters.
+     */
+    private TableRowInsert row;
 
     /*
      * Original document folder.
@@ -87,9 +92,9 @@ public class InsertTableRowRequest {
     /*
      * Initializes a new instance of the InsertTableRowRequest class.
      *
-     * @param String name The document name.
-     * @param TableRowInsert row Table row parameters/.
-     * @param String tablePath Path to table.
+     * @param String name The filename of the input document.
+     * @param String tablePath The path to the table in the document tree.
+     * @param TableRowInsert row Table row parameters.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -98,10 +103,10 @@ public class InsertTableRowRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertTableRowRequest(String name, TableRowInsert row, String tablePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public InsertTableRowRequest(String name, String tablePath, TableRowInsert row, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.row = row;
         this.tablePath = tablePath;
+        this.row = row;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -112,45 +117,45 @@ public class InsertTableRowRequest {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Table row parameters/.
-     */
-    public TableRowInsert getRow() {
-        return this.row;
-    }
-
-    /*
-     * Sets Table row parameters/.
-     */
-    public void setRow(TableRowInsert value) {
-        this.row = value;
-    }
-
-    /*
-     * Gets Path to table.
+     * Gets The path to the table in the document tree.
      */
     public String getTablePath() {
         return this.tablePath;
     }
 
     /*
-     * Sets Path to table.
+     * Sets The path to the table in the document tree.
      */
     public void setTablePath(String value) {
         this.tablePath = value;
+    }
+
+    /*
+     * Gets Table row parameters.
+     */
+    public TableRowInsert getRow() {
+        return this.row;
+    }
+
+    /*
+     * Sets Table row parameters.
+     */
+    public void setRow(TableRowInsert value) {
+        this.row = value;
     }
 
     /*
@@ -249,5 +254,84 @@ public class InsertTableRowRequest {
      */
     public void setRevisionDateTime(String value) {
         this.revisionDateTime = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertTableRow");
+        }
+
+        // verify the required parameter 'TablePath' is set
+        if (getTablePath() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TablePath' when calling insertTableRow");
+        }
+
+        // verify the required parameter 'Row' is set
+        if (getRow() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Row' when calling insertTableRow");
+        }
+
+        Object localVarPostBody = getRow();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{tablePath}/rows";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = apiClient.addParameterToPath(localVarPath, "tablePath", getTablePath());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return TableRowResponse.class;
     }
 }

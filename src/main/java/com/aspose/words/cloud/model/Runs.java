@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents DTO for collection of runs.
+ * DTO container with a collection of runs.
  */
-@ApiModel(description = "Represents DTO for collection of runs.")
+@ApiModel(description = "DTO container with a collection of runs.")
 public class Runs extends LinkElement {
     @SerializedName("List")
     private List<Run> list = null;
@@ -63,10 +63,10 @@ public class Runs extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of fields.
+     * Gets or sets the collection of runs.
     * @return list
     **/
-    @ApiModelProperty(value = "Gets or sets collection of fields.")
+    @ApiModelProperty(value = "Gets or sets the collection of runs.")
     public List<Run> getList() {
         return list;
     }

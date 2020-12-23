@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -79,6 +80,8 @@ public class TestDocumentStatistics  extends TestCase
 
         StatDataResponse result = TestInitializer.wordsApi.getDocumentStatistics(request);
         assertNotNull(result);
+        assertNotNull(result.getStatData());
+        assertEquals(Integer.valueOf(10), result.getStatData().getWordCount());
     }
 
     /*
@@ -91,10 +94,12 @@ public class TestDocumentStatistics  extends TestCase
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
             null,
             null,
+            null,
+            null,
             null
         );
 
-        File result = TestInitializer.wordsApi.getDocumentStatisticsOnline(request);
+        StatDataResponse result = TestInitializer.wordsApi.getDocumentStatisticsOnline(request);
         assertNotNull(result);
     }
 }

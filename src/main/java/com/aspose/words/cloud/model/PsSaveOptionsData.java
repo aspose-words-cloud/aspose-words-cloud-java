@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * container class for ps save options.
+ * Container class for ps save options.
  */
-@ApiModel(description = "container class for ps save options.")
+@ApiModel(description = "Container class for ps save options.")
 public class PsSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("UseBookFoldPrintingSettings")
     private Boolean useBookFoldPrintingSettings = null;
@@ -55,10 +55,10 @@ public class PsSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets determines whether the document should be saved using a booklet printing layout.
+     * Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
     * @return useBookFoldPrintingSettings
     **/
-    @ApiModelProperty(value = "Gets or sets determines whether the document should be saved using a booklet printing layout.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the document should be saved using a booklet printing layout.")
     public Boolean getUseBookFoldPrintingSettings() {
         return useBookFoldPrintingSettings;
     }

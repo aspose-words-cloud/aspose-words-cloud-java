@@ -95,7 +95,7 @@ public class ListLevelUpdate {
     }
 
     /**
-     * Gets or sets returns or sets the number style for this list level.
+     * Gets or sets the number style for this list level.
      */
     @JsonAdapter(NumberStyleEnum.Adapter.class)
     public enum NumberStyleEnum {
@@ -201,7 +201,7 @@ public class ListLevelUpdate {
     }
 
     /**
-     * Gets or sets returns or sets the character inserted after the number for the list level.
+     * Gets or sets the character to be inserted after the number for the list level.
      */
     @JsonAdapter(TrailingCharacterEnum.Adapter.class)
     public enum TrailingCharacterEnum {
@@ -300,11 +300,10 @@ public class ListLevelUpdate {
     }
 
     /**
-     * Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves
-     * their number style.
+     * Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.
     * @return isLegal
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves their number style.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.")
     public Boolean getIsLegal() {
         return isLegal;
     }
@@ -319,10 +318,10 @@ public class ListLevelUpdate {
     }
 
     /**
-     * Gets or sets returns or sets the number format for the list level.
+     * Gets or sets the number format for the list level.
     * @return numberFormat
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the number format for the list level.")
+    @ApiModelProperty(value = "Gets or sets the number format for the list level.")
     public String getNumberFormat() {
         return numberFormat;
     }
@@ -337,11 +336,10 @@ public class ListLevelUpdate {
     }
 
     /**
-     * Gets or sets returns or sets the position (in points) of the number or bullet for the list
-     * level.
+     * Gets or sets the position (in points) of the number or bullet for the list level.
     * @return numberPosition
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the position (in points) of the number or bullet for the list level.")
+    @ApiModelProperty(value = "Gets or sets the position (in points) of the number or bullet for the list level.")
     public Double getNumberPosition() {
         return numberPosition;
     }
@@ -356,10 +354,10 @@ public class ListLevelUpdate {
     }
 
     /**
-     * Gets or sets returns or sets the number style for this list level.
+     * Gets or sets the number style for this list level.
     * @return numberStyle
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the number style for this list level.")
+    @ApiModelProperty(value = "Gets or sets the number style for this list level.")
     public NumberStyleEnum getNumberStyle() {
         return numberStyle;
     }
@@ -374,11 +372,10 @@ public class ListLevelUpdate {
     }
 
     /**
-     * Gets or sets or returns the list level that must appear before the specified list level
-     * restarts numbering.
+     * Gets or sets the list level that must appear before the specified list level restarts numbering.
     * @return restartAfterLevel
     **/
-    @ApiModelProperty(value = "Gets or sets or returns the list level that must appear before the specified list level restarts numbering.")
+    @ApiModelProperty(value = "Gets or sets the list level that must appear before the specified list level restarts numbering.")
     public Integer getRestartAfterLevel() {
         return restartAfterLevel;
     }
@@ -393,10 +390,10 @@ public class ListLevelUpdate {
     }
 
     /**
-     * Gets or sets returns or sets the starting number for this list level.
+     * Gets or sets the starting number for this list level.
     * @return startAt
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the starting number for this list level.")
+    @ApiModelProperty(value = "Gets or sets the starting number for this list level.")
     public Integer getStartAt() {
         return startAt;
     }
@@ -411,10 +408,10 @@ public class ListLevelUpdate {
     }
 
     /**
-     * Gets or sets returns or sets the tab position (in points) for the list level.
+     * Gets or sets the tab position (in points) for the list level.
     * @return tabPosition
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the tab position (in points) for the list level.")
+    @ApiModelProperty(value = "Gets or sets the tab position (in points) for the list level.")
     public Double getTabPosition() {
         return tabPosition;
     }
@@ -429,11 +426,10 @@ public class ListLevelUpdate {
     }
 
     /**
-     * Gets or sets returns or sets the position (in points) for the second line of wrapping text
-     * for the list level.
+     * Gets or sets the position (in points) for the second line of wrapping text for the list level.
     * @return textPosition
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the position (in points) for the second line of wrapping text for the list level.")
+    @ApiModelProperty(value = "Gets or sets the position (in points) for the second line of wrapping text for the list level.")
     public Double getTextPosition() {
         return textPosition;
     }
@@ -448,10 +444,10 @@ public class ListLevelUpdate {
     }
 
     /**
-     * Gets or sets returns or sets the character inserted after the number for the list level.
+     * Gets or sets the character to be inserted after the number for the list level.
     * @return trailingCharacter
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the character inserted after the number for the list level.")
+    @ApiModelProperty(value = "Gets or sets the character to be inserted after the number for the list level.")
     public TrailingCharacterEnum getTrailingCharacter() {
         return trailingCharacter;
     }

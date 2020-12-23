@@ -48,7 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for the document optimization options.")
 public class OptimizationOptions {
     /**
-     * Gets or sets specific MSWord version.
+     * Gets or sets the specific MSWord version.
      */
     @JsonAdapter(MsWordVersionEnum.Adapter.class)
     public enum MsWordVersionEnum {
@@ -107,10 +107,10 @@ public class OptimizationOptions {
     }
 
     /**
-     * Gets or sets specific MSWord version.
+     * Gets or sets the specific MSWord version.
     * @return msWordVersion
     **/
-    @ApiModelProperty(value = "Gets or sets specific MSWord version.")
+    @ApiModelProperty(value = "Gets or sets the specific MSWord version.")
     public MsWordVersionEnum getMsWordVersion() {
         return msWordVersion;
     }

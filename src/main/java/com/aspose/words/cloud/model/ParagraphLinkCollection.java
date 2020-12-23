@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Collection of links to paragraphs.
+ * The collection of paragraph's links.
  */
-@ApiModel(description = "Collection of links to paragraphs.")
+@ApiModel(description = "The collection of paragraph's links.")
 public class ParagraphLinkCollection extends LinkElement {
     @SerializedName("ParagraphLinkList")
     private List<ParagraphLink> paragraphLinkList = null;
@@ -63,10 +63,10 @@ public class ParagraphLinkCollection extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of paragraph's links.
+     * Gets or sets the collection of paragraph's links.
     * @return paragraphLinkList
     **/
-    @ApiModelProperty(value = "Gets or sets collection of paragraph's links.")
+    @ApiModelProperty(value = "Gets or sets the collection of paragraph's links.")
     public List<ParagraphLink> getParagraphLinkList() {
         return paragraphLinkList;
     }

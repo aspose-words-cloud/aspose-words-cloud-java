@@ -64,10 +64,10 @@ public class StyleUpdate {
     }
 
     /**
-     * Gets or sets /sets the name of the style this style is based on.
+     * Gets or sets the name of the style this style is based on.
     * @return baseStyleName
     **/
-    @ApiModelProperty(value = "Gets or sets /sets the name of the style this style is based on.")
+    @ApiModelProperty(value = "Gets or sets the name of the style this style is based on.")
     public String getBaseStyleName() {
         return baseStyleName;
     }
@@ -82,10 +82,10 @@ public class StyleUpdate {
     }
 
     /**
-     * Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
+     * Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
     * @return isQuickStyle
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.")
     public Boolean getIsQuickStyle() {
         return isQuickStyle;
     }
@@ -118,11 +118,10 @@ public class StyleUpdate {
     }
 
     /**
-     * Gets or sets /sets the name of the style to be applied automatically to a new paragraph
-     * inserted after a paragraph formatted with the specified style.
+     * Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
     * @return nextParagraphStyleName
     **/
-    @ApiModelProperty(value = "Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.")
+    @ApiModelProperty(value = "Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.")
     public String getNextParagraphStyleName() {
         return nextParagraphStyleName;
     }

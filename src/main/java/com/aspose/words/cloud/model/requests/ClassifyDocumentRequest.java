@@ -27,17 +27,22 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for classifyDocument operation.
  */
-public class ClassifyDocumentRequest {
+public class ClassifyDocumentRequest implements RequestIfc {
     /*
      * The document name.
      */
-    private String documentName;
+    private String name;
 
     /*
      * Original document folder.
@@ -60,28 +65,28 @@ public class ClassifyDocumentRequest {
     private String password;
 
     /*
-     * Count of the best classes to return.
+     * The number of the best classes to return.
      */
     private String bestClassesCount;
 
     /*
-     * Taxonomy to use for classification return.
+     * The taxonomy to use.
      */
     private String taxonomy;
 
     /*
      * Initializes a new instance of the ClassifyDocumentRequest class.
      *
-     * @param String documentName The document name.
+     * @param String name The document name.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String bestClassesCount Count of the best classes to return.
-     * @param String taxonomy Taxonomy to use for classification return.
+     * @param String bestClassesCount The number of the best classes to return.
+     * @param String taxonomy The taxonomy to use.
      */
-    public ClassifyDocumentRequest(String documentName, String folder, String storage, String loadEncoding, String password, String bestClassesCount, String taxonomy) {
-        this.documentName = documentName;
+    public ClassifyDocumentRequest(String name, String folder, String storage, String loadEncoding, String password, String bestClassesCount, String taxonomy) {
+        this.name = name;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -93,15 +98,15 @@ public class ClassifyDocumentRequest {
     /*
      * Gets The document name.
      */
-    public String getDocumentName() {
-        return this.documentName;
+    public String getName() {
+        return this.name;
     }
 
     /*
      * Sets The document name.
      */
-    public void setDocumentName(String value) {
-        this.documentName = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
     /*
@@ -161,30 +166,85 @@ public class ClassifyDocumentRequest {
     }
 
     /*
-     * Gets Count of the best classes to return.
+     * Gets The number of the best classes to return.
      */
     public String getBestClassesCount() {
         return this.bestClassesCount;
     }
 
     /*
-     * Sets Count of the best classes to return.
+     * Sets The number of the best classes to return.
      */
     public void setBestClassesCount(String value) {
         this.bestClassesCount = value;
     }
 
     /*
-     * Gets Taxonomy to use for classification return.
+     * Gets The taxonomy to use.
      */
     public String getTaxonomy() {
         return this.taxonomy;
     }
 
     /*
-     * Sets Taxonomy to use for classification return.
+     * Sets The taxonomy to use.
      */
     public void setTaxonomy(String value) {
         this.taxonomy = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling classifyDocument");
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/classify";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "bestClassesCount", getBestClassesCount());
+        apiClient.addParameterToQuery(localVarQueryParams, "taxonomy", getTaxonomy());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return ClassificationResponse.class;
     }
 }

@@ -27,25 +27,30 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for insertTable operation.
  */
-public class InsertTableRequest {
+public class InsertTableRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Table parameters/.
+     * Table parameters.
      */
     private TableInsert table;
 
     /*
-     * Path to the node, which contains tables.
+     * The path to the node in the document tree.
      */
     private String nodePath;
 
@@ -87,9 +92,9 @@ public class InsertTableRequest {
     /*
      * Initializes a new instance of the InsertTableRequest class.
      *
-     * @param String name The document name.
-     * @param TableInsert table Table parameters/.
-     * @param String nodePath Path to the node, which contains tables.
+     * @param String name The filename of the input document.
+     * @param TableInsert table Table parameters.
+     * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -112,42 +117,42 @@ public class InsertTableRequest {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Table parameters/.
+     * Gets Table parameters.
      */
     public TableInsert getTable() {
         return this.table;
     }
 
     /*
-     * Sets Table parameters/.
+     * Sets Table parameters.
      */
     public void setTable(TableInsert value) {
         this.table = value;
     }
 
     /*
-     * Gets Path to the node, which contains tables.
+     * Gets The path to the node in the document tree.
      */
     public String getNodePath() {
         return this.nodePath;
     }
 
     /*
-     * Sets Path to the node, which contains tables.
+     * Sets The path to the node in the document tree.
      */
     public void setNodePath(String value) {
         this.nodePath = value;
@@ -249,5 +254,79 @@ public class InsertTableRequest {
      */
     public void setRevisionDateTime(String value) {
         this.revisionDateTime = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertTable");
+        }
+
+        // verify the required parameter 'Table' is set
+        if (getTable() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Table' when calling insertTable");
+        }
+
+        Object localVarPostBody = getTable();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/tables";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return TableResponse.class;
     }
 }

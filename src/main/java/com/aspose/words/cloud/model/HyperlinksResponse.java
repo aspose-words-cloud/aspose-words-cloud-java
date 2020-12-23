@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:  GET /{name}/hyperlinks .
+ * The REST response with a collection of hyperlinks.
  */
-@ApiModel(description = "This response should be returned by the service when handling:  GET /{name}/hyperlinks .")
+@ApiModel(description = "The REST response with a collection of hyperlinks.")
 public class HyperlinksResponse extends WordsResponse {
     @SerializedName("Hyperlinks")
     private Hyperlinks hyperlinks = null;
@@ -55,10 +55,10 @@ public class HyperlinksResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets collection of hyperlinks.
+     * Gets or sets the collection of hyperlinks.
     * @return hyperlinks
     **/
-    @ApiModelProperty(value = "Gets or sets collection of hyperlinks.")
+    @ApiModelProperty(value = "Gets or sets the collection of hyperlinks.")
     public Hyperlinks getHyperlinks() {
         return hyperlinks;
     }

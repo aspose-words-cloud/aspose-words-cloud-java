@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.bookmark;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -45,6 +46,7 @@ public class TestBookmark  extends TestCase
 {
     private String remoteDataFolder = TestInitializer.RemoteTestFolder + "/DocumentElements/Bookmarks";
     private String localFile = "Common/test_multi_pages.docx";
+    private String bookmarkName = "aspose";
 
 
     @Override
@@ -79,6 +81,22 @@ public class TestBookmark  extends TestCase
     }
 
     /*
+     * Test for getting bookmarks from document online.
+     */
+    @Test
+    public void testGetBookmarksOnline() throws ApiException, IOException
+    {
+        GetBookmarksOnlineRequest request = new GetBookmarksOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        BookmarksResponse result = TestInitializer.wordsApi.getBookmarksOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting bookmark by specified name.
      */
     @Test
@@ -93,7 +111,7 @@ public class TestBookmark  extends TestCase
 
         GetBookmarkByNameRequest request = new GetBookmarkByNameRequest(
             remoteFileName,
-            "aspose",
+            bookmarkName,
             remoteDataFolder,
             null,
             null,
@@ -105,13 +123,30 @@ public class TestBookmark  extends TestCase
     }
 
     /*
+     * Test for getting bookmark by specified name online.
+     */
+    @Test
+    public void testGetBookmarkByNameOnline() throws ApiException, IOException
+    {
+        GetBookmarkByNameOnlineRequest request = new GetBookmarkByNameOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            bookmarkName,
+            null,
+            null
+        );
+
+        BookmarkResponse result = TestInitializer.wordsApi.getBookmarkByNameOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for updating existed bookmark.
      */
     @Test
     public void testUpdateBookmark() throws ApiException, IOException
     {
         String remoteFileName = "TestUpdateDocumentBookmark.docx";
-        String bookmarkName = "aspose";
+        String bookmarkText = "This will be the text for Aspose";
 
         TestInitializer.UploadFile(
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
@@ -120,12 +155,12 @@ public class TestBookmark  extends TestCase
 
         BookmarkData requestBookmarkData = new BookmarkData();
         requestBookmarkData.setName(bookmarkName);
-        requestBookmarkData.setText("This will be the text for Aspose");
+        requestBookmarkData.setText(bookmarkText);
 
         UpdateBookmarkRequest request = new UpdateBookmarkRequest(
             remoteFileName,
-            requestBookmarkData,
             bookmarkName,
+            requestBookmarkData,
             remoteDataFolder,
             null,
             null,
@@ -136,6 +171,33 @@ public class TestBookmark  extends TestCase
         );
 
         BookmarkResponse result = TestInitializer.wordsApi.updateBookmark(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for updating existed bookmark online.
+     */
+    @Test
+    public void testUpdateBookmarkOnline() throws ApiException, IOException
+    {
+        String remoteFileName = "TestUpdateDocumentBookmark.docx";
+
+        BookmarkData requestBookmarkData = new BookmarkData();
+        requestBookmarkData.setName(bookmarkName);
+        requestBookmarkData.setText("This will be the text for Aspose");
+
+        UpdateBookmarkOnlineRequest request = new UpdateBookmarkOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            bookmarkName,
+            requestBookmarkData,
+            null,
+            null,
+            TestInitializer.RemoteTestOut + "/" + remoteFileName,
+            null,
+            null
+        );
+
+        UpdateBookmarkOnlineResponse result = TestInitializer.wordsApi.updateBookmarkOnline(request);
         assertNotNull(result);
     }
 }

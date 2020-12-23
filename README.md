@@ -13,6 +13,33 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 20.12
+
+
+
+## Enhancements in Version 20.11
+
+- In configuration json file appSid / appKey has been replaced to clientId / clientSecret.
+- In Words API initialization methods clientId parameter precedes clientSecret parameter.
+
+
+## Enhancements in Version 20.10
+
+- Internal API changes.
+
+
+## Enhancements in Version 20.9
+
+- Added Batch API feature
+
+
+## Enhancements in Version 20.8
+
+- Added new api method (PUT '/words/{name}/compatibility/optimize') which is allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word
+- Added 'ApplyBaseDocumentHeadersAndFootersToAppendingDocuments' option to 'DocumentEntryList' for AppendDocument API
+- WithoutNodePath methods have been removed, pass null values instead
+
+
 ## Enhancements in Version 20.7
 
 - Added 'Markdown' save format
@@ -89,7 +116,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>20.7.0</version>
+        <version>20.11.0</version>
     </dependency>
 </dependencies>
 ```
@@ -100,7 +127,7 @@ Add this dependency to your project's POM:
         // Start README example
 
         // if baseUrl is null, WordsApi uses default https://api.aspose.cloud 
-        WordsApi wordsApi = new WordsApi(appSid, appKey, baseUrl);
+        WordsApi wordsApi = new WordsApi(clientId, clientSecret, baseUrl);
 
         String localPath = PathUtil.get(localFolder, fileName);
         String remotePath = PathUtil.get(remoteFolder, remoteName);

@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}.
+ * The REST response with a paragraph.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}.")
+@ApiModel(description = "The REST response with a paragraph.")
 public class ParagraphResponse extends WordsResponse {
     @SerializedName("Paragraph")
     private Paragraph paragraph = null;
@@ -56,10 +55,10 @@ public class ParagraphResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets paragraph.
+     * Gets or sets the paragraph.
     * @return paragraph
     **/
-    @ApiModelProperty(value = "Gets or sets paragraph.")
+    @ApiModelProperty(value = "Gets or sets the paragraph.")
     public Paragraph getParagraph() {
         return paragraph;
     }

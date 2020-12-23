@@ -4,7 +4,7 @@
     <artifactId>aspose-words-cloud</artifactId>
     <packaging>jar</packaging>
     <name>AsposeWordsCloud</name>
-    <version>20.7.0</version>
+    <version>20.11.0</version>
     <url>https://www.aspose.cloud/</url>
     <description>Aspose Words Java SDK</description>
     <scm>
@@ -266,11 +266,16 @@
             <artifactId>gson-fire</artifactId>
             <version>${gson-fire-version}</version>
         </dependency>
-            <dependency>
-                <groupId>org.threeten</groupId>
-                <artifactId>threetenbp</artifactId>
-                <version>${threetenbp-version}</version>
-            </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.threeten</groupId>
+            <artifactId>threetenbp</artifactId>
+            <version>${threetenbp-version}</version>
+        </dependency>
         <!-- test dependencies -->
         <dependency>
             <groupId>junit</groupId>

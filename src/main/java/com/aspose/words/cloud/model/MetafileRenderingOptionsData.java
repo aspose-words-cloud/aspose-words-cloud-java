@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * container class for options of metafile rendering.
+ * Container class for options of metafile rendering.
  */
-@ApiModel(description = "container class for options of metafile rendering.")
+@ApiModel(description = "Container class for options of metafile rendering.")
 public class MetafileRenderingOptionsData {
     @SerializedName("EmfPlusDualRenderingMode")
     private String emfPlusDualRenderingMode = null;
@@ -67,10 +67,10 @@ public class MetafileRenderingOptionsData {
     }
 
     /**
-     * Gets or sets determines how EMF+ Dual metafiles should be rendered.
+     * Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
     * @return emfPlusDualRenderingMode
     **/
-    @ApiModelProperty(value = "Gets or sets determines how EMF+ Dual metafiles should be rendered.")
+    @ApiModelProperty(value = "Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.")
     public String getEmfPlusDualRenderingMode() {
         return emfPlusDualRenderingMode;
     }
@@ -85,10 +85,10 @@ public class MetafileRenderingOptionsData {
     }
 
     /**
-     * Gets or sets a value determining whether or not the raster operations should be emulated.
+     * Gets or sets a value indicating whether the raster operations should be emulated.
     * @return emulateRasterOperations
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining whether or not the raster operations should be emulated.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the raster operations should be emulated.")
     public Boolean getEmulateRasterOperations() {
         return emulateRasterOperations;
     }
@@ -103,10 +103,10 @@ public class MetafileRenderingOptionsData {
     }
 
     /**
-     * Gets or sets determines how metafile images should be rendered.
+     * Gets or sets the option that controls how metafile images should be rendered.
     * @return renderingMode
     **/
-    @ApiModelProperty(value = "Gets or sets determines how metafile images should be rendered.")
+    @ApiModelProperty(value = "Gets or sets the option that controls how metafile images should be rendered.")
     public String getRenderingMode() {
         return renderingMode;
     }
@@ -121,11 +121,11 @@ public class MetafileRenderingOptionsData {
     }
 
     /**
-     * Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page.
+     * Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page.
      * The default value is true.
     * @return scaleWmfFontsToMetafileSize
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page. The default value is true.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page. The default value is true.")
     public Boolean getScaleWmfFontsToMetafileSize() {
         return scaleWmfFontsToMetafileSize;
     }
@@ -140,10 +140,10 @@ public class MetafileRenderingOptionsData {
     }
 
     /**
-     * Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.
+     * Gets or sets the flag, that controls how WMF metafiles with embedded EMF metafiles should be rendered.
     * @return useEmfEmbeddedToWmf
     **/
-    @ApiModelProperty(value = "Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.")
+    @ApiModelProperty(value = "Gets or sets the flag, that controls how WMF metafiles with embedded EMF metafiles should be rendered.")
     public Boolean getUseEmfEmbeddedToWmf() {
         return useEmfEmbeddedToWmf;
     }

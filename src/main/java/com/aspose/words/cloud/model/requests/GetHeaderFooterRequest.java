@@ -27,20 +27,25 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for getHeaderFooter operation.
  */
-public class GetHeaderFooterRequest {
+public class GetHeaderFooterRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Header/footer index.
+     * The index of the HeaderFooter object.
      */
     private Integer headerFooterIndex;
 
@@ -65,20 +70,20 @@ public class GetHeaderFooterRequest {
     private String password;
 
     /*
-     * List of types of headers and footers.
+     * The list of HeaderFooter types.
      */
     private String filterByType;
 
     /*
      * Initializes a new instance of the GetHeaderFooterRequest class.
      *
-     * @param String name The document name.
-     * @param Integer headerFooterIndex Header/footer index.
+     * @param String name The filename of the input document.
+     * @param Integer headerFooterIndex The index of the HeaderFooter object.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String filterByType List of types of headers and footers.
+     * @param String filterByType The list of HeaderFooter types.
      */
     public GetHeaderFooterRequest(String name, Integer headerFooterIndex, String folder, String storage, String loadEncoding, String password, String filterByType) {
         this.name = name;
@@ -91,28 +96,28 @@ public class GetHeaderFooterRequest {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Header/footer index.
+     * Gets The index of the HeaderFooter object.
      */
     public Integer getHeaderFooterIndex() {
         return this.headerFooterIndex;
     }
 
     /*
-     * Sets Header/footer index.
+     * Sets The index of the HeaderFooter object.
      */
     public void setHeaderFooterIndex(Integer value) {
         this.headerFooterIndex = value;
@@ -175,16 +180,76 @@ public class GetHeaderFooterRequest {
     }
 
     /*
-     * Gets List of types of headers and footers.
+     * Gets The list of HeaderFooter types.
      */
     public String getFilterByType() {
         return this.filterByType;
     }
 
     /*
-     * Sets List of types of headers and footers.
+     * Sets The list of HeaderFooter types.
      */
     public void setFilterByType(String value) {
         this.filterByType = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getHeaderFooter");
+        }
+
+        // verify the required parameter 'HeaderFooterIndex' is set
+        if (getHeaderFooterIndex() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'HeaderFooterIndex' when calling getHeaderFooter");
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/headersfooters/{headerFooterIndex}";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = apiClient.addParameterToPath(localVarPath, "headerFooterIndex", getHeaderFooterIndex());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "filterByType", getFilterByType());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return HeaderFooterResponse.class;
     }
 }

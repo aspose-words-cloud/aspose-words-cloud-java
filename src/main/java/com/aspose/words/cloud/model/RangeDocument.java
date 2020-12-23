@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Range element.
+ * DTO container with a Range element.
  */
-@ApiModel(description = "Range element.")
+@ApiModel(description = "DTO container with a Range element.")
 public class RangeDocument {
     @SerializedName("DocumentName")
     private String documentName = null;
@@ -55,10 +55,10 @@ public class RangeDocument {
     }
 
     /**
-     * Gets or sets name for new document.
+     * Gets or sets the name for a new document.
     * @return documentName
     **/
-    @ApiModelProperty(value = "Gets or sets name for new document.")
+    @ApiModelProperty(value = "Gets or sets the name for a new document.")
     public String getDocumentName() {
         return documentName;
     }

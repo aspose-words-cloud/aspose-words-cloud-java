@@ -58,10 +58,10 @@ public class XmlColor {
     }
 
     /**
-     * Gets or sets alpha component of color structure.
+     * Gets or sets the Alpha component of color structure.
     * @return alpha
     **/
-    @ApiModelProperty(value = "Gets or sets alpha component of color structure.")
+    @ApiModelProperty(value = "Gets or sets the Alpha component of color structure.")
     public Integer getAlpha() {
         return alpha;
     }
@@ -76,10 +76,10 @@ public class XmlColor {
     }
 
     /**
-     * Gets or sets hTML string color representation.
+     * Gets or sets the HTML string color representation.
     * @return web
     **/
-    @ApiModelProperty(value = "Gets or sets hTML string color representation.")
+    @ApiModelProperty(value = "Gets or sets the HTML string color representation.")
     public String getWeb() {
         return web;
     }

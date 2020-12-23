@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -83,6 +84,8 @@ public class TestConvertDocument  extends TestCase
 
         SaveResponse result = TestInitializer.wordsApi.saveAs(request);
         assertNotNull(result);
+        assertNotNull(result.getSaveResult());
+        assertNotNull(result.getSaveResult().getDestDocument());
     }
 
     /*
@@ -100,10 +103,12 @@ public class TestConvertDocument  extends TestCase
         SaveAsOnlineRequest request = new SaveAsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath()),
             requestSaveOptionsData,
+            null,
+            null,
             null
         );
 
-        File result = TestInitializer.wordsApi.saveAsOnline(request);
+        SaveAsOnlineResponse result = TestInitializer.wordsApi.saveAsOnline(request);
         assertNotNull(result);
     }
 
@@ -137,6 +142,8 @@ public class TestConvertDocument  extends TestCase
 
         SaveResponse result = TestInitializer.wordsApi.saveAs(request);
         assertNotNull(result);
+        assertNotNull(result.getSaveResult());
+        assertNotNull(result.getSaveResult().getDestDocument());
     }
 
     /*
@@ -185,6 +192,49 @@ public class TestConvertDocument  extends TestCase
         );
 
         SaveResponse result = TestInitializer.wordsApi.saveAsTiff(request);
+        assertNotNull(result);
+        assertNotNull(result.getSaveResult());
+        assertNotNull(result.getSaveResult().getDestDocument());
+    }
+
+    /*
+     * Test for converting document to one of the available formats.
+     */
+    @Test
+    public void testSaveAsTiffOnline() throws ApiException, IOException
+    {
+        String localName = "test_multi_pages.docx";
+
+        TiffSaveOptionsData requestSaveOptions = new TiffSaveOptionsData();
+        requestSaveOptions.setSaveFormat("tiff");
+        requestSaveOptions.setFileName(TestInitializer.RemoteTestOut + "/abc.tiff");
+
+        SaveAsTiffOnlineRequest request = new SaveAsTiffOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath()),
+            requestSaveOptions,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        SaveAsTiffOnlineResponse result = TestInitializer.wordsApi.saveAsTiffOnline(request);
         assertNotNull(result);
     }
 

@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.mathObject;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -77,6 +78,27 @@ public class TestMathObject  extends TestCase
 
         OfficeMathObjectsResponse result = TestInitializer.wordsApi.getOfficeMathObjects(request);
         assertNotNull(result);
+        assertNotNull(result.getOfficeMathObjects());
+        assertNotNull(result.getOfficeMathObjects().getList());
+        assertEquals(16, result.getOfficeMathObjects().getList().size());
+        assertEquals("0.0.0.0", result.getOfficeMathObjects().getList().get(0).getNodeId());
+    }
+
+    /*
+     * Test for getting mathObjects online.
+     */
+    @Test
+    public void testGetOfficeMathObjectsOnline() throws ApiException, IOException
+    {
+        GetOfficeMathObjectsOnlineRequest request = new GetOfficeMathObjectsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "",
+            null,
+            null
+        );
+
+        OfficeMathObjectsResponse result = TestInitializer.wordsApi.getOfficeMathObjectsOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -103,6 +125,10 @@ public class TestMathObject  extends TestCase
 
         OfficeMathObjectsResponse result = TestInitializer.wordsApi.getOfficeMathObjects(request);
         assertNotNull(result);
+        assertNotNull(result.getOfficeMathObjects());
+        assertNotNull(result.getOfficeMathObjects().getList());
+        assertEquals(16, result.getOfficeMathObjects().getList().size());
+        assertEquals("0.0.0.0", result.getOfficeMathObjects().getList().get(0).getNodeId());
     }
 
     /*
@@ -129,6 +155,26 @@ public class TestMathObject  extends TestCase
         );
 
         OfficeMathObjectResponse result = TestInitializer.wordsApi.getOfficeMathObject(request);
+        assertNotNull(result);
+        assertNotNull(result.getOfficeMathObject());
+        assertEquals("0.0.0.0", result.getOfficeMathObject().getNodeId());
+    }
+
+    /*
+     * Test for getting mathObject online.
+     */
+    @Test
+    public void testGetOfficeMathObjectOnline() throws ApiException, IOException
+    {
+        GetOfficeMathObjectOnlineRequest request = new GetOfficeMathObjectOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            "",
+            null,
+            null
+        );
+
+        OfficeMathObjectResponse result = TestInitializer.wordsApi.getOfficeMathObjectOnline(request);
         assertNotNull(result);
     }
 
@@ -157,6 +203,8 @@ public class TestMathObject  extends TestCase
 
         OfficeMathObjectResponse result = TestInitializer.wordsApi.getOfficeMathObject(request);
         assertNotNull(result);
+        assertNotNull(result.getOfficeMathObject());
+        assertEquals("0.0.0.0", result.getOfficeMathObject().getNodeId());
     }
 
     /*
@@ -185,6 +233,26 @@ public class TestMathObject  extends TestCase
         );
 
         File result = TestInitializer.wordsApi.renderMathObject(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for rendering mathObject.
+     */
+    @Test
+    public void testRenderMathObjectOnline() throws ApiException, IOException
+    {
+        RenderMathObjectOnlineRequest request = new RenderMathObjectOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "png",
+            0,
+            "",
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.renderMathObjectOnline(request);
         assertNotNull(result);
     }
 
@@ -244,6 +312,27 @@ public class TestMathObject  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteOfficeMathObject(request);
+    }
+
+    /*
+     * Test for deleting mathObject online.
+     */
+    @Test
+    public void testDeleteOfficeMathObjectOnline() throws ApiException, IOException
+    {
+        DeleteOfficeMathObjectOnlineRequest request = new DeleteOfficeMathObjectOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteOfficeMathObjectOnline(request);
+        assertNotNull(result);
     }
 
     /*

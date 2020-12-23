@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents a single document style.
+ * DTO container with a single document style.
  */
-@ApiModel(description = "Represents a single document style.")
+@ApiModel(description = "DTO container with a single document style.")
 public class Style extends LinkElement {
     /**
      * Gets or sets the locale independent style identifier for a built-in style.
@@ -558,8 +558,7 @@ public class Style extends LinkElement {
     }
 
     /**
-     * Gets or sets all aliases of this style. If style has no aliases then empty array of string
-     * is returned.
+     * Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
     * @return aliases
     **/
     @ApiModelProperty(value = "Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.")
@@ -577,10 +576,10 @@ public class Style extends LinkElement {
     }
 
     /**
-     * Gets or sets /sets the name of the style this style is based on.
+     * Gets or sets the name of the style this style is based on.
     * @return baseStyleName
     **/
-    @ApiModelProperty(value = "Gets or sets /sets the name of the style this style is based on.")
+    @ApiModelProperty(value = "Gets or sets the name of the style this style is based on.")
     public String getBaseStyleName() {
         return baseStyleName;
     }
@@ -595,10 +594,10 @@ public class Style extends LinkElement {
     }
 
     /**
-     * Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.
+     * Gets or sets a value indicating whether this style is one of the built-in styles in MS Word.
     * @return builtIn
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this style is one of the built-in styles in MS Word.")
     public Boolean getBuiltIn() {
         return builtIn;
     }
@@ -631,10 +630,10 @@ public class Style extends LinkElement {
     }
 
     /**
-     * Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.
+     * Gets or sets a value indicating whether the style is one of the built-in Heading styles.
     * @return isHeading
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the style is one of the built-in Heading styles.")
     public Boolean getIsHeading() {
         return isHeading;
     }
@@ -649,10 +648,10 @@ public class Style extends LinkElement {
     }
 
     /**
-     * Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
+     * Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
     * @return isQuickStyle
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.")
     public Boolean getIsQuickStyle() {
         return isQuickStyle;
     }
@@ -667,8 +666,7 @@ public class Style extends LinkElement {
     }
 
     /**
-     * Gets or sets the name of the Style linked to this one. Returns Empty string if no styles
-     * are linked.
+     * Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.
     * @return linkedStyleName
     **/
     @ApiModelProperty(value = "Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.")
@@ -704,11 +702,10 @@ public class Style extends LinkElement {
     }
 
     /**
-     * Gets or sets /sets the name of the style to be applied automatically to a new paragraph
-     * inserted after a paragraph formatted with the specified style.
+     * Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
     * @return nextParagraphStyleName
     **/
-    @ApiModelProperty(value = "Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.")
+    @ApiModelProperty(value = "Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.")
     public String getNextParagraphStyleName() {
         return nextParagraphStyleName;
     }

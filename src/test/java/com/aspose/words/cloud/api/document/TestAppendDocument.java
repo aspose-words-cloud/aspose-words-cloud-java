@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -90,6 +91,8 @@ public class TestAppendDocument  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.appendDocument(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestAppendDocument.docx", result.getDocument().getFileName());
     }
 
     /*
@@ -117,10 +120,15 @@ public class TestAppendDocument  extends TestCase
 
         AppendDocumentOnlineRequest request = new AppendDocumentOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
-            requestDocumentList
+            requestDocumentList,
+            null,
+            null,
+            null,
+            null,
+            null
         );
 
-        File result = TestInitializer.wordsApi.appendDocumentOnline(request);
+        AppendDocumentOnlineResponse result = TestInitializer.wordsApi.appendDocumentOnline(request);
         assertNotNull(result);
     }
 }

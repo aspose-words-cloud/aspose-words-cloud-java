@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Base class for all responses.
+ * The base class for all responses.
  */
-@ApiModel(description = "Base class for all responses.")
+@ApiModel(description = "The base class for all responses.")
 public class WordsResponse {
     @SerializedName("RequestId")
     private String requestId = null;
@@ -55,10 +55,10 @@ public class WordsResponse {
     }
 
     /**
-     * Gets or sets request Id.
+     * Gets or sets the request Id.
     * @return requestId
     **/
-    @ApiModelProperty(value = "Gets or sets request Id.")
+    @ApiModelProperty(value = "Gets or sets the request Id.")
     public String getRequestId() {
         return requestId;
     }

@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Table row element.
+ * DTO container with a table row element.
  */
-@ApiModel(description = "Table row element.")
+@ApiModel(description = "DTO container with a table row element.")
 public class TableRowInsert {
     @SerializedName("ColumnsCount")
     private Integer columnsCount = null;
@@ -58,10 +58,10 @@ public class TableRowInsert {
     }
 
     /**
-     * Gets or sets count of columns. Default is 1.
+     * Gets or sets the count of columns. The default value is 1.
     * @return columnsCount
     **/
-    @ApiModelProperty(value = "Gets or sets count of columns. Default is 1.")
+    @ApiModelProperty(value = "Gets or sets the count of columns. The default value is 1.")
     public Integer getColumnsCount() {
         return columnsCount;
     }

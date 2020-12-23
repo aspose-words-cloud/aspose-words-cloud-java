@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/search.
+ * The REST response with a regular expression pattern and a collection of search results.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/search.")
+@ApiModel(description = "The REST response with a regular expression pattern and a collection of search results.")
 public class SearchResponse extends WordsResponse {
     @SerializedName("SearchingPattern")
     private String searchingPattern = null;
@@ -59,10 +58,10 @@ public class SearchResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets a regular expression pattern used to find matches.
+     * Gets or sets the regular expression pattern used to find matches.
     * @return searchingPattern
     **/
-    @ApiModelProperty(value = "Gets or sets a regular expression pattern used to find matches.")
+    @ApiModelProperty(value = "Gets or sets the regular expression pattern used to find matches.")
     public String getSearchingPattern() {
         return searchingPattern;
     }
@@ -77,10 +76,10 @@ public class SearchResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets collection of search results.
+     * Gets or sets the collection of search results.
     * @return searchResults
     **/
-    @ApiModelProperty(value = "Gets or sets collection of search results.")
+    @ApiModelProperty(value = "Gets or sets the collection of search results.")
     public SearchResultsCollection getSearchResults() {
         return searchResults;
     }

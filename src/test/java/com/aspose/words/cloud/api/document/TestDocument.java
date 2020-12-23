@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -76,6 +77,8 @@ public class TestDocument  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.getDocument(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestGetDocument.docx", result.getDocument().getFileName());
     }
 
     /*
@@ -94,5 +97,7 @@ public class TestDocument  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.createDocument(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestCreateDocument.doc", result.getDocument().getFileName());
     }
 }

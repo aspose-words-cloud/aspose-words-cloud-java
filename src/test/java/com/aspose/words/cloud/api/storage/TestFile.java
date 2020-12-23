@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.storage;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -69,6 +70,9 @@ public class TestFile  extends TestCase
 
         FilesUploadResult result = TestInitializer.wordsApi.uploadFile(request);
         assertNotNull(result);
+        assertNotNull(result.getUploaded());
+        assertEquals(1, result.getUploaded().size());
+        assertEquals("TestUploadFile.docx", result.getUploaded().get(0));
     }
 
     /*

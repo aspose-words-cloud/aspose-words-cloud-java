@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.report;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -113,5 +114,7 @@ public class TestBuildReport  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.buildReport(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestBuildReport.docx", result.getDocument().getFileName());
     }
 }

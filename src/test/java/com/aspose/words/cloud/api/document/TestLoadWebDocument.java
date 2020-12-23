@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -75,5 +76,8 @@ public class TestLoadWebDocument  extends TestCase
 
         SaveResponse result = TestInitializer.wordsApi.loadWebDocument(request);
         assertNotNull(result);
+        assertNotNull(result.getSaveResult());
+        assertNotNull(result.getSaveResult().getDestDocument());
+        assertEquals("google.doc", result.getSaveResult().getDestDocument().getHref());
     }
 }

@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Collection of borders.
+ * The collection of borders.
  */
-@ApiModel(description = "Collection of borders.")
+@ApiModel(description = "The collection of borders.")
 public class BordersCollection extends LinkElement {
     @SerializedName("List")
     private List<Border> list = null;
@@ -63,10 +63,10 @@ public class BordersCollection extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of comments.
+     * Gets or sets the collection of comments.
     * @return list
     **/
-    @ApiModelProperty(value = "Gets or sets collection of comments.")
+    @ApiModelProperty(value = "Gets or sets the collection of comments.")
     public List<Border> getList() {
         return list;
     }

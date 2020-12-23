@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.table;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -77,6 +78,27 @@ public class TestTable  extends TestCase
 
         TableLinkCollectionResponse result = TestInitializer.wordsApi.getTables(request);
         assertNotNull(result);
+        assertNotNull(result.getTables());
+        assertNotNull(result.getTables().getTableLinkList());
+        assertEquals(5, result.getTables().getTableLinkList().size());
+        assertEquals("0.0.1", result.getTables().getTableLinkList().get(0).getNodeId());
+    }
+
+    /*
+     * Test for getting tables online.
+     */
+    @Test
+    public void testGetTablesOnline() throws ApiException, IOException
+    {
+        GetTablesOnlineRequest request = new GetTablesOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "",
+            null,
+            null
+        );
+
+        TableLinkCollectionResponse result = TestInitializer.wordsApi.getTablesOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -103,6 +125,10 @@ public class TestTable  extends TestCase
 
         TableLinkCollectionResponse result = TestInitializer.wordsApi.getTables(request);
         assertNotNull(result);
+        assertNotNull(result.getTables());
+        assertNotNull(result.getTables().getTableLinkList());
+        assertEquals(5, result.getTables().getTableLinkList().size());
+        assertEquals("0.0.1", result.getTables().getTableLinkList().get(0).getNodeId());
     }
 
     /*
@@ -129,6 +155,29 @@ public class TestTable  extends TestCase
         );
 
         TableResponse result = TestInitializer.wordsApi.getTable(request);
+        assertNotNull(result);
+        assertNotNull(result.getTable());
+        assertNotNull(result.getTable().getTableRowList());
+        assertEquals(1, result.getTable().getTableRowList().size());
+        assertNotNull(result.getTable().getTableRowList().get(0).getTableCellList());
+        assertEquals(2, result.getTable().getTableRowList().get(0).getTableCellList().size());
+    }
+
+    /*
+     * Test for getting table online.
+     */
+    @Test
+    public void testGetTableOnline() throws ApiException, IOException
+    {
+        GetTableOnlineRequest request = new GetTableOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            1,
+            "",
+            null,
+            null
+        );
+
+        TableResponse result = TestInitializer.wordsApi.getTableOnline(request);
         assertNotNull(result);
     }
 
@@ -157,6 +206,11 @@ public class TestTable  extends TestCase
 
         TableResponse result = TestInitializer.wordsApi.getTable(request);
         assertNotNull(result);
+        assertNotNull(result.getTable());
+        assertNotNull(result.getTable().getTableRowList());
+        assertEquals(1, result.getTable().getTableRowList().size());
+        assertNotNull(result.getTable().getTableRowList().get(0).getTableCellList());
+        assertEquals(2, result.getTable().getTableRowList().get(0).getTableCellList().size());
     }
 
     /*
@@ -186,6 +240,27 @@ public class TestTable  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteTable(request);
+    }
+
+    /*
+     * Test for deleting table online.
+     */
+    @Test
+    public void testDeleteTableOnline() throws ApiException, IOException
+    {
+        DeleteTableOnlineRequest request = new DeleteTableOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            1,
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteTableOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -249,6 +324,36 @@ public class TestTable  extends TestCase
 
         TableResponse result = TestInitializer.wordsApi.insertTable(request);
         assertNotNull(result);
+        assertNotNull(result.getTable());
+        assertNotNull(result.getTable().getTableRowList());
+        assertEquals(4, result.getTable().getTableRowList().size());
+        assertNotNull(result.getTable().getTableRowList().get(0).getTableCellList());
+        assertEquals(5, result.getTable().getTableRowList().get(0).getTableCellList().size());
+    }
+
+    /*
+     * Test for adding table online.
+     */
+    @Test
+    public void testInsertTableOnline() throws ApiException, IOException
+    {
+        TableInsert requestTable = new TableInsert();
+        requestTable.setColumnsCount(5);
+        requestTable.setRowsCount(4);
+
+        InsertTableOnlineRequest request = new InsertTableOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestTable,
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertTableOnlineResponse result = TestInitializer.wordsApi.insertTableOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -283,6 +388,11 @@ public class TestTable  extends TestCase
 
         TableResponse result = TestInitializer.wordsApi.insertTable(request);
         assertNotNull(result);
+        assertNotNull(result.getTable());
+        assertNotNull(result.getTable().getTableRowList());
+        assertEquals(4, result.getTable().getTableRowList().size());
+        assertNotNull(result.getTable().getTableRowList().get(0).getTableCellList());
+        assertEquals(5, result.getTable().getTableRowList().get(0).getTableCellList().size());
     }
 
     /*
@@ -309,6 +419,26 @@ public class TestTable  extends TestCase
         );
 
         TablePropertiesResponse result = TestInitializer.wordsApi.getTableProperties(request);
+        assertNotNull(result);
+        assertNotNull(result.getProperties());
+        assertEquals("Table Grid", result.getProperties().getStyleName());
+    }
+
+    /*
+     * Test for getting document properties online.
+     */
+    @Test
+    public void testGetTablePropertiesOnline() throws ApiException, IOException
+    {
+        GetTablePropertiesOnlineRequest request = new GetTablePropertiesOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            1,
+            "",
+            null,
+            null
+        );
+
+        TablePropertiesResponse result = TestInitializer.wordsApi.getTablePropertiesOnline(request);
         assertNotNull(result);
     }
 
@@ -337,6 +467,8 @@ public class TestTable  extends TestCase
 
         TablePropertiesResponse result = TestInitializer.wordsApi.getTableProperties(request);
         assertNotNull(result);
+        assertNotNull(result.getProperties());
+        assertEquals("Table Grid", result.getProperties().getStyleName());
     }
 
     /*
@@ -357,13 +489,13 @@ public class TestTable  extends TestCase
         requestProperties.setAllowAutoFit(false);
         requestProperties.setBidi(true);
         requestProperties.setBottomPadding((double)1);
-        requestProperties.setCellSpacing((double)2);
+        requestProperties.setCellSpacing((double)2.0);
         requestProperties.setStyleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS);
 
         UpdateTablePropertiesRequest request = new UpdateTablePropertiesRequest(
             remoteFileName,
-            requestProperties,
             1,
+            requestProperties,
             "",
             remoteDataFolder,
             null,
@@ -375,6 +507,41 @@ public class TestTable  extends TestCase
         );
 
         TablePropertiesResponse result = TestInitializer.wordsApi.updateTableProperties(request);
+        assertNotNull(result);
+        assertNotNull(result.getProperties());
+        assertEquals(Boolean.valueOf(false), result.getProperties().getAllowAutoFit());
+        assertEquals(Boolean.valueOf(true), result.getProperties().getBidi());
+        assertEquals(1.0, result.getProperties().getBottomPadding());
+        assertEquals(2.0, result.getProperties().getCellSpacing());
+    }
+
+    /*
+     * Test for updating table properties online.
+     */
+    @Test
+    public void testUpdateTablePropertiesOnline() throws ApiException, IOException
+    {
+        TableProperties requestProperties = new TableProperties();
+        requestProperties.setAlignment(TableProperties.AlignmentEnum.RIGHT);
+        requestProperties.setAllowAutoFit(false);
+        requestProperties.setBidi(true);
+        requestProperties.setBottomPadding((double)1);
+        requestProperties.setCellSpacing((double)2);
+        requestProperties.setStyleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS);
+
+        UpdateTablePropertiesOnlineRequest request = new UpdateTablePropertiesOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestProperties,
+            1,
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateTablePropertiesOnlineResponse result = TestInitializer.wordsApi.updateTablePropertiesOnline(request);
         assertNotNull(result);
     }
 
@@ -395,14 +562,14 @@ public class TestTable  extends TestCase
         requestProperties.setAlignment(TableProperties.AlignmentEnum.RIGHT);
         requestProperties.setAllowAutoFit(false);
         requestProperties.setBidi(true);
-        requestProperties.setBottomPadding((double)1);
-        requestProperties.setCellSpacing((double)2);
+        requestProperties.setBottomPadding((double)1.0);
+        requestProperties.setCellSpacing((double)2.0);
         requestProperties.setStyleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS);
 
         UpdateTablePropertiesRequest request = new UpdateTablePropertiesRequest(
             remoteFileName,
-            requestProperties,
             1,
+            requestProperties,
             null,
             remoteDataFolder,
             null,
@@ -415,6 +582,11 @@ public class TestTable  extends TestCase
 
         TablePropertiesResponse result = TestInitializer.wordsApi.updateTableProperties(request);
         assertNotNull(result);
+        assertNotNull(result.getProperties());
+        assertEquals(Boolean.valueOf(false), result.getProperties().getAllowAutoFit());
+        assertEquals(Boolean.valueOf(true), result.getProperties().getBidi());
+        assertEquals(1.0, result.getProperties().getBottomPadding());
+        assertEquals(2.0, result.getProperties().getCellSpacing());
     }
 
     /*
@@ -441,6 +613,27 @@ public class TestTable  extends TestCase
         );
 
         TableRowResponse result = TestInitializer.wordsApi.getTableRow(request);
+        assertNotNull(result);
+        assertNotNull(result.getRow());
+        assertNotNull(result.getRow().getTableCellList());
+        assertEquals(2, result.getRow().getTableCellList().size());
+    }
+
+    /*
+     * Test for getting table row online.
+     */
+    @Test
+    public void testGetTableRowOnline() throws ApiException, IOException
+    {
+        GetTableRowOnlineRequest request = new GetTableRowOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "tables/1",
+            0,
+            null,
+            null
+        );
+
+        TableRowResponse result = TestInitializer.wordsApi.getTableRowOnline(request);
         assertNotNull(result);
     }
 
@@ -474,6 +667,27 @@ public class TestTable  extends TestCase
     }
 
     /*
+     * Test for deleting table row online.
+     */
+    @Test
+    public void testDeleteTableRowOnline() throws ApiException, IOException
+    {
+        DeleteTableRowOnlineRequest request = new DeleteTableRowOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "tables/1",
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteTableRowOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for adding row.
      */
     @Test
@@ -491,8 +705,8 @@ public class TestTable  extends TestCase
 
         InsertTableRowRequest request = new InsertTableRowRequest(
             remoteFileName,
-            requestRow,
             "sections/0/tables/2",
+            requestRow,
             remoteDataFolder,
             null,
             null,
@@ -503,6 +717,33 @@ public class TestTable  extends TestCase
         );
 
         TableRowResponse result = TestInitializer.wordsApi.insertTableRow(request);
+        assertNotNull(result);
+        assertNotNull(result.getRow());
+        assertNotNull(result.getRow().getTableCellList());
+        assertEquals(5, result.getRow().getTableCellList().size());
+    }
+
+    /*
+     * Test for adding row online.
+     */
+    @Test
+    public void testInsertTableRowOnline() throws ApiException, IOException
+    {
+        TableRowInsert requestRow = new TableRowInsert();
+        requestRow.setColumnsCount(5);
+
+        InsertTableRowOnlineRequest request = new InsertTableRowOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "sections/0/tables/2",
+            requestRow,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertTableRowOnlineResponse result = TestInitializer.wordsApi.insertTableRowOnline(request);
         assertNotNull(result);
     }
 
@@ -531,6 +772,26 @@ public class TestTable  extends TestCase
 
         TableRowFormatResponse result = TestInitializer.wordsApi.getTableRowFormat(request);
         assertNotNull(result);
+        assertNotNull(result.getRowFormat());
+        assertEquals(Boolean.valueOf(true), result.getRowFormat().getAllowBreakAcrossPages());
+    }
+
+    /*
+     * Test for getting row format online.
+     */
+    @Test
+    public void testGetTableRowFormatOnline() throws ApiException, IOException
+    {
+        GetTableRowFormatOnlineRequest request = new GetTableRowFormatOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "sections/0/tables/2",
+            0,
+            null,
+            null
+        );
+
+        TableRowFormatResponse result = TestInitializer.wordsApi.getTableRowFormatOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -549,14 +810,14 @@ public class TestTable  extends TestCase
         TableRowFormat requestFormat = new TableRowFormat();
         requestFormat.setAllowBreakAcrossPages(true);
         requestFormat.setHeadingFormat(true);
-        requestFormat.setHeight((double)10);
-        requestFormat.setHeightRule(TableRowFormat.HeightRuleEnum.AUTO);
+        requestFormat.setHeight((double)10.0);
+        requestFormat.setHeightRule(TableRowFormat.HeightRuleEnum.EXACTLY);
 
         UpdateTableRowFormatRequest request = new UpdateTableRowFormatRequest(
             remoteFileName,
-            requestFormat,
             "sections/0/tables/2",
             0,
+            requestFormat,
             remoteDataFolder,
             null,
             null,
@@ -567,6 +828,38 @@ public class TestTable  extends TestCase
         );
 
         TableRowFormatResponse result = TestInitializer.wordsApi.updateTableRowFormat(request);
+        assertNotNull(result);
+        assertNotNull(result.getRowFormat());
+        assertEquals(Boolean.valueOf(true), result.getRowFormat().getAllowBreakAcrossPages());
+        assertEquals(Boolean.valueOf(true), result.getRowFormat().getHeadingFormat());
+        assertEquals(10.0, result.getRowFormat().getHeight());
+    }
+
+    /*
+     * Test updating row format online.
+     */
+    @Test
+    public void testUpdateTableRowFormatOnline() throws ApiException, IOException
+    {
+        TableRowFormat requestFormat = new TableRowFormat();
+        requestFormat.setAllowBreakAcrossPages(true);
+        requestFormat.setHeadingFormat(true);
+        requestFormat.setHeight((double)10);
+        requestFormat.setHeightRule(TableRowFormat.HeightRuleEnum.AUTO);
+
+        UpdateTableRowFormatOnlineRequest request = new UpdateTableRowFormatOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "sections/0/tables/2",
+            requestFormat,
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateTableRowFormatOnlineResponse result = TestInitializer.wordsApi.updateTableRowFormatOnline(request);
         assertNotNull(result);
     }
 
@@ -594,6 +887,26 @@ public class TestTable  extends TestCase
         );
 
         TableCellResponse result = TestInitializer.wordsApi.getTableCell(request);
+        assertNotNull(result);
+        assertNotNull(result.getCell());
+        assertEquals("0.0.5.0.0", result.getCell().getNodeId());
+    }
+
+    /*
+     * Test for getting table cell online.
+     */
+    @Test
+    public void testGetTableCellOnline() throws ApiException, IOException
+    {
+        GetTableCellOnlineRequest request = new GetTableCellOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "sections/0/tables/2/rows/0",
+            0,
+            null,
+            null
+        );
+
+        TableCellResponse result = TestInitializer.wordsApi.getTableCellOnline(request);
         assertNotNull(result);
     }
 
@@ -627,6 +940,27 @@ public class TestTable  extends TestCase
     }
 
     /*
+     * Test for deleting cell online.
+     */
+    @Test
+    public void testDeleteTableCellOnline() throws ApiException, IOException
+    {
+        DeleteTableCellOnlineRequest request = new DeleteTableCellOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "sections/0/tables/2/rows/0",
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteTableCellOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for adding cell.
      */
     @Test
@@ -643,8 +977,8 @@ public class TestTable  extends TestCase
 
         InsertTableCellRequest request = new InsertTableCellRequest(
             remoteFileName,
-            requestCell,
             "sections/0/tables/2/rows/0",
+            requestCell,
             remoteDataFolder,
             null,
             null,
@@ -655,6 +989,31 @@ public class TestTable  extends TestCase
         );
 
         TableCellResponse result = TestInitializer.wordsApi.insertTableCell(request);
+        assertNotNull(result);
+        assertNotNull(result.getCell());
+        assertEquals("0.0.5.0.3", result.getCell().getNodeId());
+    }
+
+    /*
+     * Test for adding cell online.
+     */
+    @Test
+    public void testInsertTableCellOnline() throws ApiException, IOException
+    {
+        TableCellInsert requestCell = new TableCellInsert();
+
+        InsertTableCellOnlineRequest request = new InsertTableCellOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "sections/0/tables/2/rows/0",
+            requestCell,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertTableCellOnlineResponse result = TestInitializer.wordsApi.insertTableCellOnline(request);
         assertNotNull(result);
     }
 
@@ -683,6 +1042,26 @@ public class TestTable  extends TestCase
 
         TableCellFormatResponse result = TestInitializer.wordsApi.getTableCellFormat(request);
         assertNotNull(result);
+        assertNotNull(result.getCellFormat());
+        assertEquals(Boolean.valueOf(true), result.getCellFormat().getWrapText());
+    }
+
+    /*
+     * Test for getting cell format online.
+     */
+    @Test
+    public void testGetTableCellFormatOnline() throws ApiException, IOException
+    {
+        GetTableCellFormatOnlineRequest request = new GetTableCellFormatOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "sections/0/tables/2/rows/0",
+            0,
+            null,
+            null
+        );
+
+        TableCellFormatResponse result = TestInitializer.wordsApi.getTableCellFormatOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -699,16 +1078,16 @@ public class TestTable  extends TestCase
         );
 
         TableCellFormat requestFormat = new TableCellFormat();
-        requestFormat.setBottomPadding((double)5);
+        requestFormat.setBottomPadding((double)5.0);
         requestFormat.setFitText(true);
         requestFormat.setHorizontalMerge(TableCellFormat.HorizontalMergeEnum.FIRST);
         requestFormat.setWrapText(true);
 
         UpdateTableCellFormatRequest request = new UpdateTableCellFormatRequest(
             remoteFileName,
-            requestFormat,
             "sections/0/tables/2/rows/0",
             0,
+            requestFormat,
             remoteDataFolder,
             null,
             null,
@@ -719,6 +1098,38 @@ public class TestTable  extends TestCase
         );
 
         TableCellFormatResponse result = TestInitializer.wordsApi.updateTableCellFormat(request);
+        assertNotNull(result);
+        assertNotNull(result.getCellFormat());
+        assertEquals(5.0, result.getCellFormat().getBottomPadding());
+        assertEquals(Boolean.valueOf(true), result.getCellFormat().getFitText());
+        assertEquals(Boolean.valueOf(true), result.getCellFormat().getWrapText());
+    }
+
+    /*
+     * Test for updating cell format online.
+     */
+    @Test
+    public void testUpdateTableCellFormatOnline() throws ApiException, IOException
+    {
+        TableCellFormat requestFormat = new TableCellFormat();
+        requestFormat.setBottomPadding((double)5);
+        requestFormat.setFitText(true);
+        requestFormat.setHorizontalMerge(TableCellFormat.HorizontalMergeEnum.FIRST);
+        requestFormat.setWrapText(true);
+
+        UpdateTableCellFormatOnlineRequest request = new UpdateTableCellFormatOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "sections/0/tables/2/rows/0",
+            requestFormat,
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateTableCellFormatOnlineResponse result = TestInitializer.wordsApi.updateTableCellFormatOnline(request);
         assertNotNull(result);
     }
 
@@ -748,6 +1159,26 @@ public class TestTable  extends TestCase
         );
 
         File result = TestInitializer.wordsApi.renderTable(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for table rendering.
+     */
+    @Test
+    public void testRenderTableOnline() throws ApiException, IOException
+    {
+        RenderTableOnlineRequest request = new RenderTableOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "png",
+            0,
+            "",
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.renderTableOnline(request);
         assertNotNull(result);
     }
 

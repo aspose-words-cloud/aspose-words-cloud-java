@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * container class for doc/dot save options.
+ * Container class for doc/dot save options.
  */
-@ApiModel(description = "container class for doc/dot save options.")
+@ApiModel(description = "Container class for doc/dot save options.")
 public class DocSaveOptionsData extends SaveOptionsData {
     @SerializedName("AlwaysCompressMetafiles")
     private Boolean alwaysCompressMetafiles = null;
@@ -64,11 +64,11 @@ public class DocSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets When false, small metafiles are not compressed for performance reason.
-     * Default value is true, all metafiles are compressed regardless of its size.
+     * Gets or sets a value indicating when False, that small metafiles are not compressed for performance reason.
+     * The default value is true, all metafiles are compressed regardless of its size.
     * @return alwaysCompressMetafiles
     **/
-    @ApiModelProperty(value = "Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.")
+    @ApiModelProperty(value = "Gets or sets a value indicating when False, that small metafiles are not compressed for performance reason. The default value is true, all metafiles are compressed regardless of its size.")
     public Boolean getAlwaysCompressMetafiles() {
         return alwaysCompressMetafiles;
     }
@@ -83,10 +83,10 @@ public class DocSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets password.
+     * Gets or sets the password.
     * @return password
     **/
-    @ApiModelProperty(value = "Gets or sets password.")
+    @ApiModelProperty(value = "Gets or sets the password.")
     public String getPassword() {
         return password;
     }
@@ -101,11 +101,11 @@ public class DocSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets When false, PictureBullet data is not saved to output document.
-     * Default value is true.
+     * Gets or sets a value indicating when False, that PictureBullet data is not saved to the output document.
+     * The default value is true.
     * @return savePictureBullet
     **/
-    @ApiModelProperty(value = "Gets or sets When false, PictureBullet data is not saved to output document. Default value is true.")
+    @ApiModelProperty(value = "Gets or sets a value indicating when False, that PictureBullet data is not saved to the output document. The default value is true.")
     public Boolean getSavePictureBullet() {
         return savePictureBullet;
     }
@@ -120,10 +120,10 @@ public class DocSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets determine whether or not save RoutingSlip data saved to output document.
+     * Gets or sets a value indicating whether to save RoutingSlip data to output document.
     * @return saveRoutingSlip
     **/
-    @ApiModelProperty(value = "Gets or sets determine whether or not save RoutingSlip data saved to output document.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to save RoutingSlip data to output document.")
     public Boolean getSaveRoutingSlip() {
         return saveRoutingSlip;
     }

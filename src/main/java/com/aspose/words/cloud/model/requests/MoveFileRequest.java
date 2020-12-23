@@ -27,13 +27,18 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for moveFile operation.
  */
-public class MoveFileRequest {
+public class MoveFileRequest implements RequestIfc {
     /*
      * Destination file path e.g. '/dest.ext'.
      */
@@ -144,5 +149,63 @@ public class MoveFileRequest {
      */
     public void setVersionId(String value) {
         this.versionId = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'DestPath' is set
+        if (getDestPath() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DestPath' when calling moveFile");
+        }
+
+        // verify the required parameter 'SrcPath' is set
+        if (getSrcPath() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SrcPath' when calling moveFile");
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/storage/file/move/{srcPath}";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "srcPath", getSrcPath());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "destPath", getDestPath());
+        apiClient.addParameterToQuery(localVarQueryParams, "srcStorageName", getSrcStorageName());
+        apiClient.addParameterToQuery(localVarQueryParams, "destStorageName", getDestStorageName());
+        apiClient.addParameterToQuery(localVarQueryParams, "versionId", getVersionId());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return null;
     }
 }

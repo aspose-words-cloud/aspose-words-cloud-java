@@ -37,8 +37,8 @@ public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;
 
-  private String apiKey;
-  private String apiKeyPrefix;
+  private String clientSecret;
+  private String clientSecretPrefix;
 
   public ApiKeyAuth(String location, String paramName) {
     this.location = location;
@@ -53,33 +53,33 @@ public class ApiKeyAuth implements Authentication {
     return paramName;
   }
 
-  public String getApiKey() {
-    return apiKey;
+  public String getClientSecret() {
+    return clientSecret;
   }
 
-  public void setApiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public void setClientSecret(String clientSecret) {
+    this.clientSecret = clientSecret;
   }
 
-  public String getApiKeyPrefix() {
-    return apiKeyPrefix;
+  public String getClientSecretPrefix() {
+    return clientSecretPrefix;
   }
 
-  public void setApiKeyPrefix(String apiKeyPrefix) {
-    this.apiKeyPrefix = apiKeyPrefix;
+  public void setClientSecretPrefix(String clientSecretPrefix) {
+    this.clientSecretPrefix = clientSecretPrefix;
   }
 
   @Override
   public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams) {
-    if (apiKey == null) {
+    if (clientSecret == null) {
       return;
     }
     String value;
-    if (apiKeyPrefix != null) {
-      value = apiKeyPrefix + " " + apiKey;
+    if (clientSecretPrefix != null) {
+      value = clientSecretPrefix + " " + clientSecret;
     } 
     else {
-      value = apiKey;
+      value = clientSecret;
     }
     if ("query".equals(location)) {
       queryParams.add(new Pair(paramName, value));

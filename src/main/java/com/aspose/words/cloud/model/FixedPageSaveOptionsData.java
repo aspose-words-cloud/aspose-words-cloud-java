@@ -73,11 +73,11 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets a value determining how colors are rendered.
+     * Gets or sets the value determining how colors are rendered.
      * { Normal | Grayscale}.
     * @return colorMode
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.")
+    @ApiModelProperty(value = "Gets or sets the value determining how colors are rendered. { Normal | Grayscale}.")
     public String getColorMode() {
         return colorMode;
     }
@@ -92,10 +92,10 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets determines the quality of the JPEG images inside PDF document.
+     * Gets or sets the quality of the JPEG images inside PDF document.
     * @return jpegQuality
     **/
-    @ApiModelProperty(value = "Gets or sets determines the quality of the JPEG images inside PDF document.")
+    @ApiModelProperty(value = "Gets or sets the quality of the JPEG images inside PDF document.")
     public Integer getJpegQuality() {
         return jpegQuality;
     }
@@ -110,10 +110,10 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets allows to specify metafile rendering options.
+     * Gets or sets the metafile rendering options.
     * @return metafileRenderingOptions
     **/
-    @ApiModelProperty(value = "Gets or sets allows to specify metafile rendering options.")
+    @ApiModelProperty(value = "Gets or sets the metafile rendering options.")
     public MetafileRenderingOptionsData getMetafileRenderingOptions() {
         return metafileRenderingOptions;
     }
@@ -128,10 +128,10 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets indicates the symbol set that is used to represent numbers while rendering to fixed page formats.
+     * Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
     * @return numeralFormat
     **/
-    @ApiModelProperty(value = "Gets or sets indicates the symbol set that is used to represent numbers while rendering to fixed page formats.")
+    @ApiModelProperty(value = "Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.")
     public String getNumeralFormat() {
         return numeralFormat;
     }
@@ -146,12 +146,12 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets flag indicates whether it is required to optimize output of XPS.
+     * Gets or sets a value indicating whether it is required to optimize output of XPS.
      * If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated.
-     * Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.
+     * Note: The accuracy of the content display may be affected if this property is set to true.. The default value is false.
     * @return optimizeOutput
     **/
-    @ApiModelProperty(value = "Gets or sets flag indicates whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.. The default value is false.")
     public Boolean getOptimizeOutput() {
         return optimizeOutput;
     }
@@ -166,10 +166,10 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets determines number of pages to render.
+     * Gets or sets the number of pages to render.
     * @return pageCount
     **/
-    @ApiModelProperty(value = "Gets or sets determines number of pages to render.")
+    @ApiModelProperty(value = "Gets or sets the number of pages to render.")
     public Integer getPageCount() {
         return pageCount;
     }
@@ -184,10 +184,10 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets determines 0-based index of the first page to render.
+     * Gets or sets the 0-based index of the first page to render.
     * @return pageIndex
     **/
-    @ApiModelProperty(value = "Gets or sets determines 0-based index of the first page to render.")
+    @ApiModelProperty(value = "Gets or sets the 0-based index of the first page to render.")
     public Integer getPageIndex() {
         return pageIndex;
     }

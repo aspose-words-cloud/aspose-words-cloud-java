@@ -58,10 +58,10 @@ public class LoadWebDocumentData {
     }
 
     /**
-     * Gets or sets web document url.
+     * Gets or sets the web document URL.
     * @return loadingDocumentUrl
     **/
-    @ApiModelProperty(value = "Gets or sets web document url.")
+    @ApiModelProperty(value = "Gets or sets the web document URL.")
     public String getLoadingDocumentUrl() {
         return loadingDocumentUrl;
     }
@@ -76,10 +76,10 @@ public class LoadWebDocumentData {
     }
 
     /**
-     * Gets or sets save options.
+     * Gets or sets the save options.
     * @return saveOptions
     **/
-    @ApiModelProperty(value = "Gets or sets save options.")
+    @ApiModelProperty(value = "Gets or sets the save options.")
     public SaveOptionsData getSaveOptions() {
         return saveOptions;
     }

@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -66,6 +67,9 @@ public class TestClassification  extends TestCase
 
         ClassificationResponse result = TestInitializer.wordsApi.classify(request);
         assertNotNull(result);
+        assertEquals("Science", result.getBestClassName());
+        assertNotNull(result.getBestResults());
+        assertEquals(3, result.getBestResults().size());
     }
 
     /*
@@ -92,6 +96,27 @@ public class TestClassification  extends TestCase
         );
 
         ClassificationResponse result = TestInitializer.wordsApi.classifyDocument(request);
+        assertNotNull(result);
+        assertEquals("Hobbies_&_Interests", result.getBestClassName());
+        assertNotNull(result.getBestResults());
+        assertEquals(3, result.getBestResults().size());
+    }
+
+    /*
+     * Test for document classification online.
+     */
+    @Test
+    public void testClassifyDocumentOnline() throws ApiException, IOException
+    {
+        ClassifyDocumentOnlineRequest request = new ClassifyDocumentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null,
+            "3",
+            null
+        );
+
+        ClassificationResponse result = TestInitializer.wordsApi.classifyDocumentOnline(request);
         assertNotNull(result);
     }
 }

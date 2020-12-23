@@ -58,10 +58,10 @@ public class DocumentEntryList {
     }
 
     /**
-     * Gets or sets parameter that indicates to apply headers and footers from base document to appending documents. Default is true.
+     * Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
     * @return applyBaseDocumentHeadersAndFootersToAppendingDocuments
     **/
-    @ApiModelProperty(value = "Gets or sets parameter that indicates to apply headers and footers from base document to appending documents. Default is true.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.")
     public Boolean getApplyBaseDocumentHeadersAndFootersToAppendingDocuments() {
         return applyBaseDocumentHeadersAndFootersToAppendingDocuments;
     }
@@ -84,10 +84,10 @@ public class DocumentEntryList {
     }
 
     /**
-     * Gets or sets list of documents.
+     * Gets or sets the list of documents.
     * @return documentEntries
     **/
-    @ApiModelProperty(value = "Gets or sets list of documents.")
+    @ApiModelProperty(value = "Gets or sets the list of documents.")
     public List<DocumentEntry> getDocumentEntries() {
         return documentEntries;
     }

@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Field.
+ * DTO container with a field.
  */
-@ApiModel(description = "Field.")
+@ApiModel(description = "DTO container with a field.")
 public class Field extends FieldLink {
     @SerializedName("LocaleId")
     private String localeId = null;
@@ -58,10 +58,10 @@ public class Field extends FieldLink {
     }
 
     /**
-     * Gets or sets LCID of the field.
+     * Gets or sets the LCID of the field.
     * @return localeId
     **/
-    @ApiModelProperty(value = "Gets or sets LCID of the field.")
+    @ApiModelProperty(value = "Gets or sets the LCID of the field.")
     public String getLocaleId() {
         return localeId;
     }
@@ -76,10 +76,10 @@ public class Field extends FieldLink {
     }
 
     /**
-     * Gets or sets field result.
+     * Gets or sets the field result.
     * @return result
     **/
-    @ApiModelProperty(value = "Gets or sets field result.")
+    @ApiModelProperty(value = "Gets or sets the field result.")
     public String getResult() {
         return result;
     }

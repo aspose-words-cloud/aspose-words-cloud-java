@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.lists;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -76,6 +77,26 @@ public class TestLists  extends TestCase
 
         ListsResponse result = TestInitializer.wordsApi.getLists(request);
         assertNotNull(result);
+        assertNotNull(result.getLists());
+        assertNotNull(result.getLists().getListInfo());
+        assertEquals(2, result.getLists().getListInfo().size());
+        assertEquals(Integer.valueOf(1), result.getLists().getListInfo().get(0).getListId());
+    }
+
+    /*
+     * Test for getting lists from document online.
+     */
+    @Test
+    public void testGetListsOnline() throws ApiException, IOException
+    {
+        GetListsOnlineRequest request = new GetListsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        ListsResponse result = TestInitializer.wordsApi.getListsOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -102,6 +123,25 @@ public class TestLists  extends TestCase
 
         ListResponse result = TestInitializer.wordsApi.getList(request);
         assertNotNull(result);
+        assertNotNull(result.getList());
+        assertEquals(Integer.valueOf(1), result.getList().getListId());
+    }
+
+    /*
+     * Test for getting list from document online.
+     */
+    @Test
+    public void testGetListOnline() throws ApiException, IOException
+    {
+        GetListOnlineRequest request = new GetListOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            1,
+            null,
+            null
+        );
+
+        ListResponse result = TestInitializer.wordsApi.getListOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -122,8 +162,8 @@ public class TestLists  extends TestCase
 
         UpdateListRequest request = new UpdateListRequest(
             remoteFileName,
-            requestListUpdate,
             1,
+            requestListUpdate,
             remoteDataFolder,
             null,
             null,
@@ -135,6 +175,33 @@ public class TestLists  extends TestCase
 
         ListResponse result = TestInitializer.wordsApi.updateList(request);
         assertNotNull(result);
+    }
+
+    /*
+     * Test for updating list from document online.
+     */
+    @Test
+    public void testUpdateListOnline() throws ApiException, IOException
+    {
+        ListUpdate requestListUpdate = new ListUpdate();
+        requestListUpdate.setIsRestartAtEachSection(true);
+
+        UpdateListOnlineRequest request = new UpdateListOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            1,
+            requestListUpdate,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateListOnlineResponse result = TestInitializer.wordsApi.updateListOnline(request);
+        assertNotNull(result);
+        assertNotNull(result.getModel().getList());
+        assertEquals(Integer.valueOf(1), result.getModel().getList().getListId());
+        assertEquals(Boolean.valueOf(true), result.getModel().getList().getIsRestartAtEachSection());
     }
 
     /*
@@ -155,9 +222,9 @@ public class TestLists  extends TestCase
 
         UpdateListLevelRequest request = new UpdateListLevelRequest(
             remoteFileName,
+            1,
+            1,
             requestListUpdate,
-            1,
-            1,
             remoteDataFolder,
             null,
             null,
@@ -169,6 +236,36 @@ public class TestLists  extends TestCase
 
         ListResponse result = TestInitializer.wordsApi.updateListLevel(request);
         assertNotNull(result);
+    }
+
+    /*
+     * Test for updating list level from document online.
+     */
+    @Test
+    public void testUpdateListLevelOnline() throws ApiException, IOException
+    {
+        ListLevelUpdate requestListUpdate = new ListLevelUpdate();
+        requestListUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
+
+        UpdateListLevelOnlineRequest request = new UpdateListLevelOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            1,
+            requestListUpdate,
+            1,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateListLevelOnlineResponse result = TestInitializer.wordsApi.updateListLevelOnline(request);
+        assertNotNull(result);
+        assertNotNull(result.getModel().getList());
+        assertNotNull(result.getModel().getList().getListLevels());
+        assertNotNull(result.getModel().getList().getListLevels().getListLevel());
+        assertEquals(9, result.getModel().getList().getListLevels().getListLevel().size());
+
     }
 
     /*
@@ -200,6 +297,31 @@ public class TestLists  extends TestCase
         );
 
         ListResponse result = TestInitializer.wordsApi.insertList(request);
+        assertNotNull(result);
+        assertNotNull(result.getList());
+        assertEquals(Integer.valueOf(3), result.getList().getListId());
+    }
+
+    /*
+     * Test for inserting list from document online.
+     */
+    @Test
+    public void testInsertListOnline() throws ApiException, IOException
+    {
+        ListInsert requestListInsert = new ListInsert();
+        requestListInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
+
+        InsertListOnlineRequest request = new InsertListOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestListInsert,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertListOnlineResponse result = TestInitializer.wordsApi.insertListOnline(request);
         assertNotNull(result);
     }
 }

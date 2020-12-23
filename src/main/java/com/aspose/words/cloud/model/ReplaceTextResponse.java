@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Response for "Replace text" action.
+ * The REST response with a number of occurrences of the captured text in the document.
  */
-@ApiModel(description = "Response for \"Replace text\" action.")
+@ApiModel(description = "The REST response with a number of occurrences of the captured text in the document.")
 public class ReplaceTextResponse extends WordsResponse {
     @SerializedName("DocumentLink")
     private FileLink documentLink = null;
@@ -58,10 +58,10 @@ public class ReplaceTextResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets link to the document.
+     * Gets or sets the link to the document.
     * @return documentLink
     **/
-    @ApiModelProperty(value = "Gets or sets link to the document.")
+    @ApiModelProperty(value = "Gets or sets the link to the document.")
     public FileLink getDocumentLink() {
         return documentLink;
     }
@@ -76,10 +76,10 @@ public class ReplaceTextResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets number of occurrences of the captured text in the document.
+     * Gets or sets the number of occurrences of the captured text in the document.
     * @return matches
     **/
-    @ApiModelProperty(value = "Gets or sets number of occurrences of the captured text in the document.")
+    @ApiModelProperty(value = "Gets or sets the number of occurrences of the captured text in the document.")
     public Integer getMatches() {
         return matches;
     }

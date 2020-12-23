@@ -48,7 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for markdown save options.")
 public class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
     /**
-     * Gets or sets a value that specifies how to align contents in tables when exporting into the Markdown format.
+     * Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format.
      * The default value is Auto.
      */
     @JsonAdapter(TableContentAlignmentEnum.Adapter.class)
@@ -104,11 +104,11 @@ public class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
     }
 
     /**
-     * Gets or sets a value that specifies how to align contents in tables when exporting into the Markdown format.
+     * Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format.
      * The default value is Auto.
     * @return tableContentAlignment
     **/
-    @ApiModelProperty(value = "Gets or sets a value that specifies how to align contents in tables when exporting into the Markdown format. The default value is Auto.")
+    @ApiModelProperty(value = "Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format. The default value is Auto.")
     public TableContentAlignmentEnum getTableContentAlignment() {
         return tableContentAlignment;
     }

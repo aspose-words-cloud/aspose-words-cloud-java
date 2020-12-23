@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/range/{0}/{1}/.
+ * The REST response with a range's text.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/range/{0}/{1}/.")
+@ApiModel(description = "The REST response with a range's text.")
 public class RangeTextResponse extends WordsResponse {
     @SerializedName("Text")
     private String text = null;
@@ -56,10 +55,10 @@ public class RangeTextResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets text from range.
+     * Gets or sets the range's text.
     * @return text
     **/
-    @ApiModelProperty(value = "Gets or sets text from range.")
+    @ApiModelProperty(value = "Gets or sets the range's text.")
     public String getText() {
         return text;
     }

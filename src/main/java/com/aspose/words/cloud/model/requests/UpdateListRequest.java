@@ -27,27 +27,32 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for updateList operation.
  */
-public class UpdateListRequest {
+public class UpdateListRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
+
+    /*
+     * The list Id.
+     */
+    private Integer listId;
 
     /*
      * List object.
      */
     private ListUpdate listUpdate;
-
-    /*
-     * List unique identifier.
-     */
-    private Integer listId;
 
     /*
      * Original document folder.
@@ -87,9 +92,9 @@ public class UpdateListRequest {
     /*
      * Initializes a new instance of the UpdateListRequest class.
      *
-     * @param String name The document name.
+     * @param String name The filename of the input document.
+     * @param Integer listId The list Id.
      * @param ListUpdate listUpdate List object.
-     * @param Integer listId List unique identifier.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -98,10 +103,10 @@ public class UpdateListRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateListRequest(String name, ListUpdate listUpdate, Integer listId, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateListRequest(String name, Integer listId, ListUpdate listUpdate, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.listUpdate = listUpdate;
         this.listId = listId;
+        this.listUpdate = listUpdate;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -112,17 +117,31 @@ public class UpdateListRequest {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
+    }
+
+    /*
+     * Gets The list Id.
+     */
+    public Integer getListId() {
+        return this.listId;
+    }
+
+    /*
+     * Sets The list Id.
+     */
+    public void setListId(Integer value) {
+        this.listId = value;
     }
 
     /*
@@ -137,20 +156,6 @@ public class UpdateListRequest {
      */
     public void setListUpdate(ListUpdate value) {
         this.listUpdate = value;
-    }
-
-    /*
-     * Gets List unique identifier.
-     */
-    public Integer getListId() {
-        return this.listId;
-    }
-
-    /*
-     * Sets List unique identifier.
-     */
-    public void setListId(Integer value) {
-        this.listId = value;
     }
 
     /*
@@ -249,5 +254,84 @@ public class UpdateListRequest {
      */
     public void setRevisionDateTime(String value) {
         this.revisionDateTime = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateList");
+        }
+
+        // verify the required parameter 'ListId' is set
+        if (getListId() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListId' when calling updateList");
+        }
+
+        // verify the required parameter 'ListUpdate' is set
+        if (getListUpdate() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListUpdate' when calling updateList");
+        }
+
+        Object localVarPostBody = getListUpdate();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/lists/{listId}";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = apiClient.addParameterToPath(localVarPath, "listId", getListId());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return ListResponse.class;
     }
 }

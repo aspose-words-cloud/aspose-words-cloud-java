@@ -64,10 +64,10 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.
+     * Gets or sets the level in the XPS document outline at which to display Word bookmarks.
     * @return bookmarksOutlineLevel
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.")
+    @ApiModelProperty(value = "Gets or sets the level in the XPS document outline at which to display Word bookmarks.")
     public Integer getBookmarksOutlineLevel() {
         return bookmarksOutlineLevel;
     }
@@ -82,10 +82,10 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.
+     * Gets or sets the number of heading levels (paragraphs formatted with the Heading styles) to include in the XPS document outline.
     * @return headingsOutlineLevels
     **/
-    @ApiModelProperty(value = "Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.")
+    @ApiModelProperty(value = "Gets or sets the number of heading levels (paragraphs formatted with the Heading styles) to include in the XPS document outline.")
     public Integer getHeadingsOutlineLevels() {
         return headingsOutlineLevels;
     }
@@ -100,10 +100,10 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets allows to specify outline options.
+     * Gets or sets the outline options.
     * @return outlineOptions
     **/
-    @ApiModelProperty(value = "Gets or sets allows to specify outline options.")
+    @ApiModelProperty(value = "Gets or sets the outline options.")
     public OutlineOptionsData getOutlineOptions() {
         return outlineOptions;
     }
@@ -118,10 +118,10 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets determines whether the document should be saved using a booklet printing layout.
+     * Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
     * @return useBookFoldPrintingSettings
     **/
-    @ApiModelProperty(value = "Gets or sets determines whether the document should be saved using a booklet printing layout.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the document should be saved using a booklet printing layout.")
     public Boolean getUseBookFoldPrintingSettings() {
         return useBookFoldPrintingSettings;
     }

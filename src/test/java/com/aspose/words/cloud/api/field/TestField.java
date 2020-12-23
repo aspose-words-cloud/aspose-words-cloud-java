@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.field;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -79,6 +80,27 @@ public class TestField  extends TestCase
 
         FieldsResponse result = TestInitializer.wordsApi.getFields(request);
         assertNotNull(result);
+        assertNotNull(result.getFields());
+        assertNotNull(result.getFields().getList());
+        assertEquals(1, result.getFields().getList().size());
+        assertEquals("1", result.getFields().getList().get(0).getResult());
+    }
+
+    /*
+     * Test for getting fields online.
+     */
+    @Test
+    public void testGetFieldsOnline() throws ApiException, IOException
+    {
+        GetFieldsOnlineRequest request = new GetFieldsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
+            "sections/0",
+            null,
+            null
+        );
+
+        FieldsResponse result = TestInitializer.wordsApi.getFieldsOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -106,6 +128,10 @@ public class TestField  extends TestCase
 
         FieldsResponse result = TestInitializer.wordsApi.getFields(request);
         assertNotNull(result);
+        assertNotNull(result.getFields());
+        assertNotNull(result.getFields().getList());
+        assertEquals(1, result.getFields().getList().size());
+        assertEquals("1", result.getFields().getList().get(0).getResult());
     }
 
     /*
@@ -133,6 +159,26 @@ public class TestField  extends TestCase
         );
 
         FieldResponse result = TestInitializer.wordsApi.getField(request);
+        assertNotNull(result);
+        assertNotNull(result.getField());
+        assertEquals("1", result.getField().getResult());
+    }
+
+    /*
+     * Test for getting field by index online.
+     */
+    @Test
+    public void testGetFieldOnline() throws ApiException, IOException
+    {
+        GetFieldOnlineRequest request = new GetFieldOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
+            0,
+            "sections/0/paragraphs/0",
+            null,
+            null
+        );
+
+        FieldResponse result = TestInitializer.wordsApi.getFieldOnline(request);
         assertNotNull(result);
     }
 
@@ -162,6 +208,8 @@ public class TestField  extends TestCase
 
         FieldResponse result = TestInitializer.wordsApi.getField(request);
         assertNotNull(result);
+        assertNotNull(result.getField());
+        assertEquals("1", result.getField().getResult());
     }
 
     /*
@@ -196,6 +244,34 @@ public class TestField  extends TestCase
         );
 
         FieldResponse result = TestInitializer.wordsApi.insertField(request);
+        assertNotNull(result);
+        assertNotNull(result.getField());
+        assertEquals("{ NUMPAGES }", result.getField().getFieldCode());
+        assertEquals("0.0.0.1", result.getField().getNodeId());
+    }
+
+    /*
+     * Test for putting field online.
+     */
+    @Test
+    public void testInsertFieldOnline() throws ApiException, IOException
+    {
+        FieldInsert requestField = new FieldInsert();
+        requestField.setFieldCode("{ NUMPAGES }");
+
+        InsertFieldOnlineRequest request = new InsertFieldOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
+            requestField,
+            "sections/0/paragraphs/0",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertFieldOnlineResponse result = TestInitializer.wordsApi.insertFieldOnline(request);
         assertNotNull(result);
     }
 
@@ -232,6 +308,9 @@ public class TestField  extends TestCase
 
         FieldResponse result = TestInitializer.wordsApi.insertField(request);
         assertNotNull(result);
+        assertNotNull(result.getField());
+        assertEquals("{ NUMPAGES }", result.getField().getFieldCode());
+        assertEquals("5.0.22.0", result.getField().getNodeId());
     }
 
     /*
@@ -253,8 +332,8 @@ public class TestField  extends TestCase
 
         UpdateFieldRequest request = new UpdateFieldRequest(
             remoteFileName,
-            requestField,
             0,
+            requestField,
             "sections/0/paragraphs/0",
             remoteDataFolder,
             null,
@@ -266,6 +345,34 @@ public class TestField  extends TestCase
         );
 
         FieldResponse result = TestInitializer.wordsApi.updateField(request);
+        assertNotNull(result);
+        assertNotNull(result.getField());
+        assertEquals("{ NUMPAGES }", result.getField().getFieldCode());
+        assertEquals("0.0.0.0", result.getField().getNodeId());
+    }
+
+    /*
+     * Test for posting field online.
+     */
+    @Test
+    public void testUpdateFieldOnline() throws ApiException, IOException
+    {
+        FieldUpdate requestField = new FieldUpdate();
+        requestField.setFieldCode("{ NUMPAGES }");
+
+        UpdateFieldOnlineRequest request = new UpdateFieldOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
+            requestField,
+            0,
+            "sections/0/paragraphs/0",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateFieldOnlineResponse result = TestInitializer.wordsApi.updateFieldOnline(request);
         assertNotNull(result);
     }
 
@@ -301,6 +408,34 @@ public class TestField  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.insertPageNumbers(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestInsertPageNumbers.docx", result.getDocument().getFileName());
+    }
+
+    /*
+     * Test for inserting page numbers field online.
+     */
+    @Test
+    public void testInsertPageNumbersOnline() throws ApiException, IOException
+    {
+        String localFileName = "test_multi_pages.docx";
+
+        PageNumber requestPageNumber = new PageNumber();
+        requestPageNumber.setAlignment("center");
+        requestPageNumber.setFormat("{PAGE} of {NUMPAGES}");
+
+        InsertPageNumbersOnlineRequest request = new InsertPageNumbersOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localFileName).toAbsolutePath()),
+            requestPageNumber,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertPageNumbersOnlineResponse result = TestInitializer.wordsApi.insertPageNumbersOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -331,6 +466,27 @@ public class TestField  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteField(request);
+    }
+
+    /*
+     * Test for deleting field online.
+     */
+    @Test
+    public void testDeleteFieldOnline() throws ApiException, IOException
+    {
+        DeleteFieldOnlineRequest request = new DeleteFieldOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
+            0,
+            "sections/0/paragraphs/0",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteFieldOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -538,6 +694,28 @@ public class TestField  extends TestCase
     }
 
     /*
+     * Test for deleting fields online.
+     */
+    @Test
+    public void testDeleteDocumentFieldsOnline() throws ApiException, IOException
+    {
+        String localFileName = "Common/test_multi_pages.docx";
+
+        DeleteFieldsOnlineRequest request = new DeleteFieldsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFileName).toAbsolutePath()),
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteFieldsOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for posting updated fields.
      */
     @Test
@@ -561,6 +739,27 @@ public class TestField  extends TestCase
         );
 
         DocumentResponse result = TestInitializer.wordsApi.updateFields(request);
+        assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestUpdateDocumentFields.docx", result.getDocument().getFileName());
+    }
+
+    /*
+     * Test for posting updated fields online.
+     */
+    @Test
+    public void testUpdateDocumentFieldsOnline() throws ApiException, IOException
+    {
+        String localFile = "Common/test_multi_pages.docx";
+
+        UpdateFieldsOnlineRequest request = new UpdateFieldsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null,
+            null
+        );
+
+        UpdateFieldsOnlineResponse result = TestInitializer.wordsApi.updateFieldsOnline(request);
         assertNotNull(result);
     }
 }

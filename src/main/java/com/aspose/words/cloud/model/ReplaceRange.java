@@ -43,12 +43,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Range element.
+ * DTO container with a range element.
  */
-@ApiModel(description = "Range element.")
+@ApiModel(description = "DTO container with a range element.")
 public class ReplaceRange {
     /**
-     * Gets or sets range's text type.
+     * Gets or sets the range's text type.
      */
     @JsonAdapter(TextTypeEnum.Adapter.class)
     public enum TextTypeEnum {
@@ -104,10 +104,10 @@ public class ReplaceRange {
     }
 
     /**
-     * Gets or sets range's text.
+     * Gets or sets the range's text.
     * @return text
     **/
-    @ApiModelProperty(value = "Gets or sets range's text.")
+    @ApiModelProperty(value = "Gets or sets the range's text.")
     public String getText() {
         return text;
     }
@@ -122,10 +122,10 @@ public class ReplaceRange {
     }
 
     /**
-     * Gets or sets range's text type.
+     * Gets or sets the range's text type.
     * @return textType
     **/
-    @ApiModelProperty(value = "Gets or sets range's text type.")
+    @ApiModelProperty(value = "Gets or sets the range's text type.")
     public TextTypeEnum getTextType() {
         return textType;
     }

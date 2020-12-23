@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.macros;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -78,5 +79,24 @@ public class TestMacros  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteMacros(request);
+    }
+
+    /*
+     * Test for deleting macros online.
+     */
+    @Test
+    public void testDeleteMacrosOnline() throws ApiException, IOException
+    {
+        DeleteMacrosOnlineRequest request = new DeleteMacrosOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteMacrosOnline(request);
+        assertNotNull(result);
     }
 }

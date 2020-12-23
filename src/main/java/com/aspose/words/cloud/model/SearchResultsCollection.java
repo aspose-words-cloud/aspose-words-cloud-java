@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Collection of search results.
+ * The collection of search results.
  */
-@ApiModel(description = "Collection of search results.")
+@ApiModel(description = "The collection of search results.")
 public class SearchResultsCollection extends LinkElement {
     @SerializedName("ResultsList")
     private List<SearchResult> resultsList = null;
@@ -63,10 +63,10 @@ public class SearchResultsCollection extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of comments.
+     * Gets or sets the collection of comments.
     * @return resultsList
     **/
-    @ApiModelProperty(value = "Gets or sets collection of comments.")
+    @ApiModelProperty(value = "Gets or sets the collection of comments.")
     public List<SearchResult> getResultsList() {
         return resultsList;
     }

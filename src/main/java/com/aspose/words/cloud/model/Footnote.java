@@ -43,12 +43,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Footnote.
+ * DTO container with a footnote.
  */
-@ApiModel(description = "Footnote.")
+@ApiModel(description = "DTO container with a footnote.")
 public class Footnote extends FootnoteLink {
     /**
-     * Gets or sets returns a value that specifies whether this is a footnote or endnote.
+     * Gets or sets the value, that specifies whether this is a footnote or endnote.
      */
     @JsonAdapter(FootnoteTypeEnum.Adapter.class)
     public enum FootnoteTypeEnum {
@@ -113,10 +113,10 @@ public class Footnote extends FootnoteLink {
     }
 
     /**
-     * Gets or sets content of footnote.
+     * Gets or sets the content of the footnote.
     * @return content
     **/
-    @ApiModelProperty(value = "Gets or sets content of footnote.")
+    @ApiModelProperty(value = "Gets or sets the content of the footnote.")
     public StoryChildNodes getContent() {
         return content;
     }
@@ -131,10 +131,10 @@ public class Footnote extends FootnoteLink {
     }
 
     /**
-     * Gets or sets returns a value that specifies whether this is a footnote or endnote.
+     * Gets or sets the value, that specifies whether this is a footnote or endnote.
     * @return footnoteType
     **/
-    @ApiModelProperty(value = "Gets or sets returns a value that specifies whether this is a footnote or endnote.")
+    @ApiModelProperty(value = "Gets or sets the value, that specifies whether this is a footnote or endnote.")
     public FootnoteTypeEnum getFootnoteType() {
         return footnoteType;
     }
@@ -149,10 +149,10 @@ public class Footnote extends FootnoteLink {
     }
 
     /**
-     * Gets or sets link to comment range start node.
+     * Gets or sets the link to comment range start node.
     * @return position
     **/
-    @ApiModelProperty(value = "Gets or sets link to comment range start node.")
+    @ApiModelProperty(value = "Gets or sets the link to comment range start node.")
     public DocumentPosition getPosition() {
         return position;
     }
@@ -167,11 +167,11 @@ public class Footnote extends FootnoteLink {
     }
 
     /**
-     * Gets or sets /sets custom reference mark to be used for this footnote.
+     * Gets or sets the custom reference mark to be used for this footnote.
      * Default value is Empty, meaning auto-numbered footnotes are used.
     * @return referenceMark
     **/
-    @ApiModelProperty(value = "Gets or sets /sets custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.")
+    @ApiModelProperty(value = "Gets or sets the custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.")
     public String getReferenceMark() {
         return referenceMark;
     }
@@ -186,10 +186,10 @@ public class Footnote extends FootnoteLink {
     }
 
     /**
-     * Gets or sets this is a convenience property that allows to easily get or set text of the footnote.
+     * Gets or sets text of the footnote.
     * @return text
     **/
-    @ApiModelProperty(value = "Gets or sets this is a convenience property that allows to easily get or set text of the footnote.")
+    @ApiModelProperty(value = "Gets or sets text of the footnote.")
     public String getText() {
         return text;
     }

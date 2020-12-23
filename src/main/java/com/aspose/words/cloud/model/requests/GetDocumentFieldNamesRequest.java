@@ -27,15 +27,20 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for getDocumentFieldNames operation.
  */
-public class GetDocumentFieldNamesRequest {
+public class GetDocumentFieldNamesRequest implements RequestIfc {
     /*
-     * The template name.
+     * The filename of the input document.
      */
     private String name;
 
@@ -60,19 +65,19 @@ public class GetDocumentFieldNamesRequest {
     private String password;
 
     /*
-     * If true, result includes "mustache" field names.
+     * The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
     private Boolean useNonMergeFields;
 
     /*
      * Initializes a new instance of the GetDocumentFieldNamesRequest class.
      *
-     * @param String name The template name.
+     * @param String name The filename of the input document.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param Boolean useNonMergeFields If true, result includes "mustache" field names.
+     * @param Boolean useNonMergeFields The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
     public GetDocumentFieldNamesRequest(String name, String folder, String storage, String loadEncoding, String password, Boolean useNonMergeFields) {
         this.name = name;
@@ -84,14 +89,14 @@ public class GetDocumentFieldNamesRequest {
     }
 
     /*
-     * Gets The template name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The template name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
@@ -154,16 +159,70 @@ public class GetDocumentFieldNamesRequest {
     }
 
     /*
-     * Gets If true, result includes "mustache" field names.
+     * Gets The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
     public Boolean getUseNonMergeFields() {
         return this.useNonMergeFields;
     }
 
     /*
-     * Sets If true, result includes "mustache" field names.
+     * Sets The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
     public void setUseNonMergeFields(Boolean value) {
         this.useNonMergeFields = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getDocumentFieldNames");
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/mailMerge/FieldNames";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "useNonMergeFields", getUseNonMergeFields());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return FieldNamesResponse.class;
     }
 }

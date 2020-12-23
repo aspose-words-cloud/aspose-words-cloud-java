@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/styles/{0}.
+ * The REST response with a style.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles/{0}.")
+@ApiModel(description = "The REST response with a style.")
 public class StyleResponse extends WordsResponse {
     @SerializedName("Style")
     private Style style = null;
@@ -56,10 +55,10 @@ public class StyleResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets style which are contained in document.
+     * Gets or sets the style, containded in the document.
     * @return style
     **/
-    @ApiModelProperty(value = "Gets or sets style which are contained in document.")
+    @ApiModelProperty(value = "Gets or sets the style, containded in the document.")
     public Style getStyle() {
         return style;
     }

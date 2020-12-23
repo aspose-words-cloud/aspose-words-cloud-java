@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
+ * The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
  */
-@ApiModel(description = "response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).")
+@ApiModel(description = "The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).")
 public class RevisionsModificationResponse extends WordsResponse {
     @SerializedName("Result")
     private ModificationOperationResult result = null;
@@ -55,10 +55,10 @@ public class RevisionsModificationResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets result of the modification operations for the revisions collection.
+     * Gets or sets the result of the modification operations for the revisions collection.
     * @return result
     **/
-    @ApiModelProperty(value = "Gets or sets result of the modification operations for the revisions collection.")
+    @ApiModelProperty(value = "Gets or sets the result of the modification operations for the revisions collection.")
     public ModificationOperationResult getResult() {
         return result;
     }

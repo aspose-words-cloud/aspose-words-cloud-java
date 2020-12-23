@@ -69,10 +69,10 @@ public class SplitDocumentResult {
     }
 
     /**
-     * Gets or sets array of pages.
+     * Gets or sets the list of pages.
     * @return pages
     **/
-    @ApiModelProperty(value = "Gets or sets array of pages.")
+    @ApiModelProperty(value = "Gets or sets the list of pages.")
     public List<FileLink> getPages() {
         return pages;
     }
@@ -87,10 +87,10 @@ public class SplitDocumentResult {
     }
 
     /**
-     * Gets or sets linkt to the source document.
+     * Gets or sets the link to the source document.
     * @return sourceDocument
     **/
-    @ApiModelProperty(value = "Gets or sets linkt to the source document.")
+    @ApiModelProperty(value = "Gets or sets the link to the source document.")
     public FileLink getSourceDocument() {
         return sourceDocument;
     }
@@ -105,10 +105,10 @@ public class SplitDocumentResult {
     }
 
     /**
-     * Gets or sets link to the file archive with pages.
+     * Gets or sets the link to the file archive with pages.
     * @return zippedPages
     **/
-    @ApiModelProperty(value = "Gets or sets link to the file archive with pages.")
+    @ApiModelProperty(value = "Gets or sets the link to the file archive with pages.")
     public FileLink getZippedPages() {
         return zippedPages;
     }

@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Section element.
+ * DTO container with a section element.
  */
-@ApiModel(description = "Section element.")
+@ApiModel(description = "DTO container with a section element.")
 public class Section extends LinkElement {
     @SerializedName("ChildNodes")
     private List<NodeLink> childNodes = null;
@@ -75,10 +75,10 @@ public class Section extends LinkElement {
     }
 
     /**
-     * Gets or sets child nodes.
+     * Gets or sets the list of child nodes.
     * @return childNodes
     **/
-    @ApiModelProperty(value = "Gets or sets child nodes.")
+    @ApiModelProperty(value = "Gets or sets the list of child nodes.")
     public List<NodeLink> getChildNodes() {
         return childNodes;
     }
@@ -93,10 +93,10 @@ public class Section extends LinkElement {
     }
 
     /**
-     * Gets or sets link to HeaderFooters resource.
+     * Gets or sets the link to HeaderFooters resource.
     * @return headerFooters
     **/
-    @ApiModelProperty(value = "Gets or sets link to HeaderFooters resource.")
+    @ApiModelProperty(value = "Gets or sets the link to HeaderFooters resource.")
     public LinkElement getHeaderFooters() {
         return headerFooters;
     }
@@ -111,10 +111,10 @@ public class Section extends LinkElement {
     }
 
     /**
-     * Gets or sets link to PageSetup resource.
+     * Gets or sets the link to PageSetup resource.
     * @return pageSetup
     **/
-    @ApiModelProperty(value = "Gets or sets link to PageSetup resource.")
+    @ApiModelProperty(value = "Gets or sets the link to PageSetup resource.")
     public LinkElement getPageSetup() {
         return pageSetup;
     }
@@ -129,10 +129,10 @@ public class Section extends LinkElement {
     }
 
     /**
-     * Gets or sets link to Paragraphs resource.
+     * Gets or sets the link to Paragraphs resource.
     * @return paragraphs
     **/
-    @ApiModelProperty(value = "Gets or sets link to Paragraphs resource.")
+    @ApiModelProperty(value = "Gets or sets the link to Paragraphs resource.")
     public LinkElement getParagraphs() {
         return paragraphs;
     }
@@ -147,10 +147,10 @@ public class Section extends LinkElement {
     }
 
     /**
-     * Gets or sets link to Tables resource.
+     * Gets or sets the link to Tables resource.
     * @return tables
     **/
-    @ApiModelProperty(value = "Gets or sets link to Tables resource.")
+    @ApiModelProperty(value = "Gets or sets the link to Tables resource.")
     public LinkElement getTables() {
         return tables;
     }

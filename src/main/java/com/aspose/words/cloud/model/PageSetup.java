@@ -48,7 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents the page setup properties of a section.")
 public class PageSetup extends LinkElement {
     /**
-     * Gets or sets specifies which pages the page border is printed on.
+     * Gets or sets the option that controls which pages the page border is printed on.
      */
     @JsonAdapter(BorderAppliesToEnum.Adapter.class)
     public enum BorderAppliesToEnum {
@@ -95,8 +95,7 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from
-     * the text it surrounds.
+     * Gets or sets the value, that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.
      */
     @JsonAdapter(BorderDistanceFromEnum.Adapter.class)
     public enum BorderDistanceFromEnum {
@@ -142,8 +141,7 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new
-     * page or section or runs continuously.
+     * Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.
      */
     @JsonAdapter(LineNumberRestartModeEnum.Adapter.class)
     public enum LineNumberRestartModeEnum {
@@ -190,7 +188,7 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the orientation of the page.
+     * Gets or sets the orientation of the page.
      */
     @JsonAdapter(OrientationEnum.Adapter.class)
     public enum OrientationEnum {
@@ -342,7 +340,7 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the paper size.
+     * Gets or sets the paper size.
      */
     @JsonAdapter(PaperSizeEnum.Adapter.class)
     public enum PaperSizeEnum {
@@ -403,7 +401,7 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the type of section break for the specified object.
+     * Gets or sets the type of section break for the specified object.
      */
     @JsonAdapter(SectionStartEnum.Adapter.class)
     public enum SectionStartEnum {
@@ -452,7 +450,7 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the vertical alignment of text on each page in a document or section.
+     * Gets or sets the vertical alignment of text on each page in the document.or section.
      */
     @JsonAdapter(VerticalAlignmentEnum.Adapter.class)
     public enum VerticalAlignmentEnum {
@@ -591,10 +589,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets specifies that this section contains bidirectional (complex scripts) text.
+     * Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text.
     * @return bidi
     **/
-    @ApiModelProperty(value = "Gets or sets specifies that this section contains bidirectional (complex scripts) text.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text.")
     public Boolean getBidi() {
         return bidi;
     }
@@ -609,10 +607,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets specifies where the page border is positioned relative to intersecting texts and objects.
+     * Gets or sets a value indicating whether the page border is positioned relative to intersecting texts and objects.
     * @return borderAlwaysInFront
     **/
-    @ApiModelProperty(value = "Gets or sets specifies where the page border is positioned relative to intersecting texts and objects.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the page border is positioned relative to intersecting texts and objects.")
     public Boolean getBorderAlwaysInFront() {
         return borderAlwaysInFront;
     }
@@ -627,10 +625,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets specifies which pages the page border is printed on.
+     * Gets or sets the option that controls which pages the page border is printed on.
     * @return borderAppliesTo
     **/
-    @ApiModelProperty(value = "Gets or sets specifies which pages the page border is printed on.")
+    @ApiModelProperty(value = "Gets or sets the option that controls which pages the page border is printed on.")
     public BorderAppliesToEnum getBorderAppliesTo() {
         return borderAppliesTo;
     }
@@ -645,11 +643,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from
-     * the text it surrounds.
+     * Gets or sets the value, that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.
     * @return borderDistanceFrom
     **/
-    @ApiModelProperty(value = "Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.")
+    @ApiModelProperty(value = "Gets or sets the value, that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.")
     public BorderDistanceFromEnum getBorderDistanceFrom() {
         return borderDistanceFrom;
     }
@@ -664,11 +661,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body
-     * text.
+     * Gets or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.
     * @return bottomMargin
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.")
+    @ApiModelProperty(value = "Gets or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.")
     public Double getBottomMargin() {
         return bottomMargin;
     }
@@ -683,10 +679,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets true if a different header or footer is used on the first page.
+     * Gets or sets a value indicating whether a different header or footer is used on the first page.
     * @return differentFirstPageHeaderFooter
     **/
-    @ApiModelProperty(value = "Gets or sets true if a different header or footer is used on the first page.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether a different header or footer is used on the first page.")
     public Boolean getDifferentFirstPageHeaderFooter() {
         return differentFirstPageHeaderFooter;
     }
@@ -720,10 +716,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the distance (in points) between the footer and the bottom of the page.
+     * Gets or sets the distance (in points) between the footer and the bottom of the page.
     * @return footerDistance
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the distance (in points) between the footer and the bottom of the page.")
+    @ApiModelProperty(value = "Gets or sets the distance (in points) between the footer and the bottom of the page.")
     public Double getFooterDistance() {
         return footerDistance;
     }
@@ -756,10 +752,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the distance (in points) between the header and the top of the page.
+     * Gets or sets the distance (in points) between the header and the top of the page.
     * @return headerDistance
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the distance (in points) between the header and the top of the page.")
+    @ApiModelProperty(value = "Gets or sets the distance (in points) between the header and the top of the page.")
     public Double getHeaderDistance() {
         return headerDistance;
     }
@@ -774,10 +770,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the distance (in points) between the left edge of the page and the left boundary of the body text.
+     * Gets or sets the distance (in points) between the left edge of the page and the left boundary of the body text.
     * @return leftMargin
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the distance (in points) between the left edge of the page and the left boundary of the body text.")
+    @ApiModelProperty(value = "Gets or sets the distance (in points) between the left edge of the page and the left boundary of the body text.")
     public Double getLeftMargin() {
         return leftMargin;
     }
@@ -792,10 +788,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the numeric increment for line numbers.
+     * Gets or sets the numeric increment for line numbers.
     * @return lineNumberCountBy
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the numeric increment for line numbers.")
+    @ApiModelProperty(value = "Gets or sets the numeric increment for line numbers.")
     public Integer getLineNumberCountBy() {
         return lineNumberCountBy;
     }
@@ -810,10 +806,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets distance between the right edge of line numbers and the left edge of the document.
+     * Gets or sets the distance between the right edge of line numbers and the left edge of the document.
     * @return lineNumberDistanceFromText
     **/
-    @ApiModelProperty(value = "Gets or sets distance between the right edge of line numbers and the left edge of the document.")
+    @ApiModelProperty(value = "Gets or sets the distance between the right edge of line numbers and the left edge of the document.")
     public Double getLineNumberDistanceFromText() {
         return lineNumberDistanceFromText;
     }
@@ -828,8 +824,7 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new
-     * page or section or runs continuously.
+     * Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.
     * @return lineNumberRestartMode
     **/
     @ApiModelProperty(value = "Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.")
@@ -865,10 +860,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the orientation of the page.
+     * Gets or sets the orientation of the page.
     * @return orientation
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the orientation of the page.")
+    @ApiModelProperty(value = "Gets or sets the orientation of the page.")
     public OrientationEnum getOrientation() {
         return orientation;
     }
@@ -902,10 +897,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the height of the page in points.
+     * Gets or sets the height of the page in points.
     * @return pageHeight
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the height of the page in points.")
+    @ApiModelProperty(value = "Gets or sets the height of the page in points.")
     public Double getPageHeight() {
         return pageHeight;
     }
@@ -956,10 +951,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the width of the page in points.
+     * Gets or sets the width of the page in points.
     * @return pageWidth
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the width of the page in points.")
+    @ApiModelProperty(value = "Gets or sets the width of the page in points.")
     public Double getPageWidth() {
         return pageWidth;
     }
@@ -974,10 +969,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the paper size.
+     * Gets or sets the paper size.
     * @return paperSize
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the paper size.")
+    @ApiModelProperty(value = "Gets or sets the paper size.")
     public PaperSizeEnum getPaperSize() {
         return paperSize;
     }
@@ -992,10 +987,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets true if page numbering restarts at the beginning of the section.
+     * Gets or sets a value indicating whether page numbering restarts at the beginning of the section.
     * @return restartPageNumbering
     **/
-    @ApiModelProperty(value = "Gets or sets true if page numbering restarts at the beginning of the section.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether page numbering restarts at the beginning of the section.")
     public Boolean getRestartPageNumbering() {
         return restartPageNumbering;
     }
@@ -1010,11 +1005,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the distance (in points) between the right edge of the page and the right boundary of the body
-     * text.
+     * Gets or sets the distance (in points) between the right edge of the page and the right boundary of the body text.
     * @return rightMargin
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the distance (in points) between the right edge of the page and the right boundary of the body text.")
+    @ApiModelProperty(value = "Gets or sets the distance (in points) between the right edge of the page and the right boundary of the body text.")
     public Double getRightMargin() {
         return rightMargin;
     }
@@ -1029,11 +1023,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a
-     * left-to-right language.
+     * Gets or sets a value indicating whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.
     * @return rtlGutter
     **/
-    @ApiModelProperty(value = "Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.")
     public Boolean getRtlGutter() {
         return rtlGutter;
     }
@@ -1048,10 +1041,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the type of section break for the specified object.
+     * Gets or sets the type of section break for the specified object.
     * @return sectionStart
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the type of section break for the specified object.")
+    @ApiModelProperty(value = "Gets or sets the type of section break for the specified object.")
     public SectionStartEnum getSectionStart() {
         return sectionStart;
     }
@@ -1066,11 +1059,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes.
-     * Suppressed endnotes are printed before the endnotes in that section.
+     * Gets or sets a value indicating whether endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.
     * @return suppressEndnotes
     **/
-    @ApiModelProperty(value = "Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.")
     public Boolean getSuppressEndnotes() {
         return suppressEndnotes;
     }
@@ -1085,10 +1077,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the distance (in points) between the top edge of the page and the top boundary of the body text.
+     * Gets or sets the distance (in points) between the top edge of the page and the top boundary of the body text.
     * @return topMargin
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the distance (in points) between the top edge of the page and the top boundary of the body text.")
+    @ApiModelProperty(value = "Gets or sets the distance (in points) between the top edge of the page and the top boundary of the body text.")
     public Double getTopMargin() {
         return topMargin;
     }
@@ -1103,10 +1095,10 @@ public class PageSetup extends LinkElement {
     }
 
     /**
-     * Gets or sets returns or sets the vertical alignment of text on each page in a document or section.
+     * Gets or sets the vertical alignment of text on each page in the document.or section.
     * @return verticalAlignment
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the vertical alignment of text on each page in a document or section.")
+    @ApiModelProperty(value = "Gets or sets the vertical alignment of text on each page in the document.or section.")
     public VerticalAlignmentEnum getVerticalAlignment() {
         return verticalAlignment;
     }

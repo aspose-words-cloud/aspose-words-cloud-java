@@ -48,7 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Drawing object element for insert.")
 public class DrawingObjectInsert {
     /**
-     * Gets or sets specifies where the distance to the image is measured from.
+     * Gets or sets the relative horizontal position, from which the distance to the image is measured.
      */
     @JsonAdapter(RelativeHorizontalPositionEnum.Adapter.class)
     public enum RelativeHorizontalPositionEnum {
@@ -101,7 +101,7 @@ public class DrawingObjectInsert {
     }
 
     /**
-     * Gets or sets specifies where the distance to the image measured from.
+     * Gets or sets the relative vertical position, from which the distance to the image is measured.
      */
     @JsonAdapter(RelativeVerticalPositionEnum.Adapter.class)
     public enum RelativeVerticalPositionEnum {
@@ -155,7 +155,7 @@ public class DrawingObjectInsert {
     }
 
     /**
-     * Gets or sets specifies how to wrap text around the image.
+     * Gets or sets the option indicating how to wrap text around the image.
      */
     @JsonAdapter(WrapTypeEnum.Adapter.class)
     public enum WrapTypeEnum {
@@ -233,10 +233,10 @@ public class DrawingObjectInsert {
     }
 
     /**
-     * Gets or sets height of the drawing object in points.
+     * Gets or sets the height of the DrawingObject in points.
     * @return height
     **/
-    @ApiModelProperty(value = "Gets or sets height of the drawing object in points.")
+    @ApiModelProperty(value = "Gets or sets the height of the DrawingObject in points.")
     public Double getHeight() {
         return height;
     }
@@ -251,10 +251,10 @@ public class DrawingObjectInsert {
     }
 
     /**
-     * Gets or sets distance in points from the origin to the left side of the image.
+     * Gets or sets the distance in points from the origin to the left side of the image.
     * @return left
     **/
-    @ApiModelProperty(value = "Gets or sets distance in points from the origin to the left side of the image.")
+    @ApiModelProperty(value = "Gets or sets the distance in points from the origin to the left side of the image.")
     public Double getLeft() {
         return left;
     }
@@ -269,10 +269,10 @@ public class DrawingObjectInsert {
     }
 
     /**
-     * Gets or sets drawing object will be inserted before specified position.
+     * Gets or sets the position, before which the DrawingObject will be inserted.
     * @return position
     **/
-    @ApiModelProperty(value = "Gets or sets drawing object will be inserted before specified position.")
+    @ApiModelProperty(value = "Gets or sets the position, before which the DrawingObject will be inserted.")
     public DocumentPosition getPosition() {
         return position;
     }
@@ -287,10 +287,10 @@ public class DrawingObjectInsert {
     }
 
     /**
-     * Gets or sets specifies where the distance to the image is measured from.
+     * Gets or sets the relative horizontal position, from which the distance to the image is measured.
     * @return relativeHorizontalPosition
     **/
-    @ApiModelProperty(value = "Gets or sets specifies where the distance to the image is measured from.")
+    @ApiModelProperty(value = "Gets or sets the relative horizontal position, from which the distance to the image is measured.")
     public RelativeHorizontalPositionEnum getRelativeHorizontalPosition() {
         return relativeHorizontalPosition;
     }
@@ -305,10 +305,10 @@ public class DrawingObjectInsert {
     }
 
     /**
-     * Gets or sets specifies where the distance to the image measured from.
+     * Gets or sets the relative vertical position, from which the distance to the image is measured.
     * @return relativeVerticalPosition
     **/
-    @ApiModelProperty(value = "Gets or sets specifies where the distance to the image measured from.")
+    @ApiModelProperty(value = "Gets or sets the relative vertical position, from which the distance to the image is measured.")
     public RelativeVerticalPositionEnum getRelativeVerticalPosition() {
         return relativeVerticalPosition;
     }
@@ -323,10 +323,10 @@ public class DrawingObjectInsert {
     }
 
     /**
-     * Gets or sets distance in points from the origin to the top side of the image.
+     * Gets or sets the distance in points from the origin to the top side of the image.
     * @return top
     **/
-    @ApiModelProperty(value = "Gets or sets distance in points from the origin to the top side of the image.")
+    @ApiModelProperty(value = "Gets or sets the distance in points from the origin to the top side of the image.")
     public Double getTop() {
         return top;
     }
@@ -341,10 +341,10 @@ public class DrawingObjectInsert {
     }
 
     /**
-     * Gets or sets width of the drawing objects in points.
+     * Gets or sets the width of the DrawingObjects in points.
     * @return width
     **/
-    @ApiModelProperty(value = "Gets or sets width of the drawing objects in points.")
+    @ApiModelProperty(value = "Gets or sets the width of the DrawingObjects in points.")
     public Double getWidth() {
         return width;
     }
@@ -359,10 +359,10 @@ public class DrawingObjectInsert {
     }
 
     /**
-     * Gets or sets specifies how to wrap text around the image.
+     * Gets or sets the option indicating how to wrap text around the image.
     * @return wrapType
     **/
-    @ApiModelProperty(value = "Gets or sets specifies how to wrap text around the image.")
+    @ApiModelProperty(value = "Gets or sets the option indicating how to wrap text around the image.")
     public WrapTypeEnum getWrapType() {
         return wrapType;
     }

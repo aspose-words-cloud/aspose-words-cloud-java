@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents an array of document lists.
+ * DTO container with an array of document lists.
  */
-@ApiModel(description = "Represents an array of document lists.")
+@ApiModel(description = "DTO container with an array of document lists.")
 public class Lists extends LinkElement {
     @SerializedName("ListInfo")
     private List<ListInfo> listInfo = null;
@@ -63,10 +63,10 @@ public class Lists extends LinkElement {
     }
 
     /**
-     * Gets or sets array of document lists.
+     * Gets or sets the array of document lists.
     * @return listInfo
     **/
-    @ApiModelProperty(value = "Gets or sets array of document lists.")
+    @ApiModelProperty(value = "Gets or sets the array of document lists.")
     public List<ListInfo> getListInfo() {
         return listInfo;
     }

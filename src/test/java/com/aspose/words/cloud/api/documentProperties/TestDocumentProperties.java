@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.documentProperties;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -76,6 +77,28 @@ public class TestDocumentProperties  extends TestCase
 
         DocumentPropertiesResponse result = TestInitializer.wordsApi.getDocumentProperties(request);
         assertNotNull(result);
+        assertNotNull(result.getDocumentProperties());
+        assertNotNull(result.getDocumentProperties().getList());
+        assertEquals(24, result.getDocumentProperties().getList().size());
+        assertNotNull(result.getDocumentProperties().getList().get(0));
+        assertEquals("Author", result.getDocumentProperties().getList().get(0).getName());
+        assertEquals("", result.getDocumentProperties().getList().get(0).getValue());
+    }
+
+    /*
+     * Test for getting document properties online.
+     */
+    @Test
+    public void testGetDocumentPropertiesOnline() throws ApiException, IOException
+    {
+        GetDocumentPropertiesOnlineRequest request = new GetDocumentPropertiesOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        DocumentPropertiesResponse result = TestInitializer.wordsApi.getDocumentPropertiesOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -101,6 +124,26 @@ public class TestDocumentProperties  extends TestCase
         );
 
         DocumentPropertyResponse result = TestInitializer.wordsApi.getDocumentProperty(request);
+        assertNotNull(result);
+        assertNotNull(result.getDocumentProperty());
+        assertEquals("Author", result.getDocumentProperty().getName());
+        assertEquals("", result.getDocumentProperty().getValue());
+    }
+
+    /*
+     * A test for GetDocumentProperty online.
+     */
+    @Test
+    public void testGetDocumentPropertyOnline() throws ApiException, IOException
+    {
+        GetDocumentPropertyOnlineRequest request = new GetDocumentPropertyOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "Author",
+            null,
+            null
+        );
+
+        DocumentPropertyResponse result = TestInitializer.wordsApi.getDocumentPropertyOnline(request);
         assertNotNull(result);
     }
 
@@ -133,6 +176,26 @@ public class TestDocumentProperties  extends TestCase
     }
 
     /*
+     * Test for deleting document property online.
+     */
+    @Test
+    public void testDeleteDocumentPropertyOnline() throws ApiException, IOException
+    {
+        DeleteDocumentPropertyOnlineRequest request = new DeleteDocumentPropertyOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "testProp",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteDocumentPropertyOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for updating document property.
      */
     @Test
@@ -162,6 +225,33 @@ public class TestDocumentProperties  extends TestCase
         );
 
         DocumentPropertyResponse result = TestInitializer.wordsApi.createOrUpdateDocumentProperty(request);
+        assertNotNull(result);
+        assertNotNull(result.getDocumentProperty());
+        assertEquals("AsposeAuthor", result.getDocumentProperty().getName());
+        assertEquals("Imran Anwar", result.getDocumentProperty().getValue());
+    }
+
+    /*
+     * Test for updating document property online.
+     */
+    @Test
+    public void testUpdateDocumentPropertyOnline() throws ApiException, IOException
+    {
+        DocumentPropertyCreateOrUpdate requestProperty = new DocumentPropertyCreateOrUpdate();
+        requestProperty.setValue("Imran Anwar");
+
+        CreateOrUpdateDocumentPropertyOnlineRequest request = new CreateOrUpdateDocumentPropertyOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "AsposeAuthor",
+            requestProperty,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        CreateOrUpdateDocumentPropertyOnlineResponse result = TestInitializer.wordsApi.createOrUpdateDocumentPropertyOnline(request);
         assertNotNull(result);
     }
 }

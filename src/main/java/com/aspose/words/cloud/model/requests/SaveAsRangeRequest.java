@@ -27,22 +27,25 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for saveAsRange operation.
  */
-public class SaveAsRangeRequest {
+public class SaveAsRangeRequest implements RequestIfc {
     /*
-     * The document.
+     * The filename of the input document.
      */
     private String name;
 
     /*
      * The range start identifier.
-     * Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id".
-     * It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     private String rangeStartIdentifier;
 
@@ -79,8 +82,8 @@ public class SaveAsRangeRequest {
     /*
      * Initializes a new instance of the SaveAsRangeRequest class.
      *
-     * @param String name The document.
-     * @param String rangeStartIdentifier The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * @param String name The filename of the input document.
+     * @param String rangeStartIdentifier The range start identifier.
      * @param RangeDocument documentParameters Parameters of a new document.
      * @param String rangeEndIdentifier The range end identifier.
      * @param String folder Original document folder.
@@ -100,28 +103,28 @@ public class SaveAsRangeRequest {
     }
 
     /*
-     * Gets The document.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * Gets The range start identifier.
      */
     public String getRangeStartIdentifier() {
         return this.rangeStartIdentifier;
     }
 
     /*
-     * Sets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * Sets The range start identifier.
      */
     public void setRangeStartIdentifier(String value) {
         this.rangeStartIdentifier = value;
@@ -209,5 +212,82 @@ public class SaveAsRangeRequest {
      */
     public void setPassword(String value) {
         this.password = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling saveAsRange");
+        }
+
+        // verify the required parameter 'RangeStartIdentifier' is set
+        if (getRangeStartIdentifier() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'RangeStartIdentifier' when calling saveAsRange");
+        }
+
+        // verify the required parameter 'DocumentParameters' is set
+        if (getDocumentParameters() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DocumentParameters' when calling saveAsRange");
+        }
+
+        Object localVarPostBody = getDocumentParameters();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = apiClient.addParameterToPath(localVarPath, "rangeStartIdentifier", getRangeStartIdentifier());
+        localVarPath = apiClient.addParameterToPath(localVarPath, "rangeEndIdentifier", getRangeEndIdentifier());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return DocumentResponse.class;
     }
 }

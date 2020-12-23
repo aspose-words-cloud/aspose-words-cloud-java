@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Collection of document properties.
+ * The collection of document properties.
  */
-@ApiModel(description = "Collection of document properties.")
+@ApiModel(description = "The collection of document properties.")
 public class DocumentProperties extends LinkElement {
     @SerializedName("List")
     private List<DocumentProperty> list = null;
@@ -63,10 +63,10 @@ public class DocumentProperties extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of document properties.
+     * Gets or sets the collection of document properties.
     * @return list
     **/
-    @ApiModelProperty(value = "Gets or sets collection of document properties.")
+    @ApiModelProperty(value = "Gets or sets the collection of document properties.")
     public List<DocumentProperty> getList() {
         return list;
     }

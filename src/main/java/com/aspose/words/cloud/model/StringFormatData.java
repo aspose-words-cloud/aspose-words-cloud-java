@@ -95,7 +95,7 @@ public class StringFormatData {
     }
 
     /**
-     * Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
+     * Gets or sets the System.Drawing.StringFormatFlags enumeration, that contains formatting information.
      */
     @JsonAdapter(FormatFlagsEnum.Adapter.class)
     public enum FormatFlagsEnum {
@@ -329,10 +329,10 @@ public class StringFormatData {
     }
 
     /**
-     * Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
+     * Gets or sets the System.Drawing.StringFormatFlags enumeration, that contains formatting information.
     * @return formatFlags
     **/
-    @ApiModelProperty(value = "Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.")
+    @ApiModelProperty(value = "Gets or sets the System.Drawing.StringFormatFlags enumeration, that contains formatting information.")
     public FormatFlagsEnum getFormatFlags() {
         return formatFlags;
     }

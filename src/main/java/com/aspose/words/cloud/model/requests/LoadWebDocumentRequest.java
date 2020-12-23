@@ -27,15 +27,20 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for loadWebDocument operation.
  */
-public class LoadWebDocumentRequest {
+public class LoadWebDocumentRequest implements RequestIfc {
     /*
-     * Parameters of loading.
+     * The properties of data downloading.
      */
     private LoadWebDocumentData data;
 
@@ -47,7 +52,7 @@ public class LoadWebDocumentRequest {
     /*
      * Initializes a new instance of the LoadWebDocumentRequest class.
      *
-     * @param LoadWebDocumentData data Parameters of loading.
+     * @param LoadWebDocumentData data The properties of data downloading.
      * @param String storage Original document storage.
      */
     public LoadWebDocumentRequest(LoadWebDocumentData data, String storage) {
@@ -56,14 +61,14 @@ public class LoadWebDocumentRequest {
     }
 
     /*
-     * Gets Parameters of loading.
+     * Gets The properties of data downloading.
      */
     public LoadWebDocumentData getData() {
         return this.data;
     }
 
     /*
-     * Sets Parameters of loading.
+     * Sets The properties of data downloading.
      */
     public void setData(LoadWebDocumentData value) {
         this.data = value;
@@ -81,5 +86,66 @@ public class LoadWebDocumentRequest {
      */
     public void setStorage(String value) {
         this.storage = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Data' is set
+        if (getData() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Data' when calling loadWebDocument");
+        }
+
+        Object localVarPostBody = getData();
+
+        // create path and map variables
+        String localVarPath = "/words/loadWebDocument";
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return SaveResponse.class;
     }
 }

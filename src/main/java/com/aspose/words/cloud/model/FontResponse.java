@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.
+ * The REST response with a font.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.")
+@ApiModel(description = "The REST response with a font.")
 public class FontResponse extends WordsResponse {
     @SerializedName("Font")
     private Font font = null;
@@ -56,10 +55,10 @@ public class FontResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets font.
+     * Gets or sets the font.
     * @return font
     **/
-    @ApiModelProperty(value = "Gets or sets font.")
+    @ApiModelProperty(value = "Gets or sets the font.")
     public Font getFont() {
         return font;
     }

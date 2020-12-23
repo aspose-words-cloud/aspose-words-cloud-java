@@ -58,10 +58,10 @@ public class Hyperlink extends LinkElement {
     }
 
     /**
-     * Gets or sets hypelink's display text.
+     * Gets or sets the hypelink's display text.
     * @return displayText
     **/
-    @ApiModelProperty(value = "Gets or sets hypelink's display text.")
+    @ApiModelProperty(value = "Gets or sets the hypelink's display text.")
     public String getDisplayText() {
         return displayText;
     }
@@ -76,10 +76,10 @@ public class Hyperlink extends LinkElement {
     }
 
     /**
-     * Gets or sets value.
+     * Gets or sets the value.
     * @return value
     **/
-    @ApiModelProperty(value = "Gets or sets value.")
+    @ApiModelProperty(value = "Gets or sets the value.")
     public String getValue() {
         return value;
     }

@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.table;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -77,6 +78,28 @@ public class TestTableBorder  extends TestCase
 
         BordersResponse result = TestInitializer.wordsApi.getBorders(request);
         assertNotNull(result);
+        assertNotNull(result.getBorders());
+        assertNotNull(result.getBorders().getList());
+        assertEquals(6, result.getBorders().getList().size());
+        assertNotNull(result.getBorders().getList().get(0).getColor());
+        assertEquals("#000000", result.getBorders().getList().get(0).getColor().getWeb());
+    }
+
+    /*
+     * Test for getting borders online.
+     */
+    @Test
+    public void testGetBordersOnline() throws ApiException, IOException
+    {
+        GetBordersOnlineRequest request = new GetBordersOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "tables/1/rows/0/cells/0",
+            null,
+            null
+        );
+
+        BordersResponse result = TestInitializer.wordsApi.getBordersOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -103,6 +126,27 @@ public class TestTableBorder  extends TestCase
         );
 
         BorderResponse result = TestInitializer.wordsApi.getBorder(request);
+        assertNotNull(result);
+        assertNotNull(result.getBorder());
+        assertNotNull(result.getBorder().getColor());
+        assertEquals("#000000", result.getBorder().getColor().getWeb());
+    }
+
+    /*
+     * Test for getting border online.
+     */
+    @Test
+    public void testGetBorderOnline() throws ApiException, IOException
+    {
+        GetBorderOnlineRequest request = new GetBorderOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "left",
+            "tables/1/rows/0/cells/0",
+            null,
+            null
+        );
+
+        BorderResponse result = TestInitializer.wordsApi.getBorderOnline(request);
         assertNotNull(result);
     }
 
@@ -132,6 +176,26 @@ public class TestTableBorder  extends TestCase
         );
 
         BordersResponse result = TestInitializer.wordsApi.deleteBorders(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for deleting borders online.
+     */
+    @Test
+    public void testDeleteBordersOnline() throws ApiException, IOException
+    {
+        DeleteBordersOnlineRequest request = new DeleteBordersOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "tables/1/rows/0/cells/0",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        DeleteBordersOnlineResponse result = TestInitializer.wordsApi.deleteBordersOnline(request);
         assertNotNull(result);
     }
 
@@ -166,6 +230,27 @@ public class TestTableBorder  extends TestCase
     }
 
     /*
+     * Test for deleting border online.
+     */
+    @Test
+    public void testDeleteBorderOnline() throws ApiException, IOException
+    {
+        DeleteBorderOnlineRequest request = new DeleteBorderOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "left",
+            "tables/1/rows/0/cells/0",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        DeleteBorderOnlineResponse result = TestInitializer.wordsApi.deleteBorderOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for updating border.
      */
     @Test
@@ -179,20 +264,20 @@ public class TestTableBorder  extends TestCase
         );
 
         XmlColor requestBorderPropertiesColor = new XmlColor();
-        requestBorderPropertiesColor.setAlpha(2);
+        requestBorderPropertiesColor.setWeb("#AABBCC");
 
         Border requestBorderProperties = new Border();
         requestBorderProperties.setBorderType(Border.BorderTypeEnum.LEFT);
         requestBorderProperties.setColor(requestBorderPropertiesColor);
-        requestBorderProperties.setDistanceFromText((double)6);
+        requestBorderProperties.setDistanceFromText((double)6.0);
         requestBorderProperties.setLineStyle(Border.LineStyleEnum.DASHDOTSTROKER);
-        requestBorderProperties.setLineWidth((double)2);
+        requestBorderProperties.setLineWidth((double)2.0);
         requestBorderProperties.setShadow(true);
 
         UpdateBorderRequest request = new UpdateBorderRequest(
             remoteFileName,
-            requestBorderProperties,
             "left",
+            requestBorderProperties,
             "tables/1/rows/0/cells/0",
             remoteDataFolder,
             null,
@@ -204,6 +289,45 @@ public class TestTableBorder  extends TestCase
         );
 
         BorderResponse result = TestInitializer.wordsApi.updateBorder(request);
+        assertNotNull(result);
+        assertNotNull(result.getBorder());
+        assertNotNull(result.getBorder().getColor());
+        assertEquals("#AABBCC", result.getBorder().getColor().getWeb());
+        assertEquals(6.0, result.getBorder().getDistanceFromText());
+        assertEquals(2.0, result.getBorder().getLineWidth());
+        assertEquals(Boolean.valueOf(true), result.getBorder().getShadow());
+    }
+
+    /*
+     * Test for updating border online.
+     */
+    @Test
+    public void testUpdateBorderOnline() throws ApiException, IOException
+    {
+        XmlColor requestBorderPropertiesColor = new XmlColor();
+        requestBorderPropertiesColor.setAlpha(2);
+
+        Border requestBorderProperties = new Border();
+        requestBorderProperties.setBorderType(Border.BorderTypeEnum.LEFT);
+        requestBorderProperties.setColor(requestBorderPropertiesColor);
+        requestBorderProperties.setDistanceFromText((double)6);
+        requestBorderProperties.setLineStyle(Border.LineStyleEnum.DASHDOTSTROKER);
+        requestBorderProperties.setLineWidth((double)2);
+        requestBorderProperties.setShadow(true);
+
+        UpdateBorderOnlineRequest request = new UpdateBorderOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestBorderProperties,
+            "left",
+            "tables/1/rows/0/cells/0",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateBorderOnlineResponse result = TestInitializer.wordsApi.updateBorderOnline(request);
         assertNotNull(result);
     }
 }

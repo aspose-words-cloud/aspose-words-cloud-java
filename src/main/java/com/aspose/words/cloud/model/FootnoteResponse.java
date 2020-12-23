@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/footnote/0.
+ * The REST response with a footnote.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/footnote/0.")
+@ApiModel(description = "The REST response with a footnote.")
 public class FootnoteResponse extends WordsResponse {
     @SerializedName("Footnote")
     private Footnote footnote = null;
@@ -56,10 +55,10 @@ public class FootnoteResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets footnote information.
+     * Gets or sets the footnote.
     * @return footnote
     **/
-    @ApiModelProperty(value = "Gets or sets footnote information.")
+    @ApiModelProperty(value = "Gets or sets the footnote.")
     public Footnote getFootnote() {
         return footnote;
     }

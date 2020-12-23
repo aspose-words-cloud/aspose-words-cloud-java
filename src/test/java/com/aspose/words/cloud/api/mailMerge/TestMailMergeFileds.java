@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.mailMerge;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -63,11 +64,17 @@ public class TestMailMergeFileds  extends TestCase
 
         GetDocumentFieldNamesOnlineRequest request = new GetDocumentFieldNamesOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDocumentFile).toAbsolutePath()),
+            null,
+            null,
             true
         );
 
-        File result = TestInitializer.wordsApi.getDocumentFieldNamesOnline(request);
+        FieldNamesResponse result = TestInitializer.wordsApi.getDocumentFieldNamesOnline(request);
         assertNotNull(result);
+        assertNotNull(result.getFieldNames());
+        assertNotNull(result.getFieldNames().getNames());
+        assertEquals(15, result.getFieldNames().getNames().size());
+        assertEquals("TableStart:Order", result.getFieldNames().getNames().get(0));
     }
 
     /*
@@ -94,5 +101,8 @@ public class TestMailMergeFileds  extends TestCase
 
         FieldNamesResponse result = TestInitializer.wordsApi.getDocumentFieldNames(request);
         assertNotNull(result);
+        assertNotNull(result.getFieldNames());
+        assertNotNull(result.getFieldNames().getNames());
+        assertEquals(0, result.getFieldNames().getNames().size());
     }
 }

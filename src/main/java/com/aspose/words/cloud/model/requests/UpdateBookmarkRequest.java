@@ -27,27 +27,32 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for updateBookmark operation.
  */
-public class UpdateBookmarkRequest {
+public class UpdateBookmarkRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * BookmarkData with new bookmark data.
-     */
-    private BookmarkData bookmarkData;
-
-    /*
-     * The bookmark name.
+     * The name of the bookmark.
      */
     private String bookmarkName;
+
+    /*
+     * Bookmark data.
+     */
+    private BookmarkData bookmarkData;
 
     /*
      * Original document folder.
@@ -87,9 +92,9 @@ public class UpdateBookmarkRequest {
     /*
      * Initializes a new instance of the UpdateBookmarkRequest class.
      *
-     * @param String name The document name.
-     * @param BookmarkData bookmarkData BookmarkData with new bookmark data.
-     * @param String bookmarkName The bookmark name.
+     * @param String name The filename of the input document.
+     * @param String bookmarkName The name of the bookmark.
+     * @param BookmarkData bookmarkData Bookmark data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -98,10 +103,10 @@ public class UpdateBookmarkRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateBookmarkRequest(String name, BookmarkData bookmarkData, String bookmarkName, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateBookmarkRequest(String name, String bookmarkName, BookmarkData bookmarkData, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.bookmarkData = bookmarkData;
         this.bookmarkName = bookmarkName;
+        this.bookmarkData = bookmarkData;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -112,45 +117,45 @@ public class UpdateBookmarkRequest {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets BookmarkData with new bookmark data.
-     */
-    public BookmarkData getBookmarkData() {
-        return this.bookmarkData;
-    }
-
-    /*
-     * Sets BookmarkData with new bookmark data.
-     */
-    public void setBookmarkData(BookmarkData value) {
-        this.bookmarkData = value;
-    }
-
-    /*
-     * Gets The bookmark name.
+     * Gets The name of the bookmark.
      */
     public String getBookmarkName() {
         return this.bookmarkName;
     }
 
     /*
-     * Sets The bookmark name.
+     * Sets The name of the bookmark.
      */
     public void setBookmarkName(String value) {
         this.bookmarkName = value;
+    }
+
+    /*
+     * Gets Bookmark data.
+     */
+    public BookmarkData getBookmarkData() {
+        return this.bookmarkData;
+    }
+
+    /*
+     * Sets Bookmark data.
+     */
+    public void setBookmarkData(BookmarkData value) {
+        this.bookmarkData = value;
     }
 
     /*
@@ -249,5 +254,84 @@ public class UpdateBookmarkRequest {
      */
     public void setRevisionDateTime(String value) {
         this.revisionDateTime = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateBookmark");
+        }
+
+        // verify the required parameter 'BookmarkName' is set
+        if (getBookmarkName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BookmarkName' when calling updateBookmark");
+        }
+
+        // verify the required parameter 'BookmarkData' is set
+        if (getBookmarkData() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BookmarkData' when calling updateBookmark");
+        }
+
+        Object localVarPostBody = getBookmarkData();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = apiClient.addParameterToPath(localVarPath, "bookmarkName", getBookmarkName());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return BookmarkResponse.class;
     }
 }

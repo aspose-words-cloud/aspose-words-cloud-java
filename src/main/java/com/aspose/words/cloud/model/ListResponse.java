@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/lists/{n}.
+ * The REST response with a list information.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/lists/{n}.")
+@ApiModel(description = "The REST response with a list information.")
 public class ListResponse extends WordsResponse {
     @SerializedName("List")
     private ListInfo list = null;
@@ -56,10 +55,10 @@ public class ListResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets list which are contained in document.
+     * Gets or sets the list information.
     * @return list
     **/
-    @ApiModelProperty(value = "Gets or sets list which are contained in document.")
+    @ApiModelProperty(value = "Gets or sets the list information.")
     public ListInfo getList() {
         return list;
     }

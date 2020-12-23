@@ -27,13 +27,18 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for executeMailMergeOnline operation.
  */
-public class ExecuteMailMergeOnlineRequest {
+public class ExecuteMailMergeOnlineRequest implements RequestIfc {
     /*
      * File with template.
      */
@@ -45,17 +50,17 @@ public class ExecuteMailMergeOnlineRequest {
     private byte[] data;
 
     /*
-     * With regions flag.
+     * The flag indicating whether to execute Mail Merge operation with regions.
      */
     private Boolean withRegions;
 
     /*
-     * Clean up options.
+     * The cleanup options.
      */
     private String cleanup;
 
     /*
-     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
     private String documentFileName;
 
@@ -64,9 +69,9 @@ public class ExecuteMailMergeOnlineRequest {
      *
      * @param byte[] template File with template.
      * @param byte[] data File with mailmerge data.
-     * @param Boolean withRegions With regions flag.
-     * @param String cleanup Clean up options.
-     * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * @param Boolean withRegions The flag indicating whether to execute Mail Merge operation with regions.
+     * @param String cleanup The cleanup options.
+     * @param String documentFileName The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
     public ExecuteMailMergeOnlineRequest(byte[] template, byte[] data, Boolean withRegions, String cleanup, String documentFileName) {
         this.template = template;
@@ -105,44 +110,117 @@ public class ExecuteMailMergeOnlineRequest {
     }
 
     /*
-     * Gets With regions flag.
+     * Gets The flag indicating whether to execute Mail Merge operation with regions.
      */
     public Boolean getWithRegions() {
         return this.withRegions;
     }
 
     /*
-     * Sets With regions flag.
+     * Sets The flag indicating whether to execute Mail Merge operation with regions.
      */
     public void setWithRegions(Boolean value) {
         this.withRegions = value;
     }
 
     /*
-     * Gets Clean up options.
+     * Gets The cleanup options.
      */
     public String getCleanup() {
         return this.cleanup;
     }
 
     /*
-     * Sets Clean up options.
+     * Sets The cleanup options.
      */
     public void setCleanup(String value) {
         this.cleanup = value;
     }
 
     /*
-     * Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * Gets The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
     public String getDocumentFileName() {
         return this.documentFileName;
     }
 
     /*
-     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * Sets The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
     public void setDocumentFileName(String value) {
         this.documentFileName = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Template' is set
+        if (getTemplate() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Template' when calling executeMailMergeOnline");
+        }
+
+        // verify the required parameter 'Data' is set
+        if (getData() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Data' when calling executeMailMergeOnline");
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/MailMerge";
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "withRegions", getWithRegions());
+        apiClient.addParameterToQuery(localVarQueryParams, "cleanup", getCleanup());
+        apiClient.addParameterToQuery(localVarQueryParams, "documentFileName", getDocumentFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (getTemplate() != null)
+            localVarFormParams.put("Template", getTemplate());
+
+        if (getData() != null)
+            localVarFormParams.put("Data", getData());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return File.class;
     }
 }

@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Response for the request of data about protection.
+ * The REST response with data on document's protection.
  */
-@ApiModel(description = "Response for the request of data about protection.")
+@ApiModel(description = "The REST response with data on document's protection.")
 public class ProtectionDataResponse extends WordsResponse {
     @SerializedName("DocumentLink")
     private FileLink documentLink = null;
@@ -58,10 +58,10 @@ public class ProtectionDataResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets link to the document.
+     * Gets or sets the link to the document.
     * @return documentLink
     **/
-    @ApiModelProperty(value = "Gets or sets link to the document.")
+    @ApiModelProperty(value = "Gets or sets the link to the document.")
     public FileLink getDocumentLink() {
         return documentLink;
     }
@@ -76,10 +76,10 @@ public class ProtectionDataResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets protection's data of the document.
+     * Gets or sets the protection properties of the document.
     * @return protectionData
     **/
-    @ApiModelProperty(value = "Gets or sets protection's data of the document.")
+    @ApiModelProperty(value = "Gets or sets the protection properties of the document.")
     public ProtectionData getProtectionData() {
         return protectionData;
     }

@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.styles;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -76,6 +77,25 @@ public class TestStyles  extends TestCase
 
         StylesResponse result = TestInitializer.wordsApi.getStyles(request);
         assertNotNull(result);
+        assertNotNull(result.getStyles());
+        assertEquals(22, result.getStyles().size());
+        assertEquals("Default Paragraph Font", result.getStyles().get(0).getName());
+    }
+
+    /*
+     * Test for getting styles from document online.
+     */
+    @Test
+    public void testGetStylesOnline() throws ApiException, IOException
+    {
+        GetStylesOnlineRequest request = new GetStylesOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        StylesResponse result = TestInitializer.wordsApi.getStylesOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -102,6 +122,25 @@ public class TestStyles  extends TestCase
 
         StyleResponse result = TestInitializer.wordsApi.getStyle(request);
         assertNotNull(result);
+        assertNotNull(result.getStyle());
+        assertEquals("Heading 1", result.getStyle().getName());
+    }
+
+    /*
+     * Test for getting style from document online.
+     */
+    @Test
+    public void testGetStyleOnline() throws ApiException, IOException
+    {
+        GetStyleOnlineRequest request = new GetStyleOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "Heading 1",
+            null,
+            null
+        );
+
+        StyleResponse result = TestInitializer.wordsApi.getStyleOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -122,8 +161,8 @@ public class TestStyles  extends TestCase
 
         UpdateStyleRequest request = new UpdateStyleRequest(
             remoteFileName,
-            requestStyleUpdate,
             "Heading 1",
+            requestStyleUpdate,
             remoteDataFolder,
             null,
             null,
@@ -134,6 +173,32 @@ public class TestStyles  extends TestCase
         );
 
         StyleResponse result = TestInitializer.wordsApi.updateStyle(request);
+        assertNotNull(result);
+        assertNotNull(result.getStyle());
+        assertEquals("My Style", result.getStyle().getName());
+    }
+
+    /*
+     * Test for updating style from document online.
+     */
+    @Test
+    public void testUpdateStyleOnline() throws ApiException, IOException
+    {
+        StyleUpdate requestStyleUpdate = new StyleUpdate();
+        requestStyleUpdate.setName("My Style");
+
+        UpdateStyleOnlineRequest request = new UpdateStyleOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "Heading 1",
+            requestStyleUpdate,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateStyleOnlineResponse result = TestInitializer.wordsApi.updateStyleOnline(request);
         assertNotNull(result);
     }
 
@@ -168,6 +233,32 @@ public class TestStyles  extends TestCase
 
         StyleResponse result = TestInitializer.wordsApi.insertStyle(request);
         assertNotNull(result);
+        assertNotNull(result.getStyle());
+        assertEquals("My Style", result.getStyle().getName());
+    }
+
+    /*
+     * Test for inserting style from document online.
+     */
+    @Test
+    public void testInsertStyleOnline() throws ApiException, IOException
+    {
+        StyleInsert requestStyleInsert = new StyleInsert();
+        requestStyleInsert.setStyleName("My Style");
+        requestStyleInsert.setStyleType(StyleInsert.StyleTypeEnum.PARAGRAPH);
+
+        InsertStyleOnlineRequest request = new InsertStyleOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestStyleInsert,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertStyleOnlineResponse result = TestInitializer.wordsApi.insertStyleOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -200,6 +291,31 @@ public class TestStyles  extends TestCase
 
         StyleResponse result = TestInitializer.wordsApi.copyStyle(request);
         assertNotNull(result);
+        assertNotNull(result.getStyle());
+        assertEquals("Heading 1_0", result.getStyle().getName());
+    }
+
+    /*
+     * Test for coping style from document online.
+     */
+    @Test
+    public void testCopyStyleOnline() throws ApiException, IOException
+    {
+        StyleCopy requestStyleCopy = new StyleCopy();
+        requestStyleCopy.setStyleName("Heading 1");
+
+        CopyStyleOnlineRequest request = new CopyStyleOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestStyleCopy,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        CopyStyleOnlineResponse result = TestInitializer.wordsApi.copyStyleOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -226,6 +342,25 @@ public class TestStyles  extends TestCase
 
         StyleResponse result = TestInitializer.wordsApi.getStyleFromDocumentElement(request);
         assertNotNull(result);
+        assertNotNull(result.getStyle());
+        assertEquals("TOC 1", result.getStyle().getName());
+    }
+
+    /*
+     * Test for getting style from document element online.
+     */
+    @Test
+    public void testGetStyleFromDocumentElementOnline() throws ApiException, IOException
+    {
+        GetStyleFromDocumentElementOnlineRequest request = new GetStyleFromDocumentElementOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "paragraphs/1/paragraphFormat",
+            null,
+            null
+        );
+
+        StyleResponse result = TestInitializer.wordsApi.getStyleFromDocumentElementOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -246,8 +381,8 @@ public class TestStyles  extends TestCase
 
         ApplyStyleToDocumentElementRequest request = new ApplyStyleToDocumentElementRequest(
             remoteFileName,
-            requestStyleApply,
             "paragraphs/1/paragraphFormat",
+            requestStyleApply,
             remoteDataFolder,
             null,
             null,
@@ -258,6 +393,30 @@ public class TestStyles  extends TestCase
         );
 
         WordsResponse result = TestInitializer.wordsApi.applyStyleToDocumentElement(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for applying style to document element online.
+     */
+    @Test
+    public void testApplyStyleToDocumentElementOnline() throws ApiException, IOException
+    {
+        StyleApply requestStyleApply = new StyleApply();
+        requestStyleApply.setStyleName("Heading 1");
+
+        ApplyStyleToDocumentElementOnlineRequest request = new ApplyStyleToDocumentElementOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "paragraphs/1/paragraphFormat",
+            requestStyleApply,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        ApplyStyleToDocumentElementOnlineResponse result = TestInitializer.wordsApi.applyStyleToDocumentElementOnline(request);
         assertNotNull(result);
     }
 }

@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.pageSetup;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -78,6 +79,25 @@ public class TestPageSetup  extends TestCase
 
         SectionPageSetupResponse result = TestInitializer.wordsApi.getSectionPageSetup(request);
         assertNotNull(result);
+        assertNotNull(result.getPageSetup());
+        assertEquals(Integer.valueOf(1), result.getPageSetup().getLineStartingNumber());
+    }
+
+    /*
+     * Test for getting page settings online.
+     */
+    @Test
+    public void testGetSectionPageSetupOnline() throws ApiException, IOException
+    {
+        GetSectionPageSetupOnlineRequest request = new GetSectionPageSetupOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            null,
+            null
+        );
+
+        SectionPageSetupResponse result = TestInitializer.wordsApi.getSectionPageSetupOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -95,7 +115,7 @@ public class TestPageSetup  extends TestCase
 
         PageSetup requestPageSetup = new PageSetup();
         requestPageSetup.setRtlGutter(true);
-        requestPageSetup.setLeftMargin((double)10);
+        requestPageSetup.setLeftMargin((double)10.0);
         requestPageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
         requestPageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
 
@@ -113,6 +133,37 @@ public class TestPageSetup  extends TestCase
         );
 
         SectionPageSetupResponse result = TestInitializer.wordsApi.updateSectionPageSetup(request);
+        assertNotNull(result);
+        assertNotNull(result.getPageSetup());
+        assertEquals(Boolean.valueOf(true), result.getPageSetup().getRtlGutter());
+
+
+    }
+
+    /*
+     * Test for updating page settings online.
+     */
+    @Test
+    public void testUpdateSectionPageSetupOnline() throws ApiException, IOException
+    {
+        PageSetup requestPageSetup = new PageSetup();
+        requestPageSetup.setRtlGutter(true);
+        requestPageSetup.setLeftMargin((double)10);
+        requestPageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
+        requestPageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
+
+        UpdateSectionPageSetupOnlineRequest request = new UpdateSectionPageSetupOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            requestPageSetup,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateSectionPageSetupOnlineResponse result = TestInitializer.wordsApi.updateSectionPageSetupOnline(request);
         assertNotNull(result);
     }
 
@@ -141,6 +192,25 @@ public class TestPageSetup  extends TestCase
         );
 
         File result = TestInitializer.wordsApi.renderPage(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for page rendering.
+     */
+    @Test
+    public void testGetRenderPageOnline() throws ApiException, IOException
+    {
+        RenderPageOnlineRequest request = new RenderPageOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localTextFile).toAbsolutePath()),
+            1,
+            "bmp",
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.renderPageOnline(request);
         assertNotNull(result);
     }
 }

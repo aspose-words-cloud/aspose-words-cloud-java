@@ -82,10 +82,10 @@ public class PageNumber {
     }
 
     /**
-     * Gets or sets page number format, e.g. "{PAGE} of {NUMPAGES}".
+     * Gets or sets the page number format, e.g. "{PAGE} of {NUMPAGES}".
     * @return format
     **/
-    @ApiModelProperty(value = "Gets or sets page number format, e.g. \"{PAGE} of {NUMPAGES}\".")
+    @ApiModelProperty(value = "Gets or sets the page number format, e.g. \"{PAGE} of {NUMPAGES}\".")
     public String getFormat() {
         return format;
     }

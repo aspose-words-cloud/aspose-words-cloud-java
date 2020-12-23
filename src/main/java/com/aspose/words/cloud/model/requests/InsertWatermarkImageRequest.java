@@ -27,15 +27,20 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.aspose.words.cloud.model.responses.*;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for insertWatermarkImage operation.
  */
-public class InsertWatermarkImageRequest {
+public class InsertWatermarkImageRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
@@ -80,19 +85,19 @@ public class InsertWatermarkImageRequest {
     private String revisionDateTime;
 
     /*
-     * The watermark rotation angle.
+     * The rotation angle of the watermark.
      */
     private Double rotationAngle;
 
     /*
-     * The image file server full name. If the name is empty the image is expected in request content.
+     * The filename of the image. If the parameter value is missing — the image data is expected in the request content.
      */
     private String image;
 
     /*
      * Initializes a new instance of the InsertWatermarkImageRequest class.
      *
-     * @param String name The document name.
+     * @param String name The filename of the input document.
      * @param byte[] imageFile File with image.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -101,8 +106,8 @@ public class InsertWatermarkImageRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param Double rotationAngle The watermark rotation angle.
-     * @param String image The image file server full name. If the name is empty the image is expected in request content.
+     * @param Double rotationAngle The rotation angle of the watermark.
+     * @param String image The filename of the image. If the parameter value is missing — the image data is expected in the request content.
      */
     public InsertWatermarkImageRequest(String name, byte[] imageFile, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime, Double rotationAngle, String image) {
         this.name = name;
@@ -119,14 +124,14 @@ public class InsertWatermarkImageRequest {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
@@ -245,30 +250,102 @@ public class InsertWatermarkImageRequest {
     }
 
     /*
-     * Gets The watermark rotation angle.
+     * Gets The rotation angle of the watermark.
      */
     public Double getRotationAngle() {
         return this.rotationAngle;
     }
 
     /*
-     * Sets The watermark rotation angle.
+     * Sets The rotation angle of the watermark.
      */
     public void setRotationAngle(Double value) {
         this.rotationAngle = value;
     }
 
     /*
-     * Gets The image file server full name. If the name is empty the image is expected in request content.
+     * Gets The filename of the image. If the parameter value is missing — the image data is expected in the request content.
      */
     public String getImage() {
         return this.image;
     }
 
     /*
-     * Sets The image file server full name. If the name is empty the image is expected in request content.
+     * Sets The filename of the image. If the parameter value is missing — the image data is expected in the request content.
      */
     public void setImage(String value) {
         this.image = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertWatermarkImage");
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/watermarks/images";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());
+        apiClient.addParameterToQuery(localVarQueryParams, "rotationAngle", getRotationAngle());
+        apiClient.addParameterToQuery(localVarQueryParams, "image", getImage());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (getImageFile() != null)
+            localVarFormParams.put("ImageFile", getImageFile());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return DocumentResponse.class;
     }
 }

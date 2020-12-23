@@ -64,10 +64,10 @@ public class CompareData {
     }
 
     /**
-     * Gets or sets initials of the author to use for revisions.
+     * Gets or sets the initials of the author to use for revisions.
     * @return author
     **/
-    @ApiModelProperty(value = "Gets or sets initials of the author to use for revisions.")
+    @ApiModelProperty(value = "Gets or sets the initials of the author to use for revisions.")
     public String getAuthor() {
         return author;
     }
@@ -100,10 +100,10 @@ public class CompareData {
     }
 
     /**
-     * Gets or sets path to document to compare at the server.
+     * Gets or sets the path to document to compare at the server.
     * @return comparingWithDocument
     **/
-    @ApiModelProperty(value = "Gets or sets path to document to compare at the server.")
+    @ApiModelProperty(value = "Gets or sets the path to document to compare at the server.")
     public String getComparingWithDocument() {
         return comparingWithDocument;
     }

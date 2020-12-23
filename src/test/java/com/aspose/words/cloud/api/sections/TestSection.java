@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.sections;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -77,6 +78,27 @@ public class TestSection  extends TestCase
 
         SectionResponse result = TestInitializer.wordsApi.getSection(request);
         assertNotNull(result);
+        assertNotNull(result.getSection());
+        assertNotNull(result.getSection().getChildNodes());
+        assertEquals(13, result.getSection().getChildNodes().size());
+        assertEquals("0.3.0", result.getSection().getChildNodes().get(0).getNodeId());
+    }
+
+    /*
+     * Test for getting section by index online.
+     */
+    @Test
+    public void testGetSectionOnline() throws ApiException, IOException
+    {
+        GetSectionOnlineRequest request = new GetSectionOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            null,
+            null
+        );
+
+        SectionResponse result = TestInitializer.wordsApi.getSectionOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -101,6 +123,26 @@ public class TestSection  extends TestCase
         );
 
         SectionLinkCollectionResponse result = TestInitializer.wordsApi.getSections(request);
+        assertNotNull(result);
+        assertNotNull(result.getSections());
+        assertNotNull(result.getSections().getSectionLinkList());
+        assertEquals(1, result.getSections().getSectionLinkList().size());
+        assertEquals("0", result.getSections().getSectionLinkList().get(0).getNodeId());
+    }
+
+    /*
+     * Test for getting sections online.
+     */
+    @Test
+    public void testGetSectionsOnline() throws ApiException, IOException
+    {
+        GetSectionsOnlineRequest request = new GetSectionsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        SectionLinkCollectionResponse result = TestInitializer.wordsApi.getSectionsOnline(request);
         assertNotNull(result);
     }
 
@@ -130,5 +172,25 @@ public class TestSection  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteSection(request);
+    }
+
+    /*
+     * Test for delete a section online.
+     */
+    @Test
+    public void testDeleteSectionOnline() throws ApiException, IOException
+    {
+        DeleteSectionOnlineRequest request = new DeleteSectionOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteSectionOnline(request);
+        assertNotNull(result);
     }
 }

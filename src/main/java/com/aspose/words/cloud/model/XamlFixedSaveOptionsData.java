@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * container class for xaml fixed save options.
+ * Container class for xaml fixed save options.
  */
-@ApiModel(description = "container class for xaml fixed save options.")
+@ApiModel(description = "Container class for xaml fixed save options.")
 public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("ResourcesFolder")
     private String resourcesFolder = null;
@@ -58,11 +58,11 @@ public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format.
-     * Default is null.
+     * Gets or sets the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format.
+     * The default value is null.
     * @return resourcesFolder
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. Default is null.")
+    @ApiModelProperty(value = "Gets or sets the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. The default value is null.")
     public String getResourcesFolder() {
         return resourcesFolder;
     }
@@ -77,11 +77,10 @@ public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document.
-     * Default is null.
+     * Gets or sets the name of the folder used to construct image URIs written into an fixed page Xaml document. The default value is null.
     * @return resourcesFolderAlias
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document. Default is null.")
+    @ApiModelProperty(value = "Gets or sets the name of the folder used to construct image URIs written into an fixed page Xaml document. The default value is null.")
     public String getResourcesFolderAlias() {
         return resourcesFolderAlias;
     }

@@ -48,7 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Insert document to document list.")
 public class ListInsert {
     /**
-     * Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+     * Gets or sets the option that controls how list should be restarted at each section.
      */
     @JsonAdapter(TemplateEnum.Adapter.class)
     public enum TemplateEnum {
@@ -121,10 +121,10 @@ public class ListInsert {
     }
 
     /**
-     * Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+     * Gets or sets the option that controls how list should be restarted at each section.
     * @return template
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.")
+    @ApiModelProperty(value = "Gets or sets the option that controls how list should be restarted at each section.")
     public TemplateEnum getTemplate() {
         return template;
     }

@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.mailMerge;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -105,5 +106,7 @@ public class TestExecuteMailMerge  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.executeMailMerge(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestExecuteMailMerge.docx", result.getDocument().getFileName());
     }
 }

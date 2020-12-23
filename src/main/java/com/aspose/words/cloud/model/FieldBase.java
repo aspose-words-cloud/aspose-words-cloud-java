@@ -58,10 +58,10 @@ public class FieldBase {
     }
 
     /**
-     * Gets or sets field code.
+     * Gets or sets the field code.
     * @return fieldCode
     **/
-    @ApiModelProperty(value = "Gets or sets field code.")
+    @ApiModelProperty(value = "Gets or sets the field code.")
     public String getFieldCode() {
         return fieldCode;
     }
@@ -76,10 +76,10 @@ public class FieldBase {
     }
 
     /**
-     * Gets or sets LCID of the field.
+     * Gets or sets the LCID of the field.
     * @return localeId
     **/
-    @ApiModelProperty(value = "Gets or sets LCID of the field.")
+    @ApiModelProperty(value = "Gets or sets the LCID of the field.")
     public String getLocaleId() {
         return localeId;
     }
