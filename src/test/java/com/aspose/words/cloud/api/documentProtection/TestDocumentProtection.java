@@ -87,6 +87,40 @@ public class TestDocumentProtection  extends TestCase
     }
 
     /*
+     * Test for changing document protection.
+     */
+    @Test
+    public void testChangeDocumentProtection() throws ApiException, IOException
+    {
+        String localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
+        String remoteFileName = "TestChangeDocumentProtection.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFilePath),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        ProtectionRequest requestProtectionRequest = new ProtectionRequest();
+        requestProtectionRequest.setPassword("aspose");
+        requestProtectionRequest.setProtectionType("AllowOnlyComments");
+
+        ProtectDocumentRequest request = new ProtectDocumentRequest(
+            remoteFileName,
+            requestProtectionRequest,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null
+        );
+
+        ProtectionDataResponse result = TestInitializer.wordsApi.protectDocument(request);
+        assertNotNull(result);
+        assertNotNull(result.getProtectionData());
+        assertEquals("AllowOnlyComments", result.getProtectionData().getProtectionType());
+    }
+
+    /*
      * Test for getting document protection.
      */
     @Test
