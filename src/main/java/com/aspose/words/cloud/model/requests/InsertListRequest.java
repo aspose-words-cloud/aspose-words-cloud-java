@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertListRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -44,7 +45,7 @@ public class InsertListRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the list.
+     * List object.
      */
     private ListInsert listInsert;
 
@@ -87,7 +88,7 @@ public class InsertListRequest implements RequestIfc {
      * Initializes a new instance of the InsertListRequest class.
      *
      * @param String name The filename of the input document.
-     * @param ListInsert listInsert The properties of the list.
+     * @param ListInsert listInsert List object.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -123,14 +124,14 @@ public class InsertListRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the list.
+     * Gets List object.
      */
     public ListInsert getListInsert() {
         return this.listInsert;
     }
 
     /*
-     * Sets The properties of the list.
+     * Sets List object.
      */
     public void setListInsert(ListInsert value) {
         this.listInsert = value;

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ReplaceWithTextRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -49,7 +50,7 @@ public class ReplaceWithTextRequest implements RequestIfc {
     private String rangeStartIdentifier;
 
     /*
-     * The text replacement properties.
+     * Model with text for replacement.
      */
     private ReplaceRange rangeText;
 
@@ -88,7 +89,7 @@ public class ReplaceWithTextRequest implements RequestIfc {
      *
      * @param String name The filename of the input document.
      * @param String rangeStartIdentifier The range start identifier.
-     * @param ReplaceRange rangeText The text replacement properties.
+     * @param ReplaceRange rangeText Model with text for replacement.
      * @param String rangeEndIdentifier The range end identifier.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -137,14 +138,14 @@ public class ReplaceWithTextRequest implements RequestIfc {
     }
 
     /*
-     * Gets The text replacement properties.
+     * Gets Model with text for replacement.
      */
     public ReplaceRange getRangeText() {
         return this.rangeText;
     }
 
     /*
-     * Sets The text replacement properties.
+     * Sets Model with text for replacement.
      */
     public void setRangeText(ReplaceRange value) {
         this.rangeText = value;

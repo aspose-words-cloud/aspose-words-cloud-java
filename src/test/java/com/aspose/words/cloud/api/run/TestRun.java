@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestRun.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.run;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -71,9 +72,9 @@ public class TestRun  extends TestCase
 
         UpdateRunRequest request = new UpdateRunRequest(
             remoteFileName,
-            requestRun,
             "paragraphs/1",
             0,
+            requestRun,
             remoteDataFolder,
             null,
             null,
@@ -87,6 +88,31 @@ public class TestRun  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getRun());
         assertEquals("run with text", result.getRun().getText());
+    }
+
+    /*
+     * Test for updating run online.
+     */
+    @Test
+    public void testUpdateRunOnline() throws ApiException, IOException
+    {
+        RunUpdate requestRun = new RunUpdate();
+        requestRun.setText("run with text");
+
+        UpdateRunOnlineRequest request = new UpdateRunOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "paragraphs/1",
+            requestRun,
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateRunOnlineResponse result = TestInitializer.wordsApi.updateRunOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -127,6 +153,31 @@ public class TestRun  extends TestCase
     }
 
     /*
+     * Test for adding run online.
+     */
+    @Test
+    public void testInsertRunOnline() throws ApiException, IOException
+    {
+        RunInsert requestRun = new RunInsert();
+        requestRun.setText("run with text");
+
+        InsertRunOnlineRequest request = new InsertRunOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "paragraphs/1",
+            requestRun,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertRunOnlineResponse result = TestInitializer.wordsApi.insertRunOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for deleting run.
      */
     @Test
@@ -153,5 +204,26 @@ public class TestRun  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteRun(request);
+    }
+
+    /*
+     * Test for deleting run online.
+     */
+    @Test
+    public void testDeleteRunOnline() throws ApiException, IOException
+    {
+        DeleteRunOnlineRequest request = new DeleteRunOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "paragraphs/1",
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteRunOnline(request);
+        assertNotNull(result);
     }
 }

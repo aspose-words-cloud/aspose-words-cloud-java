@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentFieldNamesOnlineRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -39,9 +40,19 @@ import java.util.*;
  */
 public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
     /*
-     * File with template.
+     * The document.
      */
-    private byte[] template;
+    private byte[] document;
+
+    /*
+     * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     */
+    private String loadEncoding;
+
+    /*
+     * Password for opening an encrypted document.
+     */
+    private String password;
 
     /*
      * The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
@@ -51,26 +62,58 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
     /*
      * Initializes a new instance of the GetDocumentFieldNamesOnlineRequest class.
      *
-     * @param byte[] template File with template.
+     * @param byte[] document The document.
+     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param String password Password for opening an encrypted document.
      * @param Boolean useNonMergeFields The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
-    public GetDocumentFieldNamesOnlineRequest(byte[] template, Boolean useNonMergeFields) {
-        this.template = template;
+    public GetDocumentFieldNamesOnlineRequest(byte[] document, String loadEncoding, String password, Boolean useNonMergeFields) {
+        this.document = document;
+        this.loadEncoding = loadEncoding;
+        this.password = password;
         this.useNonMergeFields = useNonMergeFields;
     }
 
     /*
-     * Gets File with template.
+     * Gets The document.
      */
-    public byte[] getTemplate() {
-        return this.template;
+    public byte[] getDocument() {
+        return this.document;
     }
 
     /*
-     * Sets File with template.
+     * Sets The document.
      */
-    public void setTemplate(byte[] value) {
-        this.template = value;
+    public void setDocument(byte[] value) {
+        this.document = value;
+    }
+
+    /*
+     * Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     */
+    public String getLoadEncoding() {
+        return this.loadEncoding;
+    }
+
+    /*
+     * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     */
+    public void setLoadEncoding(String value) {
+        this.loadEncoding = value;
+    }
+
+    /*
+     * Gets Password for opening an encrypted document.
+     */
+    public String getPassword() {
+        return this.password;
+    }
+
+    /*
+     * Sets Password for opening an encrypted document.
+     */
+    public void setPassword(String value) {
+        this.password = value;
     }
 
     /*
@@ -95,26 +138,28 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
      * @throws IOException If fail to serialize the request body object
      */
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
-        // verify the required parameter 'Template' is set
-        if (getTemplate() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Template' when calling getDocumentFieldNamesOnline");
+        // verify the required parameter 'Document' is set
+        if (getDocument() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getDocumentFieldNamesOnline");
         }
 
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/mailMerge/FieldNames";
+        String localVarPath = "/words/online/get/mailMerge/FieldNames";
         localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "useNonMergeFields", getUseNonMergeFields());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getTemplate() != null)
-            localVarFormParams.put("Template", getTemplate());
+        if (getDocument() != null)
+            localVarFormParams.put("Document", getDocument());
 
         final String[] localVarAccepts = {
             "application/xml", "application/json"

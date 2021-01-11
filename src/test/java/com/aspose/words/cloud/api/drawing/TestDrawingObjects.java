@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestDrawingObjects.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.drawing;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -78,9 +79,23 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectsResponse result = TestInitializer.wordsApi.getDocumentDrawingObjects(request);
         assertNotNull(result);
-        assertNotNull(result.getDrawingObjects());
-        assertNotNull(result.getDrawingObjects().getList());
-        assertEquals(1, result.getDrawingObjects().getList().size());
+    }
+
+    /*
+     * Test for getting drawing objects from document online.
+     */
+    @Test
+    public void testGetDocumentDrawingObjectsOnline() throws ApiException, IOException
+    {
+        GetDocumentDrawingObjectsOnlineRequest request = new GetDocumentDrawingObjectsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "sections/0",
+            null,
+            null
+        );
+
+        DrawingObjectsResponse result = TestInitializer.wordsApi.getDocumentDrawingObjectsOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -107,9 +122,6 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectsResponse result = TestInitializer.wordsApi.getDocumentDrawingObjects(request);
         assertNotNull(result);
-        assertNotNull(result.getDrawingObjects());
-        assertNotNull(result.getDrawingObjects().getList());
-        assertEquals(1, result.getDrawingObjects().getList().size());
     }
 
     /*
@@ -137,8 +149,24 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectResponse result = TestInitializer.wordsApi.getDocumentDrawingObjectByIndex(request);
         assertNotNull(result);
-        assertNotNull(result.getDrawingObject());
-        assertEquals(300.0, result.getDrawingObject().getHeight());
+    }
+
+    /*
+     * Test for getting drawing object by specified index online.
+     */
+    @Test
+    public void testGetDocumentDrawingObjectByIndexOnline() throws ApiException, IOException
+    {
+        GetDocumentDrawingObjectByIndexOnlineRequest request = new GetDocumentDrawingObjectByIndexOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            "sections/0",
+            null,
+            null
+        );
+
+        DrawingObjectResponse result = TestInitializer.wordsApi.getDocumentDrawingObjectByIndexOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -166,8 +194,6 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectResponse result = TestInitializer.wordsApi.getDocumentDrawingObjectByIndex(request);
         assertNotNull(result);
-        assertNotNull(result.getDrawingObject());
-        assertEquals(300.0, result.getDrawingObject().getHeight());
     }
 
     /*
@@ -192,10 +218,32 @@ public class TestDrawingObjects  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
         File result = TestInitializer.wordsApi.renderDrawingObject(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for getting drawing object by specified index and format online.
+     */
+    @Test
+    public void testRenderDrawingObjectOnline() throws ApiException, IOException
+    {
+        RenderDrawingObjectOnlineRequest request = new RenderDrawingObjectOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "png",
+            0,
+            "sections/0",
+            null,
+            null,
+            null,
+            null
+        );
+
+        RenderDrawingObjectOnlineResponse result = TestInitializer.wordsApi.renderDrawingObjectOnline(request);
         assertNotNull(result);
     }
 
@@ -218,6 +266,7 @@ public class TestDrawingObjects  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -252,6 +301,24 @@ public class TestDrawingObjects  extends TestCase
         );
 
         File result = TestInitializer.wordsApi.getDocumentDrawingObjectImageData(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for reading drawing object's image data online.
+     */
+    @Test
+    public void testGetDocumentDrawingObjectImageDataOnline() throws ApiException, IOException
+    {
+        GetDocumentDrawingObjectImageDataOnlineRequest request = new GetDocumentDrawingObjectImageDataOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            "sections/0",
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.getDocumentDrawingObjectImageDataOnline(request);
         assertNotNull(result);
     }
 
@@ -310,6 +377,24 @@ public class TestDrawingObjects  extends TestCase
     }
 
     /*
+     * Test for getting drawing object OLE data online.
+     */
+    @Test
+    public void testGetDocumentDrawingObjectOleDataOnline() throws ApiException, IOException
+    {
+        GetDocumentDrawingObjectOleDataOnlineRequest request = new GetDocumentDrawingObjectOleDataOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localDrawingFile).toAbsolutePath()),
+            0,
+            "sections/0",
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.getDocumentDrawingObjectOleDataOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting drawing object OLE data without node path.
      */
     @Test
@@ -350,10 +435,10 @@ public class TestDrawingObjects  extends TestCase
         );
 
         DrawingObjectInsert requestDrawingObject = new DrawingObjectInsert();
-        requestDrawingObject.setHeight((double)0.0);
-        requestDrawingObject.setLeft((double)0.0);
-        requestDrawingObject.setTop((double)0.0);
-        requestDrawingObject.setWidth((double)0.0);
+        requestDrawingObject.setHeight((double)0);
+        requestDrawingObject.setLeft((double)0);
+        requestDrawingObject.setTop((double)0);
+        requestDrawingObject.setWidth((double)0);
         requestDrawingObject.setRelativeHorizontalPosition(DrawingObjectInsert.RelativeHorizontalPositionEnum.MARGIN);
         requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
         requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
@@ -374,8 +459,37 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectResponse result = TestInitializer.wordsApi.insertDrawingObject(request);
         assertNotNull(result);
-        assertNotNull(result.getDrawingObject());
-        assertEquals("0.3.7.1", result.getDrawingObject().getNodeId());
+    }
+
+    /*
+     * Test for adding drawing object online.
+     */
+    @Test
+    public void testInsertDrawingObjectOnline() throws ApiException, IOException
+    {
+        DrawingObjectInsert requestDrawingObject = new DrawingObjectInsert();
+        requestDrawingObject.setHeight((double)0);
+        requestDrawingObject.setLeft((double)0);
+        requestDrawingObject.setTop((double)0);
+        requestDrawingObject.setWidth((double)0);
+        requestDrawingObject.setRelativeHorizontalPosition(DrawingObjectInsert.RelativeHorizontalPositionEnum.MARGIN);
+        requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
+        requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
+
+        InsertDrawingObjectOnlineRequest request = new InsertDrawingObjectOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDrawingObject,
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertDrawingObjectOnlineResponse result = TestInitializer.wordsApi.insertDrawingObjectOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -392,10 +506,10 @@ public class TestDrawingObjects  extends TestCase
         );
 
         DrawingObjectInsert requestDrawingObject = new DrawingObjectInsert();
-        requestDrawingObject.setHeight((double)0.0);
-        requestDrawingObject.setLeft((double)0.0);
-        requestDrawingObject.setTop((double)0.0);
-        requestDrawingObject.setWidth((double)0.0);
+        requestDrawingObject.setHeight((double)0);
+        requestDrawingObject.setLeft((double)0);
+        requestDrawingObject.setTop((double)0);
+        requestDrawingObject.setWidth((double)0);
         requestDrawingObject.setRelativeHorizontalPosition(DrawingObjectInsert.RelativeHorizontalPositionEnum.MARGIN);
         requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
         requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
@@ -416,8 +530,6 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectResponse result = TestInitializer.wordsApi.insertDrawingObject(request);
         assertNotNull(result);
-        assertNotNull(result.getDrawingObject());
-        assertEquals("0.3.7.1", result.getDrawingObject().getNodeId());
     }
 
     /*
@@ -447,6 +559,27 @@ public class TestDrawingObjects  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteDrawingObject(request);
+    }
+
+    /*
+     * Test for deleting drawing object online.
+     */
+    @Test
+    public void testDeleteDrawingObjectOnline() throws ApiException, IOException
+    {
+        DeleteDrawingObjectOnlineRequest request = new DeleteDrawingObjectOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteDrawingObjectOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -492,7 +625,7 @@ public class TestDrawingObjects  extends TestCase
         );
 
         DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
-        requestDrawingObject.setLeft((double)1.0);
+        requestDrawingObject.setLeft((double)0);
 
         UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(
             remoteFileName,
@@ -511,8 +644,32 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectResponse result = TestInitializer.wordsApi.updateDrawingObject(request);
         assertNotNull(result);
-        assertNotNull(result.getDrawingObject());
-        assertEquals(1.0, result.getDrawingObject().getLeft());
+    }
+
+    /*
+     * Test for updating drawing object online.
+     */
+    @Test
+    public void testUpdateDrawingObjectOnline() throws ApiException, IOException
+    {
+        DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
+        requestDrawingObject.setLeft((double)0);
+
+        UpdateDrawingObjectOnlineRequest request = new UpdateDrawingObjectOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDrawingObject,
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
+            0,
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateDrawingObjectOnlineResponse result = TestInitializer.wordsApi.updateDrawingObjectOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -529,7 +686,7 @@ public class TestDrawingObjects  extends TestCase
         );
 
         DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
-        requestDrawingObject.setLeft((double)1.0);
+        requestDrawingObject.setLeft((double)0);
 
         UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(
             remoteFileName,
@@ -548,7 +705,5 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectResponse result = TestInitializer.wordsApi.updateDrawingObject(request);
         assertNotNull(result);
-        assertNotNull(result.getDrawingObject());
-        assertEquals(1.0, result.getDrawingObject().getLeft());
     }
 }

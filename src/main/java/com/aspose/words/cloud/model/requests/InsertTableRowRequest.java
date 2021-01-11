@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableRowRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -44,14 +45,14 @@ public class InsertTableRowRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the row.
-     */
-    private TableRowInsert row;
-
-    /*
      * The path to the table in the document tree.
      */
     private String tablePath;
+
+    /*
+     * Table row parameters.
+     */
+    private TableRowInsert row;
 
     /*
      * Original document folder.
@@ -92,8 +93,8 @@ public class InsertTableRowRequest implements RequestIfc {
      * Initializes a new instance of the InsertTableRowRequest class.
      *
      * @param String name The filename of the input document.
-     * @param TableRowInsert row The properties of the row.
      * @param String tablePath The path to the table in the document tree.
+     * @param TableRowInsert row Table row parameters.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -102,10 +103,10 @@ public class InsertTableRowRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertTableRowRequest(String name, TableRowInsert row, String tablePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public InsertTableRowRequest(String name, String tablePath, TableRowInsert row, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.row = row;
         this.tablePath = tablePath;
+        this.row = row;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -130,20 +131,6 @@ public class InsertTableRowRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the row.
-     */
-    public TableRowInsert getRow() {
-        return this.row;
-    }
-
-    /*
-     * Sets The properties of the row.
-     */
-    public void setRow(TableRowInsert value) {
-        this.row = value;
-    }
-
-    /*
      * Gets The path to the table in the document tree.
      */
     public String getTablePath() {
@@ -155,6 +142,20 @@ public class InsertTableRowRequest implements RequestIfc {
      */
     public void setTablePath(String value) {
         this.tablePath = value;
+    }
+
+    /*
+     * Gets Table row parameters.
+     */
+    public TableRowInsert getRow() {
+        return this.row;
+    }
+
+    /*
+     * Sets Table row parameters.
+     */
+    public void setRow(TableRowInsert value) {
+        this.row = value;
     }
 
     /*
@@ -268,14 +269,14 @@ public class InsertTableRowRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertTableRow");
         }
 
-        // verify the required parameter 'Row' is set
-        if (getRow() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Row' when calling insertTableRow");
-        }
-
         // verify the required parameter 'TablePath' is set
         if (getTablePath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TablePath' when calling insertTableRow");
+        }
+
+        // verify the required parameter 'Row' is set
+        if (getRow() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Row' when calling insertTableRow");
         }
 
         Object localVarPostBody = getRow();

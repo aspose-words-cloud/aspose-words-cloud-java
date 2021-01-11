@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestWatermark.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.watermark;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -92,6 +93,28 @@ public class TestWatermark  extends TestCase
     }
 
     /*
+     * Test for adding watermark image online.
+     */
+    @Test
+    public void testInsertWatermarkImageOnline() throws ApiException, IOException
+    {
+        InsertWatermarkImageOnlineRequest request = new InsertWatermarkImageOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertWatermarkImageOnlineResponse result = TestInitializer.wordsApi.insertWatermarkImageOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for adding watermark text.
      */
     @Test
@@ -127,6 +150,30 @@ public class TestWatermark  extends TestCase
     }
 
     /*
+     * Test for adding watermark text online.
+     */
+    @Test
+    public void testInsertWatermarkTextOnline() throws ApiException, IOException
+    {
+        WatermarkText requestWatermarkText = new WatermarkText();
+        requestWatermarkText.setText("This is the text");
+        requestWatermarkText.setRotationAngle((double)90);
+
+        InsertWatermarkTextOnlineRequest request = new InsertWatermarkTextOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestWatermarkText,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertWatermarkTextOnlineResponse result = TestInitializer.wordsApi.insertWatermarkTextOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for deleting watermark.
      */
     @Test
@@ -154,5 +201,24 @@ public class TestWatermark  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getDocument());
         assertEquals("TestDeleteWatermark.docx", result.getDocument().getFileName());
+    }
+
+    /*
+     * Test for deleting watermark online.
+     */
+    @Test
+    public void testDeleteWatermarkOnline() throws ApiException, IOException
+    {
+        DeleteWatermarkOnlineRequest request = new DeleteWatermarkOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        DeleteWatermarkOnlineResponse result = TestInitializer.wordsApi.deleteWatermarkOnline(request);
+        assertNotNull(result);
     }
 }

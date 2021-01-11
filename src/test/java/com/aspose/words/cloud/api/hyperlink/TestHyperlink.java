@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestHyperlink.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.hyperlink;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -82,6 +83,23 @@ public class TestHyperlink  extends TestCase
     }
 
     /*
+     * Test for getting hyperlink by specified index online.
+     */
+    @Test
+    public void testGetDocumentHyperlinkByIndexOnline() throws ApiException, IOException
+    {
+        GetDocumentHyperlinkByIndexOnlineRequest request = new GetDocumentHyperlinkByIndexOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            null,
+            null
+        );
+
+        HyperlinkResponse result = TestInitializer.wordsApi.getDocumentHyperlinkByIndexOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting hyperlinks.
      */
     @Test
@@ -108,5 +126,21 @@ public class TestHyperlink  extends TestCase
         assertNotNull(result.getHyperlinks().getHyperlinkList());
         assertEquals(2, result.getHyperlinks().getHyperlinkList().size());
         assertEquals("Aspose", result.getHyperlinks().getHyperlinkList().get(0).getDisplayText());
+    }
+
+    /*
+     * Test for getting hyperlinks online.
+     */
+    @Test
+    public void testGetDocumentHyperlinksOnline() throws ApiException, IOException
+    {
+        GetDocumentHyperlinksOnlineRequest request = new GetDocumentHyperlinksOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        HyperlinksResponse result = TestInitializer.wordsApi.getDocumentHyperlinksOnline(request);
+        assertNotNull(result);
     }
 }

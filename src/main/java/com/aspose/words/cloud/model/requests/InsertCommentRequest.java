@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertCommentRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -44,7 +45,7 @@ public class InsertCommentRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the comment.
+     * Comment data.
      */
     private CommentInsert comment;
 
@@ -87,7 +88,7 @@ public class InsertCommentRequest implements RequestIfc {
      * Initializes a new instance of the InsertCommentRequest class.
      *
      * @param String name The filename of the input document.
-     * @param CommentInsert comment The properties of the comment.
+     * @param CommentInsert comment Comment data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -123,14 +124,14 @@ public class InsertCommentRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the comment.
+     * Gets Comment data.
      */
     public CommentInsert getComment() {
         return this.comment;
     }
 
     /*
-     * Sets The properties of the comment.
+     * Sets Comment data.
      */
     public void setComment(CommentInsert value) {
         this.comment = value;

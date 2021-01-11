@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateFieldRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -44,14 +45,14 @@ public class UpdateFieldRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the field.
-     */
-    private FieldUpdate field;
-
-    /*
      * Object index.
      */
     private Integer index;
+
+    /*
+     * Field data.
+     */
+    private FieldUpdate field;
 
     /*
      * The path to the node in the document tree.
@@ -97,8 +98,8 @@ public class UpdateFieldRequest implements RequestIfc {
      * Initializes a new instance of the UpdateFieldRequest class.
      *
      * @param String name The filename of the input document.
-     * @param FieldUpdate field The properties of the field.
      * @param Integer index Object index.
+     * @param FieldUpdate field Field data.
      * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -108,10 +109,10 @@ public class UpdateFieldRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateFieldRequest(String name, FieldUpdate field, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateFieldRequest(String name, Integer index, FieldUpdate field, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.field = field;
         this.index = index;
+        this.field = field;
         this.nodePath = nodePath;
         this.folder = folder;
         this.storage = storage;
@@ -137,20 +138,6 @@ public class UpdateFieldRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the field.
-     */
-    public FieldUpdate getField() {
-        return this.field;
-    }
-
-    /*
-     * Sets The properties of the field.
-     */
-    public void setField(FieldUpdate value) {
-        this.field = value;
-    }
-
-    /*
      * Gets Object index.
      */
     public Integer getIndex() {
@@ -162,6 +149,20 @@ public class UpdateFieldRequest implements RequestIfc {
      */
     public void setIndex(Integer value) {
         this.index = value;
+    }
+
+    /*
+     * Gets Field data.
+     */
+    public FieldUpdate getField() {
+        return this.field;
+    }
+
+    /*
+     * Sets Field data.
+     */
+    public void setField(FieldUpdate value) {
+        this.field = value;
     }
 
     /*
@@ -289,14 +290,14 @@ public class UpdateFieldRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateField");
         }
 
-        // verify the required parameter 'Field' is set
-        if (getField() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Field' when calling updateField");
-        }
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateField");
+        }
+
+        // verify the required parameter 'Field' is set
+        if (getField() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Field' when calling updateField");
         }
 
         Object localVarPostBody = getField();
@@ -346,7 +347,7 @@ public class UpdateFieldRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

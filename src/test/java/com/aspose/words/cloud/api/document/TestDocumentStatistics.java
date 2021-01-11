@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestDocumentStatistics.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -81,5 +82,24 @@ public class TestDocumentStatistics  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getStatData());
         assertEquals(Integer.valueOf(10), result.getStatData().getWordCount());
+    }
+
+    /*
+     * Test for document classification online.
+     */
+    @Test
+    public void testGetDocumentStatisticsOnline() throws ApiException, IOException
+    {
+        GetDocumentStatisticsOnlineRequest request = new GetDocumentStatisticsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        StatDataResponse result = TestInitializer.wordsApi.getDocumentStatisticsOnline(request);
+        assertNotNull(result);
     }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestCompareDocument.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -92,5 +93,37 @@ public class TestCompareDocument  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getDocument());
         assertEquals("TestCompareDocumentOut.doc", result.getDocument().getFileName());
+    }
+
+    /*
+     * Test for document comparison online.
+     */
+    @Test
+    public void testCompareDocumentOnline() throws ApiException, IOException
+    {
+        String localName1 = "compareTestDoc1.doc";
+        String localName2 = "compareTestDoc2.doc";
+        String remoteName2 = "TestCompareDocument2.doc";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFolder + "/" + localName2),
+            remoteFolder + "/" + remoteName2
+        );
+
+        CompareData requestCompareData = new CompareData();
+        requestCompareData.setAuthor("author");
+        requestCompareData.setComparingWithDocument(remoteFolder + "/" + remoteName2);
+        requestCompareData.setDateTime(OffsetDateTime.of(2015, 10, 26, 0, 0, 0, 0, ZoneOffset.UTC));
+
+        CompareDocumentOnlineRequest request = new CompareDocumentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/" + localName1).toAbsolutePath()),
+            requestCompareData,
+            null,
+            null,
+            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
+        );
+
+        CompareDocumentOnlineResponse result = TestInitializer.wordsApi.compareDocumentOnline(request);
+        assertNotNull(result);
     }
 }

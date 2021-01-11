@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestFormField.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.field;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -76,8 +77,8 @@ public class TestFormField  extends TestCase
 
         UpdateFormFieldRequest request = new UpdateFormFieldRequest(
             remoteFileName,
-            requestFormField,
             0,
+            requestFormField,
             "sections/0",
             remoteDataFolder,
             null,
@@ -93,6 +94,36 @@ public class TestFormField  extends TestCase
         assertNotNull(result.getFormField());
         assertEquals("FullName", result.getFormField().getName());
         assertEquals("", result.getFormField().getStatusText());
+    }
+
+    /*
+     * Test for posting form field online.
+     */
+    @Test
+    public void testUpdateFormFieldOnline() throws ApiException, IOException
+    {
+        FormFieldTextInput requestFormField = new FormFieldTextInput();
+        requestFormField.setName("FullName");
+        requestFormField.setEnabled(true);
+        requestFormField.setCalculateOnExit(true);
+        requestFormField.setStatusText("");
+        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        requestFormField.setTextInputDefault("No name");
+
+        UpdateFormFieldOnlineRequest request = new UpdateFormFieldOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
+            requestFormField,
+            0,
+            "sections/0",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateFormFieldOnlineResponse result = TestInitializer.wordsApi.updateFormFieldOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -118,8 +149,8 @@ public class TestFormField  extends TestCase
 
         UpdateFormFieldRequest request = new UpdateFormFieldRequest(
             remoteFileName,
-            requestFormField,
             0,
+            requestFormField,
             null,
             remoteDataFolder,
             null,
@@ -164,6 +195,24 @@ public class TestFormField  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getFormField());
         assertEquals("FullName", result.getFormField().getName());
+    }
+
+    /*
+     * Test for getting form field online.
+     */
+    @Test
+    public void testGetFormFieldOnline() throws ApiException, IOException
+    {
+        GetFormFieldOnlineRequest request = new GetFormFieldOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
+            0,
+            "sections/0",
+            null,
+            null
+        );
+
+        FormFieldResponse result = TestInitializer.wordsApi.getFormFieldOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -223,6 +272,23 @@ public class TestFormField  extends TestCase
         assertNotNull(result.getFormFields().getList());
         assertEquals(5, result.getFormFields().getList().size());
         assertEquals("FullName", result.getFormFields().getList().get(0).getName());
+    }
+
+    /*
+     * Test for getting form fields online.
+     */
+    @Test
+    public void testGetFormFieldsOnline() throws ApiException, IOException
+    {
+        GetFormFieldsOnlineRequest request = new GetFormFieldsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
+            "sections/0",
+            null,
+            null
+        );
+
+        FormFieldsResponse result = TestInitializer.wordsApi.getFormFieldsOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -299,6 +365,37 @@ public class TestFormField  extends TestCase
     }
 
     /*
+     * Test for insert form field without node path online.
+     */
+    @Test
+    public void testInsertFormFieldOnline() throws ApiException, IOException
+    {
+        FormFieldTextInput requestFormField = new FormFieldTextInput();
+        requestFormField.setName("FullName");
+        requestFormField.setEnabled(true);
+        requestFormField.setCalculateOnExit(true);
+        requestFormField.setStatusText("");
+        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        requestFormField.setTextInputDefault("123");
+        requestFormField.setTextInputFormat("UPPERCASE");
+
+        InsertFormFieldOnlineRequest request = new InsertFormFieldOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
+            requestFormField,
+            "sections/0/paragraphs/0",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertFormFieldOnlineResponse result = TestInitializer.wordsApi.insertFormFieldOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for insert form field without node path.
      */
     @Test
@@ -368,6 +465,27 @@ public class TestFormField  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteFormField(request);
+    }
+
+    /*
+     * Test for deleting form field online.
+     */
+    @Test
+    public void testDeleteFormFieldOnline() throws ApiException, IOException
+    {
+        DeleteFormFieldOnlineRequest request = new DeleteFormFieldOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
+            0,
+            "sections/0",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteFormFieldOnline(request);
+        assertNotNull(result);
     }
 
     /*

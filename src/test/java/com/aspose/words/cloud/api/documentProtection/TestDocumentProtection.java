@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestDocumentProtection.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.documentProtection;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -87,37 +88,24 @@ public class TestDocumentProtection  extends TestCase
     }
 
     /*
-     * Test for changing document protection.
+     * Test for setting document protection.
      */
     @Test
-    public void testChangeDocumentProtection() throws ApiException, IOException
+    public void testProtectDocumentOnline() throws ApiException, IOException
     {
-        String localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
-        String remoteFileName = "TestChangeDocumentProtection.docx";
-
-        TestInitializer.UploadFile(
-            PathUtil.get(TestInitializer.LocalTestFolder, localFilePath),
-            remoteDataFolder + "/" + remoteFileName
-        );
-
         ProtectionRequest requestProtectionRequest = new ProtectionRequest();
-        requestProtectionRequest.setPassword("aspose");
-        requestProtectionRequest.setProtectionType("AllowOnlyComments");
+        requestProtectionRequest.setNewPassword("123");
 
-        ProtectDocumentRequest request = new ProtectDocumentRequest(
-            remoteFileName,
+        ProtectDocumentOnlineRequest request = new ProtectDocumentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
             requestProtectionRequest,
-            remoteDataFolder,
-            null,
             null,
             null,
             null
         );
 
-        ProtectionDataResponse result = TestInitializer.wordsApi.protectDocument(request);
+        ProtectDocumentOnlineResponse result = TestInitializer.wordsApi.protectDocumentOnline(request);
         assertNotNull(result);
-        assertNotNull(result.getProtectionData());
-        assertEquals("AllowOnlyComments", result.getProtectionData().getProtectionType());
     }
 
     /*
@@ -144,8 +132,22 @@ public class TestDocumentProtection  extends TestCase
 
         ProtectionDataResponse result = TestInitializer.wordsApi.getDocumentProtection(request);
         assertNotNull(result);
-        assertNotNull(result.getProtectionData());
-        assertEquals("ReadOnly", result.getProtectionData().getProtectionType());
+    }
+
+    /*
+     * Test for getting document protection.
+     */
+    @Test
+    public void testGetDocumentProtectionOnline() throws ApiException, IOException
+    {
+        GetDocumentProtectionOnlineRequest request = new GetDocumentProtectionOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        ProtectionDataResponse result = TestInitializer.wordsApi.getDocumentProtectionOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -179,5 +181,28 @@ public class TestDocumentProtection  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getProtectionData());
         assertEquals("NoProtection", result.getProtectionData().getProtectionType());
+    }
+
+    /*
+     * Test for deleting unprotect document.
+     */
+    @Test
+    public void testDeleteUnprotectDocumentOnline() throws ApiException, IOException
+    {
+        String localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
+
+        ProtectionRequest requestProtectionRequest = new ProtectionRequest();
+        requestProtectionRequest.setPassword("aspose");
+
+        UnprotectDocumentOnlineRequest request = new UnprotectDocumentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFilePath).toAbsolutePath()),
+            requestProtectionRequest,
+            null,
+            null,
+            null
+        );
+
+        UnprotectDocumentOnlineResponse result = TestInitializer.wordsApi.unprotectDocumentOnline(request);
+        assertNotNull(result);
     }
 }

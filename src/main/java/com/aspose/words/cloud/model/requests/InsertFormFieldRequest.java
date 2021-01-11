@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertFormFieldRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -44,7 +45,7 @@ public class InsertFormFieldRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the form field.
+     * From field data.
      */
     private FormField formField;
 
@@ -97,7 +98,7 @@ public class InsertFormFieldRequest implements RequestIfc {
      * Initializes a new instance of the InsertFormFieldRequest class.
      *
      * @param String name The filename of the input document.
-     * @param FormField formField The properties of the form field.
+     * @param FormField formField From field data.
      * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -137,14 +138,14 @@ public class InsertFormFieldRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the form field.
+     * Gets From field data.
      */
     public FormField getFormField() {
         return this.formField;
     }
 
     /*
-     * Sets The properties of the form field.
+     * Sets From field data.
      */
     public void setFormField(FormField value) {
         this.formField = value;

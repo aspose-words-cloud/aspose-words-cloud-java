@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestSection.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.sections;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -84,6 +85,23 @@ public class TestSection  extends TestCase
     }
 
     /*
+     * Test for getting section by index online.
+     */
+    @Test
+    public void testGetSectionOnline() throws ApiException, IOException
+    {
+        GetSectionOnlineRequest request = new GetSectionOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            null,
+            null
+        );
+
+        SectionResponse result = TestInitializer.wordsApi.getSectionOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting sections.
      */
     @Test
@@ -113,6 +131,22 @@ public class TestSection  extends TestCase
     }
 
     /*
+     * Test for getting sections online.
+     */
+    @Test
+    public void testGetSectionsOnline() throws ApiException, IOException
+    {
+        GetSectionsOnlineRequest request = new GetSectionsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        SectionLinkCollectionResponse result = TestInitializer.wordsApi.getSectionsOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for delete a section.
      */
     @Test
@@ -138,5 +172,25 @@ public class TestSection  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteSection(request);
+    }
+
+    /*
+     * Test for delete a section online.
+     */
+    @Test
+    public void testDeleteSectionOnline() throws ApiException, IOException
+    {
+        DeleteSectionOnlineRequest request = new DeleteSectionOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteSectionOnline(request);
+        assertNotNull(result);
     }
 }

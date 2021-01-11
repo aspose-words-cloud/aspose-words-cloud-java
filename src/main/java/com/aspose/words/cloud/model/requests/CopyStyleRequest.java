@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CopyStyleRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -44,7 +45,7 @@ public class CopyStyleRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the style.
+     * Style to copy.
      */
     private StyleCopy styleCopy;
 
@@ -87,7 +88,7 @@ public class CopyStyleRequest implements RequestIfc {
      * Initializes a new instance of the CopyStyleRequest class.
      *
      * @param String name The filename of the input document.
-     * @param StyleCopy styleCopy The properties of the style.
+     * @param StyleCopy styleCopy Style to copy.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -123,14 +124,14 @@ public class CopyStyleRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the style.
+     * Gets Style to copy.
      */
     public StyleCopy getStyleCopy() {
         return this.styleCopy;
     }
 
     /*
-     * Sets The properties of the style.
+     * Sets Style to copy.
      */
     public void setStyleCopy(StyleCopy value) {
         this.styleCopy = value;

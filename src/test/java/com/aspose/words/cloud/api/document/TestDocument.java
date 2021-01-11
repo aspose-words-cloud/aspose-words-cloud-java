@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestDocument.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -89,9 +90,9 @@ public class TestDocument  extends TestCase
         String remoteFileName = "TestCreateDocument.doc";
 
         CreateDocumentRequest request = new CreateDocumentRequest(
-            null,
             remoteFileName,
-            remoteDataFolder
+            remoteDataFolder,
+            null
         );
 
         DocumentResponse result = TestInitializer.wordsApi.createDocument(request);

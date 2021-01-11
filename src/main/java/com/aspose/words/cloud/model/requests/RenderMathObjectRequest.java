@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderMathObjectRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -79,6 +80,11 @@ public class RenderMathObjectRequest implements RequestIfc {
     private String password;
 
     /*
+     * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     */
+    private String destFileName;
+
+    /*
      * Folder in filestorage with custom fonts.
      */
     private String fontsLocation;
@@ -94,9 +100,10 @@ public class RenderMathObjectRequest implements RequestIfc {
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
+     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public RenderMathObjectRequest(String name, String format, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String fontsLocation) {
+    public RenderMathObjectRequest(String name, String format, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String fontsLocation) {
         this.name = name;
         this.format = format;
         this.index = index;
@@ -105,6 +112,7 @@ public class RenderMathObjectRequest implements RequestIfc {
         this.storage = storage;
         this.loadEncoding = loadEncoding;
         this.password = password;
+        this.destFileName = destFileName;
         this.fontsLocation = fontsLocation;
     }
 
@@ -221,6 +229,20 @@ public class RenderMathObjectRequest implements RequestIfc {
     }
 
     /*
+     * Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     */
+    public String getDestFileName() {
+        return this.destFileName;
+    }
+
+    /*
+     * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     */
+    public void setDestFileName(String value) {
+        this.destFileName = value;
+    }
+
+    /*
      * Gets Folder in filestorage with custom fonts.
      */
     public String getFontsLocation() {
@@ -273,6 +295,7 @@ public class RenderMathObjectRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
         apiClient.addParameterToQuery(localVarQueryParams, "fontsLocation", getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -291,7 +314,7 @@ public class RenderMathObjectRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

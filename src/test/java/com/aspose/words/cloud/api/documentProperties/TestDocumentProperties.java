@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestDocumentProperties.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.documentProperties;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -85,6 +86,22 @@ public class TestDocumentProperties  extends TestCase
     }
 
     /*
+     * Test for getting document properties online.
+     */
+    @Test
+    public void testGetDocumentPropertiesOnline() throws ApiException, IOException
+    {
+        GetDocumentPropertiesOnlineRequest request = new GetDocumentPropertiesOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        DocumentPropertiesResponse result = TestInitializer.wordsApi.getDocumentPropertiesOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * A test for GetDocumentProperty.
      */
     @Test
@@ -114,6 +131,23 @@ public class TestDocumentProperties  extends TestCase
     }
 
     /*
+     * A test for GetDocumentProperty online.
+     */
+    @Test
+    public void testGetDocumentPropertyOnline() throws ApiException, IOException
+    {
+        GetDocumentPropertyOnlineRequest request = new GetDocumentPropertyOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "Author",
+            null,
+            null
+        );
+
+        DocumentPropertyResponse result = TestInitializer.wordsApi.getDocumentPropertyOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for deleting document property.
      */
     @Test
@@ -139,6 +173,26 @@ public class TestDocumentProperties  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteDocumentProperty(request);
+    }
+
+    /*
+     * Test for deleting document property online.
+     */
+    @Test
+    public void testDeleteDocumentPropertyOnline() throws ApiException, IOException
+    {
+        DeleteDocumentPropertyOnlineRequest request = new DeleteDocumentPropertyOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "testProp",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteDocumentPropertyOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -175,5 +229,29 @@ public class TestDocumentProperties  extends TestCase
         assertNotNull(result.getDocumentProperty());
         assertEquals("AsposeAuthor", result.getDocumentProperty().getName());
         assertEquals("Imran Anwar", result.getDocumentProperty().getValue());
+    }
+
+    /*
+     * Test for updating document property online.
+     */
+    @Test
+    public void testUpdateDocumentPropertyOnline() throws ApiException, IOException
+    {
+        DocumentPropertyCreateOrUpdate requestProperty = new DocumentPropertyCreateOrUpdate();
+        requestProperty.setValue("Imran Anwar");
+
+        CreateOrUpdateDocumentPropertyOnlineRequest request = new CreateOrUpdateDocumentPropertyOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "AsposeAuthor",
+            requestProperty,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        CreateOrUpdateDocumentPropertyOnlineResponse result = TestInitializer.wordsApi.createOrUpdateDocumentPropertyOnline(request);
+        assertNotNull(result);
     }
 }

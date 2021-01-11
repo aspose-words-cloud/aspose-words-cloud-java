@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertHeaderFooterRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -44,14 +45,14 @@ public class InsertHeaderFooterRequest implements RequestIfc {
     private String name;
 
     /*
-     * The type of a HeaderFooter object.
-     */
-    private String headerFooterType;
-
-    /*
      * The path to the section in the document tree.
      */
     private String sectionPath;
+
+    /*
+     * Type of header/footer.
+     */
+    private String headerFooterType;
 
     /*
      * Original document folder.
@@ -92,8 +93,8 @@ public class InsertHeaderFooterRequest implements RequestIfc {
      * Initializes a new instance of the InsertHeaderFooterRequest class.
      *
      * @param String name The filename of the input document.
-     * @param String headerFooterType The type of a HeaderFooter object.
      * @param String sectionPath The path to the section in the document tree.
+     * @param String headerFooterType Type of header/footer.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -102,10 +103,10 @@ public class InsertHeaderFooterRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertHeaderFooterRequest(String name, String headerFooterType, String sectionPath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public InsertHeaderFooterRequest(String name, String sectionPath, String headerFooterType, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.headerFooterType = headerFooterType;
         this.sectionPath = sectionPath;
+        this.headerFooterType = headerFooterType;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -130,20 +131,6 @@ public class InsertHeaderFooterRequest implements RequestIfc {
     }
 
     /*
-     * Gets The type of a HeaderFooter object.
-     */
-    public String getHeaderFooterType() {
-        return this.headerFooterType;
-    }
-
-    /*
-     * Sets The type of a HeaderFooter object.
-     */
-    public void setHeaderFooterType(String value) {
-        this.headerFooterType = value;
-    }
-
-    /*
      * Gets The path to the section in the document tree.
      */
     public String getSectionPath() {
@@ -155,6 +142,20 @@ public class InsertHeaderFooterRequest implements RequestIfc {
      */
     public void setSectionPath(String value) {
         this.sectionPath = value;
+    }
+
+    /*
+     * Gets Type of header/footer.
+     */
+    public String getHeaderFooterType() {
+        return this.headerFooterType;
+    }
+
+    /*
+     * Sets Type of header/footer.
+     */
+    public void setHeaderFooterType(String value) {
+        this.headerFooterType = value;
     }
 
     /*
@@ -268,14 +269,14 @@ public class InsertHeaderFooterRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertHeaderFooter");
         }
 
-        // verify the required parameter 'HeaderFooterType' is set
-        if (getHeaderFooterType() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'HeaderFooterType' when calling insertHeaderFooter");
-        }
-
         // verify the required parameter 'SectionPath' is set
         if (getSectionPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionPath' when calling insertHeaderFooter");
+        }
+
+        // verify the required parameter 'HeaderFooterType' is set
+        if (getHeaderFooterType() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'HeaderFooterType' when calling insertHeaderFooter");
         }
 
         Object localVarPostBody = getHeaderFooterType();
@@ -324,7 +325,7 @@ public class InsertHeaderFooterRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateBorderRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -44,14 +45,14 @@ public class UpdateBorderRequest implements RequestIfc {
     private String name;
 
     /*
-     * The new border properties to update.
-     */
-    private Border borderProperties;
-
-    /*
      * Border type.
      */
     private String borderType;
+
+    /*
+     * Border properties.
+     */
+    private Border borderProperties;
 
     /*
      * The path to the node in the document tree.
@@ -97,8 +98,8 @@ public class UpdateBorderRequest implements RequestIfc {
      * Initializes a new instance of the UpdateBorderRequest class.
      *
      * @param String name The filename of the input document.
-     * @param Border borderProperties The new border properties to update.
      * @param String borderType Border type.
+     * @param Border borderProperties Border properties.
      * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -108,10 +109,10 @@ public class UpdateBorderRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateBorderRequest(String name, Border borderProperties, String borderType, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateBorderRequest(String name, String borderType, Border borderProperties, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.borderProperties = borderProperties;
         this.borderType = borderType;
+        this.borderProperties = borderProperties;
         this.nodePath = nodePath;
         this.folder = folder;
         this.storage = storage;
@@ -137,20 +138,6 @@ public class UpdateBorderRequest implements RequestIfc {
     }
 
     /*
-     * Gets The new border properties to update.
-     */
-    public Border getBorderProperties() {
-        return this.borderProperties;
-    }
-
-    /*
-     * Sets The new border properties to update.
-     */
-    public void setBorderProperties(Border value) {
-        this.borderProperties = value;
-    }
-
-    /*
      * Gets Border type.
      */
     public String getBorderType() {
@@ -162,6 +149,20 @@ public class UpdateBorderRequest implements RequestIfc {
      */
     public void setBorderType(String value) {
         this.borderType = value;
+    }
+
+    /*
+     * Gets Border properties.
+     */
+    public Border getBorderProperties() {
+        return this.borderProperties;
+    }
+
+    /*
+     * Sets Border properties.
+     */
+    public void setBorderProperties(Border value) {
+        this.borderProperties = value;
     }
 
     /*
@@ -289,14 +290,14 @@ public class UpdateBorderRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateBorder");
         }
 
-        // verify the required parameter 'BorderProperties' is set
-        if (getBorderProperties() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BorderProperties' when calling updateBorder");
-        }
-
         // verify the required parameter 'BorderType' is set
         if (getBorderType() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BorderType' when calling updateBorder");
+        }
+
+        // verify the required parameter 'BorderProperties' is set
+        if (getBorderProperties() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BorderProperties' when calling updateBorder");
         }
 
         Object localVarPostBody = getBorderProperties();
@@ -346,7 +347,7 @@ public class UpdateBorderRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

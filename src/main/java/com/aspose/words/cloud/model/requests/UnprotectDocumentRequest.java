@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UnprotectDocumentRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -44,7 +45,7 @@ public class UnprotectDocumentRequest implements RequestIfc {
     private String name;
 
     /*
-     * The protection settings.
+     * Protection request.
      */
     private ProtectionRequest protectionRequest;
 
@@ -77,7 +78,7 @@ public class UnprotectDocumentRequest implements RequestIfc {
      * Initializes a new instance of the UnprotectDocumentRequest class.
      *
      * @param String name The filename of the input document.
-     * @param ProtectionRequest protectionRequest The protection settings.
+     * @param ProtectionRequest protectionRequest Protection request.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,14 +110,14 @@ public class UnprotectDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets The protection settings.
+     * Gets Protection request.
      */
     public ProtectionRequest getProtectionRequest() {
         return this.protectionRequest;
     }
 
     /*
-     * Sets The protection settings.
+     * Sets Protection request.
      */
     public void setProtectionRequest(ProtectionRequest value) {
         this.protectionRequest = value;

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestHeaderFooter.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.headerFooter;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -84,6 +85,24 @@ public class TestHeaderFooter  extends TestCase
     }
 
     /*
+     * Test for getting headers and footers online.
+     */
+    @Test
+    public void testGetHeaderFootersOnline() throws ApiException, IOException
+    {
+        GetHeaderFootersOnlineRequest request = new GetHeaderFootersOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "",
+            null,
+            null,
+            null
+        );
+
+        HeaderFootersResponse result = TestInitializer.wordsApi.getHeaderFootersOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting headerfooter.
      */
     @Test
@@ -112,6 +131,24 @@ public class TestHeaderFooter  extends TestCase
         assertNotNull(result.getHeaderFooter().getChildNodes());
         assertEquals(1, result.getHeaderFooter().getChildNodes().size());
         assertEquals("0.0.0", result.getHeaderFooter().getChildNodes().get(0).getNodeId());
+    }
+
+    /*
+     * Test for getting headerfooter online.
+     */
+    @Test
+    public void testGetHeaderFooterOnline() throws ApiException, IOException
+    {
+        GetHeaderFooterOnlineRequest request = new GetHeaderFooterOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            null,
+            null,
+            null
+        );
+
+        HeaderFooterResponse result = TestInitializer.wordsApi.getHeaderFooterOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -147,6 +184,25 @@ public class TestHeaderFooter  extends TestCase
     }
 
     /*
+     * Test for getting headerfooter of section online.
+     */
+    @Test
+    public void testGetHeaderFooterOfSectionOnline() throws ApiException, IOException
+    {
+        GetHeaderFooterOfSectionOnlineRequest request = new GetHeaderFooterOfSectionOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            0,
+            null,
+            null,
+            null
+        );
+
+        HeaderFooterResponse result = TestInitializer.wordsApi.getHeaderFooterOfSectionOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for deleting headerfooter.
      */
     @Test
@@ -173,6 +229,27 @@ public class TestHeaderFooter  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteHeaderFooter(request);
+    }
+
+    /*
+     * Test for deleting headerfooter online.
+     */
+    @Test
+    public void testDeleteHeaderFooterOnline() throws ApiException, IOException
+    {
+        DeleteHeaderFooterOnlineRequest request = new DeleteHeaderFooterOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "",
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteHeaderFooterOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -205,6 +282,27 @@ public class TestHeaderFooter  extends TestCase
     }
 
     /*
+     * Test for deleting headerfooters online.
+     */
+    @Test
+    public void testDeleteHeadersFootersOnline() throws ApiException, IOException
+    {
+        DeleteHeadersFootersOnlineRequest request = new DeleteHeadersFootersOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteHeadersFootersOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for adding headerfooters.
      */
     @Test
@@ -219,8 +317,8 @@ public class TestHeaderFooter  extends TestCase
 
         InsertHeaderFooterRequest request = new InsertHeaderFooterRequest(
             remoteFileName,
-            "FooterEven",
             "",
+            "FooterEven",
             remoteDataFolder,
             null,
             null,
@@ -232,9 +330,30 @@ public class TestHeaderFooter  extends TestCase
 
         HeaderFooterResponse result = TestInitializer.wordsApi.insertHeaderFooter(request);
         assertNotNull(result);
-        assertNotNull(result.getHeaderFooter());
-        assertNotNull(result.getHeaderFooter().getChildNodes());
-        assertEquals(1, result.getHeaderFooter().getChildNodes().size());
-        assertEquals("0.2.0", result.getHeaderFooter().getChildNodes().get(0).getNodeId());
+    }
+
+    /*
+     * Test for adding headerfooters online.
+     */
+    @Test
+    public void testInsertHeaderFooterOnline() throws ApiException, IOException
+    {
+        InsertHeaderFooterOnlineRequest request = new InsertHeaderFooterOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "",
+            "FooterEven",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertHeaderFooterOnlineResponse result = TestInitializer.wordsApi.insertHeaderFooterOnline(request);
+        assertNotNull(result);
+        assertNotNull(result.getModel().getHeaderFooter());
+        assertNotNull(result.getModel().getHeaderFooter().getChildNodes());
+        assertEquals(1, result.getModel().getHeaderFooter().getChildNodes().size());
+        assertEquals("0.2.0", result.getModel().getHeaderFooter().getChildNodes().get(0).getNodeId());
     }
 }

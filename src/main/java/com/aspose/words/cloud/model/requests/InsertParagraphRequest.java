@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertParagraphRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -44,7 +45,7 @@ public class InsertParagraphRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the paragraph.
+     * Paragraph data.
      */
     private ParagraphInsert paragraph;
 
@@ -97,7 +98,7 @@ public class InsertParagraphRequest implements RequestIfc {
      * Initializes a new instance of the InsertParagraphRequest class.
      *
      * @param String name The filename of the input document.
-     * @param ParagraphInsert paragraph The properties of the paragraph.
+     * @param ParagraphInsert paragraph Paragraph data.
      * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -137,14 +138,14 @@ public class InsertParagraphRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the paragraph.
+     * Gets Paragraph data.
      */
     public ParagraphInsert getParagraph() {
         return this.paragraph;
     }
 
     /*
-     * Sets The properties of the paragraph.
+     * Sets Paragraph data.
      */
     public void setParagraph(ParagraphInsert value) {
         this.paragraph = value;

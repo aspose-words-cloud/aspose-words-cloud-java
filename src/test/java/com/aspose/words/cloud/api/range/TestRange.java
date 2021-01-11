@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestRange.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,7 @@ package com.aspose.words.cloud.api.range;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
@@ -82,6 +83,24 @@ public class TestRange  extends TestCase
     }
 
     /*
+     * Test for getting the text from range online.
+     */
+    @Test
+    public void testGetRangeTextOnline() throws ApiException, IOException
+    {
+        GetRangeTextOnlineRequest request = new GetRangeTextOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "id0.0.0",
+            "id0.0.1",
+            null,
+            null
+        );
+
+        RangeTextResponse result = TestInitializer.wordsApi.getRangeTextOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for removing the text for range.
      */
     @Test
@@ -107,8 +126,25 @@ public class TestRange  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.removeRange(request);
         assertNotNull(result);
-        assertNotNull(result.getDocument());
-        assertEquals("TestRemoveRange.docx", result.getDocument().getFileName());
+    }
+
+    /*
+     * Test for removing the text for range online.
+     */
+    @Test
+    public void testRemoveRangeOnline() throws ApiException, IOException
+    {
+        RemoveRangeOnlineRequest request = new RemoveRangeOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "id0.0.0",
+            "id0.0.1",
+            null,
+            null,
+            null
+        );
+
+        RemoveRangeOnlineResponse result = TestInitializer.wordsApi.removeRangeOnline(request);
+        assertNotNull(result);
     }
 
     /*
@@ -145,6 +181,28 @@ public class TestRange  extends TestCase
     }
 
     /*
+     * Test for saving a range as a new document online.
+     */
+    @Test
+    public void testSaveAsRangeOnline() throws ApiException, IOException
+    {
+        RangeDocument requestDocumentParameters = new RangeDocument();
+        requestDocumentParameters.setDocumentName(remoteDataFolder + "/NewDoc.docx");
+
+        SaveAsRangeOnlineRequest request = new SaveAsRangeOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "id0.0.0",
+            requestDocumentParameters,
+            "id0.0.1",
+            null,
+            null
+        );
+
+        SaveAsRangeOnlineResponse result = TestInitializer.wordsApi.saveAsRangeOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for replacing text in range.
      */
     @Test
@@ -176,5 +234,28 @@ public class TestRange  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getDocument());
         assertEquals("TestReplaceWithText.docx", result.getDocument().getFileName());
+    }
+
+    /*
+     * Test for replacing text in range online.
+     */
+    @Test
+    public void testReplaceWithTextOnline() throws ApiException, IOException
+    {
+        ReplaceRange requestRangeText = new ReplaceRange();
+        requestRangeText.setText("Replaced header");
+
+        ReplaceWithTextOnlineRequest request = new ReplaceWithTextOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "id0.0.0",
+            requestRangeText,
+            "id0.0.1",
+            null,
+            null,
+            null
+        );
+
+        ReplaceWithTextOnlineResponse result = TestInitializer.wordsApi.replaceWithTextOnline(request);
+        assertNotNull(result);
     }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="SaveAsTiffRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -44,7 +45,7 @@ public class SaveAsTiffRequest implements RequestIfc {
     private String name;
 
     /*
-     * The save options to TIFF format.
+     * Tiff save options.
      */
     private TiffSaveOptionsData saveOptions;
 
@@ -162,7 +163,7 @@ public class SaveAsTiffRequest implements RequestIfc {
      * Initializes a new instance of the SaveAsTiffRequest class.
      *
      * @param String name The filename of the input document.
-     * @param TiffSaveOptionsData saveOptions The save options to TIFF format.
+     * @param TiffSaveOptionsData saveOptions Tiff save options.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -228,14 +229,14 @@ public class SaveAsTiffRequest implements RequestIfc {
     }
 
     /*
-     * Gets The save options to TIFF format.
+     * Gets Tiff save options.
      */
     public TiffSaveOptionsData getSaveOptions() {
         return this.saveOptions;
     }
 
     /*
-     * Sets The save options to TIFF format.
+     * Sets Tiff save options.
      */
     public void setSaveOptions(TiffSaveOptionsData value) {
         this.saveOptions = value;

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="SaveAsRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -44,7 +45,7 @@ public class SaveAsRequest implements RequestIfc {
     private String name;
 
     /*
-     * The save options.
+     * Save options.
      */
     private SaveOptionsData saveOptionsData;
 
@@ -77,7 +78,7 @@ public class SaveAsRequest implements RequestIfc {
      * Initializes a new instance of the SaveAsRequest class.
      *
      * @param String name The filename of the input document.
-     * @param SaveOptionsData saveOptionsData The save options.
+     * @param SaveOptionsData saveOptionsData Save options.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,14 +110,14 @@ public class SaveAsRequest implements RequestIfc {
     }
 
     /*
-     * Gets The save options.
+     * Gets Save options.
      */
     public SaveOptionsData getSaveOptionsData() {
         return this.saveOptionsData;
     }
 
     /*
-     * Sets The save options.
+     * Sets Save options.
      */
     public void setSaveOptionsData(SaveOptionsData value) {
         this.saveOptionsData = value;
