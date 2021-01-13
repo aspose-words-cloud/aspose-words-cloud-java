@@ -254,7 +254,7 @@ public class TestMathObject  extends TestCase
             null
         );
 
-        RenderMathObjectOnlineResponse result = TestInitializer.wordsApi.renderMathObjectOnline(request);
+        File result = TestInitializer.wordsApi.renderMathObjectOnline(request);
         assertNotNull(result);
     }
 

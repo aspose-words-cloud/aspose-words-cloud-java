@@ -290,6 +290,6 @@ public class RenderMathObjectOnlineRequest implements RequestIfc {
      * Gets response type for this request.
      */
     public Type getResponseType() {
-        return RenderMathObjectOnlineResponse.class;
+        return File.class;
     }
 }

@@ -290,6 +290,6 @@ public class RenderTableOnlineRequest implements RequestIfc {
      * Gets response type for this request.
      */
     public Type getResponseType() {
-        return RenderTableOnlineResponse.class;
+        return File.class;
     }
 }

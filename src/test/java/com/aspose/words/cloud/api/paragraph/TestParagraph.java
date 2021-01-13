@@ -555,7 +555,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        RenderParagraphOnlineResponse result = TestInitializer.wordsApi.renderParagraphOnline(request);
+        File result = TestInitializer.wordsApi.renderParagraphOnline(request);
         assertNotNull(result);
     }
 

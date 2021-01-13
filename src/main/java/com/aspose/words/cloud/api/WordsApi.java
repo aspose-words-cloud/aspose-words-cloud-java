@@ -16564,19 +16564,19 @@ public class WordsApi {
     /**
      * Renders a DrawingObject to the specified format.
      * @param request Request object
-     * @return RenderDrawingObjectOnlineResponse
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RenderDrawingObjectOnlineResponse renderDrawingObjectOnline(RenderDrawingObjectOnlineRequest request) throws ApiException, IOException {
+    public File renderDrawingObjectOnline(RenderDrawingObjectOnlineRequest request) throws ApiException, IOException {
         try {
-            ApiResponse< RenderDrawingObjectOnlineResponse > resp = renderDrawingObjectOnlineWithHttpInfo(request);
+            ApiResponse< File > resp = renderDrawingObjectOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< RenderDrawingObjectOnlineResponse > resp = renderDrawingObjectOnlineWithHttpInfo(request);
+                ApiResponse< File > resp = renderDrawingObjectOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -16586,11 +16586,11 @@ public class WordsApi {
     /**
      * Renders a DrawingObject to the specified format.
      * @param request Request object
-     * @return ApiResponse< RenderDrawingObjectOnlineResponse >;
+     * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RenderDrawingObjectOnlineResponse > renderDrawingObjectOnlineWithHttpInfo(RenderDrawingObjectOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderDrawingObjectOnlineWithHttpInfo(RenderDrawingObjectOnlineRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderDrawingObjectOnlineValidateBeforeCall(request, null, null);
         return apiClient.execute(call, request.getResponseType());
     }
@@ -16603,7 +16603,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderDrawingObjectOnlineAsync(RenderDrawingObjectOnlineRequest request, final ApiCallback< RenderDrawingObjectOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderDrawingObjectOnlineAsync(RenderDrawingObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16710,19 +16710,19 @@ public class WordsApi {
     /**
      * Renders an OfficeMath object to the specified format.
      * @param request Request object
-     * @return RenderMathObjectOnlineResponse
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RenderMathObjectOnlineResponse renderMathObjectOnline(RenderMathObjectOnlineRequest request) throws ApiException, IOException {
+    public File renderMathObjectOnline(RenderMathObjectOnlineRequest request) throws ApiException, IOException {
         try {
-            ApiResponse< RenderMathObjectOnlineResponse > resp = renderMathObjectOnlineWithHttpInfo(request);
+            ApiResponse< File > resp = renderMathObjectOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< RenderMathObjectOnlineResponse > resp = renderMathObjectOnlineWithHttpInfo(request);
+                ApiResponse< File > resp = renderMathObjectOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -16732,11 +16732,11 @@ public class WordsApi {
     /**
      * Renders an OfficeMath object to the specified format.
      * @param request Request object
-     * @return ApiResponse< RenderMathObjectOnlineResponse >;
+     * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RenderMathObjectOnlineResponse > renderMathObjectOnlineWithHttpInfo(RenderMathObjectOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderMathObjectOnlineWithHttpInfo(RenderMathObjectOnlineRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderMathObjectOnlineValidateBeforeCall(request, null, null);
         return apiClient.execute(call, request.getResponseType());
     }
@@ -16749,7 +16749,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderMathObjectOnlineAsync(RenderMathObjectOnlineRequest request, final ApiCallback< RenderMathObjectOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderMathObjectOnlineAsync(RenderMathObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17002,19 +17002,19 @@ public class WordsApi {
     /**
      * Renders a paragraph to the specified format.
      * @param request Request object
-     * @return RenderParagraphOnlineResponse
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RenderParagraphOnlineResponse renderParagraphOnline(RenderParagraphOnlineRequest request) throws ApiException, IOException {
+    public File renderParagraphOnline(RenderParagraphOnlineRequest request) throws ApiException, IOException {
         try {
-            ApiResponse< RenderParagraphOnlineResponse > resp = renderParagraphOnlineWithHttpInfo(request);
+            ApiResponse< File > resp = renderParagraphOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< RenderParagraphOnlineResponse > resp = renderParagraphOnlineWithHttpInfo(request);
+                ApiResponse< File > resp = renderParagraphOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -17024,11 +17024,11 @@ public class WordsApi {
     /**
      * Renders a paragraph to the specified format.
      * @param request Request object
-     * @return ApiResponse< RenderParagraphOnlineResponse >;
+     * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RenderParagraphOnlineResponse > renderParagraphOnlineWithHttpInfo(RenderParagraphOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderParagraphOnlineWithHttpInfo(RenderParagraphOnlineRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderParagraphOnlineValidateBeforeCall(request, null, null);
         return apiClient.execute(call, request.getResponseType());
     }
@@ -17041,7 +17041,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderParagraphOnlineAsync(RenderParagraphOnlineRequest request, final ApiCallback< RenderParagraphOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderParagraphOnlineAsync(RenderParagraphOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17148,19 +17148,19 @@ public class WordsApi {
     /**
      * Renders a table to the specified format.
      * @param request Request object
-     * @return RenderTableOnlineResponse
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RenderTableOnlineResponse renderTableOnline(RenderTableOnlineRequest request) throws ApiException, IOException {
+    public File renderTableOnline(RenderTableOnlineRequest request) throws ApiException, IOException {
         try {
-            ApiResponse< RenderTableOnlineResponse > resp = renderTableOnlineWithHttpInfo(request);
+            ApiResponse< File > resp = renderTableOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< RenderTableOnlineResponse > resp = renderTableOnlineWithHttpInfo(request);
+                ApiResponse< File > resp = renderTableOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -17170,11 +17170,11 @@ public class WordsApi {
     /**
      * Renders a table to the specified format.
      * @param request Request object
-     * @return ApiResponse< RenderTableOnlineResponse >;
+     * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RenderTableOnlineResponse > renderTableOnlineWithHttpInfo(RenderTableOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderTableOnlineWithHttpInfo(RenderTableOnlineRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderTableOnlineValidateBeforeCall(request, null, null);
         return apiClient.execute(call, request.getResponseType());
     }
@@ -17187,7 +17187,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderTableOnlineAsync(RenderTableOnlineRequest request, final ApiCallback< RenderTableOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderTableOnlineAsync(RenderTableOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

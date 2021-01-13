@@ -1180,7 +1180,7 @@ public class TestTable  extends TestCase
             null
         );
 
-        RenderTableOnlineResponse result = TestInitializer.wordsApi.renderTableOnline(request);
+        File result = TestInitializer.wordsApi.renderTableOnline(request);
         assertNotNull(result);
     }
 

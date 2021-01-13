@@ -290,6 +290,6 @@ public class RenderParagraphOnlineRequest implements RequestIfc {
      * Gets response type for this request.
      */
     public Type getResponseType() {
-        return RenderParagraphOnlineResponse.class;
+        return File.class;
     }
 }

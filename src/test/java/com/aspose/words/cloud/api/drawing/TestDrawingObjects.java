@@ -243,7 +243,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        RenderDrawingObjectOnlineResponse result = TestInitializer.wordsApi.renderDrawingObjectOnline(request);
+        File result = TestInitializer.wordsApi.renderDrawingObjectOnline(request);
         assertNotNull(result);
     }
 
