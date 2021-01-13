@@ -235,7 +235,7 @@ public class InsertTableOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/post/{name}/{nodePath}/tables";
+        String localVarPath = "/words/online/post/{nodePath}/tables";
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");
 

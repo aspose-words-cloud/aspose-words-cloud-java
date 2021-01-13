@@ -235,7 +235,7 @@ public class DeleteOfficeMathObjectOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/delete/{name}/{nodePath}/OfficeMathObjects/{index}";
+        String localVarPath = "/words/online/delete/{nodePath}/OfficeMathObjects/{index}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");

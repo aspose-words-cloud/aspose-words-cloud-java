@@ -177,7 +177,7 @@ public class GetTableRowOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/get/{name}/{tablePath}/rows/{index}";
+        String localVarPath = "/words/online/get/{tablePath}/rows/{index}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "tablePath", getTablePath());
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = localVarPath.replaceAll("//", "/");

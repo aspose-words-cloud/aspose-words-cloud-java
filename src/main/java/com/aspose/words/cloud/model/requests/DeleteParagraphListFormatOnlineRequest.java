@@ -235,7 +235,7 @@ public class DeleteParagraphListFormatOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/delete/{name}/{nodePath}/paragraphs/{index}/listFormat";
+        String localVarPath = "/words/online/delete/{nodePath}/paragraphs/{index}/listFormat";
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");

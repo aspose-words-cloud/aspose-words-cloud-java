@@ -235,7 +235,7 @@ public class DeleteFormFieldOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/delete/{name}/{nodePath}/formfields/{index}";
+        String localVarPath = "/words/online/delete/{nodePath}/formfields/{index}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");

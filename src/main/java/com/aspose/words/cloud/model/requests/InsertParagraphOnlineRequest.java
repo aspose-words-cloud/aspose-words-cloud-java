@@ -256,7 +256,7 @@ public class InsertParagraphOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/post/{name}/{nodePath}/paragraphs";
+        String localVarPath = "/words/online/post/{nodePath}/paragraphs";
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");
 

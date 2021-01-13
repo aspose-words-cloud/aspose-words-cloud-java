@@ -235,7 +235,7 @@ public class DeleteFootnoteOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/delete/{name}/{nodePath}/footnotes/{index}";
+        String localVarPath = "/words/online/delete/{nodePath}/footnotes/{index}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");

@@ -240,7 +240,7 @@ public class RenderMathObjectOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/get/{name}/{nodePath}/OfficeMathObjects/{index}/render";
+        String localVarPath = "/words/online/get/{nodePath}/OfficeMathObjects/{index}/render";
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");

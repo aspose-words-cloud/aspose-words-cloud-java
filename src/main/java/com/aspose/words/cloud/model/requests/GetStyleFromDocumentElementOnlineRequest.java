@@ -151,7 +151,7 @@ public class GetStyleFromDocumentElementOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/get/{name}/{styledNodePath}/style";
+        String localVarPath = "/words/online/get/{styledNodePath}/style";
         localVarPath = apiClient.addParameterToPath(localVarPath, "styledNodePath", getStyledNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");
 

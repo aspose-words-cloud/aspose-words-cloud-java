@@ -261,7 +261,7 @@ public class UpdateParagraphFormatOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/put/{name}/{nodePath}/paragraphs/{index}/format";
+        String localVarPath = "/words/online/put/{nodePath}/paragraphs/{index}/format";
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");

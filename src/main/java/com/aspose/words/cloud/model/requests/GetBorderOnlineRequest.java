@@ -172,7 +172,7 @@ public class GetBorderOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/get/{name}/{nodePath}/borders/{borderType}";
+        String localVarPath = "/words/online/get/{nodePath}/borders/{borderType}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "borderType", getBorderType());
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");

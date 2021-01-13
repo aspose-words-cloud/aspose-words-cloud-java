@@ -146,7 +146,7 @@ public class GetFieldsOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/get/{name}/{nodePath}/fields";
+        String localVarPath = "/words/online/get/{nodePath}/fields";
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");
 

@@ -261,7 +261,7 @@ public class UpdateFormFieldOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/put/{name}/{nodePath}/formfields/{index}";
+        String localVarPath = "/words/online/put/{nodePath}/formfields/{index}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");

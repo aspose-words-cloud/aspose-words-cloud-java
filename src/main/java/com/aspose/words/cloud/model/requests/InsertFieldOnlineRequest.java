@@ -256,7 +256,7 @@ public class InsertFieldOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/post/{name}/{nodePath}/fields";
+        String localVarPath = "/words/online/post/{nodePath}/fields";
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");
 

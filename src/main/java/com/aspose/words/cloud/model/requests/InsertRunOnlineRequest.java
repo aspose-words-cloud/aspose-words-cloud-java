@@ -261,7 +261,7 @@ public class InsertRunOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/post/{name}/{paragraphPath}/runs";
+        String localVarPath = "/words/online/post/{paragraphPath}/runs";
         localVarPath = apiClient.addParameterToPath(localVarPath, "paragraphPath", getParagraphPath());
         localVarPath = localVarPath.replaceAll("//", "/");
 

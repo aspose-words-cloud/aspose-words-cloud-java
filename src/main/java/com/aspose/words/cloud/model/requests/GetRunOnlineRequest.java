@@ -177,7 +177,7 @@ public class GetRunOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/get/{name}/{paragraphPath}/runs/{index}";
+        String localVarPath = "/words/online/get/{paragraphPath}/runs/{index}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "paragraphPath", getParagraphPath());
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = localVarPath.replaceAll("//", "/");

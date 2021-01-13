@@ -146,7 +146,7 @@ public class GetOfficeMathObjectsOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/get/{name}/{nodePath}/OfficeMathObjects";
+        String localVarPath = "/words/online/get/{nodePath}/OfficeMathObjects";
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");
 

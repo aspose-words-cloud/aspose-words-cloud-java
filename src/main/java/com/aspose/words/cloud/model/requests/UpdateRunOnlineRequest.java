@@ -266,7 +266,7 @@ public class UpdateRunOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/put/{name}/{paragraphPath}/runs/{index}";
+        String localVarPath = "/words/online/put/{paragraphPath}/runs/{index}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "paragraphPath", getParagraphPath());
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = localVarPath.replaceAll("//", "/");

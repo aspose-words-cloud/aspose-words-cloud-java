@@ -146,7 +146,7 @@ public class GetDocumentDrawingObjectsOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/get/{name}/{nodePath}/drawingObjects";
+        String localVarPath = "/words/online/get/{nodePath}/drawingObjects";
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");
 

@@ -240,7 +240,7 @@ public class DeleteTableCellOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/delete/{name}/{tableRowPath}/cells/{index}";
+        String localVarPath = "/words/online/delete/{tableRowPath}/cells/{index}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "tableRowPath", getTableRowPath());
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = localVarPath.replaceAll("//", "/");

@@ -266,7 +266,7 @@ public class UpdateTableCellFormatOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/put/{name}/{tableRowPath}/cells/{index}/cellformat";
+        String localVarPath = "/words/online/put/{tableRowPath}/cells/{index}/cellformat";
         localVarPath = apiClient.addParameterToPath(localVarPath, "tableRowPath", getTableRowPath());
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = localVarPath.replaceAll("//", "/");

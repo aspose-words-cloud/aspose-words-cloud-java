@@ -219,7 +219,7 @@ public class DeleteParagraphTabStopOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/delete/{name}/{nodePath}/paragraphs/{index}/tabstop";
+        String localVarPath = "/words/online/delete/{nodePath}/paragraphs/{index}/tabstop";
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");

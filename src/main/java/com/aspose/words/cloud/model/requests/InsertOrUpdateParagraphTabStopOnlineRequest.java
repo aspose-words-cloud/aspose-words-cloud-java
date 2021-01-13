@@ -219,7 +219,7 @@ public class InsertOrUpdateParagraphTabStopOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/post/{name}/{nodePath}/paragraphs/{index}/tabstops";
+        String localVarPath = "/words/online/post/{nodePath}/paragraphs/{index}/tabstops";
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");

@@ -146,7 +146,7 @@ public class GetFootnotesOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/get/{name}/{nodePath}/footnotes";
+        String localVarPath = "/words/online/get/{nodePath}/footnotes";
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");
 

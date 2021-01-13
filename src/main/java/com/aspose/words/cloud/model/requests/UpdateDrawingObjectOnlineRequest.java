@@ -287,7 +287,7 @@ public class UpdateDrawingObjectOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/put/{name}/{nodePath}/drawingObjects/{index}";
+        String localVarPath = "/words/online/put/{nodePath}/drawingObjects/{index}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");

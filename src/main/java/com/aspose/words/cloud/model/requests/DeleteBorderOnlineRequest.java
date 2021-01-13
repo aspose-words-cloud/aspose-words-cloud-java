@@ -235,7 +235,7 @@ public class DeleteBorderOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/delete/{name}/{nodePath}/borders/{borderType}";
+        String localVarPath = "/words/online/delete/{nodePath}/borders/{borderType}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "borderType", getBorderType());
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");

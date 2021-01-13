@@ -240,7 +240,7 @@ public class DeleteHeaderFooterOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/delete/{name}/{sectionPath}/headersfooters/{index}";
+        String localVarPath = "/words/online/delete/{sectionPath}/headersfooters/{index}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "sectionPath", getSectionPath());
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = localVarPath.replaceAll("//", "/");

@@ -172,7 +172,7 @@ public class GetDocumentDrawingObjectImageDataOnlineRequest implements RequestIf
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/get/{name}/{nodePath}/drawingObjects/{index}/imageData";
+        String localVarPath = "/words/online/get/{nodePath}/drawingObjects/{index}/imageData";
         localVarPath = apiClient.addParameterToPath(localVarPath, "index", getIndex());
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");

@@ -172,7 +172,7 @@ public class GetHeaderFootersOnlineRequest implements RequestIfc {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/get/{name}/{sectionPath}/headersfooters";
+        String localVarPath = "/words/online/get/{sectionPath}/headersfooters";
         localVarPath = apiClient.addParameterToPath(localVarPath, "sectionPath", getSectionPath());
         localVarPath = localVarPath.replaceAll("//", "/");
 
