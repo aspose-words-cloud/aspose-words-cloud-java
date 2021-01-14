@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -59,7 +60,7 @@ public class TestPageSetup  extends TestCase
      * Test for getting page settings.
      */
     @Test
-    public void testGetSectionPageSetup() throws ApiException, IOException
+    public void testGetSectionPageSetup() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetSectionPageSetup.docx";
 
@@ -87,7 +88,7 @@ public class TestPageSetup  extends TestCase
      * Test for getting page settings online.
      */
     @Test
-    public void testGetSectionPageSetupOnline() throws ApiException, IOException
+    public void testGetSectionPageSetupOnline() throws ApiException, MessagingException, IOException
     {
         GetSectionPageSetupOnlineRequest request = new GetSectionPageSetupOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -104,7 +105,7 @@ public class TestPageSetup  extends TestCase
      * Test for updating page settings.
      */
     @Test
-    public void testUpdateSectionPageSetup() throws ApiException, IOException
+    public void testUpdateSectionPageSetup() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateSectionPageSetup.docx";
 
@@ -144,7 +145,7 @@ public class TestPageSetup  extends TestCase
      * Test for updating page settings online.
      */
     @Test
-    public void testUpdateSectionPageSetupOnline() throws ApiException, IOException
+    public void testUpdateSectionPageSetupOnline() throws ApiException, MessagingException, IOException
     {
         PageSetup requestPageSetup = new PageSetup();
         requestPageSetup.setRtlGutter(true);
@@ -171,7 +172,7 @@ public class TestPageSetup  extends TestCase
      * Test for page rendering.
      */
     @Test
-    public void testGetRenderPage() throws ApiException, IOException
+    public void testGetRenderPage() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetRenderPage.docx";
 
@@ -199,7 +200,7 @@ public class TestPageSetup  extends TestCase
      * Test for page rendering.
      */
     @Test
-    public void testGetRenderPageOnline() throws ApiException, IOException
+    public void testGetRenderPageOnline() throws ApiException, MessagingException, IOException
     {
         RenderPageOnlineRequest request = new RenderPageOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localTextFile).toAbsolutePath()),

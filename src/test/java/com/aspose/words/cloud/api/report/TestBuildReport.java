@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestBuildReport  extends TestCase
      * Test for build report online.
      */
     @Test
-    public void testBuildReportOnline() throws ApiException, IOException
+    public void testBuildReportOnline() throws ApiException, MessagingException, IOException
     {
         String localDocumentFile = "ReportTemplate.docx";
         String localDataFile = new String(Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, reportingFolder + "/ReportData.json")), "utf8");
@@ -82,7 +83,7 @@ public class TestBuildReport  extends TestCase
      * Test for build report.
      */
     @Test
-    public void testBuildReport() throws ApiException, IOException
+    public void testBuildReport() throws ApiException, MessagingException, IOException
     {
         String localDocumentFile = "ReportTemplate.docx";
         String remoteFileName = "TestBuildReport.docx";

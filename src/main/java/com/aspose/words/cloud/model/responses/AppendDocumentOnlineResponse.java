@@ -52,6 +52,14 @@ public class AppendDocumentOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the AppendDocumentOnlineResponse class.
+     */
+    public AppendDocumentOnlineResponse(DocumentResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

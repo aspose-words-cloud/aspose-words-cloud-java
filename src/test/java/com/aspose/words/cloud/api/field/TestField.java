@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -59,7 +60,7 @@ public class TestField  extends TestCase
      * Test for getting fields.
      */
     @Test
-    public void testGetFields() throws ApiException, IOException
+    public void testGetFields() throws ApiException, MessagingException, IOException
     {
         String localFileName = "GetField.docx";
         String remoteFileName = "TestGetFields.docx";
@@ -90,7 +91,7 @@ public class TestField  extends TestCase
      * Test for getting fields online.
      */
     @Test
-    public void testGetFieldsOnline() throws ApiException, IOException
+    public void testGetFieldsOnline() throws ApiException, MessagingException, IOException
     {
         GetFieldsOnlineRequest request = new GetFieldsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
@@ -107,7 +108,7 @@ public class TestField  extends TestCase
      * Test for getting fields without node path.
      */
     @Test
-    public void testGetFieldsWithoutNodePath() throws ApiException, IOException
+    public void testGetFieldsWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String localFileName = "GetField.docx";
         String remoteFileName = "TestGetFieldsWithoutNodePath.docx";
@@ -138,7 +139,7 @@ public class TestField  extends TestCase
      * Test for getting field by index.
      */
     @Test
-    public void testGetField() throws ApiException, IOException
+    public void testGetField() throws ApiException, MessagingException, IOException
     {
         String localFileName = "GetField.docx";
         String remoteFileName = "TestGetField.docx";
@@ -168,7 +169,7 @@ public class TestField  extends TestCase
      * Test for getting field by index online.
      */
     @Test
-    public void testGetFieldOnline() throws ApiException, IOException
+    public void testGetFieldOnline() throws ApiException, MessagingException, IOException
     {
         GetFieldOnlineRequest request = new GetFieldOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
@@ -186,7 +187,7 @@ public class TestField  extends TestCase
      * Test for getting field by index without node path.
      */
     @Test
-    public void testGetFieldWithoutNodePath() throws ApiException, IOException
+    public void testGetFieldWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String localFileName = "GetField.docx";
         String remoteFileName = "TestGetFieldWithoutNodePath.docx";
@@ -216,7 +217,7 @@ public class TestField  extends TestCase
      * Test for putting field.
      */
     @Test
-    public void testInsertField() throws ApiException, IOException
+    public void testInsertField() throws ApiException, MessagingException, IOException
     {
         String localFileName = "SampleWordDocument.docx";
         String remoteFileName = "TestInsertField.docx";
@@ -254,7 +255,7 @@ public class TestField  extends TestCase
      * Test for putting field online.
      */
     @Test
-    public void testInsertFieldOnline() throws ApiException, IOException
+    public void testInsertFieldOnline() throws ApiException, MessagingException, IOException
     {
         FieldInsert requestField = new FieldInsert();
         requestField.setFieldCode("{ NUMPAGES }");
@@ -279,7 +280,7 @@ public class TestField  extends TestCase
      * Test for putting field without node path.
      */
     @Test
-    public void testInsertFieldWithoutNodePath() throws ApiException, IOException
+    public void testInsertFieldWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String localFileName = "SampleWordDocument.docx";
         String remoteFileName = "TestInsertFieldWithoutNodePath.docx";
@@ -317,7 +318,7 @@ public class TestField  extends TestCase
      * Test for posting field.
      */
     @Test
-    public void testUpdateField() throws ApiException, IOException
+    public void testUpdateField() throws ApiException, MessagingException, IOException
     {
         String localFileName = "GetField.docx";
         String remoteFileName = "TestUpdateField.docx";
@@ -355,7 +356,7 @@ public class TestField  extends TestCase
      * Test for posting field online.
      */
     @Test
-    public void testUpdateFieldOnline() throws ApiException, IOException
+    public void testUpdateFieldOnline() throws ApiException, MessagingException, IOException
     {
         FieldUpdate requestField = new FieldUpdate();
         requestField.setFieldCode("{ NUMPAGES }");
@@ -380,7 +381,7 @@ public class TestField  extends TestCase
      * Test for inserting page numbers field.
      */
     @Test
-    public void testInsertPageNumbers() throws ApiException, IOException
+    public void testInsertPageNumbers() throws ApiException, MessagingException, IOException
     {
         String localFileName = "test_multi_pages.docx";
         String remoteFileName = "TestInsertPageNumbers.docx";
@@ -416,7 +417,7 @@ public class TestField  extends TestCase
      * Test for inserting page numbers field online.
      */
     @Test
-    public void testInsertPageNumbersOnline() throws ApiException, IOException
+    public void testInsertPageNumbersOnline() throws ApiException, MessagingException, IOException
     {
         String localFileName = "test_multi_pages.docx";
 
@@ -442,7 +443,7 @@ public class TestField  extends TestCase
      * Test for deleting field.
      */
     @Test
-    public void testDeleteField() throws ApiException, IOException
+    public void testDeleteField() throws ApiException, MessagingException, IOException
     {
         String localFileName = "GetField.docx";
         String remoteFileName = "TestDeleteField.docx";
@@ -472,7 +473,7 @@ public class TestField  extends TestCase
      * Test for deleting field online.
      */
     @Test
-    public void testDeleteFieldOnline() throws ApiException, IOException
+    public void testDeleteFieldOnline() throws ApiException, MessagingException, IOException
     {
         DeleteFieldOnlineRequest request = new DeleteFieldOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
@@ -493,7 +494,7 @@ public class TestField  extends TestCase
      * Test for deleting field without node path.
      */
     @Test
-    public void testDeleteFieldWithoutNodePath() throws ApiException, IOException
+    public void testDeleteFieldWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String localFileName = "GetField.docx";
         String remoteFileName = "TestDeleteFieldWithoutNodePath.docx";
@@ -523,7 +524,7 @@ public class TestField  extends TestCase
      * Test for deleting paragraph fields.
      */
     @Test
-    public void testDeleteParagraphFields() throws ApiException, IOException
+    public void testDeleteParagraphFields() throws ApiException, MessagingException, IOException
     {
         String localFileName = "test_multi_pages.docx";
         String remoteFileName = "TestDeleteParagraphFields.docx";
@@ -552,7 +553,7 @@ public class TestField  extends TestCase
      * Test for deleting paragraph fields without node path.
      */
     @Test
-    public void testDeleteParagraphFieldsWithoutNodePath() throws ApiException, IOException
+    public void testDeleteParagraphFieldsWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String localFileName = "test_multi_pages.docx";
         String remoteFileName = "TestDeleteParagraphFieldsWithoutNodePath.docx";
@@ -581,7 +582,7 @@ public class TestField  extends TestCase
      * Test for deleting section fields.
      */
     @Test
-    public void testDeleteSectionFields() throws ApiException, IOException
+    public void testDeleteSectionFields() throws ApiException, MessagingException, IOException
     {
         String localFileName = "test_multi_pages.docx";
         String remoteFileName = "TestDeleteSectionFields.docx";
@@ -610,7 +611,7 @@ public class TestField  extends TestCase
      * Test for deleting section fields without node path.
      */
     @Test
-    public void testDeleteSectionFieldsWithoutNodePath() throws ApiException, IOException
+    public void testDeleteSectionFieldsWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String localFileName = "test_multi_pages.docx";
         String remoteFileName = "TestDeleteSectionFieldsWithoutNodePath.docx";
@@ -639,7 +640,7 @@ public class TestField  extends TestCase
      * Test for deleting paragraph fields in section.
      */
     @Test
-    public void testDeleteSectionParagraphFields() throws ApiException, IOException
+    public void testDeleteSectionParagraphFields() throws ApiException, MessagingException, IOException
     {
         String localFileName = "test_multi_pages.docx";
         String remoteFileName = "TestDeleteSectionParagraphFields.docx";
@@ -668,7 +669,7 @@ public class TestField  extends TestCase
      * Test for deleting fields.
      */
     @Test
-    public void testDeleteDocumentFields() throws ApiException, IOException
+    public void testDeleteDocumentFields() throws ApiException, MessagingException, IOException
     {
         String localFileName = "test_multi_pages.docx";
         String remoteFileName = "TestDeleteSectionParagraphFields.docx";
@@ -697,7 +698,7 @@ public class TestField  extends TestCase
      * Test for deleting fields online.
      */
     @Test
-    public void testDeleteDocumentFieldsOnline() throws ApiException, IOException
+    public void testDeleteDocumentFieldsOnline() throws ApiException, MessagingException, IOException
     {
         String localFileName = "Common/test_multi_pages.docx";
 
@@ -719,7 +720,7 @@ public class TestField  extends TestCase
      * Test for posting updated fields.
      */
     @Test
-    public void testUpdateDocumentFields() throws ApiException, IOException
+    public void testUpdateDocumentFields() throws ApiException, MessagingException, IOException
     {
         String localFileName = "test_multi_pages.docx";
         String remoteFileName = "TestUpdateDocumentFields.docx";
@@ -748,7 +749,7 @@ public class TestField  extends TestCase
      * Test for posting updated fields online.
      */
     @Test
-    public void testUpdateDocumentFieldsOnline() throws ApiException, IOException
+    public void testUpdateDocumentFieldsOnline() throws ApiException, MessagingException, IOException
     {
         String localFile = "Common/test_multi_pages.docx";
 

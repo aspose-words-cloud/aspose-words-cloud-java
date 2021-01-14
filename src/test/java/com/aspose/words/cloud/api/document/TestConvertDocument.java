@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestConvertDocument  extends TestCase
      * Test for converting document to one of the available formats.
      */
     @Test
-    public void testSaveAs() throws ApiException, IOException
+    public void testSaveAs() throws ApiException, MessagingException, IOException
     {
         String localName = "test_multi_pages.docx";
         String remoteName = "TestSaveAs.docx";
@@ -92,7 +93,7 @@ public class TestConvertDocument  extends TestCase
      * Test for converting document online to one of the available formats.
      */
     @Test
-    public void testSaveAsOnline() throws ApiException, IOException
+    public void testSaveAsOnline() throws ApiException, MessagingException, IOException
     {
         String localName = "test_multi_pages.docx";
 
@@ -116,7 +117,7 @@ public class TestConvertDocument  extends TestCase
      * Test for converting document to one of the available formats.
      */
     @Test
-    public void testSaveAsDocx() throws ApiException, IOException
+    public void testSaveAsDocx() throws ApiException, MessagingException, IOException
     {
         String localName = "45.pdf";
         String remoteName = "TestSaveAsFromPdfToDoc.pdf";
@@ -150,7 +151,7 @@ public class TestConvertDocument  extends TestCase
      * Test for converting document to one of the available formats.
      */
     @Test
-    public void testSaveAsTiff() throws ApiException, IOException
+    public void testSaveAsTiff() throws ApiException, MessagingException, IOException
     {
         String localName = "test_multi_pages.docx";
         String remoteName = "TestSaveAsTiff.pdf";
@@ -201,7 +202,7 @@ public class TestConvertDocument  extends TestCase
      * Test for converting document to one of the available formats.
      */
     @Test
-    public void testSaveAsTiffOnline() throws ApiException, IOException
+    public void testSaveAsTiffOnline() throws ApiException, MessagingException, IOException
     {
         String localName = "test_multi_pages.docx";
 
@@ -242,7 +243,7 @@ public class TestConvertDocument  extends TestCase
      * A test for ConvertDocument.
      */
     @Test
-    public void testConvertDocument() throws ApiException, IOException
+    public void testConvertDocument() throws ApiException, MessagingException, IOException
     {
         ConvertDocumentRequest request = new ConvertDocumentRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/test_uploadfile.docx").toAbsolutePath()),

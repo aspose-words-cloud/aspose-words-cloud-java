@@ -31,6 +31,8 @@ import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -193,6 +195,7 @@ public class InsertCommentOnlineRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -266,5 +269,19 @@ public class InsertCommentOnlineRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return InsertCommentOnlineResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public InsertCommentOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
+        return new InsertCommentOnlineResponse(
+            (CommentResponse)apiClient.parseModel(multipart.getBodyPart(0), CommentResponse.class),
+            apiClient.parseDocument(multipart.getBodyPart(1))
+        );
     }
 }

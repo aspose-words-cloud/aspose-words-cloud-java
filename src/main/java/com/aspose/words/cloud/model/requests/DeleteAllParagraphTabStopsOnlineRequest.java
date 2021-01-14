@@ -31,6 +31,8 @@ import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -172,6 +174,7 @@ public class DeleteAllParagraphTabStopsOnlineRequest implements RequestIfc {
         this.destFileName = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -242,5 +245,19 @@ public class DeleteAllParagraphTabStopsOnlineRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return DeleteAllParagraphTabStopsOnlineResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public DeleteAllParagraphTabStopsOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
+        return new DeleteAllParagraphTabStopsOnlineResponse(
+            (TabStopsResponse)apiClient.parseModel(multipart.getBodyPart(0), TabStopsResponse.class),
+            apiClient.parseDocument(multipart.getBodyPart(1))
+        );
     }
 }

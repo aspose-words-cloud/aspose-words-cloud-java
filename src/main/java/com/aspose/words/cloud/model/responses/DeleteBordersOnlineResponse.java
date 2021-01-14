@@ -52,6 +52,14 @@ public class DeleteBordersOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the DeleteBordersOnlineResponse class.
+     */
+    public DeleteBordersOnlineResponse(BordersResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

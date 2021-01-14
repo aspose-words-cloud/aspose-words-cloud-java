@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestFormField  extends TestCase
      * Test for posting form field.
      */
     @Test
-    public void testUpdateFormField() throws ApiException, IOException
+    public void testUpdateFormField() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateFormField.docx";
 
@@ -100,7 +101,7 @@ public class TestFormField  extends TestCase
      * Test for posting form field online.
      */
     @Test
-    public void testUpdateFormFieldOnline() throws ApiException, IOException
+    public void testUpdateFormFieldOnline() throws ApiException, MessagingException, IOException
     {
         FormFieldTextInput requestFormField = new FormFieldTextInput();
         requestFormField.setName("FullName");
@@ -130,7 +131,7 @@ public class TestFormField  extends TestCase
      * Test for posting form field without node path.
      */
     @Test
-    public void testUpdateFormFieldWithoutNodePath() throws ApiException, IOException
+    public void testUpdateFormFieldWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateFormFieldWithoutNodePath.docx";
 
@@ -172,7 +173,7 @@ public class TestFormField  extends TestCase
      * Test for getting form field.
      */
     @Test
-    public void testGetFormField() throws ApiException, IOException
+    public void testGetFormField() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetFormField.docx";
 
@@ -201,7 +202,7 @@ public class TestFormField  extends TestCase
      * Test for getting form field online.
      */
     @Test
-    public void testGetFormFieldOnline() throws ApiException, IOException
+    public void testGetFormFieldOnline() throws ApiException, MessagingException, IOException
     {
         GetFormFieldOnlineRequest request = new GetFormFieldOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
@@ -219,7 +220,7 @@ public class TestFormField  extends TestCase
      * Test for getting form field without node path.
      */
     @Test
-    public void testGetFormFieldWithoutNodePath() throws ApiException, IOException
+    public void testGetFormFieldWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetFormFieldWithoutNodePath.docx";
 
@@ -248,7 +249,7 @@ public class TestFormField  extends TestCase
      * Test for getting form fields.
      */
     @Test
-    public void testGetFormFields() throws ApiException, IOException
+    public void testGetFormFields() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetFormFields.docx";
 
@@ -278,7 +279,7 @@ public class TestFormField  extends TestCase
      * Test for getting form fields online.
      */
     @Test
-    public void testGetFormFieldsOnline() throws ApiException, IOException
+    public void testGetFormFieldsOnline() throws ApiException, MessagingException, IOException
     {
         GetFormFieldsOnlineRequest request = new GetFormFieldsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
@@ -295,7 +296,7 @@ public class TestFormField  extends TestCase
      * Test for getting form fields without node path.
      */
     @Test
-    public void testGetFormFieldsWithoutNodePath() throws ApiException, IOException
+    public void testGetFormFieldsWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetFormFieldsWithoutNodePath.docx";
 
@@ -325,7 +326,7 @@ public class TestFormField  extends TestCase
      * Test for insert form field without node path.
      */
     @Test
-    public void testInsertFormField() throws ApiException, IOException
+    public void testInsertFormField() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertFormField.docx";
 
@@ -368,7 +369,7 @@ public class TestFormField  extends TestCase
      * Test for insert form field without node path online.
      */
     @Test
-    public void testInsertFormFieldOnline() throws ApiException, IOException
+    public void testInsertFormFieldOnline() throws ApiException, MessagingException, IOException
     {
         FormFieldTextInput requestFormField = new FormFieldTextInput();
         requestFormField.setName("FullName");
@@ -399,7 +400,7 @@ public class TestFormField  extends TestCase
      * Test for insert form field without node path.
      */
     @Test
-    public void testInsertFormFieldWithoutNodePath() throws ApiException, IOException
+    public void testInsertFormFieldWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertFormFieldWithoutNodePath.docx";
 
@@ -442,7 +443,7 @@ public class TestFormField  extends TestCase
      * Test for deleting form field.
      */
     @Test
-    public void testDeleteFormField() throws ApiException, IOException
+    public void testDeleteFormField() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteFormField.docx";
 
@@ -471,7 +472,7 @@ public class TestFormField  extends TestCase
      * Test for deleting form field online.
      */
     @Test
-    public void testDeleteFormFieldOnline() throws ApiException, IOException
+    public void testDeleteFormFieldOnline() throws ApiException, MessagingException, IOException
     {
         DeleteFormFieldOnlineRequest request = new DeleteFormFieldOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
@@ -492,7 +493,7 @@ public class TestFormField  extends TestCase
      * Test for deleting form field without node path.
      */
     @Test
-    public void testDeleteFormFieldWithoutNodePath() throws ApiException, IOException
+    public void testDeleteFormFieldWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteFormFieldWithoutNodePath.docx";
 

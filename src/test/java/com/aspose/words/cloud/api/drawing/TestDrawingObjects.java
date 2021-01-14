@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -59,7 +60,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for getting drawing objects from document.
      */
     @Test
-    public void testGetDocumentDrawingObjects() throws ApiException, IOException
+    public void testGetDocumentDrawingObjects() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentDrawingObjects.docx";
 
@@ -85,7 +86,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for getting drawing objects from document online.
      */
     @Test
-    public void testGetDocumentDrawingObjectsOnline() throws ApiException, IOException
+    public void testGetDocumentDrawingObjectsOnline() throws ApiException, MessagingException, IOException
     {
         GetDocumentDrawingObjectsOnlineRequest request = new GetDocumentDrawingObjectsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -102,7 +103,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for getting drawing objects from document without node path.
      */
     @Test
-    public void testGetDocumentDrawingObjectsWithoutNodePath() throws ApiException, IOException
+    public void testGetDocumentDrawingObjectsWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentDrawingObjectsWithoutNodePath.docx";
 
@@ -128,7 +129,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for getting drawing object by specified index.
      */
     @Test
-    public void testGetDocumentDrawingObjectByIndex() throws ApiException, IOException
+    public void testGetDocumentDrawingObjectByIndex() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentDrawingObjectByIndex.docx";
 
@@ -155,7 +156,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for getting drawing object by specified index online.
      */
     @Test
-    public void testGetDocumentDrawingObjectByIndexOnline() throws ApiException, IOException
+    public void testGetDocumentDrawingObjectByIndexOnline() throws ApiException, MessagingException, IOException
     {
         GetDocumentDrawingObjectByIndexOnlineRequest request = new GetDocumentDrawingObjectByIndexOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -173,7 +174,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for getting drawing object by specified index without node path.
      */
     @Test
-    public void testGetDocumentDrawingObjectByIndexWithoutNodePath() throws ApiException, IOException
+    public void testGetDocumentDrawingObjectByIndexWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentDrawingObjectByIndexWithoutNodePath.docx";
 
@@ -200,7 +201,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for getting drawing object by specified index and format.
      */
     @Test
-    public void testRenderDrawingObject() throws ApiException, IOException
+    public void testRenderDrawingObject() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentDrawingObjectByIndexWithFormat.docx";
 
@@ -230,7 +231,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for getting drawing object by specified index and format online.
      */
     @Test
-    public void testRenderDrawingObjectOnline() throws ApiException, IOException
+    public void testRenderDrawingObjectOnline() throws ApiException, MessagingException, IOException
     {
         RenderDrawingObjectOnlineRequest request = new RenderDrawingObjectOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -251,7 +252,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for getting drawing object by specified index and format without node path.
      */
     @Test
-    public void testRenderDrawingObjectWithoutNodePath() throws ApiException, IOException
+    public void testRenderDrawingObjectWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentDrawingObjectByIndexWithFormatWithoutNodePath.docx";
 
@@ -281,7 +282,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for reading drawing object's image data.
      */
     @Test
-    public void testGetDocumentDrawingObjectImageData() throws ApiException, IOException
+    public void testGetDocumentDrawingObjectImageData() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentDrawingObjectImageData.docx";
 
@@ -308,7 +309,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for reading drawing object's image data online.
      */
     @Test
-    public void testGetDocumentDrawingObjectImageDataOnline() throws ApiException, IOException
+    public void testGetDocumentDrawingObjectImageDataOnline() throws ApiException, MessagingException, IOException
     {
         GetDocumentDrawingObjectImageDataOnlineRequest request = new GetDocumentDrawingObjectImageDataOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -326,7 +327,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for reading drawing object's image data without node path.
      */
     @Test
-    public void testGetDocumentDrawingObjectImageDataWithoutNodePath() throws ApiException, IOException
+    public void testGetDocumentDrawingObjectImageDataWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentDrawingObjectImageDataWithoutNodePath.docx";
 
@@ -353,7 +354,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for getting drawing object OLE data.
      */
     @Test
-    public void testGetDocumentDrawingObjectOleData() throws ApiException, IOException
+    public void testGetDocumentDrawingObjectOleData() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentDrawingObjectOleData.docx";
 
@@ -380,7 +381,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for getting drawing object OLE data online.
      */
     @Test
-    public void testGetDocumentDrawingObjectOleDataOnline() throws ApiException, IOException
+    public void testGetDocumentDrawingObjectOleDataOnline() throws ApiException, MessagingException, IOException
     {
         GetDocumentDrawingObjectOleDataOnlineRequest request = new GetDocumentDrawingObjectOleDataOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localDrawingFile).toAbsolutePath()),
@@ -398,7 +399,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for getting drawing object OLE data without node path.
      */
     @Test
-    public void testGetDocumentDrawingObjectOleDataWithoutNodePath() throws ApiException, IOException
+    public void testGetDocumentDrawingObjectOleDataWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentDrawingObjectOleDataWithoutNodePath.docx";
 
@@ -425,7 +426,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for adding drawing object.
      */
     @Test
-    public void testInsertDrawingObject() throws ApiException, IOException
+    public void testInsertDrawingObject() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsetDrawingObject.docx";
 
@@ -465,7 +466,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for adding drawing object online.
      */
     @Test
-    public void testInsertDrawingObjectOnline() throws ApiException, IOException
+    public void testInsertDrawingObjectOnline() throws ApiException, MessagingException, IOException
     {
         DrawingObjectInsert requestDrawingObject = new DrawingObjectInsert();
         requestDrawingObject.setHeight((double)0);
@@ -496,7 +497,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for adding drawing object without node path.
      */
     @Test
-    public void testInsertDrawingObjectWithoutNodePath() throws ApiException, IOException
+    public void testInsertDrawingObjectWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsetDrawingObjectWithoutNodePath.docx";
 
@@ -536,7 +537,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for deleting drawing object.
      */
     @Test
-    public void testDeleteDrawingObject() throws ApiException, IOException
+    public void testDeleteDrawingObject() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteDrawingObject.docx";
 
@@ -565,7 +566,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for deleting drawing object online.
      */
     @Test
-    public void testDeleteDrawingObjectOnline() throws ApiException, IOException
+    public void testDeleteDrawingObjectOnline() throws ApiException, MessagingException, IOException
     {
         DeleteDrawingObjectOnlineRequest request = new DeleteDrawingObjectOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -586,7 +587,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for deleting drawing object without node path.
      */
     @Test
-    public void testDeleteDrawingObjectWithoutNodePath() throws ApiException, IOException
+    public void testDeleteDrawingObjectWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteDrawingObjectWithoutNodePath.docx";
 
@@ -615,7 +616,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for updating drawing object.
      */
     @Test
-    public void testUpdateDrawingObject() throws ApiException, IOException
+    public void testUpdateDrawingObject() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateDrawingObject.docx";
 
@@ -650,7 +651,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for updating drawing object online.
      */
     @Test
-    public void testUpdateDrawingObjectOnline() throws ApiException, IOException
+    public void testUpdateDrawingObjectOnline() throws ApiException, MessagingException, IOException
     {
         DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
         requestDrawingObject.setLeft((double)0);
@@ -676,7 +677,7 @@ public class TestDrawingObjects  extends TestCase
      * Test for updating drawing object without node path.
      */
     @Test
-    public void testUpdateDrawingObjectWithoutNodePath() throws ApiException, IOException
+    public void testUpdateDrawingObjectWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateDrawingObjectWithoutNodePath.docx";
 

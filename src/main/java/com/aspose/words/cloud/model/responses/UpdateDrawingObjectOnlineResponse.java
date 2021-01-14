@@ -52,6 +52,14 @@ public class UpdateDrawingObjectOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the UpdateDrawingObjectOnlineResponse class.
+     */
+    public UpdateDrawingObjectOnlineResponse(DrawingObjectResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

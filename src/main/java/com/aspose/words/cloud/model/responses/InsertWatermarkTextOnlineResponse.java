@@ -52,6 +52,14 @@ public class InsertWatermarkTextOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the InsertWatermarkTextOnlineResponse class.
+     */
+    public InsertWatermarkTextOnlineResponse(DocumentResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

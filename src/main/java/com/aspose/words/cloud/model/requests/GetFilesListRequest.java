@@ -31,6 +31,8 @@ import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -88,6 +90,7 @@ public class GetFilesListRequest implements RequestIfc {
         this.storageName = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -136,5 +139,15 @@ public class GetFilesListRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return FilesList.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public FilesList deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (FilesList)apiClient.deserialize(response, FilesList.class);
     }
 }

@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestRun  extends TestCase
      * Test for updating run.
      */
     @Test
-    public void testUpdateRun() throws ApiException, IOException
+    public void testUpdateRun() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateRun.docx";
 
@@ -94,7 +95,7 @@ public class TestRun  extends TestCase
      * Test for updating run online.
      */
     @Test
-    public void testUpdateRunOnline() throws ApiException, IOException
+    public void testUpdateRunOnline() throws ApiException, MessagingException, IOException
     {
         RunUpdate requestRun = new RunUpdate();
         requestRun.setText("run with text");
@@ -119,7 +120,7 @@ public class TestRun  extends TestCase
      * Test for adding run.
      */
     @Test
-    public void testInsertRun() throws ApiException, IOException
+    public void testInsertRun() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertRun.docx";
 
@@ -156,7 +157,7 @@ public class TestRun  extends TestCase
      * Test for adding run online.
      */
     @Test
-    public void testInsertRunOnline() throws ApiException, IOException
+    public void testInsertRunOnline() throws ApiException, MessagingException, IOException
     {
         RunInsert requestRun = new RunInsert();
         requestRun.setText("run with text");
@@ -181,7 +182,7 @@ public class TestRun  extends TestCase
      * Test for deleting run.
      */
     @Test
-    public void testDeleteRun() throws ApiException, IOException
+    public void testDeleteRun() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteRun.docx";
 
@@ -210,7 +211,7 @@ public class TestRun  extends TestCase
      * Test for deleting run online.
      */
     @Test
-    public void testDeleteRunOnline() throws ApiException, IOException
+    public void testDeleteRunOnline() throws ApiException, MessagingException, IOException
     {
         DeleteRunOnlineRequest request = new DeleteRunOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),

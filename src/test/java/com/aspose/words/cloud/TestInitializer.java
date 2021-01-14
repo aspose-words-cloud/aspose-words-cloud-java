@@ -36,6 +36,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.Files;
 import java.util.Map;
 
@@ -66,7 +67,7 @@ public final class TestInitializer {
         return creds;
     }
 
-    public static FilesUploadResult UploadFile(String file, String path) throws IOException, ApiException {
+    public static FilesUploadResult UploadFile(String file, String path) throws IOException, MessagingException, ApiException {
         UploadFileRequest request = new UploadFileRequest(Files.readAllBytes(new File(file).toPath()), path, null);
         return wordsApi.uploadFile(request);
     }

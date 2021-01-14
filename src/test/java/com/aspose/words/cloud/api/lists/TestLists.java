@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestLists  extends TestCase
      * Test for getting lists from document.
      */
     @Test
-    public void testGetLists() throws ApiException, IOException
+    public void testGetLists() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetLists.doc";
 
@@ -87,7 +88,7 @@ public class TestLists  extends TestCase
      * Test for getting lists from document online.
      */
     @Test
-    public void testGetListsOnline() throws ApiException, IOException
+    public void testGetListsOnline() throws ApiException, MessagingException, IOException
     {
         GetListsOnlineRequest request = new GetListsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -103,7 +104,7 @@ public class TestLists  extends TestCase
      * Test for getting list from document.
      */
     @Test
-    public void testGetList() throws ApiException, IOException
+    public void testGetList() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetList.doc";
 
@@ -131,7 +132,7 @@ public class TestLists  extends TestCase
      * Test for getting list from document online.
      */
     @Test
-    public void testGetListOnline() throws ApiException, IOException
+    public void testGetListOnline() throws ApiException, MessagingException, IOException
     {
         GetListOnlineRequest request = new GetListOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -148,7 +149,7 @@ public class TestLists  extends TestCase
      * Test for updating list from document.
      */
     @Test
-    public void testUpdateList() throws ApiException, IOException
+    public void testUpdateList() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateList.doc";
 
@@ -181,7 +182,7 @@ public class TestLists  extends TestCase
      * Test for updating list from document online.
      */
     @Test
-    public void testUpdateListOnline() throws ApiException, IOException
+    public void testUpdateListOnline() throws ApiException, MessagingException, IOException
     {
         ListUpdate requestListUpdate = new ListUpdate();
         requestListUpdate.setIsRestartAtEachSection(true);
@@ -208,7 +209,7 @@ public class TestLists  extends TestCase
      * Test for updating list level from document.
      */
     @Test
-    public void testUpdateListLevel() throws ApiException, IOException
+    public void testUpdateListLevel() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateListLevel.doc";
 
@@ -242,7 +243,7 @@ public class TestLists  extends TestCase
      * Test for updating list level from document online.
      */
     @Test
-    public void testUpdateListLevelOnline() throws ApiException, IOException
+    public void testUpdateListLevelOnline() throws ApiException, MessagingException, IOException
     {
         ListLevelUpdate requestListUpdate = new ListLevelUpdate();
         requestListUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
@@ -272,7 +273,7 @@ public class TestLists  extends TestCase
      * Test for inserting list from document.
      */
     @Test
-    public void testInsertList() throws ApiException, IOException
+    public void testInsertList() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertList.doc";
 
@@ -306,7 +307,7 @@ public class TestLists  extends TestCase
      * Test for inserting list from document online.
      */
     @Test
-    public void testInsertListOnline() throws ApiException, IOException
+    public void testInsertListOnline() throws ApiException, MessagingException, IOException
     {
         ListInsert requestListInsert = new ListInsert();
         requestListInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);

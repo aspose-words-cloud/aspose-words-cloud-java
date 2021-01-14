@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestHeaderFooter  extends TestCase
      * Test for getting headers and footers.
      */
     @Test
-    public void testGetHeaderFooters() throws ApiException, IOException
+    public void testGetHeaderFooters() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetHeadersFooters.docx";
 
@@ -88,7 +89,7 @@ public class TestHeaderFooter  extends TestCase
      * Test for getting headers and footers online.
      */
     @Test
-    public void testGetHeaderFootersOnline() throws ApiException, IOException
+    public void testGetHeaderFootersOnline() throws ApiException, MessagingException, IOException
     {
         GetHeaderFootersOnlineRequest request = new GetHeaderFootersOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -106,7 +107,7 @@ public class TestHeaderFooter  extends TestCase
      * Test for getting headerfooter.
      */
     @Test
-    public void testGetHeaderFooter() throws ApiException, IOException
+    public void testGetHeaderFooter() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetHeaderFooter.docx";
 
@@ -137,7 +138,7 @@ public class TestHeaderFooter  extends TestCase
      * Test for getting headerfooter online.
      */
     @Test
-    public void testGetHeaderFooterOnline() throws ApiException, IOException
+    public void testGetHeaderFooterOnline() throws ApiException, MessagingException, IOException
     {
         GetHeaderFooterOnlineRequest request = new GetHeaderFooterOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -155,7 +156,7 @@ public class TestHeaderFooter  extends TestCase
      * Test for getting headerfooter of section.
      */
     @Test
-    public void testGetHeaderFooterOfSection() throws ApiException, IOException
+    public void testGetHeaderFooterOfSection() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetHeaderFooterOfSection.docx";
 
@@ -187,7 +188,7 @@ public class TestHeaderFooter  extends TestCase
      * Test for getting headerfooter of section online.
      */
     @Test
-    public void testGetHeaderFooterOfSectionOnline() throws ApiException, IOException
+    public void testGetHeaderFooterOfSectionOnline() throws ApiException, MessagingException, IOException
     {
         GetHeaderFooterOfSectionOnlineRequest request = new GetHeaderFooterOfSectionOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -206,7 +207,7 @@ public class TestHeaderFooter  extends TestCase
      * Test for deleting headerfooter.
      */
     @Test
-    public void testDeleteHeaderFooter() throws ApiException, IOException
+    public void testDeleteHeaderFooter() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteHeaderFooter.docx";
 
@@ -235,7 +236,7 @@ public class TestHeaderFooter  extends TestCase
      * Test for deleting headerfooter online.
      */
     @Test
-    public void testDeleteHeaderFooterOnline() throws ApiException, IOException
+    public void testDeleteHeaderFooterOnline() throws ApiException, MessagingException, IOException
     {
         DeleteHeaderFooterOnlineRequest request = new DeleteHeaderFooterOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -256,7 +257,7 @@ public class TestHeaderFooter  extends TestCase
      * Test for deleting headerfooters.
      */
     @Test
-    public void testDeleteHeadersFooters() throws ApiException, IOException
+    public void testDeleteHeadersFooters() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteHeadersFooters.docx";
 
@@ -285,7 +286,7 @@ public class TestHeaderFooter  extends TestCase
      * Test for deleting headerfooters online.
      */
     @Test
-    public void testDeleteHeadersFootersOnline() throws ApiException, IOException
+    public void testDeleteHeadersFootersOnline() throws ApiException, MessagingException, IOException
     {
         DeleteHeadersFootersOnlineRequest request = new DeleteHeadersFootersOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -306,7 +307,7 @@ public class TestHeaderFooter  extends TestCase
      * Test for adding headerfooters.
      */
     @Test
-    public void testInsertHeaderFooter() throws ApiException, IOException
+    public void testInsertHeaderFooter() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertHeaderFooter.docx";
 
@@ -336,7 +337,7 @@ public class TestHeaderFooter  extends TestCase
      * Test for adding headerfooters online.
      */
     @Test
-    public void testInsertHeaderFooterOnline() throws ApiException, IOException
+    public void testInsertHeaderFooterOnline() throws ApiException, MessagingException, IOException
     {
         InsertHeaderFooterOnlineRequest request = new InsertHeaderFooterOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),

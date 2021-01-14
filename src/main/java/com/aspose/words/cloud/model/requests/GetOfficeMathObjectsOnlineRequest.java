@@ -31,6 +31,8 @@ import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -130,6 +132,7 @@ public class GetOfficeMathObjectsOnlineRequest implements RequestIfc {
         this.password = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -193,5 +196,15 @@ public class GetOfficeMathObjectsOnlineRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return OfficeMathObjectsResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public OfficeMathObjectsResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (OfficeMathObjectsResponse)apiClient.deserialize(response, OfficeMathObjectsResponse.class);
     }
 }

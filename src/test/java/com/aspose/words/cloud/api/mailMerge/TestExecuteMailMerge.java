@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestExecuteMailMerge  extends TestCase
      * Test for executing mail merge online.
      */
     @Test
-    public void testExecuteMailMergeOnline() throws ApiException, IOException
+    public void testExecuteMailMergeOnline() throws ApiException, MessagingException, IOException
     {
         String localDocumentFile = "SampleExecuteTemplate.docx";
         String localDataFile = "SampleExecuteTemplateData.txt";
@@ -79,7 +80,7 @@ public class TestExecuteMailMerge  extends TestCase
      * Test for executing mail merge.
      */
     @Test
-    public void testExecuteMailMerge() throws ApiException, IOException
+    public void testExecuteMailMerge() throws ApiException, MessagingException, IOException
     {
         String localDocumentFile = "SampleExecuteTemplate.docx";
         String remoteFileName = "TestExecuteMailMerge.docx";

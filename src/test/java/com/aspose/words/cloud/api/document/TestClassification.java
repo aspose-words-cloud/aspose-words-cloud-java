@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestClassification  extends TestCase
      * Test for raw text classification.
      */
     @Test
-    public void testClassify() throws ApiException, IOException
+    public void testClassify() throws ApiException, MessagingException, IOException
     {
         ClassifyRequest request = new ClassifyRequest(
             "Try text classification",
@@ -76,7 +77,7 @@ public class TestClassification  extends TestCase
      * Test for document classification.
      */
     @Test
-    public void testClassifyDocument() throws ApiException, IOException
+    public void testClassifyDocument() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestClassifyDocument.docx";
 
@@ -106,7 +107,7 @@ public class TestClassification  extends TestCase
      * Test for document classification online.
      */
     @Test
-    public void testClassifyDocumentOnline() throws ApiException, IOException
+    public void testClassifyDocumentOnline() throws ApiException, MessagingException, IOException
     {
         ClassifyDocumentOnlineRequest request = new ClassifyDocumentOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),

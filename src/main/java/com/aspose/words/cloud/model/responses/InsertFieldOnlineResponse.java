@@ -52,6 +52,14 @@ public class InsertFieldOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the InsertFieldOnlineResponse class.
+     */
+    public InsertFieldOnlineResponse(FieldResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

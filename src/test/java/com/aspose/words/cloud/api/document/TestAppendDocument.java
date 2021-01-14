@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestAppendDocument  extends TestCase
      * Test for appending document.
      */
     @Test
-    public void testAppendDocument() throws ApiException, IOException
+    public void testAppendDocument() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestAppendDocument.docx";
 
@@ -99,7 +100,7 @@ public class TestAppendDocument  extends TestCase
      * Test for appending document online.
      */
     @Test
-    public void testAppendDocumentOnline() throws ApiException, IOException
+    public void testAppendDocumentOnline() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestAppendDocument.docx";
 

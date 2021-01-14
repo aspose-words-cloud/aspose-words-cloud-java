@@ -52,6 +52,14 @@ public class CreateOrUpdateDocumentPropertyOnlineResponse implements IMultipartR
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the CreateOrUpdateDocumentPropertyOnlineResponse class.
+     */
+    public CreateOrUpdateDocumentPropertyOnlineResponse(DocumentPropertyResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

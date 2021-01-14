@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestMathObject  extends TestCase
      * Test for getting mathObjects.
      */
     @Test
-    public void testGetOfficeMathObjects() throws ApiException, IOException
+    public void testGetOfficeMathObjects() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetOfficeMathObjects.docx";
 
@@ -88,7 +89,7 @@ public class TestMathObject  extends TestCase
      * Test for getting mathObjects online.
      */
     @Test
-    public void testGetOfficeMathObjectsOnline() throws ApiException, IOException
+    public void testGetOfficeMathObjectsOnline() throws ApiException, MessagingException, IOException
     {
         GetOfficeMathObjectsOnlineRequest request = new GetOfficeMathObjectsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -105,7 +106,7 @@ public class TestMathObject  extends TestCase
      * Test for getting mathObjects without node path.
      */
     @Test
-    public void testGetOfficeMathObjectsWithoutNodePath() throws ApiException, IOException
+    public void testGetOfficeMathObjectsWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetOfficeMathObjectsWithoutNodePath.docx";
 
@@ -135,7 +136,7 @@ public class TestMathObject  extends TestCase
      * Test for getting mathObject.
      */
     @Test
-    public void testGetOfficeMathObject() throws ApiException, IOException
+    public void testGetOfficeMathObject() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetOfficeMathObject.docx";
 
@@ -164,7 +165,7 @@ public class TestMathObject  extends TestCase
      * Test for getting mathObject online.
      */
     @Test
-    public void testGetOfficeMathObjectOnline() throws ApiException, IOException
+    public void testGetOfficeMathObjectOnline() throws ApiException, MessagingException, IOException
     {
         GetOfficeMathObjectOnlineRequest request = new GetOfficeMathObjectOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -182,7 +183,7 @@ public class TestMathObject  extends TestCase
      * Test for getting mathObject without node path.
      */
     @Test
-    public void testGetOfficeMathObjectWithoutNodePath() throws ApiException, IOException
+    public void testGetOfficeMathObjectWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetOfficeMathObjectWithoutNodePath.docx";
 
@@ -211,7 +212,7 @@ public class TestMathObject  extends TestCase
      * Test for rendering mathObject.
      */
     @Test
-    public void testRenderMathObject() throws ApiException, IOException
+    public void testRenderMathObject() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestRenderMathObject.docx";
 
@@ -241,7 +242,7 @@ public class TestMathObject  extends TestCase
      * Test for rendering mathObject.
      */
     @Test
-    public void testRenderMathObjectOnline() throws ApiException, IOException
+    public void testRenderMathObjectOnline() throws ApiException, MessagingException, IOException
     {
         RenderMathObjectOnlineRequest request = new RenderMathObjectOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -262,7 +263,7 @@ public class TestMathObject  extends TestCase
      * Test for rendering mathObject without node path.
      */
     @Test
-    public void testRenderMathObjectWithoutNodePath() throws ApiException, IOException
+    public void testRenderMathObjectWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestRenderMathObjectWithoutNodePath.docx";
 
@@ -292,7 +293,7 @@ public class TestMathObject  extends TestCase
      * Test for deleting mathObject.
      */
     @Test
-    public void testDeleteOfficeMathObject() throws ApiException, IOException
+    public void testDeleteOfficeMathObject() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteOfficeMathObject.docx";
 
@@ -321,7 +322,7 @@ public class TestMathObject  extends TestCase
      * Test for deleting mathObject online.
      */
     @Test
-    public void testDeleteOfficeMathObjectOnline() throws ApiException, IOException
+    public void testDeleteOfficeMathObjectOnline() throws ApiException, MessagingException, IOException
     {
         DeleteOfficeMathObjectOnlineRequest request = new DeleteOfficeMathObjectOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -342,7 +343,7 @@ public class TestMathObject  extends TestCase
      * Test for deleting mathObject without node path.
      */
     @Test
-    public void testDeleteOfficeMathObjectWithoutNodePath() throws ApiException, IOException
+    public void testDeleteOfficeMathObjectWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteOfficeMathObjectWithoutNodePath.docx";
 

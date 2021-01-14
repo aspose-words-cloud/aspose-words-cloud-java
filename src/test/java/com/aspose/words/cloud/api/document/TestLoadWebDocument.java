@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -55,7 +56,7 @@ public class TestLoadWebDocument  extends TestCase
      * Test for loading web document.
      */
     @Test
-    public void testLoadWebDocument() throws ApiException, IOException
+    public void testLoadWebDocument() throws ApiException, MessagingException, IOException
     {
         SaveOptionsData requestDataSaveOptions = new SaveOptionsData();
         requestDataSaveOptions.setFileName("google.doc");

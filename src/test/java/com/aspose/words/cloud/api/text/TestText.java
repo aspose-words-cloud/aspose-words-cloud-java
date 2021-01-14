@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +58,7 @@ public class TestText  extends TestCase
      * Test for replacing text.
      */
     @Test
-    public void testReplaceText() throws ApiException, IOException
+    public void testReplaceText() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestReplaceText.docx";
         String localFile = "Common/test_multi_pages.docx";
@@ -92,7 +93,7 @@ public class TestText  extends TestCase
      * Test for replacing text online.
      */
     @Test
-    public void testReplaceTextOnline() throws ApiException, IOException
+    public void testReplaceTextOnline() throws ApiException, MessagingException, IOException
     {
         String localFile = "Common/test_multi_pages.docx";
 
@@ -118,7 +119,7 @@ public class TestText  extends TestCase
      * Test for searching.
      */
     @Test
-    public void testSearch() throws ApiException, IOException
+    public void testSearch() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestSearch.docx";
         String localFile = "DocumentElements/Text/SampleWordDocument.docx";
@@ -150,7 +151,7 @@ public class TestText  extends TestCase
      * Test for searching online.
      */
     @Test
-    public void testSearchOnline() throws ApiException, IOException
+    public void testSearchOnline() throws ApiException, MessagingException, IOException
     {
         String localFile = "DocumentElements/Text/SampleWordDocument.docx";
 

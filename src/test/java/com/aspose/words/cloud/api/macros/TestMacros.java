@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestMacros  extends TestCase
      * Test for deleting macros.
      */
     @Test
-    public void testDeleteMacros() throws ApiException, IOException
+    public void testDeleteMacros() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteDocumentMacros.docx";
 
@@ -85,7 +86,7 @@ public class TestMacros  extends TestCase
      * Test for deleting macros online.
      */
     @Test
-    public void testDeleteMacrosOnline() throws ApiException, IOException
+    public void testDeleteMacrosOnline() throws ApiException, MessagingException, IOException
     {
         DeleteMacrosOnlineRequest request = new DeleteMacrosOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),

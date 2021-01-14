@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestCompareDocument  extends TestCase
      * Test for document comparison.
      */
     @Test
-    public void testCompareDocument() throws ApiException, IOException
+    public void testCompareDocument() throws ApiException, MessagingException, IOException
     {
         String localName1 = "compareTestDoc1.doc";
         String localName2 = "compareTestDoc2.doc";
@@ -99,7 +100,7 @@ public class TestCompareDocument  extends TestCase
      * Test for document comparison online.
      */
     @Test
-    public void testCompareDocumentOnline() throws ApiException, IOException
+    public void testCompareDocumentOnline() throws ApiException, MessagingException, IOException
     {
         String localName1 = "compareTestDoc1.doc";
         String localName2 = "compareTestDoc2.doc";

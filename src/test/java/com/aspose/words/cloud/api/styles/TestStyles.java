@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestStyles  extends TestCase
      * Test for getting styles from document.
      */
     @Test
-    public void testGetStyles() throws ApiException, IOException
+    public void testGetStyles() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetStyles.docx";
 
@@ -86,7 +87,7 @@ public class TestStyles  extends TestCase
      * Test for getting styles from document online.
      */
     @Test
-    public void testGetStylesOnline() throws ApiException, IOException
+    public void testGetStylesOnline() throws ApiException, MessagingException, IOException
     {
         GetStylesOnlineRequest request = new GetStylesOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -102,7 +103,7 @@ public class TestStyles  extends TestCase
      * Test for getting style from document.
      */
     @Test
-    public void testGetStyle() throws ApiException, IOException
+    public void testGetStyle() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetStyle.docx";
 
@@ -130,7 +131,7 @@ public class TestStyles  extends TestCase
      * Test for getting style from document online.
      */
     @Test
-    public void testGetStyleOnline() throws ApiException, IOException
+    public void testGetStyleOnline() throws ApiException, MessagingException, IOException
     {
         GetStyleOnlineRequest request = new GetStyleOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -147,7 +148,7 @@ public class TestStyles  extends TestCase
      * Test for updating style from document.
      */
     @Test
-    public void testUpdateStyle() throws ApiException, IOException
+    public void testUpdateStyle() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateStyle.docx";
 
@@ -182,7 +183,7 @@ public class TestStyles  extends TestCase
      * Test for updating style from document online.
      */
     @Test
-    public void testUpdateStyleOnline() throws ApiException, IOException
+    public void testUpdateStyleOnline() throws ApiException, MessagingException, IOException
     {
         StyleUpdate requestStyleUpdate = new StyleUpdate();
         requestStyleUpdate.setName("My Style");
@@ -206,7 +207,7 @@ public class TestStyles  extends TestCase
      * Test for inserting style from document.
      */
     @Test
-    public void testInsertStyle() throws ApiException, IOException
+    public void testInsertStyle() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertStyle.docx";
 
@@ -241,7 +242,7 @@ public class TestStyles  extends TestCase
      * Test for inserting style from document online.
      */
     @Test
-    public void testInsertStyleOnline() throws ApiException, IOException
+    public void testInsertStyleOnline() throws ApiException, MessagingException, IOException
     {
         StyleInsert requestStyleInsert = new StyleInsert();
         requestStyleInsert.setStyleName("My Style");
@@ -265,7 +266,7 @@ public class TestStyles  extends TestCase
      * Test for coping style from document.
      */
     @Test
-    public void testCopyStyle() throws ApiException, IOException
+    public void testCopyStyle() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestCopyStyle.docx";
 
@@ -299,7 +300,7 @@ public class TestStyles  extends TestCase
      * Test for coping style from document online.
      */
     @Test
-    public void testCopyStyleOnline() throws ApiException, IOException
+    public void testCopyStyleOnline() throws ApiException, MessagingException, IOException
     {
         StyleCopy requestStyleCopy = new StyleCopy();
         requestStyleCopy.setStyleName("Heading 1");
@@ -322,7 +323,7 @@ public class TestStyles  extends TestCase
      * Test for getting style from document element.
      */
     @Test
-    public void testGetStyleFromDocumentElement() throws ApiException, IOException
+    public void testGetStyleFromDocumentElement() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetStyleFromDocumentElement.docx";
 
@@ -350,7 +351,7 @@ public class TestStyles  extends TestCase
      * Test for getting style from document element online.
      */
     @Test
-    public void testGetStyleFromDocumentElementOnline() throws ApiException, IOException
+    public void testGetStyleFromDocumentElementOnline() throws ApiException, MessagingException, IOException
     {
         GetStyleFromDocumentElementOnlineRequest request = new GetStyleFromDocumentElementOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -367,7 +368,7 @@ public class TestStyles  extends TestCase
      * Test for applying style to document element.
      */
     @Test
-    public void testApplyStyleToDocumentElement() throws ApiException, IOException
+    public void testApplyStyleToDocumentElement() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestApplyStyleToDocumentElement.docx";
 
@@ -400,7 +401,7 @@ public class TestStyles  extends TestCase
      * Test for applying style to document element online.
      */
     @Test
-    public void testApplyStyleToDocumentElementOnline() throws ApiException, IOException
+    public void testApplyStyleToDocumentElementOnline() throws ApiException, MessagingException, IOException
     {
         StyleApply requestStyleApply = new StyleApply();
         requestStyleApply.setStyleName("Heading 1");

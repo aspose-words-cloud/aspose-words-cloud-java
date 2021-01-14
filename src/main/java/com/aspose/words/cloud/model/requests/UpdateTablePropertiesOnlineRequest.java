@@ -31,6 +31,8 @@ import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -235,6 +237,7 @@ public class UpdateTablePropertiesOnlineRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -315,5 +318,19 @@ public class UpdateTablePropertiesOnlineRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return UpdateTablePropertiesOnlineResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public UpdateTablePropertiesOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
+        return new UpdateTablePropertiesOnlineResponse(
+            (TablePropertiesResponse)apiClient.parseModel(multipart.getBodyPart(0), TablePropertiesResponse.class),
+            apiClient.parseDocument(multipart.getBodyPart(1))
+        );
     }
 }

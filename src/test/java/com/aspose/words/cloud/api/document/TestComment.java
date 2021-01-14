@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestComment  extends TestCase
      * Test for getting comment by specified comment's index.
      */
     @Test
-    public void testGetComment() throws ApiException, IOException
+    public void testGetComment() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetComment.docx";
 
@@ -86,7 +87,7 @@ public class TestComment  extends TestCase
      * Test for getting comment by specified comment's index online.
      */
     @Test
-    public void testGetCommentOnline() throws ApiException, IOException
+    public void testGetCommentOnline() throws ApiException, MessagingException, IOException
     {
         GetCommentOnlineRequest request = new GetCommentOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -103,7 +104,7 @@ public class TestComment  extends TestCase
      * Test for getting all comments from document.
      */
     @Test
-    public void testGetComments() throws ApiException, IOException
+    public void testGetComments() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetComments.docx";
 
@@ -132,7 +133,7 @@ public class TestComment  extends TestCase
      * Test for getting all comments from document online.
      */
     @Test
-    public void testGetCommentsOnline() throws ApiException, IOException
+    public void testGetCommentsOnline() throws ApiException, MessagingException, IOException
     {
         GetCommentsOnlineRequest request = new GetCommentsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -148,7 +149,7 @@ public class TestComment  extends TestCase
      * Test for adding comment.
      */
     @Test
-    public void testInsertComment() throws ApiException, IOException
+    public void testInsertComment() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertComment.docx";
 
@@ -203,7 +204,7 @@ public class TestComment  extends TestCase
      * Test for adding comment online.
      */
     @Test
-    public void testInsertCommentOnline() throws ApiException, IOException
+    public void testInsertCommentOnline() throws ApiException, MessagingException, IOException
     {
         NodeLink requestCommentRangeStartNode = new NodeLink();
         requestCommentRangeStartNode.setNodeId("0.3.0.3");
@@ -244,7 +245,7 @@ public class TestComment  extends TestCase
      * Test for updating comment.
      */
     @Test
-    public void testUpdateComment() throws ApiException, IOException
+    public void testUpdateComment() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateComment.docx";
 
@@ -300,7 +301,7 @@ public class TestComment  extends TestCase
      * Test for updating comment online.
      */
     @Test
-    public void testUpdateCommentOnline() throws ApiException, IOException
+    public void testUpdateCommentOnline() throws ApiException, MessagingException, IOException
     {
         NodeLink requestCommentRangeStartNode = new NodeLink();
         requestCommentRangeStartNode.setNodeId("0.3.0");
@@ -342,7 +343,7 @@ public class TestComment  extends TestCase
      * A test for DeleteComment.
      */
     @Test
-    public void testDeleteComment() throws ApiException, IOException
+    public void testDeleteComment() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteComment.docx";
 
@@ -370,7 +371,7 @@ public class TestComment  extends TestCase
      * A test for DeleteComment online.
      */
     @Test
-    public void testDeleteCommentOnline() throws ApiException, IOException
+    public void testDeleteCommentOnline() throws ApiException, MessagingException, IOException
     {
         DeleteCommentOnlineRequest request = new DeleteCommentOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),

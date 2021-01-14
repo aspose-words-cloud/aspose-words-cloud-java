@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestSplitDocumentToFormat  extends TestCase
      * Test for document splitting.
      */
     @Test
-    public void testSplitDocument() throws ApiException, IOException
+    public void testSplitDocument() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestSplitDocument.docx";
 
@@ -92,7 +93,7 @@ public class TestSplitDocumentToFormat  extends TestCase
      * Test for document splitting online.
      */
     @Test
-    public void testSplitDocumentOnline() throws ApiException, IOException
+    public void testSplitDocumentOnline() throws ApiException, MessagingException, IOException
     {
         SplitDocumentOnlineRequest request = new SplitDocumentOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),

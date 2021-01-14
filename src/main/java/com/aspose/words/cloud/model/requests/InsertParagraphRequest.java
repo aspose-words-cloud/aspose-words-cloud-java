@@ -31,6 +31,8 @@ import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -277,6 +279,7 @@ public class InsertParagraphRequest implements RequestIfc {
         this.insertBeforeNode = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -350,5 +353,15 @@ public class InsertParagraphRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return ParagraphResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public ParagraphResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (ParagraphResponse)apiClient.deserialize(response, ParagraphResponse.class);
     }
 }

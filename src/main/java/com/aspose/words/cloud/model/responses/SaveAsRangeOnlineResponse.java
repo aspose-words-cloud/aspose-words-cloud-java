@@ -52,6 +52,14 @@ public class SaveAsRangeOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the SaveAsRangeOnlineResponse class.
+     */
+    public SaveAsRangeOnlineResponse(DocumentResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

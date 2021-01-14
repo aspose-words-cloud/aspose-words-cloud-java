@@ -52,6 +52,14 @@ public class InsertPageNumbersOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the InsertPageNumbersOnlineResponse class.
+     */
+    public InsertPageNumbersOnlineResponse(DocumentResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

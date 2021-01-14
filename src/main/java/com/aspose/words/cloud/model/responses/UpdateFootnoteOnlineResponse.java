@@ -52,6 +52,14 @@ public class UpdateFootnoteOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the UpdateFootnoteOnlineResponse class.
+     */
+    public UpdateFootnoteOnlineResponse(FootnoteResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

@@ -52,6 +52,14 @@ public class InsertTableOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the InsertTableOnlineResponse class.
+     */
+    public InsertTableOnlineResponse(TableResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

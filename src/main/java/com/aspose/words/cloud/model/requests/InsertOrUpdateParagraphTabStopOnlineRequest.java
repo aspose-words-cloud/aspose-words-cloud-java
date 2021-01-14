@@ -31,6 +31,8 @@ import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -193,6 +195,7 @@ public class InsertOrUpdateParagraphTabStopOnlineRequest implements RequestIfc {
         this.destFileName = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -271,5 +274,19 @@ public class InsertOrUpdateParagraphTabStopOnlineRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return InsertOrUpdateParagraphTabStopOnlineResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public InsertOrUpdateParagraphTabStopOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
+        return new InsertOrUpdateParagraphTabStopOnlineResponse(
+            (TabStopsResponse)apiClient.parseModel(multipart.getBodyPart(0), TabStopsResponse.class),
+            apiClient.parseDocument(multipart.getBodyPart(1))
+        );
     }
 }

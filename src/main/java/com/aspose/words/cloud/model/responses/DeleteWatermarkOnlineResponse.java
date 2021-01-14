@@ -52,6 +52,14 @@ public class DeleteWatermarkOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the DeleteWatermarkOnlineResponse class.
+     */
+    public DeleteWatermarkOnlineResponse(DocumentResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

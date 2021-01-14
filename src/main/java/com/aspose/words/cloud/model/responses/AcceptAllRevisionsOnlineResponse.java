@@ -52,6 +52,14 @@ public class AcceptAllRevisionsOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the AcceptAllRevisionsOnlineResponse class.
+     */
+    public AcceptAllRevisionsOnlineResponse(RevisionsModificationResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

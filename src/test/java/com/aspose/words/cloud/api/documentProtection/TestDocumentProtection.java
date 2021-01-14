@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestDocumentProtection  extends TestCase
      * Test for setting document protection.
      */
     @Test
-    public void testProtectDocument() throws ApiException, IOException
+    public void testProtectDocument() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestProtectDocument.docx";
 
@@ -91,7 +92,7 @@ public class TestDocumentProtection  extends TestCase
      * Test for setting document protection.
      */
     @Test
-    public void testProtectDocumentOnline() throws ApiException, IOException
+    public void testProtectDocumentOnline() throws ApiException, MessagingException, IOException
     {
         ProtectionRequest requestProtectionRequest = new ProtectionRequest();
         requestProtectionRequest.setNewPassword("123");
@@ -112,7 +113,7 @@ public class TestDocumentProtection  extends TestCase
      * Test for getting document protection.
      */
     @Test
-    public void testGetDocumentProtection() throws ApiException, IOException
+    public void testGetDocumentProtection() throws ApiException, MessagingException, IOException
     {
         String localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
         String remoteFileName = "TestGetDocumentProtection.docx";
@@ -138,7 +139,7 @@ public class TestDocumentProtection  extends TestCase
      * Test for getting document protection.
      */
     @Test
-    public void testGetDocumentProtectionOnline() throws ApiException, IOException
+    public void testGetDocumentProtectionOnline() throws ApiException, MessagingException, IOException
     {
         GetDocumentProtectionOnlineRequest request = new GetDocumentProtectionOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -154,7 +155,7 @@ public class TestDocumentProtection  extends TestCase
      * Test for deleting unprotect document.
      */
     @Test
-    public void testDeleteUnprotectDocument() throws ApiException, IOException
+    public void testDeleteUnprotectDocument() throws ApiException, MessagingException, IOException
     {
         String localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
         String remoteFileName = "TestDeleteUnprotectDocument.docx";
@@ -187,7 +188,7 @@ public class TestDocumentProtection  extends TestCase
      * Test for deleting unprotect document.
      */
     @Test
-    public void testDeleteUnprotectDocumentOnline() throws ApiException, IOException
+    public void testDeleteUnprotectDocumentOnline() throws ApiException, MessagingException, IOException
     {
         String localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
 

@@ -31,6 +31,8 @@ import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -130,6 +132,7 @@ public class GetFieldsOnlineRequest implements RequestIfc {
         this.password = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -193,5 +196,15 @@ public class GetFieldsOnlineRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return FieldsResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public FieldsResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (FieldsResponse)apiClient.deserialize(response, FieldsResponse.class);
     }
 }

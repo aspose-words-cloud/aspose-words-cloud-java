@@ -52,6 +52,14 @@ public class UnprotectDocumentOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the UnprotectDocumentOnlineResponse class.
+     */
+    public UnprotectDocumentOnlineResponse(ProtectionDataResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

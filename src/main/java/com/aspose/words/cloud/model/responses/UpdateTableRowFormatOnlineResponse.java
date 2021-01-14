@@ -52,6 +52,14 @@ public class UpdateTableRowFormatOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the UpdateTableRowFormatOnlineResponse class.
+     */
+    public UpdateTableRowFormatOnlineResponse(TableRowFormatResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

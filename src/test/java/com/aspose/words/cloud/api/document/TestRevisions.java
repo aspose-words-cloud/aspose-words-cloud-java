@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestRevisions  extends TestCase
      * Test for accepting revisions in document.
      */
     @Test
-    public void testAcceptAllRevisions() throws ApiException, IOException
+    public void testAcceptAllRevisions() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestAcceptAllRevisions.docx";
 
@@ -86,7 +87,7 @@ public class TestRevisions  extends TestCase
      * Test for accepting revisions in document online.
      */
     @Test
-    public void testAcceptAllRevisionsOnline() throws ApiException, IOException
+    public void testAcceptAllRevisionsOnline() throws ApiException, MessagingException, IOException
     {
         AcceptAllRevisionsOnlineRequest request = new AcceptAllRevisionsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -103,7 +104,7 @@ public class TestRevisions  extends TestCase
      * Test for rejecting revisions in document.
      */
     @Test
-    public void testRejectAllRevisions() throws ApiException, IOException
+    public void testRejectAllRevisions() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestRejectAllRevisions.docx";
 
@@ -131,7 +132,7 @@ public class TestRevisions  extends TestCase
      * Test for rejecting revisions in document online.
      */
     @Test
-    public void testRejectAllRevisionsOnline() throws ApiException, IOException
+    public void testRejectAllRevisionsOnline() throws ApiException, MessagingException, IOException
     {
         RejectAllRevisionsOnlineRequest request = new RejectAllRevisionsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),

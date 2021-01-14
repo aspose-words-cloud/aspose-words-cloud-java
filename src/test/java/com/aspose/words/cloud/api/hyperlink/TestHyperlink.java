@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestHyperlink  extends TestCase
      * Test for getting hyperlink by specified index.
      */
     @Test
-    public void testGetDocumentHyperlinkByIndex() throws ApiException, IOException
+    public void testGetDocumentHyperlinkByIndex() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentHyperlinkByIndex.docx";
 
@@ -86,7 +87,7 @@ public class TestHyperlink  extends TestCase
      * Test for getting hyperlink by specified index online.
      */
     @Test
-    public void testGetDocumentHyperlinkByIndexOnline() throws ApiException, IOException
+    public void testGetDocumentHyperlinkByIndexOnline() throws ApiException, MessagingException, IOException
     {
         GetDocumentHyperlinkByIndexOnlineRequest request = new GetDocumentHyperlinkByIndexOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -103,7 +104,7 @@ public class TestHyperlink  extends TestCase
      * Test for getting hyperlinks.
      */
     @Test
-    public void testGetDocumentHyperlinks() throws ApiException, IOException
+    public void testGetDocumentHyperlinks() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentHyperlinks.docx";
 
@@ -132,7 +133,7 @@ public class TestHyperlink  extends TestCase
      * Test for getting hyperlinks online.
      */
     @Test
-    public void testGetDocumentHyperlinksOnline() throws ApiException, IOException
+    public void testGetDocumentHyperlinksOnline() throws ApiException, MessagingException, IOException
     {
         GetDocumentHyperlinksOnlineRequest request = new GetDocumentHyperlinksOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),

@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestDocumentProperties  extends TestCase
      * Test for getting document properties.
      */
     @Test
-    public void testGetDocumentProperties() throws ApiException, IOException
+    public void testGetDocumentProperties() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentProperties.docx";
 
@@ -89,7 +90,7 @@ public class TestDocumentProperties  extends TestCase
      * Test for getting document properties online.
      */
     @Test
-    public void testGetDocumentPropertiesOnline() throws ApiException, IOException
+    public void testGetDocumentPropertiesOnline() throws ApiException, MessagingException, IOException
     {
         GetDocumentPropertiesOnlineRequest request = new GetDocumentPropertiesOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -105,7 +106,7 @@ public class TestDocumentProperties  extends TestCase
      * A test for GetDocumentProperty.
      */
     @Test
-    public void testGetDocumentProperty() throws ApiException, IOException
+    public void testGetDocumentProperty() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentProperty.docx";
 
@@ -134,7 +135,7 @@ public class TestDocumentProperties  extends TestCase
      * A test for GetDocumentProperty online.
      */
     @Test
-    public void testGetDocumentPropertyOnline() throws ApiException, IOException
+    public void testGetDocumentPropertyOnline() throws ApiException, MessagingException, IOException
     {
         GetDocumentPropertyOnlineRequest request = new GetDocumentPropertyOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -151,7 +152,7 @@ public class TestDocumentProperties  extends TestCase
      * Test for deleting document property.
      */
     @Test
-    public void testDeleteDocumentProperty() throws ApiException, IOException
+    public void testDeleteDocumentProperty() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteDocumentProperty.docx";
 
@@ -179,7 +180,7 @@ public class TestDocumentProperties  extends TestCase
      * Test for deleting document property online.
      */
     @Test
-    public void testDeleteDocumentPropertyOnline() throws ApiException, IOException
+    public void testDeleteDocumentPropertyOnline() throws ApiException, MessagingException, IOException
     {
         DeleteDocumentPropertyOnlineRequest request = new DeleteDocumentPropertyOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -199,7 +200,7 @@ public class TestDocumentProperties  extends TestCase
      * Test for updating document property.
      */
     @Test
-    public void testUpdateDocumentProperty() throws ApiException, IOException
+    public void testUpdateDocumentProperty() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateDocumentProperty.docx";
 
@@ -235,7 +236,7 @@ public class TestDocumentProperties  extends TestCase
      * Test for updating document property online.
      */
     @Test
-    public void testUpdateDocumentPropertyOnline() throws ApiException, IOException
+    public void testUpdateDocumentPropertyOnline() throws ApiException, MessagingException, IOException
     {
         DocumentPropertyCreateOrUpdate requestProperty = new DocumentPropertyCreateOrUpdate();
         requestProperty.setValue("Imran Anwar");

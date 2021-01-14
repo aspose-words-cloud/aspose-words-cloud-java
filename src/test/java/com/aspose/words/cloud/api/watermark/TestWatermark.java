@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestWatermark  extends TestCase
      * Test for adding watermark image.
      */
     @Test
-    public void testInsertWatermarkImage() throws ApiException, IOException
+    public void testInsertWatermarkImage() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertWatermarkImage.docx";
         String remoteImagePath = remoteDataFolder + "/TestInsertWatermarkImage.png";
@@ -96,7 +97,7 @@ public class TestWatermark  extends TestCase
      * Test for adding watermark image online.
      */
     @Test
-    public void testInsertWatermarkImageOnline() throws ApiException, IOException
+    public void testInsertWatermarkImageOnline() throws ApiException, MessagingException, IOException
     {
         InsertWatermarkImageOnlineRequest request = new InsertWatermarkImageOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -118,7 +119,7 @@ public class TestWatermark  extends TestCase
      * Test for adding watermark text.
      */
     @Test
-    public void testInsertWatermarkText() throws ApiException, IOException
+    public void testInsertWatermarkText() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertWatermarkText.docx";
 
@@ -153,7 +154,7 @@ public class TestWatermark  extends TestCase
      * Test for adding watermark text online.
      */
     @Test
-    public void testInsertWatermarkTextOnline() throws ApiException, IOException
+    public void testInsertWatermarkTextOnline() throws ApiException, MessagingException, IOException
     {
         WatermarkText requestWatermarkText = new WatermarkText();
         requestWatermarkText.setText("This is the text");
@@ -177,7 +178,7 @@ public class TestWatermark  extends TestCase
      * Test for deleting watermark.
      */
     @Test
-    public void testDeleteWatermark() throws ApiException, IOException
+    public void testDeleteWatermark() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteWatermark.docx";
 
@@ -207,7 +208,7 @@ public class TestWatermark  extends TestCase
      * Test for deleting watermark online.
      */
     @Test
-    public void testDeleteWatermarkOnline() throws ApiException, IOException
+    public void testDeleteWatermarkOnline() throws ApiException, MessagingException, IOException
     {
         DeleteWatermarkOnlineRequest request = new DeleteWatermarkOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),

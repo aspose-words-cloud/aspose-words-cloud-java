@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestDocumentWithFormat  extends TestCase
      * Test for getting document with specified format.
      */
     @Test
-    public void testGetDocumentWithFormat() throws ApiException, IOException
+    public void testGetDocumentWithFormat() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentWithFormat.docx";
 
@@ -86,7 +87,7 @@ public class TestDocumentWithFormat  extends TestCase
      * Test for getting document with specified format.
      */
     @Test
-    public void testGetDocumentWithFormatAndOutPath() throws ApiException, IOException
+    public void testGetDocumentWithFormatAndOutPath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentWithFormat.docx";
 

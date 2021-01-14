@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestRange  extends TestCase
      * Test for getting the text from range.
      */
     @Test
-    public void testGetRangeText() throws ApiException, IOException
+    public void testGetRangeText() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetRangeText.docx";
 
@@ -86,7 +87,7 @@ public class TestRange  extends TestCase
      * Test for getting the text from range online.
      */
     @Test
-    public void testGetRangeTextOnline() throws ApiException, IOException
+    public void testGetRangeTextOnline() throws ApiException, MessagingException, IOException
     {
         GetRangeTextOnlineRequest request = new GetRangeTextOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -104,7 +105,7 @@ public class TestRange  extends TestCase
      * Test for removing the text for range.
      */
     @Test
-    public void testRemoveRange() throws ApiException, IOException
+    public void testRemoveRange() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestRemoveRange.docx";
 
@@ -132,7 +133,7 @@ public class TestRange  extends TestCase
      * Test for removing the text for range online.
      */
     @Test
-    public void testRemoveRangeOnline() throws ApiException, IOException
+    public void testRemoveRangeOnline() throws ApiException, MessagingException, IOException
     {
         RemoveRangeOnlineRequest request = new RemoveRangeOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -151,7 +152,7 @@ public class TestRange  extends TestCase
      * Test for saving a range as a new document.
      */
     @Test
-    public void testSaveAsRange() throws ApiException, IOException
+    public void testSaveAsRange() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestSaveAsRange.docx";
 
@@ -184,7 +185,7 @@ public class TestRange  extends TestCase
      * Test for saving a range as a new document online.
      */
     @Test
-    public void testSaveAsRangeOnline() throws ApiException, IOException
+    public void testSaveAsRangeOnline() throws ApiException, MessagingException, IOException
     {
         RangeDocument requestDocumentParameters = new RangeDocument();
         requestDocumentParameters.setDocumentName(remoteDataFolder + "/NewDoc.docx");
@@ -206,7 +207,7 @@ public class TestRange  extends TestCase
      * Test for replacing text in range.
      */
     @Test
-    public void testReplaceWithText() throws ApiException, IOException
+    public void testReplaceWithText() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestReplaceWithText.docx";
 
@@ -240,7 +241,7 @@ public class TestRange  extends TestCase
      * Test for replacing text in range online.
      */
     @Test
-    public void testReplaceWithTextOnline() throws ApiException, IOException
+    public void testReplaceWithTextOnline() throws ApiException, MessagingException, IOException
     {
         ReplaceRange requestRangeText = new ReplaceRange();
         requestRangeText.setText("Replaced header");

@@ -52,6 +52,14 @@ public class UpdateFieldOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the UpdateFieldOnlineResponse class.
+     */
+    public UpdateFieldOnlineResponse(FieldResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

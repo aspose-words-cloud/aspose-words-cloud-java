@@ -52,6 +52,14 @@ public class UpdateBorderOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the UpdateBorderOnlineResponse class.
+     */
+    public UpdateBorderOnlineResponse(BorderResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

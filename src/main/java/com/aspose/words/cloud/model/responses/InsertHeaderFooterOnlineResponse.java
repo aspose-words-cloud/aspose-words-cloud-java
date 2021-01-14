@@ -52,6 +52,14 @@ public class InsertHeaderFooterOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the InsertHeaderFooterOnlineResponse class.
+     */
+    public InsertHeaderFooterOnlineResponse(HeaderFooterResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

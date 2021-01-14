@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -55,7 +56,7 @@ public class TestFont  extends TestCase
      * Test for reseting cache.
      */
     @Test
-    public void testResetCache() throws ApiException, IOException
+    public void testResetCache() throws ApiException, MessagingException, IOException
     {
         ResetCacheRequest request = new ResetCacheRequest(
         );
@@ -67,7 +68,7 @@ public class TestFont  extends TestCase
      * Test for GetAvailableFonts resource.
      */
     @Test
-    public void testGetAvailableFonts() throws ApiException, IOException
+    public void testGetAvailableFonts() throws ApiException, MessagingException, IOException
     {
         GetAvailableFontsRequest request = new GetAvailableFontsRequest(
             null

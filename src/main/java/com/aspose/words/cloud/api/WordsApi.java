@@ -32,7 +32,9 @@ import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
 import com.aspose.words.cloud.model.responses.*;
 import com.google.gson.reflect.TypeToken;
+import com.squareup.okhttp.Response;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -72,7 +74,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RevisionsModificationResponse acceptAllRevisions(AcceptAllRevisionsRequest request) throws ApiException, IOException {
+    public RevisionsModificationResponse acceptAllRevisions(AcceptAllRevisionsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< RevisionsModificationResponse > resp = acceptAllRevisionsWithHttpInfo(request);
             return resp.getData();
@@ -94,9 +96,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RevisionsModificationResponse > acceptAllRevisionsWithHttpInfo(AcceptAllRevisionsRequest request) throws ApiException, IOException {
+    private ApiResponse< RevisionsModificationResponse > acceptAllRevisionsWithHttpInfo(AcceptAllRevisionsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = acceptAllRevisionsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        RevisionsModificationResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< RevisionsModificationResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -107,7 +111,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call acceptAllRevisionsAsync(AcceptAllRevisionsRequest request, final ApiCallback< RevisionsModificationResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call acceptAllRevisionsAsync(AcceptAllRevisionsRequest request, final ApiCallback< RevisionsModificationResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -145,7 +149,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public AcceptAllRevisionsOnlineResponse acceptAllRevisionsOnline(AcceptAllRevisionsOnlineRequest request) throws ApiException, IOException {
+    public AcceptAllRevisionsOnlineResponse acceptAllRevisionsOnline(AcceptAllRevisionsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< AcceptAllRevisionsOnlineResponse > resp = acceptAllRevisionsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -167,9 +171,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< AcceptAllRevisionsOnlineResponse > acceptAllRevisionsOnlineWithHttpInfo(AcceptAllRevisionsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< AcceptAllRevisionsOnlineResponse > acceptAllRevisionsOnlineWithHttpInfo(AcceptAllRevisionsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = acceptAllRevisionsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        AcceptAllRevisionsOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< AcceptAllRevisionsOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -180,7 +186,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call acceptAllRevisionsOnlineAsync(AcceptAllRevisionsOnlineRequest request, final ApiCallback< AcceptAllRevisionsOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call acceptAllRevisionsOnlineAsync(AcceptAllRevisionsOnlineRequest request, final ApiCallback< AcceptAllRevisionsOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -218,7 +224,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse appendDocument(AppendDocumentRequest request) throws ApiException, IOException {
+    public DocumentResponse appendDocument(AppendDocumentRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = appendDocumentWithHttpInfo(request);
             return resp.getData();
@@ -240,9 +246,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > appendDocumentWithHttpInfo(AppendDocumentRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > appendDocumentWithHttpInfo(AppendDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = appendDocumentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -253,7 +261,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call appendDocumentAsync(AppendDocumentRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call appendDocumentAsync(AppendDocumentRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -291,7 +299,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public AppendDocumentOnlineResponse appendDocumentOnline(AppendDocumentOnlineRequest request) throws ApiException, IOException {
+    public AppendDocumentOnlineResponse appendDocumentOnline(AppendDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< AppendDocumentOnlineResponse > resp = appendDocumentOnlineWithHttpInfo(request);
             return resp.getData();
@@ -313,9 +321,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< AppendDocumentOnlineResponse > appendDocumentOnlineWithHttpInfo(AppendDocumentOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< AppendDocumentOnlineResponse > appendDocumentOnlineWithHttpInfo(AppendDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = appendDocumentOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        AppendDocumentOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< AppendDocumentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -326,7 +336,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call appendDocumentOnlineAsync(AppendDocumentOnlineRequest request, final ApiCallback< AppendDocumentOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call appendDocumentOnlineAsync(AppendDocumentOnlineRequest request, final ApiCallback< AppendDocumentOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -364,7 +374,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public WordsResponse applyStyleToDocumentElement(ApplyStyleToDocumentElementRequest request) throws ApiException, IOException {
+    public WordsResponse applyStyleToDocumentElement(ApplyStyleToDocumentElementRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< WordsResponse > resp = applyStyleToDocumentElementWithHttpInfo(request);
             return resp.getData();
@@ -386,9 +396,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< WordsResponse > applyStyleToDocumentElementWithHttpInfo(ApplyStyleToDocumentElementRequest request) throws ApiException, IOException {
+    private ApiResponse< WordsResponse > applyStyleToDocumentElementWithHttpInfo(ApplyStyleToDocumentElementRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = applyStyleToDocumentElementValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        WordsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< WordsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -399,7 +411,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call applyStyleToDocumentElementAsync(ApplyStyleToDocumentElementRequest request, final ApiCallback< WordsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call applyStyleToDocumentElementAsync(ApplyStyleToDocumentElementRequest request, final ApiCallback< WordsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -437,7 +449,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ApplyStyleToDocumentElementOnlineResponse applyStyleToDocumentElementOnline(ApplyStyleToDocumentElementOnlineRequest request) throws ApiException, IOException {
+    public ApplyStyleToDocumentElementOnlineResponse applyStyleToDocumentElementOnline(ApplyStyleToDocumentElementOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ApplyStyleToDocumentElementOnlineResponse > resp = applyStyleToDocumentElementOnlineWithHttpInfo(request);
             return resp.getData();
@@ -459,9 +471,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ApplyStyleToDocumentElementOnlineResponse > applyStyleToDocumentElementOnlineWithHttpInfo(ApplyStyleToDocumentElementOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< ApplyStyleToDocumentElementOnlineResponse > applyStyleToDocumentElementOnlineWithHttpInfo(ApplyStyleToDocumentElementOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = applyStyleToDocumentElementOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ApplyStyleToDocumentElementOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ApplyStyleToDocumentElementOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -472,7 +486,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call applyStyleToDocumentElementOnlineAsync(ApplyStyleToDocumentElementOnlineRequest request, final ApiCallback< ApplyStyleToDocumentElementOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call applyStyleToDocumentElementOnlineAsync(ApplyStyleToDocumentElementOnlineRequest request, final ApiCallback< ApplyStyleToDocumentElementOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -510,7 +524,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse buildReport(BuildReportRequest request) throws ApiException, IOException {
+    public DocumentResponse buildReport(BuildReportRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = buildReportWithHttpInfo(request);
             return resp.getData();
@@ -532,9 +546,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > buildReportWithHttpInfo(BuildReportRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > buildReportWithHttpInfo(BuildReportRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = buildReportValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -545,7 +561,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call buildReportAsync(BuildReportRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call buildReportAsync(BuildReportRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -583,7 +599,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File buildReportOnline(BuildReportOnlineRequest request) throws ApiException, IOException {
+    public File buildReportOnline(BuildReportOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = buildReportOnlineWithHttpInfo(request);
             return resp.getData();
@@ -605,9 +621,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > buildReportOnlineWithHttpInfo(BuildReportOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > buildReportOnlineWithHttpInfo(BuildReportOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = buildReportOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -618,7 +636,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call buildReportOnlineAsync(BuildReportOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call buildReportOnlineAsync(BuildReportOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -656,7 +674,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ClassificationResponse classify(ClassifyRequest request) throws ApiException, IOException {
+    public ClassificationResponse classify(ClassifyRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ClassificationResponse > resp = classifyWithHttpInfo(request);
             return resp.getData();
@@ -678,9 +696,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ClassificationResponse > classifyWithHttpInfo(ClassifyRequest request) throws ApiException, IOException {
+    private ApiResponse< ClassificationResponse > classifyWithHttpInfo(ClassifyRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = classifyValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ClassificationResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ClassificationResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -691,7 +711,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call classifyAsync(ClassifyRequest request, final ApiCallback< ClassificationResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call classifyAsync(ClassifyRequest request, final ApiCallback< ClassificationResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -729,7 +749,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ClassificationResponse classifyDocument(ClassifyDocumentRequest request) throws ApiException, IOException {
+    public ClassificationResponse classifyDocument(ClassifyDocumentRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ClassificationResponse > resp = classifyDocumentWithHttpInfo(request);
             return resp.getData();
@@ -751,9 +771,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ClassificationResponse > classifyDocumentWithHttpInfo(ClassifyDocumentRequest request) throws ApiException, IOException {
+    private ApiResponse< ClassificationResponse > classifyDocumentWithHttpInfo(ClassifyDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = classifyDocumentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ClassificationResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ClassificationResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -764,7 +786,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call classifyDocumentAsync(ClassifyDocumentRequest request, final ApiCallback< ClassificationResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call classifyDocumentAsync(ClassifyDocumentRequest request, final ApiCallback< ClassificationResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -802,7 +824,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ClassificationResponse classifyDocumentOnline(ClassifyDocumentOnlineRequest request) throws ApiException, IOException {
+    public ClassificationResponse classifyDocumentOnline(ClassifyDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ClassificationResponse > resp = classifyDocumentOnlineWithHttpInfo(request);
             return resp.getData();
@@ -824,9 +846,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ClassificationResponse > classifyDocumentOnlineWithHttpInfo(ClassifyDocumentOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< ClassificationResponse > classifyDocumentOnlineWithHttpInfo(ClassifyDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = classifyDocumentOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ClassificationResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ClassificationResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -837,7 +861,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call classifyDocumentOnlineAsync(ClassifyDocumentOnlineRequest request, final ApiCallback< ClassificationResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call classifyDocumentOnlineAsync(ClassifyDocumentOnlineRequest request, final ApiCallback< ClassificationResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -875,7 +899,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse compareDocument(CompareDocumentRequest request) throws ApiException, IOException {
+    public DocumentResponse compareDocument(CompareDocumentRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = compareDocumentWithHttpInfo(request);
             return resp.getData();
@@ -897,9 +921,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > compareDocumentWithHttpInfo(CompareDocumentRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > compareDocumentWithHttpInfo(CompareDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = compareDocumentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -910,7 +936,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call compareDocumentAsync(CompareDocumentRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call compareDocumentAsync(CompareDocumentRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -948,7 +974,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public CompareDocumentOnlineResponse compareDocumentOnline(CompareDocumentOnlineRequest request) throws ApiException, IOException {
+    public CompareDocumentOnlineResponse compareDocumentOnline(CompareDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< CompareDocumentOnlineResponse > resp = compareDocumentOnlineWithHttpInfo(request);
             return resp.getData();
@@ -970,9 +996,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< CompareDocumentOnlineResponse > compareDocumentOnlineWithHttpInfo(CompareDocumentOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< CompareDocumentOnlineResponse > compareDocumentOnlineWithHttpInfo(CompareDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = compareDocumentOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        CompareDocumentOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CompareDocumentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -983,7 +1011,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call compareDocumentOnlineAsync(CompareDocumentOnlineRequest request, final ApiCallback< CompareDocumentOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call compareDocumentOnlineAsync(CompareDocumentOnlineRequest request, final ApiCallback< CompareDocumentOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1021,7 +1049,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File convertDocument(ConvertDocumentRequest request) throws ApiException, IOException {
+    public File convertDocument(ConvertDocumentRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = convertDocumentWithHttpInfo(request);
             return resp.getData();
@@ -1043,9 +1071,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > convertDocumentWithHttpInfo(ConvertDocumentRequest request) throws ApiException, IOException {
+    private ApiResponse< File > convertDocumentWithHttpInfo(ConvertDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = convertDocumentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -1056,7 +1086,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentAsync(ConvertDocumentRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call convertDocumentAsync(ConvertDocumentRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1093,7 +1123,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void copyFile(CopyFileRequest request) throws ApiException, IOException {
+    public void copyFile(CopyFileRequest request) throws ApiException, MessagingException, IOException {
         try {
     copyFileWithHttpInfo(request);
         }
@@ -1113,7 +1143,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > copyFileWithHttpInfo(CopyFileRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > copyFileWithHttpInfo(CopyFileRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = copyFileValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -1126,7 +1156,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call copyFileAsync(CopyFileRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call copyFileAsync(CopyFileRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1163,7 +1193,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void copyFolder(CopyFolderRequest request) throws ApiException, IOException {
+    public void copyFolder(CopyFolderRequest request) throws ApiException, MessagingException, IOException {
         try {
     copyFolderWithHttpInfo(request);
         }
@@ -1183,7 +1213,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > copyFolderWithHttpInfo(CopyFolderRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > copyFolderWithHttpInfo(CopyFolderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = copyFolderValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -1196,7 +1226,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call copyFolderAsync(CopyFolderRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call copyFolderAsync(CopyFolderRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1234,7 +1264,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public StyleResponse copyStyle(CopyStyleRequest request) throws ApiException, IOException {
+    public StyleResponse copyStyle(CopyStyleRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< StyleResponse > resp = copyStyleWithHttpInfo(request);
             return resp.getData();
@@ -1256,9 +1286,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< StyleResponse > copyStyleWithHttpInfo(CopyStyleRequest request) throws ApiException, IOException {
+    private ApiResponse< StyleResponse > copyStyleWithHttpInfo(CopyStyleRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = copyStyleValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        StyleResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -1269,7 +1301,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call copyStyleAsync(CopyStyleRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call copyStyleAsync(CopyStyleRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1307,7 +1339,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public CopyStyleOnlineResponse copyStyleOnline(CopyStyleOnlineRequest request) throws ApiException, IOException {
+    public CopyStyleOnlineResponse copyStyleOnline(CopyStyleOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< CopyStyleOnlineResponse > resp = copyStyleOnlineWithHttpInfo(request);
             return resp.getData();
@@ -1329,9 +1361,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< CopyStyleOnlineResponse > copyStyleOnlineWithHttpInfo(CopyStyleOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< CopyStyleOnlineResponse > copyStyleOnlineWithHttpInfo(CopyStyleOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = copyStyleOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        CopyStyleOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CopyStyleOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -1342,7 +1376,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call copyStyleOnlineAsync(CopyStyleOnlineRequest request, final ApiCallback< CopyStyleOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call copyStyleOnlineAsync(CopyStyleOnlineRequest request, final ApiCallback< CopyStyleOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1380,7 +1414,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse createDocument(CreateDocumentRequest request) throws ApiException, IOException {
+    public DocumentResponse createDocument(CreateDocumentRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = createDocumentWithHttpInfo(request);
             return resp.getData();
@@ -1402,9 +1436,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > createDocumentWithHttpInfo(CreateDocumentRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > createDocumentWithHttpInfo(CreateDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = createDocumentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -1415,7 +1451,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createDocumentAsync(CreateDocumentRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call createDocumentAsync(CreateDocumentRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1452,7 +1488,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void createFolder(CreateFolderRequest request) throws ApiException, IOException {
+    public void createFolder(CreateFolderRequest request) throws ApiException, MessagingException, IOException {
         try {
     createFolderWithHttpInfo(request);
         }
@@ -1472,7 +1508,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > createFolderWithHttpInfo(CreateFolderRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > createFolderWithHttpInfo(CreateFolderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = createFolderValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -1485,7 +1521,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createFolderAsync(CreateFolderRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call createFolderAsync(CreateFolderRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1523,7 +1559,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentPropertyResponse createOrUpdateDocumentProperty(CreateOrUpdateDocumentPropertyRequest request) throws ApiException, IOException {
+    public DocumentPropertyResponse createOrUpdateDocumentProperty(CreateOrUpdateDocumentPropertyRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentPropertyResponse > resp = createOrUpdateDocumentPropertyWithHttpInfo(request);
             return resp.getData();
@@ -1545,9 +1581,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentPropertyResponse > createOrUpdateDocumentPropertyWithHttpInfo(CreateOrUpdateDocumentPropertyRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentPropertyResponse > createOrUpdateDocumentPropertyWithHttpInfo(CreateOrUpdateDocumentPropertyRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = createOrUpdateDocumentPropertyValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentPropertyResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentPropertyResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -1558,7 +1596,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createOrUpdateDocumentPropertyAsync(CreateOrUpdateDocumentPropertyRequest request, final ApiCallback< DocumentPropertyResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call createOrUpdateDocumentPropertyAsync(CreateOrUpdateDocumentPropertyRequest request, final ApiCallback< DocumentPropertyResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1596,7 +1634,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public CreateOrUpdateDocumentPropertyOnlineResponse createOrUpdateDocumentPropertyOnline(CreateOrUpdateDocumentPropertyOnlineRequest request) throws ApiException, IOException {
+    public CreateOrUpdateDocumentPropertyOnlineResponse createOrUpdateDocumentPropertyOnline(CreateOrUpdateDocumentPropertyOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< CreateOrUpdateDocumentPropertyOnlineResponse > resp = createOrUpdateDocumentPropertyOnlineWithHttpInfo(request);
             return resp.getData();
@@ -1618,9 +1656,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< CreateOrUpdateDocumentPropertyOnlineResponse > createOrUpdateDocumentPropertyOnlineWithHttpInfo(CreateOrUpdateDocumentPropertyOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< CreateOrUpdateDocumentPropertyOnlineResponse > createOrUpdateDocumentPropertyOnlineWithHttpInfo(CreateOrUpdateDocumentPropertyOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = createOrUpdateDocumentPropertyOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        CreateOrUpdateDocumentPropertyOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CreateOrUpdateDocumentPropertyOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -1631,7 +1671,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createOrUpdateDocumentPropertyOnlineAsync(CreateOrUpdateDocumentPropertyOnlineRequest request, final ApiCallback< CreateOrUpdateDocumentPropertyOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call createOrUpdateDocumentPropertyOnlineAsync(CreateOrUpdateDocumentPropertyOnlineRequest request, final ApiCallback< CreateOrUpdateDocumentPropertyOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1669,7 +1709,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TabStopsResponse deleteAllParagraphTabStops(DeleteAllParagraphTabStopsRequest request) throws ApiException, IOException {
+    public TabStopsResponse deleteAllParagraphTabStops(DeleteAllParagraphTabStopsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TabStopsResponse > resp = deleteAllParagraphTabStopsWithHttpInfo(request);
             return resp.getData();
@@ -1691,9 +1731,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TabStopsResponse > deleteAllParagraphTabStopsWithHttpInfo(DeleteAllParagraphTabStopsRequest request) throws ApiException, IOException {
+    private ApiResponse< TabStopsResponse > deleteAllParagraphTabStopsWithHttpInfo(DeleteAllParagraphTabStopsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteAllParagraphTabStopsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TabStopsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TabStopsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -1704,7 +1746,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteAllParagraphTabStopsAsync(DeleteAllParagraphTabStopsRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteAllParagraphTabStopsAsync(DeleteAllParagraphTabStopsRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1742,7 +1784,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DeleteAllParagraphTabStopsOnlineResponse deleteAllParagraphTabStopsOnline(DeleteAllParagraphTabStopsOnlineRequest request) throws ApiException, IOException {
+    public DeleteAllParagraphTabStopsOnlineResponse deleteAllParagraphTabStopsOnline(DeleteAllParagraphTabStopsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DeleteAllParagraphTabStopsOnlineResponse > resp = deleteAllParagraphTabStopsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -1764,9 +1806,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DeleteAllParagraphTabStopsOnlineResponse > deleteAllParagraphTabStopsOnlineWithHttpInfo(DeleteAllParagraphTabStopsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< DeleteAllParagraphTabStopsOnlineResponse > deleteAllParagraphTabStopsOnlineWithHttpInfo(DeleteAllParagraphTabStopsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteAllParagraphTabStopsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DeleteAllParagraphTabStopsOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DeleteAllParagraphTabStopsOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -1777,7 +1821,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteAllParagraphTabStopsOnlineAsync(DeleteAllParagraphTabStopsOnlineRequest request, final ApiCallback< DeleteAllParagraphTabStopsOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteAllParagraphTabStopsOnlineAsync(DeleteAllParagraphTabStopsOnlineRequest request, final ApiCallback< DeleteAllParagraphTabStopsOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1815,7 +1859,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public BorderResponse deleteBorder(DeleteBorderRequest request) throws ApiException, IOException {
+    public BorderResponse deleteBorder(DeleteBorderRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< BorderResponse > resp = deleteBorderWithHttpInfo(request);
             return resp.getData();
@@ -1837,9 +1881,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< BorderResponse > deleteBorderWithHttpInfo(DeleteBorderRequest request) throws ApiException, IOException {
+    private ApiResponse< BorderResponse > deleteBorderWithHttpInfo(DeleteBorderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteBorderValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        BorderResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< BorderResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -1850,7 +1896,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteBorderAsync(DeleteBorderRequest request, final ApiCallback< BorderResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteBorderAsync(DeleteBorderRequest request, final ApiCallback< BorderResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1888,7 +1934,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DeleteBorderOnlineResponse deleteBorderOnline(DeleteBorderOnlineRequest request) throws ApiException, IOException {
+    public DeleteBorderOnlineResponse deleteBorderOnline(DeleteBorderOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DeleteBorderOnlineResponse > resp = deleteBorderOnlineWithHttpInfo(request);
             return resp.getData();
@@ -1910,9 +1956,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DeleteBorderOnlineResponse > deleteBorderOnlineWithHttpInfo(DeleteBorderOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< DeleteBorderOnlineResponse > deleteBorderOnlineWithHttpInfo(DeleteBorderOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteBorderOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DeleteBorderOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DeleteBorderOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -1923,7 +1971,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteBorderOnlineAsync(DeleteBorderOnlineRequest request, final ApiCallback< DeleteBorderOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteBorderOnlineAsync(DeleteBorderOnlineRequest request, final ApiCallback< DeleteBorderOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1961,7 +2009,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public BordersResponse deleteBorders(DeleteBordersRequest request) throws ApiException, IOException {
+    public BordersResponse deleteBorders(DeleteBordersRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< BordersResponse > resp = deleteBordersWithHttpInfo(request);
             return resp.getData();
@@ -1983,9 +2031,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< BordersResponse > deleteBordersWithHttpInfo(DeleteBordersRequest request) throws ApiException, IOException {
+    private ApiResponse< BordersResponse > deleteBordersWithHttpInfo(DeleteBordersRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteBordersValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        BordersResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< BordersResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -1996,7 +2046,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteBordersAsync(DeleteBordersRequest request, final ApiCallback< BordersResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteBordersAsync(DeleteBordersRequest request, final ApiCallback< BordersResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2034,7 +2084,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DeleteBordersOnlineResponse deleteBordersOnline(DeleteBordersOnlineRequest request) throws ApiException, IOException {
+    public DeleteBordersOnlineResponse deleteBordersOnline(DeleteBordersOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DeleteBordersOnlineResponse > resp = deleteBordersOnlineWithHttpInfo(request);
             return resp.getData();
@@ -2056,9 +2106,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DeleteBordersOnlineResponse > deleteBordersOnlineWithHttpInfo(DeleteBordersOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< DeleteBordersOnlineResponse > deleteBordersOnlineWithHttpInfo(DeleteBordersOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteBordersOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DeleteBordersOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DeleteBordersOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -2069,7 +2121,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteBordersOnlineAsync(DeleteBordersOnlineRequest request, final ApiCallback< DeleteBordersOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteBordersOnlineAsync(DeleteBordersOnlineRequest request, final ApiCallback< DeleteBordersOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2106,7 +2158,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteComment(DeleteCommentRequest request) throws ApiException, IOException {
+    public void deleteComment(DeleteCommentRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteCommentWithHttpInfo(request);
         }
@@ -2126,7 +2178,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteCommentWithHttpInfo(DeleteCommentRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteCommentWithHttpInfo(DeleteCommentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteCommentValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2139,7 +2191,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCommentAsync(DeleteCommentRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteCommentAsync(DeleteCommentRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2177,7 +2229,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteCommentOnline(DeleteCommentOnlineRequest request) throws ApiException, IOException {
+    public File deleteCommentOnline(DeleteCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteCommentOnlineWithHttpInfo(request);
             return resp.getData();
@@ -2199,9 +2251,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteCommentOnlineWithHttpInfo(DeleteCommentOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteCommentOnlineWithHttpInfo(DeleteCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteCommentOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -2212,7 +2266,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCommentOnlineAsync(DeleteCommentOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteCommentOnlineAsync(DeleteCommentOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2249,7 +2303,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteDocumentProperty(DeleteDocumentPropertyRequest request) throws ApiException, IOException {
+    public void deleteDocumentProperty(DeleteDocumentPropertyRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteDocumentPropertyWithHttpInfo(request);
         }
@@ -2269,7 +2323,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteDocumentPropertyWithHttpInfo(DeleteDocumentPropertyRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteDocumentPropertyWithHttpInfo(DeleteDocumentPropertyRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteDocumentPropertyValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2282,7 +2336,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteDocumentPropertyAsync(DeleteDocumentPropertyRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteDocumentPropertyAsync(DeleteDocumentPropertyRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2320,7 +2374,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteDocumentPropertyOnline(DeleteDocumentPropertyOnlineRequest request) throws ApiException, IOException {
+    public File deleteDocumentPropertyOnline(DeleteDocumentPropertyOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteDocumentPropertyOnlineWithHttpInfo(request);
             return resp.getData();
@@ -2342,9 +2396,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteDocumentPropertyOnlineWithHttpInfo(DeleteDocumentPropertyOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteDocumentPropertyOnlineWithHttpInfo(DeleteDocumentPropertyOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteDocumentPropertyOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -2355,7 +2411,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteDocumentPropertyOnlineAsync(DeleteDocumentPropertyOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteDocumentPropertyOnlineAsync(DeleteDocumentPropertyOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2392,7 +2448,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteDrawingObject(DeleteDrawingObjectRequest request) throws ApiException, IOException {
+    public void deleteDrawingObject(DeleteDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteDrawingObjectWithHttpInfo(request);
         }
@@ -2412,7 +2468,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteDrawingObjectWithHttpInfo(DeleteDrawingObjectRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteDrawingObjectWithHttpInfo(DeleteDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteDrawingObjectValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2425,7 +2481,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteDrawingObjectAsync(DeleteDrawingObjectRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteDrawingObjectAsync(DeleteDrawingObjectRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2463,7 +2519,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteDrawingObjectOnline(DeleteDrawingObjectOnlineRequest request) throws ApiException, IOException {
+    public File deleteDrawingObjectOnline(DeleteDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteDrawingObjectOnlineWithHttpInfo(request);
             return resp.getData();
@@ -2485,9 +2541,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteDrawingObjectOnlineWithHttpInfo(DeleteDrawingObjectOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteDrawingObjectOnlineWithHttpInfo(DeleteDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteDrawingObjectOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -2498,7 +2556,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteDrawingObjectOnlineAsync(DeleteDrawingObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteDrawingObjectOnlineAsync(DeleteDrawingObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2535,7 +2593,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteField(DeleteFieldRequest request) throws ApiException, IOException {
+    public void deleteField(DeleteFieldRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteFieldWithHttpInfo(request);
         }
@@ -2555,7 +2613,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteFieldWithHttpInfo(DeleteFieldRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteFieldWithHttpInfo(DeleteFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFieldValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2568,7 +2626,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFieldAsync(DeleteFieldRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteFieldAsync(DeleteFieldRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2606,7 +2664,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteFieldOnline(DeleteFieldOnlineRequest request) throws ApiException, IOException {
+    public File deleteFieldOnline(DeleteFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteFieldOnlineWithHttpInfo(request);
             return resp.getData();
@@ -2628,9 +2686,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteFieldOnlineWithHttpInfo(DeleteFieldOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteFieldOnlineWithHttpInfo(DeleteFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFieldOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -2641,7 +2701,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFieldOnlineAsync(DeleteFieldOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteFieldOnlineAsync(DeleteFieldOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2678,7 +2738,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteFields(DeleteFieldsRequest request) throws ApiException, IOException {
+    public void deleteFields(DeleteFieldsRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteFieldsWithHttpInfo(request);
         }
@@ -2698,7 +2758,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteFieldsWithHttpInfo(DeleteFieldsRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteFieldsWithHttpInfo(DeleteFieldsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFieldsValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2711,7 +2771,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFieldsAsync(DeleteFieldsRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteFieldsAsync(DeleteFieldsRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2749,7 +2809,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteFieldsOnline(DeleteFieldsOnlineRequest request) throws ApiException, IOException {
+    public File deleteFieldsOnline(DeleteFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteFieldsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -2771,9 +2831,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteFieldsOnlineWithHttpInfo(DeleteFieldsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteFieldsOnlineWithHttpInfo(DeleteFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFieldsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -2784,7 +2846,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFieldsOnlineAsync(DeleteFieldsOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteFieldsOnlineAsync(DeleteFieldsOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2821,7 +2883,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteFile(DeleteFileRequest request) throws ApiException, IOException {
+    public void deleteFile(DeleteFileRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteFileWithHttpInfo(request);
         }
@@ -2841,7 +2903,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteFileWithHttpInfo(DeleteFileRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteFileWithHttpInfo(DeleteFileRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFileValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2854,7 +2916,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFileAsync(DeleteFileRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteFileAsync(DeleteFileRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2891,7 +2953,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteFolder(DeleteFolderRequest request) throws ApiException, IOException {
+    public void deleteFolder(DeleteFolderRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteFolderWithHttpInfo(request);
         }
@@ -2911,7 +2973,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteFolderWithHttpInfo(DeleteFolderRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteFolderWithHttpInfo(DeleteFolderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFolderValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2924,7 +2986,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFolderAsync(DeleteFolderRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteFolderAsync(DeleteFolderRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2961,7 +3023,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteFootnote(DeleteFootnoteRequest request) throws ApiException, IOException {
+    public void deleteFootnote(DeleteFootnoteRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteFootnoteWithHttpInfo(request);
         }
@@ -2981,7 +3043,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteFootnoteWithHttpInfo(DeleteFootnoteRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteFootnoteWithHttpInfo(DeleteFootnoteRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFootnoteValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2994,7 +3056,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFootnoteAsync(DeleteFootnoteRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteFootnoteAsync(DeleteFootnoteRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3032,7 +3094,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteFootnoteOnline(DeleteFootnoteOnlineRequest request) throws ApiException, IOException {
+    public File deleteFootnoteOnline(DeleteFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteFootnoteOnlineWithHttpInfo(request);
             return resp.getData();
@@ -3054,9 +3116,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteFootnoteOnlineWithHttpInfo(DeleteFootnoteOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteFootnoteOnlineWithHttpInfo(DeleteFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFootnoteOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -3067,7 +3131,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFootnoteOnlineAsync(DeleteFootnoteOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteFootnoteOnlineAsync(DeleteFootnoteOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3104,7 +3168,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteFormField(DeleteFormFieldRequest request) throws ApiException, IOException {
+    public void deleteFormField(DeleteFormFieldRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteFormFieldWithHttpInfo(request);
         }
@@ -3124,7 +3188,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteFormFieldWithHttpInfo(DeleteFormFieldRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteFormFieldWithHttpInfo(DeleteFormFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFormFieldValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -3137,7 +3201,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFormFieldAsync(DeleteFormFieldRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteFormFieldAsync(DeleteFormFieldRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3175,7 +3239,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteFormFieldOnline(DeleteFormFieldOnlineRequest request) throws ApiException, IOException {
+    public File deleteFormFieldOnline(DeleteFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteFormFieldOnlineWithHttpInfo(request);
             return resp.getData();
@@ -3197,9 +3261,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteFormFieldOnlineWithHttpInfo(DeleteFormFieldOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteFormFieldOnlineWithHttpInfo(DeleteFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFormFieldOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -3210,7 +3276,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFormFieldOnlineAsync(DeleteFormFieldOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteFormFieldOnlineAsync(DeleteFormFieldOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3247,7 +3313,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteHeaderFooter(DeleteHeaderFooterRequest request) throws ApiException, IOException {
+    public void deleteHeaderFooter(DeleteHeaderFooterRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteHeaderFooterWithHttpInfo(request);
         }
@@ -3267,7 +3333,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteHeaderFooterWithHttpInfo(DeleteHeaderFooterRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteHeaderFooterWithHttpInfo(DeleteHeaderFooterRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteHeaderFooterValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -3280,7 +3346,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteHeaderFooterAsync(DeleteHeaderFooterRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteHeaderFooterAsync(DeleteHeaderFooterRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3318,7 +3384,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteHeaderFooterOnline(DeleteHeaderFooterOnlineRequest request) throws ApiException, IOException {
+    public File deleteHeaderFooterOnline(DeleteHeaderFooterOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteHeaderFooterOnlineWithHttpInfo(request);
             return resp.getData();
@@ -3340,9 +3406,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteHeaderFooterOnlineWithHttpInfo(DeleteHeaderFooterOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteHeaderFooterOnlineWithHttpInfo(DeleteHeaderFooterOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteHeaderFooterOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -3353,7 +3421,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteHeaderFooterOnlineAsync(DeleteHeaderFooterOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteHeaderFooterOnlineAsync(DeleteHeaderFooterOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3390,7 +3458,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteHeadersFooters(DeleteHeadersFootersRequest request) throws ApiException, IOException {
+    public void deleteHeadersFooters(DeleteHeadersFootersRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteHeadersFootersWithHttpInfo(request);
         }
@@ -3410,7 +3478,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteHeadersFootersWithHttpInfo(DeleteHeadersFootersRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteHeadersFootersWithHttpInfo(DeleteHeadersFootersRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteHeadersFootersValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -3423,7 +3491,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteHeadersFootersAsync(DeleteHeadersFootersRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteHeadersFootersAsync(DeleteHeadersFootersRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3461,7 +3529,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteHeadersFootersOnline(DeleteHeadersFootersOnlineRequest request) throws ApiException, IOException {
+    public File deleteHeadersFootersOnline(DeleteHeadersFootersOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteHeadersFootersOnlineWithHttpInfo(request);
             return resp.getData();
@@ -3483,9 +3551,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteHeadersFootersOnlineWithHttpInfo(DeleteHeadersFootersOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteHeadersFootersOnlineWithHttpInfo(DeleteHeadersFootersOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteHeadersFootersOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -3496,7 +3566,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteHeadersFootersOnlineAsync(DeleteHeadersFootersOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteHeadersFootersOnlineAsync(DeleteHeadersFootersOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3533,7 +3603,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteMacros(DeleteMacrosRequest request) throws ApiException, IOException {
+    public void deleteMacros(DeleteMacrosRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteMacrosWithHttpInfo(request);
         }
@@ -3553,7 +3623,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteMacrosWithHttpInfo(DeleteMacrosRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteMacrosWithHttpInfo(DeleteMacrosRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteMacrosValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -3566,7 +3636,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteMacrosAsync(DeleteMacrosRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteMacrosAsync(DeleteMacrosRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3604,7 +3674,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteMacrosOnline(DeleteMacrosOnlineRequest request) throws ApiException, IOException {
+    public File deleteMacrosOnline(DeleteMacrosOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteMacrosOnlineWithHttpInfo(request);
             return resp.getData();
@@ -3626,9 +3696,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteMacrosOnlineWithHttpInfo(DeleteMacrosOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteMacrosOnlineWithHttpInfo(DeleteMacrosOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteMacrosOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -3639,7 +3711,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteMacrosOnlineAsync(DeleteMacrosOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteMacrosOnlineAsync(DeleteMacrosOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3676,7 +3748,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteOfficeMathObject(DeleteOfficeMathObjectRequest request) throws ApiException, IOException {
+    public void deleteOfficeMathObject(DeleteOfficeMathObjectRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteOfficeMathObjectWithHttpInfo(request);
         }
@@ -3696,7 +3768,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteOfficeMathObjectWithHttpInfo(DeleteOfficeMathObjectRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteOfficeMathObjectWithHttpInfo(DeleteOfficeMathObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteOfficeMathObjectValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -3709,7 +3781,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteOfficeMathObjectAsync(DeleteOfficeMathObjectRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteOfficeMathObjectAsync(DeleteOfficeMathObjectRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3747,7 +3819,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteOfficeMathObjectOnline(DeleteOfficeMathObjectOnlineRequest request) throws ApiException, IOException {
+    public File deleteOfficeMathObjectOnline(DeleteOfficeMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteOfficeMathObjectOnlineWithHttpInfo(request);
             return resp.getData();
@@ -3769,9 +3841,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteOfficeMathObjectOnlineWithHttpInfo(DeleteOfficeMathObjectOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteOfficeMathObjectOnlineWithHttpInfo(DeleteOfficeMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteOfficeMathObjectOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -3782,7 +3856,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteOfficeMathObjectOnlineAsync(DeleteOfficeMathObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteOfficeMathObjectOnlineAsync(DeleteOfficeMathObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3819,7 +3893,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteParagraph(DeleteParagraphRequest request) throws ApiException, IOException {
+    public void deleteParagraph(DeleteParagraphRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteParagraphWithHttpInfo(request);
         }
@@ -3839,7 +3913,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteParagraphWithHttpInfo(DeleteParagraphRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteParagraphWithHttpInfo(DeleteParagraphRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -3852,7 +3926,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteParagraphAsync(DeleteParagraphRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteParagraphAsync(DeleteParagraphRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3890,7 +3964,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphListFormatResponse deleteParagraphListFormat(DeleteParagraphListFormatRequest request) throws ApiException, IOException {
+    public ParagraphListFormatResponse deleteParagraphListFormat(DeleteParagraphListFormatRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ParagraphListFormatResponse > resp = deleteParagraphListFormatWithHttpInfo(request);
             return resp.getData();
@@ -3912,9 +3986,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphListFormatResponse > deleteParagraphListFormatWithHttpInfo(DeleteParagraphListFormatRequest request) throws ApiException, IOException {
+    private ApiResponse< ParagraphListFormatResponse > deleteParagraphListFormatWithHttpInfo(DeleteParagraphListFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphListFormatValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ParagraphListFormatResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ParagraphListFormatResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -3925,7 +4001,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteParagraphListFormatAsync(DeleteParagraphListFormatRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteParagraphListFormatAsync(DeleteParagraphListFormatRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3963,7 +4039,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DeleteParagraphListFormatOnlineResponse deleteParagraphListFormatOnline(DeleteParagraphListFormatOnlineRequest request) throws ApiException, IOException {
+    public DeleteParagraphListFormatOnlineResponse deleteParagraphListFormatOnline(DeleteParagraphListFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DeleteParagraphListFormatOnlineResponse > resp = deleteParagraphListFormatOnlineWithHttpInfo(request);
             return resp.getData();
@@ -3985,9 +4061,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DeleteParagraphListFormatOnlineResponse > deleteParagraphListFormatOnlineWithHttpInfo(DeleteParagraphListFormatOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< DeleteParagraphListFormatOnlineResponse > deleteParagraphListFormatOnlineWithHttpInfo(DeleteParagraphListFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphListFormatOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DeleteParagraphListFormatOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DeleteParagraphListFormatOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -3998,7 +4076,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteParagraphListFormatOnlineAsync(DeleteParagraphListFormatOnlineRequest request, final ApiCallback< DeleteParagraphListFormatOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteParagraphListFormatOnlineAsync(DeleteParagraphListFormatOnlineRequest request, final ApiCallback< DeleteParagraphListFormatOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4036,7 +4114,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteParagraphOnline(DeleteParagraphOnlineRequest request) throws ApiException, IOException {
+    public File deleteParagraphOnline(DeleteParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteParagraphOnlineWithHttpInfo(request);
             return resp.getData();
@@ -4058,9 +4136,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteParagraphOnlineWithHttpInfo(DeleteParagraphOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteParagraphOnlineWithHttpInfo(DeleteParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -4071,7 +4151,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteParagraphOnlineAsync(DeleteParagraphOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteParagraphOnlineAsync(DeleteParagraphOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4109,7 +4189,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TabStopsResponse deleteParagraphTabStop(DeleteParagraphTabStopRequest request) throws ApiException, IOException {
+    public TabStopsResponse deleteParagraphTabStop(DeleteParagraphTabStopRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TabStopsResponse > resp = deleteParagraphTabStopWithHttpInfo(request);
             return resp.getData();
@@ -4131,9 +4211,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TabStopsResponse > deleteParagraphTabStopWithHttpInfo(DeleteParagraphTabStopRequest request) throws ApiException, IOException {
+    private ApiResponse< TabStopsResponse > deleteParagraphTabStopWithHttpInfo(DeleteParagraphTabStopRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphTabStopValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TabStopsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TabStopsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -4144,7 +4226,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteParagraphTabStopAsync(DeleteParagraphTabStopRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteParagraphTabStopAsync(DeleteParagraphTabStopRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4182,7 +4264,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DeleteParagraphTabStopOnlineResponse deleteParagraphTabStopOnline(DeleteParagraphTabStopOnlineRequest request) throws ApiException, IOException {
+    public DeleteParagraphTabStopOnlineResponse deleteParagraphTabStopOnline(DeleteParagraphTabStopOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DeleteParagraphTabStopOnlineResponse > resp = deleteParagraphTabStopOnlineWithHttpInfo(request);
             return resp.getData();
@@ -4204,9 +4286,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DeleteParagraphTabStopOnlineResponse > deleteParagraphTabStopOnlineWithHttpInfo(DeleteParagraphTabStopOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< DeleteParagraphTabStopOnlineResponse > deleteParagraphTabStopOnlineWithHttpInfo(DeleteParagraphTabStopOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphTabStopOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DeleteParagraphTabStopOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DeleteParagraphTabStopOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -4217,7 +4301,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteParagraphTabStopOnlineAsync(DeleteParagraphTabStopOnlineRequest request, final ApiCallback< DeleteParagraphTabStopOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteParagraphTabStopOnlineAsync(DeleteParagraphTabStopOnlineRequest request, final ApiCallback< DeleteParagraphTabStopOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4254,7 +4338,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteRun(DeleteRunRequest request) throws ApiException, IOException {
+    public void deleteRun(DeleteRunRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteRunWithHttpInfo(request);
         }
@@ -4274,7 +4358,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteRunWithHttpInfo(DeleteRunRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteRunWithHttpInfo(DeleteRunRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteRunValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -4287,7 +4371,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteRunAsync(DeleteRunRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteRunAsync(DeleteRunRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4325,7 +4409,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteRunOnline(DeleteRunOnlineRequest request) throws ApiException, IOException {
+    public File deleteRunOnline(DeleteRunOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteRunOnlineWithHttpInfo(request);
             return resp.getData();
@@ -4347,9 +4431,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteRunOnlineWithHttpInfo(DeleteRunOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteRunOnlineWithHttpInfo(DeleteRunOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteRunOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -4360,7 +4446,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteRunOnlineAsync(DeleteRunOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteRunOnlineAsync(DeleteRunOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4397,7 +4483,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteSection(DeleteSectionRequest request) throws ApiException, IOException {
+    public void deleteSection(DeleteSectionRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteSectionWithHttpInfo(request);
         }
@@ -4417,7 +4503,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteSectionWithHttpInfo(DeleteSectionRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteSectionWithHttpInfo(DeleteSectionRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteSectionValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -4430,7 +4516,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteSectionAsync(DeleteSectionRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteSectionAsync(DeleteSectionRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4468,7 +4554,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteSectionOnline(DeleteSectionOnlineRequest request) throws ApiException, IOException {
+    public File deleteSectionOnline(DeleteSectionOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteSectionOnlineWithHttpInfo(request);
             return resp.getData();
@@ -4490,9 +4576,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteSectionOnlineWithHttpInfo(DeleteSectionOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteSectionOnlineWithHttpInfo(DeleteSectionOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteSectionOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -4503,7 +4591,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteSectionOnlineAsync(DeleteSectionOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteSectionOnlineAsync(DeleteSectionOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4540,7 +4628,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteTable(DeleteTableRequest request) throws ApiException, IOException {
+    public void deleteTable(DeleteTableRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteTableWithHttpInfo(request);
         }
@@ -4560,7 +4648,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteTableWithHttpInfo(DeleteTableRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteTableWithHttpInfo(DeleteTableRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteTableValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -4573,7 +4661,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteTableAsync(DeleteTableRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteTableAsync(DeleteTableRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4610,7 +4698,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteTableCell(DeleteTableCellRequest request) throws ApiException, IOException {
+    public void deleteTableCell(DeleteTableCellRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteTableCellWithHttpInfo(request);
         }
@@ -4630,7 +4718,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteTableCellWithHttpInfo(DeleteTableCellRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteTableCellWithHttpInfo(DeleteTableCellRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteTableCellValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -4643,7 +4731,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteTableCellAsync(DeleteTableCellRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteTableCellAsync(DeleteTableCellRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4681,7 +4769,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteTableCellOnline(DeleteTableCellOnlineRequest request) throws ApiException, IOException {
+    public File deleteTableCellOnline(DeleteTableCellOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteTableCellOnlineWithHttpInfo(request);
             return resp.getData();
@@ -4703,9 +4791,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteTableCellOnlineWithHttpInfo(DeleteTableCellOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteTableCellOnlineWithHttpInfo(DeleteTableCellOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteTableCellOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -4716,7 +4806,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteTableCellOnlineAsync(DeleteTableCellOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteTableCellOnlineAsync(DeleteTableCellOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4754,7 +4844,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteTableOnline(DeleteTableOnlineRequest request) throws ApiException, IOException {
+    public File deleteTableOnline(DeleteTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteTableOnlineWithHttpInfo(request);
             return resp.getData();
@@ -4776,9 +4866,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteTableOnlineWithHttpInfo(DeleteTableOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteTableOnlineWithHttpInfo(DeleteTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteTableOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -4789,7 +4881,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteTableOnlineAsync(DeleteTableOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteTableOnlineAsync(DeleteTableOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4826,7 +4918,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void deleteTableRow(DeleteTableRowRequest request) throws ApiException, IOException {
+    public void deleteTableRow(DeleteTableRowRequest request) throws ApiException, MessagingException, IOException {
         try {
     deleteTableRowWithHttpInfo(request);
         }
@@ -4846,7 +4938,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > deleteTableRowWithHttpInfo(DeleteTableRowRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > deleteTableRowWithHttpInfo(DeleteTableRowRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteTableRowValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -4859,7 +4951,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteTableRowAsync(DeleteTableRowRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteTableRowAsync(DeleteTableRowRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4897,7 +4989,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteTableRowOnline(DeleteTableRowOnlineRequest request) throws ApiException, IOException {
+    public File deleteTableRowOnline(DeleteTableRowOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = deleteTableRowOnlineWithHttpInfo(request);
             return resp.getData();
@@ -4919,9 +5011,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteTableRowOnlineWithHttpInfo(DeleteTableRowOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > deleteTableRowOnlineWithHttpInfo(DeleteTableRowOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteTableRowOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -4932,7 +5026,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteTableRowOnlineAsync(DeleteTableRowOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteTableRowOnlineAsync(DeleteTableRowOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4970,7 +5064,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse deleteWatermark(DeleteWatermarkRequest request) throws ApiException, IOException {
+    public DocumentResponse deleteWatermark(DeleteWatermarkRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = deleteWatermarkWithHttpInfo(request);
             return resp.getData();
@@ -4992,9 +5086,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > deleteWatermarkWithHttpInfo(DeleteWatermarkRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > deleteWatermarkWithHttpInfo(DeleteWatermarkRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteWatermarkValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5005,7 +5101,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteWatermarkAsync(DeleteWatermarkRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteWatermarkAsync(DeleteWatermarkRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5043,7 +5139,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DeleteWatermarkOnlineResponse deleteWatermarkOnline(DeleteWatermarkOnlineRequest request) throws ApiException, IOException {
+    public DeleteWatermarkOnlineResponse deleteWatermarkOnline(DeleteWatermarkOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DeleteWatermarkOnlineResponse > resp = deleteWatermarkOnlineWithHttpInfo(request);
             return resp.getData();
@@ -5065,9 +5161,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DeleteWatermarkOnlineResponse > deleteWatermarkOnlineWithHttpInfo(DeleteWatermarkOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< DeleteWatermarkOnlineResponse > deleteWatermarkOnlineWithHttpInfo(DeleteWatermarkOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteWatermarkOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DeleteWatermarkOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DeleteWatermarkOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5078,7 +5176,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteWatermarkOnlineAsync(DeleteWatermarkOnlineRequest request, final ApiCallback< DeleteWatermarkOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call deleteWatermarkOnlineAsync(DeleteWatermarkOnlineRequest request, final ApiCallback< DeleteWatermarkOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5116,7 +5214,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File downloadFile(DownloadFileRequest request) throws ApiException, IOException {
+    public File downloadFile(DownloadFileRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = downloadFileWithHttpInfo(request);
             return resp.getData();
@@ -5138,9 +5236,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > downloadFileWithHttpInfo(DownloadFileRequest request) throws ApiException, IOException {
+    private ApiResponse< File > downloadFileWithHttpInfo(DownloadFileRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = downloadFileValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5151,7 +5251,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call downloadFileAsync(DownloadFileRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call downloadFileAsync(DownloadFileRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5189,7 +5289,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse executeMailMerge(ExecuteMailMergeRequest request) throws ApiException, IOException {
+    public DocumentResponse executeMailMerge(ExecuteMailMergeRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = executeMailMergeWithHttpInfo(request);
             return resp.getData();
@@ -5211,9 +5311,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > executeMailMergeWithHttpInfo(ExecuteMailMergeRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > executeMailMergeWithHttpInfo(ExecuteMailMergeRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = executeMailMergeValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5224,7 +5326,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call executeMailMergeAsync(ExecuteMailMergeRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call executeMailMergeAsync(ExecuteMailMergeRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5262,7 +5364,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File executeMailMergeOnline(ExecuteMailMergeOnlineRequest request) throws ApiException, IOException {
+    public File executeMailMergeOnline(ExecuteMailMergeOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = executeMailMergeOnlineWithHttpInfo(request);
             return resp.getData();
@@ -5284,9 +5386,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > executeMailMergeOnlineWithHttpInfo(ExecuteMailMergeOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > executeMailMergeOnlineWithHttpInfo(ExecuteMailMergeOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = executeMailMergeOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5297,7 +5401,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call executeMailMergeOnlineAsync(ExecuteMailMergeOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call executeMailMergeOnlineAsync(ExecuteMailMergeOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5335,7 +5439,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public AvailableFontsResponse getAvailableFonts(GetAvailableFontsRequest request) throws ApiException, IOException {
+    public AvailableFontsResponse getAvailableFonts(GetAvailableFontsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< AvailableFontsResponse > resp = getAvailableFontsWithHttpInfo(request);
             return resp.getData();
@@ -5357,9 +5461,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< AvailableFontsResponse > getAvailableFontsWithHttpInfo(GetAvailableFontsRequest request) throws ApiException, IOException {
+    private ApiResponse< AvailableFontsResponse > getAvailableFontsWithHttpInfo(GetAvailableFontsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getAvailableFontsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        AvailableFontsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< AvailableFontsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5370,7 +5476,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAvailableFontsAsync(GetAvailableFontsRequest request, final ApiCallback< AvailableFontsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getAvailableFontsAsync(GetAvailableFontsRequest request, final ApiCallback< AvailableFontsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5408,7 +5514,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public BookmarkResponse getBookmarkByName(GetBookmarkByNameRequest request) throws ApiException, IOException {
+    public BookmarkResponse getBookmarkByName(GetBookmarkByNameRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< BookmarkResponse > resp = getBookmarkByNameWithHttpInfo(request);
             return resp.getData();
@@ -5430,9 +5536,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< BookmarkResponse > getBookmarkByNameWithHttpInfo(GetBookmarkByNameRequest request) throws ApiException, IOException {
+    private ApiResponse< BookmarkResponse > getBookmarkByNameWithHttpInfo(GetBookmarkByNameRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBookmarkByNameValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        BookmarkResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< BookmarkResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5443,7 +5551,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getBookmarkByNameAsync(GetBookmarkByNameRequest request, final ApiCallback< BookmarkResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getBookmarkByNameAsync(GetBookmarkByNameRequest request, final ApiCallback< BookmarkResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5481,7 +5589,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public BookmarkResponse getBookmarkByNameOnline(GetBookmarkByNameOnlineRequest request) throws ApiException, IOException {
+    public BookmarkResponse getBookmarkByNameOnline(GetBookmarkByNameOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< BookmarkResponse > resp = getBookmarkByNameOnlineWithHttpInfo(request);
             return resp.getData();
@@ -5503,9 +5611,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< BookmarkResponse > getBookmarkByNameOnlineWithHttpInfo(GetBookmarkByNameOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< BookmarkResponse > getBookmarkByNameOnlineWithHttpInfo(GetBookmarkByNameOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBookmarkByNameOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        BookmarkResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< BookmarkResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5516,7 +5626,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getBookmarkByNameOnlineAsync(GetBookmarkByNameOnlineRequest request, final ApiCallback< BookmarkResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getBookmarkByNameOnlineAsync(GetBookmarkByNameOnlineRequest request, final ApiCallback< BookmarkResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5554,7 +5664,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public BookmarksResponse getBookmarks(GetBookmarksRequest request) throws ApiException, IOException {
+    public BookmarksResponse getBookmarks(GetBookmarksRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< BookmarksResponse > resp = getBookmarksWithHttpInfo(request);
             return resp.getData();
@@ -5576,9 +5686,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< BookmarksResponse > getBookmarksWithHttpInfo(GetBookmarksRequest request) throws ApiException, IOException {
+    private ApiResponse< BookmarksResponse > getBookmarksWithHttpInfo(GetBookmarksRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBookmarksValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        BookmarksResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< BookmarksResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5589,7 +5701,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getBookmarksAsync(GetBookmarksRequest request, final ApiCallback< BookmarksResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getBookmarksAsync(GetBookmarksRequest request, final ApiCallback< BookmarksResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5627,7 +5739,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public BookmarksResponse getBookmarksOnline(GetBookmarksOnlineRequest request) throws ApiException, IOException {
+    public BookmarksResponse getBookmarksOnline(GetBookmarksOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< BookmarksResponse > resp = getBookmarksOnlineWithHttpInfo(request);
             return resp.getData();
@@ -5649,9 +5761,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< BookmarksResponse > getBookmarksOnlineWithHttpInfo(GetBookmarksOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< BookmarksResponse > getBookmarksOnlineWithHttpInfo(GetBookmarksOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBookmarksOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        BookmarksResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< BookmarksResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5662,7 +5776,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getBookmarksOnlineAsync(GetBookmarksOnlineRequest request, final ApiCallback< BookmarksResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getBookmarksOnlineAsync(GetBookmarksOnlineRequest request, final ApiCallback< BookmarksResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5700,7 +5814,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public BorderResponse getBorder(GetBorderRequest request) throws ApiException, IOException {
+    public BorderResponse getBorder(GetBorderRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< BorderResponse > resp = getBorderWithHttpInfo(request);
             return resp.getData();
@@ -5722,9 +5836,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< BorderResponse > getBorderWithHttpInfo(GetBorderRequest request) throws ApiException, IOException {
+    private ApiResponse< BorderResponse > getBorderWithHttpInfo(GetBorderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBorderValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        BorderResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< BorderResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5735,7 +5851,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getBorderAsync(GetBorderRequest request, final ApiCallback< BorderResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getBorderAsync(GetBorderRequest request, final ApiCallback< BorderResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5773,7 +5889,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public BorderResponse getBorderOnline(GetBorderOnlineRequest request) throws ApiException, IOException {
+    public BorderResponse getBorderOnline(GetBorderOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< BorderResponse > resp = getBorderOnlineWithHttpInfo(request);
             return resp.getData();
@@ -5795,9 +5911,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< BorderResponse > getBorderOnlineWithHttpInfo(GetBorderOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< BorderResponse > getBorderOnlineWithHttpInfo(GetBorderOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBorderOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        BorderResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< BorderResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5808,7 +5926,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getBorderOnlineAsync(GetBorderOnlineRequest request, final ApiCallback< BorderResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getBorderOnlineAsync(GetBorderOnlineRequest request, final ApiCallback< BorderResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5846,7 +5964,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public BordersResponse getBorders(GetBordersRequest request) throws ApiException, IOException {
+    public BordersResponse getBorders(GetBordersRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< BordersResponse > resp = getBordersWithHttpInfo(request);
             return resp.getData();
@@ -5868,9 +5986,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< BordersResponse > getBordersWithHttpInfo(GetBordersRequest request) throws ApiException, IOException {
+    private ApiResponse< BordersResponse > getBordersWithHttpInfo(GetBordersRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBordersValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        BordersResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< BordersResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5881,7 +6001,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getBordersAsync(GetBordersRequest request, final ApiCallback< BordersResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getBordersAsync(GetBordersRequest request, final ApiCallback< BordersResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5919,7 +6039,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public BordersResponse getBordersOnline(GetBordersOnlineRequest request) throws ApiException, IOException {
+    public BordersResponse getBordersOnline(GetBordersOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< BordersResponse > resp = getBordersOnlineWithHttpInfo(request);
             return resp.getData();
@@ -5941,9 +6061,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< BordersResponse > getBordersOnlineWithHttpInfo(GetBordersOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< BordersResponse > getBordersOnlineWithHttpInfo(GetBordersOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBordersOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        BordersResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< BordersResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -5954,7 +6076,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getBordersOnlineAsync(GetBordersOnlineRequest request, final ApiCallback< BordersResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getBordersOnlineAsync(GetBordersOnlineRequest request, final ApiCallback< BordersResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5992,7 +6114,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public CommentResponse getComment(GetCommentRequest request) throws ApiException, IOException {
+    public CommentResponse getComment(GetCommentRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< CommentResponse > resp = getCommentWithHttpInfo(request);
             return resp.getData();
@@ -6014,9 +6136,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< CommentResponse > getCommentWithHttpInfo(GetCommentRequest request) throws ApiException, IOException {
+    private ApiResponse< CommentResponse > getCommentWithHttpInfo(GetCommentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getCommentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        CommentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CommentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6027,7 +6151,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCommentAsync(GetCommentRequest request, final ApiCallback< CommentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getCommentAsync(GetCommentRequest request, final ApiCallback< CommentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6065,7 +6189,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public CommentResponse getCommentOnline(GetCommentOnlineRequest request) throws ApiException, IOException {
+    public CommentResponse getCommentOnline(GetCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< CommentResponse > resp = getCommentOnlineWithHttpInfo(request);
             return resp.getData();
@@ -6087,9 +6211,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< CommentResponse > getCommentOnlineWithHttpInfo(GetCommentOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< CommentResponse > getCommentOnlineWithHttpInfo(GetCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getCommentOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        CommentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CommentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6100,7 +6226,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCommentOnlineAsync(GetCommentOnlineRequest request, final ApiCallback< CommentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getCommentOnlineAsync(GetCommentOnlineRequest request, final ApiCallback< CommentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6138,7 +6264,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public CommentsResponse getComments(GetCommentsRequest request) throws ApiException, IOException {
+    public CommentsResponse getComments(GetCommentsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< CommentsResponse > resp = getCommentsWithHttpInfo(request);
             return resp.getData();
@@ -6160,9 +6286,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< CommentsResponse > getCommentsWithHttpInfo(GetCommentsRequest request) throws ApiException, IOException {
+    private ApiResponse< CommentsResponse > getCommentsWithHttpInfo(GetCommentsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getCommentsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        CommentsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CommentsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6173,7 +6301,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCommentsAsync(GetCommentsRequest request, final ApiCallback< CommentsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getCommentsAsync(GetCommentsRequest request, final ApiCallback< CommentsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6211,7 +6339,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public CommentsResponse getCommentsOnline(GetCommentsOnlineRequest request) throws ApiException, IOException {
+    public CommentsResponse getCommentsOnline(GetCommentsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< CommentsResponse > resp = getCommentsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -6233,9 +6361,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< CommentsResponse > getCommentsOnlineWithHttpInfo(GetCommentsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< CommentsResponse > getCommentsOnlineWithHttpInfo(GetCommentsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getCommentsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        CommentsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CommentsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6246,7 +6376,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCommentsOnlineAsync(GetCommentsOnlineRequest request, final ApiCallback< CommentsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getCommentsOnlineAsync(GetCommentsOnlineRequest request, final ApiCallback< CommentsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6284,7 +6414,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse getDocument(GetDocumentRequest request) throws ApiException, IOException {
+    public DocumentResponse getDocument(GetDocumentRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = getDocumentWithHttpInfo(request);
             return resp.getData();
@@ -6306,9 +6436,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > getDocumentWithHttpInfo(GetDocumentRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > getDocumentWithHttpInfo(GetDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6319,7 +6451,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentAsync(GetDocumentRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentAsync(GetDocumentRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6357,7 +6489,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DrawingObjectResponse getDocumentDrawingObjectByIndex(GetDocumentDrawingObjectByIndexRequest request) throws ApiException, IOException {
+    public DrawingObjectResponse getDocumentDrawingObjectByIndex(GetDocumentDrawingObjectByIndexRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DrawingObjectResponse > resp = getDocumentDrawingObjectByIndexWithHttpInfo(request);
             return resp.getData();
@@ -6379,9 +6511,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DrawingObjectResponse > getDocumentDrawingObjectByIndexWithHttpInfo(GetDocumentDrawingObjectByIndexRequest request) throws ApiException, IOException {
+    private ApiResponse< DrawingObjectResponse > getDocumentDrawingObjectByIndexWithHttpInfo(GetDocumentDrawingObjectByIndexRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DrawingObjectResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DrawingObjectResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6392,7 +6526,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectByIndexAsync(GetDocumentDrawingObjectByIndexRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectByIndexAsync(GetDocumentDrawingObjectByIndexRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6430,7 +6564,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DrawingObjectResponse getDocumentDrawingObjectByIndexOnline(GetDocumentDrawingObjectByIndexOnlineRequest request) throws ApiException, IOException {
+    public DrawingObjectResponse getDocumentDrawingObjectByIndexOnline(GetDocumentDrawingObjectByIndexOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DrawingObjectResponse > resp = getDocumentDrawingObjectByIndexOnlineWithHttpInfo(request);
             return resp.getData();
@@ -6452,9 +6586,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DrawingObjectResponse > getDocumentDrawingObjectByIndexOnlineWithHttpInfo(GetDocumentDrawingObjectByIndexOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< DrawingObjectResponse > getDocumentDrawingObjectByIndexOnlineWithHttpInfo(GetDocumentDrawingObjectByIndexOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DrawingObjectResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DrawingObjectResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6465,7 +6601,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectByIndexOnlineAsync(GetDocumentDrawingObjectByIndexOnlineRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectByIndexOnlineAsync(GetDocumentDrawingObjectByIndexOnlineRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6503,7 +6639,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File getDocumentDrawingObjectImageData(GetDocumentDrawingObjectImageDataRequest request) throws ApiException, IOException {
+    public File getDocumentDrawingObjectImageData(GetDocumentDrawingObjectImageDataRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = getDocumentDrawingObjectImageDataWithHttpInfo(request);
             return resp.getData();
@@ -6525,9 +6661,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > getDocumentDrawingObjectImageDataWithHttpInfo(GetDocumentDrawingObjectImageDataRequest request) throws ApiException, IOException {
+    private ApiResponse< File > getDocumentDrawingObjectImageDataWithHttpInfo(GetDocumentDrawingObjectImageDataRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6538,7 +6676,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataAsync(GetDocumentDrawingObjectImageDataRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataAsync(GetDocumentDrawingObjectImageDataRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6576,7 +6714,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File getDocumentDrawingObjectImageDataOnline(GetDocumentDrawingObjectImageDataOnlineRequest request) throws ApiException, IOException {
+    public File getDocumentDrawingObjectImageDataOnline(GetDocumentDrawingObjectImageDataOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = getDocumentDrawingObjectImageDataOnlineWithHttpInfo(request);
             return resp.getData();
@@ -6598,9 +6736,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > getDocumentDrawingObjectImageDataOnlineWithHttpInfo(GetDocumentDrawingObjectImageDataOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > getDocumentDrawingObjectImageDataOnlineWithHttpInfo(GetDocumentDrawingObjectImageDataOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6611,7 +6751,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataOnlineAsync(GetDocumentDrawingObjectImageDataOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataOnlineAsync(GetDocumentDrawingObjectImageDataOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6649,7 +6789,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File getDocumentDrawingObjectOleData(GetDocumentDrawingObjectOleDataRequest request) throws ApiException, IOException {
+    public File getDocumentDrawingObjectOleData(GetDocumentDrawingObjectOleDataRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = getDocumentDrawingObjectOleDataWithHttpInfo(request);
             return resp.getData();
@@ -6671,9 +6811,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > getDocumentDrawingObjectOleDataWithHttpInfo(GetDocumentDrawingObjectOleDataRequest request) throws ApiException, IOException {
+    private ApiResponse< File > getDocumentDrawingObjectOleDataWithHttpInfo(GetDocumentDrawingObjectOleDataRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6684,7 +6826,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataAsync(GetDocumentDrawingObjectOleDataRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataAsync(GetDocumentDrawingObjectOleDataRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6722,7 +6864,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File getDocumentDrawingObjectOleDataOnline(GetDocumentDrawingObjectOleDataOnlineRequest request) throws ApiException, IOException {
+    public File getDocumentDrawingObjectOleDataOnline(GetDocumentDrawingObjectOleDataOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = getDocumentDrawingObjectOleDataOnlineWithHttpInfo(request);
             return resp.getData();
@@ -6744,9 +6886,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > getDocumentDrawingObjectOleDataOnlineWithHttpInfo(GetDocumentDrawingObjectOleDataOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > getDocumentDrawingObjectOleDataOnlineWithHttpInfo(GetDocumentDrawingObjectOleDataOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6757,7 +6901,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataOnlineAsync(GetDocumentDrawingObjectOleDataOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataOnlineAsync(GetDocumentDrawingObjectOleDataOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6795,7 +6939,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DrawingObjectsResponse getDocumentDrawingObjects(GetDocumentDrawingObjectsRequest request) throws ApiException, IOException {
+    public DrawingObjectsResponse getDocumentDrawingObjects(GetDocumentDrawingObjectsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DrawingObjectsResponse > resp = getDocumentDrawingObjectsWithHttpInfo(request);
             return resp.getData();
@@ -6817,9 +6961,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DrawingObjectsResponse > getDocumentDrawingObjectsWithHttpInfo(GetDocumentDrawingObjectsRequest request) throws ApiException, IOException {
+    private ApiResponse< DrawingObjectsResponse > getDocumentDrawingObjectsWithHttpInfo(GetDocumentDrawingObjectsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DrawingObjectsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DrawingObjectsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6830,7 +6976,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectsAsync(GetDocumentDrawingObjectsRequest request, final ApiCallback< DrawingObjectsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectsAsync(GetDocumentDrawingObjectsRequest request, final ApiCallback< DrawingObjectsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6868,7 +7014,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DrawingObjectsResponse getDocumentDrawingObjectsOnline(GetDocumentDrawingObjectsOnlineRequest request) throws ApiException, IOException {
+    public DrawingObjectsResponse getDocumentDrawingObjectsOnline(GetDocumentDrawingObjectsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DrawingObjectsResponse > resp = getDocumentDrawingObjectsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -6890,9 +7036,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DrawingObjectsResponse > getDocumentDrawingObjectsOnlineWithHttpInfo(GetDocumentDrawingObjectsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< DrawingObjectsResponse > getDocumentDrawingObjectsOnlineWithHttpInfo(GetDocumentDrawingObjectsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DrawingObjectsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DrawingObjectsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6903,7 +7051,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectsOnlineAsync(GetDocumentDrawingObjectsOnlineRequest request, final ApiCallback< DrawingObjectsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectsOnlineAsync(GetDocumentDrawingObjectsOnlineRequest request, final ApiCallback< DrawingObjectsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6941,7 +7089,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FieldNamesResponse getDocumentFieldNames(GetDocumentFieldNamesRequest request) throws ApiException, IOException {
+    public FieldNamesResponse getDocumentFieldNames(GetDocumentFieldNamesRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FieldNamesResponse > resp = getDocumentFieldNamesWithHttpInfo(request);
             return resp.getData();
@@ -6963,9 +7111,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FieldNamesResponse > getDocumentFieldNamesWithHttpInfo(GetDocumentFieldNamesRequest request) throws ApiException, IOException {
+    private ApiResponse< FieldNamesResponse > getDocumentFieldNamesWithHttpInfo(GetDocumentFieldNamesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentFieldNamesValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FieldNamesResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FieldNamesResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -6976,7 +7126,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentFieldNamesAsync(GetDocumentFieldNamesRequest request, final ApiCallback< FieldNamesResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentFieldNamesAsync(GetDocumentFieldNamesRequest request, final ApiCallback< FieldNamesResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7014,7 +7164,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FieldNamesResponse getDocumentFieldNamesOnline(GetDocumentFieldNamesOnlineRequest request) throws ApiException, IOException {
+    public FieldNamesResponse getDocumentFieldNamesOnline(GetDocumentFieldNamesOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FieldNamesResponse > resp = getDocumentFieldNamesOnlineWithHttpInfo(request);
             return resp.getData();
@@ -7036,9 +7186,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FieldNamesResponse > getDocumentFieldNamesOnlineWithHttpInfo(GetDocumentFieldNamesOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< FieldNamesResponse > getDocumentFieldNamesOnlineWithHttpInfo(GetDocumentFieldNamesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FieldNamesResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FieldNamesResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7049,7 +7201,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentFieldNamesOnlineAsync(GetDocumentFieldNamesOnlineRequest request, final ApiCallback< FieldNamesResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentFieldNamesOnlineAsync(GetDocumentFieldNamesOnlineRequest request, final ApiCallback< FieldNamesResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7087,7 +7239,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public HyperlinkResponse getDocumentHyperlinkByIndex(GetDocumentHyperlinkByIndexRequest request) throws ApiException, IOException {
+    public HyperlinkResponse getDocumentHyperlinkByIndex(GetDocumentHyperlinkByIndexRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< HyperlinkResponse > resp = getDocumentHyperlinkByIndexWithHttpInfo(request);
             return resp.getData();
@@ -7109,9 +7261,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< HyperlinkResponse > getDocumentHyperlinkByIndexWithHttpInfo(GetDocumentHyperlinkByIndexRequest request) throws ApiException, IOException {
+    private ApiResponse< HyperlinkResponse > getDocumentHyperlinkByIndexWithHttpInfo(GetDocumentHyperlinkByIndexRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinkByIndexValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        HyperlinkResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< HyperlinkResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7122,7 +7276,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentHyperlinkByIndexAsync(GetDocumentHyperlinkByIndexRequest request, final ApiCallback< HyperlinkResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentHyperlinkByIndexAsync(GetDocumentHyperlinkByIndexRequest request, final ApiCallback< HyperlinkResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7160,7 +7314,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public HyperlinkResponse getDocumentHyperlinkByIndexOnline(GetDocumentHyperlinkByIndexOnlineRequest request) throws ApiException, IOException {
+    public HyperlinkResponse getDocumentHyperlinkByIndexOnline(GetDocumentHyperlinkByIndexOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< HyperlinkResponse > resp = getDocumentHyperlinkByIndexOnlineWithHttpInfo(request);
             return resp.getData();
@@ -7182,9 +7336,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< HyperlinkResponse > getDocumentHyperlinkByIndexOnlineWithHttpInfo(GetDocumentHyperlinkByIndexOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< HyperlinkResponse > getDocumentHyperlinkByIndexOnlineWithHttpInfo(GetDocumentHyperlinkByIndexOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinkByIndexOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        HyperlinkResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< HyperlinkResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7195,7 +7351,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentHyperlinkByIndexOnlineAsync(GetDocumentHyperlinkByIndexOnlineRequest request, final ApiCallback< HyperlinkResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentHyperlinkByIndexOnlineAsync(GetDocumentHyperlinkByIndexOnlineRequest request, final ApiCallback< HyperlinkResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7233,7 +7389,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public HyperlinksResponse getDocumentHyperlinks(GetDocumentHyperlinksRequest request) throws ApiException, IOException {
+    public HyperlinksResponse getDocumentHyperlinks(GetDocumentHyperlinksRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< HyperlinksResponse > resp = getDocumentHyperlinksWithHttpInfo(request);
             return resp.getData();
@@ -7255,9 +7411,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< HyperlinksResponse > getDocumentHyperlinksWithHttpInfo(GetDocumentHyperlinksRequest request) throws ApiException, IOException {
+    private ApiResponse< HyperlinksResponse > getDocumentHyperlinksWithHttpInfo(GetDocumentHyperlinksRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinksValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        HyperlinksResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< HyperlinksResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7268,7 +7426,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentHyperlinksAsync(GetDocumentHyperlinksRequest request, final ApiCallback< HyperlinksResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentHyperlinksAsync(GetDocumentHyperlinksRequest request, final ApiCallback< HyperlinksResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7306,7 +7464,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public HyperlinksResponse getDocumentHyperlinksOnline(GetDocumentHyperlinksOnlineRequest request) throws ApiException, IOException {
+    public HyperlinksResponse getDocumentHyperlinksOnline(GetDocumentHyperlinksOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< HyperlinksResponse > resp = getDocumentHyperlinksOnlineWithHttpInfo(request);
             return resp.getData();
@@ -7328,9 +7486,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< HyperlinksResponse > getDocumentHyperlinksOnlineWithHttpInfo(GetDocumentHyperlinksOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< HyperlinksResponse > getDocumentHyperlinksOnlineWithHttpInfo(GetDocumentHyperlinksOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinksOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        HyperlinksResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< HyperlinksResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7341,7 +7501,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentHyperlinksOnlineAsync(GetDocumentHyperlinksOnlineRequest request, final ApiCallback< HyperlinksResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentHyperlinksOnlineAsync(GetDocumentHyperlinksOnlineRequest request, final ApiCallback< HyperlinksResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7379,7 +7539,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentPropertiesResponse getDocumentProperties(GetDocumentPropertiesRequest request) throws ApiException, IOException {
+    public DocumentPropertiesResponse getDocumentProperties(GetDocumentPropertiesRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentPropertiesResponse > resp = getDocumentPropertiesWithHttpInfo(request);
             return resp.getData();
@@ -7401,9 +7561,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentPropertiesResponse > getDocumentPropertiesWithHttpInfo(GetDocumentPropertiesRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentPropertiesResponse > getDocumentPropertiesWithHttpInfo(GetDocumentPropertiesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertiesValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentPropertiesResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentPropertiesResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7414,7 +7576,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentPropertiesAsync(GetDocumentPropertiesRequest request, final ApiCallback< DocumentPropertiesResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentPropertiesAsync(GetDocumentPropertiesRequest request, final ApiCallback< DocumentPropertiesResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7452,7 +7614,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentPropertiesResponse getDocumentPropertiesOnline(GetDocumentPropertiesOnlineRequest request) throws ApiException, IOException {
+    public DocumentPropertiesResponse getDocumentPropertiesOnline(GetDocumentPropertiesOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentPropertiesResponse > resp = getDocumentPropertiesOnlineWithHttpInfo(request);
             return resp.getData();
@@ -7474,9 +7636,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentPropertiesResponse > getDocumentPropertiesOnlineWithHttpInfo(GetDocumentPropertiesOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentPropertiesResponse > getDocumentPropertiesOnlineWithHttpInfo(GetDocumentPropertiesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertiesOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentPropertiesResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentPropertiesResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7487,7 +7651,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentPropertiesOnlineAsync(GetDocumentPropertiesOnlineRequest request, final ApiCallback< DocumentPropertiesResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentPropertiesOnlineAsync(GetDocumentPropertiesOnlineRequest request, final ApiCallback< DocumentPropertiesResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7525,7 +7689,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentPropertyResponse getDocumentProperty(GetDocumentPropertyRequest request) throws ApiException, IOException {
+    public DocumentPropertyResponse getDocumentProperty(GetDocumentPropertyRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentPropertyResponse > resp = getDocumentPropertyWithHttpInfo(request);
             return resp.getData();
@@ -7547,9 +7711,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentPropertyResponse > getDocumentPropertyWithHttpInfo(GetDocumentPropertyRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentPropertyResponse > getDocumentPropertyWithHttpInfo(GetDocumentPropertyRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertyValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentPropertyResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentPropertyResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7560,7 +7726,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentPropertyAsync(GetDocumentPropertyRequest request, final ApiCallback< DocumentPropertyResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentPropertyAsync(GetDocumentPropertyRequest request, final ApiCallback< DocumentPropertyResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7598,7 +7764,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentPropertyResponse getDocumentPropertyOnline(GetDocumentPropertyOnlineRequest request) throws ApiException, IOException {
+    public DocumentPropertyResponse getDocumentPropertyOnline(GetDocumentPropertyOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentPropertyResponse > resp = getDocumentPropertyOnlineWithHttpInfo(request);
             return resp.getData();
@@ -7620,9 +7786,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentPropertyResponse > getDocumentPropertyOnlineWithHttpInfo(GetDocumentPropertyOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentPropertyResponse > getDocumentPropertyOnlineWithHttpInfo(GetDocumentPropertyOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertyOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentPropertyResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentPropertyResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7633,7 +7801,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentPropertyOnlineAsync(GetDocumentPropertyOnlineRequest request, final ApiCallback< DocumentPropertyResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentPropertyOnlineAsync(GetDocumentPropertyOnlineRequest request, final ApiCallback< DocumentPropertyResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7671,7 +7839,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ProtectionDataResponse getDocumentProtection(GetDocumentProtectionRequest request) throws ApiException, IOException {
+    public ProtectionDataResponse getDocumentProtection(GetDocumentProtectionRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ProtectionDataResponse > resp = getDocumentProtectionWithHttpInfo(request);
             return resp.getData();
@@ -7693,9 +7861,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ProtectionDataResponse > getDocumentProtectionWithHttpInfo(GetDocumentProtectionRequest request) throws ApiException, IOException {
+    private ApiResponse< ProtectionDataResponse > getDocumentProtectionWithHttpInfo(GetDocumentProtectionRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentProtectionValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ProtectionDataResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ProtectionDataResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7706,7 +7876,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentProtectionAsync(GetDocumentProtectionRequest request, final ApiCallback< ProtectionDataResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentProtectionAsync(GetDocumentProtectionRequest request, final ApiCallback< ProtectionDataResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7744,7 +7914,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ProtectionDataResponse getDocumentProtectionOnline(GetDocumentProtectionOnlineRequest request) throws ApiException, IOException {
+    public ProtectionDataResponse getDocumentProtectionOnline(GetDocumentProtectionOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ProtectionDataResponse > resp = getDocumentProtectionOnlineWithHttpInfo(request);
             return resp.getData();
@@ -7766,9 +7936,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ProtectionDataResponse > getDocumentProtectionOnlineWithHttpInfo(GetDocumentProtectionOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< ProtectionDataResponse > getDocumentProtectionOnlineWithHttpInfo(GetDocumentProtectionOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentProtectionOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ProtectionDataResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ProtectionDataResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7779,7 +7951,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentProtectionOnlineAsync(GetDocumentProtectionOnlineRequest request, final ApiCallback< ProtectionDataResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentProtectionOnlineAsync(GetDocumentProtectionOnlineRequest request, final ApiCallback< ProtectionDataResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7817,7 +7989,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public StatDataResponse getDocumentStatistics(GetDocumentStatisticsRequest request) throws ApiException, IOException {
+    public StatDataResponse getDocumentStatistics(GetDocumentStatisticsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< StatDataResponse > resp = getDocumentStatisticsWithHttpInfo(request);
             return resp.getData();
@@ -7839,9 +8011,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< StatDataResponse > getDocumentStatisticsWithHttpInfo(GetDocumentStatisticsRequest request) throws ApiException, IOException {
+    private ApiResponse< StatDataResponse > getDocumentStatisticsWithHttpInfo(GetDocumentStatisticsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentStatisticsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        StatDataResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< StatDataResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7852,7 +8026,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentStatisticsAsync(GetDocumentStatisticsRequest request, final ApiCallback< StatDataResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentStatisticsAsync(GetDocumentStatisticsRequest request, final ApiCallback< StatDataResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7890,7 +8064,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public StatDataResponse getDocumentStatisticsOnline(GetDocumentStatisticsOnlineRequest request) throws ApiException, IOException {
+    public StatDataResponse getDocumentStatisticsOnline(GetDocumentStatisticsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< StatDataResponse > resp = getDocumentStatisticsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -7912,9 +8086,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< StatDataResponse > getDocumentStatisticsOnlineWithHttpInfo(GetDocumentStatisticsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< StatDataResponse > getDocumentStatisticsOnlineWithHttpInfo(GetDocumentStatisticsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentStatisticsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        StatDataResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< StatDataResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7925,7 +8101,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentStatisticsOnlineAsync(GetDocumentStatisticsOnlineRequest request, final ApiCallback< StatDataResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentStatisticsOnlineAsync(GetDocumentStatisticsOnlineRequest request, final ApiCallback< StatDataResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7963,7 +8139,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File getDocumentWithFormat(GetDocumentWithFormatRequest request) throws ApiException, IOException {
+    public File getDocumentWithFormat(GetDocumentWithFormatRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = getDocumentWithFormatWithHttpInfo(request);
             return resp.getData();
@@ -7985,9 +8161,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > getDocumentWithFormatWithHttpInfo(GetDocumentWithFormatRequest request) throws ApiException, IOException {
+    private ApiResponse< File > getDocumentWithFormatWithHttpInfo(GetDocumentWithFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentWithFormatValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -7998,7 +8176,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentWithFormatAsync(GetDocumentWithFormatRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentWithFormatAsync(GetDocumentWithFormatRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8036,7 +8214,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FieldResponse getField(GetFieldRequest request) throws ApiException, IOException {
+    public FieldResponse getField(GetFieldRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FieldResponse > resp = getFieldWithHttpInfo(request);
             return resp.getData();
@@ -8058,9 +8236,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FieldResponse > getFieldWithHttpInfo(GetFieldRequest request) throws ApiException, IOException {
+    private ApiResponse< FieldResponse > getFieldWithHttpInfo(GetFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFieldValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FieldResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FieldResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -8071,7 +8251,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFieldAsync(GetFieldRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getFieldAsync(GetFieldRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8109,7 +8289,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FieldResponse getFieldOnline(GetFieldOnlineRequest request) throws ApiException, IOException {
+    public FieldResponse getFieldOnline(GetFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FieldResponse > resp = getFieldOnlineWithHttpInfo(request);
             return resp.getData();
@@ -8131,9 +8311,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FieldResponse > getFieldOnlineWithHttpInfo(GetFieldOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< FieldResponse > getFieldOnlineWithHttpInfo(GetFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFieldOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FieldResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FieldResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -8144,7 +8326,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFieldOnlineAsync(GetFieldOnlineRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getFieldOnlineAsync(GetFieldOnlineRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8182,7 +8364,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FieldsResponse getFields(GetFieldsRequest request) throws ApiException, IOException {
+    public FieldsResponse getFields(GetFieldsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FieldsResponse > resp = getFieldsWithHttpInfo(request);
             return resp.getData();
@@ -8204,9 +8386,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FieldsResponse > getFieldsWithHttpInfo(GetFieldsRequest request) throws ApiException, IOException {
+    private ApiResponse< FieldsResponse > getFieldsWithHttpInfo(GetFieldsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFieldsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FieldsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FieldsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -8217,7 +8401,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFieldsAsync(GetFieldsRequest request, final ApiCallback< FieldsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getFieldsAsync(GetFieldsRequest request, final ApiCallback< FieldsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8255,7 +8439,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FieldsResponse getFieldsOnline(GetFieldsOnlineRequest request) throws ApiException, IOException {
+    public FieldsResponse getFieldsOnline(GetFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FieldsResponse > resp = getFieldsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -8277,9 +8461,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FieldsResponse > getFieldsOnlineWithHttpInfo(GetFieldsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< FieldsResponse > getFieldsOnlineWithHttpInfo(GetFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFieldsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FieldsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FieldsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -8290,7 +8476,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFieldsOnlineAsync(GetFieldsOnlineRequest request, final ApiCallback< FieldsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getFieldsOnlineAsync(GetFieldsOnlineRequest request, final ApiCallback< FieldsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8328,7 +8514,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FilesList getFilesList(GetFilesListRequest request) throws ApiException, IOException {
+    public FilesList getFilesList(GetFilesListRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FilesList > resp = getFilesListWithHttpInfo(request);
             return resp.getData();
@@ -8350,9 +8536,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FilesList > getFilesListWithHttpInfo(GetFilesListRequest request) throws ApiException, IOException {
+    private ApiResponse< FilesList > getFilesListWithHttpInfo(GetFilesListRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFilesListValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FilesList data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FilesList >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -8363,7 +8551,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFilesListAsync(GetFilesListRequest request, final ApiCallback< FilesList > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getFilesListAsync(GetFilesListRequest request, final ApiCallback< FilesList > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8401,7 +8589,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FootnoteResponse getFootnote(GetFootnoteRequest request) throws ApiException, IOException {
+    public FootnoteResponse getFootnote(GetFootnoteRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FootnoteResponse > resp = getFootnoteWithHttpInfo(request);
             return resp.getData();
@@ -8423,9 +8611,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FootnoteResponse > getFootnoteWithHttpInfo(GetFootnoteRequest request) throws ApiException, IOException {
+    private ApiResponse< FootnoteResponse > getFootnoteWithHttpInfo(GetFootnoteRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFootnoteValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FootnoteResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FootnoteResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -8436,7 +8626,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFootnoteAsync(GetFootnoteRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getFootnoteAsync(GetFootnoteRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8474,7 +8664,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FootnoteResponse getFootnoteOnline(GetFootnoteOnlineRequest request) throws ApiException, IOException {
+    public FootnoteResponse getFootnoteOnline(GetFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FootnoteResponse > resp = getFootnoteOnlineWithHttpInfo(request);
             return resp.getData();
@@ -8496,9 +8686,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FootnoteResponse > getFootnoteOnlineWithHttpInfo(GetFootnoteOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< FootnoteResponse > getFootnoteOnlineWithHttpInfo(GetFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFootnoteOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FootnoteResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FootnoteResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -8509,7 +8701,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFootnoteOnlineAsync(GetFootnoteOnlineRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getFootnoteOnlineAsync(GetFootnoteOnlineRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8547,7 +8739,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FootnotesResponse getFootnotes(GetFootnotesRequest request) throws ApiException, IOException {
+    public FootnotesResponse getFootnotes(GetFootnotesRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FootnotesResponse > resp = getFootnotesWithHttpInfo(request);
             return resp.getData();
@@ -8569,9 +8761,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FootnotesResponse > getFootnotesWithHttpInfo(GetFootnotesRequest request) throws ApiException, IOException {
+    private ApiResponse< FootnotesResponse > getFootnotesWithHttpInfo(GetFootnotesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFootnotesValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FootnotesResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FootnotesResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -8582,7 +8776,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFootnotesAsync(GetFootnotesRequest request, final ApiCallback< FootnotesResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getFootnotesAsync(GetFootnotesRequest request, final ApiCallback< FootnotesResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8620,7 +8814,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FootnotesResponse getFootnotesOnline(GetFootnotesOnlineRequest request) throws ApiException, IOException {
+    public FootnotesResponse getFootnotesOnline(GetFootnotesOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FootnotesResponse > resp = getFootnotesOnlineWithHttpInfo(request);
             return resp.getData();
@@ -8642,9 +8836,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FootnotesResponse > getFootnotesOnlineWithHttpInfo(GetFootnotesOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< FootnotesResponse > getFootnotesOnlineWithHttpInfo(GetFootnotesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFootnotesOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FootnotesResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FootnotesResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -8655,7 +8851,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFootnotesOnlineAsync(GetFootnotesOnlineRequest request, final ApiCallback< FootnotesResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getFootnotesOnlineAsync(GetFootnotesOnlineRequest request, final ApiCallback< FootnotesResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8693,7 +8889,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FormFieldResponse getFormField(GetFormFieldRequest request) throws ApiException, IOException {
+    public FormFieldResponse getFormField(GetFormFieldRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FormFieldResponse > resp = getFormFieldWithHttpInfo(request);
             return resp.getData();
@@ -8715,9 +8911,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FormFieldResponse > getFormFieldWithHttpInfo(GetFormFieldRequest request) throws ApiException, IOException {
+    private ApiResponse< FormFieldResponse > getFormFieldWithHttpInfo(GetFormFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFormFieldValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FormFieldResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FormFieldResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -8728,7 +8926,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFormFieldAsync(GetFormFieldRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getFormFieldAsync(GetFormFieldRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8766,7 +8964,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FormFieldResponse getFormFieldOnline(GetFormFieldOnlineRequest request) throws ApiException, IOException {
+    public FormFieldResponse getFormFieldOnline(GetFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FormFieldResponse > resp = getFormFieldOnlineWithHttpInfo(request);
             return resp.getData();
@@ -8788,9 +8986,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FormFieldResponse > getFormFieldOnlineWithHttpInfo(GetFormFieldOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< FormFieldResponse > getFormFieldOnlineWithHttpInfo(GetFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFormFieldOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FormFieldResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FormFieldResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -8801,7 +9001,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFormFieldOnlineAsync(GetFormFieldOnlineRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getFormFieldOnlineAsync(GetFormFieldOnlineRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8839,7 +9039,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FormFieldsResponse getFormFields(GetFormFieldsRequest request) throws ApiException, IOException {
+    public FormFieldsResponse getFormFields(GetFormFieldsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FormFieldsResponse > resp = getFormFieldsWithHttpInfo(request);
             return resp.getData();
@@ -8861,9 +9061,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FormFieldsResponse > getFormFieldsWithHttpInfo(GetFormFieldsRequest request) throws ApiException, IOException {
+    private ApiResponse< FormFieldsResponse > getFormFieldsWithHttpInfo(GetFormFieldsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFormFieldsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FormFieldsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FormFieldsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -8874,7 +9076,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFormFieldsAsync(GetFormFieldsRequest request, final ApiCallback< FormFieldsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getFormFieldsAsync(GetFormFieldsRequest request, final ApiCallback< FormFieldsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8912,7 +9114,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FormFieldsResponse getFormFieldsOnline(GetFormFieldsOnlineRequest request) throws ApiException, IOException {
+    public FormFieldsResponse getFormFieldsOnline(GetFormFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FormFieldsResponse > resp = getFormFieldsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -8934,9 +9136,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FormFieldsResponse > getFormFieldsOnlineWithHttpInfo(GetFormFieldsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< FormFieldsResponse > getFormFieldsOnlineWithHttpInfo(GetFormFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFormFieldsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FormFieldsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FormFieldsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -8947,7 +9151,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFormFieldsOnlineAsync(GetFormFieldsOnlineRequest request, final ApiCallback< FormFieldsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getFormFieldsOnlineAsync(GetFormFieldsOnlineRequest request, final ApiCallback< FormFieldsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8985,7 +9189,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public HeaderFooterResponse getHeaderFooter(GetHeaderFooterRequest request) throws ApiException, IOException {
+    public HeaderFooterResponse getHeaderFooter(GetHeaderFooterRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< HeaderFooterResponse > resp = getHeaderFooterWithHttpInfo(request);
             return resp.getData();
@@ -9007,9 +9211,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< HeaderFooterResponse > getHeaderFooterWithHttpInfo(GetHeaderFooterRequest request) throws ApiException, IOException {
+    private ApiResponse< HeaderFooterResponse > getHeaderFooterWithHttpInfo(GetHeaderFooterRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        HeaderFooterResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< HeaderFooterResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9020,7 +9226,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getHeaderFooterAsync(GetHeaderFooterRequest request, final ApiCallback< HeaderFooterResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getHeaderFooterAsync(GetHeaderFooterRequest request, final ApiCallback< HeaderFooterResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9058,7 +9264,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public HeaderFooterResponse getHeaderFooterOfSection(GetHeaderFooterOfSectionRequest request) throws ApiException, IOException {
+    public HeaderFooterResponse getHeaderFooterOfSection(GetHeaderFooterOfSectionRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< HeaderFooterResponse > resp = getHeaderFooterOfSectionWithHttpInfo(request);
             return resp.getData();
@@ -9080,9 +9286,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< HeaderFooterResponse > getHeaderFooterOfSectionWithHttpInfo(GetHeaderFooterOfSectionRequest request) throws ApiException, IOException {
+    private ApiResponse< HeaderFooterResponse > getHeaderFooterOfSectionWithHttpInfo(GetHeaderFooterOfSectionRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterOfSectionValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        HeaderFooterResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< HeaderFooterResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9093,7 +9301,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getHeaderFooterOfSectionAsync(GetHeaderFooterOfSectionRequest request, final ApiCallback< HeaderFooterResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getHeaderFooterOfSectionAsync(GetHeaderFooterOfSectionRequest request, final ApiCallback< HeaderFooterResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9131,7 +9339,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public HeaderFooterResponse getHeaderFooterOfSectionOnline(GetHeaderFooterOfSectionOnlineRequest request) throws ApiException, IOException {
+    public HeaderFooterResponse getHeaderFooterOfSectionOnline(GetHeaderFooterOfSectionOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< HeaderFooterResponse > resp = getHeaderFooterOfSectionOnlineWithHttpInfo(request);
             return resp.getData();
@@ -9153,9 +9361,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< HeaderFooterResponse > getHeaderFooterOfSectionOnlineWithHttpInfo(GetHeaderFooterOfSectionOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< HeaderFooterResponse > getHeaderFooterOfSectionOnlineWithHttpInfo(GetHeaderFooterOfSectionOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterOfSectionOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        HeaderFooterResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< HeaderFooterResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9166,7 +9376,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getHeaderFooterOfSectionOnlineAsync(GetHeaderFooterOfSectionOnlineRequest request, final ApiCallback< HeaderFooterResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getHeaderFooterOfSectionOnlineAsync(GetHeaderFooterOfSectionOnlineRequest request, final ApiCallback< HeaderFooterResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9204,7 +9414,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public HeaderFooterResponse getHeaderFooterOnline(GetHeaderFooterOnlineRequest request) throws ApiException, IOException {
+    public HeaderFooterResponse getHeaderFooterOnline(GetHeaderFooterOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< HeaderFooterResponse > resp = getHeaderFooterOnlineWithHttpInfo(request);
             return resp.getData();
@@ -9226,9 +9436,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< HeaderFooterResponse > getHeaderFooterOnlineWithHttpInfo(GetHeaderFooterOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< HeaderFooterResponse > getHeaderFooterOnlineWithHttpInfo(GetHeaderFooterOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        HeaderFooterResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< HeaderFooterResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9239,7 +9451,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getHeaderFooterOnlineAsync(GetHeaderFooterOnlineRequest request, final ApiCallback< HeaderFooterResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getHeaderFooterOnlineAsync(GetHeaderFooterOnlineRequest request, final ApiCallback< HeaderFooterResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9277,7 +9489,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public HeaderFootersResponse getHeaderFooters(GetHeaderFootersRequest request) throws ApiException, IOException {
+    public HeaderFootersResponse getHeaderFooters(GetHeaderFootersRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< HeaderFootersResponse > resp = getHeaderFootersWithHttpInfo(request);
             return resp.getData();
@@ -9299,9 +9511,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< HeaderFootersResponse > getHeaderFootersWithHttpInfo(GetHeaderFootersRequest request) throws ApiException, IOException {
+    private ApiResponse< HeaderFootersResponse > getHeaderFootersWithHttpInfo(GetHeaderFootersRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getHeaderFootersValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        HeaderFootersResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< HeaderFootersResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9312,7 +9526,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getHeaderFootersAsync(GetHeaderFootersRequest request, final ApiCallback< HeaderFootersResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getHeaderFootersAsync(GetHeaderFootersRequest request, final ApiCallback< HeaderFootersResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9350,7 +9564,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public HeaderFootersResponse getHeaderFootersOnline(GetHeaderFootersOnlineRequest request) throws ApiException, IOException {
+    public HeaderFootersResponse getHeaderFootersOnline(GetHeaderFootersOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< HeaderFootersResponse > resp = getHeaderFootersOnlineWithHttpInfo(request);
             return resp.getData();
@@ -9372,9 +9586,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< HeaderFootersResponse > getHeaderFootersOnlineWithHttpInfo(GetHeaderFootersOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< HeaderFootersResponse > getHeaderFootersOnlineWithHttpInfo(GetHeaderFootersOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getHeaderFootersOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        HeaderFootersResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< HeaderFootersResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9385,7 +9601,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getHeaderFootersOnlineAsync(GetHeaderFootersOnlineRequest request, final ApiCallback< HeaderFootersResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getHeaderFootersOnlineAsync(GetHeaderFootersOnlineRequest request, final ApiCallback< HeaderFootersResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9423,7 +9639,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ListResponse getList(GetListRequest request) throws ApiException, IOException {
+    public ListResponse getList(GetListRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ListResponse > resp = getListWithHttpInfo(request);
             return resp.getData();
@@ -9445,9 +9661,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ListResponse > getListWithHttpInfo(GetListRequest request) throws ApiException, IOException {
+    private ApiResponse< ListResponse > getListWithHttpInfo(GetListRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getListValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ListResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ListResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9458,7 +9676,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getListAsync(GetListRequest request, final ApiCallback< ListResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getListAsync(GetListRequest request, final ApiCallback< ListResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9496,7 +9714,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ListResponse getListOnline(GetListOnlineRequest request) throws ApiException, IOException {
+    public ListResponse getListOnline(GetListOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ListResponse > resp = getListOnlineWithHttpInfo(request);
             return resp.getData();
@@ -9518,9 +9736,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ListResponse > getListOnlineWithHttpInfo(GetListOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< ListResponse > getListOnlineWithHttpInfo(GetListOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getListOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ListResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ListResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9531,7 +9751,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getListOnlineAsync(GetListOnlineRequest request, final ApiCallback< ListResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getListOnlineAsync(GetListOnlineRequest request, final ApiCallback< ListResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9569,7 +9789,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ListsResponse getLists(GetListsRequest request) throws ApiException, IOException {
+    public ListsResponse getLists(GetListsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ListsResponse > resp = getListsWithHttpInfo(request);
             return resp.getData();
@@ -9591,9 +9811,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ListsResponse > getListsWithHttpInfo(GetListsRequest request) throws ApiException, IOException {
+    private ApiResponse< ListsResponse > getListsWithHttpInfo(GetListsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getListsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ListsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ListsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9604,7 +9826,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getListsAsync(GetListsRequest request, final ApiCallback< ListsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getListsAsync(GetListsRequest request, final ApiCallback< ListsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9642,7 +9864,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ListsResponse getListsOnline(GetListsOnlineRequest request) throws ApiException, IOException {
+    public ListsResponse getListsOnline(GetListsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ListsResponse > resp = getListsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -9664,9 +9886,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ListsResponse > getListsOnlineWithHttpInfo(GetListsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< ListsResponse > getListsOnlineWithHttpInfo(GetListsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getListsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ListsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ListsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9677,7 +9901,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getListsOnlineAsync(GetListsOnlineRequest request, final ApiCallback< ListsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getListsOnlineAsync(GetListsOnlineRequest request, final ApiCallback< ListsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9715,7 +9939,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public OfficeMathObjectResponse getOfficeMathObject(GetOfficeMathObjectRequest request) throws ApiException, IOException {
+    public OfficeMathObjectResponse getOfficeMathObject(GetOfficeMathObjectRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< OfficeMathObjectResponse > resp = getOfficeMathObjectWithHttpInfo(request);
             return resp.getData();
@@ -9737,9 +9961,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< OfficeMathObjectResponse > getOfficeMathObjectWithHttpInfo(GetOfficeMathObjectRequest request) throws ApiException, IOException {
+    private ApiResponse< OfficeMathObjectResponse > getOfficeMathObjectWithHttpInfo(GetOfficeMathObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        OfficeMathObjectResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< OfficeMathObjectResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9750,7 +9976,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getOfficeMathObjectAsync(GetOfficeMathObjectRequest request, final ApiCallback< OfficeMathObjectResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getOfficeMathObjectAsync(GetOfficeMathObjectRequest request, final ApiCallback< OfficeMathObjectResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9788,7 +10014,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public OfficeMathObjectResponse getOfficeMathObjectOnline(GetOfficeMathObjectOnlineRequest request) throws ApiException, IOException {
+    public OfficeMathObjectResponse getOfficeMathObjectOnline(GetOfficeMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< OfficeMathObjectResponse > resp = getOfficeMathObjectOnlineWithHttpInfo(request);
             return resp.getData();
@@ -9810,9 +10036,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< OfficeMathObjectResponse > getOfficeMathObjectOnlineWithHttpInfo(GetOfficeMathObjectOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< OfficeMathObjectResponse > getOfficeMathObjectOnlineWithHttpInfo(GetOfficeMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        OfficeMathObjectResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< OfficeMathObjectResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9823,7 +10051,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getOfficeMathObjectOnlineAsync(GetOfficeMathObjectOnlineRequest request, final ApiCallback< OfficeMathObjectResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getOfficeMathObjectOnlineAsync(GetOfficeMathObjectOnlineRequest request, final ApiCallback< OfficeMathObjectResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9861,7 +10089,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public OfficeMathObjectsResponse getOfficeMathObjects(GetOfficeMathObjectsRequest request) throws ApiException, IOException {
+    public OfficeMathObjectsResponse getOfficeMathObjects(GetOfficeMathObjectsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< OfficeMathObjectsResponse > resp = getOfficeMathObjectsWithHttpInfo(request);
             return resp.getData();
@@ -9883,9 +10111,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< OfficeMathObjectsResponse > getOfficeMathObjectsWithHttpInfo(GetOfficeMathObjectsRequest request) throws ApiException, IOException {
+    private ApiResponse< OfficeMathObjectsResponse > getOfficeMathObjectsWithHttpInfo(GetOfficeMathObjectsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        OfficeMathObjectsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< OfficeMathObjectsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9896,7 +10126,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getOfficeMathObjectsAsync(GetOfficeMathObjectsRequest request, final ApiCallback< OfficeMathObjectsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getOfficeMathObjectsAsync(GetOfficeMathObjectsRequest request, final ApiCallback< OfficeMathObjectsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9934,7 +10164,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public OfficeMathObjectsResponse getOfficeMathObjectsOnline(GetOfficeMathObjectsOnlineRequest request) throws ApiException, IOException {
+    public OfficeMathObjectsResponse getOfficeMathObjectsOnline(GetOfficeMathObjectsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< OfficeMathObjectsResponse > resp = getOfficeMathObjectsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -9956,9 +10186,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< OfficeMathObjectsResponse > getOfficeMathObjectsOnlineWithHttpInfo(GetOfficeMathObjectsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< OfficeMathObjectsResponse > getOfficeMathObjectsOnlineWithHttpInfo(GetOfficeMathObjectsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        OfficeMathObjectsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< OfficeMathObjectsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -9969,7 +10201,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getOfficeMathObjectsOnlineAsync(GetOfficeMathObjectsOnlineRequest request, final ApiCallback< OfficeMathObjectsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getOfficeMathObjectsOnlineAsync(GetOfficeMathObjectsOnlineRequest request, final ApiCallback< OfficeMathObjectsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10007,7 +10239,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphResponse getParagraph(GetParagraphRequest request) throws ApiException, IOException {
+    public ParagraphResponse getParagraph(GetParagraphRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ParagraphResponse > resp = getParagraphWithHttpInfo(request);
             return resp.getData();
@@ -10029,9 +10261,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphResponse > getParagraphWithHttpInfo(GetParagraphRequest request) throws ApiException, IOException {
+    private ApiResponse< ParagraphResponse > getParagraphWithHttpInfo(GetParagraphRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ParagraphResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ParagraphResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10042,7 +10276,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getParagraphAsync(GetParagraphRequest request, final ApiCallback< ParagraphResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getParagraphAsync(GetParagraphRequest request, final ApiCallback< ParagraphResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10080,7 +10314,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphFormatResponse getParagraphFormat(GetParagraphFormatRequest request) throws ApiException, IOException {
+    public ParagraphFormatResponse getParagraphFormat(GetParagraphFormatRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ParagraphFormatResponse > resp = getParagraphFormatWithHttpInfo(request);
             return resp.getData();
@@ -10102,9 +10336,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphFormatResponse > getParagraphFormatWithHttpInfo(GetParagraphFormatRequest request) throws ApiException, IOException {
+    private ApiResponse< ParagraphFormatResponse > getParagraphFormatWithHttpInfo(GetParagraphFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphFormatValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ParagraphFormatResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ParagraphFormatResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10115,7 +10351,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getParagraphFormatAsync(GetParagraphFormatRequest request, final ApiCallback< ParagraphFormatResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getParagraphFormatAsync(GetParagraphFormatRequest request, final ApiCallback< ParagraphFormatResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10153,7 +10389,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphFormatResponse getParagraphFormatOnline(GetParagraphFormatOnlineRequest request) throws ApiException, IOException {
+    public ParagraphFormatResponse getParagraphFormatOnline(GetParagraphFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ParagraphFormatResponse > resp = getParagraphFormatOnlineWithHttpInfo(request);
             return resp.getData();
@@ -10175,9 +10411,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphFormatResponse > getParagraphFormatOnlineWithHttpInfo(GetParagraphFormatOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< ParagraphFormatResponse > getParagraphFormatOnlineWithHttpInfo(GetParagraphFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphFormatOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ParagraphFormatResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ParagraphFormatResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10188,7 +10426,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getParagraphFormatOnlineAsync(GetParagraphFormatOnlineRequest request, final ApiCallback< ParagraphFormatResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getParagraphFormatOnlineAsync(GetParagraphFormatOnlineRequest request, final ApiCallback< ParagraphFormatResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10226,7 +10464,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphListFormatResponse getParagraphListFormat(GetParagraphListFormatRequest request) throws ApiException, IOException {
+    public ParagraphListFormatResponse getParagraphListFormat(GetParagraphListFormatRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ParagraphListFormatResponse > resp = getParagraphListFormatWithHttpInfo(request);
             return resp.getData();
@@ -10248,9 +10486,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphListFormatResponse > getParagraphListFormatWithHttpInfo(GetParagraphListFormatRequest request) throws ApiException, IOException {
+    private ApiResponse< ParagraphListFormatResponse > getParagraphListFormatWithHttpInfo(GetParagraphListFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphListFormatValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ParagraphListFormatResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ParagraphListFormatResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10261,7 +10501,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getParagraphListFormatAsync(GetParagraphListFormatRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getParagraphListFormatAsync(GetParagraphListFormatRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10299,7 +10539,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphListFormatResponse getParagraphListFormatOnline(GetParagraphListFormatOnlineRequest request) throws ApiException, IOException {
+    public ParagraphListFormatResponse getParagraphListFormatOnline(GetParagraphListFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ParagraphListFormatResponse > resp = getParagraphListFormatOnlineWithHttpInfo(request);
             return resp.getData();
@@ -10321,9 +10561,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphListFormatResponse > getParagraphListFormatOnlineWithHttpInfo(GetParagraphListFormatOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< ParagraphListFormatResponse > getParagraphListFormatOnlineWithHttpInfo(GetParagraphListFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphListFormatOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ParagraphListFormatResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ParagraphListFormatResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10334,7 +10576,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getParagraphListFormatOnlineAsync(GetParagraphListFormatOnlineRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getParagraphListFormatOnlineAsync(GetParagraphListFormatOnlineRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10372,7 +10614,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphResponse getParagraphOnline(GetParagraphOnlineRequest request) throws ApiException, IOException {
+    public ParagraphResponse getParagraphOnline(GetParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ParagraphResponse > resp = getParagraphOnlineWithHttpInfo(request);
             return resp.getData();
@@ -10394,9 +10636,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphResponse > getParagraphOnlineWithHttpInfo(GetParagraphOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< ParagraphResponse > getParagraphOnlineWithHttpInfo(GetParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ParagraphResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ParagraphResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10407,7 +10651,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getParagraphOnlineAsync(GetParagraphOnlineRequest request, final ApiCallback< ParagraphResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getParagraphOnlineAsync(GetParagraphOnlineRequest request, final ApiCallback< ParagraphResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10445,7 +10689,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphLinkCollectionResponse getParagraphs(GetParagraphsRequest request) throws ApiException, IOException {
+    public ParagraphLinkCollectionResponse getParagraphs(GetParagraphsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ParagraphLinkCollectionResponse > resp = getParagraphsWithHttpInfo(request);
             return resp.getData();
@@ -10467,9 +10711,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphLinkCollectionResponse > getParagraphsWithHttpInfo(GetParagraphsRequest request) throws ApiException, IOException {
+    private ApiResponse< ParagraphLinkCollectionResponse > getParagraphsWithHttpInfo(GetParagraphsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ParagraphLinkCollectionResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ParagraphLinkCollectionResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10480,7 +10726,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getParagraphsAsync(GetParagraphsRequest request, final ApiCallback< ParagraphLinkCollectionResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getParagraphsAsync(GetParagraphsRequest request, final ApiCallback< ParagraphLinkCollectionResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10518,7 +10764,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphLinkCollectionResponse getParagraphsOnline(GetParagraphsOnlineRequest request) throws ApiException, IOException {
+    public ParagraphLinkCollectionResponse getParagraphsOnline(GetParagraphsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ParagraphLinkCollectionResponse > resp = getParagraphsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -10540,9 +10786,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphLinkCollectionResponse > getParagraphsOnlineWithHttpInfo(GetParagraphsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< ParagraphLinkCollectionResponse > getParagraphsOnlineWithHttpInfo(GetParagraphsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ParagraphLinkCollectionResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ParagraphLinkCollectionResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10553,7 +10801,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getParagraphsOnlineAsync(GetParagraphsOnlineRequest request, final ApiCallback< ParagraphLinkCollectionResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getParagraphsOnlineAsync(GetParagraphsOnlineRequest request, final ApiCallback< ParagraphLinkCollectionResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10591,7 +10839,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TabStopsResponse getParagraphTabStops(GetParagraphTabStopsRequest request) throws ApiException, IOException {
+    public TabStopsResponse getParagraphTabStops(GetParagraphTabStopsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TabStopsResponse > resp = getParagraphTabStopsWithHttpInfo(request);
             return resp.getData();
@@ -10613,9 +10861,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TabStopsResponse > getParagraphTabStopsWithHttpInfo(GetParagraphTabStopsRequest request) throws ApiException, IOException {
+    private ApiResponse< TabStopsResponse > getParagraphTabStopsWithHttpInfo(GetParagraphTabStopsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphTabStopsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TabStopsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TabStopsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10626,7 +10876,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getParagraphTabStopsAsync(GetParagraphTabStopsRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getParagraphTabStopsAsync(GetParagraphTabStopsRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10664,7 +10914,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TabStopsResponse getParagraphTabStopsOnline(GetParagraphTabStopsOnlineRequest request) throws ApiException, IOException {
+    public TabStopsResponse getParagraphTabStopsOnline(GetParagraphTabStopsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TabStopsResponse > resp = getParagraphTabStopsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -10686,9 +10936,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TabStopsResponse > getParagraphTabStopsOnlineWithHttpInfo(GetParagraphTabStopsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< TabStopsResponse > getParagraphTabStopsOnlineWithHttpInfo(GetParagraphTabStopsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphTabStopsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TabStopsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TabStopsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10699,7 +10951,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getParagraphTabStopsOnlineAsync(GetParagraphTabStopsOnlineRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getParagraphTabStopsOnlineAsync(GetParagraphTabStopsOnlineRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10737,7 +10989,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RangeTextResponse getRangeText(GetRangeTextRequest request) throws ApiException, IOException {
+    public RangeTextResponse getRangeText(GetRangeTextRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< RangeTextResponse > resp = getRangeTextWithHttpInfo(request);
             return resp.getData();
@@ -10759,9 +11011,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RangeTextResponse > getRangeTextWithHttpInfo(GetRangeTextRequest request) throws ApiException, IOException {
+    private ApiResponse< RangeTextResponse > getRangeTextWithHttpInfo(GetRangeTextRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRangeTextValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        RangeTextResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< RangeTextResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10772,7 +11026,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getRangeTextAsync(GetRangeTextRequest request, final ApiCallback< RangeTextResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getRangeTextAsync(GetRangeTextRequest request, final ApiCallback< RangeTextResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10810,7 +11064,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RangeTextResponse getRangeTextOnline(GetRangeTextOnlineRequest request) throws ApiException, IOException {
+    public RangeTextResponse getRangeTextOnline(GetRangeTextOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< RangeTextResponse > resp = getRangeTextOnlineWithHttpInfo(request);
             return resp.getData();
@@ -10832,9 +11086,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RangeTextResponse > getRangeTextOnlineWithHttpInfo(GetRangeTextOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< RangeTextResponse > getRangeTextOnlineWithHttpInfo(GetRangeTextOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRangeTextOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        RangeTextResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< RangeTextResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10845,7 +11101,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getRangeTextOnlineAsync(GetRangeTextOnlineRequest request, final ApiCallback< RangeTextResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getRangeTextOnlineAsync(GetRangeTextOnlineRequest request, final ApiCallback< RangeTextResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10883,7 +11139,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RunResponse getRun(GetRunRequest request) throws ApiException, IOException {
+    public RunResponse getRun(GetRunRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< RunResponse > resp = getRunWithHttpInfo(request);
             return resp.getData();
@@ -10905,9 +11161,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RunResponse > getRunWithHttpInfo(GetRunRequest request) throws ApiException, IOException {
+    private ApiResponse< RunResponse > getRunWithHttpInfo(GetRunRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRunValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        RunResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< RunResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10918,7 +11176,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getRunAsync(GetRunRequest request, final ApiCallback< RunResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getRunAsync(GetRunRequest request, final ApiCallback< RunResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10956,7 +11214,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FontResponse getRunFont(GetRunFontRequest request) throws ApiException, IOException {
+    public FontResponse getRunFont(GetRunFontRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FontResponse > resp = getRunFontWithHttpInfo(request);
             return resp.getData();
@@ -10978,9 +11236,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FontResponse > getRunFontWithHttpInfo(GetRunFontRequest request) throws ApiException, IOException {
+    private ApiResponse< FontResponse > getRunFontWithHttpInfo(GetRunFontRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRunFontValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FontResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FontResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -10991,7 +11251,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getRunFontAsync(GetRunFontRequest request, final ApiCallback< FontResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getRunFontAsync(GetRunFontRequest request, final ApiCallback< FontResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11029,7 +11289,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FontResponse getRunFontOnline(GetRunFontOnlineRequest request) throws ApiException, IOException {
+    public FontResponse getRunFontOnline(GetRunFontOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FontResponse > resp = getRunFontOnlineWithHttpInfo(request);
             return resp.getData();
@@ -11051,9 +11311,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FontResponse > getRunFontOnlineWithHttpInfo(GetRunFontOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< FontResponse > getRunFontOnlineWithHttpInfo(GetRunFontOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRunFontOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FontResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FontResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -11064,7 +11326,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getRunFontOnlineAsync(GetRunFontOnlineRequest request, final ApiCallback< FontResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getRunFontOnlineAsync(GetRunFontOnlineRequest request, final ApiCallback< FontResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11102,7 +11364,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RunResponse getRunOnline(GetRunOnlineRequest request) throws ApiException, IOException {
+    public RunResponse getRunOnline(GetRunOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< RunResponse > resp = getRunOnlineWithHttpInfo(request);
             return resp.getData();
@@ -11124,9 +11386,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RunResponse > getRunOnlineWithHttpInfo(GetRunOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< RunResponse > getRunOnlineWithHttpInfo(GetRunOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRunOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        RunResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< RunResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -11137,7 +11401,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getRunOnlineAsync(GetRunOnlineRequest request, final ApiCallback< RunResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getRunOnlineAsync(GetRunOnlineRequest request, final ApiCallback< RunResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11175,7 +11439,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RunsResponse getRuns(GetRunsRequest request) throws ApiException, IOException {
+    public RunsResponse getRuns(GetRunsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< RunsResponse > resp = getRunsWithHttpInfo(request);
             return resp.getData();
@@ -11197,9 +11461,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RunsResponse > getRunsWithHttpInfo(GetRunsRequest request) throws ApiException, IOException {
+    private ApiResponse< RunsResponse > getRunsWithHttpInfo(GetRunsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRunsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        RunsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< RunsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -11210,7 +11476,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getRunsAsync(GetRunsRequest request, final ApiCallback< RunsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getRunsAsync(GetRunsRequest request, final ApiCallback< RunsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11248,7 +11514,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RunsResponse getRunsOnline(GetRunsOnlineRequest request) throws ApiException, IOException {
+    public RunsResponse getRunsOnline(GetRunsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< RunsResponse > resp = getRunsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -11270,9 +11536,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RunsResponse > getRunsOnlineWithHttpInfo(GetRunsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< RunsResponse > getRunsOnlineWithHttpInfo(GetRunsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRunsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        RunsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< RunsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -11283,7 +11551,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getRunsOnlineAsync(GetRunsOnlineRequest request, final ApiCallback< RunsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getRunsOnlineAsync(GetRunsOnlineRequest request, final ApiCallback< RunsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11321,7 +11589,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SectionResponse getSection(GetSectionRequest request) throws ApiException, IOException {
+    public SectionResponse getSection(GetSectionRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SectionResponse > resp = getSectionWithHttpInfo(request);
             return resp.getData();
@@ -11343,9 +11611,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SectionResponse > getSectionWithHttpInfo(GetSectionRequest request) throws ApiException, IOException {
+    private ApiResponse< SectionResponse > getSectionWithHttpInfo(GetSectionRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getSectionValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SectionResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SectionResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -11356,7 +11626,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSectionAsync(GetSectionRequest request, final ApiCallback< SectionResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getSectionAsync(GetSectionRequest request, final ApiCallback< SectionResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11394,7 +11664,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SectionResponse getSectionOnline(GetSectionOnlineRequest request) throws ApiException, IOException {
+    public SectionResponse getSectionOnline(GetSectionOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SectionResponse > resp = getSectionOnlineWithHttpInfo(request);
             return resp.getData();
@@ -11416,9 +11686,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SectionResponse > getSectionOnlineWithHttpInfo(GetSectionOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< SectionResponse > getSectionOnlineWithHttpInfo(GetSectionOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getSectionOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SectionResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SectionResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -11429,7 +11701,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSectionOnlineAsync(GetSectionOnlineRequest request, final ApiCallback< SectionResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getSectionOnlineAsync(GetSectionOnlineRequest request, final ApiCallback< SectionResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11467,7 +11739,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SectionPageSetupResponse getSectionPageSetup(GetSectionPageSetupRequest request) throws ApiException, IOException {
+    public SectionPageSetupResponse getSectionPageSetup(GetSectionPageSetupRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SectionPageSetupResponse > resp = getSectionPageSetupWithHttpInfo(request);
             return resp.getData();
@@ -11489,9 +11761,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SectionPageSetupResponse > getSectionPageSetupWithHttpInfo(GetSectionPageSetupRequest request) throws ApiException, IOException {
+    private ApiResponse< SectionPageSetupResponse > getSectionPageSetupWithHttpInfo(GetSectionPageSetupRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getSectionPageSetupValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SectionPageSetupResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SectionPageSetupResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -11502,7 +11776,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSectionPageSetupAsync(GetSectionPageSetupRequest request, final ApiCallback< SectionPageSetupResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getSectionPageSetupAsync(GetSectionPageSetupRequest request, final ApiCallback< SectionPageSetupResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11540,7 +11814,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SectionPageSetupResponse getSectionPageSetupOnline(GetSectionPageSetupOnlineRequest request) throws ApiException, IOException {
+    public SectionPageSetupResponse getSectionPageSetupOnline(GetSectionPageSetupOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SectionPageSetupResponse > resp = getSectionPageSetupOnlineWithHttpInfo(request);
             return resp.getData();
@@ -11562,9 +11836,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SectionPageSetupResponse > getSectionPageSetupOnlineWithHttpInfo(GetSectionPageSetupOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< SectionPageSetupResponse > getSectionPageSetupOnlineWithHttpInfo(GetSectionPageSetupOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getSectionPageSetupOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SectionPageSetupResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SectionPageSetupResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -11575,7 +11851,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSectionPageSetupOnlineAsync(GetSectionPageSetupOnlineRequest request, final ApiCallback< SectionPageSetupResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getSectionPageSetupOnlineAsync(GetSectionPageSetupOnlineRequest request, final ApiCallback< SectionPageSetupResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11613,7 +11889,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SectionLinkCollectionResponse getSections(GetSectionsRequest request) throws ApiException, IOException {
+    public SectionLinkCollectionResponse getSections(GetSectionsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SectionLinkCollectionResponse > resp = getSectionsWithHttpInfo(request);
             return resp.getData();
@@ -11635,9 +11911,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SectionLinkCollectionResponse > getSectionsWithHttpInfo(GetSectionsRequest request) throws ApiException, IOException {
+    private ApiResponse< SectionLinkCollectionResponse > getSectionsWithHttpInfo(GetSectionsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getSectionsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SectionLinkCollectionResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SectionLinkCollectionResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -11648,7 +11926,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSectionsAsync(GetSectionsRequest request, final ApiCallback< SectionLinkCollectionResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getSectionsAsync(GetSectionsRequest request, final ApiCallback< SectionLinkCollectionResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11686,7 +11964,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SectionLinkCollectionResponse getSectionsOnline(GetSectionsOnlineRequest request) throws ApiException, IOException {
+    public SectionLinkCollectionResponse getSectionsOnline(GetSectionsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SectionLinkCollectionResponse > resp = getSectionsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -11708,9 +11986,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SectionLinkCollectionResponse > getSectionsOnlineWithHttpInfo(GetSectionsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< SectionLinkCollectionResponse > getSectionsOnlineWithHttpInfo(GetSectionsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getSectionsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SectionLinkCollectionResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SectionLinkCollectionResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -11721,7 +12001,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSectionsOnlineAsync(GetSectionsOnlineRequest request, final ApiCallback< SectionLinkCollectionResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getSectionsOnlineAsync(GetSectionsOnlineRequest request, final ApiCallback< SectionLinkCollectionResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11759,7 +12039,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public StyleResponse getStyle(GetStyleRequest request) throws ApiException, IOException {
+    public StyleResponse getStyle(GetStyleRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< StyleResponse > resp = getStyleWithHttpInfo(request);
             return resp.getData();
@@ -11781,9 +12061,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< StyleResponse > getStyleWithHttpInfo(GetStyleRequest request) throws ApiException, IOException {
+    private ApiResponse< StyleResponse > getStyleWithHttpInfo(GetStyleRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getStyleValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        StyleResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -11794,7 +12076,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getStyleAsync(GetStyleRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getStyleAsync(GetStyleRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11832,7 +12114,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public StyleResponse getStyleFromDocumentElement(GetStyleFromDocumentElementRequest request) throws ApiException, IOException {
+    public StyleResponse getStyleFromDocumentElement(GetStyleFromDocumentElementRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< StyleResponse > resp = getStyleFromDocumentElementWithHttpInfo(request);
             return resp.getData();
@@ -11854,9 +12136,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< StyleResponse > getStyleFromDocumentElementWithHttpInfo(GetStyleFromDocumentElementRequest request) throws ApiException, IOException {
+    private ApiResponse< StyleResponse > getStyleFromDocumentElementWithHttpInfo(GetStyleFromDocumentElementRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getStyleFromDocumentElementValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        StyleResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -11867,7 +12151,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getStyleFromDocumentElementAsync(GetStyleFromDocumentElementRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getStyleFromDocumentElementAsync(GetStyleFromDocumentElementRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11905,7 +12189,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public StyleResponse getStyleFromDocumentElementOnline(GetStyleFromDocumentElementOnlineRequest request) throws ApiException, IOException {
+    public StyleResponse getStyleFromDocumentElementOnline(GetStyleFromDocumentElementOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< StyleResponse > resp = getStyleFromDocumentElementOnlineWithHttpInfo(request);
             return resp.getData();
@@ -11927,9 +12211,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< StyleResponse > getStyleFromDocumentElementOnlineWithHttpInfo(GetStyleFromDocumentElementOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< StyleResponse > getStyleFromDocumentElementOnlineWithHttpInfo(GetStyleFromDocumentElementOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getStyleFromDocumentElementOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        StyleResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -11940,7 +12226,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getStyleFromDocumentElementOnlineAsync(GetStyleFromDocumentElementOnlineRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getStyleFromDocumentElementOnlineAsync(GetStyleFromDocumentElementOnlineRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11978,7 +12264,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public StyleResponse getStyleOnline(GetStyleOnlineRequest request) throws ApiException, IOException {
+    public StyleResponse getStyleOnline(GetStyleOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< StyleResponse > resp = getStyleOnlineWithHttpInfo(request);
             return resp.getData();
@@ -12000,9 +12286,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< StyleResponse > getStyleOnlineWithHttpInfo(GetStyleOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< StyleResponse > getStyleOnlineWithHttpInfo(GetStyleOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getStyleOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        StyleResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12013,7 +12301,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getStyleOnlineAsync(GetStyleOnlineRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getStyleOnlineAsync(GetStyleOnlineRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12051,7 +12339,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public StylesResponse getStyles(GetStylesRequest request) throws ApiException, IOException {
+    public StylesResponse getStyles(GetStylesRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< StylesResponse > resp = getStylesWithHttpInfo(request);
             return resp.getData();
@@ -12073,9 +12361,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< StylesResponse > getStylesWithHttpInfo(GetStylesRequest request) throws ApiException, IOException {
+    private ApiResponse< StylesResponse > getStylesWithHttpInfo(GetStylesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getStylesValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        StylesResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< StylesResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12086,7 +12376,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getStylesAsync(GetStylesRequest request, final ApiCallback< StylesResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getStylesAsync(GetStylesRequest request, final ApiCallback< StylesResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12124,7 +12414,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public StylesResponse getStylesOnline(GetStylesOnlineRequest request) throws ApiException, IOException {
+    public StylesResponse getStylesOnline(GetStylesOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< StylesResponse > resp = getStylesOnlineWithHttpInfo(request);
             return resp.getData();
@@ -12146,9 +12436,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< StylesResponse > getStylesOnlineWithHttpInfo(GetStylesOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< StylesResponse > getStylesOnlineWithHttpInfo(GetStylesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getStylesOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        StylesResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< StylesResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12159,7 +12451,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getStylesOnlineAsync(GetStylesOnlineRequest request, final ApiCallback< StylesResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getStylesOnlineAsync(GetStylesOnlineRequest request, final ApiCallback< StylesResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12197,7 +12489,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableResponse getTable(GetTableRequest request) throws ApiException, IOException {
+    public TableResponse getTable(GetTableRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableResponse > resp = getTableWithHttpInfo(request);
             return resp.getData();
@@ -12219,9 +12511,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableResponse > getTableWithHttpInfo(GetTableRequest request) throws ApiException, IOException {
+    private ApiResponse< TableResponse > getTableWithHttpInfo(GetTableRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12232,7 +12526,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTableAsync(GetTableRequest request, final ApiCallback< TableResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTableAsync(GetTableRequest request, final ApiCallback< TableResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12270,7 +12564,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableCellResponse getTableCell(GetTableCellRequest request) throws ApiException, IOException {
+    public TableCellResponse getTableCell(GetTableCellRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableCellResponse > resp = getTableCellWithHttpInfo(request);
             return resp.getData();
@@ -12292,9 +12586,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableCellResponse > getTableCellWithHttpInfo(GetTableCellRequest request) throws ApiException, IOException {
+    private ApiResponse< TableCellResponse > getTableCellWithHttpInfo(GetTableCellRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableCellValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableCellResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableCellResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12305,7 +12601,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTableCellAsync(GetTableCellRequest request, final ApiCallback< TableCellResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTableCellAsync(GetTableCellRequest request, final ApiCallback< TableCellResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12343,7 +12639,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableCellFormatResponse getTableCellFormat(GetTableCellFormatRequest request) throws ApiException, IOException {
+    public TableCellFormatResponse getTableCellFormat(GetTableCellFormatRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableCellFormatResponse > resp = getTableCellFormatWithHttpInfo(request);
             return resp.getData();
@@ -12365,9 +12661,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableCellFormatResponse > getTableCellFormatWithHttpInfo(GetTableCellFormatRequest request) throws ApiException, IOException {
+    private ApiResponse< TableCellFormatResponse > getTableCellFormatWithHttpInfo(GetTableCellFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableCellFormatValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableCellFormatResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableCellFormatResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12378,7 +12676,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTableCellFormatAsync(GetTableCellFormatRequest request, final ApiCallback< TableCellFormatResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTableCellFormatAsync(GetTableCellFormatRequest request, final ApiCallback< TableCellFormatResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12416,7 +12714,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableCellFormatResponse getTableCellFormatOnline(GetTableCellFormatOnlineRequest request) throws ApiException, IOException {
+    public TableCellFormatResponse getTableCellFormatOnline(GetTableCellFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableCellFormatResponse > resp = getTableCellFormatOnlineWithHttpInfo(request);
             return resp.getData();
@@ -12438,9 +12736,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableCellFormatResponse > getTableCellFormatOnlineWithHttpInfo(GetTableCellFormatOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< TableCellFormatResponse > getTableCellFormatOnlineWithHttpInfo(GetTableCellFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableCellFormatOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableCellFormatResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableCellFormatResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12451,7 +12751,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTableCellFormatOnlineAsync(GetTableCellFormatOnlineRequest request, final ApiCallback< TableCellFormatResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTableCellFormatOnlineAsync(GetTableCellFormatOnlineRequest request, final ApiCallback< TableCellFormatResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12489,7 +12789,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableCellResponse getTableCellOnline(GetTableCellOnlineRequest request) throws ApiException, IOException {
+    public TableCellResponse getTableCellOnline(GetTableCellOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableCellResponse > resp = getTableCellOnlineWithHttpInfo(request);
             return resp.getData();
@@ -12511,9 +12811,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableCellResponse > getTableCellOnlineWithHttpInfo(GetTableCellOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< TableCellResponse > getTableCellOnlineWithHttpInfo(GetTableCellOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableCellOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableCellResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableCellResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12524,7 +12826,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTableCellOnlineAsync(GetTableCellOnlineRequest request, final ApiCallback< TableCellResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTableCellOnlineAsync(GetTableCellOnlineRequest request, final ApiCallback< TableCellResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12562,7 +12864,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableResponse getTableOnline(GetTableOnlineRequest request) throws ApiException, IOException {
+    public TableResponse getTableOnline(GetTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableResponse > resp = getTableOnlineWithHttpInfo(request);
             return resp.getData();
@@ -12584,9 +12886,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableResponse > getTableOnlineWithHttpInfo(GetTableOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< TableResponse > getTableOnlineWithHttpInfo(GetTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12597,7 +12901,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTableOnlineAsync(GetTableOnlineRequest request, final ApiCallback< TableResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTableOnlineAsync(GetTableOnlineRequest request, final ApiCallback< TableResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12635,7 +12939,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TablePropertiesResponse getTableProperties(GetTablePropertiesRequest request) throws ApiException, IOException {
+    public TablePropertiesResponse getTableProperties(GetTablePropertiesRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TablePropertiesResponse > resp = getTablePropertiesWithHttpInfo(request);
             return resp.getData();
@@ -12657,9 +12961,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TablePropertiesResponse > getTablePropertiesWithHttpInfo(GetTablePropertiesRequest request) throws ApiException, IOException {
+    private ApiResponse< TablePropertiesResponse > getTablePropertiesWithHttpInfo(GetTablePropertiesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTablePropertiesValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TablePropertiesResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TablePropertiesResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12670,7 +12976,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTablePropertiesAsync(GetTablePropertiesRequest request, final ApiCallback< TablePropertiesResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTablePropertiesAsync(GetTablePropertiesRequest request, final ApiCallback< TablePropertiesResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12708,7 +13014,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TablePropertiesResponse getTablePropertiesOnline(GetTablePropertiesOnlineRequest request) throws ApiException, IOException {
+    public TablePropertiesResponse getTablePropertiesOnline(GetTablePropertiesOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TablePropertiesResponse > resp = getTablePropertiesOnlineWithHttpInfo(request);
             return resp.getData();
@@ -12730,9 +13036,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TablePropertiesResponse > getTablePropertiesOnlineWithHttpInfo(GetTablePropertiesOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< TablePropertiesResponse > getTablePropertiesOnlineWithHttpInfo(GetTablePropertiesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTablePropertiesOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TablePropertiesResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TablePropertiesResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12743,7 +13051,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTablePropertiesOnlineAsync(GetTablePropertiesOnlineRequest request, final ApiCallback< TablePropertiesResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTablePropertiesOnlineAsync(GetTablePropertiesOnlineRequest request, final ApiCallback< TablePropertiesResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12781,7 +13089,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableRowResponse getTableRow(GetTableRowRequest request) throws ApiException, IOException {
+    public TableRowResponse getTableRow(GetTableRowRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableRowResponse > resp = getTableRowWithHttpInfo(request);
             return resp.getData();
@@ -12803,9 +13111,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableRowResponse > getTableRowWithHttpInfo(GetTableRowRequest request) throws ApiException, IOException {
+    private ApiResponse< TableRowResponse > getTableRowWithHttpInfo(GetTableRowRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableRowValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableRowResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableRowResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12816,7 +13126,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTableRowAsync(GetTableRowRequest request, final ApiCallback< TableRowResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTableRowAsync(GetTableRowRequest request, final ApiCallback< TableRowResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12854,7 +13164,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableRowFormatResponse getTableRowFormat(GetTableRowFormatRequest request) throws ApiException, IOException {
+    public TableRowFormatResponse getTableRowFormat(GetTableRowFormatRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableRowFormatResponse > resp = getTableRowFormatWithHttpInfo(request);
             return resp.getData();
@@ -12876,9 +13186,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableRowFormatResponse > getTableRowFormatWithHttpInfo(GetTableRowFormatRequest request) throws ApiException, IOException {
+    private ApiResponse< TableRowFormatResponse > getTableRowFormatWithHttpInfo(GetTableRowFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableRowFormatValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableRowFormatResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableRowFormatResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12889,7 +13201,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTableRowFormatAsync(GetTableRowFormatRequest request, final ApiCallback< TableRowFormatResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTableRowFormatAsync(GetTableRowFormatRequest request, final ApiCallback< TableRowFormatResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12927,7 +13239,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableRowFormatResponse getTableRowFormatOnline(GetTableRowFormatOnlineRequest request) throws ApiException, IOException {
+    public TableRowFormatResponse getTableRowFormatOnline(GetTableRowFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableRowFormatResponse > resp = getTableRowFormatOnlineWithHttpInfo(request);
             return resp.getData();
@@ -12949,9 +13261,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableRowFormatResponse > getTableRowFormatOnlineWithHttpInfo(GetTableRowFormatOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< TableRowFormatResponse > getTableRowFormatOnlineWithHttpInfo(GetTableRowFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableRowFormatOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableRowFormatResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableRowFormatResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -12962,7 +13276,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTableRowFormatOnlineAsync(GetTableRowFormatOnlineRequest request, final ApiCallback< TableRowFormatResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTableRowFormatOnlineAsync(GetTableRowFormatOnlineRequest request, final ApiCallback< TableRowFormatResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13000,7 +13314,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableRowResponse getTableRowOnline(GetTableRowOnlineRequest request) throws ApiException, IOException {
+    public TableRowResponse getTableRowOnline(GetTableRowOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableRowResponse > resp = getTableRowOnlineWithHttpInfo(request);
             return resp.getData();
@@ -13022,9 +13336,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableRowResponse > getTableRowOnlineWithHttpInfo(GetTableRowOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< TableRowResponse > getTableRowOnlineWithHttpInfo(GetTableRowOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableRowOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableRowResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableRowResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13035,7 +13351,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTableRowOnlineAsync(GetTableRowOnlineRequest request, final ApiCallback< TableRowResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTableRowOnlineAsync(GetTableRowOnlineRequest request, final ApiCallback< TableRowResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13073,7 +13389,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableLinkCollectionResponse getTables(GetTablesRequest request) throws ApiException, IOException {
+    public TableLinkCollectionResponse getTables(GetTablesRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableLinkCollectionResponse > resp = getTablesWithHttpInfo(request);
             return resp.getData();
@@ -13095,9 +13411,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableLinkCollectionResponse > getTablesWithHttpInfo(GetTablesRequest request) throws ApiException, IOException {
+    private ApiResponse< TableLinkCollectionResponse > getTablesWithHttpInfo(GetTablesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTablesValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableLinkCollectionResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableLinkCollectionResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13108,7 +13426,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTablesAsync(GetTablesRequest request, final ApiCallback< TableLinkCollectionResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTablesAsync(GetTablesRequest request, final ApiCallback< TableLinkCollectionResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13146,7 +13464,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableLinkCollectionResponse getTablesOnline(GetTablesOnlineRequest request) throws ApiException, IOException {
+    public TableLinkCollectionResponse getTablesOnline(GetTablesOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableLinkCollectionResponse > resp = getTablesOnlineWithHttpInfo(request);
             return resp.getData();
@@ -13168,9 +13486,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableLinkCollectionResponse > getTablesOnlineWithHttpInfo(GetTablesOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< TableLinkCollectionResponse > getTablesOnlineWithHttpInfo(GetTablesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTablesOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableLinkCollectionResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableLinkCollectionResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13181,7 +13501,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTablesOnlineAsync(GetTablesOnlineRequest request, final ApiCallback< TableLinkCollectionResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getTablesOnlineAsync(GetTablesOnlineRequest request, final ApiCallback< TableLinkCollectionResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13219,7 +13539,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public CommentResponse insertComment(InsertCommentRequest request) throws ApiException, IOException {
+    public CommentResponse insertComment(InsertCommentRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< CommentResponse > resp = insertCommentWithHttpInfo(request);
             return resp.getData();
@@ -13241,9 +13561,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< CommentResponse > insertCommentWithHttpInfo(InsertCommentRequest request) throws ApiException, IOException {
+    private ApiResponse< CommentResponse > insertCommentWithHttpInfo(InsertCommentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertCommentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        CommentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CommentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13254,7 +13576,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertCommentAsync(InsertCommentRequest request, final ApiCallback< CommentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertCommentAsync(InsertCommentRequest request, final ApiCallback< CommentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13292,7 +13614,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertCommentOnlineResponse insertCommentOnline(InsertCommentOnlineRequest request) throws ApiException, IOException {
+    public InsertCommentOnlineResponse insertCommentOnline(InsertCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertCommentOnlineResponse > resp = insertCommentOnlineWithHttpInfo(request);
             return resp.getData();
@@ -13314,9 +13636,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertCommentOnlineResponse > insertCommentOnlineWithHttpInfo(InsertCommentOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertCommentOnlineResponse > insertCommentOnlineWithHttpInfo(InsertCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertCommentOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertCommentOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertCommentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13327,7 +13651,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertCommentOnlineAsync(InsertCommentOnlineRequest request, final ApiCallback< InsertCommentOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertCommentOnlineAsync(InsertCommentOnlineRequest request, final ApiCallback< InsertCommentOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13365,7 +13689,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DrawingObjectResponse insertDrawingObject(InsertDrawingObjectRequest request) throws ApiException, IOException {
+    public DrawingObjectResponse insertDrawingObject(InsertDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DrawingObjectResponse > resp = insertDrawingObjectWithHttpInfo(request);
             return resp.getData();
@@ -13387,9 +13711,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DrawingObjectResponse > insertDrawingObjectWithHttpInfo(InsertDrawingObjectRequest request) throws ApiException, IOException {
+    private ApiResponse< DrawingObjectResponse > insertDrawingObjectWithHttpInfo(InsertDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertDrawingObjectValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DrawingObjectResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DrawingObjectResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13400,7 +13726,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertDrawingObjectAsync(InsertDrawingObjectRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertDrawingObjectAsync(InsertDrawingObjectRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13438,7 +13764,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertDrawingObjectOnlineResponse insertDrawingObjectOnline(InsertDrawingObjectOnlineRequest request) throws ApiException, IOException {
+    public InsertDrawingObjectOnlineResponse insertDrawingObjectOnline(InsertDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertDrawingObjectOnlineResponse > resp = insertDrawingObjectOnlineWithHttpInfo(request);
             return resp.getData();
@@ -13460,9 +13786,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertDrawingObjectOnlineResponse > insertDrawingObjectOnlineWithHttpInfo(InsertDrawingObjectOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertDrawingObjectOnlineResponse > insertDrawingObjectOnlineWithHttpInfo(InsertDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertDrawingObjectOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertDrawingObjectOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertDrawingObjectOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13473,7 +13801,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertDrawingObjectOnlineAsync(InsertDrawingObjectOnlineRequest request, final ApiCallback< InsertDrawingObjectOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertDrawingObjectOnlineAsync(InsertDrawingObjectOnlineRequest request, final ApiCallback< InsertDrawingObjectOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13511,7 +13839,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FieldResponse insertField(InsertFieldRequest request) throws ApiException, IOException {
+    public FieldResponse insertField(InsertFieldRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FieldResponse > resp = insertFieldWithHttpInfo(request);
             return resp.getData();
@@ -13533,9 +13861,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FieldResponse > insertFieldWithHttpInfo(InsertFieldRequest request) throws ApiException, IOException {
+    private ApiResponse< FieldResponse > insertFieldWithHttpInfo(InsertFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertFieldValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FieldResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FieldResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13546,7 +13876,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertFieldAsync(InsertFieldRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertFieldAsync(InsertFieldRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13584,7 +13914,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertFieldOnlineResponse insertFieldOnline(InsertFieldOnlineRequest request) throws ApiException, IOException {
+    public InsertFieldOnlineResponse insertFieldOnline(InsertFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertFieldOnlineResponse > resp = insertFieldOnlineWithHttpInfo(request);
             return resp.getData();
@@ -13606,9 +13936,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertFieldOnlineResponse > insertFieldOnlineWithHttpInfo(InsertFieldOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertFieldOnlineResponse > insertFieldOnlineWithHttpInfo(InsertFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertFieldOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertFieldOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertFieldOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13619,7 +13951,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertFieldOnlineAsync(InsertFieldOnlineRequest request, final ApiCallback< InsertFieldOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertFieldOnlineAsync(InsertFieldOnlineRequest request, final ApiCallback< InsertFieldOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13657,7 +13989,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FootnoteResponse insertFootnote(InsertFootnoteRequest request) throws ApiException, IOException {
+    public FootnoteResponse insertFootnote(InsertFootnoteRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FootnoteResponse > resp = insertFootnoteWithHttpInfo(request);
             return resp.getData();
@@ -13679,9 +14011,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FootnoteResponse > insertFootnoteWithHttpInfo(InsertFootnoteRequest request) throws ApiException, IOException {
+    private ApiResponse< FootnoteResponse > insertFootnoteWithHttpInfo(InsertFootnoteRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertFootnoteValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FootnoteResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FootnoteResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13692,7 +14026,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertFootnoteAsync(InsertFootnoteRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertFootnoteAsync(InsertFootnoteRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13730,7 +14064,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertFootnoteOnlineResponse insertFootnoteOnline(InsertFootnoteOnlineRequest request) throws ApiException, IOException {
+    public InsertFootnoteOnlineResponse insertFootnoteOnline(InsertFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertFootnoteOnlineResponse > resp = insertFootnoteOnlineWithHttpInfo(request);
             return resp.getData();
@@ -13752,9 +14086,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertFootnoteOnlineResponse > insertFootnoteOnlineWithHttpInfo(InsertFootnoteOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertFootnoteOnlineResponse > insertFootnoteOnlineWithHttpInfo(InsertFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertFootnoteOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertFootnoteOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertFootnoteOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13765,7 +14101,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertFootnoteOnlineAsync(InsertFootnoteOnlineRequest request, final ApiCallback< InsertFootnoteOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertFootnoteOnlineAsync(InsertFootnoteOnlineRequest request, final ApiCallback< InsertFootnoteOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13803,7 +14139,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FormFieldResponse insertFormField(InsertFormFieldRequest request) throws ApiException, IOException {
+    public FormFieldResponse insertFormField(InsertFormFieldRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FormFieldResponse > resp = insertFormFieldWithHttpInfo(request);
             return resp.getData();
@@ -13825,9 +14161,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FormFieldResponse > insertFormFieldWithHttpInfo(InsertFormFieldRequest request) throws ApiException, IOException {
+    private ApiResponse< FormFieldResponse > insertFormFieldWithHttpInfo(InsertFormFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertFormFieldValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FormFieldResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FormFieldResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13838,7 +14176,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertFormFieldAsync(InsertFormFieldRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertFormFieldAsync(InsertFormFieldRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13876,7 +14214,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertFormFieldOnlineResponse insertFormFieldOnline(InsertFormFieldOnlineRequest request) throws ApiException, IOException {
+    public InsertFormFieldOnlineResponse insertFormFieldOnline(InsertFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertFormFieldOnlineResponse > resp = insertFormFieldOnlineWithHttpInfo(request);
             return resp.getData();
@@ -13898,9 +14236,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertFormFieldOnlineResponse > insertFormFieldOnlineWithHttpInfo(InsertFormFieldOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertFormFieldOnlineResponse > insertFormFieldOnlineWithHttpInfo(InsertFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertFormFieldOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertFormFieldOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertFormFieldOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13911,7 +14251,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertFormFieldOnlineAsync(InsertFormFieldOnlineRequest request, final ApiCallback< InsertFormFieldOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertFormFieldOnlineAsync(InsertFormFieldOnlineRequest request, final ApiCallback< InsertFormFieldOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13949,7 +14289,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public HeaderFooterResponse insertHeaderFooter(InsertHeaderFooterRequest request) throws ApiException, IOException {
+    public HeaderFooterResponse insertHeaderFooter(InsertHeaderFooterRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< HeaderFooterResponse > resp = insertHeaderFooterWithHttpInfo(request);
             return resp.getData();
@@ -13971,9 +14311,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< HeaderFooterResponse > insertHeaderFooterWithHttpInfo(InsertHeaderFooterRequest request) throws ApiException, IOException {
+    private ApiResponse< HeaderFooterResponse > insertHeaderFooterWithHttpInfo(InsertHeaderFooterRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertHeaderFooterValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        HeaderFooterResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< HeaderFooterResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -13984,7 +14326,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertHeaderFooterAsync(InsertHeaderFooterRequest request, final ApiCallback< HeaderFooterResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertHeaderFooterAsync(InsertHeaderFooterRequest request, final ApiCallback< HeaderFooterResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14022,7 +14364,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertHeaderFooterOnlineResponse insertHeaderFooterOnline(InsertHeaderFooterOnlineRequest request) throws ApiException, IOException {
+    public InsertHeaderFooterOnlineResponse insertHeaderFooterOnline(InsertHeaderFooterOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertHeaderFooterOnlineResponse > resp = insertHeaderFooterOnlineWithHttpInfo(request);
             return resp.getData();
@@ -14044,9 +14386,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertHeaderFooterOnlineResponse > insertHeaderFooterOnlineWithHttpInfo(InsertHeaderFooterOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertHeaderFooterOnlineResponse > insertHeaderFooterOnlineWithHttpInfo(InsertHeaderFooterOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertHeaderFooterOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertHeaderFooterOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertHeaderFooterOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -14057,7 +14401,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertHeaderFooterOnlineAsync(InsertHeaderFooterOnlineRequest request, final ApiCallback< InsertHeaderFooterOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertHeaderFooterOnlineAsync(InsertHeaderFooterOnlineRequest request, final ApiCallback< InsertHeaderFooterOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14095,7 +14439,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ListResponse insertList(InsertListRequest request) throws ApiException, IOException {
+    public ListResponse insertList(InsertListRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ListResponse > resp = insertListWithHttpInfo(request);
             return resp.getData();
@@ -14117,9 +14461,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ListResponse > insertListWithHttpInfo(InsertListRequest request) throws ApiException, IOException {
+    private ApiResponse< ListResponse > insertListWithHttpInfo(InsertListRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertListValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ListResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ListResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -14130,7 +14476,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertListAsync(InsertListRequest request, final ApiCallback< ListResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertListAsync(InsertListRequest request, final ApiCallback< ListResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14168,7 +14514,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertListOnlineResponse insertListOnline(InsertListOnlineRequest request) throws ApiException, IOException {
+    public InsertListOnlineResponse insertListOnline(InsertListOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertListOnlineResponse > resp = insertListOnlineWithHttpInfo(request);
             return resp.getData();
@@ -14190,9 +14536,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertListOnlineResponse > insertListOnlineWithHttpInfo(InsertListOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertListOnlineResponse > insertListOnlineWithHttpInfo(InsertListOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertListOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertListOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertListOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -14203,7 +14551,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertListOnlineAsync(InsertListOnlineRequest request, final ApiCallback< InsertListOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertListOnlineAsync(InsertListOnlineRequest request, final ApiCallback< InsertListOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14241,7 +14589,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TabStopsResponse insertOrUpdateParagraphTabStop(InsertOrUpdateParagraphTabStopRequest request) throws ApiException, IOException {
+    public TabStopsResponse insertOrUpdateParagraphTabStop(InsertOrUpdateParagraphTabStopRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TabStopsResponse > resp = insertOrUpdateParagraphTabStopWithHttpInfo(request);
             return resp.getData();
@@ -14263,9 +14611,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TabStopsResponse > insertOrUpdateParagraphTabStopWithHttpInfo(InsertOrUpdateParagraphTabStopRequest request) throws ApiException, IOException {
+    private ApiResponse< TabStopsResponse > insertOrUpdateParagraphTabStopWithHttpInfo(InsertOrUpdateParagraphTabStopRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TabStopsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TabStopsResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -14276,7 +14626,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertOrUpdateParagraphTabStopAsync(InsertOrUpdateParagraphTabStopRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertOrUpdateParagraphTabStopAsync(InsertOrUpdateParagraphTabStopRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14314,7 +14664,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertOrUpdateParagraphTabStopOnlineResponse insertOrUpdateParagraphTabStopOnline(InsertOrUpdateParagraphTabStopOnlineRequest request) throws ApiException, IOException {
+    public InsertOrUpdateParagraphTabStopOnlineResponse insertOrUpdateParagraphTabStopOnline(InsertOrUpdateParagraphTabStopOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertOrUpdateParagraphTabStopOnlineResponse > resp = insertOrUpdateParagraphTabStopOnlineWithHttpInfo(request);
             return resp.getData();
@@ -14336,9 +14686,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertOrUpdateParagraphTabStopOnlineResponse > insertOrUpdateParagraphTabStopOnlineWithHttpInfo(InsertOrUpdateParagraphTabStopOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertOrUpdateParagraphTabStopOnlineResponse > insertOrUpdateParagraphTabStopOnlineWithHttpInfo(InsertOrUpdateParagraphTabStopOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertOrUpdateParagraphTabStopOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertOrUpdateParagraphTabStopOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -14349,7 +14701,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertOrUpdateParagraphTabStopOnlineAsync(InsertOrUpdateParagraphTabStopOnlineRequest request, final ApiCallback< InsertOrUpdateParagraphTabStopOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertOrUpdateParagraphTabStopOnlineAsync(InsertOrUpdateParagraphTabStopOnlineRequest request, final ApiCallback< InsertOrUpdateParagraphTabStopOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14387,7 +14739,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse insertPageNumbers(InsertPageNumbersRequest request) throws ApiException, IOException {
+    public DocumentResponse insertPageNumbers(InsertPageNumbersRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = insertPageNumbersWithHttpInfo(request);
             return resp.getData();
@@ -14409,9 +14761,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > insertPageNumbersWithHttpInfo(InsertPageNumbersRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > insertPageNumbersWithHttpInfo(InsertPageNumbersRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertPageNumbersValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -14422,7 +14776,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertPageNumbersAsync(InsertPageNumbersRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertPageNumbersAsync(InsertPageNumbersRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14460,7 +14814,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertPageNumbersOnlineResponse insertPageNumbersOnline(InsertPageNumbersOnlineRequest request) throws ApiException, IOException {
+    public InsertPageNumbersOnlineResponse insertPageNumbersOnline(InsertPageNumbersOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertPageNumbersOnlineResponse > resp = insertPageNumbersOnlineWithHttpInfo(request);
             return resp.getData();
@@ -14482,9 +14836,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertPageNumbersOnlineResponse > insertPageNumbersOnlineWithHttpInfo(InsertPageNumbersOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertPageNumbersOnlineResponse > insertPageNumbersOnlineWithHttpInfo(InsertPageNumbersOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertPageNumbersOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertPageNumbersOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertPageNumbersOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -14495,7 +14851,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertPageNumbersOnlineAsync(InsertPageNumbersOnlineRequest request, final ApiCallback< InsertPageNumbersOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertPageNumbersOnlineAsync(InsertPageNumbersOnlineRequest request, final ApiCallback< InsertPageNumbersOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14533,7 +14889,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphResponse insertParagraph(InsertParagraphRequest request) throws ApiException, IOException {
+    public ParagraphResponse insertParagraph(InsertParagraphRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ParagraphResponse > resp = insertParagraphWithHttpInfo(request);
             return resp.getData();
@@ -14555,9 +14911,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphResponse > insertParagraphWithHttpInfo(InsertParagraphRequest request) throws ApiException, IOException {
+    private ApiResponse< ParagraphResponse > insertParagraphWithHttpInfo(InsertParagraphRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertParagraphValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ParagraphResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ParagraphResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -14568,7 +14926,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertParagraphAsync(InsertParagraphRequest request, final ApiCallback< ParagraphResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertParagraphAsync(InsertParagraphRequest request, final ApiCallback< ParagraphResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14606,7 +14964,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertParagraphOnlineResponse insertParagraphOnline(InsertParagraphOnlineRequest request) throws ApiException, IOException {
+    public InsertParagraphOnlineResponse insertParagraphOnline(InsertParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertParagraphOnlineResponse > resp = insertParagraphOnlineWithHttpInfo(request);
             return resp.getData();
@@ -14628,9 +14986,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertParagraphOnlineResponse > insertParagraphOnlineWithHttpInfo(InsertParagraphOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertParagraphOnlineResponse > insertParagraphOnlineWithHttpInfo(InsertParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertParagraphOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertParagraphOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertParagraphOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -14641,7 +15001,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertParagraphOnlineAsync(InsertParagraphOnlineRequest request, final ApiCallback< InsertParagraphOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertParagraphOnlineAsync(InsertParagraphOnlineRequest request, final ApiCallback< InsertParagraphOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14679,7 +15039,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RunResponse insertRun(InsertRunRequest request) throws ApiException, IOException {
+    public RunResponse insertRun(InsertRunRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< RunResponse > resp = insertRunWithHttpInfo(request);
             return resp.getData();
@@ -14701,9 +15061,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RunResponse > insertRunWithHttpInfo(InsertRunRequest request) throws ApiException, IOException {
+    private ApiResponse< RunResponse > insertRunWithHttpInfo(InsertRunRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertRunValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        RunResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< RunResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -14714,7 +15076,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertRunAsync(InsertRunRequest request, final ApiCallback< RunResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertRunAsync(InsertRunRequest request, final ApiCallback< RunResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14752,7 +15114,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertRunOnlineResponse insertRunOnline(InsertRunOnlineRequest request) throws ApiException, IOException {
+    public InsertRunOnlineResponse insertRunOnline(InsertRunOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertRunOnlineResponse > resp = insertRunOnlineWithHttpInfo(request);
             return resp.getData();
@@ -14774,9 +15136,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertRunOnlineResponse > insertRunOnlineWithHttpInfo(InsertRunOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertRunOnlineResponse > insertRunOnlineWithHttpInfo(InsertRunOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertRunOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertRunOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertRunOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -14787,7 +15151,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertRunOnlineAsync(InsertRunOnlineRequest request, final ApiCallback< InsertRunOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertRunOnlineAsync(InsertRunOnlineRequest request, final ApiCallback< InsertRunOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14825,7 +15189,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public StyleResponse insertStyle(InsertStyleRequest request) throws ApiException, IOException {
+    public StyleResponse insertStyle(InsertStyleRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< StyleResponse > resp = insertStyleWithHttpInfo(request);
             return resp.getData();
@@ -14847,9 +15211,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< StyleResponse > insertStyleWithHttpInfo(InsertStyleRequest request) throws ApiException, IOException {
+    private ApiResponse< StyleResponse > insertStyleWithHttpInfo(InsertStyleRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertStyleValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        StyleResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -14860,7 +15226,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertStyleAsync(InsertStyleRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertStyleAsync(InsertStyleRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14898,7 +15264,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertStyleOnlineResponse insertStyleOnline(InsertStyleOnlineRequest request) throws ApiException, IOException {
+    public InsertStyleOnlineResponse insertStyleOnline(InsertStyleOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertStyleOnlineResponse > resp = insertStyleOnlineWithHttpInfo(request);
             return resp.getData();
@@ -14920,9 +15286,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertStyleOnlineResponse > insertStyleOnlineWithHttpInfo(InsertStyleOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertStyleOnlineResponse > insertStyleOnlineWithHttpInfo(InsertStyleOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertStyleOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertStyleOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertStyleOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -14933,7 +15301,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertStyleOnlineAsync(InsertStyleOnlineRequest request, final ApiCallback< InsertStyleOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertStyleOnlineAsync(InsertStyleOnlineRequest request, final ApiCallback< InsertStyleOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14971,7 +15339,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableResponse insertTable(InsertTableRequest request) throws ApiException, IOException {
+    public TableResponse insertTable(InsertTableRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableResponse > resp = insertTableWithHttpInfo(request);
             return resp.getData();
@@ -14993,9 +15361,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableResponse > insertTableWithHttpInfo(InsertTableRequest request) throws ApiException, IOException {
+    private ApiResponse< TableResponse > insertTableWithHttpInfo(InsertTableRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertTableValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -15006,7 +15376,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertTableAsync(InsertTableRequest request, final ApiCallback< TableResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertTableAsync(InsertTableRequest request, final ApiCallback< TableResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15044,7 +15414,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableCellResponse insertTableCell(InsertTableCellRequest request) throws ApiException, IOException {
+    public TableCellResponse insertTableCell(InsertTableCellRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableCellResponse > resp = insertTableCellWithHttpInfo(request);
             return resp.getData();
@@ -15066,9 +15436,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableCellResponse > insertTableCellWithHttpInfo(InsertTableCellRequest request) throws ApiException, IOException {
+    private ApiResponse< TableCellResponse > insertTableCellWithHttpInfo(InsertTableCellRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertTableCellValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableCellResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableCellResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -15079,7 +15451,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertTableCellAsync(InsertTableCellRequest request, final ApiCallback< TableCellResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertTableCellAsync(InsertTableCellRequest request, final ApiCallback< TableCellResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15117,7 +15489,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertTableCellOnlineResponse insertTableCellOnline(InsertTableCellOnlineRequest request) throws ApiException, IOException {
+    public InsertTableCellOnlineResponse insertTableCellOnline(InsertTableCellOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertTableCellOnlineResponse > resp = insertTableCellOnlineWithHttpInfo(request);
             return resp.getData();
@@ -15139,9 +15511,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertTableCellOnlineResponse > insertTableCellOnlineWithHttpInfo(InsertTableCellOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertTableCellOnlineResponse > insertTableCellOnlineWithHttpInfo(InsertTableCellOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertTableCellOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertTableCellOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertTableCellOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -15152,7 +15526,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertTableCellOnlineAsync(InsertTableCellOnlineRequest request, final ApiCallback< InsertTableCellOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertTableCellOnlineAsync(InsertTableCellOnlineRequest request, final ApiCallback< InsertTableCellOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15190,7 +15564,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertTableOnlineResponse insertTableOnline(InsertTableOnlineRequest request) throws ApiException, IOException {
+    public InsertTableOnlineResponse insertTableOnline(InsertTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertTableOnlineResponse > resp = insertTableOnlineWithHttpInfo(request);
             return resp.getData();
@@ -15212,9 +15586,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertTableOnlineResponse > insertTableOnlineWithHttpInfo(InsertTableOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertTableOnlineResponse > insertTableOnlineWithHttpInfo(InsertTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertTableOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertTableOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertTableOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -15225,7 +15601,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertTableOnlineAsync(InsertTableOnlineRequest request, final ApiCallback< InsertTableOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertTableOnlineAsync(InsertTableOnlineRequest request, final ApiCallback< InsertTableOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15263,7 +15639,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableRowResponse insertTableRow(InsertTableRowRequest request) throws ApiException, IOException {
+    public TableRowResponse insertTableRow(InsertTableRowRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableRowResponse > resp = insertTableRowWithHttpInfo(request);
             return resp.getData();
@@ -15285,9 +15661,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableRowResponse > insertTableRowWithHttpInfo(InsertTableRowRequest request) throws ApiException, IOException {
+    private ApiResponse< TableRowResponse > insertTableRowWithHttpInfo(InsertTableRowRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertTableRowValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableRowResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableRowResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -15298,7 +15676,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertTableRowAsync(InsertTableRowRequest request, final ApiCallback< TableRowResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertTableRowAsync(InsertTableRowRequest request, final ApiCallback< TableRowResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15336,7 +15714,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertTableRowOnlineResponse insertTableRowOnline(InsertTableRowOnlineRequest request) throws ApiException, IOException {
+    public InsertTableRowOnlineResponse insertTableRowOnline(InsertTableRowOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertTableRowOnlineResponse > resp = insertTableRowOnlineWithHttpInfo(request);
             return resp.getData();
@@ -15358,9 +15736,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertTableRowOnlineResponse > insertTableRowOnlineWithHttpInfo(InsertTableRowOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertTableRowOnlineResponse > insertTableRowOnlineWithHttpInfo(InsertTableRowOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertTableRowOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertTableRowOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertTableRowOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -15371,7 +15751,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertTableRowOnlineAsync(InsertTableRowOnlineRequest request, final ApiCallback< InsertTableRowOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertTableRowOnlineAsync(InsertTableRowOnlineRequest request, final ApiCallback< InsertTableRowOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15409,7 +15789,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse insertWatermarkImage(InsertWatermarkImageRequest request) throws ApiException, IOException {
+    public DocumentResponse insertWatermarkImage(InsertWatermarkImageRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = insertWatermarkImageWithHttpInfo(request);
             return resp.getData();
@@ -15431,9 +15811,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > insertWatermarkImageWithHttpInfo(InsertWatermarkImageRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > insertWatermarkImageWithHttpInfo(InsertWatermarkImageRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkImageValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -15444,7 +15826,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertWatermarkImageAsync(InsertWatermarkImageRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertWatermarkImageAsync(InsertWatermarkImageRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15482,7 +15864,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertWatermarkImageOnlineResponse insertWatermarkImageOnline(InsertWatermarkImageOnlineRequest request) throws ApiException, IOException {
+    public InsertWatermarkImageOnlineResponse insertWatermarkImageOnline(InsertWatermarkImageOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertWatermarkImageOnlineResponse > resp = insertWatermarkImageOnlineWithHttpInfo(request);
             return resp.getData();
@@ -15504,9 +15886,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertWatermarkImageOnlineResponse > insertWatermarkImageOnlineWithHttpInfo(InsertWatermarkImageOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertWatermarkImageOnlineResponse > insertWatermarkImageOnlineWithHttpInfo(InsertWatermarkImageOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkImageOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertWatermarkImageOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertWatermarkImageOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -15517,7 +15901,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertWatermarkImageOnlineAsync(InsertWatermarkImageOnlineRequest request, final ApiCallback< InsertWatermarkImageOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertWatermarkImageOnlineAsync(InsertWatermarkImageOnlineRequest request, final ApiCallback< InsertWatermarkImageOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15555,7 +15939,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse insertWatermarkText(InsertWatermarkTextRequest request) throws ApiException, IOException {
+    public DocumentResponse insertWatermarkText(InsertWatermarkTextRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = insertWatermarkTextWithHttpInfo(request);
             return resp.getData();
@@ -15577,9 +15961,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > insertWatermarkTextWithHttpInfo(InsertWatermarkTextRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > insertWatermarkTextWithHttpInfo(InsertWatermarkTextRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkTextValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -15590,7 +15976,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertWatermarkTextAsync(InsertWatermarkTextRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertWatermarkTextAsync(InsertWatermarkTextRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15628,7 +16014,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public InsertWatermarkTextOnlineResponse insertWatermarkTextOnline(InsertWatermarkTextOnlineRequest request) throws ApiException, IOException {
+    public InsertWatermarkTextOnlineResponse insertWatermarkTextOnline(InsertWatermarkTextOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertWatermarkTextOnlineResponse > resp = insertWatermarkTextOnlineWithHttpInfo(request);
             return resp.getData();
@@ -15650,9 +16036,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< InsertWatermarkTextOnlineResponse > insertWatermarkTextOnlineWithHttpInfo(InsertWatermarkTextOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< InsertWatermarkTextOnlineResponse > insertWatermarkTextOnlineWithHttpInfo(InsertWatermarkTextOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkTextOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        InsertWatermarkTextOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertWatermarkTextOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -15663,7 +16051,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertWatermarkTextOnlineAsync(InsertWatermarkTextOnlineRequest request, final ApiCallback< InsertWatermarkTextOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertWatermarkTextOnlineAsync(InsertWatermarkTextOnlineRequest request, final ApiCallback< InsertWatermarkTextOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15701,7 +16089,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SaveResponse loadWebDocument(LoadWebDocumentRequest request) throws ApiException, IOException {
+    public SaveResponse loadWebDocument(LoadWebDocumentRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SaveResponse > resp = loadWebDocumentWithHttpInfo(request);
             return resp.getData();
@@ -15723,9 +16111,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SaveResponse > loadWebDocumentWithHttpInfo(LoadWebDocumentRequest request) throws ApiException, IOException {
+    private ApiResponse< SaveResponse > loadWebDocumentWithHttpInfo(LoadWebDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = loadWebDocumentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SaveResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SaveResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -15736,7 +16126,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call loadWebDocumentAsync(LoadWebDocumentRequest request, final ApiCallback< SaveResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call loadWebDocumentAsync(LoadWebDocumentRequest request, final ApiCallback< SaveResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15773,7 +16163,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void moveFile(MoveFileRequest request) throws ApiException, IOException {
+    public void moveFile(MoveFileRequest request) throws ApiException, MessagingException, IOException {
         try {
     moveFileWithHttpInfo(request);
         }
@@ -15793,7 +16183,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > moveFileWithHttpInfo(MoveFileRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > moveFileWithHttpInfo(MoveFileRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = moveFileValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -15806,7 +16196,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call moveFileAsync(MoveFileRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call moveFileAsync(MoveFileRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15843,7 +16233,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void moveFolder(MoveFolderRequest request) throws ApiException, IOException {
+    public void moveFolder(MoveFolderRequest request) throws ApiException, MessagingException, IOException {
         try {
     moveFolderWithHttpInfo(request);
         }
@@ -15863,7 +16253,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > moveFolderWithHttpInfo(MoveFolderRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > moveFolderWithHttpInfo(MoveFolderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = moveFolderValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -15876,7 +16266,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call moveFolderAsync(MoveFolderRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call moveFolderAsync(MoveFolderRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15913,7 +16303,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void optimizeDocument(OptimizeDocumentRequest request) throws ApiException, IOException {
+    public void optimizeDocument(OptimizeDocumentRequest request) throws ApiException, MessagingException, IOException {
         try {
     optimizeDocumentWithHttpInfo(request);
         }
@@ -15933,7 +16323,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > optimizeDocumentWithHttpInfo(OptimizeDocumentRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > optimizeDocumentWithHttpInfo(OptimizeDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = optimizeDocumentValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -15946,7 +16336,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call optimizeDocumentAsync(OptimizeDocumentRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call optimizeDocumentAsync(OptimizeDocumentRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15984,7 +16374,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File optimizeDocumentOnline(OptimizeDocumentOnlineRequest request) throws ApiException, IOException {
+    public File optimizeDocumentOnline(OptimizeDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = optimizeDocumentOnlineWithHttpInfo(request);
             return resp.getData();
@@ -16006,9 +16396,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > optimizeDocumentOnlineWithHttpInfo(OptimizeDocumentOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > optimizeDocumentOnlineWithHttpInfo(OptimizeDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = optimizeDocumentOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16019,7 +16411,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call optimizeDocumentOnlineAsync(OptimizeDocumentOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call optimizeDocumentOnlineAsync(OptimizeDocumentOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16057,7 +16449,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ProtectionDataResponse protectDocument(ProtectDocumentRequest request) throws ApiException, IOException {
+    public ProtectionDataResponse protectDocument(ProtectDocumentRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ProtectionDataResponse > resp = protectDocumentWithHttpInfo(request);
             return resp.getData();
@@ -16079,9 +16471,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ProtectionDataResponse > protectDocumentWithHttpInfo(ProtectDocumentRequest request) throws ApiException, IOException {
+    private ApiResponse< ProtectionDataResponse > protectDocumentWithHttpInfo(ProtectDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = protectDocumentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ProtectionDataResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ProtectionDataResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16092,7 +16486,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call protectDocumentAsync(ProtectDocumentRequest request, final ApiCallback< ProtectionDataResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call protectDocumentAsync(ProtectDocumentRequest request, final ApiCallback< ProtectionDataResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16130,7 +16524,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ProtectDocumentOnlineResponse protectDocumentOnline(ProtectDocumentOnlineRequest request) throws ApiException, IOException {
+    public ProtectDocumentOnlineResponse protectDocumentOnline(ProtectDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ProtectDocumentOnlineResponse > resp = protectDocumentOnlineWithHttpInfo(request);
             return resp.getData();
@@ -16152,9 +16546,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ProtectDocumentOnlineResponse > protectDocumentOnlineWithHttpInfo(ProtectDocumentOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< ProtectDocumentOnlineResponse > protectDocumentOnlineWithHttpInfo(ProtectDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = protectDocumentOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ProtectDocumentOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ProtectDocumentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16165,7 +16561,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call protectDocumentOnlineAsync(ProtectDocumentOnlineRequest request, final ApiCallback< ProtectDocumentOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call protectDocumentOnlineAsync(ProtectDocumentOnlineRequest request, final ApiCallback< ProtectDocumentOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16203,7 +16599,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RevisionsModificationResponse rejectAllRevisions(RejectAllRevisionsRequest request) throws ApiException, IOException {
+    public RevisionsModificationResponse rejectAllRevisions(RejectAllRevisionsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< RevisionsModificationResponse > resp = rejectAllRevisionsWithHttpInfo(request);
             return resp.getData();
@@ -16225,9 +16621,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RevisionsModificationResponse > rejectAllRevisionsWithHttpInfo(RejectAllRevisionsRequest request) throws ApiException, IOException {
+    private ApiResponse< RevisionsModificationResponse > rejectAllRevisionsWithHttpInfo(RejectAllRevisionsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = rejectAllRevisionsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        RevisionsModificationResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< RevisionsModificationResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16238,7 +16636,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call rejectAllRevisionsAsync(RejectAllRevisionsRequest request, final ApiCallback< RevisionsModificationResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call rejectAllRevisionsAsync(RejectAllRevisionsRequest request, final ApiCallback< RevisionsModificationResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16276,7 +16674,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RejectAllRevisionsOnlineResponse rejectAllRevisionsOnline(RejectAllRevisionsOnlineRequest request) throws ApiException, IOException {
+    public RejectAllRevisionsOnlineResponse rejectAllRevisionsOnline(RejectAllRevisionsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< RejectAllRevisionsOnlineResponse > resp = rejectAllRevisionsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -16298,9 +16696,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RejectAllRevisionsOnlineResponse > rejectAllRevisionsOnlineWithHttpInfo(RejectAllRevisionsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< RejectAllRevisionsOnlineResponse > rejectAllRevisionsOnlineWithHttpInfo(RejectAllRevisionsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = rejectAllRevisionsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        RejectAllRevisionsOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< RejectAllRevisionsOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16311,7 +16711,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call rejectAllRevisionsOnlineAsync(RejectAllRevisionsOnlineRequest request, final ApiCallback< RejectAllRevisionsOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call rejectAllRevisionsOnlineAsync(RejectAllRevisionsOnlineRequest request, final ApiCallback< RejectAllRevisionsOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16349,7 +16749,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse removeRange(RemoveRangeRequest request) throws ApiException, IOException {
+    public DocumentResponse removeRange(RemoveRangeRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = removeRangeWithHttpInfo(request);
             return resp.getData();
@@ -16371,9 +16771,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > removeRangeWithHttpInfo(RemoveRangeRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > removeRangeWithHttpInfo(RemoveRangeRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = removeRangeValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16384,7 +16786,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call removeRangeAsync(RemoveRangeRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call removeRangeAsync(RemoveRangeRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16422,7 +16824,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RemoveRangeOnlineResponse removeRangeOnline(RemoveRangeOnlineRequest request) throws ApiException, IOException {
+    public RemoveRangeOnlineResponse removeRangeOnline(RemoveRangeOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< RemoveRangeOnlineResponse > resp = removeRangeOnlineWithHttpInfo(request);
             return resp.getData();
@@ -16444,9 +16846,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RemoveRangeOnlineResponse > removeRangeOnlineWithHttpInfo(RemoveRangeOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< RemoveRangeOnlineResponse > removeRangeOnlineWithHttpInfo(RemoveRangeOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = removeRangeOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        RemoveRangeOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< RemoveRangeOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16457,7 +16861,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call removeRangeOnlineAsync(RemoveRangeOnlineRequest request, final ApiCallback< RemoveRangeOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call removeRangeOnlineAsync(RemoveRangeOnlineRequest request, final ApiCallback< RemoveRangeOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16495,7 +16899,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderDrawingObject(RenderDrawingObjectRequest request) throws ApiException, IOException {
+    public File renderDrawingObject(RenderDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = renderDrawingObjectWithHttpInfo(request);
             return resp.getData();
@@ -16517,9 +16921,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderDrawingObjectWithHttpInfo(RenderDrawingObjectRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderDrawingObjectWithHttpInfo(RenderDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderDrawingObjectValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16530,7 +16936,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderDrawingObjectAsync(RenderDrawingObjectRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderDrawingObjectAsync(RenderDrawingObjectRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16568,7 +16974,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderDrawingObjectOnline(RenderDrawingObjectOnlineRequest request) throws ApiException, IOException {
+    public File renderDrawingObjectOnline(RenderDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = renderDrawingObjectOnlineWithHttpInfo(request);
             return resp.getData();
@@ -16590,9 +16996,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderDrawingObjectOnlineWithHttpInfo(RenderDrawingObjectOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderDrawingObjectOnlineWithHttpInfo(RenderDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderDrawingObjectOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16603,7 +17011,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderDrawingObjectOnlineAsync(RenderDrawingObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderDrawingObjectOnlineAsync(RenderDrawingObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16641,7 +17049,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderMathObject(RenderMathObjectRequest request) throws ApiException, IOException {
+    public File renderMathObject(RenderMathObjectRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = renderMathObjectWithHttpInfo(request);
             return resp.getData();
@@ -16663,9 +17071,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderMathObjectWithHttpInfo(RenderMathObjectRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderMathObjectWithHttpInfo(RenderMathObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderMathObjectValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16676,7 +17086,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderMathObjectAsync(RenderMathObjectRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderMathObjectAsync(RenderMathObjectRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16714,7 +17124,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderMathObjectOnline(RenderMathObjectOnlineRequest request) throws ApiException, IOException {
+    public File renderMathObjectOnline(RenderMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = renderMathObjectOnlineWithHttpInfo(request);
             return resp.getData();
@@ -16736,9 +17146,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderMathObjectOnlineWithHttpInfo(RenderMathObjectOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderMathObjectOnlineWithHttpInfo(RenderMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderMathObjectOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16749,7 +17161,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderMathObjectOnlineAsync(RenderMathObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderMathObjectOnlineAsync(RenderMathObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16787,7 +17199,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderPage(RenderPageRequest request) throws ApiException, IOException {
+    public File renderPage(RenderPageRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = renderPageWithHttpInfo(request);
             return resp.getData();
@@ -16809,9 +17221,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderPageWithHttpInfo(RenderPageRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderPageWithHttpInfo(RenderPageRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderPageValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16822,7 +17236,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderPageAsync(RenderPageRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderPageAsync(RenderPageRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16860,7 +17274,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderPageOnline(RenderPageOnlineRequest request) throws ApiException, IOException {
+    public File renderPageOnline(RenderPageOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = renderPageOnlineWithHttpInfo(request);
             return resp.getData();
@@ -16882,9 +17296,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderPageOnlineWithHttpInfo(RenderPageOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderPageOnlineWithHttpInfo(RenderPageOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderPageOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16895,7 +17311,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderPageOnlineAsync(RenderPageOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderPageOnlineAsync(RenderPageOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16933,7 +17349,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderParagraph(RenderParagraphRequest request) throws ApiException, IOException {
+    public File renderParagraph(RenderParagraphRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = renderParagraphWithHttpInfo(request);
             return resp.getData();
@@ -16955,9 +17371,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderParagraphWithHttpInfo(RenderParagraphRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderParagraphWithHttpInfo(RenderParagraphRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderParagraphValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -16968,7 +17386,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderParagraphAsync(RenderParagraphRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderParagraphAsync(RenderParagraphRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17006,7 +17424,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderParagraphOnline(RenderParagraphOnlineRequest request) throws ApiException, IOException {
+    public File renderParagraphOnline(RenderParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = renderParagraphOnlineWithHttpInfo(request);
             return resp.getData();
@@ -17028,9 +17446,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderParagraphOnlineWithHttpInfo(RenderParagraphOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderParagraphOnlineWithHttpInfo(RenderParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderParagraphOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -17041,7 +17461,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderParagraphOnlineAsync(RenderParagraphOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderParagraphOnlineAsync(RenderParagraphOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17079,7 +17499,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderTable(RenderTableRequest request) throws ApiException, IOException {
+    public File renderTable(RenderTableRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = renderTableWithHttpInfo(request);
             return resp.getData();
@@ -17101,9 +17521,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderTableWithHttpInfo(RenderTableRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderTableWithHttpInfo(RenderTableRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderTableValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -17114,7 +17536,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderTableAsync(RenderTableRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderTableAsync(RenderTableRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17152,7 +17574,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderTableOnline(RenderTableOnlineRequest request) throws ApiException, IOException {
+    public File renderTableOnline(RenderTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< File > resp = renderTableOnlineWithHttpInfo(request);
             return resp.getData();
@@ -17174,9 +17596,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderTableOnlineWithHttpInfo(RenderTableOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > renderTableOnlineWithHttpInfo(RenderTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderTableOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -17187,7 +17611,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderTableOnlineAsync(RenderTableOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call renderTableOnlineAsync(RenderTableOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17225,7 +17649,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ReplaceTextResponse replaceText(ReplaceTextRequest request) throws ApiException, IOException {
+    public ReplaceTextResponse replaceText(ReplaceTextRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ReplaceTextResponse > resp = replaceTextWithHttpInfo(request);
             return resp.getData();
@@ -17247,9 +17671,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ReplaceTextResponse > replaceTextWithHttpInfo(ReplaceTextRequest request) throws ApiException, IOException {
+    private ApiResponse< ReplaceTextResponse > replaceTextWithHttpInfo(ReplaceTextRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = replaceTextValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ReplaceTextResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ReplaceTextResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -17260,7 +17686,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceTextAsync(ReplaceTextRequest request, final ApiCallback< ReplaceTextResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call replaceTextAsync(ReplaceTextRequest request, final ApiCallback< ReplaceTextResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17298,7 +17724,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ReplaceTextOnlineResponse replaceTextOnline(ReplaceTextOnlineRequest request) throws ApiException, IOException {
+    public ReplaceTextOnlineResponse replaceTextOnline(ReplaceTextOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ReplaceTextOnlineResponse > resp = replaceTextOnlineWithHttpInfo(request);
             return resp.getData();
@@ -17320,9 +17746,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ReplaceTextOnlineResponse > replaceTextOnlineWithHttpInfo(ReplaceTextOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< ReplaceTextOnlineResponse > replaceTextOnlineWithHttpInfo(ReplaceTextOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = replaceTextOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ReplaceTextOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ReplaceTextOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -17333,7 +17761,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceTextOnlineAsync(ReplaceTextOnlineRequest request, final ApiCallback< ReplaceTextOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call replaceTextOnlineAsync(ReplaceTextOnlineRequest request, final ApiCallback< ReplaceTextOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17371,7 +17799,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse replaceWithText(ReplaceWithTextRequest request) throws ApiException, IOException {
+    public DocumentResponse replaceWithText(ReplaceWithTextRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = replaceWithTextWithHttpInfo(request);
             return resp.getData();
@@ -17393,9 +17821,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > replaceWithTextWithHttpInfo(ReplaceWithTextRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > replaceWithTextWithHttpInfo(ReplaceWithTextRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = replaceWithTextValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -17406,7 +17836,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceWithTextAsync(ReplaceWithTextRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call replaceWithTextAsync(ReplaceWithTextRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17444,7 +17874,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ReplaceWithTextOnlineResponse replaceWithTextOnline(ReplaceWithTextOnlineRequest request) throws ApiException, IOException {
+    public ReplaceWithTextOnlineResponse replaceWithTextOnline(ReplaceWithTextOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ReplaceWithTextOnlineResponse > resp = replaceWithTextOnlineWithHttpInfo(request);
             return resp.getData();
@@ -17466,9 +17896,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ReplaceWithTextOnlineResponse > replaceWithTextOnlineWithHttpInfo(ReplaceWithTextOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< ReplaceWithTextOnlineResponse > replaceWithTextOnlineWithHttpInfo(ReplaceWithTextOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = replaceWithTextOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ReplaceWithTextOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ReplaceWithTextOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -17479,7 +17911,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceWithTextOnlineAsync(ReplaceWithTextOnlineRequest request, final ApiCallback< ReplaceWithTextOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call replaceWithTextOnlineAsync(ReplaceWithTextOnlineRequest request, final ApiCallback< ReplaceWithTextOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17516,7 +17948,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public void resetCache(ResetCacheRequest request) throws ApiException, IOException {
+    public void resetCache(ResetCacheRequest request) throws ApiException, MessagingException, IOException {
         try {
     resetCacheWithHttpInfo(request);
         }
@@ -17536,7 +17968,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< Void > resetCacheWithHttpInfo(ResetCacheRequest request) throws ApiException, IOException {
+    private ApiResponse< Void > resetCacheWithHttpInfo(ResetCacheRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = resetCacheValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -17549,7 +17981,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call resetCacheAsync(ResetCacheRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call resetCacheAsync(ResetCacheRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17587,7 +18019,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SaveResponse saveAs(SaveAsRequest request) throws ApiException, IOException {
+    public SaveResponse saveAs(SaveAsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SaveResponse > resp = saveAsWithHttpInfo(request);
             return resp.getData();
@@ -17609,9 +18041,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SaveResponse > saveAsWithHttpInfo(SaveAsRequest request) throws ApiException, IOException {
+    private ApiResponse< SaveResponse > saveAsWithHttpInfo(SaveAsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = saveAsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SaveResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SaveResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -17622,7 +18056,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call saveAsAsync(SaveAsRequest request, final ApiCallback< SaveResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call saveAsAsync(SaveAsRequest request, final ApiCallback< SaveResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17660,7 +18094,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SaveAsOnlineResponse saveAsOnline(SaveAsOnlineRequest request) throws ApiException, IOException {
+    public SaveAsOnlineResponse saveAsOnline(SaveAsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SaveAsOnlineResponse > resp = saveAsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -17682,9 +18116,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SaveAsOnlineResponse > saveAsOnlineWithHttpInfo(SaveAsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< SaveAsOnlineResponse > saveAsOnlineWithHttpInfo(SaveAsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = saveAsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SaveAsOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SaveAsOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -17695,7 +18131,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call saveAsOnlineAsync(SaveAsOnlineRequest request, final ApiCallback< SaveAsOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call saveAsOnlineAsync(SaveAsOnlineRequest request, final ApiCallback< SaveAsOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17733,7 +18169,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse saveAsRange(SaveAsRangeRequest request) throws ApiException, IOException {
+    public DocumentResponse saveAsRange(SaveAsRangeRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = saveAsRangeWithHttpInfo(request);
             return resp.getData();
@@ -17755,9 +18191,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > saveAsRangeWithHttpInfo(SaveAsRangeRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > saveAsRangeWithHttpInfo(SaveAsRangeRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = saveAsRangeValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -17768,7 +18206,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call saveAsRangeAsync(SaveAsRangeRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call saveAsRangeAsync(SaveAsRangeRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17806,7 +18244,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SaveAsRangeOnlineResponse saveAsRangeOnline(SaveAsRangeOnlineRequest request) throws ApiException, IOException {
+    public SaveAsRangeOnlineResponse saveAsRangeOnline(SaveAsRangeOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SaveAsRangeOnlineResponse > resp = saveAsRangeOnlineWithHttpInfo(request);
             return resp.getData();
@@ -17828,9 +18266,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SaveAsRangeOnlineResponse > saveAsRangeOnlineWithHttpInfo(SaveAsRangeOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< SaveAsRangeOnlineResponse > saveAsRangeOnlineWithHttpInfo(SaveAsRangeOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = saveAsRangeOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SaveAsRangeOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SaveAsRangeOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -17841,7 +18281,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call saveAsRangeOnlineAsync(SaveAsRangeOnlineRequest request, final ApiCallback< SaveAsRangeOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call saveAsRangeOnlineAsync(SaveAsRangeOnlineRequest request, final ApiCallback< SaveAsRangeOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17879,7 +18319,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SaveResponse saveAsTiff(SaveAsTiffRequest request) throws ApiException, IOException {
+    public SaveResponse saveAsTiff(SaveAsTiffRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SaveResponse > resp = saveAsTiffWithHttpInfo(request);
             return resp.getData();
@@ -17901,9 +18341,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SaveResponse > saveAsTiffWithHttpInfo(SaveAsTiffRequest request) throws ApiException, IOException {
+    private ApiResponse< SaveResponse > saveAsTiffWithHttpInfo(SaveAsTiffRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = saveAsTiffValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SaveResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SaveResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -17914,7 +18356,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call saveAsTiffAsync(SaveAsTiffRequest request, final ApiCallback< SaveResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call saveAsTiffAsync(SaveAsTiffRequest request, final ApiCallback< SaveResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17952,7 +18394,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SaveAsTiffOnlineResponse saveAsTiffOnline(SaveAsTiffOnlineRequest request) throws ApiException, IOException {
+    public SaveAsTiffOnlineResponse saveAsTiffOnline(SaveAsTiffOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SaveAsTiffOnlineResponse > resp = saveAsTiffOnlineWithHttpInfo(request);
             return resp.getData();
@@ -17974,9 +18416,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SaveAsTiffOnlineResponse > saveAsTiffOnlineWithHttpInfo(SaveAsTiffOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< SaveAsTiffOnlineResponse > saveAsTiffOnlineWithHttpInfo(SaveAsTiffOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = saveAsTiffOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SaveAsTiffOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SaveAsTiffOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -17987,7 +18431,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call saveAsTiffOnlineAsync(SaveAsTiffOnlineRequest request, final ApiCallback< SaveAsTiffOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call saveAsTiffOnlineAsync(SaveAsTiffOnlineRequest request, final ApiCallback< SaveAsTiffOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18025,7 +18469,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SearchResponse search(SearchRequest request) throws ApiException, IOException {
+    public SearchResponse search(SearchRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SearchResponse > resp = searchWithHttpInfo(request);
             return resp.getData();
@@ -18047,9 +18491,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SearchResponse > searchWithHttpInfo(SearchRequest request) throws ApiException, IOException {
+    private ApiResponse< SearchResponse > searchWithHttpInfo(SearchRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = searchValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SearchResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SearchResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -18060,7 +18506,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call searchAsync(SearchRequest request, final ApiCallback< SearchResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call searchAsync(SearchRequest request, final ApiCallback< SearchResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18098,7 +18544,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SearchResponse searchOnline(SearchOnlineRequest request) throws ApiException, IOException {
+    public SearchResponse searchOnline(SearchOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SearchResponse > resp = searchOnlineWithHttpInfo(request);
             return resp.getData();
@@ -18120,9 +18566,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SearchResponse > searchOnlineWithHttpInfo(SearchOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< SearchResponse > searchOnlineWithHttpInfo(SearchOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = searchOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SearchResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SearchResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -18133,7 +18581,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call searchOnlineAsync(SearchOnlineRequest request, final ApiCallback< SearchResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call searchOnlineAsync(SearchOnlineRequest request, final ApiCallback< SearchResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18171,7 +18619,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SplitDocumentResponse splitDocument(SplitDocumentRequest request) throws ApiException, IOException {
+    public SplitDocumentResponse splitDocument(SplitDocumentRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SplitDocumentResponse > resp = splitDocumentWithHttpInfo(request);
             return resp.getData();
@@ -18193,9 +18641,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SplitDocumentResponse > splitDocumentWithHttpInfo(SplitDocumentRequest request) throws ApiException, IOException {
+    private ApiResponse< SplitDocumentResponse > splitDocumentWithHttpInfo(SplitDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = splitDocumentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SplitDocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SplitDocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -18206,7 +18656,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call splitDocumentAsync(SplitDocumentRequest request, final ApiCallback< SplitDocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call splitDocumentAsync(SplitDocumentRequest request, final ApiCallback< SplitDocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18244,7 +18694,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SplitDocumentOnlineResponse splitDocumentOnline(SplitDocumentOnlineRequest request) throws ApiException, IOException {
+    public SplitDocumentOnlineResponse splitDocumentOnline(SplitDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SplitDocumentOnlineResponse > resp = splitDocumentOnlineWithHttpInfo(request);
             return resp.getData();
@@ -18266,9 +18716,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SplitDocumentOnlineResponse > splitDocumentOnlineWithHttpInfo(SplitDocumentOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< SplitDocumentOnlineResponse > splitDocumentOnlineWithHttpInfo(SplitDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = splitDocumentOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SplitDocumentOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SplitDocumentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -18279,7 +18731,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call splitDocumentOnlineAsync(SplitDocumentOnlineRequest request, final ApiCallback< SplitDocumentOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call splitDocumentOnlineAsync(SplitDocumentOnlineRequest request, final ApiCallback< SplitDocumentOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18317,7 +18769,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ProtectionDataResponse unprotectDocument(UnprotectDocumentRequest request) throws ApiException, IOException {
+    public ProtectionDataResponse unprotectDocument(UnprotectDocumentRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ProtectionDataResponse > resp = unprotectDocumentWithHttpInfo(request);
             return resp.getData();
@@ -18339,9 +18791,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ProtectionDataResponse > unprotectDocumentWithHttpInfo(UnprotectDocumentRequest request) throws ApiException, IOException {
+    private ApiResponse< ProtectionDataResponse > unprotectDocumentWithHttpInfo(UnprotectDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = unprotectDocumentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ProtectionDataResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ProtectionDataResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -18352,7 +18806,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call unprotectDocumentAsync(UnprotectDocumentRequest request, final ApiCallback< ProtectionDataResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call unprotectDocumentAsync(UnprotectDocumentRequest request, final ApiCallback< ProtectionDataResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18390,7 +18844,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UnprotectDocumentOnlineResponse unprotectDocumentOnline(UnprotectDocumentOnlineRequest request) throws ApiException, IOException {
+    public UnprotectDocumentOnlineResponse unprotectDocumentOnline(UnprotectDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UnprotectDocumentOnlineResponse > resp = unprotectDocumentOnlineWithHttpInfo(request);
             return resp.getData();
@@ -18412,9 +18866,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UnprotectDocumentOnlineResponse > unprotectDocumentOnlineWithHttpInfo(UnprotectDocumentOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UnprotectDocumentOnlineResponse > unprotectDocumentOnlineWithHttpInfo(UnprotectDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = unprotectDocumentOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UnprotectDocumentOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UnprotectDocumentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -18425,7 +18881,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call unprotectDocumentOnlineAsync(UnprotectDocumentOnlineRequest request, final ApiCallback< UnprotectDocumentOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call unprotectDocumentOnlineAsync(UnprotectDocumentOnlineRequest request, final ApiCallback< UnprotectDocumentOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18463,7 +18919,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public BookmarkResponse updateBookmark(UpdateBookmarkRequest request) throws ApiException, IOException {
+    public BookmarkResponse updateBookmark(UpdateBookmarkRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< BookmarkResponse > resp = updateBookmarkWithHttpInfo(request);
             return resp.getData();
@@ -18485,9 +18941,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< BookmarkResponse > updateBookmarkWithHttpInfo(UpdateBookmarkRequest request) throws ApiException, IOException {
+    private ApiResponse< BookmarkResponse > updateBookmarkWithHttpInfo(UpdateBookmarkRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateBookmarkValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        BookmarkResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< BookmarkResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -18498,7 +18956,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateBookmarkAsync(UpdateBookmarkRequest request, final ApiCallback< BookmarkResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateBookmarkAsync(UpdateBookmarkRequest request, final ApiCallback< BookmarkResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18536,7 +18994,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateBookmarkOnlineResponse updateBookmarkOnline(UpdateBookmarkOnlineRequest request) throws ApiException, IOException {
+    public UpdateBookmarkOnlineResponse updateBookmarkOnline(UpdateBookmarkOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateBookmarkOnlineResponse > resp = updateBookmarkOnlineWithHttpInfo(request);
             return resp.getData();
@@ -18558,9 +19016,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateBookmarkOnlineResponse > updateBookmarkOnlineWithHttpInfo(UpdateBookmarkOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateBookmarkOnlineResponse > updateBookmarkOnlineWithHttpInfo(UpdateBookmarkOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateBookmarkOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateBookmarkOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateBookmarkOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -18571,7 +19031,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateBookmarkOnlineAsync(UpdateBookmarkOnlineRequest request, final ApiCallback< UpdateBookmarkOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateBookmarkOnlineAsync(UpdateBookmarkOnlineRequest request, final ApiCallback< UpdateBookmarkOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18609,7 +19069,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public BorderResponse updateBorder(UpdateBorderRequest request) throws ApiException, IOException {
+    public BorderResponse updateBorder(UpdateBorderRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< BorderResponse > resp = updateBorderWithHttpInfo(request);
             return resp.getData();
@@ -18631,9 +19091,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< BorderResponse > updateBorderWithHttpInfo(UpdateBorderRequest request) throws ApiException, IOException {
+    private ApiResponse< BorderResponse > updateBorderWithHttpInfo(UpdateBorderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateBorderValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        BorderResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< BorderResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -18644,7 +19106,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateBorderAsync(UpdateBorderRequest request, final ApiCallback< BorderResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateBorderAsync(UpdateBorderRequest request, final ApiCallback< BorderResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18682,7 +19144,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateBorderOnlineResponse updateBorderOnline(UpdateBorderOnlineRequest request) throws ApiException, IOException {
+    public UpdateBorderOnlineResponse updateBorderOnline(UpdateBorderOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateBorderOnlineResponse > resp = updateBorderOnlineWithHttpInfo(request);
             return resp.getData();
@@ -18704,9 +19166,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateBorderOnlineResponse > updateBorderOnlineWithHttpInfo(UpdateBorderOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateBorderOnlineResponse > updateBorderOnlineWithHttpInfo(UpdateBorderOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateBorderOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateBorderOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateBorderOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -18717,7 +19181,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateBorderOnlineAsync(UpdateBorderOnlineRequest request, final ApiCallback< UpdateBorderOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateBorderOnlineAsync(UpdateBorderOnlineRequest request, final ApiCallback< UpdateBorderOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18755,7 +19219,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public CommentResponse updateComment(UpdateCommentRequest request) throws ApiException, IOException {
+    public CommentResponse updateComment(UpdateCommentRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< CommentResponse > resp = updateCommentWithHttpInfo(request);
             return resp.getData();
@@ -18777,9 +19241,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< CommentResponse > updateCommentWithHttpInfo(UpdateCommentRequest request) throws ApiException, IOException {
+    private ApiResponse< CommentResponse > updateCommentWithHttpInfo(UpdateCommentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateCommentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        CommentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CommentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -18790,7 +19256,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateCommentAsync(UpdateCommentRequest request, final ApiCallback< CommentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateCommentAsync(UpdateCommentRequest request, final ApiCallback< CommentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18828,7 +19294,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateCommentOnlineResponse updateCommentOnline(UpdateCommentOnlineRequest request) throws ApiException, IOException {
+    public UpdateCommentOnlineResponse updateCommentOnline(UpdateCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateCommentOnlineResponse > resp = updateCommentOnlineWithHttpInfo(request);
             return resp.getData();
@@ -18850,9 +19316,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateCommentOnlineResponse > updateCommentOnlineWithHttpInfo(UpdateCommentOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateCommentOnlineResponse > updateCommentOnlineWithHttpInfo(UpdateCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateCommentOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateCommentOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateCommentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -18863,7 +19331,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateCommentOnlineAsync(UpdateCommentOnlineRequest request, final ApiCallback< UpdateCommentOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateCommentOnlineAsync(UpdateCommentOnlineRequest request, final ApiCallback< UpdateCommentOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18901,7 +19369,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DrawingObjectResponse updateDrawingObject(UpdateDrawingObjectRequest request) throws ApiException, IOException {
+    public DrawingObjectResponse updateDrawingObject(UpdateDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DrawingObjectResponse > resp = updateDrawingObjectWithHttpInfo(request);
             return resp.getData();
@@ -18923,9 +19391,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DrawingObjectResponse > updateDrawingObjectWithHttpInfo(UpdateDrawingObjectRequest request) throws ApiException, IOException {
+    private ApiResponse< DrawingObjectResponse > updateDrawingObjectWithHttpInfo(UpdateDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateDrawingObjectValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DrawingObjectResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DrawingObjectResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -18936,7 +19406,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateDrawingObjectAsync(UpdateDrawingObjectRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateDrawingObjectAsync(UpdateDrawingObjectRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18974,7 +19444,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateDrawingObjectOnlineResponse updateDrawingObjectOnline(UpdateDrawingObjectOnlineRequest request) throws ApiException, IOException {
+    public UpdateDrawingObjectOnlineResponse updateDrawingObjectOnline(UpdateDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateDrawingObjectOnlineResponse > resp = updateDrawingObjectOnlineWithHttpInfo(request);
             return resp.getData();
@@ -18996,9 +19466,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateDrawingObjectOnlineResponse > updateDrawingObjectOnlineWithHttpInfo(UpdateDrawingObjectOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateDrawingObjectOnlineResponse > updateDrawingObjectOnlineWithHttpInfo(UpdateDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateDrawingObjectOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateDrawingObjectOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateDrawingObjectOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19009,7 +19481,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateDrawingObjectOnlineAsync(UpdateDrawingObjectOnlineRequest request, final ApiCallback< UpdateDrawingObjectOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateDrawingObjectOnlineAsync(UpdateDrawingObjectOnlineRequest request, final ApiCallback< UpdateDrawingObjectOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19047,7 +19519,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FieldResponse updateField(UpdateFieldRequest request) throws ApiException, IOException {
+    public FieldResponse updateField(UpdateFieldRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FieldResponse > resp = updateFieldWithHttpInfo(request);
             return resp.getData();
@@ -19069,9 +19541,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FieldResponse > updateFieldWithHttpInfo(UpdateFieldRequest request) throws ApiException, IOException {
+    private ApiResponse< FieldResponse > updateFieldWithHttpInfo(UpdateFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFieldValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FieldResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FieldResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19082,7 +19556,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateFieldAsync(UpdateFieldRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateFieldAsync(UpdateFieldRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19120,7 +19594,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateFieldOnlineResponse updateFieldOnline(UpdateFieldOnlineRequest request) throws ApiException, IOException {
+    public UpdateFieldOnlineResponse updateFieldOnline(UpdateFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateFieldOnlineResponse > resp = updateFieldOnlineWithHttpInfo(request);
             return resp.getData();
@@ -19142,9 +19616,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateFieldOnlineResponse > updateFieldOnlineWithHttpInfo(UpdateFieldOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateFieldOnlineResponse > updateFieldOnlineWithHttpInfo(UpdateFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFieldOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateFieldOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateFieldOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19155,7 +19631,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateFieldOnlineAsync(UpdateFieldOnlineRequest request, final ApiCallback< UpdateFieldOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateFieldOnlineAsync(UpdateFieldOnlineRequest request, final ApiCallback< UpdateFieldOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19193,7 +19669,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public DocumentResponse updateFields(UpdateFieldsRequest request) throws ApiException, IOException {
+    public DocumentResponse updateFields(UpdateFieldsRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = updateFieldsWithHttpInfo(request);
             return resp.getData();
@@ -19215,9 +19691,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< DocumentResponse > updateFieldsWithHttpInfo(UpdateFieldsRequest request) throws ApiException, IOException {
+    private ApiResponse< DocumentResponse > updateFieldsWithHttpInfo(UpdateFieldsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFieldsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        DocumentResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19228,7 +19706,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateFieldsAsync(UpdateFieldsRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateFieldsAsync(UpdateFieldsRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19266,7 +19744,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateFieldsOnlineResponse updateFieldsOnline(UpdateFieldsOnlineRequest request) throws ApiException, IOException {
+    public UpdateFieldsOnlineResponse updateFieldsOnline(UpdateFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateFieldsOnlineResponse > resp = updateFieldsOnlineWithHttpInfo(request);
             return resp.getData();
@@ -19288,9 +19766,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateFieldsOnlineResponse > updateFieldsOnlineWithHttpInfo(UpdateFieldsOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateFieldsOnlineResponse > updateFieldsOnlineWithHttpInfo(UpdateFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFieldsOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateFieldsOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateFieldsOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19301,7 +19781,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateFieldsOnlineAsync(UpdateFieldsOnlineRequest request, final ApiCallback< UpdateFieldsOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateFieldsOnlineAsync(UpdateFieldsOnlineRequest request, final ApiCallback< UpdateFieldsOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19339,7 +19819,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FootnoteResponse updateFootnote(UpdateFootnoteRequest request) throws ApiException, IOException {
+    public FootnoteResponse updateFootnote(UpdateFootnoteRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FootnoteResponse > resp = updateFootnoteWithHttpInfo(request);
             return resp.getData();
@@ -19361,9 +19841,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FootnoteResponse > updateFootnoteWithHttpInfo(UpdateFootnoteRequest request) throws ApiException, IOException {
+    private ApiResponse< FootnoteResponse > updateFootnoteWithHttpInfo(UpdateFootnoteRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFootnoteValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FootnoteResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FootnoteResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19374,7 +19856,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateFootnoteAsync(UpdateFootnoteRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateFootnoteAsync(UpdateFootnoteRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19412,7 +19894,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateFootnoteOnlineResponse updateFootnoteOnline(UpdateFootnoteOnlineRequest request) throws ApiException, IOException {
+    public UpdateFootnoteOnlineResponse updateFootnoteOnline(UpdateFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateFootnoteOnlineResponse > resp = updateFootnoteOnlineWithHttpInfo(request);
             return resp.getData();
@@ -19434,9 +19916,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateFootnoteOnlineResponse > updateFootnoteOnlineWithHttpInfo(UpdateFootnoteOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateFootnoteOnlineResponse > updateFootnoteOnlineWithHttpInfo(UpdateFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFootnoteOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateFootnoteOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateFootnoteOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19447,7 +19931,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateFootnoteOnlineAsync(UpdateFootnoteOnlineRequest request, final ApiCallback< UpdateFootnoteOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateFootnoteOnlineAsync(UpdateFootnoteOnlineRequest request, final ApiCallback< UpdateFootnoteOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19485,7 +19969,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FormFieldResponse updateFormField(UpdateFormFieldRequest request) throws ApiException, IOException {
+    public FormFieldResponse updateFormField(UpdateFormFieldRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FormFieldResponse > resp = updateFormFieldWithHttpInfo(request);
             return resp.getData();
@@ -19507,9 +19991,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FormFieldResponse > updateFormFieldWithHttpInfo(UpdateFormFieldRequest request) throws ApiException, IOException {
+    private ApiResponse< FormFieldResponse > updateFormFieldWithHttpInfo(UpdateFormFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFormFieldValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FormFieldResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FormFieldResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19520,7 +20006,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateFormFieldAsync(UpdateFormFieldRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateFormFieldAsync(UpdateFormFieldRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19558,7 +20044,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateFormFieldOnlineResponse updateFormFieldOnline(UpdateFormFieldOnlineRequest request) throws ApiException, IOException {
+    public UpdateFormFieldOnlineResponse updateFormFieldOnline(UpdateFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateFormFieldOnlineResponse > resp = updateFormFieldOnlineWithHttpInfo(request);
             return resp.getData();
@@ -19580,9 +20066,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateFormFieldOnlineResponse > updateFormFieldOnlineWithHttpInfo(UpdateFormFieldOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateFormFieldOnlineResponse > updateFormFieldOnlineWithHttpInfo(UpdateFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFormFieldOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateFormFieldOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateFormFieldOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19593,7 +20081,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateFormFieldOnlineAsync(UpdateFormFieldOnlineRequest request, final ApiCallback< UpdateFormFieldOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateFormFieldOnlineAsync(UpdateFormFieldOnlineRequest request, final ApiCallback< UpdateFormFieldOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19631,7 +20119,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ListResponse updateList(UpdateListRequest request) throws ApiException, IOException {
+    public ListResponse updateList(UpdateListRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ListResponse > resp = updateListWithHttpInfo(request);
             return resp.getData();
@@ -19653,9 +20141,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ListResponse > updateListWithHttpInfo(UpdateListRequest request) throws ApiException, IOException {
+    private ApiResponse< ListResponse > updateListWithHttpInfo(UpdateListRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateListValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ListResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ListResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19666,7 +20156,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateListAsync(UpdateListRequest request, final ApiCallback< ListResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateListAsync(UpdateListRequest request, final ApiCallback< ListResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19704,7 +20194,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ListResponse updateListLevel(UpdateListLevelRequest request) throws ApiException, IOException {
+    public ListResponse updateListLevel(UpdateListLevelRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ListResponse > resp = updateListLevelWithHttpInfo(request);
             return resp.getData();
@@ -19726,9 +20216,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ListResponse > updateListLevelWithHttpInfo(UpdateListLevelRequest request) throws ApiException, IOException {
+    private ApiResponse< ListResponse > updateListLevelWithHttpInfo(UpdateListLevelRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateListLevelValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ListResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ListResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19739,7 +20231,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateListLevelAsync(UpdateListLevelRequest request, final ApiCallback< ListResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateListLevelAsync(UpdateListLevelRequest request, final ApiCallback< ListResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19777,7 +20269,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateListLevelOnlineResponse updateListLevelOnline(UpdateListLevelOnlineRequest request) throws ApiException, IOException {
+    public UpdateListLevelOnlineResponse updateListLevelOnline(UpdateListLevelOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateListLevelOnlineResponse > resp = updateListLevelOnlineWithHttpInfo(request);
             return resp.getData();
@@ -19799,9 +20291,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateListLevelOnlineResponse > updateListLevelOnlineWithHttpInfo(UpdateListLevelOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateListLevelOnlineResponse > updateListLevelOnlineWithHttpInfo(UpdateListLevelOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateListLevelOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateListLevelOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateListLevelOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19812,7 +20306,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateListLevelOnlineAsync(UpdateListLevelOnlineRequest request, final ApiCallback< UpdateListLevelOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateListLevelOnlineAsync(UpdateListLevelOnlineRequest request, final ApiCallback< UpdateListLevelOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19850,7 +20344,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateListOnlineResponse updateListOnline(UpdateListOnlineRequest request) throws ApiException, IOException {
+    public UpdateListOnlineResponse updateListOnline(UpdateListOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateListOnlineResponse > resp = updateListOnlineWithHttpInfo(request);
             return resp.getData();
@@ -19872,9 +20366,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateListOnlineResponse > updateListOnlineWithHttpInfo(UpdateListOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateListOnlineResponse > updateListOnlineWithHttpInfo(UpdateListOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateListOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateListOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateListOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19885,7 +20381,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateListOnlineAsync(UpdateListOnlineRequest request, final ApiCallback< UpdateListOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateListOnlineAsync(UpdateListOnlineRequest request, final ApiCallback< UpdateListOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19923,7 +20419,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphFormatResponse updateParagraphFormat(UpdateParagraphFormatRequest request) throws ApiException, IOException {
+    public ParagraphFormatResponse updateParagraphFormat(UpdateParagraphFormatRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ParagraphFormatResponse > resp = updateParagraphFormatWithHttpInfo(request);
             return resp.getData();
@@ -19945,9 +20441,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphFormatResponse > updateParagraphFormatWithHttpInfo(UpdateParagraphFormatRequest request) throws ApiException, IOException {
+    private ApiResponse< ParagraphFormatResponse > updateParagraphFormatWithHttpInfo(UpdateParagraphFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateParagraphFormatValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ParagraphFormatResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ParagraphFormatResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -19958,7 +20456,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateParagraphFormatAsync(UpdateParagraphFormatRequest request, final ApiCallback< ParagraphFormatResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateParagraphFormatAsync(UpdateParagraphFormatRequest request, final ApiCallback< ParagraphFormatResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19996,7 +20494,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateParagraphFormatOnlineResponse updateParagraphFormatOnline(UpdateParagraphFormatOnlineRequest request) throws ApiException, IOException {
+    public UpdateParagraphFormatOnlineResponse updateParagraphFormatOnline(UpdateParagraphFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateParagraphFormatOnlineResponse > resp = updateParagraphFormatOnlineWithHttpInfo(request);
             return resp.getData();
@@ -20018,9 +20516,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateParagraphFormatOnlineResponse > updateParagraphFormatOnlineWithHttpInfo(UpdateParagraphFormatOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateParagraphFormatOnlineResponse > updateParagraphFormatOnlineWithHttpInfo(UpdateParagraphFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateParagraphFormatOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateParagraphFormatOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateParagraphFormatOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20031,7 +20531,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateParagraphFormatOnlineAsync(UpdateParagraphFormatOnlineRequest request, final ApiCallback< UpdateParagraphFormatOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateParagraphFormatOnlineAsync(UpdateParagraphFormatOnlineRequest request, final ApiCallback< UpdateParagraphFormatOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20069,7 +20569,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphListFormatResponse updateParagraphListFormat(UpdateParagraphListFormatRequest request) throws ApiException, IOException {
+    public ParagraphListFormatResponse updateParagraphListFormat(UpdateParagraphListFormatRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< ParagraphListFormatResponse > resp = updateParagraphListFormatWithHttpInfo(request);
             return resp.getData();
@@ -20091,9 +20591,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphListFormatResponse > updateParagraphListFormatWithHttpInfo(UpdateParagraphListFormatRequest request) throws ApiException, IOException {
+    private ApiResponse< ParagraphListFormatResponse > updateParagraphListFormatWithHttpInfo(UpdateParagraphListFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateParagraphListFormatValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        ParagraphListFormatResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< ParagraphListFormatResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20104,7 +20606,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateParagraphListFormatAsync(UpdateParagraphListFormatRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateParagraphListFormatAsync(UpdateParagraphListFormatRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20142,7 +20644,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateParagraphListFormatOnlineResponse updateParagraphListFormatOnline(UpdateParagraphListFormatOnlineRequest request) throws ApiException, IOException {
+    public UpdateParagraphListFormatOnlineResponse updateParagraphListFormatOnline(UpdateParagraphListFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateParagraphListFormatOnlineResponse > resp = updateParagraphListFormatOnlineWithHttpInfo(request);
             return resp.getData();
@@ -20164,9 +20666,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateParagraphListFormatOnlineResponse > updateParagraphListFormatOnlineWithHttpInfo(UpdateParagraphListFormatOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateParagraphListFormatOnlineResponse > updateParagraphListFormatOnlineWithHttpInfo(UpdateParagraphListFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateParagraphListFormatOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateParagraphListFormatOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateParagraphListFormatOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20177,7 +20681,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateParagraphListFormatOnlineAsync(UpdateParagraphListFormatOnlineRequest request, final ApiCallback< UpdateParagraphListFormatOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateParagraphListFormatOnlineAsync(UpdateParagraphListFormatOnlineRequest request, final ApiCallback< UpdateParagraphListFormatOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20215,7 +20719,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public RunResponse updateRun(UpdateRunRequest request) throws ApiException, IOException {
+    public RunResponse updateRun(UpdateRunRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< RunResponse > resp = updateRunWithHttpInfo(request);
             return resp.getData();
@@ -20237,9 +20741,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< RunResponse > updateRunWithHttpInfo(UpdateRunRequest request) throws ApiException, IOException {
+    private ApiResponse< RunResponse > updateRunWithHttpInfo(UpdateRunRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateRunValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        RunResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< RunResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20250,7 +20756,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateRunAsync(UpdateRunRequest request, final ApiCallback< RunResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateRunAsync(UpdateRunRequest request, final ApiCallback< RunResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20288,7 +20794,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FontResponse updateRunFont(UpdateRunFontRequest request) throws ApiException, IOException {
+    public FontResponse updateRunFont(UpdateRunFontRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FontResponse > resp = updateRunFontWithHttpInfo(request);
             return resp.getData();
@@ -20310,9 +20816,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FontResponse > updateRunFontWithHttpInfo(UpdateRunFontRequest request) throws ApiException, IOException {
+    private ApiResponse< FontResponse > updateRunFontWithHttpInfo(UpdateRunFontRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateRunFontValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FontResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FontResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20323,7 +20831,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateRunFontAsync(UpdateRunFontRequest request, final ApiCallback< FontResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateRunFontAsync(UpdateRunFontRequest request, final ApiCallback< FontResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20361,7 +20869,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateRunFontOnlineResponse updateRunFontOnline(UpdateRunFontOnlineRequest request) throws ApiException, IOException {
+    public UpdateRunFontOnlineResponse updateRunFontOnline(UpdateRunFontOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateRunFontOnlineResponse > resp = updateRunFontOnlineWithHttpInfo(request);
             return resp.getData();
@@ -20383,9 +20891,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateRunFontOnlineResponse > updateRunFontOnlineWithHttpInfo(UpdateRunFontOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateRunFontOnlineResponse > updateRunFontOnlineWithHttpInfo(UpdateRunFontOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateRunFontOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateRunFontOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateRunFontOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20396,7 +20906,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateRunFontOnlineAsync(UpdateRunFontOnlineRequest request, final ApiCallback< UpdateRunFontOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateRunFontOnlineAsync(UpdateRunFontOnlineRequest request, final ApiCallback< UpdateRunFontOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20434,7 +20944,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateRunOnlineResponse updateRunOnline(UpdateRunOnlineRequest request) throws ApiException, IOException {
+    public UpdateRunOnlineResponse updateRunOnline(UpdateRunOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateRunOnlineResponse > resp = updateRunOnlineWithHttpInfo(request);
             return resp.getData();
@@ -20456,9 +20966,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateRunOnlineResponse > updateRunOnlineWithHttpInfo(UpdateRunOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateRunOnlineResponse > updateRunOnlineWithHttpInfo(UpdateRunOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateRunOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateRunOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateRunOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20469,7 +20981,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateRunOnlineAsync(UpdateRunOnlineRequest request, final ApiCallback< UpdateRunOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateRunOnlineAsync(UpdateRunOnlineRequest request, final ApiCallback< UpdateRunOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20507,7 +21019,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public SectionPageSetupResponse updateSectionPageSetup(UpdateSectionPageSetupRequest request) throws ApiException, IOException {
+    public SectionPageSetupResponse updateSectionPageSetup(UpdateSectionPageSetupRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SectionPageSetupResponse > resp = updateSectionPageSetupWithHttpInfo(request);
             return resp.getData();
@@ -20529,9 +21041,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< SectionPageSetupResponse > updateSectionPageSetupWithHttpInfo(UpdateSectionPageSetupRequest request) throws ApiException, IOException {
+    private ApiResponse< SectionPageSetupResponse > updateSectionPageSetupWithHttpInfo(UpdateSectionPageSetupRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateSectionPageSetupValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        SectionPageSetupResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< SectionPageSetupResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20542,7 +21056,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateSectionPageSetupAsync(UpdateSectionPageSetupRequest request, final ApiCallback< SectionPageSetupResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateSectionPageSetupAsync(UpdateSectionPageSetupRequest request, final ApiCallback< SectionPageSetupResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20580,7 +21094,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateSectionPageSetupOnlineResponse updateSectionPageSetupOnline(UpdateSectionPageSetupOnlineRequest request) throws ApiException, IOException {
+    public UpdateSectionPageSetupOnlineResponse updateSectionPageSetupOnline(UpdateSectionPageSetupOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateSectionPageSetupOnlineResponse > resp = updateSectionPageSetupOnlineWithHttpInfo(request);
             return resp.getData();
@@ -20602,9 +21116,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateSectionPageSetupOnlineResponse > updateSectionPageSetupOnlineWithHttpInfo(UpdateSectionPageSetupOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateSectionPageSetupOnlineResponse > updateSectionPageSetupOnlineWithHttpInfo(UpdateSectionPageSetupOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateSectionPageSetupOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateSectionPageSetupOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateSectionPageSetupOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20615,7 +21131,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateSectionPageSetupOnlineAsync(UpdateSectionPageSetupOnlineRequest request, final ApiCallback< UpdateSectionPageSetupOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateSectionPageSetupOnlineAsync(UpdateSectionPageSetupOnlineRequest request, final ApiCallback< UpdateSectionPageSetupOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20653,7 +21169,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public StyleResponse updateStyle(UpdateStyleRequest request) throws ApiException, IOException {
+    public StyleResponse updateStyle(UpdateStyleRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< StyleResponse > resp = updateStyleWithHttpInfo(request);
             return resp.getData();
@@ -20675,9 +21191,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< StyleResponse > updateStyleWithHttpInfo(UpdateStyleRequest request) throws ApiException, IOException {
+    private ApiResponse< StyleResponse > updateStyleWithHttpInfo(UpdateStyleRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateStyleValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        StyleResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20688,7 +21206,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateStyleAsync(UpdateStyleRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateStyleAsync(UpdateStyleRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20726,7 +21244,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateStyleOnlineResponse updateStyleOnline(UpdateStyleOnlineRequest request) throws ApiException, IOException {
+    public UpdateStyleOnlineResponse updateStyleOnline(UpdateStyleOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateStyleOnlineResponse > resp = updateStyleOnlineWithHttpInfo(request);
             return resp.getData();
@@ -20748,9 +21266,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateStyleOnlineResponse > updateStyleOnlineWithHttpInfo(UpdateStyleOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateStyleOnlineResponse > updateStyleOnlineWithHttpInfo(UpdateStyleOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateStyleOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateStyleOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateStyleOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20761,7 +21281,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateStyleOnlineAsync(UpdateStyleOnlineRequest request, final ApiCallback< UpdateStyleOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateStyleOnlineAsync(UpdateStyleOnlineRequest request, final ApiCallback< UpdateStyleOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20799,7 +21319,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableCellFormatResponse updateTableCellFormat(UpdateTableCellFormatRequest request) throws ApiException, IOException {
+    public TableCellFormatResponse updateTableCellFormat(UpdateTableCellFormatRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableCellFormatResponse > resp = updateTableCellFormatWithHttpInfo(request);
             return resp.getData();
@@ -20821,9 +21341,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableCellFormatResponse > updateTableCellFormatWithHttpInfo(UpdateTableCellFormatRequest request) throws ApiException, IOException {
+    private ApiResponse< TableCellFormatResponse > updateTableCellFormatWithHttpInfo(UpdateTableCellFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateTableCellFormatValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableCellFormatResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableCellFormatResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20834,7 +21356,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateTableCellFormatAsync(UpdateTableCellFormatRequest request, final ApiCallback< TableCellFormatResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateTableCellFormatAsync(UpdateTableCellFormatRequest request, final ApiCallback< TableCellFormatResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20872,7 +21394,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateTableCellFormatOnlineResponse updateTableCellFormatOnline(UpdateTableCellFormatOnlineRequest request) throws ApiException, IOException {
+    public UpdateTableCellFormatOnlineResponse updateTableCellFormatOnline(UpdateTableCellFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateTableCellFormatOnlineResponse > resp = updateTableCellFormatOnlineWithHttpInfo(request);
             return resp.getData();
@@ -20894,9 +21416,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateTableCellFormatOnlineResponse > updateTableCellFormatOnlineWithHttpInfo(UpdateTableCellFormatOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateTableCellFormatOnlineResponse > updateTableCellFormatOnlineWithHttpInfo(UpdateTableCellFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateTableCellFormatOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateTableCellFormatOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateTableCellFormatOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20907,7 +21431,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateTableCellFormatOnlineAsync(UpdateTableCellFormatOnlineRequest request, final ApiCallback< UpdateTableCellFormatOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateTableCellFormatOnlineAsync(UpdateTableCellFormatOnlineRequest request, final ApiCallback< UpdateTableCellFormatOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20945,7 +21469,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TablePropertiesResponse updateTableProperties(UpdateTablePropertiesRequest request) throws ApiException, IOException {
+    public TablePropertiesResponse updateTableProperties(UpdateTablePropertiesRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TablePropertiesResponse > resp = updateTablePropertiesWithHttpInfo(request);
             return resp.getData();
@@ -20967,9 +21491,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TablePropertiesResponse > updateTablePropertiesWithHttpInfo(UpdateTablePropertiesRequest request) throws ApiException, IOException {
+    private ApiResponse< TablePropertiesResponse > updateTablePropertiesWithHttpInfo(UpdateTablePropertiesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateTablePropertiesValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TablePropertiesResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TablePropertiesResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -20980,7 +21506,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateTablePropertiesAsync(UpdateTablePropertiesRequest request, final ApiCallback< TablePropertiesResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateTablePropertiesAsync(UpdateTablePropertiesRequest request, final ApiCallback< TablePropertiesResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -21018,7 +21544,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateTablePropertiesOnlineResponse updateTablePropertiesOnline(UpdateTablePropertiesOnlineRequest request) throws ApiException, IOException {
+    public UpdateTablePropertiesOnlineResponse updateTablePropertiesOnline(UpdateTablePropertiesOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateTablePropertiesOnlineResponse > resp = updateTablePropertiesOnlineWithHttpInfo(request);
             return resp.getData();
@@ -21040,9 +21566,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateTablePropertiesOnlineResponse > updateTablePropertiesOnlineWithHttpInfo(UpdateTablePropertiesOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateTablePropertiesOnlineResponse > updateTablePropertiesOnlineWithHttpInfo(UpdateTablePropertiesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateTablePropertiesOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateTablePropertiesOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateTablePropertiesOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -21053,7 +21581,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateTablePropertiesOnlineAsync(UpdateTablePropertiesOnlineRequest request, final ApiCallback< UpdateTablePropertiesOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateTablePropertiesOnlineAsync(UpdateTablePropertiesOnlineRequest request, final ApiCallback< UpdateTablePropertiesOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -21091,7 +21619,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public TableRowFormatResponse updateTableRowFormat(UpdateTableRowFormatRequest request) throws ApiException, IOException {
+    public TableRowFormatResponse updateTableRowFormat(UpdateTableRowFormatRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< TableRowFormatResponse > resp = updateTableRowFormatWithHttpInfo(request);
             return resp.getData();
@@ -21113,9 +21641,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< TableRowFormatResponse > updateTableRowFormatWithHttpInfo(UpdateTableRowFormatRequest request) throws ApiException, IOException {
+    private ApiResponse< TableRowFormatResponse > updateTableRowFormatWithHttpInfo(UpdateTableRowFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateTableRowFormatValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        TableRowFormatResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< TableRowFormatResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -21126,7 +21656,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateTableRowFormatAsync(UpdateTableRowFormatRequest request, final ApiCallback< TableRowFormatResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateTableRowFormatAsync(UpdateTableRowFormatRequest request, final ApiCallback< TableRowFormatResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -21164,7 +21694,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public UpdateTableRowFormatOnlineResponse updateTableRowFormatOnline(UpdateTableRowFormatOnlineRequest request) throws ApiException, IOException {
+    public UpdateTableRowFormatOnlineResponse updateTableRowFormatOnline(UpdateTableRowFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< UpdateTableRowFormatOnlineResponse > resp = updateTableRowFormatOnlineWithHttpInfo(request);
             return resp.getData();
@@ -21186,9 +21716,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< UpdateTableRowFormatOnlineResponse > updateTableRowFormatOnlineWithHttpInfo(UpdateTableRowFormatOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< UpdateTableRowFormatOnlineResponse > updateTableRowFormatOnlineWithHttpInfo(UpdateTableRowFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateTableRowFormatOnlineValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        UpdateTableRowFormatOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateTableRowFormatOnlineResponse >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -21199,7 +21731,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateTableRowFormatOnlineAsync(UpdateTableRowFormatOnlineRequest request, final ApiCallback< UpdateTableRowFormatOnlineResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call updateTableRowFormatOnlineAsync(UpdateTableRowFormatOnlineRequest request, final ApiCallback< UpdateTableRowFormatOnlineResponse > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -21237,7 +21769,7 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FilesUploadResult uploadFile(UploadFileRequest request) throws ApiException, IOException {
+    public FilesUploadResult uploadFile(UploadFileRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< FilesUploadResult > resp = uploadFileWithHttpInfo(request);
             return resp.getData();
@@ -21259,9 +21791,11 @@ public class WordsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FilesUploadResult > uploadFileWithHttpInfo(UploadFileRequest request) throws ApiException, IOException {
+    private ApiResponse< FilesUploadResult > uploadFileWithHttpInfo(UploadFileRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = uploadFileValidateBeforeCall(request, null, null);
-        return apiClient.execute(call, request.getResponseType());
+        Response response = call.execute();
+        FilesUploadResult data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< FilesUploadResult >(response.code(), response.headers().toMultimap(), data);
     }
 
     /**
@@ -21272,7 +21806,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call uploadFileAsync(UploadFileRequest request, final ApiCallback< FilesUploadResult > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call uploadFileAsync(UploadFileRequest request, final ApiCallback< FilesUploadResult > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

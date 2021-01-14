@@ -52,6 +52,14 @@ public class InsertParagraphOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the InsertParagraphOnlineResponse class.
+     */
+    public InsertParagraphOnlineResponse(ParagraphResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

@@ -52,6 +52,14 @@ public class UpdateListOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the UpdateListOnlineResponse class.
+     */
+    public UpdateListOnlineResponse(ListResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

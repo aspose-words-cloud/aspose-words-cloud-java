@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -60,7 +61,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph.
      */
     @Test
-    public void testGetDocumentParagraphByIndex() throws ApiException, IOException
+    public void testGetDocumentParagraphByIndex() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentParagraphByIndex.docx";
 
@@ -89,7 +90,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph online.
      */
     @Test
-    public void testGetDocumentParagraphOnline() throws ApiException, IOException
+    public void testGetDocumentParagraphOnline() throws ApiException, MessagingException, IOException
     {
         GetParagraphOnlineRequest request = new GetParagraphOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -107,7 +108,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph without node path.
      */
     @Test
-    public void testGetDocumentParagraphByIndexWithoutNodePath() throws ApiException, IOException
+    public void testGetDocumentParagraphByIndexWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentParagraphByIndexWithoutNodePath.docx";
 
@@ -136,7 +137,7 @@ public class TestParagraph  extends TestCase
      * Test for getting all paragraphs.
      */
     @Test
-    public void testGetDocumentParagraphs() throws ApiException, IOException
+    public void testGetDocumentParagraphs() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentParagraphs.docx";
 
@@ -166,7 +167,7 @@ public class TestParagraph  extends TestCase
      * Test for getting all paragraphs online.
      */
     @Test
-    public void testGetDocumentParagraphsOnline() throws ApiException, IOException
+    public void testGetDocumentParagraphsOnline() throws ApiException, MessagingException, IOException
     {
         GetParagraphsOnlineRequest request = new GetParagraphsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -183,7 +184,7 @@ public class TestParagraph  extends TestCase
      * Test for getting all paragraphs without node path.
      */
     @Test
-    public void testGetDocumentParagraphsWithoutNodePath() throws ApiException, IOException
+    public void testGetDocumentParagraphsWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentParagraphsWithoutNodePath.docx";
 
@@ -213,7 +214,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph run.
      */
     @Test
-    public void testGetDocumentParagraphRun() throws ApiException, IOException
+    public void testGetDocumentParagraphRun() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentParagraphRun.docx";
 
@@ -242,7 +243,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph run online.
      */
     @Test
-    public void testGetDocumentParagraphRunOnline() throws ApiException, IOException
+    public void testGetDocumentParagraphRunOnline() throws ApiException, MessagingException, IOException
     {
         GetRunOnlineRequest request = new GetRunOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -260,7 +261,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph run font.
      */
     @Test
-    public void testGetDocumentParagraphRunFont() throws ApiException, IOException
+    public void testGetDocumentParagraphRunFont() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentParagraphRunFont.docx";
 
@@ -289,7 +290,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph run font online.
      */
     @Test
-    public void testGetDocumentParagraphRunFontOnline() throws ApiException, IOException
+    public void testGetDocumentParagraphRunFontOnline() throws ApiException, MessagingException, IOException
     {
         GetRunFontOnlineRequest request = new GetRunFontOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -307,7 +308,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph runs.
      */
     @Test
-    public void testGetParagraphRuns() throws ApiException, IOException
+    public void testGetParagraphRuns() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetParagraphRuns.docx";
 
@@ -337,7 +338,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph runs online.
      */
     @Test
-    public void testGetParagraphRunsOnline() throws ApiException, IOException
+    public void testGetParagraphRunsOnline() throws ApiException, MessagingException, IOException
     {
         GetRunsOnlineRequest request = new GetRunsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -354,7 +355,7 @@ public class TestParagraph  extends TestCase
      * Test for updating paragraph run font.
      */
     @Test
-    public void testUpdateRunFont() throws ApiException, IOException
+    public void testUpdateRunFont() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateRunFont.docx";
 
@@ -390,7 +391,7 @@ public class TestParagraph  extends TestCase
      * Test for updating paragraph run font online.
      */
     @Test
-    public void testUpdateRunFontOnline() throws ApiException, IOException
+    public void testUpdateRunFontOnline() throws ApiException, MessagingException, IOException
     {
         Font requestFontDto = new Font();
         requestFontDto.setBold(true);
@@ -415,7 +416,7 @@ public class TestParagraph  extends TestCase
      * Test for adding paragraph.
      */
     @Test
-    public void testInsertParagraph() throws ApiException, IOException
+    public void testInsertParagraph() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertParagraph.docx";
 
@@ -451,7 +452,7 @@ public class TestParagraph  extends TestCase
      * Test for adding paragraph online.
      */
     @Test
-    public void testInsertParagraphOnline() throws ApiException, IOException
+    public void testInsertParagraphOnline() throws ApiException, MessagingException, IOException
     {
         ParagraphInsert requestParagraph = new ParagraphInsert();
         requestParagraph.setText("This is a new paragraph for your document");
@@ -476,7 +477,7 @@ public class TestParagraph  extends TestCase
      * Test for adding paragraph without node path.
      */
     @Test
-    public void testInsertParagraphWithoutNodePath() throws ApiException, IOException
+    public void testInsertParagraphWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertParagraphWithoutNodePath.docx";
 
@@ -512,7 +513,7 @@ public class TestParagraph  extends TestCase
      * Test for paragraph rendering.
      */
     @Test
-    public void testRenderParagraph() throws ApiException, IOException
+    public void testRenderParagraph() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestRenderParagraph.docx";
 
@@ -542,7 +543,7 @@ public class TestParagraph  extends TestCase
      * Test for paragraph rendering.
      */
     @Test
-    public void testRenderParagraphOnline() throws ApiException, IOException
+    public void testRenderParagraphOnline() throws ApiException, MessagingException, IOException
     {
         RenderParagraphOnlineRequest request = new RenderParagraphOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -563,7 +564,7 @@ public class TestParagraph  extends TestCase
      * Test for paragraph rendering without node path.
      */
     @Test
-    public void testRenderParagraphWithoutNodePath() throws ApiException, IOException
+    public void testRenderParagraphWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestRenderParagraphWithoutNodePath.docx";
 
@@ -593,7 +594,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph format settings.
      */
     @Test
-    public void testGetParagraphFormat() throws ApiException, IOException
+    public void testGetParagraphFormat() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentParagraphs.docx";
 
@@ -622,7 +623,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph format settings online.
      */
     @Test
-    public void testGetParagraphFormatOnline() throws ApiException, IOException
+    public void testGetParagraphFormatOnline() throws ApiException, MessagingException, IOException
     {
         GetParagraphFormatOnlineRequest request = new GetParagraphFormatOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -640,7 +641,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph format settings without node path.
      */
     @Test
-    public void testGetParagraphFormatWithoutNodePath() throws ApiException, IOException
+    public void testGetParagraphFormatWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentParagraphsWithoutNodePath.docx";
 
@@ -669,7 +670,7 @@ public class TestParagraph  extends TestCase
      * Test for updating  paragraph format settings.
      */
     @Test
-    public void testUpdateParagraphFormat() throws ApiException, IOException
+    public void testUpdateParagraphFormat() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentParagraphs.docx";
 
@@ -705,7 +706,7 @@ public class TestParagraph  extends TestCase
      * Test for updating  paragraph format settings online.
      */
     @Test
-    public void testUpdateParagraphFormatOnline() throws ApiException, IOException
+    public void testUpdateParagraphFormatOnline() throws ApiException, MessagingException, IOException
     {
         ParagraphFormatUpdate requestParagraphFormatDto = new ParagraphFormatUpdate();
         requestParagraphFormatDto.setAlignment(ParagraphFormatUpdate.AlignmentEnum.RIGHT);
@@ -730,7 +731,7 @@ public class TestParagraph  extends TestCase
      * Test for deleting  a paragraph.
      */
     @Test
-    public void testDeleteParagraph() throws ApiException, IOException
+    public void testDeleteParagraph() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteParagraph.docx";
 
@@ -759,7 +760,7 @@ public class TestParagraph  extends TestCase
      * Test for deleting  a paragraph online.
      */
     @Test
-    public void testDeleteParagraphOnline() throws ApiException, IOException
+    public void testDeleteParagraphOnline() throws ApiException, MessagingException, IOException
     {
         DeleteParagraphOnlineRequest request = new DeleteParagraphOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -780,7 +781,7 @@ public class TestParagraph  extends TestCase
      * Test for deleting  a paragraph without node path.
      */
     @Test
-    public void testDeleteParagraphWithoutNodePath() throws ApiException, IOException
+    public void testDeleteParagraphWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteParagraphWithoutNodePath.docx";
 
@@ -809,7 +810,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph list format.
      */
     @Test
-    public void testGetParagraphListFormat() throws ApiException, IOException
+    public void testGetParagraphListFormat() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestParagraphGetListFormat.docx";
 
@@ -838,7 +839,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph list format online.
      */
     @Test
-    public void testGetParagraphListFormatOnline() throws ApiException, IOException
+    public void testGetParagraphListFormatOnline() throws ApiException, MessagingException, IOException
     {
         GetParagraphListFormatOnlineRequest request = new GetParagraphListFormatOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, listFolder + "/ParagraphGetListFormat.doc").toAbsolutePath()),
@@ -856,7 +857,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph list format without node path.
      */
     @Test
-    public void testGetParagraphListFormatWithoutNodePath() throws ApiException, IOException
+    public void testGetParagraphListFormatWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestParagraphGetListFormatWithoutNodePath.docx";
 
@@ -885,7 +886,7 @@ public class TestParagraph  extends TestCase
      * Test for updating paragraph list format.
      */
     @Test
-    public void testUpdateParagraphListFormat() throws ApiException, IOException
+    public void testUpdateParagraphListFormat() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateParagraphListFormat.docx";
 
@@ -921,7 +922,7 @@ public class TestParagraph  extends TestCase
      * Test for updating paragraph list format online.
      */
     @Test
-    public void testUpdateParagraphListFormatOnline() throws ApiException, IOException
+    public void testUpdateParagraphListFormatOnline() throws ApiException, MessagingException, IOException
     {
         ListFormatUpdate requestListFormatDto = new ListFormatUpdate();
         requestListFormatDto.setListId(2);
@@ -946,7 +947,7 @@ public class TestParagraph  extends TestCase
      * Test for updating paragraph list format without node path.
      */
     @Test
-    public void testUpdateParagraphListFormatWithoutNodePath() throws ApiException, IOException
+    public void testUpdateParagraphListFormatWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateParagraphListFormatWithoutNodePath.docx";
 
@@ -982,7 +983,7 @@ public class TestParagraph  extends TestCase
      * Test for deleting paragraph list format.
      */
     @Test
-    public void testDeleteParagraphListFormat() throws ApiException, IOException
+    public void testDeleteParagraphListFormat() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteParagraphListFormat.docx";
 
@@ -1012,7 +1013,7 @@ public class TestParagraph  extends TestCase
      * Test for deleting paragraph list format online.
      */
     @Test
-    public void testDeleteParagraphListFormatOnline() throws ApiException, IOException
+    public void testDeleteParagraphListFormatOnline() throws ApiException, MessagingException, IOException
     {
         DeleteParagraphListFormatOnlineRequest request = new DeleteParagraphListFormatOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, listFolder + "/ParagraphDeleteListFormat.doc").toAbsolutePath()),
@@ -1033,7 +1034,7 @@ public class TestParagraph  extends TestCase
      * Test for deleting paragraph list format without node path.
      */
     @Test
-    public void testDeleteParagraphListFormatWithoutNodePath() throws ApiException, IOException
+    public void testDeleteParagraphListFormatWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteParagraphListFormatWithoutNodePath.docx";
 
@@ -1063,7 +1064,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph tab stops.
      */
     @Test
-    public void testGetParagraphTabStops() throws ApiException, IOException
+    public void testGetParagraphTabStops() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetParagraphTabStops.docx";
 
@@ -1093,7 +1094,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph tab stops online.
      */
     @Test
-    public void testGetParagraphTabStopsOnline() throws ApiException, IOException
+    public void testGetParagraphTabStopsOnline() throws ApiException, MessagingException, IOException
     {
         GetParagraphTabStopsOnlineRequest request = new GetParagraphTabStopsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, tabStopFolder + "/ParagraphTabStops.docx").toAbsolutePath()),
@@ -1111,7 +1112,7 @@ public class TestParagraph  extends TestCase
      * Test for getting paragraph tab stops without node path.
      */
     @Test
-    public void testGetParagraphTabStopsWithoutNodePath() throws ApiException, IOException
+    public void testGetParagraphTabStopsWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetParagraphTabStopsWithoutNodePath.docx";
 
@@ -1141,7 +1142,7 @@ public class TestParagraph  extends TestCase
      * Test for inserting paragraph tab stop.
      */
     @Test
-    public void testInsertParagraphTabStops() throws ApiException, IOException
+    public void testInsertParagraphTabStops() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertOrUpdateParagraphTabStop.docx";
 
@@ -1180,7 +1181,7 @@ public class TestParagraph  extends TestCase
      * Test for inserting paragraph tab stop online.
      */
     @Test
-    public void testInsertParagraphTabStopsOnline() throws ApiException, IOException
+    public void testInsertParagraphTabStopsOnline() throws ApiException, MessagingException, IOException
     {
         TabStopInsert requestTabStopInsertDto = new TabStopInsert();
         requestTabStopInsertDto.setAlignment(TabStopInsert.AlignmentEnum.LEFT);
@@ -1205,7 +1206,7 @@ public class TestParagraph  extends TestCase
      * Test for inserting paragraph tab stop without node path.
      */
     @Test
-    public void testInsertParagraphTabStopsWithoutNodePath() throws ApiException, IOException
+    public void testInsertParagraphTabStopsWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertOrUpdateParagraphTabStopWithoutNodePath.docx";
 
@@ -1244,7 +1245,7 @@ public class TestParagraph  extends TestCase
      * Test for deleting all paragraph tab stops.
      */
     @Test
-    public void testDeleteAllParagraphTabStops() throws ApiException, IOException
+    public void testDeleteAllParagraphTabStops() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteAllParagraphTabStops.docx";
 
@@ -1274,7 +1275,7 @@ public class TestParagraph  extends TestCase
      * Test for deleting all paragraph tab stops online.
      */
     @Test
-    public void testDeleteAllParagraphTabStopsOnline() throws ApiException, IOException
+    public void testDeleteAllParagraphTabStopsOnline() throws ApiException, MessagingException, IOException
     {
         DeleteAllParagraphTabStopsOnlineRequest request = new DeleteAllParagraphTabStopsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, tabStopFolder + "/ParagraphTabStops.docx").toAbsolutePath()),
@@ -1293,7 +1294,7 @@ public class TestParagraph  extends TestCase
      * Test for deleting all paragraph tab stops without node path.
      */
     @Test
-    public void testDeleteAllParagraphTabStopsWithoutNodePath() throws ApiException, IOException
+    public void testDeleteAllParagraphTabStopsWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteAllParagraphTabStopsWithoutNodePath.docx";
 
@@ -1323,7 +1324,7 @@ public class TestParagraph  extends TestCase
      * Test for deleting a tab stops.
      */
     @Test
-    public void testDeleteParagraphTabStop() throws ApiException, IOException
+    public void testDeleteParagraphTabStop() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteParagraphTabStop.docx";
 
@@ -1354,7 +1355,7 @@ public class TestParagraph  extends TestCase
      * Test for deleting a tab stops online.
      */
     @Test
-    public void testDeleteParagraphTabStopOnline() throws ApiException, IOException
+    public void testDeleteParagraphTabStopOnline() throws ApiException, MessagingException, IOException
     {
         DeleteParagraphTabStopOnlineRequest request = new DeleteParagraphTabStopOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, tabStopFolder + "/ParagraphTabStops.docx").toAbsolutePath()),
@@ -1374,7 +1375,7 @@ public class TestParagraph  extends TestCase
      * Test for deleting a tab stops without node path.
      */
     @Test
-    public void testDeleteParagraphTabStopWithoutNodePath() throws ApiException, IOException
+    public void testDeleteParagraphTabStopWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteParagraphTabStopWithoutNodePath.docx";
 

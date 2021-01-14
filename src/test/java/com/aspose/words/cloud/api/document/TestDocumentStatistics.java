@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestDocumentStatistics  extends TestCase
      * Test for document classification.
      */
     @Test
-    public void testGetDocumentStatistics() throws ApiException, IOException
+    public void testGetDocumentStatistics() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentStatistics.docx";
 
@@ -88,7 +89,7 @@ public class TestDocumentStatistics  extends TestCase
      * Test for document classification online.
      */
     @Test
-    public void testGetDocumentStatisticsOnline() throws ApiException, IOException
+    public void testGetDocumentStatisticsOnline() throws ApiException, MessagingException, IOException
     {
         GetDocumentStatisticsOnlineRequest request = new GetDocumentStatisticsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),

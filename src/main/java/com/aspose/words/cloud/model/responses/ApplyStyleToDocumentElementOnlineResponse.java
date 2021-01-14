@@ -52,6 +52,14 @@ public class ApplyStyleToDocumentElementOnlineResponse implements IMultipartResp
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the ApplyStyleToDocumentElementOnlineResponse class.
+     */
+    public ApplyStyleToDocumentElementOnlineResponse(WordsResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

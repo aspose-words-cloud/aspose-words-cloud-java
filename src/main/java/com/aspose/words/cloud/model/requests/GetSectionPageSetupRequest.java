@@ -31,6 +31,8 @@ import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -172,6 +174,7 @@ public class GetSectionPageSetupRequest implements RequestIfc {
         this.password = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -229,5 +232,15 @@ public class GetSectionPageSetupRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return SectionPageSetupResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public SectionPageSetupResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (SectionPageSetupResponse)apiClient.deserialize(response, SectionPageSetupResponse.class);
     }
 }

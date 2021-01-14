@@ -52,6 +52,14 @@ public class SaveAsTiffOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the SaveAsTiffOnlineResponse class.
+     */
+    public SaveAsTiffOnlineResponse(SaveResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

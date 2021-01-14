@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestTable  extends TestCase
      * Test for getting tables.
      */
     @Test
-    public void testGetTables() throws ApiException, IOException
+    public void testGetTables() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetTables.docx";
 
@@ -88,7 +89,7 @@ public class TestTable  extends TestCase
      * Test for getting tables online.
      */
     @Test
-    public void testGetTablesOnline() throws ApiException, IOException
+    public void testGetTablesOnline() throws ApiException, MessagingException, IOException
     {
         GetTablesOnlineRequest request = new GetTablesOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -105,7 +106,7 @@ public class TestTable  extends TestCase
      * Test for getting tables without node path.
      */
     @Test
-    public void testGetTablesWithoutNodePath() throws ApiException, IOException
+    public void testGetTablesWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetTablesWithoutNodePath.docx";
 
@@ -135,7 +136,7 @@ public class TestTable  extends TestCase
      * Test for getting table.
      */
     @Test
-    public void testGetTable() throws ApiException, IOException
+    public void testGetTable() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetTable.docx";
 
@@ -167,7 +168,7 @@ public class TestTable  extends TestCase
      * Test for getting table online.
      */
     @Test
-    public void testGetTableOnline() throws ApiException, IOException
+    public void testGetTableOnline() throws ApiException, MessagingException, IOException
     {
         GetTableOnlineRequest request = new GetTableOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -185,7 +186,7 @@ public class TestTable  extends TestCase
      * Test for getting table without node path.
      */
     @Test
-    public void testGetTableWithoutNodePath() throws ApiException, IOException
+    public void testGetTableWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetTableWithoutNodePath.docx";
 
@@ -217,7 +218,7 @@ public class TestTable  extends TestCase
      * Test for deleting table.
      */
     @Test
-    public void testDeleteTable() throws ApiException, IOException
+    public void testDeleteTable() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteTable.docx";
 
@@ -246,7 +247,7 @@ public class TestTable  extends TestCase
      * Test for deleting table online.
      */
     @Test
-    public void testDeleteTableOnline() throws ApiException, IOException
+    public void testDeleteTableOnline() throws ApiException, MessagingException, IOException
     {
         DeleteTableOnlineRequest request = new DeleteTableOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -267,7 +268,7 @@ public class TestTable  extends TestCase
      * Test for deleting table without node path.
      */
     @Test
-    public void testDeleteTableWithoutNodePath() throws ApiException, IOException
+    public void testDeleteTableWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteTableWithoutNodePath.docx";
 
@@ -296,7 +297,7 @@ public class TestTable  extends TestCase
      * Test for adding table.
      */
     @Test
-    public void testInsertTable() throws ApiException, IOException
+    public void testInsertTable() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertTable.docx";
 
@@ -335,7 +336,7 @@ public class TestTable  extends TestCase
      * Test for adding table online.
      */
     @Test
-    public void testInsertTableOnline() throws ApiException, IOException
+    public void testInsertTableOnline() throws ApiException, MessagingException, IOException
     {
         TableInsert requestTable = new TableInsert();
         requestTable.setColumnsCount(5);
@@ -360,7 +361,7 @@ public class TestTable  extends TestCase
      * Test for adding table without node path.
      */
     @Test
-    public void testInsertTableWithoutNodePath() throws ApiException, IOException
+    public void testInsertTableWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertTableWithoutNodePath.docx";
 
@@ -399,7 +400,7 @@ public class TestTable  extends TestCase
      * Test for getting document properties.
      */
     @Test
-    public void testGetTableProperties() throws ApiException, IOException
+    public void testGetTableProperties() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetTableProperties.docx";
 
@@ -428,7 +429,7 @@ public class TestTable  extends TestCase
      * Test for getting document properties online.
      */
     @Test
-    public void testGetTablePropertiesOnline() throws ApiException, IOException
+    public void testGetTablePropertiesOnline() throws ApiException, MessagingException, IOException
     {
         GetTablePropertiesOnlineRequest request = new GetTablePropertiesOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -446,7 +447,7 @@ public class TestTable  extends TestCase
      * Test for getting document properties without node path.
      */
     @Test
-    public void testGetTablePropertiesWithoutNodePath() throws ApiException, IOException
+    public void testGetTablePropertiesWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetTablePropertiesWithoutNodePath.docx";
 
@@ -475,7 +476,7 @@ public class TestTable  extends TestCase
      * Test for updating table properties.
      */
     @Test
-    public void testUpdateTableProperties() throws ApiException, IOException
+    public void testUpdateTableProperties() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateTableProperties.docx";
 
@@ -519,7 +520,7 @@ public class TestTable  extends TestCase
      * Test for updating table properties online.
      */
     @Test
-    public void testUpdateTablePropertiesOnline() throws ApiException, IOException
+    public void testUpdateTablePropertiesOnline() throws ApiException, MessagingException, IOException
     {
         TableProperties requestProperties = new TableProperties();
         requestProperties.setAlignment(TableProperties.AlignmentEnum.RIGHT);
@@ -549,7 +550,7 @@ public class TestTable  extends TestCase
      * Test for updating table properties without node path.
      */
     @Test
-    public void testUpdateTablePropertiesWithoutNodePath() throws ApiException, IOException
+    public void testUpdateTablePropertiesWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateTablePropertiesWithoutNodePath.docx";
 
@@ -593,7 +594,7 @@ public class TestTable  extends TestCase
      * Test for getting table row.
      */
     @Test
-    public void testGetTableRow() throws ApiException, IOException
+    public void testGetTableRow() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetTableRow.docx";
 
@@ -623,7 +624,7 @@ public class TestTable  extends TestCase
      * Test for getting table row online.
      */
     @Test
-    public void testGetTableRowOnline() throws ApiException, IOException
+    public void testGetTableRowOnline() throws ApiException, MessagingException, IOException
     {
         GetTableRowOnlineRequest request = new GetTableRowOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -641,7 +642,7 @@ public class TestTable  extends TestCase
      * Test for deleting table row.
      */
     @Test
-    public void testDeleteTableRow() throws ApiException, IOException
+    public void testDeleteTableRow() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteTableRow.docx";
 
@@ -670,7 +671,7 @@ public class TestTable  extends TestCase
      * Test for deleting table row online.
      */
     @Test
-    public void testDeleteTableRowOnline() throws ApiException, IOException
+    public void testDeleteTableRowOnline() throws ApiException, MessagingException, IOException
     {
         DeleteTableRowOnlineRequest request = new DeleteTableRowOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -691,7 +692,7 @@ public class TestTable  extends TestCase
      * Test for adding row.
      */
     @Test
-    public void testInsertTableRow() throws ApiException, IOException
+    public void testInsertTableRow() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertTableRow.docx";
 
@@ -727,7 +728,7 @@ public class TestTable  extends TestCase
      * Test for adding row online.
      */
     @Test
-    public void testInsertTableRowOnline() throws ApiException, IOException
+    public void testInsertTableRowOnline() throws ApiException, MessagingException, IOException
     {
         TableRowInsert requestRow = new TableRowInsert();
         requestRow.setColumnsCount(5);
@@ -751,7 +752,7 @@ public class TestTable  extends TestCase
      * Test for getting row format.
      */
     @Test
-    public void testGetTableRowFormat() throws ApiException, IOException
+    public void testGetTableRowFormat() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetTableRowFormat.docx";
 
@@ -780,7 +781,7 @@ public class TestTable  extends TestCase
      * Test for getting row format online.
      */
     @Test
-    public void testGetTableRowFormatOnline() throws ApiException, IOException
+    public void testGetTableRowFormatOnline() throws ApiException, MessagingException, IOException
     {
         GetTableRowFormatOnlineRequest request = new GetTableRowFormatOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -798,7 +799,7 @@ public class TestTable  extends TestCase
      * Test updating row format.
      */
     @Test
-    public void testUpdateTableRowFormat() throws ApiException, IOException
+    public void testUpdateTableRowFormat() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateTableRowFormat.docx";
 
@@ -839,7 +840,7 @@ public class TestTable  extends TestCase
      * Test updating row format online.
      */
     @Test
-    public void testUpdateTableRowFormatOnline() throws ApiException, IOException
+    public void testUpdateTableRowFormatOnline() throws ApiException, MessagingException, IOException
     {
         TableRowFormat requestFormat = new TableRowFormat();
         requestFormat.setAllowBreakAcrossPages(true);
@@ -867,7 +868,7 @@ public class TestTable  extends TestCase
      * Test for getting table cell.
      */
     @Test
-    public void testGetTableCell() throws ApiException, IOException
+    public void testGetTableCell() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetTableCell.docx";
 
@@ -896,7 +897,7 @@ public class TestTable  extends TestCase
      * Test for getting table cell online.
      */
     @Test
-    public void testGetTableCellOnline() throws ApiException, IOException
+    public void testGetTableCellOnline() throws ApiException, MessagingException, IOException
     {
         GetTableCellOnlineRequest request = new GetTableCellOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -914,7 +915,7 @@ public class TestTable  extends TestCase
      * Test for deleting cell.
      */
     @Test
-    public void testDeleteTableCell() throws ApiException, IOException
+    public void testDeleteTableCell() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteTableCell.docx";
 
@@ -943,7 +944,7 @@ public class TestTable  extends TestCase
      * Test for deleting cell online.
      */
     @Test
-    public void testDeleteTableCellOnline() throws ApiException, IOException
+    public void testDeleteTableCellOnline() throws ApiException, MessagingException, IOException
     {
         DeleteTableCellOnlineRequest request = new DeleteTableCellOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -964,7 +965,7 @@ public class TestTable  extends TestCase
      * Test for adding cell.
      */
     @Test
-    public void testInsertTableCell() throws ApiException, IOException
+    public void testInsertTableCell() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertTableCell.docx";
 
@@ -998,7 +999,7 @@ public class TestTable  extends TestCase
      * Test for adding cell online.
      */
     @Test
-    public void testInsertTableCellOnline() throws ApiException, IOException
+    public void testInsertTableCellOnline() throws ApiException, MessagingException, IOException
     {
         TableCellInsert requestCell = new TableCellInsert();
 
@@ -1021,7 +1022,7 @@ public class TestTable  extends TestCase
      * Test for getting cell format.
      */
     @Test
-    public void testGetTableCellFormat() throws ApiException, IOException
+    public void testGetTableCellFormat() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetTableCellFormat.docx";
 
@@ -1050,7 +1051,7 @@ public class TestTable  extends TestCase
      * Test for getting cell format online.
      */
     @Test
-    public void testGetTableCellFormatOnline() throws ApiException, IOException
+    public void testGetTableCellFormatOnline() throws ApiException, MessagingException, IOException
     {
         GetTableCellFormatOnlineRequest request = new GetTableCellFormatOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -1068,7 +1069,7 @@ public class TestTable  extends TestCase
      * Test for updating cell format.
      */
     @Test
-    public void testUpdateTableCellFormat() throws ApiException, IOException
+    public void testUpdateTableCellFormat() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateTableCellFormat.docx";
 
@@ -1109,7 +1110,7 @@ public class TestTable  extends TestCase
      * Test for updating cell format online.
      */
     @Test
-    public void testUpdateTableCellFormatOnline() throws ApiException, IOException
+    public void testUpdateTableCellFormatOnline() throws ApiException, MessagingException, IOException
     {
         TableCellFormat requestFormat = new TableCellFormat();
         requestFormat.setBottomPadding((double)5);
@@ -1137,7 +1138,7 @@ public class TestTable  extends TestCase
      * Test for table rendering.
      */
     @Test
-    public void testRenderTable() throws ApiException, IOException
+    public void testRenderTable() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestRenderTable.docx";
 
@@ -1167,7 +1168,7 @@ public class TestTable  extends TestCase
      * Test for table rendering.
      */
     @Test
-    public void testRenderTableOnline() throws ApiException, IOException
+    public void testRenderTableOnline() throws ApiException, MessagingException, IOException
     {
         RenderTableOnlineRequest request = new RenderTableOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -1188,7 +1189,7 @@ public class TestTable  extends TestCase
      * Test for table rendering without node path.
      */
     @Test
-    public void testRenderTableWithoutNodePath() throws ApiException, IOException
+    public void testRenderTableWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestRenderTableWithoutNodePath.docx";
 

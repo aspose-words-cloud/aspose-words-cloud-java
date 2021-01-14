@@ -30,6 +30,7 @@ package com.aspose.words.cloud;
 import org.junit.Test;
 import junit.framework.TestCase;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -49,7 +50,7 @@ public class TestReadme extends TestCase {
 * Test for readme code
 */
 @Test
-public void testReadmeCode() throws ApiException, IOException 
+public void testReadmeCode() throws ApiException, MessagingException, IOException 
 {
         Map<String, String> creds = TestInitializer.GetConfig(TestInitializer.CONFIG_PATH);
         String clientId = creds.get("ClientId");

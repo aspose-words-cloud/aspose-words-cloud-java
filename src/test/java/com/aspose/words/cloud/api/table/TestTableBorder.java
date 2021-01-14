@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestTableBorder  extends TestCase
      * Test for getting borders.
      */
     @Test
-    public void testGetBorders() throws ApiException, IOException
+    public void testGetBorders() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetBorders.docx";
 
@@ -89,7 +90,7 @@ public class TestTableBorder  extends TestCase
      * Test for getting borders online.
      */
     @Test
-    public void testGetBordersOnline() throws ApiException, IOException
+    public void testGetBordersOnline() throws ApiException, MessagingException, IOException
     {
         GetBordersOnlineRequest request = new GetBordersOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -106,7 +107,7 @@ public class TestTableBorder  extends TestCase
      * Test for getting border.
      */
     @Test
-    public void testGetBorder() throws ApiException, IOException
+    public void testGetBorder() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetBorder.docx";
 
@@ -136,7 +137,7 @@ public class TestTableBorder  extends TestCase
      * Test for getting border online.
      */
     @Test
-    public void testGetBorderOnline() throws ApiException, IOException
+    public void testGetBorderOnline() throws ApiException, MessagingException, IOException
     {
         GetBorderOnlineRequest request = new GetBorderOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -154,7 +155,7 @@ public class TestTableBorder  extends TestCase
      * Test for deleting borders.
      */
     @Test
-    public void testDeleteBorders() throws ApiException, IOException
+    public void testDeleteBorders() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteBorders.docx";
 
@@ -183,7 +184,7 @@ public class TestTableBorder  extends TestCase
      * Test for deleting borders online.
      */
     @Test
-    public void testDeleteBordersOnline() throws ApiException, IOException
+    public void testDeleteBordersOnline() throws ApiException, MessagingException, IOException
     {
         DeleteBordersOnlineRequest request = new DeleteBordersOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -203,7 +204,7 @@ public class TestTableBorder  extends TestCase
      * Test for deleting border.
      */
     @Test
-    public void testDeleteBorder() throws ApiException, IOException
+    public void testDeleteBorder() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteBorder.docx";
 
@@ -233,7 +234,7 @@ public class TestTableBorder  extends TestCase
      * Test for deleting border online.
      */
     @Test
-    public void testDeleteBorderOnline() throws ApiException, IOException
+    public void testDeleteBorderOnline() throws ApiException, MessagingException, IOException
     {
         DeleteBorderOnlineRequest request = new DeleteBorderOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -254,7 +255,7 @@ public class TestTableBorder  extends TestCase
      * Test for updating border.
      */
     @Test
-    public void testUpdateBorder() throws ApiException, IOException
+    public void testUpdateBorder() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateBorder.docx";
 
@@ -302,7 +303,7 @@ public class TestTableBorder  extends TestCase
      * Test for updating border online.
      */
     @Test
-    public void testUpdateBorderOnline() throws ApiException, IOException
+    public void testUpdateBorderOnline() throws ApiException, MessagingException, IOException
     {
         XmlColor requestBorderPropertiesColor = new XmlColor();
         requestBorderPropertiesColor.setWeb("#AABBCC");

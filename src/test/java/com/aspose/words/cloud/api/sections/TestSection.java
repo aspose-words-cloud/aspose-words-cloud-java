@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestSection  extends TestCase
      * Test for getting section by index.
      */
     @Test
-    public void testGetSection() throws ApiException, IOException
+    public void testGetSection() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetSection.docx";
 
@@ -88,7 +89,7 @@ public class TestSection  extends TestCase
      * Test for getting section by index online.
      */
     @Test
-    public void testGetSectionOnline() throws ApiException, IOException
+    public void testGetSectionOnline() throws ApiException, MessagingException, IOException
     {
         GetSectionOnlineRequest request = new GetSectionOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -105,7 +106,7 @@ public class TestSection  extends TestCase
      * Test for getting sections.
      */
     @Test
-    public void testGetSections() throws ApiException, IOException
+    public void testGetSections() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetSections.docx";
 
@@ -134,7 +135,7 @@ public class TestSection  extends TestCase
      * Test for getting sections online.
      */
     @Test
-    public void testGetSectionsOnline() throws ApiException, IOException
+    public void testGetSectionsOnline() throws ApiException, MessagingException, IOException
     {
         GetSectionsOnlineRequest request = new GetSectionsOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -150,7 +151,7 @@ public class TestSection  extends TestCase
      * Test for delete a section.
      */
     @Test
-    public void testDeleteSection() throws ApiException, IOException
+    public void testDeleteSection() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteSection.docx";
 
@@ -178,7 +179,7 @@ public class TestSection  extends TestCase
      * Test for delete a section online.
      */
     @Test
-    public void testDeleteSectionOnline() throws ApiException, IOException
+    public void testDeleteSectionOnline() throws ApiException, MessagingException, IOException
     {
         DeleteSectionOnlineRequest request = new DeleteSectionOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),

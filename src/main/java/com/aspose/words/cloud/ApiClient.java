@@ -1186,6 +1186,60 @@ public class ApiClient {
     }
 
     /**
+     * Parse model from online response.
+     */
+    public Object parseModel(BodyPart bodyPart, Type returnType) throws IOException, MessagingException {
+        InputStream is = bodyPart.getInputStream();
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+        int nRead;
+        byte[] data = new byte[16384];
+
+        while ((nRead = is.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
+        }
+
+        try {
+            String stringData = buffer.toString("UTF-8");
+            return json.deserialize(stringData, returnType);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * Parse document from online response.
+     */
+    public byte[] parseDocument(BodyPart bodyPart) throws IOException, MessagingException {
+        InputStream is = bodyPart.getInputStream();
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+        int nRead;
+        byte[] data = new byte[16384];
+
+        while ((nRead = is.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
+        }
+
+        return buffer.toByteArray();
+    }
+
+    /**
+     * Get multipart from response.
+     */
+    public MimeMultipart getMultipartFromResponse(Response response) throws ApiException {
+        try {
+            InputStream in = response.body().byteStream();
+            ByteArrayDataSource dataSource = new ByteArrayDataSource(in, "multipart/form-data");
+            return new MimeMultipart(dataSource);
+        }
+        catch (IOException | MessagingException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    /**
      * Parse batch part
      */
     public Object parseBatchPart(Request masterRequest, BodyPart bodyPart, Type returnType) throws IOException, MessagingException, ApiException {

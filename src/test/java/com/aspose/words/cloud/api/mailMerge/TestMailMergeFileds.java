@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestMailMergeFileds  extends TestCase
      * Test for putting new fields.
      */
     @Test
-    public void testGetDocumentFieldNamesOnline() throws ApiException, IOException
+    public void testGetDocumentFieldNamesOnline() throws ApiException, MessagingException, IOException
     {
         String localDocumentFile = "SampleExecuteTemplate.docx";
 
@@ -81,7 +82,7 @@ public class TestMailMergeFileds  extends TestCase
      * Test for getting mailmerge fields.
      */
     @Test
-    public void testGetDocumentFieldNames() throws ApiException, IOException
+    public void testGetDocumentFieldNames() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentFieldNames.docx";
 

@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -59,7 +60,7 @@ public class TestBookmark  extends TestCase
      * Test for getting bookmarks from document.
      */
     @Test
-    public void testGetBookmarks() throws ApiException, IOException
+    public void testGetBookmarks() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentBookmarks.docx";
 
@@ -84,7 +85,7 @@ public class TestBookmark  extends TestCase
      * Test for getting bookmarks from document online.
      */
     @Test
-    public void testGetBookmarksOnline() throws ApiException, IOException
+    public void testGetBookmarksOnline() throws ApiException, MessagingException, IOException
     {
         GetBookmarksOnlineRequest request = new GetBookmarksOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -100,7 +101,7 @@ public class TestBookmark  extends TestCase
      * Test for getting bookmark by specified name.
      */
     @Test
-    public void testGetBookmarkByName() throws ApiException, IOException
+    public void testGetBookmarkByName() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentBookmarkByName.docx";
 
@@ -126,7 +127,7 @@ public class TestBookmark  extends TestCase
      * Test for getting bookmark by specified name online.
      */
     @Test
-    public void testGetBookmarkByNameOnline() throws ApiException, IOException
+    public void testGetBookmarkByNameOnline() throws ApiException, MessagingException, IOException
     {
         GetBookmarkByNameOnlineRequest request = new GetBookmarkByNameOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
@@ -143,7 +144,7 @@ public class TestBookmark  extends TestCase
      * Test for updating existed bookmark.
      */
     @Test
-    public void testUpdateBookmark() throws ApiException, IOException
+    public void testUpdateBookmark() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateDocumentBookmark.docx";
         String bookmarkText = "This will be the text for Aspose";
@@ -178,7 +179,7 @@ public class TestBookmark  extends TestCase
      * Test for updating existed bookmark online.
      */
     @Test
-    public void testUpdateBookmarkOnline() throws ApiException, IOException
+    public void testUpdateBookmarkOnline() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateDocumentBookmark.docx";
 

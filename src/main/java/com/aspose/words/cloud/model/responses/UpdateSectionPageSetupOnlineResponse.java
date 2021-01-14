@@ -52,6 +52,14 @@ public class UpdateSectionPageSetupOnlineResponse implements IMultipartResponse 
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the UpdateSectionPageSetupOnlineResponse class.
+     */
+    public UpdateSectionPageSetupOnlineResponse(SectionPageSetupResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

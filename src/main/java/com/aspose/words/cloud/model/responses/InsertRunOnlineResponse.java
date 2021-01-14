@@ -52,6 +52,14 @@ public class InsertRunOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the InsertRunOnlineResponse class.
+     */
+    public InsertRunOnlineResponse(RunResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

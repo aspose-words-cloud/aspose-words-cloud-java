@@ -52,6 +52,14 @@ public class InsertOrUpdateParagraphTabStopOnlineResponse implements IMultipartR
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the InsertOrUpdateParagraphTabStopOnlineResponse class.
+     */
+    public InsertOrUpdateParagraphTabStopOnlineResponse(TabStopsResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

@@ -52,6 +52,14 @@ public class UpdateTablePropertiesOnlineResponse implements IMultipartResponse {
         this.document = null;
     }
 
+     /*
+     * Initializes a new instance of the UpdateTablePropertiesOnlineResponse class.
+     */
+    public UpdateTablePropertiesOnlineResponse(TablePropertiesResponse model, byte[] document) {
+        this.model = model;
+        this.document = document;
+    }
+
     /*
      * Gets The response model.
      */

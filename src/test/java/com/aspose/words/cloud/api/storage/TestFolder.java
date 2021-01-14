@@ -36,6 +36,7 @@ import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class TestFolder  extends TestCase
      * Test for create folder.
      */
     @Test
-    public void testCreateFolder() throws ApiException, IOException
+    public void testCreateFolder() throws ApiException, MessagingException, IOException
     {
         CreateFolderRequest request = new CreateFolderRequest(
             remoteDataFolder + "/TestCreateFolder",
@@ -72,7 +73,7 @@ public class TestFolder  extends TestCase
      * Test for delete folder.
      */
     @Test
-    public void testDeleteFolder() throws ApiException, IOException
+    public void testDeleteFolder() throws ApiException, MessagingException, IOException
     {
         String testDeleteFolder = remoteDataFolder + "/TestDeleteFolder";
 
@@ -94,7 +95,7 @@ public class TestFolder  extends TestCase
      * Test for get file list of folder.
      */
     @Test
-    public void testGetFilesList() throws ApiException, IOException
+    public void testGetFilesList() throws ApiException, MessagingException, IOException
     {
         GetFilesListRequest request = new GetFilesListRequest(
             remoteDataFolder,
@@ -110,7 +111,7 @@ public class TestFolder  extends TestCase
      * Test for copy folder.
      */
     @Test
-    public void testCopyFolder() throws ApiException, IOException
+    public void testCopyFolder() throws ApiException, MessagingException, IOException
     {
         String folderToCopy = remoteDataFolder + "/TestCopyFolder";
 
@@ -133,7 +134,7 @@ public class TestFolder  extends TestCase
      * Test for move folder.
      */
     @Test
-    public void testMoveFolder() throws ApiException, IOException
+    public void testMoveFolder() throws ApiException, MessagingException, IOException
     {
         TestInitializer.UploadFile(
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
