@@ -210,6 +210,6 @@ public class GetSectionOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     public SectionResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (SectionResponse)apiClient.deserialize(response, SectionResponse.class);
+        return (SectionResponse) apiClient.deserialize(response, SectionResponse.class);
     }
 }

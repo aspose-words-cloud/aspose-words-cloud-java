@@ -280,7 +280,7 @@ public class InsertCommentOnlineRequest implements RequestIfc {
     public InsertCommentOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertCommentOnlineResponse(
-            (CommentResponse)apiClient.parseModel(multipart.getBodyPart(0), CommentResponse.class),
+            (CommentResponse) apiClient.parseModel(multipart.getBodyPart(0), CommentResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

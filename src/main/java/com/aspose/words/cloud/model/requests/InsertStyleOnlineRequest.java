@@ -280,7 +280,7 @@ public class InsertStyleOnlineRequest implements RequestIfc {
     public InsertStyleOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertStyleOnlineResponse(
-            (StyleResponse)apiClient.parseModel(multipart.getBodyPart(0), StyleResponse.class),
+            (StyleResponse) apiClient.parseModel(multipart.getBodyPart(0), StyleResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

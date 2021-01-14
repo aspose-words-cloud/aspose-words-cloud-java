@@ -214,6 +214,6 @@ public class GetStylesRequest implements RequestIfc {
      * @param response Response instance
      */
     public StylesResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (StylesResponse)apiClient.deserialize(response, StylesResponse.class);
+        return (StylesResponse) apiClient.deserialize(response, StylesResponse.class);
     }
 }

@@ -329,7 +329,7 @@ public class UpdateFieldOnlineRequest implements RequestIfc {
     public UpdateFieldOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new UpdateFieldOnlineResponse(
-            (FieldResponse)apiClient.parseModel(multipart.getBodyPart(0), FieldResponse.class),
+            (FieldResponse) apiClient.parseModel(multipart.getBodyPart(0), FieldResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

@@ -351,6 +351,6 @@ public class SplitDocumentRequest implements RequestIfc {
      * @param response Response instance
      */
     public SplitDocumentResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (SplitDocumentResponse)apiClient.deserialize(response, SplitDocumentResponse.class);
+        return (SplitDocumentResponse) apiClient.deserialize(response, SplitDocumentResponse.class);
     }
 }

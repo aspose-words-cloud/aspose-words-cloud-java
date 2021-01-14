@@ -307,7 +307,7 @@ public class UpdateCommentOnlineRequest implements RequestIfc {
     public UpdateCommentOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new UpdateCommentOnlineResponse(
-            (CommentResponse)apiClient.parseModel(multipart.getBodyPart(0), CommentResponse.class),
+            (CommentResponse) apiClient.parseModel(multipart.getBodyPart(0), CommentResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

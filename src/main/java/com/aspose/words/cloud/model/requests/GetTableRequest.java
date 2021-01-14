@@ -263,6 +263,6 @@ public class GetTableRequest implements RequestIfc {
      * @param response Response instance
      */
     public TableResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (TableResponse)apiClient.deserialize(response, TableResponse.class);
+        return (TableResponse) apiClient.deserialize(response, TableResponse.class);
     }
 }

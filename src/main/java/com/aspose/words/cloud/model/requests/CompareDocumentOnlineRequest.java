@@ -236,7 +236,7 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
     public CompareDocumentOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new CompareDocumentOnlineResponse(
-            (DocumentResponse)apiClient.parseModel(multipart.getBodyPart(0), DocumentResponse.class),
+            (DocumentResponse) apiClient.parseModel(multipart.getBodyPart(0), DocumentResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

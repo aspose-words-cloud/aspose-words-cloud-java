@@ -345,6 +345,6 @@ public class ApplyStyleToDocumentElementRequest implements RequestIfc {
      * @param response Response instance
      */
     public WordsResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (WordsResponse)apiClient.deserialize(response, WordsResponse.class);
+        return (WordsResponse) apiClient.deserialize(response, WordsResponse.class);
     }
 }

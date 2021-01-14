@@ -159,6 +159,6 @@ public class LoadWebDocumentRequest implements RequestIfc {
      * @param response Response instance
      */
     public SaveResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (SaveResponse)apiClient.deserialize(response, SaveResponse.class);
+        return (SaveResponse) apiClient.deserialize(response, SaveResponse.class);
     }
 }

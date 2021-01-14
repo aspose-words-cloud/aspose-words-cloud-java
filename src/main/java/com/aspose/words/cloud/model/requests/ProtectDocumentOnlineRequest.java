@@ -236,7 +236,7 @@ public class ProtectDocumentOnlineRequest implements RequestIfc {
     public ProtectDocumentOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new ProtectDocumentOnlineResponse(
-            (ProtectionDataResponse)apiClient.parseModel(multipart.getBodyPart(0), ProtectionDataResponse.class),
+            (ProtectionDataResponse) apiClient.parseModel(multipart.getBodyPart(0), ProtectionDataResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

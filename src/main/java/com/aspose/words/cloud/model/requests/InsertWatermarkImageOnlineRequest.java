@@ -324,7 +324,7 @@ public class InsertWatermarkImageOnlineRequest implements RequestIfc {
     public InsertWatermarkImageOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertWatermarkImageOnlineResponse(
-            (DocumentResponse)apiClient.parseModel(multipart.getBodyPart(0), DocumentResponse.class),
+            (DocumentResponse) apiClient.parseModel(multipart.getBodyPart(0), DocumentResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

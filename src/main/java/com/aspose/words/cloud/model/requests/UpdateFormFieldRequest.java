@@ -367,6 +367,6 @@ public class UpdateFormFieldRequest implements RequestIfc {
      * @param response Response instance
      */
     public FormFieldResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (FormFieldResponse)apiClient.deserialize(response, FormFieldResponse.class);
+        return (FormFieldResponse) apiClient.deserialize(response, FormFieldResponse.class);
     }
 }

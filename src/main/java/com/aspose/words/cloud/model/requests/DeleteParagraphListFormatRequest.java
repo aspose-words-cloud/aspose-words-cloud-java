@@ -329,6 +329,6 @@ public class DeleteParagraphListFormatRequest implements RequestIfc {
      * @param response Response instance
      */
     public ParagraphListFormatResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (ParagraphListFormatResponse)apiClient.deserialize(response, ParagraphListFormatResponse.class);
+        return (ParagraphListFormatResponse) apiClient.deserialize(response, ParagraphListFormatResponse.class);
     }
 }

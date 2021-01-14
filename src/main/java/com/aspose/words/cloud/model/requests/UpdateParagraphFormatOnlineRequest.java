@@ -329,7 +329,7 @@ public class UpdateParagraphFormatOnlineRequest implements RequestIfc {
     public UpdateParagraphFormatOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new UpdateParagraphFormatOnlineResponse(
-            (ParagraphFormatResponse)apiClient.parseModel(multipart.getBodyPart(0), ParagraphFormatResponse.class),
+            (ParagraphFormatResponse) apiClient.parseModel(multipart.getBodyPart(0), ParagraphFormatResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

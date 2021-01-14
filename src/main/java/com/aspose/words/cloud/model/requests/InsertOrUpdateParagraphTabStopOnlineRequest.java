@@ -285,7 +285,7 @@ public class InsertOrUpdateParagraphTabStopOnlineRequest implements RequestIfc {
     public InsertOrUpdateParagraphTabStopOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertOrUpdateParagraphTabStopOnlineResponse(
-            (TabStopsResponse)apiClient.parseModel(multipart.getBodyPart(0), TabStopsResponse.class),
+            (TabStopsResponse) apiClient.parseModel(multipart.getBodyPart(0), TabStopsResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

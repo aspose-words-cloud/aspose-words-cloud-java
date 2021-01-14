@@ -237,6 +237,6 @@ public class GetRunOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     public RunResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (RunResponse)apiClient.deserialize(response, RunResponse.class);
+        return (RunResponse) apiClient.deserialize(response, RunResponse.class);
     }
 }

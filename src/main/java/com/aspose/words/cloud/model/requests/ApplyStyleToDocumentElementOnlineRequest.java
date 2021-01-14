@@ -307,7 +307,7 @@ public class ApplyStyleToDocumentElementOnlineRequest implements RequestIfc {
     public ApplyStyleToDocumentElementOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new ApplyStyleToDocumentElementOnlineResponse(
-            (WordsResponse)apiClient.parseModel(multipart.getBodyPart(0), WordsResponse.class),
+            (WordsResponse) apiClient.parseModel(multipart.getBodyPart(0), WordsResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

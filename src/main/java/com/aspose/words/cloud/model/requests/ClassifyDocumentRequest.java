@@ -258,6 +258,6 @@ public class ClassifyDocumentRequest implements RequestIfc {
      * @param response Response instance
      */
     public ClassificationResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (ClassificationResponse)apiClient.deserialize(response, ClassificationResponse.class);
+        return (ClassificationResponse) apiClient.deserialize(response, ClassificationResponse.class);
     }
 }

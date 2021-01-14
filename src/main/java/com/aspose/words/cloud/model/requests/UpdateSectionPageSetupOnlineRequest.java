@@ -307,7 +307,7 @@ public class UpdateSectionPageSetupOnlineRequest implements RequestIfc {
     public UpdateSectionPageSetupOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new UpdateSectionPageSetupOnlineResponse(
-            (SectionPageSetupResponse)apiClient.parseModel(multipart.getBodyPart(0), SectionPageSetupResponse.class),
+            (SectionPageSetupResponse) apiClient.parseModel(multipart.getBodyPart(0), SectionPageSetupResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

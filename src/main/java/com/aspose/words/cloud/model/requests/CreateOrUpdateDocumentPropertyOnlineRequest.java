@@ -307,7 +307,7 @@ public class CreateOrUpdateDocumentPropertyOnlineRequest implements RequestIfc {
     public CreateOrUpdateDocumentPropertyOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new CreateOrUpdateDocumentPropertyOnlineResponse(
-            (DocumentPropertyResponse)apiClient.parseModel(multipart.getBodyPart(0), DocumentPropertyResponse.class),
+            (DocumentPropertyResponse) apiClient.parseModel(multipart.getBodyPart(0), DocumentPropertyResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

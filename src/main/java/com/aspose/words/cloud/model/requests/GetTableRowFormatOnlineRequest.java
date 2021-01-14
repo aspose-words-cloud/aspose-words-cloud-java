@@ -237,6 +237,6 @@ public class GetTableRowFormatOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     public TableRowFormatResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (TableRowFormatResponse)apiClient.deserialize(response, TableRowFormatResponse.class);
+        return (TableRowFormatResponse) apiClient.deserialize(response, TableRowFormatResponse.class);
     }
 }

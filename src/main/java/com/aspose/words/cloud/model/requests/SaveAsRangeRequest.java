@@ -301,6 +301,6 @@ public class SaveAsRangeRequest implements RequestIfc {
      * @param response Response instance
      */
     public DocumentResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (DocumentResponse)apiClient.deserialize(response, DocumentResponse.class);
+        return (DocumentResponse) apiClient.deserialize(response, DocumentResponse.class);
     }
 }

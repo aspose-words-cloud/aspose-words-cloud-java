@@ -236,6 +236,6 @@ public class GetOfficeMathObjectsRequest implements RequestIfc {
      * @param response Response instance
      */
     public OfficeMathObjectsResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (OfficeMathObjectsResponse)apiClient.deserialize(response, OfficeMathObjectsResponse.class);
+        return (OfficeMathObjectsResponse) apiClient.deserialize(response, OfficeMathObjectsResponse.class);
     }
 }

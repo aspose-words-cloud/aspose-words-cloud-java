@@ -263,6 +263,6 @@ public class GetDocumentDrawingObjectByIndexRequest implements RequestIfc {
      * @param response Response instance
      */
     public DrawingObjectResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (DrawingObjectResponse)apiClient.deserialize(response, DrawingObjectResponse.class);
+        return (DrawingObjectResponse) apiClient.deserialize(response, DrawingObjectResponse.class);
     }
 }

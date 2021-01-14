@@ -280,7 +280,7 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
     public AppendDocumentOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new AppendDocumentOnlineResponse(
-            (DocumentResponse)apiClient.parseModel(multipart.getBodyPart(0), DocumentResponse.class),
+            (DocumentResponse) apiClient.parseModel(multipart.getBodyPart(0), DocumentResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

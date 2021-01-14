@@ -214,6 +214,6 @@ public class GetSectionsRequest implements RequestIfc {
      * @param response Response instance
      */
     public SectionLinkCollectionResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (SectionLinkCollectionResponse)apiClient.deserialize(response, SectionLinkCollectionResponse.class);
+        return (SectionLinkCollectionResponse) apiClient.deserialize(response, SectionLinkCollectionResponse.class);
     }
 }

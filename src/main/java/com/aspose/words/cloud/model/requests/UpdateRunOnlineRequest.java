@@ -334,7 +334,7 @@ public class UpdateRunOnlineRequest implements RequestIfc {
     public UpdateRunOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new UpdateRunOnlineResponse(
-            (RunResponse)apiClient.parseModel(multipart.getBodyPart(0), RunResponse.class),
+            (RunResponse) apiClient.parseModel(multipart.getBodyPart(0), RunResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

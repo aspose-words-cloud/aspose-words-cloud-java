@@ -241,6 +241,6 @@ public class SearchRequest implements RequestIfc {
      * @param response Response instance
      */
     public SearchResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (SearchResponse)apiClient.deserialize(response, SearchResponse.class);
+        return (SearchResponse) apiClient.deserialize(response, SearchResponse.class);
     }
 }

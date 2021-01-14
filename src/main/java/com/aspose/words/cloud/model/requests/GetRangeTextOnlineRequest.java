@@ -232,6 +232,6 @@ public class GetRangeTextOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     public RangeTextResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (RangeTextResponse)apiClient.deserialize(response, RangeTextResponse.class);
+        return (RangeTextResponse) apiClient.deserialize(response, RangeTextResponse.class);
     }
 }

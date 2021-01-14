@@ -237,6 +237,6 @@ public class GetTableCellOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     public TableCellResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (TableCellResponse)apiClient.deserialize(response, TableCellResponse.class);
+        return (TableCellResponse) apiClient.deserialize(response, TableCellResponse.class);
     }
 }

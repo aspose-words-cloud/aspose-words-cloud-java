@@ -236,6 +236,6 @@ public class RejectAllRevisionsRequest implements RequestIfc {
      * @param response Response instance
      */
     public RevisionsModificationResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (RevisionsModificationResponse)apiClient.deserialize(response, RevisionsModificationResponse.class);
+        return (RevisionsModificationResponse) apiClient.deserialize(response, RevisionsModificationResponse.class);
     }
 }

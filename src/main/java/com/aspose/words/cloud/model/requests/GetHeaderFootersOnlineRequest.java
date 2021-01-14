@@ -232,6 +232,6 @@ public class GetHeaderFootersOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     public HeaderFootersResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (HeaderFootersResponse)apiClient.deserialize(response, HeaderFootersResponse.class);
+        return (HeaderFootersResponse) apiClient.deserialize(response, HeaderFootersResponse.class);
     }
 }

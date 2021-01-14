@@ -263,6 +263,6 @@ public class GetParagraphRequest implements RequestIfc {
      * @param response Response instance
      */
     public ParagraphResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (ParagraphResponse)apiClient.deserialize(response, ParagraphResponse.class);
+        return (ParagraphResponse) apiClient.deserialize(response, ParagraphResponse.class);
     }
 }

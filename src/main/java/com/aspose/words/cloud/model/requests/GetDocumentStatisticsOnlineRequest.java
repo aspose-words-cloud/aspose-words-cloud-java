@@ -249,6 +249,6 @@ public class GetDocumentStatisticsOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     public StatDataResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (StatDataResponse)apiClient.deserialize(response, StatDataResponse.class);
+        return (StatDataResponse) apiClient.deserialize(response, StatDataResponse.class);
     }
 }

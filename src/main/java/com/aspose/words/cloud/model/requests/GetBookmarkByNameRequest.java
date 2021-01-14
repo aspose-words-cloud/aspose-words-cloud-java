@@ -241,6 +241,6 @@ public class GetBookmarkByNameRequest implements RequestIfc {
      * @param response Response instance
      */
     public BookmarkResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (BookmarkResponse)apiClient.deserialize(response, BookmarkResponse.class);
+        return (BookmarkResponse) apiClient.deserialize(response, BookmarkResponse.class);
     }
 }

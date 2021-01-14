@@ -345,6 +345,6 @@ public class UpdateSectionPageSetupRequest implements RequestIfc {
      * @param response Response instance
      */
     public SectionPageSetupResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (SectionPageSetupResponse)apiClient.deserialize(response, SectionPageSetupResponse.class);
+        return (SectionPageSetupResponse) apiClient.deserialize(response, SectionPageSetupResponse.class);
     }
 }

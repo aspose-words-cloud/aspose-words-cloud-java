@@ -183,6 +183,6 @@ public class GetCommentsOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     public CommentsResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (CommentsResponse)apiClient.deserialize(response, CommentsResponse.class);
+        return (CommentsResponse) apiClient.deserialize(response, CommentsResponse.class);
     }
 }

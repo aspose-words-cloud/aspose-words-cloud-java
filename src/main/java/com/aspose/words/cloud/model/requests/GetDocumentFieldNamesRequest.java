@@ -236,6 +236,6 @@ public class GetDocumentFieldNamesRequest implements RequestIfc {
      * @param response Response instance
      */
     public FieldNamesResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (FieldNamesResponse)apiClient.deserialize(response, FieldNamesResponse.class);
+        return (FieldNamesResponse) apiClient.deserialize(response, FieldNamesResponse.class);
     }
 }

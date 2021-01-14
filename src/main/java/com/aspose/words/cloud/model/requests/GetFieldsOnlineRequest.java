@@ -205,6 +205,6 @@ public class GetFieldsOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     public FieldsResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (FieldsResponse)apiClient.deserialize(response, FieldsResponse.class);
+        return (FieldsResponse) apiClient.deserialize(response, FieldsResponse.class);
     }
 }

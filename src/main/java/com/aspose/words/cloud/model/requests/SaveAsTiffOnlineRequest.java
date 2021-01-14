@@ -610,7 +610,7 @@ public class SaveAsTiffOnlineRequest implements RequestIfc {
     public SaveAsTiffOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new SaveAsTiffOnlineResponse(
-            (SaveResponse)apiClient.parseModel(multipart.getBodyPart(0), SaveResponse.class),
+            (SaveResponse) apiClient.parseModel(multipart.getBodyPart(0), SaveResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

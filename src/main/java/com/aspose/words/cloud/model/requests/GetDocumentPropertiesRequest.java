@@ -214,6 +214,6 @@ public class GetDocumentPropertiesRequest implements RequestIfc {
      * @param response Response instance
      */
     public DocumentPropertiesResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (DocumentPropertiesResponse)apiClient.deserialize(response, DocumentPropertiesResponse.class);
+        return (DocumentPropertiesResponse) apiClient.deserialize(response, DocumentPropertiesResponse.class);
     }
 }

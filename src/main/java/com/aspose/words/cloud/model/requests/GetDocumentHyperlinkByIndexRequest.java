@@ -241,6 +241,6 @@ public class GetDocumentHyperlinkByIndexRequest implements RequestIfc {
      * @param response Response instance
      */
     public HyperlinkResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (HyperlinkResponse)apiClient.deserialize(response, HyperlinkResponse.class);
+        return (HyperlinkResponse) apiClient.deserialize(response, HyperlinkResponse.class);
     }
 }

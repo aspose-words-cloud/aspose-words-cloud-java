@@ -307,7 +307,7 @@ public class InsertHeaderFooterOnlineRequest implements RequestIfc {
     public InsertHeaderFooterOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertHeaderFooterOnlineResponse(
-            (HeaderFooterResponse)apiClient.parseModel(multipart.getBodyPart(0), HeaderFooterResponse.class),
+            (HeaderFooterResponse) apiClient.parseModel(multipart.getBodyPart(0), HeaderFooterResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

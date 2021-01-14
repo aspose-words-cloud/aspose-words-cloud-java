@@ -122,6 +122,6 @@ public class GetAvailableFontsRequest implements RequestIfc {
      * @param response Response instance
      */
     public AvailableFontsResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (AvailableFontsResponse)apiClient.deserialize(response, AvailableFontsResponse.class);
+        return (AvailableFontsResponse) apiClient.deserialize(response, AvailableFontsResponse.class);
     }
 }

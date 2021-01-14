@@ -280,7 +280,7 @@ public class CopyStyleOnlineRequest implements RequestIfc {
     public CopyStyleOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new CopyStyleOnlineResponse(
-            (StyleResponse)apiClient.parseModel(multipart.getBodyPart(0), StyleResponse.class),
+            (StyleResponse) apiClient.parseModel(multipart.getBodyPart(0), StyleResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

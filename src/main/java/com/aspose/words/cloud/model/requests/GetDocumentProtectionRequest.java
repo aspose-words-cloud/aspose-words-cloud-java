@@ -214,6 +214,6 @@ public class GetDocumentProtectionRequest implements RequestIfc {
      * @param response Response instance
      */
     public ProtectionDataResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (ProtectionDataResponse)apiClient.deserialize(response, ProtectionDataResponse.class);
+        return (ProtectionDataResponse) apiClient.deserialize(response, ProtectionDataResponse.class);
     }
 }

@@ -214,6 +214,6 @@ public class GetListsRequest implements RequestIfc {
      * @param response Response instance
      */
     public ListsResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (ListsResponse)apiClient.deserialize(response, ListsResponse.class);
+        return (ListsResponse) apiClient.deserialize(response, ListsResponse.class);
     }
 }

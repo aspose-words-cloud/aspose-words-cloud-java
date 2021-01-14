@@ -307,7 +307,7 @@ public class UpdateBookmarkOnlineRequest implements RequestIfc {
     public UpdateBookmarkOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new UpdateBookmarkOnlineResponse(
-            (BookmarkResponse)apiClient.parseModel(multipart.getBodyPart(0), BookmarkResponse.class),
+            (BookmarkResponse) apiClient.parseModel(multipart.getBodyPart(0), BookmarkResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

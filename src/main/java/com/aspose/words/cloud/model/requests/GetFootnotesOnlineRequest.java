@@ -205,6 +205,6 @@ public class GetFootnotesOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     public FootnotesResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (FootnotesResponse)apiClient.deserialize(response, FootnotesResponse.class);
+        return (FootnotesResponse) apiClient.deserialize(response, FootnotesResponse.class);
     }
 }

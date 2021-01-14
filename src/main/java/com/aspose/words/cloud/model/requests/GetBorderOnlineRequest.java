@@ -232,6 +232,6 @@ public class GetBorderOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     public BorderResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (BorderResponse)apiClient.deserialize(response, BorderResponse.class);
+        return (BorderResponse) apiClient.deserialize(response, BorderResponse.class);
     }
 }

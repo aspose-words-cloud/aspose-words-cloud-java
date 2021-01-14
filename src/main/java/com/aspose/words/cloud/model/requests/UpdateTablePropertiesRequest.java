@@ -367,6 +367,6 @@ public class UpdateTablePropertiesRequest implements RequestIfc {
      * @param response Response instance
      */
     public TablePropertiesResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (TablePropertiesResponse)apiClient.deserialize(response, TablePropertiesResponse.class);
+        return (TablePropertiesResponse) apiClient.deserialize(response, TablePropertiesResponse.class);
     }
 }

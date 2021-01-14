@@ -334,7 +334,7 @@ public class UpdateTableRowFormatOnlineRequest implements RequestIfc {
     public UpdateTableRowFormatOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new UpdateTableRowFormatOnlineResponse(
-            (TableRowFormatResponse)apiClient.parseModel(multipart.getBodyPart(0), TableRowFormatResponse.class),
+            (TableRowFormatResponse) apiClient.parseModel(multipart.getBodyPart(0), TableRowFormatResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

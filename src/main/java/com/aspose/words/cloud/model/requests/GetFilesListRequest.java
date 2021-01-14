@@ -148,6 +148,6 @@ public class GetFilesListRequest implements RequestIfc {
      * @param response Response instance
      */
     public FilesList deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (FilesList)apiClient.deserialize(response, FilesList.class);
+        return (FilesList) apiClient.deserialize(response, FilesList.class);
     }
 }

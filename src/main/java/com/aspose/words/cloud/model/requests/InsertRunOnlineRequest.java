@@ -329,7 +329,7 @@ public class InsertRunOnlineRequest implements RequestIfc {
     public InsertRunOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertRunOnlineResponse(
-            (RunResponse)apiClient.parseModel(multipart.getBodyPart(0), RunResponse.class),
+            (RunResponse) apiClient.parseModel(multipart.getBodyPart(0), RunResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

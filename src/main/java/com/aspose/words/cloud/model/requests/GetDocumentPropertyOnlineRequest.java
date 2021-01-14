@@ -210,6 +210,6 @@ public class GetDocumentPropertyOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     public DocumentPropertyResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (DocumentPropertyResponse)apiClient.deserialize(response, DocumentPropertyResponse.class);
+        return (DocumentPropertyResponse) apiClient.deserialize(response, DocumentPropertyResponse.class);
     }
 }

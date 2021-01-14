@@ -322,7 +322,7 @@ public class SplitDocumentOnlineRequest implements RequestIfc {
     public SplitDocumentOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new SplitDocumentOnlineResponse(
-            (SplitDocumentResponse)apiClient.parseModel(multipart.getBodyPart(0), SplitDocumentResponse.class),
+            (SplitDocumentResponse) apiClient.parseModel(multipart.getBodyPart(0), SplitDocumentResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

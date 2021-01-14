@@ -334,7 +334,7 @@ public class UpdateListLevelOnlineRequest implements RequestIfc {
     public UpdateListLevelOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new UpdateListLevelOnlineResponse(
-            (ListResponse)apiClient.parseModel(multipart.getBodyPart(0), ListResponse.class),
+            (ListResponse) apiClient.parseModel(multipart.getBodyPart(0), ListResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

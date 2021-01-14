@@ -273,7 +273,7 @@ public class DeleteBordersOnlineRequest implements RequestIfc {
     public DeleteBordersOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new DeleteBordersOnlineResponse(
-            (BordersResponse)apiClient.parseModel(multipart.getBodyPart(0), BordersResponse.class),
+            (BordersResponse) apiClient.parseModel(multipart.getBodyPart(0), BordersResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

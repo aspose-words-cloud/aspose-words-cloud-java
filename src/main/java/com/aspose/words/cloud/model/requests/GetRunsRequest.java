@@ -241,6 +241,6 @@ public class GetRunsRequest implements RequestIfc {
      * @param response Response instance
      */
     public RunsResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (RunsResponse)apiClient.deserialize(response, RunsResponse.class);
+        return (RunsResponse) apiClient.deserialize(response, RunsResponse.class);
     }
 }

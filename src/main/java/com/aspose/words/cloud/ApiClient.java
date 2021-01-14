@@ -922,7 +922,7 @@ public class ApiClient {
      * @param body The request body object
      * @param headerParams The header parameters
      * @param formParams The form parameters
-     * @param authNames The authentications to apply
+     * @param addAuthHeaders The authentications to apply
      * @param progressRequestListener Progress request listener
      * @return The HTTP request 
      * @throws ApiException If fail to serialize the request body object
@@ -1202,7 +1202,8 @@ public class ApiClient {
         try {
             String stringData = buffer.toString("UTF-8");
             return json.deserialize(stringData, returnType);
-        } catch (UnsupportedEncodingException e) {
+        } 
+        catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         return null;

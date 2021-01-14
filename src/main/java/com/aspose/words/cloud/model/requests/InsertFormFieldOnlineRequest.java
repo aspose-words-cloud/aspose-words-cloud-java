@@ -324,7 +324,7 @@ public class InsertFormFieldOnlineRequest implements RequestIfc {
     public InsertFormFieldOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertFormFieldOnlineResponse(
-            (FormFieldResponse)apiClient.parseModel(multipart.getBodyPart(0), FormFieldResponse.class),
+            (FormFieldResponse) apiClient.parseModel(multipart.getBodyPart(0), FormFieldResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

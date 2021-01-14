@@ -207,7 +207,7 @@ public class RejectAllRevisionsOnlineRequest implements RequestIfc {
     public RejectAllRevisionsOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new RejectAllRevisionsOnlineResponse(
-            (RevisionsModificationResponse)apiClient.parseModel(multipart.getBodyPart(0), RevisionsModificationResponse.class),
+            (RevisionsModificationResponse) apiClient.parseModel(multipart.getBodyPart(0), RevisionsModificationResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

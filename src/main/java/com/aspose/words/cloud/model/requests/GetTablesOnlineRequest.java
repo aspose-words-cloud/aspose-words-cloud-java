@@ -205,6 +205,6 @@ public class GetTablesOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     public TableLinkCollectionResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (TableLinkCollectionResponse)apiClient.deserialize(response, TableLinkCollectionResponse.class);
+        return (TableLinkCollectionResponse) apiClient.deserialize(response, TableLinkCollectionResponse.class);
     }
 }

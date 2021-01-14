@@ -324,7 +324,7 @@ public class InsertParagraphOnlineRequest implements RequestIfc {
     public InsertParagraphOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertParagraphOnlineResponse(
-            (ParagraphResponse)apiClient.parseModel(multipart.getBodyPart(0), ParagraphResponse.class),
+            (ParagraphResponse) apiClient.parseModel(multipart.getBodyPart(0), ParagraphResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

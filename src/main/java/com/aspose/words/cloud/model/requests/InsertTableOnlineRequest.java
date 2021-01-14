@@ -302,7 +302,7 @@ public class InsertTableOnlineRequest implements RequestIfc {
     public InsertTableOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertTableOnlineResponse(
-            (TableResponse)apiClient.parseModel(multipart.getBodyPart(0), TableResponse.class),
+            (TableResponse) apiClient.parseModel(multipart.getBodyPart(0), TableResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

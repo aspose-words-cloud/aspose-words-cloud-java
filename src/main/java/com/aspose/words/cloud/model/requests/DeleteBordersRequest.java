@@ -302,6 +302,6 @@ public class DeleteBordersRequest implements RequestIfc {
      * @param response Response instance
      */
     public BordersResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (BordersResponse)apiClient.deserialize(response, BordersResponse.class);
+        return (BordersResponse) apiClient.deserialize(response, BordersResponse.class);
     }
 }

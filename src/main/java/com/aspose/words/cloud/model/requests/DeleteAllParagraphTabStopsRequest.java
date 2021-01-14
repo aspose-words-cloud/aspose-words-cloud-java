@@ -285,6 +285,6 @@ public class DeleteAllParagraphTabStopsRequest implements RequestIfc {
      * @param response Response instance
      */
     public TabStopsResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (TabStopsResponse)apiClient.deserialize(response, TabStopsResponse.class);
+        return (TabStopsResponse) apiClient.deserialize(response, TabStopsResponse.class);
     }
 }

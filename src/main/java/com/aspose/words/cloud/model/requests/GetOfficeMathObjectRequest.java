@@ -263,6 +263,6 @@ public class GetOfficeMathObjectRequest implements RequestIfc {
      * @param response Response instance
      */
     public OfficeMathObjectResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (OfficeMathObjectResponse)apiClient.deserialize(response, OfficeMathObjectResponse.class);
+        return (OfficeMathObjectResponse) apiClient.deserialize(response, OfficeMathObjectResponse.class);
     }
 }

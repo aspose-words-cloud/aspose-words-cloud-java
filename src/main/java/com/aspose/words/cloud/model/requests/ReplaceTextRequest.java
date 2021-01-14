@@ -318,6 +318,6 @@ public class ReplaceTextRequest implements RequestIfc {
      * @param response Response instance
      */
     public ReplaceTextResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (ReplaceTextResponse)apiClient.deserialize(response, ReplaceTextResponse.class);
+        return (ReplaceTextResponse) apiClient.deserialize(response, ReplaceTextResponse.class);
     }
 }

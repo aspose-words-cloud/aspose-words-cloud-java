@@ -372,6 +372,6 @@ public class UpdateListLevelRequest implements RequestIfc {
      * @param response Response instance
      */
     public ListResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (ListResponse)apiClient.deserialize(response, ListResponse.class);
+        return (ListResponse) apiClient.deserialize(response, ListResponse.class);
     }
 }

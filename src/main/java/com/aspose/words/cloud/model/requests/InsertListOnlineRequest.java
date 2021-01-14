@@ -280,7 +280,7 @@ public class InsertListOnlineRequest implements RequestIfc {
     public InsertListOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertListOnlineResponse(
-            (ListResponse)apiClient.parseModel(multipart.getBodyPart(0), ListResponse.class),
+            (ListResponse) apiClient.parseModel(multipart.getBodyPart(0), ListResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

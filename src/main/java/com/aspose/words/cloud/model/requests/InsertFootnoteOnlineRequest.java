@@ -302,7 +302,7 @@ public class InsertFootnoteOnlineRequest implements RequestIfc {
     public InsertFootnoteOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertFootnoteOnlineResponse(
-            (FootnoteResponse)apiClient.parseModel(multipart.getBodyPart(0), FootnoteResponse.class),
+            (FootnoteResponse) apiClient.parseModel(multipart.getBodyPart(0), FootnoteResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

@@ -331,7 +331,7 @@ public class InsertDrawingObjectOnlineRequest implements RequestIfc {
     public InsertDrawingObjectOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertDrawingObjectOnlineResponse(
-            (DrawingObjectResponse)apiClient.parseModel(multipart.getBodyPart(0), DrawingObjectResponse.class),
+            (DrawingObjectResponse) apiClient.parseModel(multipart.getBodyPart(0), DrawingObjectResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

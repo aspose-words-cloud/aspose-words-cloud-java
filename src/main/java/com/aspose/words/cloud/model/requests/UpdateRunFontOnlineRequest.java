@@ -334,7 +334,7 @@ public class UpdateRunFontOnlineRequest implements RequestIfc {
     public UpdateRunFontOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new UpdateRunFontOnlineResponse(
-            (FontResponse)apiClient.parseModel(multipart.getBodyPart(0), FontResponse.class),
+            (FontResponse) apiClient.parseModel(multipart.getBodyPart(0), FontResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }

@@ -190,6 +190,6 @@ public class UploadFileRequest implements RequestIfc {
      * @param response Response instance
      */
     public FilesUploadResult deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (FilesUploadResult)apiClient.deserialize(response, FilesUploadResult.class);
+        return (FilesUploadResult) apiClient.deserialize(response, FilesUploadResult.class);
     }
 }

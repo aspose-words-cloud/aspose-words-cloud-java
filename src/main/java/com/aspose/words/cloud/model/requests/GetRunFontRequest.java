@@ -268,6 +268,6 @@ public class GetRunFontRequest implements RequestIfc {
      * @param response Response instance
      */
     public FontResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (FontResponse)apiClient.deserialize(response, FontResponse.class);
+        return (FontResponse) apiClient.deserialize(response, FontResponse.class);
     }
 }

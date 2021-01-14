@@ -345,6 +345,6 @@ public class InsertHeaderFooterRequest implements RequestIfc {
      * @param response Response instance
      */
     public HeaderFooterResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
-        return (HeaderFooterResponse)apiClient.deserialize(response, HeaderFooterResponse.class);
+        return (HeaderFooterResponse) apiClient.deserialize(response, HeaderFooterResponse.class);
     }
 }

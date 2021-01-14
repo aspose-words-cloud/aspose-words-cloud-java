@@ -307,7 +307,7 @@ public class UpdateListOnlineRequest implements RequestIfc {
     public UpdateListOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new UpdateListOnlineResponse(
-            (ListResponse)apiClient.parseModel(multipart.getBodyPart(0), ListResponse.class),
+            (ListResponse) apiClient.parseModel(multipart.getBodyPart(0), ListResponse.class),
             apiClient.parseDocument(multipart.getBodyPart(1))
         );
     }
