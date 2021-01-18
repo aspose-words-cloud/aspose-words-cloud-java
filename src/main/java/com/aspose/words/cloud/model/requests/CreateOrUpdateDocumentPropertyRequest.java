@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CreateOrUpdateDocumentPropertyRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -49,7 +52,7 @@ public class CreateOrUpdateDocumentPropertyRequest implements RequestIfc {
     private String propertyName;
 
     /*
-     * The property with a new value.
+     * The property with new value.
      */
     private DocumentPropertyCreateOrUpdate property;
 
@@ -93,7 +96,7 @@ public class CreateOrUpdateDocumentPropertyRequest implements RequestIfc {
      *
      * @param String name The filename of the input document.
      * @param String propertyName The name of the property.
-     * @param DocumentPropertyCreateOrUpdate property The property with a new value.
+     * @param DocumentPropertyCreateOrUpdate property The property with new value.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -144,14 +147,14 @@ public class CreateOrUpdateDocumentPropertyRequest implements RequestIfc {
     }
 
     /*
-     * Gets The property with a new value.
+     * Gets The property with new value.
      */
     public DocumentPropertyCreateOrUpdate getProperty() {
         return this.property;
     }
 
     /*
-     * Sets The property with a new value.
+     * Sets The property with new value.
      */
     public void setProperty(DocumentPropertyCreateOrUpdate value) {
         this.property = value;
@@ -255,6 +258,7 @@ public class CreateOrUpdateDocumentPropertyRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -332,5 +336,15 @@ public class CreateOrUpdateDocumentPropertyRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return DocumentPropertyResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public DocumentPropertyResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (DocumentPropertyResponse) apiClient.deserialize(response, DocumentPropertyResponse.class);
     }
 }

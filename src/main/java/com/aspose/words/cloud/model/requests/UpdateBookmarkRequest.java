@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateBookmarkRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,14 +47,14 @@ public class UpdateBookmarkRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the bookmark.
-     */
-    private BookmarkData bookmarkData;
-
-    /*
      * The name of the bookmark.
      */
     private String bookmarkName;
+
+    /*
+     * Bookmark data.
+     */
+    private BookmarkData bookmarkData;
 
     /*
      * Original document folder.
@@ -92,8 +95,8 @@ public class UpdateBookmarkRequest implements RequestIfc {
      * Initializes a new instance of the UpdateBookmarkRequest class.
      *
      * @param String name The filename of the input document.
-     * @param BookmarkData bookmarkData The properties of the bookmark.
      * @param String bookmarkName The name of the bookmark.
+     * @param BookmarkData bookmarkData Bookmark data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -102,10 +105,10 @@ public class UpdateBookmarkRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateBookmarkRequest(String name, BookmarkData bookmarkData, String bookmarkName, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateBookmarkRequest(String name, String bookmarkName, BookmarkData bookmarkData, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.bookmarkData = bookmarkData;
         this.bookmarkName = bookmarkName;
+        this.bookmarkData = bookmarkData;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -130,20 +133,6 @@ public class UpdateBookmarkRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the bookmark.
-     */
-    public BookmarkData getBookmarkData() {
-        return this.bookmarkData;
-    }
-
-    /*
-     * Sets The properties of the bookmark.
-     */
-    public void setBookmarkData(BookmarkData value) {
-        this.bookmarkData = value;
-    }
-
-    /*
      * Gets The name of the bookmark.
      */
     public String getBookmarkName() {
@@ -155,6 +144,20 @@ public class UpdateBookmarkRequest implements RequestIfc {
      */
     public void setBookmarkName(String value) {
         this.bookmarkName = value;
+    }
+
+    /*
+     * Gets Bookmark data.
+     */
+    public BookmarkData getBookmarkData() {
+        return this.bookmarkData;
+    }
+
+    /*
+     * Sets Bookmark data.
+     */
+    public void setBookmarkData(BookmarkData value) {
+        this.bookmarkData = value;
     }
 
     /*
@@ -255,6 +258,7 @@ public class UpdateBookmarkRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -268,14 +272,14 @@ public class UpdateBookmarkRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateBookmark");
         }
 
-        // verify the required parameter 'BookmarkData' is set
-        if (getBookmarkData() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BookmarkData' when calling updateBookmark");
-        }
-
         // verify the required parameter 'BookmarkName' is set
         if (getBookmarkName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BookmarkName' when calling updateBookmark");
+        }
+
+        // verify the required parameter 'BookmarkData' is set
+        if (getBookmarkData() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BookmarkData' when calling updateBookmark");
         }
 
         Object localVarPostBody = getBookmarkData();
@@ -332,5 +336,15 @@ public class UpdateBookmarkRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return BookmarkResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public BookmarkResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (BookmarkResponse) apiClient.deserialize(response, BookmarkResponse.class);
     }
 }

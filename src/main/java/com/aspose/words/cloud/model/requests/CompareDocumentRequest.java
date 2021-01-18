@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CompareDocumentRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,7 +47,7 @@ public class CompareDocumentRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the document to compare with.
+     * Compare data.
      */
     private CompareData compareData;
 
@@ -77,7 +80,7 @@ public class CompareDocumentRequest implements RequestIfc {
      * Initializes a new instance of the CompareDocumentRequest class.
      *
      * @param String name The filename of the input document.
-     * @param CompareData compareData The properties of the document to compare with.
+     * @param CompareData compareData Compare data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,14 +112,14 @@ public class CompareDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the document to compare with.
+     * Gets Compare data.
      */
     public CompareData getCompareData() {
         return this.compareData;
     }
 
     /*
-     * Sets The properties of the document to compare with.
+     * Sets Compare data.
      */
     public void setCompareData(CompareData value) {
         this.compareData = value;
@@ -192,6 +195,7 @@ public class CompareDocumentRequest implements RequestIfc {
         this.destFileName = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -261,5 +265,15 @@ public class CompareDocumentRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return DocumentResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public DocumentResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (DocumentResponse) apiClient.deserialize(response, DocumentResponse.class);
     }
 }

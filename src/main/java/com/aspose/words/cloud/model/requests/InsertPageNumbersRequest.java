@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertPageNumbersRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,7 +47,7 @@ public class InsertPageNumbersRequest implements RequestIfc {
     private String name;
 
     /*
-     * The page numbers settings.
+     * Page number dto.
      */
     private PageNumber pageNumber;
 
@@ -87,7 +90,7 @@ public class InsertPageNumbersRequest implements RequestIfc {
      * Initializes a new instance of the InsertPageNumbersRequest class.
      *
      * @param String name The filename of the input document.
-     * @param PageNumber pageNumber The page numbers settings.
+     * @param PageNumber pageNumber Page number dto.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -123,14 +126,14 @@ public class InsertPageNumbersRequest implements RequestIfc {
     }
 
     /*
-     * Gets The page numbers settings.
+     * Gets Page number dto.
      */
     public PageNumber getPageNumber() {
         return this.pageNumber;
     }
 
     /*
-     * Sets The page numbers settings.
+     * Sets Page number dto.
      */
     public void setPageNumber(PageNumber value) {
         this.pageNumber = value;
@@ -234,6 +237,7 @@ public class InsertPageNumbersRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -305,5 +309,15 @@ public class InsertPageNumbersRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return DocumentResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public DocumentResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (DocumentResponse) apiClient.deserialize(response, DocumentResponse.class);
     }
 }

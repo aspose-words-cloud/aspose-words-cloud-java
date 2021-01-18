@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestHeaderFooter.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.headerFooter;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestHeaderFooter  extends TestCase
      * Test for getting headers and footers.
      */
     @Test
-    public void testGetHeaderFooters() throws ApiException, IOException
+    public void testGetHeaderFooters() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetHeadersFooters.docx";
 
@@ -84,10 +86,28 @@ public class TestHeaderFooter  extends TestCase
     }
 
     /*
+     * Test for getting headers and footers online.
+     */
+    @Test
+    public void testGetHeaderFootersOnline() throws ApiException, MessagingException, IOException
+    {
+        GetHeaderFootersOnlineRequest request = new GetHeaderFootersOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "",
+            null,
+            null,
+            null
+        );
+
+        HeaderFootersResponse result = TestInitializer.wordsApi.getHeaderFootersOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting headerfooter.
      */
     @Test
-    public void testGetHeaderFooter() throws ApiException, IOException
+    public void testGetHeaderFooter() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetHeaderFooter.docx";
 
@@ -115,10 +135,28 @@ public class TestHeaderFooter  extends TestCase
     }
 
     /*
+     * Test for getting headerfooter online.
+     */
+    @Test
+    public void testGetHeaderFooterOnline() throws ApiException, MessagingException, IOException
+    {
+        GetHeaderFooterOnlineRequest request = new GetHeaderFooterOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            null,
+            null,
+            null
+        );
+
+        HeaderFooterResponse result = TestInitializer.wordsApi.getHeaderFooterOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting headerfooter of section.
      */
     @Test
-    public void testGetHeaderFooterOfSection() throws ApiException, IOException
+    public void testGetHeaderFooterOfSection() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetHeaderFooterOfSection.docx";
 
@@ -147,10 +185,29 @@ public class TestHeaderFooter  extends TestCase
     }
 
     /*
+     * Test for getting headerfooter of section online.
+     */
+    @Test
+    public void testGetHeaderFooterOfSectionOnline() throws ApiException, MessagingException, IOException
+    {
+        GetHeaderFooterOfSectionOnlineRequest request = new GetHeaderFooterOfSectionOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            0,
+            null,
+            null,
+            null
+        );
+
+        HeaderFooterResponse result = TestInitializer.wordsApi.getHeaderFooterOfSectionOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for deleting headerfooter.
      */
     @Test
-    public void testDeleteHeaderFooter() throws ApiException, IOException
+    public void testDeleteHeaderFooter() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteHeaderFooter.docx";
 
@@ -176,10 +233,31 @@ public class TestHeaderFooter  extends TestCase
     }
 
     /*
+     * Test for deleting headerfooter online.
+     */
+    @Test
+    public void testDeleteHeaderFooterOnline() throws ApiException, MessagingException, IOException
+    {
+        DeleteHeaderFooterOnlineRequest request = new DeleteHeaderFooterOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "",
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteHeaderFooterOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for deleting headerfooters.
      */
     @Test
-    public void testDeleteHeadersFooters() throws ApiException, IOException
+    public void testDeleteHeadersFooters() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteHeadersFooters.docx";
 
@@ -205,10 +283,31 @@ public class TestHeaderFooter  extends TestCase
     }
 
     /*
+     * Test for deleting headerfooters online.
+     */
+    @Test
+    public void testDeleteHeadersFootersOnline() throws ApiException, MessagingException, IOException
+    {
+        DeleteHeadersFootersOnlineRequest request = new DeleteHeadersFootersOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteHeadersFootersOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for adding headerfooters.
      */
     @Test
-    public void testInsertHeaderFooter() throws ApiException, IOException
+    public void testInsertHeaderFooter() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertHeaderFooter.docx";
 
@@ -219,8 +318,8 @@ public class TestHeaderFooter  extends TestCase
 
         InsertHeaderFooterRequest request = new InsertHeaderFooterRequest(
             remoteFileName,
-            "FooterEven",
             "",
+            "FooterEven",
             remoteDataFolder,
             null,
             null,
@@ -232,9 +331,30 @@ public class TestHeaderFooter  extends TestCase
 
         HeaderFooterResponse result = TestInitializer.wordsApi.insertHeaderFooter(request);
         assertNotNull(result);
-        assertNotNull(result.getHeaderFooter());
-        assertNotNull(result.getHeaderFooter().getChildNodes());
-        assertEquals(1, result.getHeaderFooter().getChildNodes().size());
-        assertEquals("0.2.0", result.getHeaderFooter().getChildNodes().get(0).getNodeId());
+    }
+
+    /*
+     * Test for adding headerfooters online.
+     */
+    @Test
+    public void testInsertHeaderFooterOnline() throws ApiException, MessagingException, IOException
+    {
+        InsertHeaderFooterOnlineRequest request = new InsertHeaderFooterOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "",
+            "FooterEven",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertHeaderFooterOnlineResponse result = TestInitializer.wordsApi.insertHeaderFooterOnline(request);
+        assertNotNull(result);
+        assertNotNull(result.getModel().getHeaderFooter());
+        assertNotNull(result.getModel().getHeaderFooter().getChildNodes());
+        assertEquals(1, result.getModel().getHeaderFooter().getChildNodes().size());
+        assertEquals("0.2.0", result.getModel().getHeaderFooter().getChildNodes().get(0).getNodeId());
     }
 }

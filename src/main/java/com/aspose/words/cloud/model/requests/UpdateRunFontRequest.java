@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateRunFontRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,11 +47,6 @@ public class UpdateRunFontRequest implements RequestIfc {
     private String name;
 
     /*
-     * The font properties of a Run object.
-     */
-    private Font fontDto;
-
-    /*
      * The path to the paragraph in the document tree.
      */
     private String paragraphPath;
@@ -57,6 +55,11 @@ public class UpdateRunFontRequest implements RequestIfc {
      * Object index.
      */
     private Integer index;
+
+    /*
+     * Font dto object.
+     */
+    private Font fontDto;
 
     /*
      * Original document folder.
@@ -97,9 +100,9 @@ public class UpdateRunFontRequest implements RequestIfc {
      * Initializes a new instance of the UpdateRunFontRequest class.
      *
      * @param String name The filename of the input document.
-     * @param Font fontDto The font properties of a Run object.
      * @param String paragraphPath The path to the paragraph in the document tree.
      * @param Integer index Object index.
+     * @param Font fontDto Font dto object.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -108,11 +111,11 @@ public class UpdateRunFontRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateRunFontRequest(String name, Font fontDto, String paragraphPath, Integer index, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateRunFontRequest(String name, String paragraphPath, Integer index, Font fontDto, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.fontDto = fontDto;
         this.paragraphPath = paragraphPath;
         this.index = index;
+        this.fontDto = fontDto;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -134,20 +137,6 @@ public class UpdateRunFontRequest implements RequestIfc {
      */
     public void setName(String value) {
         this.name = value;
-    }
-
-    /*
-     * Gets The font properties of a Run object.
-     */
-    public Font getFontDto() {
-        return this.fontDto;
-    }
-
-    /*
-     * Sets The font properties of a Run object.
-     */
-    public void setFontDto(Font value) {
-        this.fontDto = value;
     }
 
     /*
@@ -176,6 +165,20 @@ public class UpdateRunFontRequest implements RequestIfc {
      */
     public void setIndex(Integer value) {
         this.index = value;
+    }
+
+    /*
+     * Gets Font dto object.
+     */
+    public Font getFontDto() {
+        return this.fontDto;
+    }
+
+    /*
+     * Sets Font dto object.
+     */
+    public void setFontDto(Font value) {
+        this.fontDto = value;
     }
 
     /*
@@ -276,6 +279,7 @@ public class UpdateRunFontRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -289,11 +293,6 @@ public class UpdateRunFontRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateRunFont");
         }
 
-        // verify the required parameter 'FontDto' is set
-        if (getFontDto() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FontDto' when calling updateRunFont");
-        }
-
         // verify the required parameter 'ParagraphPath' is set
         if (getParagraphPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphPath' when calling updateRunFont");
@@ -302,6 +301,11 @@ public class UpdateRunFontRequest implements RequestIfc {
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateRunFont");
+        }
+
+        // verify the required parameter 'FontDto' is set
+        if (getFontDto() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FontDto' when calling updateRunFont");
         }
 
         Object localVarPostBody = getFontDto();
@@ -359,5 +363,15 @@ public class UpdateRunFontRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return FontResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public FontResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (FontResponse) apiClient.deserialize(response, FontResponse.class);
     }
 }

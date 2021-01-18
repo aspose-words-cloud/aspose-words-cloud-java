@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestMacros.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.macros;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestMacros  extends TestCase
      * Test for deleting macros.
      */
     @Test
-    public void testDeleteMacros() throws ApiException, IOException
+    public void testDeleteMacros() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteDocumentMacros.docx";
 
@@ -78,5 +80,24 @@ public class TestMacros  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteMacros(request);
+    }
+
+    /*
+     * Test for deleting macros online.
+     */
+    @Test
+    public void testDeleteMacrosOnline() throws ApiException, MessagingException, IOException
+    {
+        DeleteMacrosOnlineRequest request = new DeleteMacrosOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteMacrosOnline(request);
+        assertNotNull(result);
     }
 }

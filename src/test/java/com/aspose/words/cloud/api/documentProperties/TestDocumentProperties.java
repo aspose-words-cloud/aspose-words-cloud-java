@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestDocumentProperties.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.documentProperties;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestDocumentProperties  extends TestCase
      * Test for getting document properties.
      */
     @Test
-    public void testGetDocumentProperties() throws ApiException, IOException
+    public void testGetDocumentProperties() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentProperties.docx";
 
@@ -85,10 +87,26 @@ public class TestDocumentProperties  extends TestCase
     }
 
     /*
+     * Test for getting document properties online.
+     */
+    @Test
+    public void testGetDocumentPropertiesOnline() throws ApiException, MessagingException, IOException
+    {
+        GetDocumentPropertiesOnlineRequest request = new GetDocumentPropertiesOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        DocumentPropertiesResponse result = TestInitializer.wordsApi.getDocumentPropertiesOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * A test for GetDocumentProperty.
      */
     @Test
-    public void testGetDocumentProperty() throws ApiException, IOException
+    public void testGetDocumentProperty() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentProperty.docx";
 
@@ -114,10 +132,27 @@ public class TestDocumentProperties  extends TestCase
     }
 
     /*
+     * A test for GetDocumentProperty online.
+     */
+    @Test
+    public void testGetDocumentPropertyOnline() throws ApiException, MessagingException, IOException
+    {
+        GetDocumentPropertyOnlineRequest request = new GetDocumentPropertyOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "Author",
+            null,
+            null
+        );
+
+        DocumentPropertyResponse result = TestInitializer.wordsApi.getDocumentPropertyOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for deleting document property.
      */
     @Test
-    public void testDeleteDocumentProperty() throws ApiException, IOException
+    public void testDeleteDocumentProperty() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteDocumentProperty.docx";
 
@@ -142,10 +177,30 @@ public class TestDocumentProperties  extends TestCase
     }
 
     /*
+     * Test for deleting document property online.
+     */
+    @Test
+    public void testDeleteDocumentPropertyOnline() throws ApiException, MessagingException, IOException
+    {
+        DeleteDocumentPropertyOnlineRequest request = new DeleteDocumentPropertyOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "testProp",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteDocumentPropertyOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for updating document property.
      */
     @Test
-    public void testUpdateDocumentProperty() throws ApiException, IOException
+    public void testUpdateDocumentProperty() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateDocumentProperty.docx";
 
@@ -175,5 +230,29 @@ public class TestDocumentProperties  extends TestCase
         assertNotNull(result.getDocumentProperty());
         assertEquals("AsposeAuthor", result.getDocumentProperty().getName());
         assertEquals("Imran Anwar", result.getDocumentProperty().getValue());
+    }
+
+    /*
+     * Test for updating document property online.
+     */
+    @Test
+    public void testUpdateDocumentPropertyOnline() throws ApiException, MessagingException, IOException
+    {
+        DocumentPropertyCreateOrUpdate requestProperty = new DocumentPropertyCreateOrUpdate();
+        requestProperty.setValue("Imran Anwar");
+
+        CreateOrUpdateDocumentPropertyOnlineRequest request = new CreateOrUpdateDocumentPropertyOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "AsposeAuthor",
+            requestProperty,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        CreateOrUpdateDocumentPropertyOnlineResponse result = TestInitializer.wordsApi.createOrUpdateDocumentPropertyOnline(request);
+        assertNotNull(result);
     }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ApiClient.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -56,7 +56,7 @@ public class ApiClient {
     private String apiVersion = "v4.0";
     private String baseUrl = "https://api.aspose.cloud";
     private String basePath = baseUrl + "/" + apiVersion;
-    private String clientVersion = "20.11";
+    private String clientVersion = "21.1";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -922,7 +922,7 @@ public class ApiClient {
      * @param body The request body object
      * @param headerParams The header parameters
      * @param formParams The form parameters
-     * @param authNames The authentications to apply
+     * @param addAuthHeaders The authentications to apply
      * @param progressRequestListener Progress request listener
      * @return The HTTP request 
      * @throws ApiException If fail to serialize the request body object
@@ -1183,6 +1183,61 @@ public class ApiClient {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", requestBody.contentType().toString());
         return buildRequest("/words/batch", "PUT", new ArrayList<>(), new ArrayList<>(), requestBody, headers, new HashMap<>(), true, null);
+    }
+
+    /**
+     * Parse model from online response.
+     */
+    public Object parseModel(BodyPart bodyPart, Type returnType) throws IOException, MessagingException {
+        InputStream is = bodyPart.getInputStream();
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+        int nRead;
+        byte[] data = new byte[16384];
+
+        while ((nRead = is.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
+        }
+
+        try {
+            String stringData = buffer.toString("UTF-8");
+            return json.deserialize(stringData, returnType);
+        } 
+        catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * Parse document from online response.
+     */
+    public byte[] parseDocument(BodyPart bodyPart) throws IOException, MessagingException {
+        InputStream is = bodyPart.getInputStream();
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+        int nRead;
+        byte[] data = new byte[16384];
+
+        while ((nRead = is.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
+        }
+
+        return buffer.toByteArray();
+    }
+
+    /**
+     * Get multipart from response.
+     */
+    public MimeMultipart getMultipartFromResponse(Response response) throws ApiException {
+        try {
+            InputStream in = response.body().byteStream();
+            ByteArrayDataSource dataSource = new ByteArrayDataSource(in, "multipart/form-data");
+            return new MimeMultipart(dataSource);
+        }
+        catch (IOException | MessagingException e) {
+            throw new ApiException(e);
+        }
     }
 
     /**

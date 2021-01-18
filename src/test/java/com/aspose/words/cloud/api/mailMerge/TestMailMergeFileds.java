@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestMailMergeFileds.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.mailMerge;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,12 +59,14 @@ public class TestMailMergeFileds  extends TestCase
      * Test for putting new fields.
      */
     @Test
-    public void testGetDocumentFieldNamesOnline() throws ApiException, IOException
+    public void testGetDocumentFieldNamesOnline() throws ApiException, MessagingException, IOException
     {
         String localDocumentFile = "SampleExecuteTemplate.docx";
 
         GetDocumentFieldNamesOnlineRequest request = new GetDocumentFieldNamesOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDocumentFile).toAbsolutePath()),
+            null,
+            null,
             true
         );
 
@@ -78,7 +82,7 @@ public class TestMailMergeFileds  extends TestCase
      * Test for getting mailmerge fields.
      */
     @Test
-    public void testGetDocumentFieldNames() throws ApiException, IOException
+    public void testGetDocumentFieldNames() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentFieldNames.docx";
 

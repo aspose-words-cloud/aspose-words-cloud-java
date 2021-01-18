@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateParagraphListFormatRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,14 +47,14 @@ public class UpdateParagraphListFormatRequest implements RequestIfc {
     private String name;
 
     /*
-     * The formatting properties of a paragraph list.
-     */
-    private ListFormatUpdate dto;
-
-    /*
      * Object index.
      */
     private Integer index;
+
+    /*
+     * ListFormatUpdate dto.
+     */
+    private ListFormatUpdate listFormatDto;
 
     /*
      * The path to the node in the document tree.
@@ -97,8 +100,8 @@ public class UpdateParagraphListFormatRequest implements RequestIfc {
      * Initializes a new instance of the UpdateParagraphListFormatRequest class.
      *
      * @param String name The filename of the input document.
-     * @param ListFormatUpdate dto The formatting properties of a paragraph list.
      * @param Integer index Object index.
+     * @param ListFormatUpdate listFormatDto ListFormatUpdate dto.
      * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -108,10 +111,10 @@ public class UpdateParagraphListFormatRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateParagraphListFormatRequest(String name, ListFormatUpdate dto, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateParagraphListFormatRequest(String name, Integer index, ListFormatUpdate listFormatDto, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.dto = dto;
         this.index = index;
+        this.listFormatDto = listFormatDto;
         this.nodePath = nodePath;
         this.folder = folder;
         this.storage = storage;
@@ -137,20 +140,6 @@ public class UpdateParagraphListFormatRequest implements RequestIfc {
     }
 
     /*
-     * Gets The formatting properties of a paragraph list.
-     */
-    public ListFormatUpdate getDto() {
-        return this.dto;
-    }
-
-    /*
-     * Sets The formatting properties of a paragraph list.
-     */
-    public void setDto(ListFormatUpdate value) {
-        this.dto = value;
-    }
-
-    /*
      * Gets Object index.
      */
     public Integer getIndex() {
@@ -162,6 +151,20 @@ public class UpdateParagraphListFormatRequest implements RequestIfc {
      */
     public void setIndex(Integer value) {
         this.index = value;
+    }
+
+    /*
+     * Gets ListFormatUpdate dto.
+     */
+    public ListFormatUpdate getListFormatDto() {
+        return this.listFormatDto;
+    }
+
+    /*
+     * Sets ListFormatUpdate dto.
+     */
+    public void setListFormatDto(ListFormatUpdate value) {
+        this.listFormatDto = value;
     }
 
     /*
@@ -276,6 +279,7 @@ public class UpdateParagraphListFormatRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -289,17 +293,17 @@ public class UpdateParagraphListFormatRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateParagraphListFormat");
         }
 
-        // verify the required parameter 'Dto' is set
-        if (getDto() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Dto' when calling updateParagraphListFormat");
-        }
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateParagraphListFormat");
         }
 
-        Object localVarPostBody = getDto();
+        // verify the required parameter 'ListFormatDto' is set
+        if (getListFormatDto() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListFormatDto' when calling updateParagraphListFormat");
+        }
+
+        Object localVarPostBody = getListFormatDto();
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
@@ -354,5 +358,15 @@ public class UpdateParagraphListFormatRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return ParagraphListFormatResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public ParagraphListFormatResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (ParagraphListFormatResponse) apiClient.deserialize(response, ParagraphListFormatResponse.class);
     }
 }

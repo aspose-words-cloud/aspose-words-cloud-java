@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestDocument.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestDocument  extends TestCase
      * Test for getting document.
      */
     @Test
-    public void testGetDocument() throws ApiException, IOException
+    public void testGetDocument() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocument.docx";
 
@@ -84,14 +86,14 @@ public class TestDocument  extends TestCase
      * Test for creating word document.
      */
     @Test
-    public void testCreateDocument() throws ApiException, IOException
+    public void testCreateDocument() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestCreateDocument.doc";
 
         CreateDocumentRequest request = new CreateDocumentRequest(
-            null,
             remoteFileName,
-            remoteDataFolder
+            remoteDataFolder,
+            null
         );
 
         DocumentResponse result = TestInitializer.wordsApi.createDocument(request);

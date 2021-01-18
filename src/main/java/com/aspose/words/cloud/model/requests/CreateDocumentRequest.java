@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CreateDocumentRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -38,11 +41,6 @@ import java.util.*;
  * Request model for createDocument operation.
  */
 public class CreateDocumentRequest implements RequestIfc {
-    /*
-     * Original document storage.
-     */
-    private String storage;
-
     /*
      * The filename of the document.
      */
@@ -54,30 +52,21 @@ public class CreateDocumentRequest implements RequestIfc {
     private String folder;
 
     /*
+     * Original document storage.
+     */
+    private String storage;
+
+    /*
      * Initializes a new instance of the CreateDocumentRequest class.
      *
-     * @param String storage Original document storage.
      * @param String fileName The filename of the document.
      * @param String folder The path to the document folder.
+     * @param String storage Original document storage.
      */
-    public CreateDocumentRequest(String storage, String fileName, String folder) {
-        this.storage = storage;
+    public CreateDocumentRequest(String fileName, String folder, String storage) {
         this.fileName = fileName;
         this.folder = folder;
-    }
-
-    /*
-     * Gets Original document storage.
-     */
-    public String getStorage() {
-        return this.storage;
-    }
-
-    /*
-     * Sets Original document storage.
-     */
-    public void setStorage(String value) {
-        this.storage = value;
+        this.storage = storage;
     }
 
     /*
@@ -109,6 +98,21 @@ public class CreateDocumentRequest implements RequestIfc {
     }
 
     /*
+     * Gets Original document storage.
+     */
+    public String getStorage() {
+        return this.storage;
+    }
+
+    /*
+     * Sets Original document storage.
+     */
+    public void setStorage(String value) {
+        this.storage = value;
+    }
+
+
+    /*
      * Creates the http request based on this request model.
      *
      * @param apiClient ApiClient instance
@@ -125,9 +129,9 @@ public class CreateDocumentRequest implements RequestIfc {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
         apiClient.addParameterToQuery(localVarQueryParams, "fileName", getFileName());
         apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -153,5 +157,15 @@ public class CreateDocumentRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return DocumentResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public DocumentResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (DocumentResponse) apiClient.deserialize(response, DocumentResponse.class);
     }
 }

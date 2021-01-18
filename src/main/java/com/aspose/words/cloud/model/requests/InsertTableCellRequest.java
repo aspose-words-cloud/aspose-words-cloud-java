@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableCellRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,14 +47,14 @@ public class InsertTableCellRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the cell.
-     */
-    private TableCellInsert cell;
-
-    /*
      * The path to the table row in the document tree.
      */
     private String tableRowPath;
+
+    /*
+     * Table cell parameters.
+     */
+    private TableCellInsert cell;
 
     /*
      * Original document folder.
@@ -92,8 +95,8 @@ public class InsertTableCellRequest implements RequestIfc {
      * Initializes a new instance of the InsertTableCellRequest class.
      *
      * @param String name The filename of the input document.
-     * @param TableCellInsert cell The properties of the cell.
      * @param String tableRowPath The path to the table row in the document tree.
+     * @param TableCellInsert cell Table cell parameters.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -102,10 +105,10 @@ public class InsertTableCellRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertTableCellRequest(String name, TableCellInsert cell, String tableRowPath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public InsertTableCellRequest(String name, String tableRowPath, TableCellInsert cell, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.cell = cell;
         this.tableRowPath = tableRowPath;
+        this.cell = cell;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -130,20 +133,6 @@ public class InsertTableCellRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the cell.
-     */
-    public TableCellInsert getCell() {
-        return this.cell;
-    }
-
-    /*
-     * Sets The properties of the cell.
-     */
-    public void setCell(TableCellInsert value) {
-        this.cell = value;
-    }
-
-    /*
      * Gets The path to the table row in the document tree.
      */
     public String getTableRowPath() {
@@ -155,6 +144,20 @@ public class InsertTableCellRequest implements RequestIfc {
      */
     public void setTableRowPath(String value) {
         this.tableRowPath = value;
+    }
+
+    /*
+     * Gets Table cell parameters.
+     */
+    public TableCellInsert getCell() {
+        return this.cell;
+    }
+
+    /*
+     * Sets Table cell parameters.
+     */
+    public void setCell(TableCellInsert value) {
+        this.cell = value;
     }
 
     /*
@@ -255,6 +258,7 @@ public class InsertTableCellRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -268,14 +272,14 @@ public class InsertTableCellRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertTableCell");
         }
 
-        // verify the required parameter 'Cell' is set
-        if (getCell() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Cell' when calling insertTableCell");
-        }
-
         // verify the required parameter 'TableRowPath' is set
         if (getTableRowPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TableRowPath' when calling insertTableCell");
+        }
+
+        // verify the required parameter 'Cell' is set
+        if (getCell() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Cell' when calling insertTableCell");
         }
 
         Object localVarPostBody = getCell();
@@ -332,5 +336,15 @@ public class InsertTableCellRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return TableCellResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public TableCellResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (TableCellResponse) apiClient.deserialize(response, TableCellResponse.class);
     }
 }

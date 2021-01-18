@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ConvertDocumentRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -49,11 +52,6 @@ public class ConvertDocumentRequest implements RequestIfc {
     private String format;
 
     /*
-     * Original document storage.
-     */
-    private String storage;
-
-    /*
      * The path to the output document on a local storage.
      */
     private String outPath;
@@ -62,6 +60,11 @@ public class ConvertDocumentRequest implements RequestIfc {
      * The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "sourceFilename" will be used instead.
      */
     private String fileNameFieldValue;
+
+    /*
+     * Original document storage.
+     */
+    private String storage;
 
     /*
      * Folder in filestorage with custom fonts.
@@ -73,17 +76,17 @@ public class ConvertDocumentRequest implements RequestIfc {
      *
      * @param byte[] document Converting document.
      * @param String format The format to convert.
-     * @param String storage Original document storage.
      * @param String outPath The path to the output document on a local storage.
      * @param String fileNameFieldValue The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "sourceFilename" will be used instead.
+     * @param String storage Original document storage.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public ConvertDocumentRequest(byte[] document, String format, String storage, String outPath, String fileNameFieldValue, String fontsLocation) {
+    public ConvertDocumentRequest(byte[] document, String format, String outPath, String fileNameFieldValue, String storage, String fontsLocation) {
         this.document = document;
         this.format = format;
-        this.storage = storage;
         this.outPath = outPath;
         this.fileNameFieldValue = fileNameFieldValue;
+        this.storage = storage;
         this.fontsLocation = fontsLocation;
     }
 
@@ -116,20 +119,6 @@ public class ConvertDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets Original document storage.
-     */
-    public String getStorage() {
-        return this.storage;
-    }
-
-    /*
-     * Sets Original document storage.
-     */
-    public void setStorage(String value) {
-        this.storage = value;
-    }
-
-    /*
      * Gets The path to the output document on a local storage.
      */
     public String getOutPath() {
@@ -158,6 +147,20 @@ public class ConvertDocumentRequest implements RequestIfc {
     }
 
     /*
+     * Gets Original document storage.
+     */
+    public String getStorage() {
+        return this.storage;
+    }
+
+    /*
+     * Sets Original document storage.
+     */
+    public void setStorage(String value) {
+        this.storage = value;
+    }
+
+    /*
      * Gets Folder in filestorage with custom fonts.
      */
     public String getFontsLocation() {
@@ -170,6 +173,7 @@ public class ConvertDocumentRequest implements RequestIfc {
     public void setFontsLocation(String value) {
         this.fontsLocation = value;
     }
+
 
     /*
      * Creates the http request based on this request model.
@@ -198,9 +202,9 @@ public class ConvertDocumentRequest implements RequestIfc {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         apiClient.addParameterToQuery(localVarQueryParams, "format", getFormat());
-        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
         apiClient.addParameterToQuery(localVarQueryParams, "outPath", getOutPath());
         apiClient.addParameterToQuery(localVarQueryParams, "fileNameFieldValue", getFileNameFieldValue());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
         apiClient.addParameterToQuery(localVarQueryParams, "fontsLocation", getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -241,5 +245,15 @@ public class ConvertDocumentRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return File.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public File deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return apiClient.downloadFileFromResponse(response);
     }
 }

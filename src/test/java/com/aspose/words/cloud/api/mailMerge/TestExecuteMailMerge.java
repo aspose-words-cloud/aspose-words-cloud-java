@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestExecuteMailMerge.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.mailMerge;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestExecuteMailMerge  extends TestCase
      * Test for executing mail merge online.
      */
     @Test
-    public void testExecuteMailMergeOnline() throws ApiException, IOException
+    public void testExecuteMailMergeOnline() throws ApiException, MessagingException, IOException
     {
         String localDocumentFile = "SampleExecuteTemplate.docx";
         String localDataFile = "SampleExecuteTemplateData.txt";
@@ -78,7 +80,7 @@ public class TestExecuteMailMerge  extends TestCase
      * Test for executing mail merge.
      */
     @Test
-    public void testExecuteMailMerge() throws ApiException, IOException
+    public void testExecuteMailMerge() throws ApiException, MessagingException, IOException
     {
         String localDocumentFile = "SampleExecuteTemplate.docx";
         String remoteFileName = "TestExecuteMailMerge.docx";

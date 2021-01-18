@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateTableCellFormatRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,11 +47,6 @@ public class UpdateTableCellFormatRequest implements RequestIfc {
     private String name;
 
     /*
-     * The cell format.
-     */
-    private TableCellFormat format;
-
-    /*
      * The path to the table row in the document tree.
      */
     private String tableRowPath;
@@ -57,6 +55,11 @@ public class UpdateTableCellFormatRequest implements RequestIfc {
      * Object index.
      */
     private Integer index;
+
+    /*
+     * The properties.
+     */
+    private TableCellFormat format;
 
     /*
      * Original document folder.
@@ -97,9 +100,9 @@ public class UpdateTableCellFormatRequest implements RequestIfc {
      * Initializes a new instance of the UpdateTableCellFormatRequest class.
      *
      * @param String name The filename of the input document.
-     * @param TableCellFormat format The cell format.
      * @param String tableRowPath The path to the table row in the document tree.
      * @param Integer index Object index.
+     * @param TableCellFormat format The properties.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -108,11 +111,11 @@ public class UpdateTableCellFormatRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateTableCellFormatRequest(String name, TableCellFormat format, String tableRowPath, Integer index, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateTableCellFormatRequest(String name, String tableRowPath, Integer index, TableCellFormat format, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.format = format;
         this.tableRowPath = tableRowPath;
         this.index = index;
+        this.format = format;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -134,20 +137,6 @@ public class UpdateTableCellFormatRequest implements RequestIfc {
      */
     public void setName(String value) {
         this.name = value;
-    }
-
-    /*
-     * Gets The cell format.
-     */
-    public TableCellFormat getFormat() {
-        return this.format;
-    }
-
-    /*
-     * Sets The cell format.
-     */
-    public void setFormat(TableCellFormat value) {
-        this.format = value;
     }
 
     /*
@@ -176,6 +165,20 @@ public class UpdateTableCellFormatRequest implements RequestIfc {
      */
     public void setIndex(Integer value) {
         this.index = value;
+    }
+
+    /*
+     * Gets The properties.
+     */
+    public TableCellFormat getFormat() {
+        return this.format;
+    }
+
+    /*
+     * Sets The properties.
+     */
+    public void setFormat(TableCellFormat value) {
+        this.format = value;
     }
 
     /*
@@ -276,6 +279,7 @@ public class UpdateTableCellFormatRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -289,11 +293,6 @@ public class UpdateTableCellFormatRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateTableCellFormat");
         }
 
-        // verify the required parameter 'Format' is set
-        if (getFormat() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling updateTableCellFormat");
-        }
-
         // verify the required parameter 'TableRowPath' is set
         if (getTableRowPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TableRowPath' when calling updateTableCellFormat");
@@ -302,6 +301,11 @@ public class UpdateTableCellFormatRequest implements RequestIfc {
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateTableCellFormat");
+        }
+
+        // verify the required parameter 'Format' is set
+        if (getFormat() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling updateTableCellFormat");
         }
 
         Object localVarPostBody = getFormat();
@@ -359,5 +363,15 @@ public class UpdateTableCellFormatRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return TableCellFormatResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public TableCellFormatResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (TableCellFormatResponse) apiClient.deserialize(response, TableCellFormatResponse.class);
     }
 }

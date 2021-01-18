@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestAppendDocument.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestAppendDocument  extends TestCase
      * Test for appending document.
      */
     @Test
-    public void testAppendDocument() throws ApiException, IOException
+    public void testAppendDocument() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestAppendDocument.docx";
 
@@ -92,5 +94,42 @@ public class TestAppendDocument  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getDocument());
         assertEquals("TestAppendDocument.docx", result.getDocument().getFileName());
+    }
+
+    /*
+     * Test for appending document online.
+     */
+    @Test
+    public void testAppendDocumentOnline() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestAppendDocument.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
+        requestDocumentListDocumentEntries0.setHref(remoteDataFolder + "/" + remoteFileName);
+        requestDocumentListDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
+
+        ArrayList<DocumentEntry> requestDocumentListDocumentEntries = new ArrayList<DocumentEntry>();
+        requestDocumentListDocumentEntries.add(requestDocumentListDocumentEntries0);
+
+        DocumentEntryList requestDocumentList = new DocumentEntryList();
+        requestDocumentList.setDocumentEntries(requestDocumentListDocumentEntries);
+
+        AppendDocumentOnlineRequest request = new AppendDocumentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocumentList,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        AppendDocumentOnlineResponse result = TestInitializer.wordsApi.appendDocumentOnline(request);
+        assertNotNull(result);
     }
 }

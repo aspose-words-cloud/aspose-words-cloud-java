@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestClassification.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestClassification  extends TestCase
      * Test for raw text classification.
      */
     @Test
-    public void testClassify() throws ApiException, IOException
+    public void testClassify() throws ApiException, MessagingException, IOException
     {
         ClassifyRequest request = new ClassifyRequest(
             "Try text classification",
@@ -75,7 +77,7 @@ public class TestClassification  extends TestCase
      * Test for document classification.
      */
     @Test
-    public void testClassifyDocument() throws ApiException, IOException
+    public void testClassifyDocument() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestClassifyDocument.docx";
 
@@ -99,5 +101,23 @@ public class TestClassification  extends TestCase
         assertEquals("Hobbies_&_Interests", result.getBestClassName());
         assertNotNull(result.getBestResults());
         assertEquals(3, result.getBestResults().size());
+    }
+
+    /*
+     * Test for document classification online.
+     */
+    @Test
+    public void testClassifyDocumentOnline() throws ApiException, MessagingException, IOException
+    {
+        ClassifyDocumentOnlineRequest request = new ClassifyDocumentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null,
+            "3",
+            null
+        );
+
+        ClassificationResponse result = TestInitializer.wordsApi.classifyDocumentOnline(request);
+        assertNotNull(result);
     }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertFootnoteRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,7 +47,7 @@ public class InsertFootnoteRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the footnote.
+     * Footnote data.
      */
     private FootnoteInsert footnoteDto;
 
@@ -92,7 +95,7 @@ public class InsertFootnoteRequest implements RequestIfc {
      * Initializes a new instance of the InsertFootnoteRequest class.
      *
      * @param String name The filename of the input document.
-     * @param FootnoteInsert footnoteDto The properties of the footnote.
+     * @param FootnoteInsert footnoteDto Footnote data.
      * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -130,14 +133,14 @@ public class InsertFootnoteRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the footnote.
+     * Gets Footnote data.
      */
     public FootnoteInsert getFootnoteDto() {
         return this.footnoteDto;
     }
 
     /*
-     * Sets The properties of the footnote.
+     * Sets Footnote data.
      */
     public void setFootnoteDto(FootnoteInsert value) {
         this.footnoteDto = value;
@@ -255,6 +258,7 @@ public class InsertFootnoteRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -327,5 +331,15 @@ public class InsertFootnoteRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return FootnoteResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public FootnoteResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (FootnoteResponse) apiClient.deserialize(response, FootnoteResponse.class);
     }
 }

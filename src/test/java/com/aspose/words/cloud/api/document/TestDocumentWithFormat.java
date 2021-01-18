@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestDocumentWithFormat.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestDocumentWithFormat  extends TestCase
      * Test for getting document with specified format.
      */
     @Test
-    public void testGetDocumentWithFormat() throws ApiException, IOException
+    public void testGetDocumentWithFormat() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentWithFormat.docx";
 
@@ -85,7 +87,7 @@ public class TestDocumentWithFormat  extends TestCase
      * Test for getting document with specified format.
      */
     @Test
-    public void testGetDocumentWithFormatAndOutPath() throws ApiException, IOException
+    public void testGetDocumentWithFormatAndOutPath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetDocumentWithFormat.docx";
 

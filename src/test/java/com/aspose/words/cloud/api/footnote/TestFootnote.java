@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestFootnote.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.footnote;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestFootnote  extends TestCase
      * Test for adding footnote.
      */
     @Test
-    public void testInsertFootnote() throws ApiException, IOException
+    public void testInsertFootnote() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertFootnote.docx";
 
@@ -91,10 +93,35 @@ public class TestFootnote  extends TestCase
     }
 
     /*
+     * Test for adding footnote online.
+     */
+    @Test
+    public void testInsertFootnoteOnline() throws ApiException, MessagingException, IOException
+    {
+        FootnoteInsert requestFootnoteDto = new FootnoteInsert();
+        requestFootnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
+        requestFootnoteDto.setText("test endnote");
+
+        InsertFootnoteOnlineRequest request = new InsertFootnoteOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath()),
+            requestFootnoteDto,
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertFootnoteOnlineResponse result = TestInitializer.wordsApi.insertFootnoteOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for adding footnote without node path.
      */
     @Test
-    public void testInsertFootnoteWithoutNodePath() throws ApiException, IOException
+    public void testInsertFootnoteWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertFootnoteWithoutNodePath.docx";
 
@@ -131,7 +158,7 @@ public class TestFootnote  extends TestCase
      * Test for deleting footnote.
      */
     @Test
-    public void testDeleteFootnote() throws ApiException, IOException
+    public void testDeleteFootnote() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteFootnote.docx";
 
@@ -157,10 +184,31 @@ public class TestFootnote  extends TestCase
     }
 
     /*
+     * Test for deleting footnote online.
+     */
+    @Test
+    public void testDeleteFootnoteOnline() throws ApiException, MessagingException, IOException
+    {
+        DeleteFootnoteOnlineRequest request = new DeleteFootnoteOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath()),
+            0,
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteFootnoteOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for deleting footnote without node path.
      */
     @Test
-    public void testDeleteFootnoteWithoutNodePath() throws ApiException, IOException
+    public void testDeleteFootnoteWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteFootnoteWithoutNodePath.docx";
 
@@ -189,7 +237,7 @@ public class TestFootnote  extends TestCase
      * Test for getting footnotes.
      */
     @Test
-    public void testGetFootnotes() throws ApiException, IOException
+    public void testGetFootnotes() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetFootnotes.docx";
 
@@ -216,10 +264,27 @@ public class TestFootnote  extends TestCase
     }
 
     /*
+     * Test for getting footnotes online.
+     */
+    @Test
+    public void testGetFootnotesOnline() throws ApiException, MessagingException, IOException
+    {
+        GetFootnotesOnlineRequest request = new GetFootnotesOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath()),
+            "",
+            null,
+            null
+        );
+
+        FootnotesResponse result = TestInitializer.wordsApi.getFootnotesOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting footnotes without node path.
      */
     @Test
-    public void testGetFootnotesWithoutNodePath() throws ApiException, IOException
+    public void testGetFootnotesWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetFootnotesWithoutNodePath.docx";
 
@@ -249,7 +314,7 @@ public class TestFootnote  extends TestCase
      * Test for getting footnote.
      */
     @Test
-    public void testGetFootnote() throws ApiException, IOException
+    public void testGetFootnote() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetFootnote.docx";
 
@@ -275,10 +340,28 @@ public class TestFootnote  extends TestCase
     }
 
     /*
+     * Test for getting footnote online.
+     */
+    @Test
+    public void testGetFootnoteOnline() throws ApiException, MessagingException, IOException
+    {
+        GetFootnoteOnlineRequest request = new GetFootnoteOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath()),
+            0,
+            "",
+            null,
+            null
+        );
+
+        FootnoteResponse result = TestInitializer.wordsApi.getFootnoteOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting footnote without node path.
      */
     @Test
-    public void testGetFootnoteWithoutNodePath() throws ApiException, IOException
+    public void testGetFootnoteWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetFootnoteWithoutNodePath.docx";
 
@@ -307,7 +390,7 @@ public class TestFootnote  extends TestCase
      * Test for updating footnote.
      */
     @Test
-    public void testUpdateFootnote() throws ApiException, IOException
+    public void testUpdateFootnote() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateFootnote.docx";
 
@@ -321,8 +404,8 @@ public class TestFootnote  extends TestCase
 
         UpdateFootnoteRequest request = new UpdateFootnoteRequest(
             remoteFileName,
-            requestFootnoteDto,
             0,
+            requestFootnoteDto,
             "",
             remoteDataFolder,
             null,
@@ -340,10 +423,35 @@ public class TestFootnote  extends TestCase
     }
 
     /*
+     * Test for updating footnote online.
+     */
+    @Test
+    public void testUpdateFootnoteOnline() throws ApiException, MessagingException, IOException
+    {
+        FootnoteUpdate requestFootnoteDto = new FootnoteUpdate();
+        requestFootnoteDto.setText("new text is here");
+
+        UpdateFootnoteOnlineRequest request = new UpdateFootnoteOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath()),
+            requestFootnoteDto,
+            0,
+            "",
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateFootnoteOnlineResponse result = TestInitializer.wordsApi.updateFootnoteOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for updating footnote without node path.
      */
     @Test
-    public void testUpdateFootnoteWithoutNodePath() throws ApiException, IOException
+    public void testUpdateFootnoteWithoutNodePath() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateFootnoteWithoutNodePath.docx";
 
@@ -357,8 +465,8 @@ public class TestFootnote  extends TestCase
 
         UpdateFootnoteRequest request = new UpdateFootnoteRequest(
             remoteFileName,
-            requestFootnoteDto,
             0,
+            requestFootnoteDto,
             null,
             remoteDataFolder,
             null,

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestRange.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.range;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestRange  extends TestCase
      * Test for getting the text from range.
      */
     @Test
-    public void testGetRangeText() throws ApiException, IOException
+    public void testGetRangeText() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetRangeText.docx";
 
@@ -82,10 +84,28 @@ public class TestRange  extends TestCase
     }
 
     /*
+     * Test for getting the text from range online.
+     */
+    @Test
+    public void testGetRangeTextOnline() throws ApiException, MessagingException, IOException
+    {
+        GetRangeTextOnlineRequest request = new GetRangeTextOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "id0.0.0",
+            "id0.0.1",
+            null,
+            null
+        );
+
+        RangeTextResponse result = TestInitializer.wordsApi.getRangeTextOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for removing the text for range.
      */
     @Test
-    public void testRemoveRange() throws ApiException, IOException
+    public void testRemoveRange() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestRemoveRange.docx";
 
@@ -107,15 +127,32 @@ public class TestRange  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.removeRange(request);
         assertNotNull(result);
-        assertNotNull(result.getDocument());
-        assertEquals("TestRemoveRange.docx", result.getDocument().getFileName());
+    }
+
+    /*
+     * Test for removing the text for range online.
+     */
+    @Test
+    public void testRemoveRangeOnline() throws ApiException, MessagingException, IOException
+    {
+        RemoveRangeOnlineRequest request = new RemoveRangeOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "id0.0.0",
+            "id0.0.1",
+            null,
+            null,
+            null
+        );
+
+        RemoveRangeOnlineResponse result = TestInitializer.wordsApi.removeRangeOnline(request);
+        assertNotNull(result);
     }
 
     /*
      * Test for saving a range as a new document.
      */
     @Test
-    public void testSaveAsRange() throws ApiException, IOException
+    public void testSaveAsRange() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestSaveAsRange.docx";
 
@@ -145,10 +182,32 @@ public class TestRange  extends TestCase
     }
 
     /*
+     * Test for saving a range as a new document online.
+     */
+    @Test
+    public void testSaveAsRangeOnline() throws ApiException, MessagingException, IOException
+    {
+        RangeDocument requestDocumentParameters = new RangeDocument();
+        requestDocumentParameters.setDocumentName(remoteDataFolder + "/NewDoc.docx");
+
+        SaveAsRangeOnlineRequest request = new SaveAsRangeOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "id0.0.0",
+            requestDocumentParameters,
+            "id0.0.1",
+            null,
+            null
+        );
+
+        SaveAsRangeOnlineResponse result = TestInitializer.wordsApi.saveAsRangeOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for replacing text in range.
      */
     @Test
-    public void testReplaceWithText() throws ApiException, IOException
+    public void testReplaceWithText() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestReplaceWithText.docx";
 
@@ -176,5 +235,28 @@ public class TestRange  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getDocument());
         assertEquals("TestReplaceWithText.docx", result.getDocument().getFileName());
+    }
+
+    /*
+     * Test for replacing text in range online.
+     */
+    @Test
+    public void testReplaceWithTextOnline() throws ApiException, MessagingException, IOException
+    {
+        ReplaceRange requestRangeText = new ReplaceRange();
+        requestRangeText.setText("Replaced header");
+
+        ReplaceWithTextOnlineRequest request = new ReplaceWithTextOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "id0.0.0",
+            requestRangeText,
+            "id0.0.1",
+            null,
+            null,
+            null
+        );
+
+        ReplaceWithTextOnlineResponse result = TestInitializer.wordsApi.replaceWithTextOnline(request);
+        assertNotNull(result);
     }
 }

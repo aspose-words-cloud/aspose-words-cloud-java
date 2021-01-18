@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestFile.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.storage;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestFile  extends TestCase
      * Test for uploading file.
      */
     @Test
-    public void testUploadFile() throws ApiException, IOException
+    public void testUploadFile() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUploadFile.docx";
 
@@ -78,7 +80,7 @@ public class TestFile  extends TestCase
      * Test for copy file.
      */
     @Test
-    public void testCopyFile() throws ApiException, IOException
+    public void testCopyFile() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestCopyFileSrc.docx";
 
@@ -102,7 +104,7 @@ public class TestFile  extends TestCase
      * Test for move file.
      */
     @Test
-    public void testMoveFile() throws ApiException, IOException
+    public void testMoveFile() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestMoveFileSrc.docx";
 
@@ -126,7 +128,7 @@ public class TestFile  extends TestCase
      * Test for delete file.
      */
     @Test
-    public void testDeleteFile() throws ApiException, IOException
+    public void testDeleteFile() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteFile.docx";
 
@@ -148,7 +150,7 @@ public class TestFile  extends TestCase
      * Test for download file.
      */
     @Test
-    public void testDownloadFile() throws ApiException, IOException
+    public void testDownloadFile() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDownloadFile.docx";
 

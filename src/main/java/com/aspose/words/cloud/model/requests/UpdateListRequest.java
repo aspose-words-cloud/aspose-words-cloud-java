@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateListRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,14 +47,14 @@ public class UpdateListRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the list.
-     */
-    private ListUpdate listUpdate;
-
-    /*
      * The list Id.
      */
     private Integer listId;
+
+    /*
+     * List object.
+     */
+    private ListUpdate listUpdate;
 
     /*
      * Original document folder.
@@ -92,8 +95,8 @@ public class UpdateListRequest implements RequestIfc {
      * Initializes a new instance of the UpdateListRequest class.
      *
      * @param String name The filename of the input document.
-     * @param ListUpdate listUpdate The properties of the list.
      * @param Integer listId The list Id.
+     * @param ListUpdate listUpdate List object.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -102,10 +105,10 @@ public class UpdateListRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateListRequest(String name, ListUpdate listUpdate, Integer listId, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateListRequest(String name, Integer listId, ListUpdate listUpdate, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.listUpdate = listUpdate;
         this.listId = listId;
+        this.listUpdate = listUpdate;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -130,20 +133,6 @@ public class UpdateListRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the list.
-     */
-    public ListUpdate getListUpdate() {
-        return this.listUpdate;
-    }
-
-    /*
-     * Sets The properties of the list.
-     */
-    public void setListUpdate(ListUpdate value) {
-        this.listUpdate = value;
-    }
-
-    /*
      * Gets The list Id.
      */
     public Integer getListId() {
@@ -155,6 +144,20 @@ public class UpdateListRequest implements RequestIfc {
      */
     public void setListId(Integer value) {
         this.listId = value;
+    }
+
+    /*
+     * Gets List object.
+     */
+    public ListUpdate getListUpdate() {
+        return this.listUpdate;
+    }
+
+    /*
+     * Sets List object.
+     */
+    public void setListUpdate(ListUpdate value) {
+        this.listUpdate = value;
     }
 
     /*
@@ -255,6 +258,7 @@ public class UpdateListRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -268,14 +272,14 @@ public class UpdateListRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateList");
         }
 
-        // verify the required parameter 'ListUpdate' is set
-        if (getListUpdate() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListUpdate' when calling updateList");
-        }
-
         // verify the required parameter 'ListId' is set
         if (getListId() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListId' when calling updateList");
+        }
+
+        // verify the required parameter 'ListUpdate' is set
+        if (getListUpdate() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListUpdate' when calling updateList");
         }
 
         Object localVarPostBody = getListUpdate();
@@ -332,5 +336,15 @@ public class UpdateListRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return ListResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public ListResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (ListResponse) apiClient.deserialize(response, ListResponse.class);
     }
 }

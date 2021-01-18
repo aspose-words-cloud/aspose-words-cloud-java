@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ProtectDocumentRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,7 +47,7 @@ public class ProtectDocumentRequest implements RequestIfc {
     private String name;
 
     /*
-     * The protection settings.
+     * Protection request.
      */
     private ProtectionRequest protectionRequest;
 
@@ -77,7 +80,7 @@ public class ProtectDocumentRequest implements RequestIfc {
      * Initializes a new instance of the ProtectDocumentRequest class.
      *
      * @param String name The filename of the input document.
-     * @param ProtectionRequest protectionRequest The protection settings.
+     * @param ProtectionRequest protectionRequest Protection request.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,14 +112,14 @@ public class ProtectDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets The protection settings.
+     * Gets Protection request.
      */
     public ProtectionRequest getProtectionRequest() {
         return this.protectionRequest;
     }
 
     /*
-     * Sets The protection settings.
+     * Sets Protection request.
      */
     public void setProtectionRequest(ProtectionRequest value) {
         this.protectionRequest = value;
@@ -192,6 +195,7 @@ public class ProtectDocumentRequest implements RequestIfc {
         this.destFileName = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -261,5 +265,15 @@ public class ProtectDocumentRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return ProtectionDataResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public ProtectionDataResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (ProtectionDataResponse) apiClient.deserialize(response, ProtectionDataResponse.class);
     }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateSectionPageSetupRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -49,7 +52,7 @@ public class UpdateSectionPageSetupRequest implements RequestIfc {
     private Integer sectionIndex;
 
     /*
-     * The properties of the page setup.
+     * Page setup properties dto.
      */
     private PageSetup pageSetup;
 
@@ -93,7 +96,7 @@ public class UpdateSectionPageSetupRequest implements RequestIfc {
      *
      * @param String name The filename of the input document.
      * @param Integer sectionIndex The index of the section.
-     * @param PageSetup pageSetup The properties of the page setup.
+     * @param PageSetup pageSetup Page setup properties dto.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -144,14 +147,14 @@ public class UpdateSectionPageSetupRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the page setup.
+     * Gets Page setup properties dto.
      */
     public PageSetup getPageSetup() {
         return this.pageSetup;
     }
 
     /*
-     * Sets The properties of the page setup.
+     * Sets Page setup properties dto.
      */
     public void setPageSetup(PageSetup value) {
         this.pageSetup = value;
@@ -255,6 +258,7 @@ public class UpdateSectionPageSetupRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -332,5 +336,15 @@ public class UpdateSectionPageSetupRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return SectionPageSetupResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public SectionPageSetupResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (SectionPageSetupResponse) apiClient.deserialize(response, SectionPageSetupResponse.class);
     }
 }

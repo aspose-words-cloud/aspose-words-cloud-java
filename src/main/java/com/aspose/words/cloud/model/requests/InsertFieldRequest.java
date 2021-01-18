@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertFieldRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,7 +47,7 @@ public class InsertFieldRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the field.
+     * Field data.
      */
     private FieldInsert field;
 
@@ -97,7 +100,7 @@ public class InsertFieldRequest implements RequestIfc {
      * Initializes a new instance of the InsertFieldRequest class.
      *
      * @param String name The filename of the input document.
-     * @param FieldInsert field The properties of the field.
+     * @param FieldInsert field Field data.
      * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -137,14 +140,14 @@ public class InsertFieldRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the field.
+     * Gets Field data.
      */
     public FieldInsert getField() {
         return this.field;
     }
 
     /*
-     * Sets The properties of the field.
+     * Sets Field data.
      */
     public void setField(FieldInsert value) {
         this.field = value;
@@ -276,6 +279,7 @@ public class InsertFieldRequest implements RequestIfc {
         this.insertBeforeNode = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -349,5 +353,15 @@ public class InsertFieldRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return FieldResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public FieldResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (FieldResponse) apiClient.deserialize(response, FieldResponse.class);
     }
 }

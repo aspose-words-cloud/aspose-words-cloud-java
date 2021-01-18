@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateTablePropertiesRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,14 +47,14 @@ public class UpdateTablePropertiesRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the table.
-     */
-    private TableProperties properties;
-
-    /*
      * Object index.
      */
     private Integer index;
+
+    /*
+     * The properties.
+     */
+    private TableProperties properties;
 
     /*
      * The path to the node in the document tree.
@@ -97,8 +100,8 @@ public class UpdateTablePropertiesRequest implements RequestIfc {
      * Initializes a new instance of the UpdateTablePropertiesRequest class.
      *
      * @param String name The filename of the input document.
-     * @param TableProperties properties The properties of the table.
      * @param Integer index Object index.
+     * @param TableProperties properties The properties.
      * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -108,10 +111,10 @@ public class UpdateTablePropertiesRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateTablePropertiesRequest(String name, TableProperties properties, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateTablePropertiesRequest(String name, Integer index, TableProperties properties, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.properties = properties;
         this.index = index;
+        this.properties = properties;
         this.nodePath = nodePath;
         this.folder = folder;
         this.storage = storage;
@@ -137,20 +140,6 @@ public class UpdateTablePropertiesRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the table.
-     */
-    public TableProperties getProperties() {
-        return this.properties;
-    }
-
-    /*
-     * Sets The properties of the table.
-     */
-    public void setProperties(TableProperties value) {
-        this.properties = value;
-    }
-
-    /*
      * Gets Object index.
      */
     public Integer getIndex() {
@@ -162,6 +151,20 @@ public class UpdateTablePropertiesRequest implements RequestIfc {
      */
     public void setIndex(Integer value) {
         this.index = value;
+    }
+
+    /*
+     * Gets The properties.
+     */
+    public TableProperties getProperties() {
+        return this.properties;
+    }
+
+    /*
+     * Sets The properties.
+     */
+    public void setProperties(TableProperties value) {
+        this.properties = value;
     }
 
     /*
@@ -276,6 +279,7 @@ public class UpdateTablePropertiesRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -289,14 +293,14 @@ public class UpdateTablePropertiesRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateTableProperties");
         }
 
-        // verify the required parameter 'Properties' is set
-        if (getProperties() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Properties' when calling updateTableProperties");
-        }
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateTableProperties");
+        }
+
+        // verify the required parameter 'Properties' is set
+        if (getProperties() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Properties' when calling updateTableProperties");
         }
 
         Object localVarPostBody = getProperties();
@@ -354,5 +358,15 @@ public class UpdateTablePropertiesRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return TablePropertiesResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public TablePropertiesResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (TablePropertiesResponse) apiClient.deserialize(response, TablePropertiesResponse.class);
     }
 }

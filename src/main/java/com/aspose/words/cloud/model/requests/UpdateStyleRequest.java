@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateStyleRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,14 +47,14 @@ public class UpdateStyleRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the style.
-     */
-    private StyleUpdate styleUpdate;
-
-    /*
      * The name of the style.
      */
     private String styleName;
+
+    /*
+     * Style properties to update.
+     */
+    private StyleUpdate styleUpdate;
 
     /*
      * Original document folder.
@@ -92,8 +95,8 @@ public class UpdateStyleRequest implements RequestIfc {
      * Initializes a new instance of the UpdateStyleRequest class.
      *
      * @param String name The filename of the input document.
-     * @param StyleUpdate styleUpdate The properties of the style.
      * @param String styleName The name of the style.
+     * @param StyleUpdate styleUpdate Style properties to update.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -102,10 +105,10 @@ public class UpdateStyleRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateStyleRequest(String name, StyleUpdate styleUpdate, String styleName, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateStyleRequest(String name, String styleName, StyleUpdate styleUpdate, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.styleUpdate = styleUpdate;
         this.styleName = styleName;
+        this.styleUpdate = styleUpdate;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -130,20 +133,6 @@ public class UpdateStyleRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the style.
-     */
-    public StyleUpdate getStyleUpdate() {
-        return this.styleUpdate;
-    }
-
-    /*
-     * Sets The properties of the style.
-     */
-    public void setStyleUpdate(StyleUpdate value) {
-        this.styleUpdate = value;
-    }
-
-    /*
      * Gets The name of the style.
      */
     public String getStyleName() {
@@ -155,6 +144,20 @@ public class UpdateStyleRequest implements RequestIfc {
      */
     public void setStyleName(String value) {
         this.styleName = value;
+    }
+
+    /*
+     * Gets Style properties to update.
+     */
+    public StyleUpdate getStyleUpdate() {
+        return this.styleUpdate;
+    }
+
+    /*
+     * Sets Style properties to update.
+     */
+    public void setStyleUpdate(StyleUpdate value) {
+        this.styleUpdate = value;
     }
 
     /*
@@ -255,6 +258,7 @@ public class UpdateStyleRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -268,14 +272,14 @@ public class UpdateStyleRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateStyle");
         }
 
-        // verify the required parameter 'StyleUpdate' is set
-        if (getStyleUpdate() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleUpdate' when calling updateStyle");
-        }
-
         // verify the required parameter 'StyleName' is set
         if (getStyleName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleName' when calling updateStyle");
+        }
+
+        // verify the required parameter 'StyleUpdate' is set
+        if (getStyleUpdate() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleUpdate' when calling updateStyle");
         }
 
         Object localVarPostBody = getStyleUpdate();
@@ -332,5 +336,15 @@ public class UpdateStyleRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return StyleResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public StyleResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (StyleResponse) apiClient.deserialize(response, StyleResponse.class);
     }
 }

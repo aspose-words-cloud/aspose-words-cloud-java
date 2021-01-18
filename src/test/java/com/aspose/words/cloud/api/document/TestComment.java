@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestComment.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestComment  extends TestCase
      * Test for getting comment by specified comment's index.
      */
     @Test
-    public void testGetComment() throws ApiException, IOException
+    public void testGetComment() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetComment.docx";
 
@@ -82,10 +84,27 @@ public class TestComment  extends TestCase
     }
 
     /*
+     * Test for getting comment by specified comment's index online.
+     */
+    @Test
+    public void testGetCommentOnline() throws ApiException, MessagingException, IOException
+    {
+        GetCommentOnlineRequest request = new GetCommentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            null,
+            null
+        );
+
+        CommentResponse result = TestInitializer.wordsApi.getCommentOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting all comments from document.
      */
     @Test
-    public void testGetComments() throws ApiException, IOException
+    public void testGetComments() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetComments.docx";
 
@@ -111,10 +130,26 @@ public class TestComment  extends TestCase
     }
 
     /*
+     * Test for getting all comments from document online.
+     */
+    @Test
+    public void testGetCommentsOnline() throws ApiException, MessagingException, IOException
+    {
+        GetCommentsOnlineRequest request = new GetCommentsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        CommentsResponse result = TestInitializer.wordsApi.getCommentsOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for adding comment.
      */
     @Test
-    public void testInsertComment() throws ApiException, IOException
+    public void testInsertComment() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertComment.docx";
 
@@ -166,10 +201,51 @@ public class TestComment  extends TestCase
     }
 
     /*
+     * Test for adding comment online.
+     */
+    @Test
+    public void testInsertCommentOnline() throws ApiException, MessagingException, IOException
+    {
+        NodeLink requestCommentRangeStartNode = new NodeLink();
+        requestCommentRangeStartNode.setNodeId("0.3.0.3");
+
+        DocumentPosition requestCommentRangeStart = new DocumentPosition();
+        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
+        requestCommentRangeStart.setOffset(0);
+
+        NodeLink requestCommentRangeEndNode = new NodeLink();
+        requestCommentRangeEndNode.setNodeId("0.3.0.3");
+
+        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
+        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
+        requestCommentRangeEnd.setOffset(0);
+
+        CommentInsert requestComment = new CommentInsert();
+        requestComment.setRangeStart(requestCommentRangeStart);
+        requestComment.setRangeEnd(requestCommentRangeEnd);
+        requestComment.setInitial("IA");
+        requestComment.setAuthor("Imran Anwar");
+        requestComment.setText("A new Comment");
+
+        InsertCommentOnlineRequest request = new InsertCommentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestComment,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertCommentOnlineResponse result = TestInitializer.wordsApi.insertCommentOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for updating comment.
      */
     @Test
-    public void testUpdateComment() throws ApiException, IOException
+    public void testUpdateComment() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateComment.docx";
 
@@ -222,10 +298,52 @@ public class TestComment  extends TestCase
     }
 
     /*
+     * Test for updating comment online.
+     */
+    @Test
+    public void testUpdateCommentOnline() throws ApiException, MessagingException, IOException
+    {
+        NodeLink requestCommentRangeStartNode = new NodeLink();
+        requestCommentRangeStartNode.setNodeId("0.3.0");
+
+        DocumentPosition requestCommentRangeStart = new DocumentPosition();
+        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
+        requestCommentRangeStart.setOffset(0);
+
+        NodeLink requestCommentRangeEndNode = new NodeLink();
+        requestCommentRangeEndNode.setNodeId("0.3.0");
+
+        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
+        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
+        requestCommentRangeEnd.setOffset(0);
+
+        CommentUpdate requestComment = new CommentUpdate();
+        requestComment.setRangeStart(requestCommentRangeStart);
+        requestComment.setRangeEnd(requestCommentRangeEnd);
+        requestComment.setInitial("IA");
+        requestComment.setAuthor("Imran Anwar");
+        requestComment.setText("A new Comment");
+
+        UpdateCommentOnlineRequest request = new UpdateCommentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            requestComment,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateCommentOnlineResponse result = TestInitializer.wordsApi.updateCommentOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * A test for DeleteComment.
      */
     @Test
-    public void testDeleteComment() throws ApiException, IOException
+    public void testDeleteComment() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteComment.docx";
 
@@ -247,5 +365,25 @@ public class TestComment  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteComment(request);
+    }
+
+    /*
+     * A test for DeleteComment online.
+     */
+    @Test
+    public void testDeleteCommentOnline() throws ApiException, MessagingException, IOException
+    {
+        DeleteCommentOnlineRequest request = new DeleteCommentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteCommentOnline(request);
+        assertNotNull(result);
     }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestText.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.text;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -56,7 +58,7 @@ public class TestText  extends TestCase
      * Test for replacing text.
      */
     @Test
-    public void testReplaceText() throws ApiException, IOException
+    public void testReplaceText() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestReplaceText.docx";
         String localFile = "Common/test_multi_pages.docx";
@@ -88,10 +90,36 @@ public class TestText  extends TestCase
     }
 
     /*
+     * Test for replacing text online.
+     */
+    @Test
+    public void testReplaceTextOnline() throws ApiException, MessagingException, IOException
+    {
+        String localFile = "Common/test_multi_pages.docx";
+
+        ReplaceTextParameters requestReplaceText = new ReplaceTextParameters();
+        requestReplaceText.setOldValue("aspose");
+        requestReplaceText.setNewValue("aspose new");
+
+        ReplaceTextOnlineRequest request = new ReplaceTextOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestReplaceText,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        ReplaceTextOnlineResponse result = TestInitializer.wordsApi.replaceTextOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for searching.
      */
     @Test
-    public void testSearch() throws ApiException, IOException
+    public void testSearch() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestSearch.docx";
         String localFile = "DocumentElements/Text/SampleWordDocument.docx";
@@ -117,5 +145,24 @@ public class TestText  extends TestCase
         assertEquals(23, result.getSearchResults().getResultsList().size());
         assertNotNull(result.getSearchResults().getResultsList().get(0).getRangeStart());
         assertEquals(Integer.valueOf(65), result.getSearchResults().getResultsList().get(0).getRangeStart().getOffset());
+    }
+
+    /*
+     * Test for searching online.
+     */
+    @Test
+    public void testSearchOnline() throws ApiException, MessagingException, IOException
+    {
+        String localFile = "DocumentElements/Text/SampleWordDocument.docx";
+
+        SearchOnlineRequest request = new SearchOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "aspose",
+            null,
+            null
+        );
+
+        SearchResponse result = TestInitializer.wordsApi.searchOnline(request);
+        assertNotNull(result);
     }
 }

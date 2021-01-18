@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateCommentRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -49,7 +52,7 @@ public class UpdateCommentRequest implements RequestIfc {
     private Integer commentIndex;
 
     /*
-     * The properties of the comment.
+     * Comment data.
      */
     private CommentUpdate comment;
 
@@ -93,7 +96,7 @@ public class UpdateCommentRequest implements RequestIfc {
      *
      * @param String name The filename of the input document.
      * @param Integer commentIndex The index of the comment.
-     * @param CommentUpdate comment The properties of the comment.
+     * @param CommentUpdate comment Comment data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -144,14 +147,14 @@ public class UpdateCommentRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the comment.
+     * Gets Comment data.
      */
     public CommentUpdate getComment() {
         return this.comment;
     }
 
     /*
-     * Sets The properties of the comment.
+     * Sets Comment data.
      */
     public void setComment(CommentUpdate value) {
         this.comment = value;
@@ -255,6 +258,7 @@ public class UpdateCommentRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -332,5 +336,15 @@ public class UpdateCommentRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return CommentResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public CommentResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (CommentResponse) apiClient.deserialize(response, CommentResponse.class);
     }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestUrlEncode.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -41,6 +41,7 @@ import org.junit.Test;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import javax.mail.MessagingException;
 
 public class TestUrlEncode  extends TestCase {
     private String testFolder = "DocumentElements/Bookmarks";
@@ -55,7 +56,7 @@ public class TestUrlEncode  extends TestCase {
      * Test for URL encoding of document name
      */
     @Test
-public void testUrlEncode() throws ApiException, IOException {
+public void testUrlEncode() throws ApiException, MessagingException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "[“Test_Two,_Inc.”]-_83(b)Election([“Bill_Gates”]).docx";
         String bookmarkName = "aspose";

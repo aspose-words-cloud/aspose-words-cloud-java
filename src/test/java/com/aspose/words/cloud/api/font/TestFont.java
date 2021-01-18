@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestFont.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.font;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -54,7 +56,7 @@ public class TestFont  extends TestCase
      * Test for reseting cache.
      */
     @Test
-    public void testResetCache() throws ApiException, IOException
+    public void testResetCache() throws ApiException, MessagingException, IOException
     {
         ResetCacheRequest request = new ResetCacheRequest(
         );
@@ -66,7 +68,7 @@ public class TestFont  extends TestCase
      * Test for GetAvailableFonts resource.
      */
     @Test
-    public void testGetAvailableFonts() throws ApiException, IOException
+    public void testGetAvailableFonts() throws ApiException, MessagingException, IOException
     {
         GetAvailableFontsRequest request = new GetAvailableFontsRequest(
             null

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestSplitDocumentToFormat.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestSplitDocumentToFormat  extends TestCase
      * Test for document splitting.
      */
     @Test
-    public void testSplitDocument() throws ApiException, IOException
+    public void testSplitDocument() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestSplitDocument.docx";
 
@@ -85,5 +87,27 @@ public class TestSplitDocumentToFormat  extends TestCase
         assertNotNull(result.getSplitResult());
         assertNotNull(result.getSplitResult().getPages());
         assertEquals(2, result.getSplitResult().getPages().size());
+    }
+
+    /*
+     * Test for document splitting online.
+     */
+    @Test
+    public void testSplitDocumentOnline() throws ApiException, MessagingException, IOException
+    {
+        SplitDocumentOnlineRequest request = new SplitDocumentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            "text",
+            null,
+            null,
+            TestInitializer.RemoteTestOut + "/TestSplitDocument.text",
+            1,
+            2,
+            null,
+            null
+        );
+
+        SplitDocumentOnlineResponse result = TestInitializer.wordsApi.splitDocumentOnline(request);
+        assertNotNull(result);
     }
 }

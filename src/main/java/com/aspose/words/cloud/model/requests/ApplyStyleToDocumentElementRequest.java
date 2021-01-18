@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ApplyStyleToDocumentElementRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,14 +47,14 @@ public class ApplyStyleToDocumentElementRequest implements RequestIfc {
     private String name;
 
     /*
-     * The style to apply.
-     */
-    private StyleApply styleApply;
-
-    /*
      * The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
      */
     private String styledNodePath;
+
+    /*
+     * Style to apply.
+     */
+    private StyleApply styleApply;
 
     /*
      * Original document folder.
@@ -92,8 +95,8 @@ public class ApplyStyleToDocumentElementRequest implements RequestIfc {
      * Initializes a new instance of the ApplyStyleToDocumentElementRequest class.
      *
      * @param String name The filename of the input document.
-     * @param StyleApply styleApply The style to apply.
      * @param String styledNodePath The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
+     * @param StyleApply styleApply Style to apply.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -102,10 +105,10 @@ public class ApplyStyleToDocumentElementRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public ApplyStyleToDocumentElementRequest(String name, StyleApply styleApply, String styledNodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public ApplyStyleToDocumentElementRequest(String name, String styledNodePath, StyleApply styleApply, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.styleApply = styleApply;
         this.styledNodePath = styledNodePath;
+        this.styleApply = styleApply;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -130,20 +133,6 @@ public class ApplyStyleToDocumentElementRequest implements RequestIfc {
     }
 
     /*
-     * Gets The style to apply.
-     */
-    public StyleApply getStyleApply() {
-        return this.styleApply;
-    }
-
-    /*
-     * Sets The style to apply.
-     */
-    public void setStyleApply(StyleApply value) {
-        this.styleApply = value;
-    }
-
-    /*
      * Gets The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
      */
     public String getStyledNodePath() {
@@ -155,6 +144,20 @@ public class ApplyStyleToDocumentElementRequest implements RequestIfc {
      */
     public void setStyledNodePath(String value) {
         this.styledNodePath = value;
+    }
+
+    /*
+     * Gets Style to apply.
+     */
+    public StyleApply getStyleApply() {
+        return this.styleApply;
+    }
+
+    /*
+     * Sets Style to apply.
+     */
+    public void setStyleApply(StyleApply value) {
+        this.styleApply = value;
     }
 
     /*
@@ -255,6 +258,7 @@ public class ApplyStyleToDocumentElementRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -268,14 +272,14 @@ public class ApplyStyleToDocumentElementRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling applyStyleToDocumentElement");
         }
 
-        // verify the required parameter 'StyleApply' is set
-        if (getStyleApply() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleApply' when calling applyStyleToDocumentElement");
-        }
-
         // verify the required parameter 'StyledNodePath' is set
         if (getStyledNodePath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyledNodePath' when calling applyStyleToDocumentElement");
+        }
+
+        // verify the required parameter 'StyleApply' is set
+        if (getStyleApply() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleApply' when calling applyStyleToDocumentElement");
         }
 
         Object localVarPostBody = getStyleApply();
@@ -332,5 +336,15 @@ public class ApplyStyleToDocumentElementRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return WordsResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public WordsResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (WordsResponse) apiClient.deserialize(response, WordsResponse.class);
     }
 }

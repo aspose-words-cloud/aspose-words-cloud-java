@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateTableRowFormatRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,11 +47,6 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
     private String name;
 
     /*
-     * The row format.
-     */
-    private TableRowFormat format;
-
-    /*
      * The path to the table in the document tree.
      */
     private String tablePath;
@@ -57,6 +55,11 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
      * Object index.
      */
     private Integer index;
+
+    /*
+     * Table row format.
+     */
+    private TableRowFormat format;
 
     /*
      * Original document folder.
@@ -97,9 +100,9 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
      * Initializes a new instance of the UpdateTableRowFormatRequest class.
      *
      * @param String name The filename of the input document.
-     * @param TableRowFormat format The row format.
      * @param String tablePath The path to the table in the document tree.
      * @param Integer index Object index.
+     * @param TableRowFormat format Table row format.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -108,11 +111,11 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateTableRowFormatRequest(String name, TableRowFormat format, String tablePath, Integer index, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateTableRowFormatRequest(String name, String tablePath, Integer index, TableRowFormat format, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.format = format;
         this.tablePath = tablePath;
         this.index = index;
+        this.format = format;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -134,20 +137,6 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
      */
     public void setName(String value) {
         this.name = value;
-    }
-
-    /*
-     * Gets The row format.
-     */
-    public TableRowFormat getFormat() {
-        return this.format;
-    }
-
-    /*
-     * Sets The row format.
-     */
-    public void setFormat(TableRowFormat value) {
-        this.format = value;
     }
 
     /*
@@ -176,6 +165,20 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
      */
     public void setIndex(Integer value) {
         this.index = value;
+    }
+
+    /*
+     * Gets Table row format.
+     */
+    public TableRowFormat getFormat() {
+        return this.format;
+    }
+
+    /*
+     * Sets Table row format.
+     */
+    public void setFormat(TableRowFormat value) {
+        this.format = value;
     }
 
     /*
@@ -276,6 +279,7 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -289,11 +293,6 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateTableRowFormat");
         }
 
-        // verify the required parameter 'Format' is set
-        if (getFormat() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling updateTableRowFormat");
-        }
-
         // verify the required parameter 'TablePath' is set
         if (getTablePath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TablePath' when calling updateTableRowFormat");
@@ -302,6 +301,11 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateTableRowFormat");
+        }
+
+        // verify the required parameter 'Format' is set
+        if (getFormat() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling updateTableRowFormat");
         }
 
         Object localVarPostBody = getFormat();
@@ -359,5 +363,15 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return TableRowFormatResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public TableRowFormatResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (TableRowFormatResponse) apiClient.deserialize(response, TableRowFormatResponse.class);
     }
 }

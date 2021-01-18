@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="AppendDocumentRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,7 +47,7 @@ public class AppendDocumentRequest implements RequestIfc {
     private String name;
 
     /*
-     * The collection of documents to append.
+     * <see cref="DocumentEntryList"/> with a list of documents to append.
      */
     private DocumentEntryList documentList;
 
@@ -87,7 +90,7 @@ public class AppendDocumentRequest implements RequestIfc {
      * Initializes a new instance of the AppendDocumentRequest class.
      *
      * @param String name The filename of the input document.
-     * @param DocumentEntryList documentList The collection of documents to append.
+     * @param DocumentEntryList documentList <see cref="DocumentEntryList"/> with a list of documents to append.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -123,14 +126,14 @@ public class AppendDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets The collection of documents to append.
+     * Gets <see cref="DocumentEntryList"/> with a list of documents to append.
      */
     public DocumentEntryList getDocumentList() {
         return this.documentList;
     }
 
     /*
-     * Sets The collection of documents to append.
+     * Sets <see cref="DocumentEntryList"/> with a list of documents to append.
      */
     public void setDocumentList(DocumentEntryList value) {
         this.documentList = value;
@@ -234,6 +237,7 @@ public class AppendDocumentRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -305,5 +309,15 @@ public class AppendDocumentRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return DocumentResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public DocumentResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (DocumentResponse) apiClient.deserialize(response, DocumentResponse.class);
     }
 }

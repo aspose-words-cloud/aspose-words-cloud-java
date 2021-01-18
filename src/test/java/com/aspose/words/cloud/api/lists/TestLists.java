@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestLists.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.lists;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestLists  extends TestCase
      * Test for getting lists from document.
      */
     @Test
-    public void testGetLists() throws ApiException, IOException
+    public void testGetLists() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetLists.doc";
 
@@ -83,10 +85,26 @@ public class TestLists  extends TestCase
     }
 
     /*
+     * Test for getting lists from document online.
+     */
+    @Test
+    public void testGetListsOnline() throws ApiException, MessagingException, IOException
+    {
+        GetListsOnlineRequest request = new GetListsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        ListsResponse result = TestInitializer.wordsApi.getListsOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting list from document.
      */
     @Test
-    public void testGetList() throws ApiException, IOException
+    public void testGetList() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetList.doc";
 
@@ -111,10 +129,27 @@ public class TestLists  extends TestCase
     }
 
     /*
+     * Test for getting list from document online.
+     */
+    @Test
+    public void testGetListOnline() throws ApiException, MessagingException, IOException
+    {
+        GetListOnlineRequest request = new GetListOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            1,
+            null,
+            null
+        );
+
+        ListResponse result = TestInitializer.wordsApi.getListOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for updating list from document.
      */
     @Test
-    public void testUpdateList() throws ApiException, IOException
+    public void testUpdateList() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateList.doc";
 
@@ -128,8 +163,8 @@ public class TestLists  extends TestCase
 
         UpdateListRequest request = new UpdateListRequest(
             remoteFileName,
-            requestListUpdate,
             1,
+            requestListUpdate,
             remoteDataFolder,
             null,
             null,
@@ -141,16 +176,40 @@ public class TestLists  extends TestCase
 
         ListResponse result = TestInitializer.wordsApi.updateList(request);
         assertNotNull(result);
-        assertNotNull(result.getList());
-        assertEquals(Integer.valueOf(1), result.getList().getListId());
-        assertEquals(Boolean.valueOf(true), result.getList().getIsRestartAtEachSection());
+    }
+
+    /*
+     * Test for updating list from document online.
+     */
+    @Test
+    public void testUpdateListOnline() throws ApiException, MessagingException, IOException
+    {
+        ListUpdate requestListUpdate = new ListUpdate();
+        requestListUpdate.setIsRestartAtEachSection(true);
+
+        UpdateListOnlineRequest request = new UpdateListOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            1,
+            requestListUpdate,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateListOnlineResponse result = TestInitializer.wordsApi.updateListOnline(request);
+        assertNotNull(result);
+        assertNotNull(result.getModel().getList());
+        assertEquals(Integer.valueOf(1), result.getModel().getList().getListId());
+        assertEquals(Boolean.valueOf(true), result.getModel().getList().getIsRestartAtEachSection());
     }
 
     /*
      * Test for updating list level from document.
      */
     @Test
-    public void testUpdateListLevel() throws ApiException, IOException
+    public void testUpdateListLevel() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateListLevel.doc";
 
@@ -164,9 +223,9 @@ public class TestLists  extends TestCase
 
         UpdateListLevelRequest request = new UpdateListLevelRequest(
             remoteFileName,
+            1,
+            1,
             requestListUpdate,
-            1,
-            1,
             remoteDataFolder,
             null,
             null,
@@ -178,10 +237,35 @@ public class TestLists  extends TestCase
 
         ListResponse result = TestInitializer.wordsApi.updateListLevel(request);
         assertNotNull(result);
-        assertNotNull(result.getList());
-        assertNotNull(result.getList().getListLevels());
-        assertNotNull(result.getList().getListLevels().getListLevel());
-        assertEquals(9, result.getList().getListLevels().getListLevel().size());
+    }
+
+    /*
+     * Test for updating list level from document online.
+     */
+    @Test
+    public void testUpdateListLevelOnline() throws ApiException, MessagingException, IOException
+    {
+        ListLevelUpdate requestListUpdate = new ListLevelUpdate();
+        requestListUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
+
+        UpdateListLevelOnlineRequest request = new UpdateListLevelOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            1,
+            requestListUpdate,
+            1,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateListLevelOnlineResponse result = TestInitializer.wordsApi.updateListLevelOnline(request);
+        assertNotNull(result);
+        assertNotNull(result.getModel().getList());
+        assertNotNull(result.getModel().getList().getListLevels());
+        assertNotNull(result.getModel().getList().getListLevels().getListLevel());
+        assertEquals(9, result.getModel().getList().getListLevels().getListLevel().size());
 
     }
 
@@ -189,7 +273,7 @@ public class TestLists  extends TestCase
      * Test for inserting list from document.
      */
     @Test
-    public void testInsertList() throws ApiException, IOException
+    public void testInsertList() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertList.doc";
 
@@ -217,5 +301,28 @@ public class TestLists  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getList());
         assertEquals(Integer.valueOf(3), result.getList().getListId());
+    }
+
+    /*
+     * Test for inserting list from document online.
+     */
+    @Test
+    public void testInsertListOnline() throws ApiException, MessagingException, IOException
+    {
+        ListInsert requestListInsert = new ListInsert();
+        requestListInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
+
+        InsertListOnlineRequest request = new InsertListOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestListInsert,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertListOnlineResponse result = TestInitializer.wordsApi.insertListOnline(request);
+        assertNotNull(result);
     }
 }

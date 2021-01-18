@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestCompatibility.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.compatibility;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestCompatibility  extends TestCase
      * Test for optimize document to specific MS Word version.
      */
     @Test
-    public void testOptimizeDocument() throws ApiException, IOException
+    public void testOptimizeDocument() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestOptimizeDocument.docx";
 
@@ -82,5 +84,28 @@ public class TestCompatibility  extends TestCase
         );
 
         TestInitializer.wordsApi.optimizeDocument(request);
+    }
+
+    /*
+     * Test for optimize document to specific MS Word version.
+     */
+    @Test
+    public void testOptimizeDocumentOnline() throws ApiException, MessagingException, IOException
+    {
+        OptimizationOptions requestOptions = new OptimizationOptions();
+        requestOptions.setMsWordVersion(OptimizationOptions.MsWordVersionEnum.WORD2002);
+
+        OptimizeDocumentOnlineRequest request = new OptimizeDocumentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestOptions,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.optimizeDocumentOnline(request);
+        assertNotNull(result);
     }
 }

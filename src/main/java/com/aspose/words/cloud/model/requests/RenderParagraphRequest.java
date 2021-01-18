@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderParagraphRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -79,6 +82,11 @@ public class RenderParagraphRequest implements RequestIfc {
     private String password;
 
     /*
+     * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     */
+    private String destFileName;
+
+    /*
      * Folder in filestorage with custom fonts.
      */
     private String fontsLocation;
@@ -94,9 +102,10 @@ public class RenderParagraphRequest implements RequestIfc {
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
+     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public RenderParagraphRequest(String name, String format, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String fontsLocation) {
+    public RenderParagraphRequest(String name, String format, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String fontsLocation) {
         this.name = name;
         this.format = format;
         this.index = index;
@@ -105,6 +114,7 @@ public class RenderParagraphRequest implements RequestIfc {
         this.storage = storage;
         this.loadEncoding = loadEncoding;
         this.password = password;
+        this.destFileName = destFileName;
         this.fontsLocation = fontsLocation;
     }
 
@@ -221,6 +231,20 @@ public class RenderParagraphRequest implements RequestIfc {
     }
 
     /*
+     * Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     */
+    public String getDestFileName() {
+        return this.destFileName;
+    }
+
+    /*
+     * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     */
+    public void setDestFileName(String value) {
+        this.destFileName = value;
+    }
+
+    /*
      * Gets Folder in filestorage with custom fonts.
      */
     public String getFontsLocation() {
@@ -233,6 +257,7 @@ public class RenderParagraphRequest implements RequestIfc {
     public void setFontsLocation(String value) {
         this.fontsLocation = value;
     }
+
 
     /*
      * Creates the http request based on this request model.
@@ -273,6 +298,7 @@ public class RenderParagraphRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
         apiClient.addParameterToQuery(localVarQueryParams, "fontsLocation", getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -299,5 +325,15 @@ public class RenderParagraphRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return File.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public File deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return apiClient.downloadFileFromResponse(response);
     }
 }

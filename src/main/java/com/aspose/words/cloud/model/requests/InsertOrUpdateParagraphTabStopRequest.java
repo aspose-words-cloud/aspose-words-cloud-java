@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertOrUpdateParagraphTabStopRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,14 +47,14 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the paragraph tab stop.
-     */
-    private TabStopInsert dto;
-
-    /*
      * Object index.
      */
     private Integer index;
+
+    /*
+     * TabStopInsert dto.
+     */
+    private TabStopInsert tabStopInsertDto;
 
     /*
      * The path to the node in the document tree.
@@ -87,8 +90,8 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
      * Initializes a new instance of the InsertOrUpdateParagraphTabStopRequest class.
      *
      * @param String name The filename of the input document.
-     * @param TabStopInsert dto The properties of the paragraph tab stop.
      * @param Integer index Object index.
+     * @param TabStopInsert tabStopInsertDto TabStopInsert dto.
      * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -96,10 +99,10 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public InsertOrUpdateParagraphTabStopRequest(String name, TabStopInsert dto, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName) {
+    public InsertOrUpdateParagraphTabStopRequest(String name, Integer index, TabStopInsert tabStopInsertDto, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName) {
         this.name = name;
-        this.dto = dto;
         this.index = index;
+        this.tabStopInsertDto = tabStopInsertDto;
         this.nodePath = nodePath;
         this.folder = folder;
         this.storage = storage;
@@ -123,20 +126,6 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
     }
 
     /*
-     * Gets The properties of the paragraph tab stop.
-     */
-    public TabStopInsert getDto() {
-        return this.dto;
-    }
-
-    /*
-     * Sets The properties of the paragraph tab stop.
-     */
-    public void setDto(TabStopInsert value) {
-        this.dto = value;
-    }
-
-    /*
      * Gets Object index.
      */
     public Integer getIndex() {
@@ -148,6 +137,20 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
      */
     public void setIndex(Integer value) {
         this.index = value;
+    }
+
+    /*
+     * Gets TabStopInsert dto.
+     */
+    public TabStopInsert getTabStopInsertDto() {
+        return this.tabStopInsertDto;
+    }
+
+    /*
+     * Sets TabStopInsert dto.
+     */
+    public void setTabStopInsertDto(TabStopInsert value) {
+        this.tabStopInsertDto = value;
     }
 
     /*
@@ -234,6 +237,7 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
         this.destFileName = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -247,17 +251,17 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertOrUpdateParagraphTabStop");
         }
 
-        // verify the required parameter 'Dto' is set
-        if (getDto() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Dto' when calling insertOrUpdateParagraphTabStop");
-        }
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling insertOrUpdateParagraphTabStop");
         }
 
-        Object localVarPostBody = getDto();
+        // verify the required parameter 'TabStopInsertDto' is set
+        if (getTabStopInsertDto() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TabStopInsertDto' when calling insertOrUpdateParagraphTabStop");
+        }
+
+        Object localVarPostBody = getTabStopInsertDto();
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
@@ -310,5 +314,15 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return TabStopsResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public TabStopsResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (TabStopsResponse) apiClient.deserialize(response, TabStopsResponse.class);
     }
 }

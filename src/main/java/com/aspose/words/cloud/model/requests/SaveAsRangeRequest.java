@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="SaveAsRangeRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -49,7 +52,7 @@ public class SaveAsRangeRequest implements RequestIfc {
     private String rangeStartIdentifier;
 
     /*
-     * The parameters of a new document.
+     * Parameters of a new document.
      */
     private RangeDocument documentParameters;
 
@@ -83,7 +86,7 @@ public class SaveAsRangeRequest implements RequestIfc {
      *
      * @param String name The filename of the input document.
      * @param String rangeStartIdentifier The range start identifier.
-     * @param RangeDocument documentParameters The parameters of a new document.
+     * @param RangeDocument documentParameters Parameters of a new document.
      * @param String rangeEndIdentifier The range end identifier.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -130,14 +133,14 @@ public class SaveAsRangeRequest implements RequestIfc {
     }
 
     /*
-     * Gets The parameters of a new document.
+     * Gets Parameters of a new document.
      */
     public RangeDocument getDocumentParameters() {
         return this.documentParameters;
     }
 
     /*
-     * Sets The parameters of a new document.
+     * Sets Parameters of a new document.
      */
     public void setDocumentParameters(RangeDocument value) {
         this.documentParameters = value;
@@ -212,6 +215,7 @@ public class SaveAsRangeRequest implements RequestIfc {
     public void setPassword(String value) {
         this.password = value;
     }
+
 
     /*
      * Creates the http request based on this request model.
@@ -288,5 +292,15 @@ public class SaveAsRangeRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return DocumentResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public DocumentResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (DocumentResponse) apiClient.deserialize(response, DocumentResponse.class);
     }
 }

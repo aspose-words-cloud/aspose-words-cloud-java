@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateFormFieldRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,14 +47,14 @@ public class UpdateFormFieldRequest implements RequestIfc {
     private String name;
 
     /*
-     * The new form field properties.
-     */
-    private FormField formField;
-
-    /*
      * Object index.
      */
     private Integer index;
+
+    /*
+     * From field data.
+     */
+    private FormField formField;
 
     /*
      * The path to the node in the document tree.
@@ -97,8 +100,8 @@ public class UpdateFormFieldRequest implements RequestIfc {
      * Initializes a new instance of the UpdateFormFieldRequest class.
      *
      * @param String name The filename of the input document.
-     * @param FormField formField The new form field properties.
      * @param Integer index Object index.
+     * @param FormField formField From field data.
      * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -108,10 +111,10 @@ public class UpdateFormFieldRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateFormFieldRequest(String name, FormField formField, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateFormFieldRequest(String name, Integer index, FormField formField, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.formField = formField;
         this.index = index;
+        this.formField = formField;
         this.nodePath = nodePath;
         this.folder = folder;
         this.storage = storage;
@@ -137,20 +140,6 @@ public class UpdateFormFieldRequest implements RequestIfc {
     }
 
     /*
-     * Gets The new form field properties.
-     */
-    public FormField getFormField() {
-        return this.formField;
-    }
-
-    /*
-     * Sets The new form field properties.
-     */
-    public void setFormField(FormField value) {
-        this.formField = value;
-    }
-
-    /*
      * Gets Object index.
      */
     public Integer getIndex() {
@@ -162,6 +151,20 @@ public class UpdateFormFieldRequest implements RequestIfc {
      */
     public void setIndex(Integer value) {
         this.index = value;
+    }
+
+    /*
+     * Gets From field data.
+     */
+    public FormField getFormField() {
+        return this.formField;
+    }
+
+    /*
+     * Sets From field data.
+     */
+    public void setFormField(FormField value) {
+        this.formField = value;
     }
 
     /*
@@ -276,6 +279,7 @@ public class UpdateFormFieldRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -289,14 +293,14 @@ public class UpdateFormFieldRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateFormField");
         }
 
-        // verify the required parameter 'FormField' is set
-        if (getFormField() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FormField' when calling updateFormField");
-        }
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateFormField");
+        }
+
+        // verify the required parameter 'FormField' is set
+        if (getFormField() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FormField' when calling updateFormField");
         }
 
         Object localVarPostBody = getFormField();
@@ -354,5 +358,15 @@ public class UpdateFormFieldRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return FormFieldResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public FormFieldResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (FormFieldResponse) apiClient.deserialize(response, FormFieldResponse.class);
     }
 }

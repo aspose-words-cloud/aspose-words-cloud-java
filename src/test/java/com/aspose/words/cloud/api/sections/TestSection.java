@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestSection.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.sections;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestSection  extends TestCase
      * Test for getting section by index.
      */
     @Test
-    public void testGetSection() throws ApiException, IOException
+    public void testGetSection() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetSection.docx";
 
@@ -84,10 +86,27 @@ public class TestSection  extends TestCase
     }
 
     /*
+     * Test for getting section by index online.
+     */
+    @Test
+    public void testGetSectionOnline() throws ApiException, MessagingException, IOException
+    {
+        GetSectionOnlineRequest request = new GetSectionOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            null,
+            null
+        );
+
+        SectionResponse result = TestInitializer.wordsApi.getSectionOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting sections.
      */
     @Test
-    public void testGetSections() throws ApiException, IOException
+    public void testGetSections() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetSections.docx";
 
@@ -113,10 +132,26 @@ public class TestSection  extends TestCase
     }
 
     /*
+     * Test for getting sections online.
+     */
+    @Test
+    public void testGetSectionsOnline() throws ApiException, MessagingException, IOException
+    {
+        GetSectionsOnlineRequest request = new GetSectionsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        SectionLinkCollectionResponse result = TestInitializer.wordsApi.getSectionsOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for delete a section.
      */
     @Test
-    public void testDeleteSection() throws ApiException, IOException
+    public void testDeleteSection() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestDeleteSection.docx";
 
@@ -138,5 +173,25 @@ public class TestSection  extends TestCase
         );
 
         TestInitializer.wordsApi.deleteSection(request);
+    }
+
+    /*
+     * Test for delete a section online.
+     */
+    @Test
+    public void testDeleteSectionOnline() throws ApiException, MessagingException, IOException
+    {
+        DeleteSectionOnlineRequest request = new DeleteSectionOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteSectionOnline(request);
+        assertNotNull(result);
     }
 }

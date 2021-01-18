@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RequestIfc.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,6 +28,7 @@
 package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
+import javax.mail.MessagingException;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -41,6 +42,7 @@ public interface RequestIfc {
      *
      * @param apiClient ApiClient instance
      * @throws ApiException If fail to serialize the request body object
+     * @throws MessagingException If fail to serialize the request body object
      * @throws IOException If fail to serialize the request body object
      */
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException;
@@ -49,4 +51,12 @@ public interface RequestIfc {
      * Gets response type for this request.
      */
     public Type getResponseType();
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public Object deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException;
 }

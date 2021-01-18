@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateRunRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -44,11 +47,6 @@ public class UpdateRunRequest implements RequestIfc {
     private String name;
 
     /*
-     * The properties of the Run object.
-     */
-    private RunUpdate run;
-
-    /*
      * The path to the paragraph in the document tree.
      */
     private String paragraphPath;
@@ -57,6 +55,11 @@ public class UpdateRunRequest implements RequestIfc {
      * Object index.
      */
     private Integer index;
+
+    /*
+     * Run data.
+     */
+    private RunUpdate run;
 
     /*
      * Original document folder.
@@ -97,9 +100,9 @@ public class UpdateRunRequest implements RequestIfc {
      * Initializes a new instance of the UpdateRunRequest class.
      *
      * @param String name The filename of the input document.
-     * @param RunUpdate run The properties of the Run object.
      * @param String paragraphPath The path to the paragraph in the document tree.
      * @param Integer index Object index.
+     * @param RunUpdate run Run data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -108,11 +111,11 @@ public class UpdateRunRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateRunRequest(String name, RunUpdate run, String paragraphPath, Integer index, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateRunRequest(String name, String paragraphPath, Integer index, RunUpdate run, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.run = run;
         this.paragraphPath = paragraphPath;
         this.index = index;
+        this.run = run;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -134,20 +137,6 @@ public class UpdateRunRequest implements RequestIfc {
      */
     public void setName(String value) {
         this.name = value;
-    }
-
-    /*
-     * Gets The properties of the Run object.
-     */
-    public RunUpdate getRun() {
-        return this.run;
-    }
-
-    /*
-     * Sets The properties of the Run object.
-     */
-    public void setRun(RunUpdate value) {
-        this.run = value;
     }
 
     /*
@@ -176,6 +165,20 @@ public class UpdateRunRequest implements RequestIfc {
      */
     public void setIndex(Integer value) {
         this.index = value;
+    }
+
+    /*
+     * Gets Run data.
+     */
+    public RunUpdate getRun() {
+        return this.run;
+    }
+
+    /*
+     * Sets Run data.
+     */
+    public void setRun(RunUpdate value) {
+        this.run = value;
     }
 
     /*
@@ -276,6 +279,7 @@ public class UpdateRunRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -289,11 +293,6 @@ public class UpdateRunRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateRun");
         }
 
-        // verify the required parameter 'Run' is set
-        if (getRun() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Run' when calling updateRun");
-        }
-
         // verify the required parameter 'ParagraphPath' is set
         if (getParagraphPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphPath' when calling updateRun");
@@ -302,6 +301,11 @@ public class UpdateRunRequest implements RequestIfc {
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateRun");
+        }
+
+        // verify the required parameter 'Run' is set
+        if (getRun() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Run' when calling updateRun");
         }
 
         Object localVarPostBody = getRun();
@@ -359,5 +363,15 @@ public class UpdateRunRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return RunResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public RunResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (RunResponse) apiClient.deserialize(response, RunResponse.class);
     }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestDocumentProtection.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.documentProtection;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestDocumentProtection  extends TestCase
      * Test for setting document protection.
      */
     @Test
-    public void testProtectDocument() throws ApiException, IOException
+    public void testProtectDocument() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestProtectDocument.docx";
 
@@ -87,10 +89,31 @@ public class TestDocumentProtection  extends TestCase
     }
 
     /*
+     * Test for setting document protection.
+     */
+    @Test
+    public void testProtectDocumentOnline() throws ApiException, MessagingException, IOException
+    {
+        ProtectionRequest requestProtectionRequest = new ProtectionRequest();
+        requestProtectionRequest.setNewPassword("123");
+
+        ProtectDocumentOnlineRequest request = new ProtectDocumentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestProtectionRequest,
+            null,
+            null,
+            null
+        );
+
+        ProtectDocumentOnlineResponse result = TestInitializer.wordsApi.protectDocumentOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting document protection.
      */
     @Test
-    public void testGetDocumentProtection() throws ApiException, IOException
+    public void testGetDocumentProtection() throws ApiException, MessagingException, IOException
     {
         String localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
         String remoteFileName = "TestGetDocumentProtection.docx";
@@ -110,15 +133,29 @@ public class TestDocumentProtection  extends TestCase
 
         ProtectionDataResponse result = TestInitializer.wordsApi.getDocumentProtection(request);
         assertNotNull(result);
-        assertNotNull(result.getProtectionData());
-        assertEquals("ReadOnly", result.getProtectionData().getProtectionType());
+    }
+
+    /*
+     * Test for getting document protection.
+     */
+    @Test
+    public void testGetDocumentProtectionOnline() throws ApiException, MessagingException, IOException
+    {
+        GetDocumentProtectionOnlineRequest request = new GetDocumentProtectionOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null
+        );
+
+        ProtectionDataResponse result = TestInitializer.wordsApi.getDocumentProtectionOnline(request);
+        assertNotNull(result);
     }
 
     /*
      * Test for deleting unprotect document.
      */
     @Test
-    public void testDeleteUnprotectDocument() throws ApiException, IOException
+    public void testDeleteUnprotectDocument() throws ApiException, MessagingException, IOException
     {
         String localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
         String remoteFileName = "TestDeleteUnprotectDocument.docx";
@@ -145,5 +182,28 @@ public class TestDocumentProtection  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getProtectionData());
         assertEquals("NoProtection", result.getProtectionData().getProtectionType());
+    }
+
+    /*
+     * Test for deleting unprotect document.
+     */
+    @Test
+    public void testDeleteUnprotectDocumentOnline() throws ApiException, MessagingException, IOException
+    {
+        String localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
+
+        ProtectionRequest requestProtectionRequest = new ProtectionRequest();
+        requestProtectionRequest.setPassword("aspose");
+
+        UnprotectDocumentOnlineRequest request = new UnprotectDocumentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFilePath).toAbsolutePath()),
+            requestProtectionRequest,
+            null,
+            null,
+            null
+        );
+
+        UnprotectDocumentOnlineResponse result = TestInitializer.wordsApi.unprotectDocumentOnline(request);
+        assertNotNull(result);
     }
 }

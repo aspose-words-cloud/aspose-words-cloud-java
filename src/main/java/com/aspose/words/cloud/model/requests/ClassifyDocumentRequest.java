@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ClassifyDocumentRequest.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,10 @@ package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -39,9 +42,9 @@ import java.util.*;
  */
 public class ClassifyDocumentRequest implements RequestIfc {
     /*
-     * The filename of the input document.
+     * The document name.
      */
-    private String documentName;
+    private String name;
 
     /*
      * Original document folder.
@@ -76,7 +79,7 @@ public class ClassifyDocumentRequest implements RequestIfc {
     /*
      * Initializes a new instance of the ClassifyDocumentRequest class.
      *
-     * @param String documentName The filename of the input document.
+     * @param String name The document name.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -84,8 +87,8 @@ public class ClassifyDocumentRequest implements RequestIfc {
      * @param String bestClassesCount The number of the best classes to return.
      * @param String taxonomy The taxonomy to use.
      */
-    public ClassifyDocumentRequest(String documentName, String folder, String storage, String loadEncoding, String password, String bestClassesCount, String taxonomy) {
-        this.documentName = documentName;
+    public ClassifyDocumentRequest(String name, String folder, String storage, String loadEncoding, String password, String bestClassesCount, String taxonomy) {
+        this.name = name;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -95,17 +98,17 @@ public class ClassifyDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets The filename of the input document.
+     * Gets The document name.
      */
-    public String getDocumentName() {
-        return this.documentName;
+    public String getName() {
+        return this.name;
     }
 
     /*
-     * Sets The filename of the input document.
+     * Sets The document name.
      */
-    public void setDocumentName(String value) {
-        this.documentName = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
     /*
@@ -192,6 +195,7 @@ public class ClassifyDocumentRequest implements RequestIfc {
         this.taxonomy = value;
     }
 
+
     /*
      * Creates the http request based on this request model.
      *
@@ -200,16 +204,16 @@ public class ClassifyDocumentRequest implements RequestIfc {
      * @throws IOException If fail to serialize the request body object
      */
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
-        // verify the required parameter 'DocumentName' is set
-        if (getDocumentName() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DocumentName' when calling classifyDocument");
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling classifyDocument");
         }
 
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{documentName}/classify";
-        localVarPath = apiClient.addParameterToPath(localVarPath, "documentName", getDocumentName());
+        String localVarPath = "/words/{name}/classify";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
         localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -245,5 +249,15 @@ public class ClassifyDocumentRequest implements RequestIfc {
      */
     public Type getResponseType() {
         return ClassificationResponse.class;
+    }
+
+    /*
+     * Deserialize response message.
+     *
+     * @param apiClient ApiClient instance
+     * @param response Response instance
+     */
+    public ClassificationResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        return (ClassificationResponse) apiClient.deserialize(response, ClassificationResponse.class);
     }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestBatch.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,6 +35,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -52,7 +53,7 @@ public class TestBatch  extends TestCase {
      * Test for URL encoding of document name
      */
     @Test
-public void testBatch() throws ApiException, IOException {
+public void testBatch() throws ApiException, MessagingException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentParagraphByIndex.docx";
         String remoteFolder = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder);

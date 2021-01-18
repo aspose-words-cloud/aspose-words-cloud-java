@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestPageSetup.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.pageSetup;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -58,7 +60,7 @@ public class TestPageSetup  extends TestCase
      * Test for getting page settings.
      */
     @Test
-    public void testGetSectionPageSetup() throws ApiException, IOException
+    public void testGetSectionPageSetup() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetSectionPageSetup.docx";
 
@@ -83,10 +85,27 @@ public class TestPageSetup  extends TestCase
     }
 
     /*
+     * Test for getting page settings online.
+     */
+    @Test
+    public void testGetSectionPageSetupOnline() throws ApiException, MessagingException, IOException
+    {
+        GetSectionPageSetupOnlineRequest request = new GetSectionPageSetupOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            null,
+            null
+        );
+
+        SectionPageSetupResponse result = TestInitializer.wordsApi.getSectionPageSetupOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for updating page settings.
      */
     @Test
-    public void testUpdateSectionPageSetup() throws ApiException, IOException
+    public void testUpdateSectionPageSetup() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestUpdateSectionPageSetup.docx";
 
@@ -123,10 +142,37 @@ public class TestPageSetup  extends TestCase
     }
 
     /*
+     * Test for updating page settings online.
+     */
+    @Test
+    public void testUpdateSectionPageSetupOnline() throws ApiException, MessagingException, IOException
+    {
+        PageSetup requestPageSetup = new PageSetup();
+        requestPageSetup.setRtlGutter(true);
+        requestPageSetup.setLeftMargin((double)10);
+        requestPageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
+        requestPageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
+
+        UpdateSectionPageSetupOnlineRequest request = new UpdateSectionPageSetupOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            0,
+            requestPageSetup,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        UpdateSectionPageSetupOnlineResponse result = TestInitializer.wordsApi.updateSectionPageSetupOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for page rendering.
      */
     @Test
-    public void testGetRenderPage() throws ApiException, IOException
+    public void testGetRenderPage() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestGetRenderPage.docx";
 
@@ -147,6 +193,25 @@ public class TestPageSetup  extends TestCase
         );
 
         File result = TestInitializer.wordsApi.renderPage(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for page rendering.
+     */
+    @Test
+    public void testGetRenderPageOnline() throws ApiException, MessagingException, IOException
+    {
+        RenderPageOnlineRequest request = new RenderPageOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localTextFile).toAbsolutePath()),
+            1,
+            "bmp",
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.renderPageOnline(request);
         assertNotNull(result);
     }
 }

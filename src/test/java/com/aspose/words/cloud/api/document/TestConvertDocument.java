@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestConvertDocument.java">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,11 +30,13 @@ package com.aspose.words.cloud.api.document;
 import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.File;
 import java.io.IOException;
+import javax.mail.MessagingException;
 import java.nio.file.*;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class TestConvertDocument  extends TestCase
      * Test for converting document to one of the available formats.
      */
     @Test
-    public void testSaveAs() throws ApiException, IOException
+    public void testSaveAs() throws ApiException, MessagingException, IOException
     {
         String localName = "test_multi_pages.docx";
         String remoteName = "TestSaveAs.docx";
@@ -88,10 +90,34 @@ public class TestConvertDocument  extends TestCase
     }
 
     /*
+     * Test for converting document online to one of the available formats.
+     */
+    @Test
+    public void testSaveAsOnline() throws ApiException, MessagingException, IOException
+    {
+        String localName = "test_multi_pages.docx";
+
+        SaveOptionsData requestSaveOptionsData = new SaveOptionsData();
+        requestSaveOptionsData.setSaveFormat("pdf");
+        requestSaveOptionsData.setFileName(TestInitializer.RemoteTestOut + "/TestSaveAs.pdf");
+
+        SaveAsOnlineRequest request = new SaveAsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath()),
+            requestSaveOptionsData,
+            null,
+            null,
+            null
+        );
+
+        SaveAsOnlineResponse result = TestInitializer.wordsApi.saveAsOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for converting document to one of the available formats.
      */
     @Test
-    public void testSaveAsDocx() throws ApiException, IOException
+    public void testSaveAsDocx() throws ApiException, MessagingException, IOException
     {
         String localName = "45.pdf";
         String remoteName = "TestSaveAsFromPdfToDoc.pdf";
@@ -125,7 +151,7 @@ public class TestConvertDocument  extends TestCase
      * Test for converting document to one of the available formats.
      */
     @Test
-    public void testSaveAsTiff() throws ApiException, IOException
+    public void testSaveAsTiff() throws ApiException, MessagingException, IOException
     {
         String localName = "test_multi_pages.docx";
         String remoteName = "TestSaveAsTiff.pdf";
@@ -173,10 +199,51 @@ public class TestConvertDocument  extends TestCase
     }
 
     /*
+     * Test for converting document to one of the available formats.
+     */
+    @Test
+    public void testSaveAsTiffOnline() throws ApiException, MessagingException, IOException
+    {
+        String localName = "test_multi_pages.docx";
+
+        TiffSaveOptionsData requestSaveOptions = new TiffSaveOptionsData();
+        requestSaveOptions.setSaveFormat("tiff");
+        requestSaveOptions.setFileName(TestInitializer.RemoteTestOut + "/abc.tiff");
+
+        SaveAsTiffOnlineRequest request = new SaveAsTiffOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath()),
+            requestSaveOptions,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        SaveAsTiffOnlineResponse result = TestInitializer.wordsApi.saveAsTiffOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * A test for ConvertDocument.
      */
     @Test
-    public void testConvertDocument() throws ApiException, IOException
+    public void testConvertDocument() throws ApiException, MessagingException, IOException
     {
         ConvertDocumentRequest request = new ConvertDocumentRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/test_uploadfile.docx").toAbsolutePath()),
