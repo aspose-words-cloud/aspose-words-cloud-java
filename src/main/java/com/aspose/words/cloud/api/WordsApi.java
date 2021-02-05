@@ -2293,6 +2293,151 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteCommentsValidateBeforeCall(DeleteCommentsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes all comments from the document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteComments(DeleteCommentsRequest request) throws ApiException, MessagingException, IOException {
+        try {
+    deleteCommentsWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+    deleteCommentsWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes all comments from the document.
+     * @param request Request object
+     * @return ApiResponse< void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteCommentsWithHttpInfo(DeleteCommentsRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteCommentsValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Removes all comments from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteCommentsAsync(DeleteCommentsRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteCommentsValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteCommentsOnlineValidateBeforeCall(DeleteCommentsOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes all comments from the document.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File deleteCommentsOnline(DeleteCommentsOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< File > resp = deleteCommentsOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = deleteCommentsOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes all comments from the document.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > deleteCommentsOnlineWithHttpInfo(DeleteCommentsOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteCommentsOnlineValidateBeforeCall(request, null, null);
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+    }
+
+    /**
+     * Removes all comments from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteCommentsOnlineAsync(DeleteCommentsOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteCommentsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteDocumentPropertyValidateBeforeCall(DeleteDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }

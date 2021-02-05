@@ -386,4 +386,50 @@ public class TestComment  extends TestCase
         File result = TestInitializer.wordsApi.deleteCommentOnline(request);
         assertNotNull(result);
     }
+
+    /*
+     * A test for DeleteComments.
+     */
+    @Test
+    public void testDeleteComments() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestDeleteComment.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        DeleteCommentsRequest request = new DeleteCommentsRequest(
+            remoteFileName,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            TestInitializer.RemoteTestOut + "/" + remoteFileName,
+            null,
+            null
+        );
+
+        TestInitializer.wordsApi.deleteComments(request);
+    }
+
+    /*
+     * A test for DeleteComments online.
+     */
+    @Test
+    public void testDeleteCommentsOnline() throws ApiException, MessagingException, IOException
+    {
+        DeleteCommentsOnlineRequest request = new DeleteCommentsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.deleteCommentsOnline(request);
+        assertNotNull(result);
+    }
 }
