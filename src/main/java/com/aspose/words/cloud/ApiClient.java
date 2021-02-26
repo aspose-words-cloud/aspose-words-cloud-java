@@ -202,7 +202,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://api.aspose.cloud/v1.1
+     * @param basePath Base path of the URL (e.g https://api.aspose.cloud/v4.0
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {
