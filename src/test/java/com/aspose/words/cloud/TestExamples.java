@@ -48,7 +48,7 @@ public class TestExamples extends TestCase
         WordsApi api = new WordsApi(apiClient);
         api.uploadFile(new UploadFileRequest(
             Files.readAllBytes(Paths.get("ExamplesData", "test_doc.docx").toAbsolutePath()),
-            'test_doc.docx'
+            "test_doc.docx"
         ));
     }
 
