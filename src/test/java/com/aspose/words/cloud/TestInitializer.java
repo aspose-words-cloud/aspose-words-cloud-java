@@ -41,6 +41,7 @@ import java.nio.file.Files;
 import java.util.Map;
 
 public final class TestInitializer {
+    public static ApiClient apiClient;
     public static WordsApi wordsApi;
     public static String LocalTestFolder = "TestData";
     public static String LocalCommonFolder = PathUtil.get(LocalTestFolder, "Common");
@@ -55,7 +56,8 @@ public final class TestInitializer {
 
     public static void Initialize(String credsPath) throws FileNotFoundException, ApiException {
         Map<String, String> creds = GetConfig(credsPath);
-        wordsApi = new WordsApi(creds.get("ClientId"), creds.get("ClientSecret"), creds.get("BaseUrl"));
+        apiClient = new ApiClient(creds.get("ClientId"), creds.get("ClientSecret"), creds.get("BaseUrl"));
+        wordsApi = new WordsApi(apiClient);
     }
 
     public static Map<String, String> GetConfig(String credsPath) throws FileNotFoundException {
