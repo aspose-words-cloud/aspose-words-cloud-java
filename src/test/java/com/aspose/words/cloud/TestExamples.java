@@ -45,6 +45,11 @@ public class TestExamples extends TestCase
         super.setUp();
         TestInitializer.Initialize();
         apiClient = TestInitializer.apiClient;
+        WordsApi api = new WordsApi(apiClient);
+        api.uploadFile(new UploadFileRequest(
+            Files.readAllBytes(Paths.get("ExamplesData", "test_doc.docx").toAbsolutePath()),
+            'test_doc.docx'
+        ));
     }
 
     @Test

@@ -93,6 +93,9 @@ public class SaveOptionsData {
         }
     }
 
+    @SerializedName("AllowEmbeddingPostScriptFonts")
+    private Boolean allowEmbeddingPostScriptFonts = null;
+
     @SerializedName("Dml3DEffectsRenderingMode")
     private Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode = null;
 
@@ -122,6 +125,24 @@ public class SaveOptionsData {
 
     @SerializedName("ZipOutput")
     private Boolean zipOutput = null;
+    public SaveOptionsData allowEmbeddingPostScriptFonts(Boolean allowEmbeddingPostScriptFonts) {
+        this.allowEmbeddingPostScriptFonts = allowEmbeddingPostScriptFonts;
+        return this;
+    }
+
+    /**
+     * Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
+    * @return allowEmbeddingPostScriptFonts
+    **/
+    @ApiModelProperty(value = "Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..")
+    public Boolean getAllowEmbeddingPostScriptFonts() {
+        return allowEmbeddingPostScriptFonts;
+    }
+
+    public void setAllowEmbeddingPostScriptFonts(Boolean allowEmbeddingPostScriptFonts) {
+        this.allowEmbeddingPostScriptFonts = allowEmbeddingPostScriptFonts;
+    }
+
     public SaveOptionsData dml3DEffectsRenderingMode(Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode) {
         this.dml3DEffectsRenderingMode = dml3DEffectsRenderingMode;
         return this;
@@ -315,6 +336,7 @@ public class SaveOptionsData {
 
         SaveOptionsData saveOptionsData = (SaveOptionsData) o;
         return
+            Objects.equals(this.allowEmbeddingPostScriptFonts, saveOptionsData.allowEmbeddingPostScriptFonts) &&
             Objects.equals(this.dml3DEffectsRenderingMode, saveOptionsData.dml3DEffectsRenderingMode) &&
             Objects.equals(this.dmlEffectsRenderingMode, saveOptionsData.dmlEffectsRenderingMode) &&
             Objects.equals(this.dmlRenderingMode, saveOptionsData.dmlRenderingMode) &&
@@ -329,13 +351,14 @@ public class SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, saveFormat, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, updateSdtContent, zipOutput);
+    return Objects.hash(allowEmbeddingPostScriptFonts, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, saveFormat, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, updateSdtContent, zipOutput);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SaveOptionsData {\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(allowEmbeddingPostScriptFonts)).append("\n");
     sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(dml3DEffectsRenderingMode)).append("\n");
     sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(dmlEffectsRenderingMode)).append("\n");
     sb.append("    dmlRenderingMode: ").append(toIndentedString(dmlRenderingMode)).append("\n");
