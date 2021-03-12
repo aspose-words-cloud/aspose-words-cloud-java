@@ -111,6 +111,9 @@ public class SaveOptionsData {
     @SerializedName("SaveFormat")
     private String saveFormat = null;
 
+    @SerializedName("UpdateCreatedTimeProperty")
+    private Boolean updateCreatedTimeProperty = null;
+
     @SerializedName("UpdateFields")
     private Boolean updateFields = null;
 
@@ -234,6 +237,25 @@ public class SaveOptionsData {
         this.saveFormat = saveFormat;
     }
 
+    public SaveOptionsData updateCreatedTimeProperty(Boolean updateCreatedTimeProperty) {
+        this.updateCreatedTimeProperty = updateCreatedTimeProperty;
+        return this;
+    }
+
+    /**
+     * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving.
+     * Default value is false.
+    * @return updateCreatedTimeProperty
+    **/
+    @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving. Default value is false.")
+    public Boolean getUpdateCreatedTimeProperty() {
+        return updateCreatedTimeProperty;
+    }
+
+    public void setUpdateCreatedTimeProperty(Boolean updateCreatedTimeProperty) {
+        this.updateCreatedTimeProperty = updateCreatedTimeProperty;
+    }
+
     public SaveOptionsData updateFields(Boolean updateFields) {
         this.updateFields = updateFields;
         return this;
@@ -342,6 +364,7 @@ public class SaveOptionsData {
             Objects.equals(this.dmlRenderingMode, saveOptionsData.dmlRenderingMode) &&
             Objects.equals(this.fileName, saveOptionsData.fileName) &&
             Objects.equals(this.saveFormat, saveOptionsData.saveFormat) &&
+            Objects.equals(this.updateCreatedTimeProperty, saveOptionsData.updateCreatedTimeProperty) &&
             Objects.equals(this.updateFields, saveOptionsData.updateFields) &&
             Objects.equals(this.updateLastPrintedProperty, saveOptionsData.updateLastPrintedProperty) &&
             Objects.equals(this.updateLastSavedTimeProperty, saveOptionsData.updateLastSavedTimeProperty) &&
@@ -351,7 +374,7 @@ public class SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowEmbeddingPostScriptFonts, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, saveFormat, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, updateSdtContent, zipOutput);
+    return Objects.hash(allowEmbeddingPostScriptFonts, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, saveFormat, updateCreatedTimeProperty, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, updateSdtContent, zipOutput);
   }
 
   @Override
@@ -364,6 +387,7 @@ public class SaveOptionsData {
     sb.append("    dmlRenderingMode: ").append(toIndentedString(dmlRenderingMode)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(saveFormat)).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(updateCreatedTimeProperty)).append("\n");
     sb.append("    updateFields: ").append(toIndentedString(updateFields)).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(updateLastPrintedProperty)).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(updateLastSavedTimeProperty)).append("\n");
