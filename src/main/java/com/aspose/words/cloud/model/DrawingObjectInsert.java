@@ -1,4 +1,4 @@
-/*
+﻿/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DrawingObjectInsert.java">
  *   Copyright (c) 2021 Aspose.Words for Cloud

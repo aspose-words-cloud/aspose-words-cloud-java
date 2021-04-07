@@ -1,4 +1,4 @@
-/*
+﻿/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="BookmarksResponse.java">
  *   Copyright (c) 2021 Aspose.Words for Cloud

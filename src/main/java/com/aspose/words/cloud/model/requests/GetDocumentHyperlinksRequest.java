@@ -1,4 +1,4 @@
-/*
+﻿/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentHyperlinksRequest.java">
  *   Copyright (c) 2021 Aspose.Words for Cloud

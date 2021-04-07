@@ -1,4 +1,4 @@
-/*
+﻿/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PdfSaveOptionsData.java">
  *   Copyright (c) 2021 Aspose.Words for Cloud
@@ -118,9 +118,6 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     @SerializedName("EncryptionDetails")
     private PdfEncryptionDetailsData encryptionDetails = null;
-
-    @SerializedName("EscapeUri")
-    private Boolean escapeUri = null;
 
     @SerializedName("ExportDocumentStructure")
     private Boolean exportDocumentStructure = null;
@@ -314,24 +311,6 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     public void setEncryptionDetails(PdfEncryptionDetailsData encryptionDetails) {
         this.encryptionDetails = encryptionDetails;
-    }
-
-    public PdfSaveOptionsData escapeUri(Boolean escapeUri) {
-        this.escapeUri = escapeUri;
-        return this;
-    }
-
-    /**
-     * Gets or sets a value indicating whether URI should be escaped before writing.
-    * @return escapeUri
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether URI should be escaped before writing.")
-    public Boolean getEscapeUri() {
-        return escapeUri;
-    }
-
-    public void setEscapeUri(Boolean escapeUri) {
-        this.escapeUri = escapeUri;
     }
 
     public PdfSaveOptionsData exportDocumentStructure(Boolean exportDocumentStructure) {
@@ -642,7 +621,6 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
             Objects.equals(this.downsampleOptions, pdfSaveOptionsData.downsampleOptions) &&
             Objects.equals(this.embedFullFonts, pdfSaveOptionsData.embedFullFonts) &&
             Objects.equals(this.encryptionDetails, pdfSaveOptionsData.encryptionDetails) &&
-            Objects.equals(this.escapeUri, pdfSaveOptionsData.escapeUri) &&
             Objects.equals(this.exportDocumentStructure, pdfSaveOptionsData.exportDocumentStructure) &&
             Objects.equals(this.fontEmbeddingMode, pdfSaveOptionsData.fontEmbeddingMode) &&
             Objects.equals(this.headerFooterBookmarksExportMode, pdfSaveOptionsData.headerFooterBookmarksExportMode) &&
@@ -664,7 +642,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedFullFonts, encryptionDetails, escapeUri, exportDocumentStructure, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor, super.hashCode());
+    return Objects.hash(compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedFullFonts, encryptionDetails, exportDocumentStructure, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor, super.hashCode());
   }
 
   @Override
@@ -680,7 +658,6 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    downsampleOptions: ").append(toIndentedString(downsampleOptions)).append("\n");
     sb.append("    embedFullFonts: ").append(toIndentedString(embedFullFonts)).append("\n");
     sb.append("    encryptionDetails: ").append(toIndentedString(encryptionDetails)).append("\n");
-    sb.append("    escapeUri: ").append(toIndentedString(escapeUri)).append("\n");
     sb.append("    exportDocumentStructure: ").append(toIndentedString(exportDocumentStructure)).append("\n");
     sb.append("    fontEmbeddingMode: ").append(toIndentedString(fontEmbeddingMode)).append("\n");
     sb.append("    headerFooterBookmarksExportMode: ").append(toIndentedString(headerFooterBookmarksExportMode)).append("\n");
