@@ -96,6 +96,9 @@ public class SaveOptionsData {
     @SerializedName("AllowEmbeddingPostScriptFonts")
     private Boolean allowEmbeddingPostScriptFonts = null;
 
+    @SerializedName("CustomTimeZoneInfoData")
+    private TimeZoneInfoData customTimeZoneInfoData = null;
+
     @SerializedName("Dml3DEffectsRenderingMode")
     private Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode = null;
 
@@ -144,6 +147,24 @@ public class SaveOptionsData {
 
     public void setAllowEmbeddingPostScriptFonts(Boolean allowEmbeddingPostScriptFonts) {
         this.allowEmbeddingPostScriptFonts = allowEmbeddingPostScriptFonts;
+    }
+
+    public SaveOptionsData customTimeZoneInfoData(TimeZoneInfoData customTimeZoneInfoData) {
+        this.customTimeZoneInfoData = customTimeZoneInfoData;
+        return this;
+    }
+
+    /**
+     * Gets or sets CustomTimeZoneInfo.
+    * @return customTimeZoneInfoData
+    **/
+    @ApiModelProperty(value = "Gets or sets CustomTimeZoneInfo.")
+    public TimeZoneInfoData getCustomTimeZoneInfoData() {
+        return customTimeZoneInfoData;
+    }
+
+    public void setCustomTimeZoneInfoData(TimeZoneInfoData customTimeZoneInfoData) {
+        this.customTimeZoneInfoData = customTimeZoneInfoData;
     }
 
     public SaveOptionsData dml3DEffectsRenderingMode(Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode) {
@@ -359,6 +380,7 @@ public class SaveOptionsData {
         SaveOptionsData saveOptionsData = (SaveOptionsData) o;
         return
             Objects.equals(this.allowEmbeddingPostScriptFonts, saveOptionsData.allowEmbeddingPostScriptFonts) &&
+            Objects.equals(this.customTimeZoneInfoData, saveOptionsData.customTimeZoneInfoData) &&
             Objects.equals(this.dml3DEffectsRenderingMode, saveOptionsData.dml3DEffectsRenderingMode) &&
             Objects.equals(this.dmlEffectsRenderingMode, saveOptionsData.dmlEffectsRenderingMode) &&
             Objects.equals(this.dmlRenderingMode, saveOptionsData.dmlRenderingMode) &&
@@ -374,7 +396,7 @@ public class SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowEmbeddingPostScriptFonts, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, saveFormat, updateCreatedTimeProperty, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, updateSdtContent, zipOutput);
+    return Objects.hash(allowEmbeddingPostScriptFonts, customTimeZoneInfoData, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, saveFormat, updateCreatedTimeProperty, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, updateSdtContent, zipOutput);
   }
 
   @Override
@@ -382,6 +404,7 @@ public class SaveOptionsData {
     StringBuilder sb = new StringBuilder();
     sb.append("class SaveOptionsData {\n");
     sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(allowEmbeddingPostScriptFonts)).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(customTimeZoneInfoData)).append("\n");
     sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(dml3DEffectsRenderingMode)).append("\n");
     sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(dmlEffectsRenderingMode)).append("\n");
     sb.append("    dmlRenderingMode: ").append(toIndentedString(dmlRenderingMode)).append("\n");
