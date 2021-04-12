@@ -1,4 +1,4 @@
-﻿/*
+/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="StoryChildNodes.java">
  *   Copyright (c) 2021 Aspose.Words for Cloud

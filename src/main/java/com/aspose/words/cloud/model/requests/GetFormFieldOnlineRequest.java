@@ -1,4 +1,4 @@
-﻿/*
+/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetFormFieldOnlineRequest.java">
  *   Copyright (c) 2021 Aspose.Words for Cloud

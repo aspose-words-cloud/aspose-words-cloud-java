@@ -1,4 +1,4 @@
-﻿/*
+/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TableRowInsertDto.java">
  *   Copyright (c) 2021 Aspose.Words for Cloud

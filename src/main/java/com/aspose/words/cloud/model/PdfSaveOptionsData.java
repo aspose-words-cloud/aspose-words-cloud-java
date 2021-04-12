@@ -1,4 +1,4 @@
-ï»¿/*
+/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PdfSaveOptionsData.java">
  *   Copyright (c) 2021 Aspose.Words for Cloud
@@ -247,10 +247,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets a value indicating whether the windowâ€™s title bar should display the document title taken from the Title entry of the document information dictionary.
+     * Gets or sets a value indicating whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.
     * @return displayDocTitle
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether the windowâ€™s title bar should display the document title taken from the Title entry of the document information dictionary.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.")
     public Boolean getDisplayDocTitle() {
         return displayDocTitle;
     }

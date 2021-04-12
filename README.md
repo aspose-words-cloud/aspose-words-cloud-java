@@ -1,4 +1,4 @@
-﻿# Aspose.Words Cloud SDK for Java
+# Aspose.Words Cloud SDK for Java
 This repository contains Aspose.Words Cloud SDK for Java source code. This SDK allows you to work with Aspose.Words Cloud REST APIs in your Java applications quickly and easily, with zero initial cost.
 
 [Aspose.Words Cloud](https://products.aspose.cloud/words/family "Aspose.Words Cloud")  
