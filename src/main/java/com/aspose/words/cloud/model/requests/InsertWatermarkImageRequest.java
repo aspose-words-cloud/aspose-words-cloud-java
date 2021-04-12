@@ -92,7 +92,7 @@ public class InsertWatermarkImageRequest implements RequestIfc {
     private Double rotationAngle;
 
     /*
-     * The filename of the image. If the parameter value is missing — the image data is expected in the request content.
+     * The filename of the image. If the parameter value is missing â€” the image data is expected in the request content.
      */
     private String image;
 
@@ -109,7 +109,7 @@ public class InsertWatermarkImageRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      * @param Double rotationAngle The rotation angle of the watermark.
-     * @param String image The filename of the image. If the parameter value is missing — the image data is expected in the request content.
+     * @param String image The filename of the image. If the parameter value is missing â€” the image data is expected in the request content.
      */
     public InsertWatermarkImageRequest(String name, byte[] imageFile, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime, Double rotationAngle, String image) {
         this.name = name;
@@ -266,14 +266,14 @@ public class InsertWatermarkImageRequest implements RequestIfc {
     }
 
     /*
-     * Gets The filename of the image. If the parameter value is missing — the image data is expected in the request content.
+     * Gets The filename of the image. If the parameter value is missing â€” the image data is expected in the request content.
      */
     public String getImage() {
         return this.image;
     }
 
     /*
-     * Sets The filename of the image. If the parameter value is missing — the image data is expected in the request content.
+     * Sets The filename of the image. If the parameter value is missing â€” the image data is expected in the request content.
      */
     public void setImage(String value) {
         this.image = value;

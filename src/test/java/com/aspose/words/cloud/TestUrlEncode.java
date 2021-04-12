@@ -58,7 +58,7 @@ public class TestUrlEncode  extends TestCase {
     @Test
 public void testUrlEncode() throws ApiException, MessagingException, IOException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "[ìTest_Two,_Inc.î]-_83(b)Election([ìBill_Gatesî]).docx";
+        String remoteName = "[‚ÄúTest_Two,_Inc.‚Äù]-_83(b)Election([‚ÄúBill_Gates‚Äù]).docx";
         String bookmarkName = "aspose";
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
