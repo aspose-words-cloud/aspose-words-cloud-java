@@ -98,6 +98,10 @@ public class TestRevisions  extends TestCase
 
         AcceptAllRevisionsOnlineResponse result = TestInitializer.wordsApi.acceptAllRevisionsOnline(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertNotNull(result.getModel());
+        assertNotNull(result.getModel().getResult());
+        assertNotNull(result.getModel().getResult().getDest());
     }
 
     /*
@@ -143,5 +147,9 @@ public class TestRevisions  extends TestCase
 
         RejectAllRevisionsOnlineResponse result = TestInitializer.wordsApi.rejectAllRevisionsOnline(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertNotNull(result.getModel());
+        assertNotNull(result.getModel().getResult());
+        assertNotNull(result.getModel().getResult().getDest());
     }
 }
