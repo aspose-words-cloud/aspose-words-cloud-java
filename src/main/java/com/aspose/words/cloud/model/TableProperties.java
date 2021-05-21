@@ -470,6 +470,7 @@ public class TableProperties extends LinkElement {
         LISTTABLE5DARKACCENT6("ListTable5DarkAccent6"),
         LISTTABLE6COLORFULACCENT6("ListTable6ColorfulAccent6"),
         LISTTABLE7COLORFULACCENT6("ListTable7ColorfulAccent6"),
+        SMARTLINK("SmartLink"),
         USER("User"),
         NIL("Nil");
 
