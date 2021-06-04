@@ -93,6 +93,9 @@ public class CompareOptions {
         }
     }
 
+    @SerializedName("AcceptAllRevisionsBeforeComparison")
+    private Boolean acceptAllRevisionsBeforeComparison = null;
+
     @SerializedName("IgnoreCaseChanges")
     private Boolean ignoreCaseChanges = null;
 
@@ -119,6 +122,24 @@ public class CompareOptions {
 
     @SerializedName("Target")
     private TargetEnum target = null;
+    public CompareOptions acceptAllRevisionsBeforeComparison(Boolean acceptAllRevisionsBeforeComparison) {
+        this.acceptAllRevisionsBeforeComparison = acceptAllRevisionsBeforeComparison;
+        return this;
+    }
+
+    /**
+     * Gets or sets whether accept revisions before comparison or not.
+    * @return acceptAllRevisionsBeforeComparison
+    **/
+    @ApiModelProperty(value = "Gets or sets whether accept revisions before comparison or not.")
+    public Boolean getAcceptAllRevisionsBeforeComparison() {
+        return acceptAllRevisionsBeforeComparison;
+    }
+
+    public void setAcceptAllRevisionsBeforeComparison(Boolean acceptAllRevisionsBeforeComparison) {
+        this.acceptAllRevisionsBeforeComparison = acceptAllRevisionsBeforeComparison;
+    }
+
     public CompareOptions ignoreCaseChanges(Boolean ignoreCaseChanges) {
         this.ignoreCaseChanges = ignoreCaseChanges;
         return this;
@@ -292,6 +313,7 @@ public class CompareOptions {
 
         CompareOptions compareOptions = (CompareOptions) o;
         return
+            Objects.equals(this.acceptAllRevisionsBeforeComparison, compareOptions.acceptAllRevisionsBeforeComparison) &&
             Objects.equals(this.ignoreCaseChanges, compareOptions.ignoreCaseChanges) &&
             Objects.equals(this.ignoreComments, compareOptions.ignoreComments) &&
             Objects.equals(this.ignoreFields, compareOptions.ignoreFields) &&
@@ -305,13 +327,14 @@ public class CompareOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ignoreCaseChanges, ignoreComments, ignoreFields, ignoreFootnotes, ignoreFormatting, ignoreHeadersAndFooters, ignoreTables, ignoreTextboxes, target);
+    return Objects.hash(acceptAllRevisionsBeforeComparison, ignoreCaseChanges, ignoreComments, ignoreFields, ignoreFootnotes, ignoreFormatting, ignoreHeadersAndFooters, ignoreTables, ignoreTextboxes, target);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CompareOptions {\n");
+    sb.append("    acceptAllRevisionsBeforeComparison: ").append(toIndentedString(acceptAllRevisionsBeforeComparison)).append("\n");
     sb.append("    ignoreCaseChanges: ").append(toIndentedString(ignoreCaseChanges)).append("\n");
     sb.append("    ignoreComments: ").append(toIndentedString(ignoreComments)).append("\n");
     sb.append("    ignoreFields: ").append(toIndentedString(ignoreFields)).append("\n");
