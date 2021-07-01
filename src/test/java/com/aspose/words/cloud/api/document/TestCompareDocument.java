@@ -121,6 +121,40 @@ public class TestCompareDocument  extends TestCase
             requestCompareData,
             null,
             null,
+            null,
+            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
+        );
+
+        CompareDocumentOnlineResponse result = TestInitializer.wordsApi.compareDocumentOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for document comparison online.
+     */
+    @Test
+    public void testCompareTwoDocumentOnline() throws ApiException, MessagingException, IOException
+    {
+        String localName1 = "compareTestDoc1.doc";
+        String localName2 = "compareTestDoc2.doc";
+        String remoteName2 = "TestCompareDocument2.doc";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFolder + "/" + localName2),
+            remoteFolder + "/" + remoteName2
+        );
+
+        CompareData requestCompareData = new CompareData();
+        requestCompareData.setAuthor("author");
+        requestCompareData.setComparingWithDocument(remoteFolder + "/" + remoteName2);
+        requestCompareData.setDateTime(OffsetDateTime.of(2015, 10, 26, 0, 0, 0, 0, ZoneOffset.UTC));
+
+        CompareDocumentOnlineRequest request = new CompareDocumentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/" + localName1).toAbsolutePath()),
+            requestCompareData,
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/" + localName2).toAbsolutePath()),
+            null,
+            null,
             TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
         );
 

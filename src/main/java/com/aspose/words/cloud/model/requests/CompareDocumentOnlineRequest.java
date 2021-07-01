@@ -52,6 +52,11 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
     private CompareData compareData;
 
     /*
+     * The comparing document.
+     */
+    private byte[] comparingDocument;
+
+    /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String loadEncoding;
@@ -71,13 +76,15 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
      *
      * @param byte[] document The document.
      * @param CompareData compareData Compare data.
+     * @param byte[] comparingDocument The comparing document.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public CompareDocumentOnlineRequest(byte[] document, CompareData compareData, String loadEncoding, String password, String destFileName) {
+    public CompareDocumentOnlineRequest(byte[] document, CompareData compareData, byte[] comparingDocument, String loadEncoding, String password, String destFileName) {
         this.document = document;
         this.compareData = compareData;
+        this.comparingDocument = comparingDocument;
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.destFileName = destFileName;
@@ -109,6 +116,20 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
      */
     public void setCompareData(CompareData value) {
         this.compareData = value;
+    }
+
+    /*
+     * Gets The comparing document.
+     */
+    public byte[] getComparingDocument() {
+        return this.comparingDocument;
+    }
+
+    /*
+     * Sets The comparing document.
+     */
+    public void setComparingDocument(byte[] value) {
+        this.comparingDocument = value;
     }
 
     /*
@@ -192,6 +213,9 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
 
         if (getCompareData() != null)
             localVarFormParams.put("CompareData", getCompareData());
+
+        if (getComparingDocument() != null)
+            localVarFormParams.put("ComparingDocument", getComparingDocument());
 
         final String[] localVarAccepts = {
             "application/xml", "application/json"
