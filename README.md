@@ -15,8 +15,9 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 
 ## Enhancements in Version 21.6
 
-- Implemented beta version of CompareDocumentOnline feature with both document sending in request.
+- Implemented beta version of CompareDocumentOnline feature with both document sending in request
 - CompareDocument method now can handle PDF files
+- AcceptAllRevisionsBeforeComparison option introduced which is used to specify if accept all revisions before comparison
 
 
 ## Enhancements in Version 21.5
