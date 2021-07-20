@@ -111,6 +111,9 @@ public class SaveOptionsData {
     @SerializedName("FileName")
     private String fileName = null;
 
+    @SerializedName("ImlRenderingMode")
+    private String imlRenderingMode = null;
+
     @SerializedName("SaveFormat")
     private String saveFormat = null;
 
@@ -238,6 +241,24 @@ public class SaveOptionsData {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public SaveOptionsData imlRenderingMode(String imlRenderingMode) {
+        this.imlRenderingMode = imlRenderingMode;
+        return this;
+    }
+
+    /**
+     * Gets or sets the value determining how ink (InkML) objects are rendered.
+    * @return imlRenderingMode
+    **/
+    @ApiModelProperty(value = "Gets or sets the value determining how ink (InkML) objects are rendered.")
+    public String getImlRenderingMode() {
+        return imlRenderingMode;
+    }
+
+    public void setImlRenderingMode(String imlRenderingMode) {
+        this.imlRenderingMode = imlRenderingMode;
     }
 
     public SaveOptionsData saveFormat(String saveFormat) {
@@ -385,6 +406,7 @@ public class SaveOptionsData {
             Objects.equals(this.dmlEffectsRenderingMode, saveOptionsData.dmlEffectsRenderingMode) &&
             Objects.equals(this.dmlRenderingMode, saveOptionsData.dmlRenderingMode) &&
             Objects.equals(this.fileName, saveOptionsData.fileName) &&
+            Objects.equals(this.imlRenderingMode, saveOptionsData.imlRenderingMode) &&
             Objects.equals(this.saveFormat, saveOptionsData.saveFormat) &&
             Objects.equals(this.updateCreatedTimeProperty, saveOptionsData.updateCreatedTimeProperty) &&
             Objects.equals(this.updateFields, saveOptionsData.updateFields) &&
@@ -396,7 +418,7 @@ public class SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowEmbeddingPostScriptFonts, customTimeZoneInfoData, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, saveFormat, updateCreatedTimeProperty, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, updateSdtContent, zipOutput);
+    return Objects.hash(allowEmbeddingPostScriptFonts, customTimeZoneInfoData, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, imlRenderingMode, saveFormat, updateCreatedTimeProperty, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, updateSdtContent, zipOutput);
   }
 
   @Override
@@ -409,6 +431,7 @@ public class SaveOptionsData {
     sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(dmlEffectsRenderingMode)).append("\n");
     sb.append("    dmlRenderingMode: ").append(toIndentedString(dmlRenderingMode)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(imlRenderingMode)).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(saveFormat)).append("\n");
     sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(updateCreatedTimeProperty)).append("\n");
     sb.append("    updateFields: ").append(toIndentedString(updateFields)).append("\n");
