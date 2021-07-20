@@ -61,12 +61,12 @@ public class TestExamples extends TestCase
         String fileName  = "test_doc.docx";
 
         // Upload original document to cloud storage.
-        UploadFileRequest uploadFileRequest = new UploadFileRequest(Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath()),fileName,null);
-        wordsApi.uploadFile(uploadFileRequest);
+        UploadFileRequest uploadFileRequestRequest = new UploadFileRequest(Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath()),fileName,null);
+        wordsApi.uploadFile(uploadFileRequestRequest);
 
         // Calls AcceptAllRevisions method for document in cloud.
-        AcceptAllRevisionsRequest request = new AcceptAllRevisionsRequest(fileName,null,null,null,null,null);
-        wordsApi.acceptAllRevisions(request);
+        AcceptAllRevisionsRequest requestRequest = new AcceptAllRevisionsRequest(fileName,null,null,null,null,null);
+        wordsApi.acceptAllRevisions(requestRequest);
     }
 
     @Test
@@ -77,8 +77,23 @@ public class TestExamples extends TestCase
         String fileName  = "test_doc.docx";
 
         // Calls AcceptAllRevisionsOnline method for document in cloud.
-        AcceptAllRevisionsOnlineRequest request = new AcceptAllRevisionsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath()),null,null,null);
-        AcceptAllRevisionsOnlineResponse acceptAllRevisionsOnlineResult = wordsApi.acceptAllRevisionsOnline(request);
+        AcceptAllRevisionsOnlineRequest requestRequest = new AcceptAllRevisionsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath()),null,null,null);
+        AcceptAllRevisionsOnlineResponse acceptAllRevisionsOnlineResult = wordsApi.acceptAllRevisionsOnline(requestRequest);
         Files.write(Paths.get("test_result.docx"), acceptAllRevisionsOnlineResult.getDocument());
+    }
+
+    @Test
+    public void testUpdateBookmark() throws Exception
+    {
+        WordsApi wordsApi = new WordsApi(apiClient);
+        String remoteFileName = "Sample.docx";
+        String bookmarkName = "aspose";
+
+        BookmarkData testBookmarkData = new BookmarkData();
+        testBookmarkData.setName(bookmarkName);
+        testBookmarkData.setText("New Bookmark Text");
+
+        UpdateBookmarkRequest updateBookmarkRequest = new UpdateBookmarkRequest(remoteFileName,bookmarkName,testBookmarkData,null,null,null,null,null,null,null);
+        wordsApi.updateBookmark(updateBookmarkRequest);
     }
 }

@@ -50,6 +50,9 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     @SerializedName("AddBidiMarks")
     private Boolean addBidiMarks = null;
 
+    @SerializedName("MaxCharactersPerLine")
+    private Integer maxCharactersPerLine = null;
+
     @SerializedName("PreserveTableLayout")
     private Boolean preserveTableLayout = null;
 
@@ -72,6 +75,25 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
 
     public void setAddBidiMarks(Boolean addBidiMarks) {
         this.addBidiMarks = addBidiMarks;
+    }
+
+    public TextSaveOptionsData maxCharactersPerLine(Integer maxCharactersPerLine) {
+        this.maxCharactersPerLine = maxCharactersPerLine;
+        return this;
+    }
+
+    /**
+     * Gets or sets an integer value that specifies the maximum number of characters per one line.
+     * The default value is 0, that means no limit.
+    * @return maxCharactersPerLine
+    **/
+    @ApiModelProperty(value = "Gets or sets an integer value that specifies the maximum number of characters per one line. The default value is 0, that means no limit.")
+    public Integer getMaxCharactersPerLine() {
+        return maxCharactersPerLine;
+    }
+
+    public void setMaxCharactersPerLine(Integer maxCharactersPerLine) {
+        this.maxCharactersPerLine = maxCharactersPerLine;
     }
 
     public TextSaveOptionsData preserveTableLayout(Boolean preserveTableLayout) {
@@ -122,6 +144,7 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
         TextSaveOptionsData textSaveOptionsData = (TextSaveOptionsData) o;
         return
             Objects.equals(this.addBidiMarks, textSaveOptionsData.addBidiMarks) &&
+            Objects.equals(this.maxCharactersPerLine, textSaveOptionsData.maxCharactersPerLine) &&
             Objects.equals(this.preserveTableLayout, textSaveOptionsData.preserveTableLayout) &&
             Objects.equals(this.simplifyListLabels, textSaveOptionsData.simplifyListLabels) &&
             super.equals(o);
@@ -129,7 +152,7 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addBidiMarks, preserveTableLayout, simplifyListLabels, super.hashCode());
+    return Objects.hash(addBidiMarks, maxCharactersPerLine, preserveTableLayout, simplifyListLabels, super.hashCode());
   }
 
   @Override
@@ -138,6 +161,7 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     sb.append("class TextSaveOptionsData {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    addBidiMarks: ").append(toIndentedString(addBidiMarks)).append("\n");
+    sb.append("    maxCharactersPerLine: ").append(toIndentedString(maxCharactersPerLine)).append("\n");
     sb.append("    preserveTableLayout: ").append(toIndentedString(preserveTableLayout)).append("\n");
     sb.append("    simplifyListLabels: ").append(toIndentedString(simplifyListLabels)).append("\n");
     sb.append("}");
