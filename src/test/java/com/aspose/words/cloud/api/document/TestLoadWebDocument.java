@@ -58,20 +58,20 @@ public class TestLoadWebDocument  extends TestCase
     @Test
     public void testLoadWebDocument() throws ApiException, MessagingException, IOException
     {
-        SaveOptionsData dataSaveOptions = new SaveOptionsData();
-        dataSaveOptions.setFileName("google.doc");
-        dataSaveOptions.setSaveFormat("doc");
-        dataSaveOptions.setDmlEffectsRenderingMode("1");
-        dataSaveOptions.setDmlRenderingMode("1");
-        dataSaveOptions.setUpdateSdtContent(false);
-        dataSaveOptions.setZipOutput(false);
+        SaveOptionsData requestDataSaveOptions = new SaveOptionsData();
+        requestDataSaveOptions.setFileName("google.doc");
+        requestDataSaveOptions.setSaveFormat("doc");
+        requestDataSaveOptions.setDmlEffectsRenderingMode("1");
+        requestDataSaveOptions.setDmlRenderingMode("1");
+        requestDataSaveOptions.setUpdateSdtContent(false);
+        requestDataSaveOptions.setZipOutput(false);
 
-        LoadWebDocumentData data = new LoadWebDocumentData();
-        data.setLoadingDocumentUrl("http://google.com");
-        data.setSaveOptions(dataSaveOptions);
+        LoadWebDocumentData requestData = new LoadWebDocumentData();
+        requestData.setLoadingDocumentUrl("http://google.com");
+        requestData.setSaveOptions(requestDataSaveOptions);
 
         LoadWebDocumentRequest request = new LoadWebDocumentRequest(
-            data,
+            requestData,
             null
         );
 

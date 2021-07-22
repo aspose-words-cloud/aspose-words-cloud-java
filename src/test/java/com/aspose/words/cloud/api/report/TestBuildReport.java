@@ -64,14 +64,14 @@ public class TestBuildReport  extends TestCase
         String localDocumentFile = "ReportTemplate.docx";
         String localDataFile = new String(Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, reportingFolder + "/ReportData.json")), "utf8");
 
-        ReportEngineSettings reportEngineSettings = new ReportEngineSettings();
-        reportEngineSettings.setDataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON);
-        reportEngineSettings.setDataSourceName("persons");
+        ReportEngineSettings requestReportEngineSettings = new ReportEngineSettings();
+        requestReportEngineSettings.setDataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON);
+        requestReportEngineSettings.setDataSourceName("persons");
 
         BuildReportOnlineRequest request = new BuildReportOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, reportingFolder + "/" + localDocumentFile).toAbsolutePath()),
             localDataFile,
-            reportEngineSettings,
+            requestReportEngineSettings,
             null
         );
 
@@ -94,18 +94,18 @@ public class TestBuildReport  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        ArrayList<ReportBuildOptions> reportEngineSettingsReportBuildOptions = new ArrayList<ReportBuildOptions>();
-        reportEngineSettingsReportBuildOptions.add(ReportBuildOptions.ALLOWMISSINGMEMBERS);
-        reportEngineSettingsReportBuildOptions.add(ReportBuildOptions.REMOVEEMPTYPARAGRAPHS);
+        ArrayList<ReportBuildOptions> requestReportEngineSettingsReportBuildOptions = new ArrayList<ReportBuildOptions>();
+        requestReportEngineSettingsReportBuildOptions.add(ReportBuildOptions.ALLOWMISSINGMEMBERS);
+        requestReportEngineSettingsReportBuildOptions.add(ReportBuildOptions.REMOVEEMPTYPARAGRAPHS);
 
-        ReportEngineSettings reportEngineSettings = new ReportEngineSettings();
-        reportEngineSettings.setDataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON);
-        reportEngineSettings.setReportBuildOptions(reportEngineSettingsReportBuildOptions);
+        ReportEngineSettings requestReportEngineSettings = new ReportEngineSettings();
+        requestReportEngineSettings.setDataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON);
+        requestReportEngineSettings.setReportBuildOptions(requestReportEngineSettingsReportBuildOptions);
 
         BuildReportRequest request = new BuildReportRequest(
             remoteFileName,
             localDataFile,
-            reportEngineSettings,
+            requestReportEngineSettings,
             remoteDataFolder,
             null,
             null,

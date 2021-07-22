@@ -114,16 +114,16 @@ public class TestPageSetup  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        PageSetup pageSetup = new PageSetup();
-        pageSetup.setRtlGutter(true);
-        pageSetup.setLeftMargin((double)10.0);
-        pageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
-        pageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
+        PageSetup requestPageSetup = new PageSetup();
+        requestPageSetup.setRtlGutter(true);
+        requestPageSetup.setLeftMargin((double)10.0);
+        requestPageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
+        requestPageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
 
         UpdateSectionPageSetupRequest request = new UpdateSectionPageSetupRequest(
             remoteFileName,
             0,
-            pageSetup,
+            requestPageSetup,
             remoteDataFolder,
             null,
             null,
@@ -147,16 +147,16 @@ public class TestPageSetup  extends TestCase
     @Test
     public void testUpdateSectionPageSetupOnline() throws ApiException, MessagingException, IOException
     {
-        PageSetup pageSetup = new PageSetup();
-        pageSetup.setRtlGutter(true);
-        pageSetup.setLeftMargin((double)10);
-        pageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
-        pageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
+        PageSetup requestPageSetup = new PageSetup();
+        requestPageSetup.setRtlGutter(true);
+        requestPageSetup.setLeftMargin((double)10);
+        requestPageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
+        requestPageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
 
         UpdateSectionPageSetupOnlineRequest request = new UpdateSectionPageSetupOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
             0,
-            pageSetup,
+            requestPageSetup,
             null,
             null,
             null,

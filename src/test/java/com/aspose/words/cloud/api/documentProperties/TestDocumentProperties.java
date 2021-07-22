@@ -209,13 +209,13 @@ public class TestDocumentProperties  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        DocumentPropertyCreateOrUpdate property = new DocumentPropertyCreateOrUpdate();
-        property.setValue("Imran Anwar");
+        DocumentPropertyCreateOrUpdate requestProperty = new DocumentPropertyCreateOrUpdate();
+        requestProperty.setValue("Imran Anwar");
 
         CreateOrUpdateDocumentPropertyRequest request = new CreateOrUpdateDocumentPropertyRequest(
             remoteFileName,
             "AsposeAuthor",
-            property,
+            requestProperty,
             remoteDataFolder,
             null,
             null,
@@ -238,13 +238,13 @@ public class TestDocumentProperties  extends TestCase
     @Test
     public void testUpdateDocumentPropertyOnline() throws ApiException, MessagingException, IOException
     {
-        DocumentPropertyCreateOrUpdate property = new DocumentPropertyCreateOrUpdate();
-        property.setValue("Imran Anwar");
+        DocumentPropertyCreateOrUpdate requestProperty = new DocumentPropertyCreateOrUpdate();
+        requestProperty.setValue("Imran Anwar");
 
         CreateOrUpdateDocumentPropertyOnlineRequest request = new CreateOrUpdateDocumentPropertyOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
             "AsposeAuthor",
-            property,
+            requestProperty,
             null,
             null,
             null,

@@ -161,13 +161,13 @@ public class TestRange  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        RangeDocument documentParameters = new RangeDocument();
-        documentParameters.setDocumentName(remoteDataFolder + "/NewDoc.docx");
+        RangeDocument requestDocumentParameters = new RangeDocument();
+        requestDocumentParameters.setDocumentName(remoteDataFolder + "/NewDoc.docx");
 
         SaveAsRangeRequest request = new SaveAsRangeRequest(
             remoteFileName,
             "id0.0.0",
-            documentParameters,
+            requestDocumentParameters,
             "id0.0.1",
             remoteDataFolder,
             null,
@@ -187,13 +187,13 @@ public class TestRange  extends TestCase
     @Test
     public void testSaveAsRangeOnline() throws ApiException, MessagingException, IOException
     {
-        RangeDocument documentParameters = new RangeDocument();
-        documentParameters.setDocumentName(remoteDataFolder + "/NewDoc.docx");
+        RangeDocument requestDocumentParameters = new RangeDocument();
+        requestDocumentParameters.setDocumentName(remoteDataFolder + "/NewDoc.docx");
 
         SaveAsRangeOnlineRequest request = new SaveAsRangeOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
             "id0.0.0",
-            documentParameters,
+            requestDocumentParameters,
             "id0.0.1",
             null,
             null
@@ -216,13 +216,13 @@ public class TestRange  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        ReplaceRange rangeText = new ReplaceRange();
-        rangeText.setText("Replaced header");
+        ReplaceRange requestRangeText = new ReplaceRange();
+        requestRangeText.setText("Replaced header");
 
         ReplaceWithTextRequest request = new ReplaceWithTextRequest(
             remoteFileName,
             "id0.0.0",
-            rangeText,
+            requestRangeText,
             "id0.0.1",
             remoteDataFolder,
             null,
@@ -243,13 +243,13 @@ public class TestRange  extends TestCase
     @Test
     public void testReplaceWithTextOnline() throws ApiException, MessagingException, IOException
     {
-        ReplaceRange rangeText = new ReplaceRange();
-        rangeText.setText("Replaced header");
+        ReplaceRange requestRangeText = new ReplaceRange();
+        requestRangeText.setText("Replaced header");
 
         ReplaceWithTextOnlineRequest request = new ReplaceWithTextOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
             "id0.0.0",
-            rangeText,
+            requestRangeText,
             "id0.0.1",
             null,
             null,

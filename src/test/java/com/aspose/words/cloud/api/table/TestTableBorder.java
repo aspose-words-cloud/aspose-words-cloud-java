@@ -264,21 +264,21 @@ public class TestTableBorder  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        XmlColor borderPropertiesColor = new XmlColor();
-        borderPropertiesColor.setWeb("#AABBCC");
+        XmlColor requestBorderPropertiesColor = new XmlColor();
+        requestBorderPropertiesColor.setWeb("#AABBCC");
 
-        Border borderProperties = new Border();
-        borderProperties.setBorderType(Border.BorderTypeEnum.LEFT);
-        borderProperties.setColor(borderPropertiesColor);
-        borderProperties.setDistanceFromText((double)6.0);
-        borderProperties.setLineStyle(Border.LineStyleEnum.DASHDOTSTROKER);
-        borderProperties.setLineWidth((double)2.0);
-        borderProperties.setShadow(true);
+        Border requestBorderProperties = new Border();
+        requestBorderProperties.setBorderType(Border.BorderTypeEnum.LEFT);
+        requestBorderProperties.setColor(requestBorderPropertiesColor);
+        requestBorderProperties.setDistanceFromText((double)6.0);
+        requestBorderProperties.setLineStyle(Border.LineStyleEnum.DASHDOTSTROKER);
+        requestBorderProperties.setLineWidth((double)2.0);
+        requestBorderProperties.setShadow(true);
 
         UpdateBorderRequest request = new UpdateBorderRequest(
             remoteFileName,
             "left",
-            borderProperties,
+            requestBorderProperties,
             "tables/1/rows/0/cells/0",
             remoteDataFolder,
             null,
@@ -305,20 +305,20 @@ public class TestTableBorder  extends TestCase
     @Test
     public void testUpdateBorderOnline() throws ApiException, MessagingException, IOException
     {
-        XmlColor borderPropertiesColor = new XmlColor();
-        borderPropertiesColor.setWeb("#AABBCC");
+        XmlColor requestBorderPropertiesColor = new XmlColor();
+        requestBorderPropertiesColor.setWeb("#AABBCC");
 
-        Border borderProperties = new Border();
-        borderProperties.setBorderType(Border.BorderTypeEnum.LEFT);
-        borderProperties.setColor(borderPropertiesColor);
-        borderProperties.setDistanceFromText((double)6);
-        borderProperties.setLineStyle(Border.LineStyleEnum.DASHDOTSTROKER);
-        borderProperties.setLineWidth((double)2);
-        borderProperties.setShadow(true);
+        Border requestBorderProperties = new Border();
+        requestBorderProperties.setBorderType(Border.BorderTypeEnum.LEFT);
+        requestBorderProperties.setColor(requestBorderPropertiesColor);
+        requestBorderProperties.setDistanceFromText((double)6);
+        requestBorderProperties.setLineStyle(Border.LineStyleEnum.DASHDOTSTROKER);
+        requestBorderProperties.setLineWidth((double)2);
+        requestBorderProperties.setShadow(true);
 
         UpdateBorderOnlineRequest request = new UpdateBorderOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
-            borderProperties,
+            requestBorderProperties,
             "left",
             "tables/1/rows/0/cells/0",
             null,

@@ -128,13 +128,13 @@ public class TestWatermark  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        WatermarkText watermarkText = new WatermarkText();
-        watermarkText.setText("This is the text");
-        watermarkText.setRotationAngle((double)90.0);
+        WatermarkText requestWatermarkText = new WatermarkText();
+        requestWatermarkText.setText("This is the text");
+        requestWatermarkText.setRotationAngle((double)90.0);
 
         InsertWatermarkTextRequest request = new InsertWatermarkTextRequest(
             remoteFileName,
-            watermarkText,
+            requestWatermarkText,
             remoteDataFolder,
             null,
             null,
@@ -156,13 +156,13 @@ public class TestWatermark  extends TestCase
     @Test
     public void testInsertWatermarkTextOnline() throws ApiException, MessagingException, IOException
     {
-        WatermarkText watermarkText = new WatermarkText();
-        watermarkText.setText("This is the text");
-        watermarkText.setRotationAngle((double)90);
+        WatermarkText requestWatermarkText = new WatermarkText();
+        requestWatermarkText.setText("This is the text");
+        requestWatermarkText.setRotationAngle((double)90);
 
         InsertWatermarkTextOnlineRequest request = new InsertWatermarkTextOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
-            watermarkText,
+            requestWatermarkText,
             null,
             null,
             null,
