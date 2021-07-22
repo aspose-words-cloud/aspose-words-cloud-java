@@ -12,9 +12,9 @@ WordsApi wordsApi = new WordsApi(apiClient);
 String fileName  = "test_doc.docx";
 
 // Upload original document to cloud storage.
-UploadFileRequest uploadFileRequest = new UploadFileRequest(Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath()),fileName,null);
-wordsApi.uploadFile(uploadFileRequest);
+UploadFileRequest uploadFileRequestRequest = new UploadFileRequest(Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath()),fileName,null);
+wordsApi.uploadFile(uploadFileRequestRequest);
 
 // Calls AcceptAllRevisions method for document in cloud.
-AcceptAllRevisionsRequest request = new AcceptAllRevisionsRequest(fileName,null,null,null,null,null);
-wordsApi.acceptAllRevisions(request);
+AcceptAllRevisionsRequest requestRequest = new AcceptAllRevisionsRequest(fileName,null,null,null,null,null);
+wordsApi.acceptAllRevisions(requestRequest);

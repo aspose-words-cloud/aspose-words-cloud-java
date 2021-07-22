@@ -68,13 +68,13 @@ public class TestText  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        ReplaceTextParameters requestReplaceText = new ReplaceTextParameters();
-        requestReplaceText.setOldValue("Testing");
-        requestReplaceText.setNewValue("Aspose testing");
+        ReplaceTextParameters replaceText = new ReplaceTextParameters();
+        replaceText.setOldValue("Testing");
+        replaceText.setNewValue("Aspose testing");
 
         ReplaceTextRequest request = new ReplaceTextRequest(
             remoteFileName,
-            requestReplaceText,
+            replaceText,
             remoteDataFolder,
             null,
             null,
@@ -97,13 +97,13 @@ public class TestText  extends TestCase
     {
         String localFile = "Common/test_multi_pages.docx";
 
-        ReplaceTextParameters requestReplaceText = new ReplaceTextParameters();
-        requestReplaceText.setOldValue("aspose");
-        requestReplaceText.setNewValue("aspose new");
+        ReplaceTextParameters replaceText = new ReplaceTextParameters();
+        replaceText.setOldValue("aspose");
+        replaceText.setNewValue("aspose new");
 
         ReplaceTextOnlineRequest request = new ReplaceTextOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
-            requestReplaceText,
+            replaceText,
             null,
             null,
             null,

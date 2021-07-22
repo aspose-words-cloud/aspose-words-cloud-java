@@ -68,12 +68,12 @@ public class TestCompatibility  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        OptimizationOptions requestOptions = new OptimizationOptions();
-        requestOptions.setMsWordVersion(OptimizationOptions.MsWordVersionEnum.WORD2002);
+        OptimizationOptions options = new OptimizationOptions();
+        options.setMsWordVersion(OptimizationOptions.MsWordVersionEnum.WORD2002);
 
         OptimizeDocumentRequest request = new OptimizeDocumentRequest(
             remoteFileName,
-            requestOptions,
+            options,
             remoteDataFolder,
             null,
             null,
@@ -92,12 +92,12 @@ public class TestCompatibility  extends TestCase
     @Test
     public void testOptimizeDocumentOnline() throws ApiException, MessagingException, IOException
     {
-        OptimizationOptions requestOptions = new OptimizationOptions();
-        requestOptions.setMsWordVersion(OptimizationOptions.MsWordVersionEnum.WORD2002);
+        OptimizationOptions options = new OptimizationOptions();
+        options.setMsWordVersion(OptimizationOptions.MsWordVersionEnum.WORD2002);
 
         OptimizeDocumentOnlineRequest request = new OptimizeDocumentOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
-            requestOptions,
+            options,
             null,
             null,
             null,

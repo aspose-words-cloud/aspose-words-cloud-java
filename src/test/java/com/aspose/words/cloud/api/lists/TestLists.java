@@ -158,13 +158,13 @@ public class TestLists  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        ListUpdate requestListUpdate = new ListUpdate();
-        requestListUpdate.setIsRestartAtEachSection(true);
+        ListUpdate listUpdate = new ListUpdate();
+        listUpdate.setIsRestartAtEachSection(true);
 
         UpdateListRequest request = new UpdateListRequest(
             remoteFileName,
             1,
-            requestListUpdate,
+            listUpdate,
             remoteDataFolder,
             null,
             null,
@@ -184,13 +184,13 @@ public class TestLists  extends TestCase
     @Test
     public void testUpdateListOnline() throws ApiException, MessagingException, IOException
     {
-        ListUpdate requestListUpdate = new ListUpdate();
-        requestListUpdate.setIsRestartAtEachSection(true);
+        ListUpdate listUpdate = new ListUpdate();
+        listUpdate.setIsRestartAtEachSection(true);
 
         UpdateListOnlineRequest request = new UpdateListOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
             1,
-            requestListUpdate,
+            listUpdate,
             null,
             null,
             null,
@@ -218,14 +218,14 @@ public class TestLists  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        ListLevelUpdate requestListUpdate = new ListLevelUpdate();
-        requestListUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
+        ListLevelUpdate listUpdate = new ListLevelUpdate();
+        listUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
 
         UpdateListLevelRequest request = new UpdateListLevelRequest(
             remoteFileName,
             1,
             1,
-            requestListUpdate,
+            listUpdate,
             remoteDataFolder,
             null,
             null,
@@ -245,13 +245,13 @@ public class TestLists  extends TestCase
     @Test
     public void testUpdateListLevelOnline() throws ApiException, MessagingException, IOException
     {
-        ListLevelUpdate requestListUpdate = new ListLevelUpdate();
-        requestListUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
+        ListLevelUpdate listUpdate = new ListLevelUpdate();
+        listUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
 
         UpdateListLevelOnlineRequest request = new UpdateListLevelOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
             1,
-            requestListUpdate,
+            listUpdate,
             1,
             null,
             null,
@@ -282,12 +282,12 @@ public class TestLists  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        ListInsert requestListInsert = new ListInsert();
-        requestListInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
+        ListInsert listInsert = new ListInsert();
+        listInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
 
         InsertListRequest request = new InsertListRequest(
             remoteFileName,
-            requestListInsert,
+            listInsert,
             remoteDataFolder,
             null,
             null,
@@ -309,12 +309,12 @@ public class TestLists  extends TestCase
     @Test
     public void testInsertListOnline() throws ApiException, MessagingException, IOException
     {
-        ListInsert requestListInsert = new ListInsert();
-        requestListInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
+        ListInsert listInsert = new ListInsert();
+        listInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
 
         InsertListOnlineRequest request = new InsertListOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
-            requestListInsert,
+            listInsert,
             null,
             null,
             null,

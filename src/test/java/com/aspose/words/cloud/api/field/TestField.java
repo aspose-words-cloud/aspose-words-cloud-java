@@ -227,12 +227,12 @@ public class TestField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        FieldInsert requestField = new FieldInsert();
-        requestField.setFieldCode("{ NUMPAGES }");
+        FieldInsert field = new FieldInsert();
+        field.setFieldCode("{ NUMPAGES }");
 
         InsertFieldRequest request = new InsertFieldRequest(
             remoteFileName,
-            requestField,
+            field,
             "sections/0/paragraphs/0",
             remoteDataFolder,
             null,
@@ -257,12 +257,12 @@ public class TestField  extends TestCase
     @Test
     public void testInsertFieldOnline() throws ApiException, MessagingException, IOException
     {
-        FieldInsert requestField = new FieldInsert();
-        requestField.setFieldCode("{ NUMPAGES }");
+        FieldInsert field = new FieldInsert();
+        field.setFieldCode("{ NUMPAGES }");
 
         InsertFieldOnlineRequest request = new InsertFieldOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
-            requestField,
+            field,
             "sections/0/paragraphs/0",
             null,
             null,
@@ -290,12 +290,12 @@ public class TestField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        FieldInsert requestField = new FieldInsert();
-        requestField.setFieldCode("{ NUMPAGES }");
+        FieldInsert field = new FieldInsert();
+        field.setFieldCode("{ NUMPAGES }");
 
         InsertFieldRequest request = new InsertFieldRequest(
             remoteFileName,
-            requestField,
+            field,
             null,
             remoteDataFolder,
             null,
@@ -328,13 +328,13 @@ public class TestField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        FieldUpdate requestField = new FieldUpdate();
-        requestField.setFieldCode("{ NUMPAGES }");
+        FieldUpdate field = new FieldUpdate();
+        field.setFieldCode("{ NUMPAGES }");
 
         UpdateFieldRequest request = new UpdateFieldRequest(
             remoteFileName,
             0,
-            requestField,
+            field,
             "sections/0/paragraphs/0",
             remoteDataFolder,
             null,
@@ -358,12 +358,12 @@ public class TestField  extends TestCase
     @Test
     public void testUpdateFieldOnline() throws ApiException, MessagingException, IOException
     {
-        FieldUpdate requestField = new FieldUpdate();
-        requestField.setFieldCode("{ NUMPAGES }");
+        FieldUpdate field = new FieldUpdate();
+        field.setFieldCode("{ NUMPAGES }");
 
         UpdateFieldOnlineRequest request = new UpdateFieldOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
-            requestField,
+            field,
             0,
             "sections/0/paragraphs/0",
             null,
@@ -391,13 +391,13 @@ public class TestField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        PageNumber requestPageNumber = new PageNumber();
-        requestPageNumber.setAlignment("center");
-        requestPageNumber.setFormat("{PAGE} of {NUMPAGES}");
+        PageNumber pageNumber = new PageNumber();
+        pageNumber.setAlignment("center");
+        pageNumber.setFormat("{PAGE} of {NUMPAGES}");
 
         InsertPageNumbersRequest request = new InsertPageNumbersRequest(
             remoteFileName,
-            requestPageNumber,
+            pageNumber,
             remoteDataFolder,
             null,
             null,
@@ -421,13 +421,13 @@ public class TestField  extends TestCase
     {
         String localFileName = "test_multi_pages.docx";
 
-        PageNumber requestPageNumber = new PageNumber();
-        requestPageNumber.setAlignment("center");
-        requestPageNumber.setFormat("{PAGE} of {NUMPAGES}");
+        PageNumber pageNumber = new PageNumber();
+        pageNumber.setAlignment("center");
+        pageNumber.setFormat("{PAGE} of {NUMPAGES}");
 
         InsertPageNumbersOnlineRequest request = new InsertPageNumbersOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localFileName).toAbsolutePath()),
-            requestPageNumber,
+            pageNumber,
             null,
             null,
             null,

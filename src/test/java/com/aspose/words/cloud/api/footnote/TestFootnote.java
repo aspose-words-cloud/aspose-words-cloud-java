@@ -68,13 +68,13 @@ public class TestFootnote  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        FootnoteInsert requestFootnoteDto = new FootnoteInsert();
-        requestFootnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
-        requestFootnoteDto.setText("test endnote");
+        FootnoteInsert footnoteDto = new FootnoteInsert();
+        footnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
+        footnoteDto.setText("test endnote");
 
         InsertFootnoteRequest request = new InsertFootnoteRequest(
             remoteFileName,
-            requestFootnoteDto,
+            footnoteDto,
             "",
             remoteDataFolder,
             null,
@@ -98,13 +98,13 @@ public class TestFootnote  extends TestCase
     @Test
     public void testInsertFootnoteOnline() throws ApiException, MessagingException, IOException
     {
-        FootnoteInsert requestFootnoteDto = new FootnoteInsert();
-        requestFootnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
-        requestFootnoteDto.setText("test endnote");
+        FootnoteInsert footnoteDto = new FootnoteInsert();
+        footnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
+        footnoteDto.setText("test endnote");
 
         InsertFootnoteOnlineRequest request = new InsertFootnoteOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath()),
-            requestFootnoteDto,
+            footnoteDto,
             "",
             null,
             null,
@@ -130,13 +130,13 @@ public class TestFootnote  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        FootnoteInsert requestFootnoteDto = new FootnoteInsert();
-        requestFootnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
-        requestFootnoteDto.setText("test endnote");
+        FootnoteInsert footnoteDto = new FootnoteInsert();
+        footnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
+        footnoteDto.setText("test endnote");
 
         InsertFootnoteRequest request = new InsertFootnoteRequest(
             remoteFileName,
-            requestFootnoteDto,
+            footnoteDto,
             null,
             remoteDataFolder,
             null,
@@ -399,13 +399,13 @@ public class TestFootnote  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        FootnoteUpdate requestFootnoteDto = new FootnoteUpdate();
-        requestFootnoteDto.setText("new text is here");
+        FootnoteUpdate footnoteDto = new FootnoteUpdate();
+        footnoteDto.setText("new text is here");
 
         UpdateFootnoteRequest request = new UpdateFootnoteRequest(
             remoteFileName,
             0,
-            requestFootnoteDto,
+            footnoteDto,
             "",
             remoteDataFolder,
             null,
@@ -428,12 +428,12 @@ public class TestFootnote  extends TestCase
     @Test
     public void testUpdateFootnoteOnline() throws ApiException, MessagingException, IOException
     {
-        FootnoteUpdate requestFootnoteDto = new FootnoteUpdate();
-        requestFootnoteDto.setText("new text is here");
+        FootnoteUpdate footnoteDto = new FootnoteUpdate();
+        footnoteDto.setText("new text is here");
 
         UpdateFootnoteOnlineRequest request = new UpdateFootnoteOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath()),
-            requestFootnoteDto,
+            footnoteDto,
             0,
             "",
             null,
@@ -460,13 +460,13 @@ public class TestFootnote  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        FootnoteUpdate requestFootnoteDto = new FootnoteUpdate();
-        requestFootnoteDto.setText("new text is here");
+        FootnoteUpdate footnoteDto = new FootnoteUpdate();
+        footnoteDto.setText("new text is here");
 
         UpdateFootnoteRequest request = new UpdateFootnoteRequest(
             remoteFileName,
             0,
-            requestFootnoteDto,
+            footnoteDto,
             null,
             remoteDataFolder,
             null,

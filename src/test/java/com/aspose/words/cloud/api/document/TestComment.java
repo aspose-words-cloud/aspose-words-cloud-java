@@ -158,30 +158,30 @@ public class TestComment  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        NodeLink requestCommentRangeStartNode = new NodeLink();
-        requestCommentRangeStartNode.setNodeId("0.3.0.3");
+        NodeLink commentRangeStartNode = new NodeLink();
+        commentRangeStartNode.setNodeId("0.3.0.3");
 
-        DocumentPosition requestCommentRangeStart = new DocumentPosition();
-        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
-        requestCommentRangeStart.setOffset(0);
+        DocumentPosition commentRangeStart = new DocumentPosition();
+        commentRangeStart.setNode(commentRangeStartNode);
+        commentRangeStart.setOffset(0);
 
-        NodeLink requestCommentRangeEndNode = new NodeLink();
-        requestCommentRangeEndNode.setNodeId("0.3.0.3");
+        NodeLink commentRangeEndNode = new NodeLink();
+        commentRangeEndNode.setNodeId("0.3.0.3");
 
-        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
-        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
-        requestCommentRangeEnd.setOffset(0);
+        DocumentPosition commentRangeEnd = new DocumentPosition();
+        commentRangeEnd.setNode(commentRangeEndNode);
+        commentRangeEnd.setOffset(0);
 
-        CommentInsert requestComment = new CommentInsert();
-        requestComment.setRangeStart(requestCommentRangeStart);
-        requestComment.setRangeEnd(requestCommentRangeEnd);
-        requestComment.setInitial("IA");
-        requestComment.setAuthor("Imran Anwar");
-        requestComment.setText("A new Comment");
+        CommentInsert comment = new CommentInsert();
+        comment.setRangeStart(commentRangeStart);
+        comment.setRangeEnd(commentRangeEnd);
+        comment.setInitial("IA");
+        comment.setAuthor("Imran Anwar");
+        comment.setText("A new Comment");
 
         InsertCommentRequest request = new InsertCommentRequest(
             remoteFileName,
-            requestComment,
+            comment,
             remoteDataFolder,
             null,
             null,
@@ -206,30 +206,30 @@ public class TestComment  extends TestCase
     @Test
     public void testInsertCommentOnline() throws ApiException, MessagingException, IOException
     {
-        NodeLink requestCommentRangeStartNode = new NodeLink();
-        requestCommentRangeStartNode.setNodeId("0.3.0.3");
+        NodeLink commentRangeStartNode = new NodeLink();
+        commentRangeStartNode.setNodeId("0.3.0.3");
 
-        DocumentPosition requestCommentRangeStart = new DocumentPosition();
-        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
-        requestCommentRangeStart.setOffset(0);
+        DocumentPosition commentRangeStart = new DocumentPosition();
+        commentRangeStart.setNode(commentRangeStartNode);
+        commentRangeStart.setOffset(0);
 
-        NodeLink requestCommentRangeEndNode = new NodeLink();
-        requestCommentRangeEndNode.setNodeId("0.3.0.3");
+        NodeLink commentRangeEndNode = new NodeLink();
+        commentRangeEndNode.setNodeId("0.3.0.3");
 
-        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
-        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
-        requestCommentRangeEnd.setOffset(0);
+        DocumentPosition commentRangeEnd = new DocumentPosition();
+        commentRangeEnd.setNode(commentRangeEndNode);
+        commentRangeEnd.setOffset(0);
 
-        CommentInsert requestComment = new CommentInsert();
-        requestComment.setRangeStart(requestCommentRangeStart);
-        requestComment.setRangeEnd(requestCommentRangeEnd);
-        requestComment.setInitial("IA");
-        requestComment.setAuthor("Imran Anwar");
-        requestComment.setText("A new Comment");
+        CommentInsert comment = new CommentInsert();
+        comment.setRangeStart(commentRangeStart);
+        comment.setRangeEnd(commentRangeEnd);
+        comment.setInitial("IA");
+        comment.setAuthor("Imran Anwar");
+        comment.setText("A new Comment");
 
         InsertCommentOnlineRequest request = new InsertCommentOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
-            requestComment,
+            comment,
             null,
             null,
             null,
@@ -254,31 +254,31 @@ public class TestComment  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        NodeLink requestCommentRangeStartNode = new NodeLink();
-        requestCommentRangeStartNode.setNodeId("0.3.0");
+        NodeLink commentRangeStartNode = new NodeLink();
+        commentRangeStartNode.setNodeId("0.3.0");
 
-        DocumentPosition requestCommentRangeStart = new DocumentPosition();
-        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
-        requestCommentRangeStart.setOffset(0);
+        DocumentPosition commentRangeStart = new DocumentPosition();
+        commentRangeStart.setNode(commentRangeStartNode);
+        commentRangeStart.setOffset(0);
 
-        NodeLink requestCommentRangeEndNode = new NodeLink();
-        requestCommentRangeEndNode.setNodeId("0.3.0");
+        NodeLink commentRangeEndNode = new NodeLink();
+        commentRangeEndNode.setNodeId("0.3.0");
 
-        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
-        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
-        requestCommentRangeEnd.setOffset(0);
+        DocumentPosition commentRangeEnd = new DocumentPosition();
+        commentRangeEnd.setNode(commentRangeEndNode);
+        commentRangeEnd.setOffset(0);
 
-        CommentUpdate requestComment = new CommentUpdate();
-        requestComment.setRangeStart(requestCommentRangeStart);
-        requestComment.setRangeEnd(requestCommentRangeEnd);
-        requestComment.setInitial("IA");
-        requestComment.setAuthor("Imran Anwar");
-        requestComment.setText("A new Comment");
+        CommentUpdate comment = new CommentUpdate();
+        comment.setRangeStart(commentRangeStart);
+        comment.setRangeEnd(commentRangeEnd);
+        comment.setInitial("IA");
+        comment.setAuthor("Imran Anwar");
+        comment.setText("A new Comment");
 
         UpdateCommentRequest request = new UpdateCommentRequest(
             remoteFileName,
             0,
-            requestComment,
+            comment,
             remoteDataFolder,
             null,
             null,
@@ -303,31 +303,31 @@ public class TestComment  extends TestCase
     @Test
     public void testUpdateCommentOnline() throws ApiException, MessagingException, IOException
     {
-        NodeLink requestCommentRangeStartNode = new NodeLink();
-        requestCommentRangeStartNode.setNodeId("0.3.0");
+        NodeLink commentRangeStartNode = new NodeLink();
+        commentRangeStartNode.setNodeId("0.3.0");
 
-        DocumentPosition requestCommentRangeStart = new DocumentPosition();
-        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
-        requestCommentRangeStart.setOffset(0);
+        DocumentPosition commentRangeStart = new DocumentPosition();
+        commentRangeStart.setNode(commentRangeStartNode);
+        commentRangeStart.setOffset(0);
 
-        NodeLink requestCommentRangeEndNode = new NodeLink();
-        requestCommentRangeEndNode.setNodeId("0.3.0");
+        NodeLink commentRangeEndNode = new NodeLink();
+        commentRangeEndNode.setNodeId("0.3.0");
 
-        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
-        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
-        requestCommentRangeEnd.setOffset(0);
+        DocumentPosition commentRangeEnd = new DocumentPosition();
+        commentRangeEnd.setNode(commentRangeEndNode);
+        commentRangeEnd.setOffset(0);
 
-        CommentUpdate requestComment = new CommentUpdate();
-        requestComment.setRangeStart(requestCommentRangeStart);
-        requestComment.setRangeEnd(requestCommentRangeEnd);
-        requestComment.setInitial("IA");
-        requestComment.setAuthor("Imran Anwar");
-        requestComment.setText("A new Comment");
+        CommentUpdate comment = new CommentUpdate();
+        comment.setRangeStart(commentRangeStart);
+        comment.setRangeEnd(commentRangeEnd);
+        comment.setInitial("IA");
+        comment.setAuthor("Imran Anwar");
+        comment.setText("A new Comment");
 
         UpdateCommentOnlineRequest request = new UpdateCommentOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
             0,
-            requestComment,
+            comment,
             null,
             null,
             null,

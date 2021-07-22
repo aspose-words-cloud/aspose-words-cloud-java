@@ -68,18 +68,18 @@ public class TestFormField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        FormFieldTextInput requestFormField = new FormFieldTextInput();
-        requestFormField.setName("FullName");
-        requestFormField.setEnabled(true);
-        requestFormField.setCalculateOnExit(true);
-        requestFormField.setStatusText("");
-        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
-        requestFormField.setTextInputDefault("No name");
+        FormFieldTextInput formField = new FormFieldTextInput();
+        formField.setName("FullName");
+        formField.setEnabled(true);
+        formField.setCalculateOnExit(true);
+        formField.setStatusText("");
+        formField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        formField.setTextInputDefault("No name");
 
         UpdateFormFieldRequest request = new UpdateFormFieldRequest(
             remoteFileName,
             0,
-            requestFormField,
+            formField,
             "sections/0",
             remoteDataFolder,
             null,
@@ -103,17 +103,17 @@ public class TestFormField  extends TestCase
     @Test
     public void testUpdateFormFieldOnline() throws ApiException, MessagingException, IOException
     {
-        FormFieldTextInput requestFormField = new FormFieldTextInput();
-        requestFormField.setName("FullName");
-        requestFormField.setEnabled(true);
-        requestFormField.setCalculateOnExit(true);
-        requestFormField.setStatusText("");
-        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
-        requestFormField.setTextInputDefault("No name");
+        FormFieldTextInput formField = new FormFieldTextInput();
+        formField.setName("FullName");
+        formField.setEnabled(true);
+        formField.setCalculateOnExit(true);
+        formField.setStatusText("");
+        formField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        formField.setTextInputDefault("No name");
 
         UpdateFormFieldOnlineRequest request = new UpdateFormFieldOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
-            requestFormField,
+            formField,
             0,
             "sections/0",
             null,
@@ -140,18 +140,18 @@ public class TestFormField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        FormFieldTextInput requestFormField = new FormFieldTextInput();
-        requestFormField.setName("FullName");
-        requestFormField.setEnabled(true);
-        requestFormField.setCalculateOnExit(true);
-        requestFormField.setStatusText("");
-        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
-        requestFormField.setTextInputDefault("No name");
+        FormFieldTextInput formField = new FormFieldTextInput();
+        formField.setName("FullName");
+        formField.setEnabled(true);
+        formField.setCalculateOnExit(true);
+        formField.setStatusText("");
+        formField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        formField.setTextInputDefault("No name");
 
         UpdateFormFieldRequest request = new UpdateFormFieldRequest(
             remoteFileName,
             0,
-            requestFormField,
+            formField,
             null,
             remoteDataFolder,
             null,
@@ -335,18 +335,18 @@ public class TestFormField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        FormFieldTextInput requestFormField = new FormFieldTextInput();
-        requestFormField.setName("FullName");
-        requestFormField.setEnabled(true);
-        requestFormField.setCalculateOnExit(true);
-        requestFormField.setStatusText("");
-        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
-        requestFormField.setTextInputDefault("123");
-        requestFormField.setTextInputFormat("UPPERCASE");
+        FormFieldTextInput formField = new FormFieldTextInput();
+        formField.setName("FullName");
+        formField.setEnabled(true);
+        formField.setCalculateOnExit(true);
+        formField.setStatusText("");
+        formField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        formField.setTextInputDefault("123");
+        formField.setTextInputFormat("UPPERCASE");
 
         InsertFormFieldRequest request = new InsertFormFieldRequest(
             remoteFileName,
-            requestFormField,
+            formField,
             "sections/0/paragraphs/0",
             remoteDataFolder,
             null,
@@ -371,18 +371,18 @@ public class TestFormField  extends TestCase
     @Test
     public void testInsertFormFieldOnline() throws ApiException, MessagingException, IOException
     {
-        FormFieldTextInput requestFormField = new FormFieldTextInput();
-        requestFormField.setName("FullName");
-        requestFormField.setEnabled(true);
-        requestFormField.setCalculateOnExit(true);
-        requestFormField.setStatusText("");
-        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
-        requestFormField.setTextInputDefault("123");
-        requestFormField.setTextInputFormat("UPPERCASE");
+        FormFieldTextInput formField = new FormFieldTextInput();
+        formField.setName("FullName");
+        formField.setEnabled(true);
+        formField.setCalculateOnExit(true);
+        formField.setStatusText("");
+        formField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        formField.setTextInputDefault("123");
+        formField.setTextInputFormat("UPPERCASE");
 
         InsertFormFieldOnlineRequest request = new InsertFormFieldOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
-            requestFormField,
+            formField,
             "sections/0/paragraphs/0",
             null,
             null,
@@ -409,18 +409,18 @@ public class TestFormField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        FormFieldTextInput requestFormField = new FormFieldTextInput();
-        requestFormField.setName("FullName");
-        requestFormField.setEnabled(true);
-        requestFormField.setCalculateOnExit(true);
-        requestFormField.setStatusText("");
-        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
-        requestFormField.setTextInputDefault("123");
-        requestFormField.setTextInputFormat("UPPERCASE");
+        FormFieldTextInput formField = new FormFieldTextInput();
+        formField.setName("FullName");
+        formField.setEnabled(true);
+        formField.setCalculateOnExit(true);
+        formField.setStatusText("");
+        formField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        formField.setTextInputDefault("123");
+        formField.setTextInputFormat("UPPERCASE");
 
         InsertFormFieldRequest request = new InsertFormFieldRequest(
             remoteFileName,
-            requestFormField,
+            formField,
             null,
             remoteDataFolder,
             null,

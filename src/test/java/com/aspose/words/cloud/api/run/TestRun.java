@@ -68,14 +68,14 @@ public class TestRun  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        RunUpdate requestRun = new RunUpdate();
-        requestRun.setText("run with text");
+        RunUpdate run = new RunUpdate();
+        run.setText("run with text");
 
         UpdateRunRequest request = new UpdateRunRequest(
             remoteFileName,
             "paragraphs/1",
             0,
-            requestRun,
+            run,
             remoteDataFolder,
             null,
             null,
@@ -97,13 +97,13 @@ public class TestRun  extends TestCase
     @Test
     public void testUpdateRunOnline() throws ApiException, MessagingException, IOException
     {
-        RunUpdate requestRun = new RunUpdate();
-        requestRun.setText("run with text");
+        RunUpdate run = new RunUpdate();
+        run.setText("run with text");
 
         UpdateRunOnlineRequest request = new UpdateRunOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
             "paragraphs/1",
-            requestRun,
+            run,
             0,
             null,
             null,
@@ -129,13 +129,13 @@ public class TestRun  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        RunInsert requestRun = new RunInsert();
-        requestRun.setText("run with text");
+        RunInsert run = new RunInsert();
+        run.setText("run with text");
 
         InsertRunRequest request = new InsertRunRequest(
             remoteFileName,
             "paragraphs/1",
-            requestRun,
+            run,
             remoteDataFolder,
             null,
             null,
@@ -159,13 +159,13 @@ public class TestRun  extends TestCase
     @Test
     public void testInsertRunOnline() throws ApiException, MessagingException, IOException
     {
-        RunInsert requestRun = new RunInsert();
-        requestRun.setText("run with text");
+        RunInsert run = new RunInsert();
+        run.setText("run with text");
 
         InsertRunOnlineRequest request = new InsertRunOnlineRequest(
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
             "paragraphs/1",
-            requestRun,
+            run,
             null,
             null,
             null,
