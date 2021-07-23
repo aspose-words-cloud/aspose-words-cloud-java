@@ -17,6 +17,8 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 
 - ImlRenderingMode option introduced witch is used to determine how ink (InkML) objects are rendered
 - MaxCharactersPerLine option introduced which is used to specify the maximum number of characters per one line
+- Added new API method to get a RSA public key to encrypt document passwords
+- Added encryptedPassword common query option to pass an encrypted document password
 
 
 ## Enhancements in Version 21.6
