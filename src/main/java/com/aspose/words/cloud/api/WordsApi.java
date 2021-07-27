@@ -18308,7 +18308,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts a document in cloud storage to the specified format.
+     * Converts a document to the specified format.
      * @param request Request object
      * @return SaveAsOnlineResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -18330,7 +18330,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts a document in cloud storage to the specified format.
+     * Converts a document to the specified format.
      * @param request Request object
      * @return ApiResponse< SaveAsOnlineResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -18344,7 +18344,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts a document in cloud storage to the specified format. (asynchronously)
+     * Converts a document to the specified format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -18608,7 +18608,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts a document in cloud storage to TIFF format using detailed conversion settings.
+     * Converts a document to TIFF format using detailed conversion settings.
      * @param request Request object
      * @return SaveAsTiffOnlineResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -18630,7 +18630,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts a document in cloud storage to TIFF format using detailed conversion settings.
+     * Converts a document to TIFF format using detailed conversion settings.
      * @param request Request object
      * @return ApiResponse< SaveAsTiffOnlineResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -18644,7 +18644,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts a document in cloud storage to TIFF format using detailed conversion settings. (asynchronously)
+     * Converts a document to TIFF format using detailed conversion settings. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

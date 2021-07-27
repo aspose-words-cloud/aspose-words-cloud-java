@@ -42,9 +42,9 @@ import java.util.*;
  */
 public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
     /*
-     * The document.
+     * The template document.
      */
-    private byte[] document;
+    private byte[] template;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -64,30 +64,30 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
     /*
      * Initializes a new instance of the GetDocumentFieldNamesOnlineRequest class.
      *
-     * @param byte[] document The document.
+     * @param byte[] template The template document.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param Boolean useNonMergeFields The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
-    public GetDocumentFieldNamesOnlineRequest(byte[] document, String loadEncoding, String password, Boolean useNonMergeFields) {
-        this.document = document;
+    public GetDocumentFieldNamesOnlineRequest(byte[] template, String loadEncoding, String password, Boolean useNonMergeFields) {
+        this.template = template;
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.useNonMergeFields = useNonMergeFields;
     }
 
     /*
-     * Gets The document.
+     * Gets The template document.
      */
-    public byte[] getDocument() {
-        return this.document;
+    public byte[] getTemplate() {
+        return this.template;
     }
 
     /*
-     * Sets The document.
+     * Sets The template document.
      */
-    public void setDocument(byte[] value) {
-        this.document = value;
+    public void setTemplate(byte[] value) {
+        this.template = value;
     }
 
     /*
@@ -141,9 +141,9 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
      * @throws IOException If fail to serialize the request body object
      */
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
-        // verify the required parameter 'Document' is set
-        if (getDocument() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getDocumentFieldNamesOnline");
+        // verify the required parameter 'Template' is set
+        if (getTemplate() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Template' when calling getDocumentFieldNamesOnline");
         }
 
         Object localVarPostBody = null;
@@ -161,8 +161,8 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getDocument() != null)
-            localVarFormParams.put("Document", getDocument());
+        if (getTemplate() != null)
+            localVarFormParams.put("Template", getTemplate());
 
         final String[] localVarAccepts = {
             "application/xml", "application/json"

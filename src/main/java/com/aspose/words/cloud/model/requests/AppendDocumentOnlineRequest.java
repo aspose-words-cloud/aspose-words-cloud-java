@@ -42,7 +42,7 @@ import java.util.*;
  */
 public class AppendDocumentOnlineRequest implements RequestIfc {
     /*
-     * The document.
+     * Original document.
      */
     private byte[] document;
 
@@ -79,7 +79,7 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
     /*
      * Initializes a new instance of the AppendDocumentOnlineRequest class.
      *
-     * @param byte[] document The document.
+     * @param byte[] document Original document.
      * @param DocumentEntryList documentList <see cref="DocumentEntryList"/> with a list of documents to append.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
@@ -98,14 +98,14 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document.
+     * Gets Original document.
      */
     public byte[] getDocument() {
         return this.document;
     }
 
     /*
-     * Sets The document.
+     * Sets Original document.
      */
     public void setDocument(byte[] value) {
         this.document = value;
