@@ -13,6 +13,14 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 21.7
+
+- ImlRenderingMode option introduced witch is used to determine how ink (InkML) objects are rendered
+- MaxCharactersPerLine option introduced which is used to specify the maximum number of characters per one line
+- Added new API method to get a RSA public key to encrypt document passwords
+- Added encryptedPassword common query option to pass an encrypted document password
+
+
 ## Enhancements in Version 21.6
 
 - Implemented beta version of CompareDocumentOnline feature with both document sending in request
@@ -148,7 +156,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>21.6.0</version>
+        <version>21.7.0</version>
     </dependency>
 </dependencies>
 ```
