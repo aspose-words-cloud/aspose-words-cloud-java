@@ -2438,6 +2438,296 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteCustomXmlPartValidateBeforeCall(DeleteCustomXmlPartRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes the custom xml part from the document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteCustomXmlPart(DeleteCustomXmlPartRequest request) throws ApiException, MessagingException, IOException {
+        try {
+    deleteCustomXmlPartWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+    deleteCustomXmlPartWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes the custom xml part from the document.
+     * @param request Request object
+     * @return ApiResponse< void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteCustomXmlPartWithHttpInfo(DeleteCustomXmlPartRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteCustomXmlPartValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Removes the custom xml part from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteCustomXmlPartAsync(DeleteCustomXmlPartRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteCustomXmlPartValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteCustomXmlPartOnlineValidateBeforeCall(DeleteCustomXmlPartOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes the custom xml part from the document.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File deleteCustomXmlPartOnline(DeleteCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< File > resp = deleteCustomXmlPartOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = deleteCustomXmlPartOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes the custom xml part from the document.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > deleteCustomXmlPartOnlineWithHttpInfo(DeleteCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteCustomXmlPartOnlineValidateBeforeCall(request, null, null);
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+    }
+
+    /**
+     * Removes the custom xml part from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteCustomXmlPartOnlineAsync(DeleteCustomXmlPartOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteCustomXmlPartOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteCustomXmlPartsValidateBeforeCall(DeleteCustomXmlPartsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes all custom xml parts from the document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteCustomXmlParts(DeleteCustomXmlPartsRequest request) throws ApiException, MessagingException, IOException {
+        try {
+    deleteCustomXmlPartsWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+    deleteCustomXmlPartsWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes all custom xml parts from the document.
+     * @param request Request object
+     * @return ApiResponse< void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteCustomXmlPartsWithHttpInfo(DeleteCustomXmlPartsRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteCustomXmlPartsValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Removes all custom xml parts from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteCustomXmlPartsAsync(DeleteCustomXmlPartsRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteCustomXmlPartsValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteCustomXmlPartsOnlineValidateBeforeCall(DeleteCustomXmlPartsOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes all custom xml parts from the document.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File deleteCustomXmlPartsOnline(DeleteCustomXmlPartsOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< File > resp = deleteCustomXmlPartsOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = deleteCustomXmlPartsOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes all custom xml parts from the document.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > deleteCustomXmlPartsOnlineWithHttpInfo(DeleteCustomXmlPartsOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteCustomXmlPartsOnlineValidateBeforeCall(request, null, null);
+        Response response = call.execute();
+        File data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+    }
+
+    /**
+     * Removes all custom xml parts from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteCustomXmlPartsOnlineAsync(DeleteCustomXmlPartsOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteCustomXmlPartsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteDocumentPropertyValidateBeforeCall(DeleteDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
@@ -6543,6 +6833,306 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getCommentsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getCustomXmlPartValidateBeforeCall(GetCustomXmlPartRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Reads the custom xml part from the document.
+     * @param request Request object
+     * @return CustomXmlPartResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public CustomXmlPartResponse getCustomXmlPart(GetCustomXmlPartRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< CustomXmlPartResponse > resp = getCustomXmlPartWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< CustomXmlPartResponse > resp = getCustomXmlPartWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads the custom xml part from the document.
+     * @param request Request object
+     * @return ApiResponse< CustomXmlPartResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< CustomXmlPartResponse > getCustomXmlPartWithHttpInfo(GetCustomXmlPartRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = getCustomXmlPartValidateBeforeCall(request, null, null);
+        Response response = call.execute();
+        CustomXmlPartResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CustomXmlPartResponse >(response.code(), response.headers().toMultimap(), data);
+    }
+
+    /**
+     * Reads the custom xml part from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCustomXmlPartAsync(GetCustomXmlPartRequest request, final ApiCallback< CustomXmlPartResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getCustomXmlPartValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getCustomXmlPartOnlineValidateBeforeCall(GetCustomXmlPartOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Reads the custom xml part from the document.
+     * @param request Request object
+     * @return CustomXmlPartResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public CustomXmlPartResponse getCustomXmlPartOnline(GetCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< CustomXmlPartResponse > resp = getCustomXmlPartOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< CustomXmlPartResponse > resp = getCustomXmlPartOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads the custom xml part from the document.
+     * @param request Request object
+     * @return ApiResponse< CustomXmlPartResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< CustomXmlPartResponse > getCustomXmlPartOnlineWithHttpInfo(GetCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = getCustomXmlPartOnlineValidateBeforeCall(request, null, null);
+        Response response = call.execute();
+        CustomXmlPartResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CustomXmlPartResponse >(response.code(), response.headers().toMultimap(), data);
+    }
+
+    /**
+     * Reads the custom xml part from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCustomXmlPartOnlineAsync(GetCustomXmlPartOnlineRequest request, final ApiCallback< CustomXmlPartResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getCustomXmlPartOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getCustomXmlPartsValidateBeforeCall(GetCustomXmlPartsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Reads custom xml parts from the document.
+     * @param request Request object
+     * @return CustomXmlPartsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public CustomXmlPartsResponse getCustomXmlParts(GetCustomXmlPartsRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< CustomXmlPartsResponse > resp = getCustomXmlPartsWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< CustomXmlPartsResponse > resp = getCustomXmlPartsWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads custom xml parts from the document.
+     * @param request Request object
+     * @return ApiResponse< CustomXmlPartsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< CustomXmlPartsResponse > getCustomXmlPartsWithHttpInfo(GetCustomXmlPartsRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = getCustomXmlPartsValidateBeforeCall(request, null, null);
+        Response response = call.execute();
+        CustomXmlPartsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CustomXmlPartsResponse >(response.code(), response.headers().toMultimap(), data);
+    }
+
+    /**
+     * Reads custom xml parts from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCustomXmlPartsAsync(GetCustomXmlPartsRequest request, final ApiCallback< CustomXmlPartsResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getCustomXmlPartsValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getCustomXmlPartsOnlineValidateBeforeCall(GetCustomXmlPartsOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Reads custom xml parts from the document.
+     * @param request Request object
+     * @return CustomXmlPartsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public CustomXmlPartsResponse getCustomXmlPartsOnline(GetCustomXmlPartsOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< CustomXmlPartsResponse > resp = getCustomXmlPartsOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< CustomXmlPartsResponse > resp = getCustomXmlPartsOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads custom xml parts from the document.
+     * @param request Request object
+     * @return ApiResponse< CustomXmlPartsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< CustomXmlPartsResponse > getCustomXmlPartsOnlineWithHttpInfo(GetCustomXmlPartsOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = getCustomXmlPartsOnlineValidateBeforeCall(request, null, null);
+        Response response = call.execute();
+        CustomXmlPartsResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CustomXmlPartsResponse >(response.code(), response.headers().toMultimap(), data);
+    }
+
+    /**
+     * Reads custom xml parts from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCustomXmlPartsOnlineAsync(GetCustomXmlPartsOnlineRequest request, final ApiCallback< CustomXmlPartsResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getCustomXmlPartsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
         apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
     }
@@ -13898,6 +14488,156 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertCustomXmlPartValidateBeforeCall(InsertCustomXmlPartRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Inserts a new custom xml part to the document.
+     * @param request Request object
+     * @return CustomXmlPartResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public CustomXmlPartResponse insertCustomXmlPart(InsertCustomXmlPartRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< CustomXmlPartResponse > resp = insertCustomXmlPartWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< CustomXmlPartResponse > resp = insertCustomXmlPartWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Inserts a new custom xml part to the document.
+     * @param request Request object
+     * @return ApiResponse< CustomXmlPartResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< CustomXmlPartResponse > insertCustomXmlPartWithHttpInfo(InsertCustomXmlPartRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = insertCustomXmlPartValidateBeforeCall(request, null, null);
+        Response response = call.execute();
+        CustomXmlPartResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CustomXmlPartResponse >(response.code(), response.headers().toMultimap(), data);
+    }
+
+    /**
+     * Inserts a new custom xml part to the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertCustomXmlPartAsync(InsertCustomXmlPartRequest request, final ApiCallback< CustomXmlPartResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertCustomXmlPartValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertCustomXmlPartOnlineValidateBeforeCall(InsertCustomXmlPartOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Inserts a new custom xml part to the document.
+     * @param request Request object
+     * @return InsertCustomXmlPartOnlineResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public InsertCustomXmlPartOnlineResponse insertCustomXmlPartOnline(InsertCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< InsertCustomXmlPartOnlineResponse > resp = insertCustomXmlPartOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< InsertCustomXmlPartOnlineResponse > resp = insertCustomXmlPartOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Inserts a new custom xml part to the document.
+     * @param request Request object
+     * @return ApiResponse< InsertCustomXmlPartOnlineResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< InsertCustomXmlPartOnlineResponse > insertCustomXmlPartOnlineWithHttpInfo(InsertCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = insertCustomXmlPartOnlineValidateBeforeCall(request, null, null);
+        Response response = call.execute();
+        InsertCustomXmlPartOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InsertCustomXmlPartOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+    }
+
+    /**
+     * Inserts a new custom xml part to the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertCustomXmlPartOnlineAsync(InsertCustomXmlPartOnlineRequest request, final ApiCallback< InsertCustomXmlPartOnlineResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertCustomXmlPartOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertDrawingObjectValidateBeforeCall(InsertDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
@@ -19573,6 +20313,156 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateCommentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateCustomXmlPartValidateBeforeCall(UpdateCustomXmlPartRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Updates the custom xml part in the document.
+     * @param request Request object
+     * @return CustomXmlPartResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public CustomXmlPartResponse updateCustomXmlPart(UpdateCustomXmlPartRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< CustomXmlPartResponse > resp = updateCustomXmlPartWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< CustomXmlPartResponse > resp = updateCustomXmlPartWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates the custom xml part in the document.
+     * @param request Request object
+     * @return ApiResponse< CustomXmlPartResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< CustomXmlPartResponse > updateCustomXmlPartWithHttpInfo(UpdateCustomXmlPartRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = updateCustomXmlPartValidateBeforeCall(request, null, null);
+        Response response = call.execute();
+        CustomXmlPartResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< CustomXmlPartResponse >(response.code(), response.headers().toMultimap(), data);
+    }
+
+    /**
+     * Updates the custom xml part in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateCustomXmlPartAsync(UpdateCustomXmlPartRequest request, final ApiCallback< CustomXmlPartResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateCustomXmlPartValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateCustomXmlPartOnlineValidateBeforeCall(UpdateCustomXmlPartOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Updates the custom xml part in the document.
+     * @param request Request object
+     * @return UpdateCustomXmlPartOnlineResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public UpdateCustomXmlPartOnlineResponse updateCustomXmlPartOnline(UpdateCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< UpdateCustomXmlPartOnlineResponse > resp = updateCustomXmlPartOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< UpdateCustomXmlPartOnlineResponse > resp = updateCustomXmlPartOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates the custom xml part in the document.
+     * @param request Request object
+     * @return ApiResponse< UpdateCustomXmlPartOnlineResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< UpdateCustomXmlPartOnlineResponse > updateCustomXmlPartOnlineWithHttpInfo(UpdateCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = updateCustomXmlPartOnlineValidateBeforeCall(request, null, null);
+        Response response = call.execute();
+        UpdateCustomXmlPartOnlineResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< UpdateCustomXmlPartOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+    }
+
+    /**
+     * Updates the custom xml part in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateCustomXmlPartOnlineAsync(UpdateCustomXmlPartOnlineRequest request, final ApiCallback< UpdateCustomXmlPartOnlineResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateCustomXmlPartOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
         apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
     }
