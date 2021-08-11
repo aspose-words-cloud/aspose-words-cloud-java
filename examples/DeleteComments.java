@@ -2,5 +2,5 @@ ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*c
 WordsApi wordsApi = new WordsApi(apiClient);
 String remoteFileName = "Sample.docx";
 
-AcceptAllRevisionsRequest acceptRequestRequest = new AcceptAllRevisionsRequest(remoteFileName,null,null,null,null,remoteFileName);
-wordsApi.acceptAllRevisions(acceptRequestRequest);
+DeleteCommentsRequest deleteRequestRequest = new DeleteCommentsRequest(remoteFileName,null,null,null,null,remoteFileName,null,null);
+wordsApi.deleteComments(deleteRequestRequest);

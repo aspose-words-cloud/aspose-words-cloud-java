@@ -1,9 +1,5 @@
 String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-String fileName  = "test_doc.docx";
-
-// Calls AcceptAllRevisionsOnline method for document in cloud.
-AcceptAllRevisionsOnlineRequest requestRequest = new AcceptAllRevisionsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath()),null,null,null);
-AcceptAllRevisionsOnlineResponse acceptAllRevisionsOnlineResult = wordsApi.acceptAllRevisionsOnline(requestRequest);
-Files.write(Paths.get("test_result.docx"), acceptAllRevisionsOnlineResult.getDocument());
+AcceptAllRevisionsOnlineRequest acceptRequestRequest = new AcceptAllRevisionsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,null);
+wordsApi.acceptAllRevisionsOnline(acceptRequestRequest);
