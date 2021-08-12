@@ -2641,6 +2641,7 @@ public class TestExamples extends TestCase
     public void testUpdateBookmark() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
+        String bookmarkName = "aspose";
         String remoteFileName = "Sample.docx";
 
         BookmarkData requestBookmarkData = new BookmarkData();
@@ -2656,6 +2657,8 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        String bookmarkName = "aspose";
+
         BookmarkData requestBookmarkData = new BookmarkData();
         requestBookmarkData.setName(bookmarkName);
         requestBookmarkData.setText("This will be the text for Aspose");

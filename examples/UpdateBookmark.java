@@ -1,5 +1,6 @@
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
+String bookmarkName = "aspose";
 String remoteFileName = "Sample.docx";
 
 BookmarkData requestBookmarkData = new BookmarkData();
