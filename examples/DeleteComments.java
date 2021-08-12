@@ -1,6 +1,4 @@
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-String remoteFileName = "Sample.docx";
-
-DeleteCommentsRequest deleteRequestRequest = new DeleteCommentsRequest(remoteFileName,null,null,null,null,remoteFileName,null,null);
+DeleteCommentsRequest deleteRequestRequest = new DeleteCommentsRequest("Sample.docx",null,null,null,null,null,null,null);
 wordsApi.deleteComments(deleteRequestRequest);

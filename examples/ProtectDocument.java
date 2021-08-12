@@ -1,10 +1,8 @@
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-String remoteFileName = "Sample.docx";
-
 ProtectionRequest requestProtectionRequest = new ProtectionRequest();
 requestProtectionRequest.setPassword("123");
 requestProtectionRequest.setProtectionType("ReadOnly");
 
-ProtectDocumentRequest protectRequestRequest = new ProtectDocumentRequest(remoteFileName,requestProtectionRequest,null,null,null,null,remoteFileName);
+ProtectDocumentRequest protectRequestRequest = new ProtectDocumentRequest("Sample.docx",requestProtectionRequest,null,null,null,null,null);
 wordsApi.protectDocument(protectRequestRequest);

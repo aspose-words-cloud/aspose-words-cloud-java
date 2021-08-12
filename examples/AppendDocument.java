@@ -12,5 +12,5 @@ requestDocumentListDocumentEntries.add(requestDocumentListDocumentEntries0);
 DocumentEntryList requestDocumentList = new DocumentEntryList();
 requestDocumentList.setDocumentEntries(requestDocumentListDocumentEntries);
 
-AppendDocumentRequest appendRequestRequest = new AppendDocumentRequest(remoteFileName,requestDocumentList,null,null,null,null,remoteFileName,null,null);
+AppendDocumentRequest appendRequestRequest = new AppendDocumentRequest(remoteFileName,requestDocumentList,null,null,null,null,null,null,null);
 wordsApi.appendDocument(appendRequestRequest);

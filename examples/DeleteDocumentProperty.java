@@ -1,6 +1,4 @@
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-String remoteFileName = "Sample.docx";
-
-DeleteDocumentPropertyRequest deleteRequestRequest = new DeleteDocumentPropertyRequest(remoteFileName,"testProp",null,null,null,null,remoteFileName,null,null);
+DeleteDocumentPropertyRequest deleteRequestRequest = new DeleteDocumentPropertyRequest("Sample.docx","testProp",null,null,null,null,null,null,null);
 wordsApi.deleteDocumentProperty(deleteRequestRequest);

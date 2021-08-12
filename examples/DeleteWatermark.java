@@ -1,6 +1,4 @@
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-String remoteFileName = "Sample.docx";
-
-DeleteWatermarkRequest deleteRequestRequest = new DeleteWatermarkRequest(remoteFileName,null,null,null,null,remoteFileName,null,null);
+DeleteWatermarkRequest deleteRequestRequest = new DeleteWatermarkRequest("Sample.docx",null,null,null,null,null,null,null);
 wordsApi.deleteWatermark(deleteRequestRequest);

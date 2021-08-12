@@ -1,6 +1,4 @@
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-String remoteFileName = "Sample.docx";
-
-AcceptAllRevisionsRequest acceptRequestRequest = new AcceptAllRevisionsRequest(remoteFileName,null,null,null,null,remoteFileName);
+AcceptAllRevisionsRequest acceptRequestRequest = new AcceptAllRevisionsRequest("Sample.docx",null,null,null,null,null);
 wordsApi.acceptAllRevisions(acceptRequestRequest);

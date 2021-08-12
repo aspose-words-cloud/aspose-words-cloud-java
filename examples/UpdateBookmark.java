@@ -1,11 +1,10 @@
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
 String bookmarkName = "aspose";
-String remoteFileName = "Sample.docx";
 
 BookmarkData requestBookmarkData = new BookmarkData();
 requestBookmarkData.setName(bookmarkName);
 requestBookmarkData.setText("This will be the text for Aspose");
 
-UpdateBookmarkRequest updateRequestRequest = new UpdateBookmarkRequest(remoteFileName,bookmarkName,requestBookmarkData,null,null,null,null,remoteFileName,null,null);
+UpdateBookmarkRequest updateRequestRequest = new UpdateBookmarkRequest("Sample.docx",bookmarkName,requestBookmarkData,null,null,null,null,null,null,null);
 wordsApi.updateBookmark(updateRequestRequest);
