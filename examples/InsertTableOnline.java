@@ -5,5 +5,5 @@ TableInsert requestTable = new TableInsert();
 requestTable.setColumnsCount(5);
 requestTable.setRowsCount(4);
 
-InsertTableOnlineRequest insertRequestRequest = new InsertTableOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestTable,"",null,null,null,null,null);
+InsertTableOnlineRequest insertRequestRequest = new InsertTableOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestTable,null,null,null,null,null,null);
 wordsApi.insertTableOnline(insertRequestRequest);

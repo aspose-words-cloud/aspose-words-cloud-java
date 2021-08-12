@@ -9,5 +9,5 @@ requestProperties.setBottomPadding((double)1);
 requestProperties.setCellSpacing((double)2);
 requestProperties.setStyleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS);
 
-UpdateTablePropertiesOnlineRequest updateRequestRequest = new UpdateTablePropertiesOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestProperties,1,"",null,null,null,null,null);
+UpdateTablePropertiesOnlineRequest updateRequestRequest = new UpdateTablePropertiesOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestProperties,1,null,null,null,null,null,null);
 wordsApi.updateTablePropertiesOnline(updateRequestRequest);

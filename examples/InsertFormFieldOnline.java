@@ -10,5 +10,5 @@ requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
 requestFormField.setTextInputDefault("123");
 requestFormField.setTextInputFormat("UPPERCASE");
 
-InsertFormFieldOnlineRequest insertRequestRequest = new InsertFormFieldOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "/FormFilled.docx").toAbsolutePath()),requestFormField,"sections/0/paragraphs/0",null,null,null,null,null,null);
+InsertFormFieldOnlineRequest insertRequestRequest = new InsertFormFieldOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestFormField,"sections/0/paragraphs/0",null,null,null,null,null,null);
 wordsApi.insertFormFieldOnline(insertRequestRequest);
