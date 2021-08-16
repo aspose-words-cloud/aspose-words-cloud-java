@@ -89,8 +89,9 @@ public class TestStyles  extends TestCase
     @Test
     public void testGetStylesOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetStylesOnlineRequest request = new GetStylesOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null
         );
@@ -133,8 +134,9 @@ public class TestStyles  extends TestCase
     @Test
     public void testGetStyleOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetStyleOnlineRequest request = new GetStyleOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "Heading 1",
             null,
             null
@@ -156,9 +158,6 @@ public class TestStyles  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        StyleUpdate requestStyleUpdate = new StyleUpdate();
-        requestStyleUpdate.setName("My Style");
 
         UpdateStyleRequest request = new UpdateStyleRequest(
             remoteFileName,
@@ -185,11 +184,10 @@ public class TestStyles  extends TestCase
     @Test
     public void testUpdateStyleOnline() throws ApiException, MessagingException, IOException
     {
-        StyleUpdate requestStyleUpdate = new StyleUpdate();
-        requestStyleUpdate.setName("My Style");
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         UpdateStyleOnlineRequest request = new UpdateStyleOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "Heading 1",
             requestStyleUpdate,
             null,
@@ -216,10 +214,6 @@ public class TestStyles  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        StyleInsert requestStyleInsert = new StyleInsert();
-        requestStyleInsert.setStyleName("My Style");
-        requestStyleInsert.setStyleType(StyleInsert.StyleTypeEnum.PARAGRAPH);
-
         InsertStyleRequest request = new InsertStyleRequest(
             remoteFileName,
             requestStyleInsert,
@@ -244,12 +238,10 @@ public class TestStyles  extends TestCase
     @Test
     public void testInsertStyleOnline() throws ApiException, MessagingException, IOException
     {
-        StyleInsert requestStyleInsert = new StyleInsert();
-        requestStyleInsert.setStyleName("My Style");
-        requestStyleInsert.setStyleType(StyleInsert.StyleTypeEnum.PARAGRAPH);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         InsertStyleOnlineRequest request = new InsertStyleOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestStyleInsert,
             null,
             null,
@@ -275,9 +267,6 @@ public class TestStyles  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        StyleCopy requestStyleCopy = new StyleCopy();
-        requestStyleCopy.setStyleName("Heading 1");
-
         CopyStyleRequest request = new CopyStyleRequest(
             remoteFileName,
             requestStyleCopy,
@@ -302,11 +291,10 @@ public class TestStyles  extends TestCase
     @Test
     public void testCopyStyleOnline() throws ApiException, MessagingException, IOException
     {
-        StyleCopy requestStyleCopy = new StyleCopy();
-        requestStyleCopy.setStyleName("Heading 1");
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         CopyStyleOnlineRequest request = new CopyStyleOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestStyleCopy,
             null,
             null,
@@ -353,8 +341,9 @@ public class TestStyles  extends TestCase
     @Test
     public void testGetStyleFromDocumentElementOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetStyleFromDocumentElementOnlineRequest request = new GetStyleFromDocumentElementOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "paragraphs/1/paragraphFormat",
             null,
             null
@@ -376,9 +365,6 @@ public class TestStyles  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        StyleApply requestStyleApply = new StyleApply();
-        requestStyleApply.setStyleName("Heading 1");
 
         ApplyStyleToDocumentElementRequest request = new ApplyStyleToDocumentElementRequest(
             remoteFileName,
@@ -403,11 +389,10 @@ public class TestStyles  extends TestCase
     @Test
     public void testApplyStyleToDocumentElementOnline() throws ApiException, MessagingException, IOException
     {
-        StyleApply requestStyleApply = new StyleApply();
-        requestStyleApply.setStyleName("Heading 1");
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         ApplyStyleToDocumentElementOnlineRequest request = new ApplyStyleToDocumentElementOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "paragraphs/1/paragraphFormat",
             requestStyleApply,
             null,

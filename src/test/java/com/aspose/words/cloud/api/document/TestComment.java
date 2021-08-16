@@ -89,8 +89,9 @@ public class TestComment  extends TestCase
     @Test
     public void testGetCommentOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetCommentOnlineRequest request = new GetCommentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             null,
             null
@@ -135,8 +136,9 @@ public class TestComment  extends TestCase
     @Test
     public void testGetCommentsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetCommentsOnlineRequest request = new GetCommentsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null
         );
@@ -157,27 +159,6 @@ public class TestComment  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        NodeLink requestCommentRangeStartNode = new NodeLink();
-        requestCommentRangeStartNode.setNodeId("0.3.0.3");
-
-        DocumentPosition requestCommentRangeStart = new DocumentPosition();
-        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
-        requestCommentRangeStart.setOffset(0);
-
-        NodeLink requestCommentRangeEndNode = new NodeLink();
-        requestCommentRangeEndNode.setNodeId("0.3.0.3");
-
-        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
-        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
-        requestCommentRangeEnd.setOffset(0);
-
-        CommentInsert requestComment = new CommentInsert();
-        requestComment.setRangeStart(requestCommentRangeStart);
-        requestComment.setRangeEnd(requestCommentRangeEnd);
-        requestComment.setInitial("IA");
-        requestComment.setAuthor("Imran Anwar");
-        requestComment.setText("A new Comment");
 
         InsertCommentRequest request = new InsertCommentRequest(
             remoteFileName,
@@ -206,29 +187,14 @@ public class TestComment  extends TestCase
     @Test
     public void testInsertCommentOnline() throws ApiException, MessagingException, IOException
     {
-        NodeLink requestCommentRangeStartNode = new NodeLink();
-        requestCommentRangeStartNode.setNodeId("0.3.0.3");
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
-        DocumentPosition requestCommentRangeStart = new DocumentPosition();
-        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
-        requestCommentRangeStart.setOffset(0);
 
-        NodeLink requestCommentRangeEndNode = new NodeLink();
-        requestCommentRangeEndNode.setNodeId("0.3.0.3");
 
-        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
-        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
-        requestCommentRangeEnd.setOffset(0);
 
-        CommentInsert requestComment = new CommentInsert();
-        requestComment.setRangeStart(requestCommentRangeStart);
-        requestComment.setRangeEnd(requestCommentRangeEnd);
-        requestComment.setInitial("IA");
-        requestComment.setAuthor("Imran Anwar");
-        requestComment.setText("A new Comment");
 
         InsertCommentOnlineRequest request = new InsertCommentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestComment,
             null,
             null,
@@ -253,27 +219,6 @@ public class TestComment  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        NodeLink requestCommentRangeStartNode = new NodeLink();
-        requestCommentRangeStartNode.setNodeId("0.3.0");
-
-        DocumentPosition requestCommentRangeStart = new DocumentPosition();
-        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
-        requestCommentRangeStart.setOffset(0);
-
-        NodeLink requestCommentRangeEndNode = new NodeLink();
-        requestCommentRangeEndNode.setNodeId("0.3.0");
-
-        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
-        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
-        requestCommentRangeEnd.setOffset(0);
-
-        CommentUpdate requestComment = new CommentUpdate();
-        requestComment.setRangeStart(requestCommentRangeStart);
-        requestComment.setRangeEnd(requestCommentRangeEnd);
-        requestComment.setInitial("IA");
-        requestComment.setAuthor("Imran Anwar");
-        requestComment.setText("A new Comment");
 
         UpdateCommentRequest request = new UpdateCommentRequest(
             remoteFileName,
@@ -303,29 +248,14 @@ public class TestComment  extends TestCase
     @Test
     public void testUpdateCommentOnline() throws ApiException, MessagingException, IOException
     {
-        NodeLink requestCommentRangeStartNode = new NodeLink();
-        requestCommentRangeStartNode.setNodeId("0.3.0");
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
-        DocumentPosition requestCommentRangeStart = new DocumentPosition();
-        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
-        requestCommentRangeStart.setOffset(0);
 
-        NodeLink requestCommentRangeEndNode = new NodeLink();
-        requestCommentRangeEndNode.setNodeId("0.3.0");
 
-        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
-        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
-        requestCommentRangeEnd.setOffset(0);
 
-        CommentUpdate requestComment = new CommentUpdate();
-        requestComment.setRangeStart(requestCommentRangeStart);
-        requestComment.setRangeEnd(requestCommentRangeEnd);
-        requestComment.setInitial("IA");
-        requestComment.setAuthor("Imran Anwar");
-        requestComment.setText("A new Comment");
 
         UpdateCommentOnlineRequest request = new UpdateCommentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             requestComment,
             null,
@@ -373,8 +303,9 @@ public class TestComment  extends TestCase
     @Test
     public void testDeleteCommentOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteCommentOnlineRequest request = new DeleteCommentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             null,
             null,
@@ -420,8 +351,9 @@ public class TestComment  extends TestCase
     @Test
     public void testDeleteCommentsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteCommentsOnlineRequest request = new DeleteCommentsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null,
             null,

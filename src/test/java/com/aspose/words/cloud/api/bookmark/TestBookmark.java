@@ -87,8 +87,9 @@ public class TestBookmark  extends TestCase
     @Test
     public void testGetBookmarksOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetBookmarksOnlineRequest request = new GetBookmarksOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null
         );
@@ -129,8 +130,9 @@ public class TestBookmark  extends TestCase
     @Test
     public void testGetBookmarkByNameOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetBookmarkByNameOnlineRequest request = new GetBookmarkByNameOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             bookmarkName,
             null,
             null
@@ -153,10 +155,6 @@ public class TestBookmark  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        BookmarkData requestBookmarkData = new BookmarkData();
-        requestBookmarkData.setName(bookmarkName);
-        requestBookmarkData.setText(bookmarkText);
 
         UpdateBookmarkRequest request = new UpdateBookmarkRequest(
             remoteFileName,
@@ -183,12 +181,10 @@ public class TestBookmark  extends TestCase
     {
         String remoteFileName = "TestUpdateDocumentBookmark.docx";
 
-        BookmarkData requestBookmarkData = new BookmarkData();
-        requestBookmarkData.setName(bookmarkName);
-        requestBookmarkData.setText("This will be the text for Aspose");
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         UpdateBookmarkOnlineRequest request = new UpdateBookmarkOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             bookmarkName,
             requestBookmarkData,
             null,

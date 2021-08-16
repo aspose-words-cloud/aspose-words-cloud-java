@@ -68,10 +68,6 @@ public class TestDocumentProtection  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        ProtectionRequest requestProtectionRequest = new ProtectionRequest();
-        requestProtectionRequest.setPassword("123");
-        requestProtectionRequest.setProtectionType("ReadOnly");
-
         ProtectDocumentRequest request = new ProtectDocumentRequest(
             remoteFileName,
             requestProtectionRequest,
@@ -94,11 +90,10 @@ public class TestDocumentProtection  extends TestCase
     @Test
     public void testProtectDocumentOnline() throws ApiException, MessagingException, IOException
     {
-        ProtectionRequest requestProtectionRequest = new ProtectionRequest();
-        requestProtectionRequest.setNewPassword("123");
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         ProtectDocumentOnlineRequest request = new ProtectDocumentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestProtectionRequest,
             null,
             null,
@@ -141,8 +136,9 @@ public class TestDocumentProtection  extends TestCase
     @Test
     public void testGetDocumentProtectionOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentProtectionOnlineRequest request = new GetDocumentProtectionOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null
         );
@@ -164,9 +160,6 @@ public class TestDocumentProtection  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFilePath),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        ProtectionRequest requestProtectionRequest = new ProtectionRequest();
-        requestProtectionRequest.setPassword("aspose");
 
         UnprotectDocumentRequest request = new UnprotectDocumentRequest(
             remoteFileName,
@@ -192,11 +185,10 @@ public class TestDocumentProtection  extends TestCase
     {
         String localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
 
-        ProtectionRequest requestProtectionRequest = new ProtectionRequest();
-        requestProtectionRequest.setPassword("aspose");
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFilePath).toAbsolutePath());
 
         UnprotectDocumentOnlineRequest request = new UnprotectDocumentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFilePath).toAbsolutePath()),
+            requestDocument,
             requestProtectionRequest,
             null,
             null,

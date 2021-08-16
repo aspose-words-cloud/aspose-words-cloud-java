@@ -92,8 +92,9 @@ public class TestTableBorder  extends TestCase
     @Test
     public void testGetBordersOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetBordersOnlineRequest request = new GetBordersOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "tables/1/rows/0/cells/0",
             null,
             null
@@ -139,8 +140,9 @@ public class TestTableBorder  extends TestCase
     @Test
     public void testGetBorderOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetBorderOnlineRequest request = new GetBorderOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "left",
             "tables/1/rows/0/cells/0",
             null,
@@ -186,8 +188,9 @@ public class TestTableBorder  extends TestCase
     @Test
     public void testDeleteBordersOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteBordersOnlineRequest request = new DeleteBordersOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "tables/1/rows/0/cells/0",
             null,
             null,
@@ -236,8 +239,9 @@ public class TestTableBorder  extends TestCase
     @Test
     public void testDeleteBorderOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteBorderOnlineRequest request = new DeleteBorderOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "left",
             "tables/1/rows/0/cells/0",
             null,
@@ -263,17 +267,6 @@ public class TestTableBorder  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        XmlColor requestBorderPropertiesColor = new XmlColor();
-        requestBorderPropertiesColor.setWeb("#AABBCC");
-
-        Border requestBorderProperties = new Border();
-        requestBorderProperties.setBorderType(Border.BorderTypeEnum.LEFT);
-        requestBorderProperties.setColor(requestBorderPropertiesColor);
-        requestBorderProperties.setDistanceFromText((double)6.0);
-        requestBorderProperties.setLineStyle(Border.LineStyleEnum.DASHDOTSTROKER);
-        requestBorderProperties.setLineWidth((double)2.0);
-        requestBorderProperties.setShadow(true);
 
         UpdateBorderRequest request = new UpdateBorderRequest(
             remoteFileName,
@@ -305,19 +298,11 @@ public class TestTableBorder  extends TestCase
     @Test
     public void testUpdateBorderOnline() throws ApiException, MessagingException, IOException
     {
-        XmlColor requestBorderPropertiesColor = new XmlColor();
-        requestBorderPropertiesColor.setWeb("#AABBCC");
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
-        Border requestBorderProperties = new Border();
-        requestBorderProperties.setBorderType(Border.BorderTypeEnum.LEFT);
-        requestBorderProperties.setColor(requestBorderPropertiesColor);
-        requestBorderProperties.setDistanceFromText((double)6);
-        requestBorderProperties.setLineStyle(Border.LineStyleEnum.DASHDOTSTROKER);
-        requestBorderProperties.setLineWidth((double)2);
-        requestBorderProperties.setShadow(true);
 
         UpdateBorderOnlineRequest request = new UpdateBorderOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestBorderProperties,
             "left",
             "tables/1/rows/0/cells/0",

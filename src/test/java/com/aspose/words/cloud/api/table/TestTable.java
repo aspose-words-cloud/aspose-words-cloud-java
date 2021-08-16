@@ -91,8 +91,9 @@ public class TestTable  extends TestCase
     @Test
     public void testGetTablesOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetTablesOnlineRequest request = new GetTablesOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "",
             null,
             null
@@ -170,8 +171,9 @@ public class TestTable  extends TestCase
     @Test
     public void testGetTableOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetTableOnlineRequest request = new GetTableOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             1,
             "",
             null,
@@ -249,8 +251,9 @@ public class TestTable  extends TestCase
     @Test
     public void testDeleteTableOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteTableOnlineRequest request = new DeleteTableOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             1,
             "",
             null,
@@ -306,10 +309,6 @@ public class TestTable  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        TableInsert requestTable = new TableInsert();
-        requestTable.setColumnsCount(5);
-        requestTable.setRowsCount(4);
-
         InsertTableRequest request = new InsertTableRequest(
             remoteFileName,
             requestTable,
@@ -338,12 +337,10 @@ public class TestTable  extends TestCase
     @Test
     public void testInsertTableOnline() throws ApiException, MessagingException, IOException
     {
-        TableInsert requestTable = new TableInsert();
-        requestTable.setColumnsCount(5);
-        requestTable.setRowsCount(4);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         InsertTableOnlineRequest request = new InsertTableOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestTable,
             "",
             null,
@@ -369,10 +366,6 @@ public class TestTable  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        TableInsert requestTable = new TableInsert();
-        requestTable.setColumnsCount(5);
-        requestTable.setRowsCount(4);
 
         InsertTableRequest request = new InsertTableRequest(
             remoteFileName,
@@ -431,8 +424,9 @@ public class TestTable  extends TestCase
     @Test
     public void testGetTablePropertiesOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetTablePropertiesOnlineRequest request = new GetTablePropertiesOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             1,
             "",
             null,
@@ -485,14 +479,6 @@ public class TestTable  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        TableProperties requestProperties = new TableProperties();
-        requestProperties.setAlignment(TableProperties.AlignmentEnum.RIGHT);
-        requestProperties.setAllowAutoFit(false);
-        requestProperties.setBidi(true);
-        requestProperties.setBottomPadding((double)1);
-        requestProperties.setCellSpacing((double)2.0);
-        requestProperties.setStyleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS);
-
         UpdateTablePropertiesRequest request = new UpdateTablePropertiesRequest(
             remoteFileName,
             1,
@@ -522,16 +508,10 @@ public class TestTable  extends TestCase
     @Test
     public void testUpdateTablePropertiesOnline() throws ApiException, MessagingException, IOException
     {
-        TableProperties requestProperties = new TableProperties();
-        requestProperties.setAlignment(TableProperties.AlignmentEnum.RIGHT);
-        requestProperties.setAllowAutoFit(false);
-        requestProperties.setBidi(true);
-        requestProperties.setBottomPadding((double)1);
-        requestProperties.setCellSpacing((double)2);
-        requestProperties.setStyleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         UpdateTablePropertiesOnlineRequest request = new UpdateTablePropertiesOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestProperties,
             1,
             "",
@@ -558,14 +538,6 @@ public class TestTable  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        TableProperties requestProperties = new TableProperties();
-        requestProperties.setAlignment(TableProperties.AlignmentEnum.RIGHT);
-        requestProperties.setAllowAutoFit(false);
-        requestProperties.setBidi(true);
-        requestProperties.setBottomPadding((double)1.0);
-        requestProperties.setCellSpacing((double)2.0);
-        requestProperties.setStyleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS);
 
         UpdateTablePropertiesRequest request = new UpdateTablePropertiesRequest(
             remoteFileName,
@@ -626,8 +598,9 @@ public class TestTable  extends TestCase
     @Test
     public void testGetTableRowOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetTableRowOnlineRequest request = new GetTableRowOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "tables/1",
             0,
             null,
@@ -673,8 +646,9 @@ public class TestTable  extends TestCase
     @Test
     public void testDeleteTableRowOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteTableRowOnlineRequest request = new DeleteTableRowOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "tables/1",
             0,
             null,
@@ -700,9 +674,6 @@ public class TestTable  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        TableRowInsert requestRow = new TableRowInsert();
-        requestRow.setColumnsCount(5);
 
         InsertTableRowRequest request = new InsertTableRowRequest(
             remoteFileName,
@@ -730,11 +701,10 @@ public class TestTable  extends TestCase
     @Test
     public void testInsertTableRowOnline() throws ApiException, MessagingException, IOException
     {
-        TableRowInsert requestRow = new TableRowInsert();
-        requestRow.setColumnsCount(5);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         InsertTableRowOnlineRequest request = new InsertTableRowOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "sections/0/tables/2",
             requestRow,
             null,
@@ -783,8 +753,9 @@ public class TestTable  extends TestCase
     @Test
     public void testGetTableRowFormatOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetTableRowFormatOnlineRequest request = new GetTableRowFormatOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "sections/0/tables/2",
             0,
             null,
@@ -807,12 +778,6 @@ public class TestTable  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        TableRowFormat requestFormat = new TableRowFormat();
-        requestFormat.setAllowBreakAcrossPages(true);
-        requestFormat.setHeadingFormat(true);
-        requestFormat.setHeight((double)10.0);
-        requestFormat.setHeightRule(TableRowFormat.HeightRuleEnum.EXACTLY);
 
         UpdateTableRowFormatRequest request = new UpdateTableRowFormatRequest(
             remoteFileName,
@@ -842,14 +807,10 @@ public class TestTable  extends TestCase
     @Test
     public void testUpdateTableRowFormatOnline() throws ApiException, MessagingException, IOException
     {
-        TableRowFormat requestFormat = new TableRowFormat();
-        requestFormat.setAllowBreakAcrossPages(true);
-        requestFormat.setHeadingFormat(true);
-        requestFormat.setHeight((double)10);
-        requestFormat.setHeightRule(TableRowFormat.HeightRuleEnum.AUTO);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         UpdateTableRowFormatOnlineRequest request = new UpdateTableRowFormatOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "sections/0/tables/2",
             requestFormat,
             0,
@@ -899,8 +860,9 @@ public class TestTable  extends TestCase
     @Test
     public void testGetTableCellOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetTableCellOnlineRequest request = new GetTableCellOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "sections/0/tables/2/rows/0",
             0,
             null,
@@ -946,8 +908,9 @@ public class TestTable  extends TestCase
     @Test
     public void testDeleteTableCellOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteTableCellOnlineRequest request = new DeleteTableCellOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "sections/0/tables/2/rows/0",
             0,
             null,
@@ -974,8 +937,6 @@ public class TestTable  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        TableCellInsert requestCell = new TableCellInsert();
-
         InsertTableCellRequest request = new InsertTableCellRequest(
             remoteFileName,
             "sections/0/tables/2/rows/0",
@@ -1001,10 +962,10 @@ public class TestTable  extends TestCase
     @Test
     public void testInsertTableCellOnline() throws ApiException, MessagingException, IOException
     {
-        TableCellInsert requestCell = new TableCellInsert();
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         InsertTableCellOnlineRequest request = new InsertTableCellOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "sections/0/tables/2/rows/0",
             requestCell,
             null,
@@ -1053,8 +1014,9 @@ public class TestTable  extends TestCase
     @Test
     public void testGetTableCellFormatOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetTableCellFormatOnlineRequest request = new GetTableCellFormatOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "sections/0/tables/2/rows/0",
             0,
             null,
@@ -1077,12 +1039,6 @@ public class TestTable  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        TableCellFormat requestFormat = new TableCellFormat();
-        requestFormat.setBottomPadding((double)5.0);
-        requestFormat.setFitText(true);
-        requestFormat.setHorizontalMerge(TableCellFormat.HorizontalMergeEnum.FIRST);
-        requestFormat.setWrapText(true);
 
         UpdateTableCellFormatRequest request = new UpdateTableCellFormatRequest(
             remoteFileName,
@@ -1112,14 +1068,10 @@ public class TestTable  extends TestCase
     @Test
     public void testUpdateTableCellFormatOnline() throws ApiException, MessagingException, IOException
     {
-        TableCellFormat requestFormat = new TableCellFormat();
-        requestFormat.setBottomPadding((double)5);
-        requestFormat.setFitText(true);
-        requestFormat.setHorizontalMerge(TableCellFormat.HorizontalMergeEnum.FIRST);
-        requestFormat.setWrapText(true);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         UpdateTableCellFormatOnlineRequest request = new UpdateTableCellFormatOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "sections/0/tables/2/rows/0",
             requestFormat,
             0,
@@ -1170,8 +1122,9 @@ public class TestTable  extends TestCase
     @Test
     public void testRenderTableOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         RenderTableOnlineRequest request = new RenderTableOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "png",
             0,
             "",

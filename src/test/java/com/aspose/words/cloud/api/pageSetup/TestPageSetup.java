@@ -90,8 +90,9 @@ public class TestPageSetup  extends TestCase
     @Test
     public void testGetSectionPageSetupOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetSectionPageSetupOnlineRequest request = new GetSectionPageSetupOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             null,
             null
@@ -113,12 +114,6 @@ public class TestPageSetup  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        PageSetup requestPageSetup = new PageSetup();
-        requestPageSetup.setRtlGutter(true);
-        requestPageSetup.setLeftMargin((double)10.0);
-        requestPageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
-        requestPageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
 
         UpdateSectionPageSetupRequest request = new UpdateSectionPageSetupRequest(
             remoteFileName,
@@ -147,14 +142,10 @@ public class TestPageSetup  extends TestCase
     @Test
     public void testUpdateSectionPageSetupOnline() throws ApiException, MessagingException, IOException
     {
-        PageSetup requestPageSetup = new PageSetup();
-        requestPageSetup.setRtlGutter(true);
-        requestPageSetup.setLeftMargin((double)10);
-        requestPageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
-        requestPageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         UpdateSectionPageSetupOnlineRequest request = new UpdateSectionPageSetupOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             requestPageSetup,
             null,
@@ -202,8 +193,9 @@ public class TestPageSetup  extends TestCase
     @Test
     public void testGetRenderPageOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localTextFile).toAbsolutePath());
         RenderPageOnlineRequest request = new RenderPageOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localTextFile).toAbsolutePath()),
+            requestDocument,
             1,
             "bmp",
             null,

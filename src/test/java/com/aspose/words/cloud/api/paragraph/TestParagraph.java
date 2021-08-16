@@ -92,8 +92,9 @@ public class TestParagraph  extends TestCase
     @Test
     public void testGetDocumentParagraphOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetParagraphOnlineRequest request = new GetParagraphOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             "sections/0",
             null,
@@ -169,8 +170,9 @@ public class TestParagraph  extends TestCase
     @Test
     public void testGetDocumentParagraphsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetParagraphsOnlineRequest request = new GetParagraphsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "sections/0",
             null,
             null
@@ -245,8 +247,9 @@ public class TestParagraph  extends TestCase
     @Test
     public void testGetDocumentParagraphRunOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetRunOnlineRequest request = new GetRunOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "paragraphs/0",
             0,
             null,
@@ -292,8 +295,9 @@ public class TestParagraph  extends TestCase
     @Test
     public void testGetDocumentParagraphRunFontOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetRunFontOnlineRequest request = new GetRunFontOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "paragraphs/0",
             0,
             null,
@@ -340,8 +344,9 @@ public class TestParagraph  extends TestCase
     @Test
     public void testGetParagraphRunsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetRunsOnlineRequest request = new GetRunsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "sections/0/paragraphs/0",
             null,
             null
@@ -363,9 +368,6 @@ public class TestParagraph  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        Font requestFontDto = new Font();
-        requestFontDto.setBold(true);
 
         UpdateRunFontRequest request = new UpdateRunFontRequest(
             remoteFileName,
@@ -393,11 +395,10 @@ public class TestParagraph  extends TestCase
     @Test
     public void testUpdateRunFontOnline() throws ApiException, MessagingException, IOException
     {
-        Font requestFontDto = new Font();
-        requestFontDto.setBold(true);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         UpdateRunFontOnlineRequest request = new UpdateRunFontOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "paragraphs/0",
             requestFontDto,
             0,
@@ -425,9 +426,6 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        ParagraphInsert requestParagraph = new ParagraphInsert();
-        requestParagraph.setText("This is a new paragraph for your document");
-
         InsertParagraphRequest request = new InsertParagraphRequest(
             remoteFileName,
             requestParagraph,
@@ -454,11 +452,10 @@ public class TestParagraph  extends TestCase
     @Test
     public void testInsertParagraphOnline() throws ApiException, MessagingException, IOException
     {
-        ParagraphInsert requestParagraph = new ParagraphInsert();
-        requestParagraph.setText("This is a new paragraph for your document");
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         InsertParagraphOnlineRequest request = new InsertParagraphOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestParagraph,
             "sections/0",
             null,
@@ -485,9 +482,6 @@ public class TestParagraph  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        ParagraphInsert requestParagraph = new ParagraphInsert();
-        requestParagraph.setText("This is a new paragraph for your document");
 
         InsertParagraphRequest request = new InsertParagraphRequest(
             remoteFileName,
@@ -545,8 +539,9 @@ public class TestParagraph  extends TestCase
     @Test
     public void testRenderParagraphOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         RenderParagraphOnlineRequest request = new RenderParagraphOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "png",
             0,
             "",
@@ -625,8 +620,9 @@ public class TestParagraph  extends TestCase
     @Test
     public void testGetParagraphFormatOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetParagraphFormatOnlineRequest request = new GetParagraphFormatOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             "",
             null,
@@ -679,9 +675,6 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        ParagraphFormatUpdate requestParagraphFormatDto = new ParagraphFormatUpdate();
-        requestParagraphFormatDto.setAlignment(ParagraphFormatUpdate.AlignmentEnum.RIGHT);
-
         UpdateParagraphFormatRequest request = new UpdateParagraphFormatRequest(
             remoteFileName,
             0,
@@ -708,11 +701,10 @@ public class TestParagraph  extends TestCase
     @Test
     public void testUpdateParagraphFormatOnline() throws ApiException, MessagingException, IOException
     {
-        ParagraphFormatUpdate requestParagraphFormatDto = new ParagraphFormatUpdate();
-        requestParagraphFormatDto.setAlignment(ParagraphFormatUpdate.AlignmentEnum.RIGHT);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         UpdateParagraphFormatOnlineRequest request = new UpdateParagraphFormatOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestParagraphFormatDto,
             0,
             "",
@@ -762,8 +754,9 @@ public class TestParagraph  extends TestCase
     @Test
     public void testDeleteParagraphOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteParagraphOnlineRequest request = new DeleteParagraphOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             "",
             null,
@@ -841,8 +834,9 @@ public class TestParagraph  extends TestCase
     @Test
     public void testGetParagraphListFormatOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, listFolder + "/ParagraphGetListFormat.doc").toAbsolutePath());
         GetParagraphListFormatOnlineRequest request = new GetParagraphListFormatOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, listFolder + "/ParagraphGetListFormat.doc").toAbsolutePath()),
+            requestDocument,
             0,
             "",
             null,
@@ -895,9 +889,6 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        ListFormatUpdate requestListFormatDto = new ListFormatUpdate();
-        requestListFormatDto.setListId(2);
-
         UpdateParagraphListFormatRequest request = new UpdateParagraphListFormatRequest(
             remoteFileName,
             0,
@@ -924,11 +915,10 @@ public class TestParagraph  extends TestCase
     @Test
     public void testUpdateParagraphListFormatOnline() throws ApiException, MessagingException, IOException
     {
-        ListFormatUpdate requestListFormatDto = new ListFormatUpdate();
-        requestListFormatDto.setListId(2);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, listFolder + "/ParagraphUpdateListFormat.doc").toAbsolutePath());
 
         UpdateParagraphListFormatOnlineRequest request = new UpdateParagraphListFormatOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, listFolder + "/ParagraphUpdateListFormat.doc").toAbsolutePath()),
+            requestDocument,
             requestListFormatDto,
             0,
             "",
@@ -955,9 +945,6 @@ public class TestParagraph  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, listFolder + "/ParagraphUpdateListFormat.doc"),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        ListFormatUpdate requestListFormatDto = new ListFormatUpdate();
-        requestListFormatDto.setListId(2);
 
         UpdateParagraphListFormatRequest request = new UpdateParagraphListFormatRequest(
             remoteFileName,
@@ -1015,8 +1002,9 @@ public class TestParagraph  extends TestCase
     @Test
     public void testDeleteParagraphListFormatOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, listFolder + "/ParagraphDeleteListFormat.doc").toAbsolutePath());
         DeleteParagraphListFormatOnlineRequest request = new DeleteParagraphListFormatOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, listFolder + "/ParagraphDeleteListFormat.doc").toAbsolutePath()),
+            requestDocument,
             0,
             "",
             null,
@@ -1096,8 +1084,9 @@ public class TestParagraph  extends TestCase
     @Test
     public void testGetParagraphTabStopsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, tabStopFolder + "/ParagraphTabStops.docx").toAbsolutePath());
         GetParagraphTabStopsOnlineRequest request = new GetParagraphTabStopsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, tabStopFolder + "/ParagraphTabStops.docx").toAbsolutePath()),
+            requestDocument,
             0,
             "",
             null,
@@ -1151,11 +1140,6 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        TabStopInsert requestTabStopInsertDto = new TabStopInsert();
-        requestTabStopInsertDto.setAlignment(TabStopInsert.AlignmentEnum.LEFT);
-        requestTabStopInsertDto.setLeader(TabStopInsert.LeaderEnum.NONE);
-        requestTabStopInsertDto.setPosition((double)100.0);
-
         InsertOrUpdateParagraphTabStopRequest request = new InsertOrUpdateParagraphTabStopRequest(
             remoteFileName,
             0,
@@ -1183,13 +1167,10 @@ public class TestParagraph  extends TestCase
     @Test
     public void testInsertParagraphTabStopsOnline() throws ApiException, MessagingException, IOException
     {
-        TabStopInsert requestTabStopInsertDto = new TabStopInsert();
-        requestTabStopInsertDto.setAlignment(TabStopInsert.AlignmentEnum.LEFT);
-        requestTabStopInsertDto.setLeader(TabStopInsert.LeaderEnum.NONE);
-        requestTabStopInsertDto.setPosition((double)72);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, tabStopFolder + "/ParagraphTabStops.docx").toAbsolutePath());
 
         InsertOrUpdateParagraphTabStopOnlineRequest request = new InsertOrUpdateParagraphTabStopOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, tabStopFolder + "/ParagraphTabStops.docx").toAbsolutePath()),
+            requestDocument,
             requestTabStopInsertDto,
             0,
             "",
@@ -1214,11 +1195,6 @@ public class TestParagraph  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, tabStopFolder + "/ParagraphTabStops.docx"),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        TabStopInsert requestTabStopInsertDto = new TabStopInsert();
-        requestTabStopInsertDto.setAlignment(TabStopInsert.AlignmentEnum.LEFT);
-        requestTabStopInsertDto.setLeader(TabStopInsert.LeaderEnum.NONE);
-        requestTabStopInsertDto.setPosition((double)100.0);
 
         InsertOrUpdateParagraphTabStopRequest request = new InsertOrUpdateParagraphTabStopRequest(
             remoteFileName,
@@ -1277,8 +1253,9 @@ public class TestParagraph  extends TestCase
     @Test
     public void testDeleteAllParagraphTabStopsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, tabStopFolder + "/ParagraphTabStops.docx").toAbsolutePath());
         DeleteAllParagraphTabStopsOnlineRequest request = new DeleteAllParagraphTabStopsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, tabStopFolder + "/ParagraphTabStops.docx").toAbsolutePath()),
+            requestDocument,
             0,
             "",
             null,
@@ -1357,8 +1334,9 @@ public class TestParagraph  extends TestCase
     @Test
     public void testDeleteParagraphTabStopOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, tabStopFolder + "/ParagraphTabStops.docx").toAbsolutePath());
         DeleteParagraphTabStopOnlineRequest request = new DeleteParagraphTabStopOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, tabStopFolder + "/ParagraphTabStops.docx").toAbsolutePath()),
+            requestDocument,
             (double)72.0,
             0,
             "",

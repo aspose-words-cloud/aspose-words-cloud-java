@@ -90,8 +90,9 @@ public class TestLists  extends TestCase
     @Test
     public void testGetListsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetListsOnlineRequest request = new GetListsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null
         );
@@ -134,8 +135,9 @@ public class TestLists  extends TestCase
     @Test
     public void testGetListOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetListOnlineRequest request = new GetListOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             1,
             null,
             null
@@ -157,9 +159,6 @@ public class TestLists  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
-
-        ListUpdate requestListUpdate = new ListUpdate();
-        requestListUpdate.setIsRestartAtEachSection(true);
 
         UpdateListRequest request = new UpdateListRequest(
             remoteFileName,
@@ -184,11 +183,10 @@ public class TestLists  extends TestCase
     @Test
     public void testUpdateListOnline() throws ApiException, MessagingException, IOException
     {
-        ListUpdate requestListUpdate = new ListUpdate();
-        requestListUpdate.setIsRestartAtEachSection(true);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         UpdateListOnlineRequest request = new UpdateListOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             1,
             requestListUpdate,
             null,
@@ -218,9 +216,6 @@ public class TestLists  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        ListLevelUpdate requestListUpdate = new ListLevelUpdate();
-        requestListUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
-
         UpdateListLevelRequest request = new UpdateListLevelRequest(
             remoteFileName,
             1,
@@ -245,11 +240,10 @@ public class TestLists  extends TestCase
     @Test
     public void testUpdateListLevelOnline() throws ApiException, MessagingException, IOException
     {
-        ListLevelUpdate requestListUpdate = new ListLevelUpdate();
-        requestListUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         UpdateListLevelOnlineRequest request = new UpdateListLevelOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             1,
             requestListUpdate,
             1,
@@ -282,9 +276,6 @@ public class TestLists  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        ListInsert requestListInsert = new ListInsert();
-        requestListInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
-
         InsertListRequest request = new InsertListRequest(
             remoteFileName,
             requestListInsert,
@@ -309,11 +300,10 @@ public class TestLists  extends TestCase
     @Test
     public void testInsertListOnline() throws ApiException, MessagingException, IOException
     {
-        ListInsert requestListInsert = new ListInsert();
-        requestListInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         InsertListOnlineRequest request = new InsertListOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestListInsert,
             null,
             null,

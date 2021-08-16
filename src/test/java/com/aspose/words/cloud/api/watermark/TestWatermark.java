@@ -99,9 +99,11 @@ public class TestWatermark  extends TestCase
     @Test
     public void testInsertWatermarkImageOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         InsertWatermarkImageOnlineRequest request = new InsertWatermarkImageOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
+            requestDocument,
+            requestImageFile,
             null,
             null,
             null,
@@ -128,10 +130,6 @@ public class TestWatermark  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        WatermarkText requestWatermarkText = new WatermarkText();
-        requestWatermarkText.setText("This is the text");
-        requestWatermarkText.setRotationAngle((double)90.0);
-
         InsertWatermarkTextRequest request = new InsertWatermarkTextRequest(
             remoteFileName,
             requestWatermarkText,
@@ -156,12 +154,10 @@ public class TestWatermark  extends TestCase
     @Test
     public void testInsertWatermarkTextOnline() throws ApiException, MessagingException, IOException
     {
-        WatermarkText requestWatermarkText = new WatermarkText();
-        requestWatermarkText.setText("This is the text");
-        requestWatermarkText.setRotationAngle((double)90);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
 
         InsertWatermarkTextOnlineRequest request = new InsertWatermarkTextOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestWatermarkText,
             null,
             null,
@@ -210,8 +206,9 @@ public class TestWatermark  extends TestCase
     @Test
     public void testDeleteWatermarkOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteWatermarkOnlineRequest request = new DeleteWatermarkOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null,
             null,

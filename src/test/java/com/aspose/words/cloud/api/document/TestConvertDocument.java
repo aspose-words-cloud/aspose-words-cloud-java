@@ -69,10 +69,6 @@ public class TestConvertDocument  extends TestCase
             remoteFolder + "/" + remoteName
         );
 
-        SaveOptionsData requestSaveOptionsData = new SaveOptionsData();
-        requestSaveOptionsData.setSaveFormat("pdf");
-        requestSaveOptionsData.setFileName(TestInitializer.RemoteTestOut + "/TestSaveAs.pdf");
-
         SaveAsRequest request = new SaveAsRequest(
             remoteName,
             requestSaveOptionsData,
@@ -97,12 +93,10 @@ public class TestConvertDocument  extends TestCase
     {
         String localName = "test_multi_pages.docx";
 
-        SaveOptionsData requestSaveOptionsData = new SaveOptionsData();
-        requestSaveOptionsData.setSaveFormat("pdf");
-        requestSaveOptionsData.setFileName(TestInitializer.RemoteTestOut + "/TestSaveAs.pdf");
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath());
 
         SaveAsOnlineRequest request = new SaveAsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath()),
+            requestDocument,
             requestSaveOptionsData,
             null,
             null,
@@ -126,10 +120,6 @@ public class TestConvertDocument  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFolder + "/" + localName),
             remoteFolder + "/" + remoteName
         );
-
-        SaveOptionsData requestSaveOptionsData = new SaveOptionsData();
-        requestSaveOptionsData.setSaveFormat("docx");
-        requestSaveOptionsData.setFileName(TestInitializer.RemoteTestOut + "/TestSaveAsFromPdfToDoc.docx");
 
         SaveAsRequest request = new SaveAsRequest(
             remoteName,
@@ -160,10 +150,6 @@ public class TestConvertDocument  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, "Common/" + localName),
             remoteFolder + "/" + remoteName
         );
-
-        TiffSaveOptionsData requestSaveOptions = new TiffSaveOptionsData();
-        requestSaveOptions.setSaveFormat("tiff");
-        requestSaveOptions.setFileName(TestInitializer.RemoteTestOut + "/abc.tiff");
 
         SaveAsTiffRequest request = new SaveAsTiffRequest(
             remoteName,
@@ -206,12 +192,10 @@ public class TestConvertDocument  extends TestCase
     {
         String localName = "test_multi_pages.docx";
 
-        TiffSaveOptionsData requestSaveOptions = new TiffSaveOptionsData();
-        requestSaveOptions.setSaveFormat("tiff");
-        requestSaveOptions.setFileName(TestInitializer.RemoteTestOut + "/abc.tiff");
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath());
 
         SaveAsTiffOnlineRequest request = new SaveAsTiffOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath()),
+            requestDocument,
             requestSaveOptions,
             null,
             null,
@@ -245,8 +229,9 @@ public class TestConvertDocument  extends TestCase
     @Test
     public void testConvertDocument() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/test_uploadfile.docx").toAbsolutePath());
         ConvertDocumentRequest request = new ConvertDocumentRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/test_uploadfile.docx").toAbsolutePath()),
+            requestDocument,
             "pdf",
             null,
             null,
