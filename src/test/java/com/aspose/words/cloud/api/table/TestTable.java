@@ -987,10 +987,12 @@ public class TestTable  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        TableCellInsert requestCell = new TableCellInsert();
+
         InsertTableCellRequest request = new InsertTableCellRequest(
             remoteFileName,
             "sections/0/tables/2/rows/0",
-            null,
+            requestCell,
             remoteDataFolder,
             null,
             null,
@@ -1013,11 +1015,12 @@ public class TestTable  extends TestCase
     public void testInsertTableCellOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        TableCellInsert requestCell = new TableCellInsert();
 
         InsertTableCellOnlineRequest request = new InsertTableCellOnlineRequest(
             requestDocument,
             "sections/0/tables/2/rows/0",
-            null,
+            requestCell,
             null,
             null,
             null,
