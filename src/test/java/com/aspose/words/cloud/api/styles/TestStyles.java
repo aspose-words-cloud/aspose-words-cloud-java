@@ -159,6 +159,9 @@ public class TestStyles  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        StyleUpdate requestStyleUpdate = new StyleUpdate();
+        requestStyleUpdate.setName("My Style");
+
         UpdateStyleRequest request = new UpdateStyleRequest(
             remoteFileName,
             "Heading 1",
@@ -185,6 +188,8 @@ public class TestStyles  extends TestCase
     public void testUpdateStyleOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        StyleUpdate requestStyleUpdate = new StyleUpdate();
+        requestStyleUpdate.setName("My Style");
 
         UpdateStyleOnlineRequest request = new UpdateStyleOnlineRequest(
             requestDocument,
@@ -214,6 +219,10 @@ public class TestStyles  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        StyleInsert requestStyleInsert = new StyleInsert();
+        requestStyleInsert.setStyleName("My Style");
+        requestStyleInsert.setStyleType(StyleInsert.StyleTypeEnum.PARAGRAPH);
+
         InsertStyleRequest request = new InsertStyleRequest(
             remoteFileName,
             requestStyleInsert,
@@ -239,6 +248,9 @@ public class TestStyles  extends TestCase
     public void testInsertStyleOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        StyleInsert requestStyleInsert = new StyleInsert();
+        requestStyleInsert.setStyleName("My Style");
+        requestStyleInsert.setStyleType(StyleInsert.StyleTypeEnum.PARAGRAPH);
 
         InsertStyleOnlineRequest request = new InsertStyleOnlineRequest(
             requestDocument,
@@ -267,6 +279,9 @@ public class TestStyles  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        StyleCopy requestStyleCopy = new StyleCopy();
+        requestStyleCopy.setStyleName("Heading 1");
+
         CopyStyleRequest request = new CopyStyleRequest(
             remoteFileName,
             requestStyleCopy,
@@ -292,6 +307,8 @@ public class TestStyles  extends TestCase
     public void testCopyStyleOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        StyleCopy requestStyleCopy = new StyleCopy();
+        requestStyleCopy.setStyleName("Heading 1");
 
         CopyStyleOnlineRequest request = new CopyStyleOnlineRequest(
             requestDocument,
@@ -366,6 +383,9 @@ public class TestStyles  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        StyleApply requestStyleApply = new StyleApply();
+        requestStyleApply.setStyleName("Heading 1");
+
         ApplyStyleToDocumentElementRequest request = new ApplyStyleToDocumentElementRequest(
             remoteFileName,
             "paragraphs/1/paragraphFormat",
@@ -390,6 +410,8 @@ public class TestStyles  extends TestCase
     public void testApplyStyleToDocumentElementOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        StyleApply requestStyleApply = new StyleApply();
+        requestStyleApply.setStyleName("Heading 1");
 
         ApplyStyleToDocumentElementOnlineRequest request = new ApplyStyleToDocumentElementOnlineRequest(
             requestDocument,

@@ -170,6 +170,10 @@ public class TestCustomXmlParts  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        CustomXmlPartInsert requestCustomXmlPart = new CustomXmlPartInsert();
+        requestCustomXmlPart.setId("hello");
+        requestCustomXmlPart.setData("<data>Hello world</data>");
+
         InsertCustomXmlPartRequest request = new InsertCustomXmlPartRequest(
             remoteFileName,
             requestCustomXmlPart,
@@ -196,6 +200,9 @@ public class TestCustomXmlParts  extends TestCase
     public void testInsertCustomXmlPartOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        CustomXmlPartInsert requestCustomXmlPart = new CustomXmlPartInsert();
+        requestCustomXmlPart.setId("hello");
+        requestCustomXmlPart.setData("<data>Hello world</data>");
 
         InsertCustomXmlPartOnlineRequest request = new InsertCustomXmlPartOnlineRequest(
             requestDocument,
@@ -227,6 +234,9 @@ public class TestCustomXmlParts  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        CustomXmlPartUpdate requestCustomXmlPart = new CustomXmlPartUpdate();
+        requestCustomXmlPart.setData("<data>Hello world</data>");
+
         UpdateCustomXmlPartRequest request = new UpdateCustomXmlPartRequest(
             remoteFileName,
             0,
@@ -254,6 +264,8 @@ public class TestCustomXmlParts  extends TestCase
     public void testUpdateCustomXmlPartOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        CustomXmlPartUpdate requestCustomXmlPart = new CustomXmlPartUpdate();
+        requestCustomXmlPart.setData("<data>Hello world</data>");
 
         UpdateCustomXmlPartOnlineRequest request = new UpdateCustomXmlPartOnlineRequest(
             requestDocument,

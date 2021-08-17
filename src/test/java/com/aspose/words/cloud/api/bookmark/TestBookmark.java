@@ -156,6 +156,10 @@ public class TestBookmark  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        BookmarkData requestBookmarkData = new BookmarkData();
+        requestBookmarkData.setName(bookmarkName);
+        requestBookmarkData.setText(bookmarkText);
+
         UpdateBookmarkRequest request = new UpdateBookmarkRequest(
             remoteFileName,
             bookmarkName,
@@ -182,6 +186,9 @@ public class TestBookmark  extends TestCase
         String remoteFileName = "TestUpdateDocumentBookmark.docx";
 
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        BookmarkData requestBookmarkData = new BookmarkData();
+        requestBookmarkData.setName(bookmarkName);
+        requestBookmarkData.setText("This will be the text for Aspose");
 
         UpdateBookmarkOnlineRequest request = new UpdateBookmarkOnlineRequest(
             requestDocument,

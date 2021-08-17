@@ -68,6 +68,16 @@ public class TestAppendDocument  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
+        requestDocumentListDocumentEntries0.setHref(remoteDataFolder + "/" + remoteFileName);
+        requestDocumentListDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
+
+        ArrayList<DocumentEntry> requestDocumentListDocumentEntries = new ArrayList<DocumentEntry>();
+        requestDocumentListDocumentEntries.add(requestDocumentListDocumentEntries0);
+
+        DocumentEntryList requestDocumentList = new DocumentEntryList();
+        requestDocumentList.setDocumentEntries(requestDocumentListDocumentEntries);
+
         AppendDocumentRequest request = new AppendDocumentRequest(
             remoteFileName,
             requestDocumentList,
@@ -100,8 +110,15 @@ public class TestAppendDocument  extends TestCase
         );
 
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
+        requestDocumentListDocumentEntries0.setHref(remoteDataFolder + "/" + remoteFileName);
+        requestDocumentListDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
 
+        ArrayList<DocumentEntry> requestDocumentListDocumentEntries = new ArrayList<DocumentEntry>();
+        requestDocumentListDocumentEntries.add(requestDocumentListDocumentEntries0);
 
+        DocumentEntryList requestDocumentList = new DocumentEntryList();
+        requestDocumentList.setDocumentEntries(requestDocumentListDocumentEntries);
 
         AppendDocumentOnlineRequest request = new AppendDocumentOnlineRequest(
             requestDocument,

@@ -115,6 +115,12 @@ public class TestPageSetup  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        PageSetup requestPageSetup = new PageSetup();
+        requestPageSetup.setRtlGutter(true);
+        requestPageSetup.setLeftMargin((double)10.0);
+        requestPageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
+        requestPageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
+
         UpdateSectionPageSetupRequest request = new UpdateSectionPageSetupRequest(
             remoteFileName,
             0,
@@ -143,6 +149,11 @@ public class TestPageSetup  extends TestCase
     public void testUpdateSectionPageSetupOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        PageSetup requestPageSetup = new PageSetup();
+        requestPageSetup.setRtlGutter(true);
+        requestPageSetup.setLeftMargin((double)10);
+        requestPageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
+        requestPageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
 
         UpdateSectionPageSetupOnlineRequest request = new UpdateSectionPageSetupOnlineRequest(
             requestDocument,

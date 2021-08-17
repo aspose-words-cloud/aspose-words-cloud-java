@@ -163,6 +163,9 @@ public class TestRange  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        RangeDocument requestDocumentParameters = new RangeDocument();
+        requestDocumentParameters.setDocumentName(remoteDataFolder + "/NewDoc.docx");
+
         SaveAsRangeRequest request = new SaveAsRangeRequest(
             remoteFileName,
             "id0.0.0",
@@ -187,6 +190,8 @@ public class TestRange  extends TestCase
     public void testSaveAsRangeOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        RangeDocument requestDocumentParameters = new RangeDocument();
+        requestDocumentParameters.setDocumentName(remoteDataFolder + "/NewDoc.docx");
 
         SaveAsRangeOnlineRequest request = new SaveAsRangeOnlineRequest(
             requestDocument,
@@ -214,6 +219,9 @@ public class TestRange  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        ReplaceRange requestRangeText = new ReplaceRange();
+        requestRangeText.setText("Replaced header");
+
         ReplaceWithTextRequest request = new ReplaceWithTextRequest(
             remoteFileName,
             "id0.0.0",
@@ -239,6 +247,8 @@ public class TestRange  extends TestCase
     public void testReplaceWithTextOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        ReplaceRange requestRangeText = new ReplaceRange();
+        requestRangeText.setText("Replaced header");
 
         ReplaceWithTextOnlineRequest request = new ReplaceWithTextOnlineRequest(
             requestDocument,

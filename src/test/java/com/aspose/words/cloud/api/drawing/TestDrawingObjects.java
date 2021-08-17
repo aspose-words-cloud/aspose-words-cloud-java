@@ -440,6 +440,15 @@ public class TestDrawingObjects  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        DrawingObjectInsert requestDrawingObject = new DrawingObjectInsert();
+        requestDrawingObject.setHeight((double)0);
+        requestDrawingObject.setLeft((double)0);
+        requestDrawingObject.setTop((double)0);
+        requestDrawingObject.setWidth((double)0);
+        requestDrawingObject.setRelativeHorizontalPosition(DrawingObjectInsert.RelativeHorizontalPositionEnum.MARGIN);
+        requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
+        requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
+
         byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         InsertDrawingObjectRequest request = new InsertDrawingObjectRequest(
             remoteFileName,
@@ -466,6 +475,14 @@ public class TestDrawingObjects  extends TestCase
     public void testInsertDrawingObjectOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        DrawingObjectInsert requestDrawingObject = new DrawingObjectInsert();
+        requestDrawingObject.setHeight((double)0);
+        requestDrawingObject.setLeft((double)0);
+        requestDrawingObject.setTop((double)0);
+        requestDrawingObject.setWidth((double)0);
+        requestDrawingObject.setRelativeHorizontalPosition(DrawingObjectInsert.RelativeHorizontalPositionEnum.MARGIN);
+        requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
+        requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
 
         byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         InsertDrawingObjectOnlineRequest request = new InsertDrawingObjectOnlineRequest(
@@ -496,6 +513,15 @@ public class TestDrawingObjects  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
+
+        DrawingObjectInsert requestDrawingObject = new DrawingObjectInsert();
+        requestDrawingObject.setHeight((double)0);
+        requestDrawingObject.setLeft((double)0);
+        requestDrawingObject.setTop((double)0);
+        requestDrawingObject.setWidth((double)0);
+        requestDrawingObject.setRelativeHorizontalPosition(DrawingObjectInsert.RelativeHorizontalPositionEnum.MARGIN);
+        requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
+        requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
 
         byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         InsertDrawingObjectRequest request = new InsertDrawingObjectRequest(
@@ -609,6 +635,9 @@ public class TestDrawingObjects  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
+        requestDrawingObject.setLeft((double)0);
+
         byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(
             remoteFileName,
@@ -636,6 +665,8 @@ public class TestDrawingObjects  extends TestCase
     public void testUpdateDrawingObjectOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
+        requestDrawingObject.setLeft((double)0);
 
         byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         UpdateDrawingObjectOnlineRequest request = new UpdateDrawingObjectOnlineRequest(
@@ -667,6 +698,9 @@ public class TestDrawingObjects  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
             remoteDataFolder + "/" + remoteFileName
         );
+
+        DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
+        requestDrawingObject.setLeft((double)0);
 
         byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(

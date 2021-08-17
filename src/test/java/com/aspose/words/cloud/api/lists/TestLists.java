@@ -160,6 +160,9 @@ public class TestLists  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        ListUpdate requestListUpdate = new ListUpdate();
+        requestListUpdate.setIsRestartAtEachSection(true);
+
         UpdateListRequest request = new UpdateListRequest(
             remoteFileName,
             1,
@@ -184,6 +187,8 @@ public class TestLists  extends TestCase
     public void testUpdateListOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        ListUpdate requestListUpdate = new ListUpdate();
+        requestListUpdate.setIsRestartAtEachSection(true);
 
         UpdateListOnlineRequest request = new UpdateListOnlineRequest(
             requestDocument,
@@ -216,6 +221,9 @@ public class TestLists  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        ListLevelUpdate requestListUpdate = new ListLevelUpdate();
+        requestListUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
+
         UpdateListLevelRequest request = new UpdateListLevelRequest(
             remoteFileName,
             1,
@@ -241,6 +249,8 @@ public class TestLists  extends TestCase
     public void testUpdateListLevelOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        ListLevelUpdate requestListUpdate = new ListLevelUpdate();
+        requestListUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
 
         UpdateListLevelOnlineRequest request = new UpdateListLevelOnlineRequest(
             requestDocument,
@@ -276,6 +286,9 @@ public class TestLists  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        ListInsert requestListInsert = new ListInsert();
+        requestListInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
+
         InsertListRequest request = new InsertListRequest(
             remoteFileName,
             requestListInsert,
@@ -301,6 +314,8 @@ public class TestLists  extends TestCase
     public void testInsertListOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        ListInsert requestListInsert = new ListInsert();
+        requestListInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
 
         InsertListOnlineRequest request = new InsertListOnlineRequest(
             requestDocument,

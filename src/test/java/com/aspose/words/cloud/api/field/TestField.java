@@ -229,6 +229,9 @@ public class TestField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        FieldInsert requestField = new FieldInsert();
+        requestField.setFieldCode("{ NUMPAGES }");
+
         InsertFieldRequest request = new InsertFieldRequest(
             remoteFileName,
             requestField,
@@ -257,6 +260,8 @@ public class TestField  extends TestCase
     public void testInsertFieldOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath());
+        FieldInsert requestField = new FieldInsert();
+        requestField.setFieldCode("{ NUMPAGES }");
 
         InsertFieldOnlineRequest request = new InsertFieldOnlineRequest(
             requestDocument,
@@ -287,6 +292,9 @@ public class TestField  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, textFolder + "/" + localFileName),
             remoteDataFolder + "/" + remoteFileName
         );
+
+        FieldInsert requestField = new FieldInsert();
+        requestField.setFieldCode("{ NUMPAGES }");
 
         InsertFieldRequest request = new InsertFieldRequest(
             remoteFileName,
@@ -323,6 +331,9 @@ public class TestField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        FieldUpdate requestField = new FieldUpdate();
+        requestField.setFieldCode("{ NUMPAGES }");
+
         UpdateFieldRequest request = new UpdateFieldRequest(
             remoteFileName,
             0,
@@ -351,6 +362,8 @@ public class TestField  extends TestCase
     public void testUpdateFieldOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath());
+        FieldUpdate requestField = new FieldUpdate();
+        requestField.setFieldCode("{ NUMPAGES }");
 
         UpdateFieldOnlineRequest request = new UpdateFieldOnlineRequest(
             requestDocument,
@@ -382,6 +395,10 @@ public class TestField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        PageNumber requestPageNumber = new PageNumber();
+        requestPageNumber.setAlignment("center");
+        requestPageNumber.setFormat("{PAGE} of {NUMPAGES}");
+
         InsertPageNumbersRequest request = new InsertPageNumbersRequest(
             remoteFileName,
             requestPageNumber,
@@ -409,6 +426,9 @@ public class TestField  extends TestCase
         String localFileName = "test_multi_pages.docx";
 
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localFileName).toAbsolutePath());
+        PageNumber requestPageNumber = new PageNumber();
+        requestPageNumber.setAlignment("center");
+        requestPageNumber.setFormat("{PAGE} of {NUMPAGES}");
 
         InsertPageNumbersOnlineRequest request = new InsertPageNumbersOnlineRequest(
             requestDocument,

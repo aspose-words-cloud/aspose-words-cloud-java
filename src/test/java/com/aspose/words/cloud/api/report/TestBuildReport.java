@@ -65,6 +65,9 @@ public class TestBuildReport  extends TestCase
         String localDataFile = new String(Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, reportingFolder + "/ReportData.json")), "utf8");
 
         byte[] requestTemplate = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, reportingFolder + "/" + localDocumentFile).toAbsolutePath());
+        ReportEngineSettings requestReportEngineSettings = new ReportEngineSettings();
+        requestReportEngineSettings.setDataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON);
+        requestReportEngineSettings.setDataSourceName("persons");
 
         BuildReportOnlineRequest request = new BuildReportOnlineRequest(
             requestTemplate,
@@ -91,6 +94,14 @@ public class TestBuildReport  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, reportingFolder + "/" + localDocumentFile),
             remoteDataFolder + "/" + remoteFileName
         );
+
+        ArrayList<ReportBuildOptions> requestReportEngineSettingsReportBuildOptions = new ArrayList<ReportBuildOptions>();
+        requestReportEngineSettingsReportBuildOptions.add(ReportBuildOptions.ALLOWMISSINGMEMBERS);
+        requestReportEngineSettingsReportBuildOptions.add(ReportBuildOptions.REMOVEEMPTYPARAGRAPHS);
+
+        ReportEngineSettings requestReportEngineSettings = new ReportEngineSettings();
+        requestReportEngineSettings.setDataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON);
+        requestReportEngineSettings.setReportBuildOptions(requestReportEngineSettingsReportBuildOptions);
 
         BuildReportRequest request = new BuildReportRequest(
             remoteFileName,

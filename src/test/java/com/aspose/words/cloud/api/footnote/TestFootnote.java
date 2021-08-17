@@ -68,6 +68,10 @@ public class TestFootnote  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        FootnoteInsert requestFootnoteDto = new FootnoteInsert();
+        requestFootnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
+        requestFootnoteDto.setText("test endnote");
+
         InsertFootnoteRequest request = new InsertFootnoteRequest(
             remoteFileName,
             requestFootnoteDto,
@@ -95,6 +99,9 @@ public class TestFootnote  extends TestCase
     public void testInsertFootnoteOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath());
+        FootnoteInsert requestFootnoteDto = new FootnoteInsert();
+        requestFootnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
+        requestFootnoteDto.setText("test endnote");
 
         InsertFootnoteOnlineRequest request = new InsertFootnoteOnlineRequest(
             requestDocument,
@@ -123,6 +130,10 @@ public class TestFootnote  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc"),
             remoteDataFolder + "/" + remoteFileName
         );
+
+        FootnoteInsert requestFootnoteDto = new FootnoteInsert();
+        requestFootnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
+        requestFootnoteDto.setText("test endnote");
 
         InsertFootnoteRequest request = new InsertFootnoteRequest(
             remoteFileName,
@@ -392,6 +403,9 @@ public class TestFootnote  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        FootnoteUpdate requestFootnoteDto = new FootnoteUpdate();
+        requestFootnoteDto.setText("new text is here");
+
         UpdateFootnoteRequest request = new UpdateFootnoteRequest(
             remoteFileName,
             0,
@@ -419,6 +433,8 @@ public class TestFootnote  extends TestCase
     public void testUpdateFootnoteOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc").toAbsolutePath());
+        FootnoteUpdate requestFootnoteDto = new FootnoteUpdate();
+        requestFootnoteDto.setText("new text is here");
 
         UpdateFootnoteOnlineRequest request = new UpdateFootnoteOnlineRequest(
             requestDocument,
@@ -448,6 +464,9 @@ public class TestFootnote  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, footnoteFolder + "/Footnote.doc"),
             remoteDataFolder + "/" + remoteFileName
         );
+
+        FootnoteUpdate requestFootnoteDto = new FootnoteUpdate();
+        requestFootnoteDto.setText("new text is here");
 
         UpdateFootnoteRequest request = new UpdateFootnoteRequest(
             remoteFileName,

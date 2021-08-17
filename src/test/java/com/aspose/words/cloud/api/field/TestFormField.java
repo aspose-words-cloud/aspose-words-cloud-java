@@ -68,6 +68,14 @@ public class TestFormField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        FormFieldTextInput requestFormField = new FormFieldTextInput();
+        requestFormField.setName("FullName");
+        requestFormField.setEnabled(true);
+        requestFormField.setCalculateOnExit(true);
+        requestFormField.setStatusText("");
+        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        requestFormField.setTextInputDefault("No name");
+
         UpdateFormFieldRequest request = new UpdateFormFieldRequest(
             remoteFileName,
             0,
@@ -96,6 +104,13 @@ public class TestFormField  extends TestCase
     public void testUpdateFormFieldOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath());
+        FormFieldTextInput requestFormField = new FormFieldTextInput();
+        requestFormField.setName("FullName");
+        requestFormField.setEnabled(true);
+        requestFormField.setCalculateOnExit(true);
+        requestFormField.setStatusText("");
+        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        requestFormField.setTextInputDefault("No name");
 
         UpdateFormFieldOnlineRequest request = new UpdateFormFieldOnlineRequest(
             requestDocument,
@@ -125,6 +140,14 @@ public class TestFormField  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx"),
             remoteDataFolder + "/" + remoteFileName
         );
+
+        FormFieldTextInput requestFormField = new FormFieldTextInput();
+        requestFormField.setName("FullName");
+        requestFormField.setEnabled(true);
+        requestFormField.setCalculateOnExit(true);
+        requestFormField.setStatusText("");
+        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        requestFormField.setTextInputDefault("No name");
 
         UpdateFormFieldRequest request = new UpdateFormFieldRequest(
             remoteFileName,
@@ -315,6 +338,15 @@ public class TestFormField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        FormFieldTextInput requestFormField = new FormFieldTextInput();
+        requestFormField.setName("FullName");
+        requestFormField.setEnabled(true);
+        requestFormField.setCalculateOnExit(true);
+        requestFormField.setStatusText("");
+        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        requestFormField.setTextInputDefault("123");
+        requestFormField.setTextInputFormat("UPPERCASE");
+
         InsertFormFieldRequest request = new InsertFormFieldRequest(
             remoteFileName,
             requestFormField,
@@ -343,6 +375,14 @@ public class TestFormField  extends TestCase
     public void testInsertFormFieldOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath());
+        FormFieldTextInput requestFormField = new FormFieldTextInput();
+        requestFormField.setName("FullName");
+        requestFormField.setEnabled(true);
+        requestFormField.setCalculateOnExit(true);
+        requestFormField.setStatusText("");
+        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        requestFormField.setTextInputDefault("123");
+        requestFormField.setTextInputFormat("UPPERCASE");
 
         InsertFormFieldOnlineRequest request = new InsertFormFieldOnlineRequest(
             requestDocument,
@@ -372,6 +412,15 @@ public class TestFormField  extends TestCase
             PathUtil.get(TestInitializer.LocalTestFolder, "Common/test_multi_pages.docx"),
             remoteDataFolder + "/" + remoteFileName
         );
+
+        FormFieldTextInput requestFormField = new FormFieldTextInput();
+        requestFormField.setName("FullName");
+        requestFormField.setEnabled(true);
+        requestFormField.setCalculateOnExit(true);
+        requestFormField.setStatusText("");
+        requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
+        requestFormField.setTextInputDefault("123");
+        requestFormField.setTextInputFormat("UPPERCASE");
 
         InsertFormFieldRequest request = new InsertFormFieldRequest(
             remoteFileName,

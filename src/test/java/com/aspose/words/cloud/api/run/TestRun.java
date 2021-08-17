@@ -68,6 +68,9 @@ public class TestRun  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        RunUpdate requestRun = new RunUpdate();
+        requestRun.setText("run with text");
+
         UpdateRunRequest request = new UpdateRunRequest(
             remoteFileName,
             "paragraphs/1",
@@ -95,6 +98,8 @@ public class TestRun  extends TestCase
     public void testUpdateRunOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        RunUpdate requestRun = new RunUpdate();
+        requestRun.setText("run with text");
 
         UpdateRunOnlineRequest request = new UpdateRunOnlineRequest(
             requestDocument,
@@ -125,6 +130,9 @@ public class TestRun  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        RunInsert requestRun = new RunInsert();
+        requestRun.setText("run with text");
+
         InsertRunRequest request = new InsertRunRequest(
             remoteFileName,
             "paragraphs/1",
@@ -153,6 +161,8 @@ public class TestRun  extends TestCase
     public void testInsertRunOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        RunInsert requestRun = new RunInsert();
+        requestRun.setText("run with text");
 
         InsertRunOnlineRequest request = new InsertRunOnlineRequest(
             requestDocument,
