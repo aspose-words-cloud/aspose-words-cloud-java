@@ -6,13 +6,12 @@ import com.aspose.words.cloud.model.responses.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
 String fileName  = "test_doc.docx";
 
 // Upload original document to cloud storage.
-byte[] myVar1 = Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath());
+byte[] myVar1 = Files.readAllBytes(Paths.get(fileName).toAbsolutePath());
 String myVar2 = fileName;
 UploadFileRequest uploadFileRequest = new UploadFileRequest(myVar1,myVar2,null);
 wordsApi.uploadFile(uploadFileRequest);
