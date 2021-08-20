@@ -63,12 +63,12 @@ public class TestExamples extends TestCase
         // Upload original document to cloud storage.
         byte[] myVar1 = Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath());
         String myVar2 = fileName;
-        UploadFileRequest uploadFileRequest = new UploadFileRequest(myVar1,myVar2,null);
+        UploadFileRequest uploadFileRequest = new UploadFileRequest(myVar1, myVar2, null);
         wordsApi.uploadFile(uploadFileRequest);
 
         // Calls AcceptAllRevisions method for document in cloud.
         String myVar3 = fileName;
-        AcceptAllRevisionsRequest request = new AcceptAllRevisionsRequest(myVar3,null,null,null,null,null);
+        AcceptAllRevisionsRequest request = new AcceptAllRevisionsRequest(myVar3, null, null, null, null, null);
         wordsApi.acceptAllRevisions(request);
     }
 
@@ -81,7 +81,7 @@ public class TestExamples extends TestCase
 
         // Calls AcceptAllRevisionsOnline method for document in cloud.
         byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath());
-        AcceptAllRevisionsOnlineRequest request = new AcceptAllRevisionsOnlineRequest(requestDocument,null,null,null);
+        AcceptAllRevisionsOnlineRequest request = new AcceptAllRevisionsOnlineRequest(requestDocument, null, null, null);
         AcceptAllRevisionsOnlineResponse acceptAllRevisionsOnlineResult = wordsApi.acceptAllRevisionsOnline(request);
         Files.write(Paths.get("test_result.docx"), acceptAllRevisionsOnlineResult.getDocument());
     }
