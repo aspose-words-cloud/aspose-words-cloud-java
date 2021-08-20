@@ -89,8 +89,9 @@ public class TestRevisions  extends TestCase
     @Test
     public void testAcceptAllRevisionsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         AcceptAllRevisionsOnlineRequest request = new AcceptAllRevisionsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null,
             null
@@ -138,8 +139,9 @@ public class TestRevisions  extends TestCase
     @Test
     public void testRejectAllRevisionsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         RejectAllRevisionsOnlineRequest request = new RejectAllRevisionsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null,
             null

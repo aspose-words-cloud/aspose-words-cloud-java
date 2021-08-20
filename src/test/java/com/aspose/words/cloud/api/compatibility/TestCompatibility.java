@@ -92,11 +92,12 @@ public class TestCompatibility  extends TestCase
     @Test
     public void testOptimizeDocumentOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         OptimizationOptions requestOptions = new OptimizationOptions();
         requestOptions.setMsWordVersion(OptimizationOptions.MsWordVersionEnum.WORD2002);
 
         OptimizeDocumentOnlineRequest request = new OptimizeDocumentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestOptions,
             null,
             null,

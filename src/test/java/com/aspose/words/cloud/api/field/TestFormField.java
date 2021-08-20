@@ -103,6 +103,7 @@ public class TestFormField  extends TestCase
     @Test
     public void testUpdateFormFieldOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath());
         FormFieldTextInput requestFormField = new FormFieldTextInput();
         requestFormField.setName("FullName");
         requestFormField.setEnabled(true);
@@ -112,7 +113,7 @@ public class TestFormField  extends TestCase
         requestFormField.setTextInputDefault("No name");
 
         UpdateFormFieldOnlineRequest request = new UpdateFormFieldOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
+            requestDocument,
             requestFormField,
             0,
             "sections/0",
@@ -204,8 +205,9 @@ public class TestFormField  extends TestCase
     @Test
     public void testGetFormFieldOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath());
         GetFormFieldOnlineRequest request = new GetFormFieldOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
+            requestDocument,
             0,
             "sections/0",
             null,
@@ -281,8 +283,9 @@ public class TestFormField  extends TestCase
     @Test
     public void testGetFormFieldsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath());
         GetFormFieldsOnlineRequest request = new GetFormFieldsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
+            requestDocument,
             "sections/0",
             null,
             null
@@ -371,6 +374,7 @@ public class TestFormField  extends TestCase
     @Test
     public void testInsertFormFieldOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath());
         FormFieldTextInput requestFormField = new FormFieldTextInput();
         requestFormField.setName("FullName");
         requestFormField.setEnabled(true);
@@ -381,7 +385,7 @@ public class TestFormField  extends TestCase
         requestFormField.setTextInputFormat("UPPERCASE");
 
         InsertFormFieldOnlineRequest request = new InsertFormFieldOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
+            requestDocument,
             requestFormField,
             "sections/0/paragraphs/0",
             null,
@@ -474,8 +478,9 @@ public class TestFormField  extends TestCase
     @Test
     public void testDeleteFormFieldOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath());
         DeleteFormFieldOnlineRequest request = new DeleteFormFieldOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/FormFilled.docx").toAbsolutePath()),
+            requestDocument,
             0,
             "sections/0",
             null,

@@ -63,8 +63,9 @@ public class TestMailMergeFileds  extends TestCase
     {
         String localDocumentFile = "SampleExecuteTemplate.docx";
 
+        byte[] requestTemplate = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDocumentFile).toAbsolutePath());
         GetDocumentFieldNamesOnlineRequest request = new GetDocumentFieldNamesOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDocumentFile).toAbsolutePath()),
+            requestTemplate,
             null,
             null,
             true

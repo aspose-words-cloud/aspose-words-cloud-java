@@ -91,8 +91,9 @@ public class TestDocumentStatistics  extends TestCase
     @Test
     public void testGetDocumentStatisticsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentStatisticsOnlineRequest request = new GetDocumentStatisticsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null,
             null,

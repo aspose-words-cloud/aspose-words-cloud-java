@@ -92,8 +92,9 @@ public class TestDocumentProperties  extends TestCase
     @Test
     public void testGetDocumentPropertiesOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentPropertiesOnlineRequest request = new GetDocumentPropertiesOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null
         );
@@ -137,8 +138,9 @@ public class TestDocumentProperties  extends TestCase
     @Test
     public void testGetDocumentPropertyOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentPropertyOnlineRequest request = new GetDocumentPropertyOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "Author",
             null,
             null
@@ -182,8 +184,9 @@ public class TestDocumentProperties  extends TestCase
     @Test
     public void testDeleteDocumentPropertyOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteDocumentPropertyOnlineRequest request = new DeleteDocumentPropertyOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "testProp",
             null,
             null,
@@ -238,11 +241,12 @@ public class TestDocumentProperties  extends TestCase
     @Test
     public void testUpdateDocumentPropertyOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DocumentPropertyCreateOrUpdate requestProperty = new DocumentPropertyCreateOrUpdate();
         requestProperty.setValue("Imran Anwar");
 
         CreateOrUpdateDocumentPropertyOnlineRequest request = new CreateOrUpdateDocumentPropertyOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "AsposeAuthor",
             requestProperty,
             null,

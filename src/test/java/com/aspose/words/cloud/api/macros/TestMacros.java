@@ -88,8 +88,9 @@ public class TestMacros  extends TestCase
     @Test
     public void testDeleteMacrosOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteMacrosOnlineRequest request = new DeleteMacrosOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null,
             null,

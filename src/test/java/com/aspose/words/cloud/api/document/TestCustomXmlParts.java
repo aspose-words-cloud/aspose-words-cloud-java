@@ -90,8 +90,9 @@ public class TestCustomXmlParts  extends TestCase
     @Test
     public void testGetCustomXmlPartOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetCustomXmlPartOnlineRequest request = new GetCustomXmlPartOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             null,
             null
@@ -140,8 +141,9 @@ public class TestCustomXmlParts  extends TestCase
     @Test
     public void testGetCustomXmlPartsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetCustomXmlPartsOnlineRequest request = new GetCustomXmlPartsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null
         );
@@ -197,12 +199,13 @@ public class TestCustomXmlParts  extends TestCase
     @Test
     public void testInsertCustomXmlPartOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         CustomXmlPartInsert requestCustomXmlPart = new CustomXmlPartInsert();
         requestCustomXmlPart.setId("hello");
         requestCustomXmlPart.setData("<data>Hello world</data>");
 
         InsertCustomXmlPartOnlineRequest request = new InsertCustomXmlPartOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestCustomXmlPart,
             null,
             null,
@@ -260,11 +263,12 @@ public class TestCustomXmlParts  extends TestCase
     @Test
     public void testUpdateCustomXmlPartOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         CustomXmlPartUpdate requestCustomXmlPart = new CustomXmlPartUpdate();
         requestCustomXmlPart.setData("<data>Hello world</data>");
 
         UpdateCustomXmlPartOnlineRequest request = new UpdateCustomXmlPartOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             requestCustomXmlPart,
             null,
@@ -315,8 +319,9 @@ public class TestCustomXmlParts  extends TestCase
     @Test
     public void testDeleteCustomXmlPartOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteCustomXmlPartOnlineRequest request = new DeleteCustomXmlPartOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             null,
             null,
@@ -362,8 +367,9 @@ public class TestCustomXmlParts  extends TestCase
     @Test
     public void testDeleteCustomXmlPartsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteCustomXmlPartsOnlineRequest request = new DeleteCustomXmlPartsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null,
             null,

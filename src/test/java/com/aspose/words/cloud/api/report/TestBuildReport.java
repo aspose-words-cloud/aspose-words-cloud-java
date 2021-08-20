@@ -64,12 +64,13 @@ public class TestBuildReport  extends TestCase
         String localDocumentFile = "ReportTemplate.docx";
         String localDataFile = new String(Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, reportingFolder + "/ReportData.json")), "utf8");
 
+        byte[] requestTemplate = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, reportingFolder + "/" + localDocumentFile).toAbsolutePath());
         ReportEngineSettings requestReportEngineSettings = new ReportEngineSettings();
         requestReportEngineSettings.setDataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON);
         requestReportEngineSettings.setDataSourceName("persons");
 
         BuildReportOnlineRequest request = new BuildReportOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, reportingFolder + "/" + localDocumentFile).toAbsolutePath()),
+            requestTemplate,
             localDataFile,
             requestReportEngineSettings,
             null
