@@ -122,6 +122,9 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("ExportDocumentStructure")
     private Boolean exportDocumentStructure = null;
 
+    @SerializedName("ExportLanguageToSpanTag")
+    private Boolean exportLanguageToSpanTag = null;
+
     @SerializedName("FontEmbeddingMode")
     private String fontEmbeddingMode = null;
 
@@ -329,6 +332,24 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     public void setExportDocumentStructure(Boolean exportDocumentStructure) {
         this.exportDocumentStructure = exportDocumentStructure;
+    }
+
+    public PdfSaveOptionsData exportLanguageToSpanTag(Boolean exportLanguageToSpanTag) {
+        this.exportLanguageToSpanTag = exportLanguageToSpanTag;
+        return this;
+    }
+
+    /**
+     * Gets or sets a value determining whether or not to create a "Span" tag in the document structure to export the text language.
+    * @return exportLanguageToSpanTag
+    **/
+    @ApiModelProperty(value = "Gets or sets a value determining whether or not to create a \"Span\" tag in the document structure to export the text language.")
+    public Boolean getExportLanguageToSpanTag() {
+        return exportLanguageToSpanTag;
+    }
+
+    public void setExportLanguageToSpanTag(Boolean exportLanguageToSpanTag) {
+        this.exportLanguageToSpanTag = exportLanguageToSpanTag;
     }
 
     public PdfSaveOptionsData fontEmbeddingMode(String fontEmbeddingMode) {
@@ -622,6 +643,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
             Objects.equals(this.embedFullFonts, pdfSaveOptionsData.embedFullFonts) &&
             Objects.equals(this.encryptionDetails, pdfSaveOptionsData.encryptionDetails) &&
             Objects.equals(this.exportDocumentStructure, pdfSaveOptionsData.exportDocumentStructure) &&
+            Objects.equals(this.exportLanguageToSpanTag, pdfSaveOptionsData.exportLanguageToSpanTag) &&
             Objects.equals(this.fontEmbeddingMode, pdfSaveOptionsData.fontEmbeddingMode) &&
             Objects.equals(this.headerFooterBookmarksExportMode, pdfSaveOptionsData.headerFooterBookmarksExportMode) &&
             Objects.equals(this.imageColorSpaceExportMode, pdfSaveOptionsData.imageColorSpaceExportMode) &&
@@ -642,7 +664,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedFullFonts, encryptionDetails, exportDocumentStructure, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor, super.hashCode());
+    return Objects.hash(compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor, super.hashCode());
   }
 
   @Override
@@ -659,6 +681,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    embedFullFonts: ").append(toIndentedString(embedFullFonts)).append("\n");
     sb.append("    encryptionDetails: ").append(toIndentedString(encryptionDetails)).append("\n");
     sb.append("    exportDocumentStructure: ").append(toIndentedString(exportDocumentStructure)).append("\n");
+    sb.append("    exportLanguageToSpanTag: ").append(toIndentedString(exportLanguageToSpanTag)).append("\n");
     sb.append("    fontEmbeddingMode: ").append(toIndentedString(fontEmbeddingMode)).append("\n");
     sb.append("    headerFooterBookmarksExportMode: ").append(toIndentedString(headerFooterBookmarksExportMode)).append("\n");
     sb.append("    imageColorSpaceExportMode: ").append(toIndentedString(imageColorSpaceExportMode)).append("\n");

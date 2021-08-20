@@ -111,6 +111,9 @@ public class SaveOptionsData {
     @SerializedName("FileName")
     private String fileName = null;
 
+    @SerializedName("FlatOpcXmlMappingOnly")
+    private Boolean flatOpcXmlMappingOnly = null;
+
     @SerializedName("ImlRenderingMode")
     private String imlRenderingMode = null;
 
@@ -241,6 +244,25 @@ public class SaveOptionsData {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public SaveOptionsData flatOpcXmlMappingOnly(Boolean flatOpcXmlMappingOnly) {
+        this.flatOpcXmlMappingOnly = flatOpcXmlMappingOnly;
+        return this;
+    }
+
+    /**
+     * Gets or sets value determining which document formats are allowed to be mapped by Aspose.Words.Markup.StructuredDocumentTag.XmlMapping.
+     * By default only Aspose.Words.LoadFormat.FlatOpc document format is allowed to be mapped.
+    * @return flatOpcXmlMappingOnly
+    **/
+    @ApiModelProperty(value = "Gets or sets value determining which document formats are allowed to be mapped by Aspose.Words.Markup.StructuredDocumentTag.XmlMapping. By default only Aspose.Words.LoadFormat.FlatOpc document format is allowed to be mapped.")
+    public Boolean getFlatOpcXmlMappingOnly() {
+        return flatOpcXmlMappingOnly;
+    }
+
+    public void setFlatOpcXmlMappingOnly(Boolean flatOpcXmlMappingOnly) {
+        this.flatOpcXmlMappingOnly = flatOpcXmlMappingOnly;
     }
 
     public SaveOptionsData imlRenderingMode(String imlRenderingMode) {
@@ -406,6 +428,7 @@ public class SaveOptionsData {
             Objects.equals(this.dmlEffectsRenderingMode, saveOptionsData.dmlEffectsRenderingMode) &&
             Objects.equals(this.dmlRenderingMode, saveOptionsData.dmlRenderingMode) &&
             Objects.equals(this.fileName, saveOptionsData.fileName) &&
+            Objects.equals(this.flatOpcXmlMappingOnly, saveOptionsData.flatOpcXmlMappingOnly) &&
             Objects.equals(this.imlRenderingMode, saveOptionsData.imlRenderingMode) &&
             Objects.equals(this.saveFormat, saveOptionsData.saveFormat) &&
             Objects.equals(this.updateCreatedTimeProperty, saveOptionsData.updateCreatedTimeProperty) &&
@@ -418,7 +441,7 @@ public class SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowEmbeddingPostScriptFonts, customTimeZoneInfoData, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, imlRenderingMode, saveFormat, updateCreatedTimeProperty, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, updateSdtContent, zipOutput);
+    return Objects.hash(allowEmbeddingPostScriptFonts, customTimeZoneInfoData, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, flatOpcXmlMappingOnly, imlRenderingMode, saveFormat, updateCreatedTimeProperty, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, updateSdtContent, zipOutput);
   }
 
   @Override
@@ -431,6 +454,7 @@ public class SaveOptionsData {
     sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(dmlEffectsRenderingMode)).append("\n");
     sb.append("    dmlRenderingMode: ").append(toIndentedString(dmlRenderingMode)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(flatOpcXmlMappingOnly)).append("\n");
     sb.append("    imlRenderingMode: ").append(toIndentedString(imlRenderingMode)).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(saveFormat)).append("\n");
     sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(updateCreatedTimeProperty)).append("\n");
