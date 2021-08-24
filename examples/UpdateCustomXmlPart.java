@@ -3,5 +3,5 @@ WordsApi wordsApi = new WordsApi(apiClient);
 CustomXmlPartUpdate requestCustomXmlPart = new CustomXmlPartUpdate();
 requestCustomXmlPart.setData("<data>Hello world</data>");
 
-UpdateCustomXmlPartRequest updateRequestRequest = new UpdateCustomXmlPartRequest("Sample.docx",0,requestCustomXmlPart,null,null,null,null,null,null,null);
-wordsApi.updateCustomXmlPart(updateRequestRequest);
+UpdateCustomXmlPartRequest updateRequest = new UpdateCustomXmlPartRequest("Sample.docx", 0, requestCustomXmlPart, null, null, null, null, null, null, null);
+wordsApi.updateCustomXmlPart(updateRequest);

@@ -4,5 +4,5 @@ ProtectionRequest requestProtectionRequest = new ProtectionRequest();
 requestProtectionRequest.setPassword("123");
 requestProtectionRequest.setProtectionType("ReadOnly");
 
-ProtectDocumentRequest protectRequestRequest = new ProtectDocumentRequest("Sample.docx",requestProtectionRequest,null,null,null,null,null);
-wordsApi.protectDocument(protectRequestRequest);
+ProtectDocumentRequest protectRequest = new ProtectDocumentRequest("Sample.docx", requestProtectionRequest, null, null, null, null, null);
+wordsApi.protectDocument(protectRequest);

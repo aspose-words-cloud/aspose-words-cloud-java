@@ -1,6 +1,6 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.docx").toAbsolutePath());
 TableProperties requestProperties = new TableProperties();
 requestProperties.setAlignment(TableProperties.AlignmentEnum.RIGHT);
 requestProperties.setAllowAutoFit(false);
@@ -9,5 +9,5 @@ requestProperties.setBottomPadding((double)1);
 requestProperties.setCellSpacing((double)2);
 requestProperties.setStyleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS);
 
-UpdateTablePropertiesOnlineRequest updateRequestRequest = new UpdateTablePropertiesOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestProperties,1,null,null,null,null,null,null);
-wordsApi.updateTablePropertiesOnline(updateRequestRequest);
+UpdateTablePropertiesOnlineRequest updateRequest = new UpdateTablePropertiesOnlineRequest(requestDocument, requestProperties, 1, null, null, null, null, null, null);
+wordsApi.updateTablePropertiesOnline(updateRequest);

@@ -1,5 +1,5 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-InsertHeaderFooterOnlineRequest insertRequestRequest = new InsertHeaderFooterOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),"","FooterEven",null,null,null,null,null);
-wordsApi.insertHeaderFooterOnline(insertRequestRequest);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.doc").toAbsolutePath());
+InsertHeaderFooterOnlineRequest insertRequest = new InsertHeaderFooterOnlineRequest(requestDocument, "", "FooterEven", null, null, null, null, null);
+wordsApi.insertHeaderFooterOnline(insertRequest);

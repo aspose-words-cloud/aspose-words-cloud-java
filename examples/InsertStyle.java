@@ -4,5 +4,5 @@ StyleInsert requestStyleInsert = new StyleInsert();
 requestStyleInsert.setStyleName("My Style");
 requestStyleInsert.setStyleType(StyleInsert.StyleTypeEnum.PARAGRAPH);
 
-InsertStyleRequest insertRequestRequest = new InsertStyleRequest("Sample.docx",requestStyleInsert,null,null,null,null,null,null,null);
-wordsApi.insertStyle(insertRequestRequest);
+InsertStyleRequest insertRequest = new InsertStyleRequest("Sample.docx", requestStyleInsert, null, null, null, null, null, null, null);
+wordsApi.insertStyle(insertRequest);

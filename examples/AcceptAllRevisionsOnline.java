@@ -1,5 +1,5 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-AcceptAllRevisionsOnlineRequest acceptRequestRequest = new AcceptAllRevisionsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,null);
-wordsApi.acceptAllRevisionsOnline(acceptRequestRequest);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.docx").toAbsolutePath());
+AcceptAllRevisionsOnlineRequest acceptRequest = new AcceptAllRevisionsOnlineRequest(requestDocument, null, null, null);
+wordsApi.acceptAllRevisionsOnline(acceptRequest);

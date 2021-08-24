@@ -4,5 +4,5 @@ WatermarkText requestWatermarkText = new WatermarkText();
 requestWatermarkText.setText("This is the text");
 requestWatermarkText.setRotationAngle((double)90.0);
 
-InsertWatermarkTextRequest insertRequestRequest = new InsertWatermarkTextRequest("Sample.docx",requestWatermarkText,null,null,null,null,null,null,null);
-wordsApi.insertWatermarkText(insertRequestRequest);
+InsertWatermarkTextRequest insertRequest = new InsertWatermarkTextRequest("Sample.docx", requestWatermarkText, null, null, null, null, null, null, null);
+wordsApi.insertWatermarkText(insertRequest);

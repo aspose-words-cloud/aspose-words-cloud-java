@@ -1,5 +1,5 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-GetParagraphFormatOnlineRequest requestRequest = new GetParagraphFormatOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null,null);
-wordsApi.getParagraphFormatOnline(requestRequest);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.docx").toAbsolutePath());
+GetParagraphFormatOnlineRequest request = new GetParagraphFormatOnlineRequest(requestDocument, 0, null, null, null);
+wordsApi.getParagraphFormatOnline(request);

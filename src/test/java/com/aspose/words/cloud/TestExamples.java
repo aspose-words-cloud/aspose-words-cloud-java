@@ -50,9 +50,20 @@ public class TestExamples extends TestCase
     @Test
     public void testAcceptAllRevisions() throws Exception
     {
+        String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        AcceptAllRevisionsRequest acceptRequestRequest = new AcceptAllRevisionsRequest("Sample.docx",null,null,null,null,null);
-        wordsApi.acceptAllRevisions(acceptRequestRequest);
+        String fileName  = "test_doc.docx";
+
+        // Upload original document to cloud storage.
+        byte[] myVar1 = Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath());
+        String myVar2 = fileName;
+        UploadFileRequest uploadFileRequest = new UploadFileRequest(myVar1, myVar2, null);
+        wordsApi.uploadFile(uploadFileRequest);
+
+        // Calls AcceptAllRevisions method for document in cloud.
+        String myVar3 = fileName;
+        AcceptAllRevisionsRequest request = new AcceptAllRevisionsRequest(myVar3, null, null, null, null, null);
+        wordsApi.acceptAllRevisions(request);
     }
 
     @Test
@@ -60,8 +71,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        AcceptAllRevisionsOnlineRequest acceptRequestRequest = new AcceptAllRevisionsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,null);
-        wordsApi.acceptAllRevisionsOnline(acceptRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        AcceptAllRevisionsOnlineRequest acceptRequest = new AcceptAllRevisionsOnlineRequest(requestDocument, null, null, null);
+        wordsApi.acceptAllRevisionsOnline(acceptRequest);
     }
 
     @Test
@@ -80,8 +92,8 @@ public class TestExamples extends TestCase
         DocumentEntryList requestDocumentList = new DocumentEntryList();
         requestDocumentList.setDocumentEntries(requestDocumentListDocumentEntries);
 
-        AppendDocumentRequest appendRequestRequest = new AppendDocumentRequest(remoteFileName,requestDocumentList,null,null,null,null,null,null,null);
-        wordsApi.appendDocument(appendRequestRequest);
+        AppendDocumentRequest appendRequest = new AppendDocumentRequest(remoteFileName, requestDocumentList, null, null, null, null, null, null, null);
+        wordsApi.appendDocument(appendRequest);
     }
 
     @Test
@@ -89,6 +101,7 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
         requestDocumentListDocumentEntries0.setHref("Sample.docx");
         requestDocumentListDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
@@ -99,8 +112,8 @@ public class TestExamples extends TestCase
         DocumentEntryList requestDocumentList = new DocumentEntryList();
         requestDocumentList.setDocumentEntries(requestDocumentListDocumentEntries);
 
-        AppendDocumentOnlineRequest appendRequestRequest = new AppendDocumentOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestDocumentList,null,null,null,null,null);
-        wordsApi.appendDocumentOnline(appendRequestRequest);
+        AppendDocumentOnlineRequest appendRequest = new AppendDocumentOnlineRequest(requestDocument, requestDocumentList, null, null, null, null, null);
+        wordsApi.appendDocumentOnline(appendRequest);
     }
 
     @Test
@@ -110,8 +123,8 @@ public class TestExamples extends TestCase
         StyleApply requestStyleApply = new StyleApply();
         requestStyleApply.setStyleName("Heading 1");
 
-        ApplyStyleToDocumentElementRequest applyStyleRequestRequest = new ApplyStyleToDocumentElementRequest("Sample.docx","paragraphs/1/paragraphFormat",requestStyleApply,null,null,null,null,null,null,null);
-        wordsApi.applyStyleToDocumentElement(applyStyleRequestRequest);
+        ApplyStyleToDocumentElementRequest applyStyleRequest = new ApplyStyleToDocumentElementRequest("Sample.docx", "paragraphs/1/paragraphFormat", requestStyleApply, null, null, null, null, null, null, null);
+        wordsApi.applyStyleToDocumentElement(applyStyleRequest);
     }
 
     @Test
@@ -119,11 +132,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         StyleApply requestStyleApply = new StyleApply();
         requestStyleApply.setStyleName("Heading 1");
 
-        ApplyStyleToDocumentElementOnlineRequest applyStyleRequestRequest = new ApplyStyleToDocumentElementOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"paragraphs/1/paragraphFormat",requestStyleApply,null,null,null,null,null);
-        wordsApi.applyStyleToDocumentElementOnline(applyStyleRequestRequest);
+        ApplyStyleToDocumentElementOnlineRequest applyStyleRequest = new ApplyStyleToDocumentElementOnlineRequest(requestDocument, "paragraphs/1/paragraphFormat", requestStyleApply, null, null, null, null, null);
+        wordsApi.applyStyleToDocumentElementOnline(applyStyleRequest);
     }
 
     @Test
@@ -138,8 +152,8 @@ public class TestExamples extends TestCase
         requestReportEngineSettings.setDataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON);
         requestReportEngineSettings.setReportBuildOptions(requestReportEngineSettingsReportBuildOptions);
 
-        BuildReportRequest buildReportRequestRequest = new BuildReportRequest("Sample.docx","Data.json",requestReportEngineSettings,null,null,null,null,null);
-        wordsApi.buildReport(buildReportRequestRequest);
+        BuildReportRequest buildReportRequest = new BuildReportRequest("Sample.docx", "Data.json", requestReportEngineSettings, null, null, null, null, null);
+        wordsApi.buildReport(buildReportRequest);
     }
 
     @Test
@@ -147,28 +161,29 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestTemplate = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         ReportEngineSettings requestReportEngineSettings = new ReportEngineSettings();
         requestReportEngineSettings.setDataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON);
         requestReportEngineSettings.setDataSourceName("persons");
 
-        BuildReportOnlineRequest buildReportRequestRequest = new BuildReportOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"Data.json",requestReportEngineSettings,null);
-        wordsApi.buildReportOnline(buildReportRequestRequest);
+        BuildReportOnlineRequest buildReportRequest = new BuildReportOnlineRequest(requestTemplate, "Data.json", requestReportEngineSettings, null);
+        wordsApi.buildReportOnline(buildReportRequest);
     }
 
     @Test
     public void testClassify() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        ClassifyRequest classifyRequestRequest = new ClassifyRequest("Try text classification","3");
-        wordsApi.classify(classifyRequestRequest);
+        ClassifyRequest classifyRequest = new ClassifyRequest("Try text classification", "3");
+        wordsApi.classify(classifyRequest);
     }
 
     @Test
     public void testClassifyDocument() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        ClassifyDocumentRequest classifyRequestRequest = new ClassifyDocumentRequest("Sample.docx",null,null,null,null,"3",null);
-        wordsApi.classifyDocument(classifyRequestRequest);
+        ClassifyDocumentRequest classifyRequest = new ClassifyDocumentRequest("Sample.docx", null, null, null, null, "3", null);
+        wordsApi.classifyDocument(classifyRequest);
     }
 
     @Test
@@ -176,8 +191,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        ClassifyDocumentOnlineRequest classifyRequestRequest = new ClassifyDocumentOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,"3",null);
-        wordsApi.classifyDocumentOnline(classifyRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        ClassifyDocumentOnlineRequest classifyRequest = new ClassifyDocumentOnlineRequest(requestDocument, null, null, "3", null);
+        wordsApi.classifyDocumentOnline(classifyRequest);
     }
 
     @Test
@@ -189,8 +205,8 @@ public class TestExamples extends TestCase
         requestCompareData.setComparingWithDocument("TestCompareDocument2.doc");
         requestCompareData.setDateTime(OffsetDateTime.of(2015, 10, 26, 0, 0, 0, 0, ZoneOffset.UTC));
 
-        CompareDocumentRequest compareRequestRequest = new CompareDocumentRequest("TestCompareDocument1.doc",requestCompareData,null,null,null,null,"/TestCompareDocumentOut.doc");
-        wordsApi.compareDocument(compareRequestRequest);
+        CompareDocumentRequest compareRequest = new CompareDocumentRequest("TestCompareDocument1.doc", requestCompareData, null, null, null, null, "/TestCompareDocumentOut.doc");
+        wordsApi.compareDocument(compareRequest);
     }
 
     @Test
@@ -198,13 +214,15 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "compareTestDoc1.doc").toAbsolutePath());
         CompareData requestCompareData = new CompareData();
         requestCompareData.setAuthor("author");
         requestCompareData.setComparingWithDocument("TestCompareDocument2.doc");
         requestCompareData.setDateTime(OffsetDateTime.of(2015, 10, 26, 0, 0, 0, 0, ZoneOffset.UTC));
 
-        CompareDocumentOnlineRequest compareRequestRequest = new CompareDocumentOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "compareTestDoc1.doc").toAbsolutePath()),requestCompareData,Files.readAllBytes(Paths.get(documentsDir, "compareTestDoc2.doc").toAbsolutePath()),null,null,"/TestCompareDocumentOut.doc");
-        wordsApi.compareDocumentOnline(compareRequestRequest);
+        byte[] requestComparingDocument = Files.readAllBytes(Paths.get(documentsDir, "compareTestDoc2.doc").toAbsolutePath());
+        CompareDocumentOnlineRequest compareRequest = new CompareDocumentOnlineRequest(requestDocument, requestCompareData, requestComparingDocument, null, null, "/TestCompareDocumentOut.doc");
+        wordsApi.compareDocumentOnline(compareRequest);
     }
 
     @Test
@@ -212,16 +230,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        ConvertDocumentRequest convertRequestRequest = new ConvertDocumentRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"pdf",null,null,null,null);
-        wordsApi.convertDocument(convertRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        ConvertDocumentRequest convertRequest = new ConvertDocumentRequest(requestDocument, "pdf", null, null, null, null);
+        wordsApi.convertDocument(convertRequest);
     }
 
     @Test
     public void testCopyFile() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        CopyFileRequest copyRequestRequest = new CopyFileRequest("/TestCopyFileDest.docx","Sample.docx",null,null,null);
-        wordsApi.copyFile(copyRequestRequest);
+        CopyFileRequest copyRequest = new CopyFileRequest("/TestCopyFileDest.docx", "Sample.docx", null, null, null);
+        wordsApi.copyFile(copyRequest);
     }
 
     @Test
@@ -230,8 +249,8 @@ public class TestExamples extends TestCase
         WordsApi wordsApi = new WordsApi(apiClient);
         String folderToCopy = "/TestCopyFolder";
 
-        CopyFolderRequest copyRequestRequest = new CopyFolderRequest(folderToCopy + "Dest",folderToCopy + "Src",null,null);
-        wordsApi.copyFolder(copyRequestRequest);
+        CopyFolderRequest copyRequest = new CopyFolderRequest(folderToCopy + "Dest", folderToCopy + "Src", null, null);
+        wordsApi.copyFolder(copyRequest);
     }
 
     @Test
@@ -241,8 +260,8 @@ public class TestExamples extends TestCase
         StyleCopy requestStyleCopy = new StyleCopy();
         requestStyleCopy.setStyleName("Heading 1");
 
-        CopyStyleRequest copyRequestRequest = new CopyStyleRequest("Sample.docx",requestStyleCopy,null,null,null,null,null,null,null);
-        wordsApi.copyStyle(copyRequestRequest);
+        CopyStyleRequest copyRequest = new CopyStyleRequest("Sample.docx", requestStyleCopy, null, null, null, null, null, null, null);
+        wordsApi.copyStyle(copyRequest);
     }
 
     @Test
@@ -250,27 +269,28 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         StyleCopy requestStyleCopy = new StyleCopy();
         requestStyleCopy.setStyleName("Heading 1");
 
-        CopyStyleOnlineRequest copyRequestRequest = new CopyStyleOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestStyleCopy,null,null,null,null,null);
-        wordsApi.copyStyleOnline(copyRequestRequest);
+        CopyStyleOnlineRequest copyRequest = new CopyStyleOnlineRequest(requestDocument, requestStyleCopy, null, null, null, null, null);
+        wordsApi.copyStyleOnline(copyRequest);
     }
 
     @Test
     public void testCreateDocument() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        CreateDocumentRequest createRequestRequest = new CreateDocumentRequest("Sample.docx",null,null);
-        wordsApi.createDocument(createRequestRequest);
+        CreateDocumentRequest createRequest = new CreateDocumentRequest("Sample.docx", null, null);
+        wordsApi.createDocument(createRequest);
     }
 
     @Test
     public void testCreateFolder() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        CreateFolderRequest createRequestRequest = new CreateFolderRequest("/TestCreateFolder",null);
-        wordsApi.createFolder(createRequestRequest);
+        CreateFolderRequest createRequest = new CreateFolderRequest("/TestCreateFolder", null);
+        wordsApi.createFolder(createRequest);
     }
 
     @Test
@@ -280,8 +300,8 @@ public class TestExamples extends TestCase
         DocumentPropertyCreateOrUpdate requestProperty = new DocumentPropertyCreateOrUpdate();
         requestProperty.setValue("Imran Anwar");
 
-        CreateOrUpdateDocumentPropertyRequest createRequestRequest = new CreateOrUpdateDocumentPropertyRequest("Sample.docx","AsposeAuthor",requestProperty,null,null,null,null,null,null,null);
-        wordsApi.createOrUpdateDocumentProperty(createRequestRequest);
+        CreateOrUpdateDocumentPropertyRequest createRequest = new CreateOrUpdateDocumentPropertyRequest("Sample.docx", "AsposeAuthor", requestProperty, null, null, null, null, null, null, null);
+        wordsApi.createOrUpdateDocumentProperty(createRequest);
     }
 
     @Test
@@ -289,19 +309,20 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         DocumentPropertyCreateOrUpdate requestProperty = new DocumentPropertyCreateOrUpdate();
         requestProperty.setValue("Imran Anwar");
 
-        CreateOrUpdateDocumentPropertyOnlineRequest createRequestRequest = new CreateOrUpdateDocumentPropertyOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"AsposeAuthor",requestProperty,null,null,null,null,null);
-        wordsApi.createOrUpdateDocumentPropertyOnline(createRequestRequest);
+        CreateOrUpdateDocumentPropertyOnlineRequest createRequest = new CreateOrUpdateDocumentPropertyOnlineRequest(requestDocument, "AsposeAuthor", requestProperty, null, null, null, null, null);
+        wordsApi.createOrUpdateDocumentPropertyOnline(createRequest);
     }
 
     @Test
     public void testDeleteAllParagraphTabStops() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteAllParagraphTabStopsRequest deleteRequestRequest = new DeleteAllParagraphTabStopsRequest("Sample.docx",0,null,null,null,null,null,null);
-        wordsApi.deleteAllParagraphTabStops(deleteRequestRequest);
+        DeleteAllParagraphTabStopsRequest deleteRequest = new DeleteAllParagraphTabStopsRequest("Sample.docx", 0, null, null, null, null, null, null);
+        wordsApi.deleteAllParagraphTabStops(deleteRequest);
     }
 
     @Test
@@ -309,16 +330,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteAllParagraphTabStopsOnlineRequest deleteRequestRequest = new DeleteAllParagraphTabStopsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null,null,null);
-        wordsApi.deleteAllParagraphTabStopsOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteAllParagraphTabStopsOnlineRequest deleteRequest = new DeleteAllParagraphTabStopsOnlineRequest(requestDocument, 0, null, null, null, null);
+        wordsApi.deleteAllParagraphTabStopsOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteBorder() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteBorderRequest deleteRequestRequest = new DeleteBorderRequest("Sample.docx","left","tables/1/rows/0/cells/0",null,null,null,null,null,null,null);
-        wordsApi.deleteBorder(deleteRequestRequest);
+        DeleteBorderRequest deleteRequest = new DeleteBorderRequest("Sample.docx", "left", "tables/1/rows/0/cells/0", null, null, null, null, null, null, null);
+        wordsApi.deleteBorder(deleteRequest);
     }
 
     @Test
@@ -326,16 +348,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteBorderOnlineRequest deleteRequestRequest = new DeleteBorderOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"left","tables/1/rows/0/cells/0",null,null,null,null,null);
-        wordsApi.deleteBorderOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteBorderOnlineRequest deleteRequest = new DeleteBorderOnlineRequest(requestDocument, "left", "tables/1/rows/0/cells/0", null, null, null, null, null);
+        wordsApi.deleteBorderOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteBorders() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteBordersRequest deleteRequestRequest = new DeleteBordersRequest("Sample.docx","tables/1/rows/0/cells/0",null,null,null,null,null,null,null);
-        wordsApi.deleteBorders(deleteRequestRequest);
+        DeleteBordersRequest deleteRequest = new DeleteBordersRequest("Sample.docx", "tables/1/rows/0/cells/0", null, null, null, null, null, null, null);
+        wordsApi.deleteBorders(deleteRequest);
     }
 
     @Test
@@ -343,16 +366,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteBordersOnlineRequest deleteRequestRequest = new DeleteBordersOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"tables/1/rows/0/cells/0",null,null,null,null,null);
-        wordsApi.deleteBordersOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteBordersOnlineRequest deleteRequest = new DeleteBordersOnlineRequest(requestDocument, "tables/1/rows/0/cells/0", null, null, null, null, null);
+        wordsApi.deleteBordersOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteComment() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteCommentRequest deleteRequestRequest = new DeleteCommentRequest("Sample.docx",0,null,null,null,null,null,null,null);
-        wordsApi.deleteComment(deleteRequestRequest);
+        DeleteCommentRequest deleteRequest = new DeleteCommentRequest("Sample.docx", 0, null, null, null, null, null, null, null);
+        wordsApi.deleteComment(deleteRequest);
     }
 
     @Test
@@ -360,16 +384,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteCommentOnlineRequest deleteRequestRequest = new DeleteCommentOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null,null,null,null);
-        wordsApi.deleteCommentOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteCommentOnlineRequest deleteRequest = new DeleteCommentOnlineRequest(requestDocument, 0, null, null, null, null, null);
+        wordsApi.deleteCommentOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteComments() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteCommentsRequest deleteRequestRequest = new DeleteCommentsRequest("Sample.docx",null,null,null,null,null,null,null);
-        wordsApi.deleteComments(deleteRequestRequest);
+        DeleteCommentsRequest deleteRequest = new DeleteCommentsRequest("Sample.docx", null, null, null, null, null, null, null);
+        wordsApi.deleteComments(deleteRequest);
     }
 
     @Test
@@ -377,16 +402,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteCommentsOnlineRequest deleteRequestRequest = new DeleteCommentsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,null,null,null);
-        wordsApi.deleteCommentsOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteCommentsOnlineRequest deleteRequest = new DeleteCommentsOnlineRequest(requestDocument, null, null, null, null, null);
+        wordsApi.deleteCommentsOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteCustomXmlPart() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteCustomXmlPartRequest deleteRequestRequest = new DeleteCustomXmlPartRequest("Sample.docx",0,null,null,null,null,null,null,null);
-        wordsApi.deleteCustomXmlPart(deleteRequestRequest);
+        DeleteCustomXmlPartRequest deleteRequest = new DeleteCustomXmlPartRequest("Sample.docx", 0, null, null, null, null, null, null, null);
+        wordsApi.deleteCustomXmlPart(deleteRequest);
     }
 
     @Test
@@ -394,16 +420,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteCustomXmlPartOnlineRequest deleteRequestRequest = new DeleteCustomXmlPartOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null,null,null,null);
-        wordsApi.deleteCustomXmlPartOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteCustomXmlPartOnlineRequest deleteRequest = new DeleteCustomXmlPartOnlineRequest(requestDocument, 0, null, null, null, null, null);
+        wordsApi.deleteCustomXmlPartOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteCustomXmlParts() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteCustomXmlPartsRequest deleteRequestRequest = new DeleteCustomXmlPartsRequest("Sample.docx",null,null,null,null,null,null,null);
-        wordsApi.deleteCustomXmlParts(deleteRequestRequest);
+        DeleteCustomXmlPartsRequest deleteRequest = new DeleteCustomXmlPartsRequest("Sample.docx", null, null, null, null, null, null, null);
+        wordsApi.deleteCustomXmlParts(deleteRequest);
     }
 
     @Test
@@ -411,16 +438,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteCustomXmlPartsOnlineRequest deleteRequestRequest = new DeleteCustomXmlPartsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,null,null,null);
-        wordsApi.deleteCustomXmlPartsOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteCustomXmlPartsOnlineRequest deleteRequest = new DeleteCustomXmlPartsOnlineRequest(requestDocument, null, null, null, null, null);
+        wordsApi.deleteCustomXmlPartsOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteDocumentProperty() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteDocumentPropertyRequest deleteRequestRequest = new DeleteDocumentPropertyRequest("Sample.docx","testProp",null,null,null,null,null,null,null);
-        wordsApi.deleteDocumentProperty(deleteRequestRequest);
+        DeleteDocumentPropertyRequest deleteRequest = new DeleteDocumentPropertyRequest("Sample.docx", "testProp", null, null, null, null, null, null, null);
+        wordsApi.deleteDocumentProperty(deleteRequest);
     }
 
     @Test
@@ -428,16 +456,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteDocumentPropertyOnlineRequest deleteRequestRequest = new DeleteDocumentPropertyOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"testProp",null,null,null,null,null);
-        wordsApi.deleteDocumentPropertyOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteDocumentPropertyOnlineRequest deleteRequest = new DeleteDocumentPropertyOnlineRequest(requestDocument, "testProp", null, null, null, null, null);
+        wordsApi.deleteDocumentPropertyOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteDrawingObject() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteDrawingObjectRequest deleteRequestRequest = new DeleteDrawingObjectRequest("Sample.docx",0,null,null,null,null,null,null,null,null);
-        wordsApi.deleteDrawingObject(deleteRequestRequest);
+        DeleteDrawingObjectRequest deleteRequest = new DeleteDrawingObjectRequest("Sample.docx", 0, null, null, null, null, null, null, null, null);
+        wordsApi.deleteDrawingObject(deleteRequest);
     }
 
     @Test
@@ -445,16 +474,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteDrawingObjectOnlineRequest deleteRequestRequest = new DeleteDrawingObjectOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null,null,null,null,null);
-        wordsApi.deleteDrawingObjectOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteDrawingObjectOnlineRequest deleteRequest = new DeleteDrawingObjectOnlineRequest(requestDocument, 0, null, null, null, null, null, null);
+        wordsApi.deleteDrawingObjectOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteField() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteFieldRequest deleteRequestRequest = new DeleteFieldRequest("Sample.docx",0,null,null,null,null,null,null,null,null);
-        wordsApi.deleteField(deleteRequestRequest);
+        DeleteFieldRequest deleteRequest = new DeleteFieldRequest("Sample.docx", 0, null, null, null, null, null, null, null, null);
+        wordsApi.deleteField(deleteRequest);
     }
 
     @Test
@@ -462,16 +492,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteFieldOnlineRequest deleteRequestRequest = new DeleteFieldOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,"sections/0/paragraphs/0",null,null,null,null,null);
-        wordsApi.deleteFieldOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteFieldOnlineRequest deleteRequest = new DeleteFieldOnlineRequest(requestDocument, 0, "sections/0/paragraphs/0", null, null, null, null, null);
+        wordsApi.deleteFieldOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteFields() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteFieldsRequest deleteRequestRequest = new DeleteFieldsRequest("Sample.docx",null,null,null,null,null,null,null,null);
-        wordsApi.deleteFields(deleteRequestRequest);
+        DeleteFieldsRequest deleteRequest = new DeleteFieldsRequest("Sample.docx", null, null, null, null, null, null, null, null);
+        wordsApi.deleteFields(deleteRequest);
     }
 
     @Test
@@ -479,32 +510,33 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteFieldsOnlineRequest deleteRequestRequest = new DeleteFieldsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,null,null,null,null);
-        wordsApi.deleteFieldsOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteFieldsOnlineRequest deleteRequest = new DeleteFieldsOnlineRequest(requestDocument, null, null, null, null, null, null);
+        wordsApi.deleteFieldsOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteFile() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteFileRequest deleteRequestRequest = new DeleteFileRequest("Sample.docx",null,null);
-        wordsApi.deleteFile(deleteRequestRequest);
+        DeleteFileRequest deleteRequest = new DeleteFileRequest("Sample.docx", null, null);
+        wordsApi.deleteFile(deleteRequest);
     }
 
     @Test
     public void testDeleteFolder() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteFolderRequest deleteRequestRequest = new DeleteFolderRequest("",null,null);
-        wordsApi.deleteFolder(deleteRequestRequest);
+        DeleteFolderRequest deleteRequest = new DeleteFolderRequest("", null, null);
+        wordsApi.deleteFolder(deleteRequest);
     }
 
     @Test
     public void testDeleteFootnote() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteFootnoteRequest deleteRequestRequest = new DeleteFootnoteRequest("Sample.docx",0,null,null,null,null,null,null,null,null);
-        wordsApi.deleteFootnote(deleteRequestRequest);
+        DeleteFootnoteRequest deleteRequest = new DeleteFootnoteRequest("Sample.docx", 0, null, null, null, null, null, null, null, null);
+        wordsApi.deleteFootnote(deleteRequest);
     }
 
     @Test
@@ -512,16 +544,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteFootnoteOnlineRequest deleteRequestRequest = new DeleteFootnoteOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),0,null,null,null,null,null,null);
-        wordsApi.deleteFootnoteOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        DeleteFootnoteOnlineRequest deleteRequest = new DeleteFootnoteOnlineRequest(requestDocument, 0, null, null, null, null, null, null);
+        wordsApi.deleteFootnoteOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteFormField() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteFormFieldRequest deleteRequestRequest = new DeleteFormFieldRequest("Sample.docx",0,null,null,null,null,null,null,null,null);
-        wordsApi.deleteFormField(deleteRequestRequest);
+        DeleteFormFieldRequest deleteRequest = new DeleteFormFieldRequest("Sample.docx", 0, null, null, null, null, null, null, null, null);
+        wordsApi.deleteFormField(deleteRequest);
     }
 
     @Test
@@ -529,16 +562,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteFormFieldOnlineRequest deleteRequestRequest = new DeleteFormFieldOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,"sections/0",null,null,null,null,null);
-        wordsApi.deleteFormFieldOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteFormFieldOnlineRequest deleteRequest = new DeleteFormFieldOnlineRequest(requestDocument, 0, "sections/0", null, null, null, null, null);
+        wordsApi.deleteFormFieldOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteHeaderFooter() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteHeaderFooterRequest deleteRequestRequest = new DeleteHeaderFooterRequest("Sample.docx","",0,null,null,null,null,null,null,null);
-        wordsApi.deleteHeaderFooter(deleteRequestRequest);
+        DeleteHeaderFooterRequest deleteRequest = new DeleteHeaderFooterRequest("Sample.docx", "", 0, null, null, null, null, null, null, null);
+        wordsApi.deleteHeaderFooter(deleteRequest);
     }
 
     @Test
@@ -546,16 +580,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteHeaderFooterOnlineRequest deleteRequestRequest = new DeleteHeaderFooterOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),"",0,null,null,null,null,null);
-        wordsApi.deleteHeaderFooterOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        DeleteHeaderFooterOnlineRequest deleteRequest = new DeleteHeaderFooterOnlineRequest(requestDocument, "", 0, null, null, null, null, null);
+        wordsApi.deleteHeaderFooterOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteHeadersFooters() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteHeadersFootersRequest deleteRequestRequest = new DeleteHeadersFootersRequest("Sample.docx","",null,null,null,null,null,null,null,null);
-        wordsApi.deleteHeadersFooters(deleteRequestRequest);
+        DeleteHeadersFootersRequest deleteRequest = new DeleteHeadersFootersRequest("Sample.docx", "", null, null, null, null, null, null, null, null);
+        wordsApi.deleteHeadersFooters(deleteRequest);
     }
 
     @Test
@@ -563,16 +598,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteHeadersFootersOnlineRequest deleteRequestRequest = new DeleteHeadersFootersOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),"",null,null,null,null,null,null);
-        wordsApi.deleteHeadersFootersOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        DeleteHeadersFootersOnlineRequest deleteRequest = new DeleteHeadersFootersOnlineRequest(requestDocument, "", null, null, null, null, null, null);
+        wordsApi.deleteHeadersFootersOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteMacros() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteMacrosRequest deleteRequestRequest = new DeleteMacrosRequest("Sample.docx",null,null,null,null,null,null,null);
-        wordsApi.deleteMacros(deleteRequestRequest);
+        DeleteMacrosRequest deleteRequest = new DeleteMacrosRequest("Sample.docx", null, null, null, null, null, null, null);
+        wordsApi.deleteMacros(deleteRequest);
     }
 
     @Test
@@ -580,16 +616,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteMacrosOnlineRequest deleteRequestRequest = new DeleteMacrosOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,null,null,null);
-        wordsApi.deleteMacrosOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteMacrosOnlineRequest deleteRequest = new DeleteMacrosOnlineRequest(requestDocument, null, null, null, null, null);
+        wordsApi.deleteMacrosOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteOfficeMathObject() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteOfficeMathObjectRequest deleteRequestRequest = new DeleteOfficeMathObjectRequest("Sample.docx",0,null,null,null,null,null,null,null,null);
-        wordsApi.deleteOfficeMathObject(deleteRequestRequest);
+        DeleteOfficeMathObjectRequest deleteRequest = new DeleteOfficeMathObjectRequest("Sample.docx", 0, null, null, null, null, null, null, null, null);
+        wordsApi.deleteOfficeMathObject(deleteRequest);
     }
 
     @Test
@@ -597,24 +634,25 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteOfficeMathObjectOnlineRequest deleteRequestRequest = new DeleteOfficeMathObjectOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null,null,null,null,null);
-        wordsApi.deleteOfficeMathObjectOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteOfficeMathObjectOnlineRequest deleteRequest = new DeleteOfficeMathObjectOnlineRequest(requestDocument, 0, null, null, null, null, null, null);
+        wordsApi.deleteOfficeMathObjectOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteParagraph() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteParagraphRequest deleteRequestRequest = new DeleteParagraphRequest("Sample.docx",0,null,null,null,null,null,null,null,null);
-        wordsApi.deleteParagraph(deleteRequestRequest);
+        DeleteParagraphRequest deleteRequest = new DeleteParagraphRequest("Sample.docx", 0, null, null, null, null, null, null, null, null);
+        wordsApi.deleteParagraph(deleteRequest);
     }
 
     @Test
     public void testDeleteParagraphListFormat() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteParagraphListFormatRequest deleteRequestRequest = new DeleteParagraphListFormatRequest("Sample.docx",0,null,null,null,null,null,null,null,null);
-        wordsApi.deleteParagraphListFormat(deleteRequestRequest);
+        DeleteParagraphListFormatRequest deleteRequest = new DeleteParagraphListFormatRequest("Sample.docx", 0, null, null, null, null, null, null, null, null);
+        wordsApi.deleteParagraphListFormat(deleteRequest);
     }
 
     @Test
@@ -622,8 +660,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteParagraphListFormatOnlineRequest deleteRequestRequest = new DeleteParagraphListFormatOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),0,null,null,null,null,null,null);
-        wordsApi.deleteParagraphListFormatOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        DeleteParagraphListFormatOnlineRequest deleteRequest = new DeleteParagraphListFormatOnlineRequest(requestDocument, 0, null, null, null, null, null, null);
+        wordsApi.deleteParagraphListFormatOnline(deleteRequest);
     }
 
     @Test
@@ -631,16 +670,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteParagraphOnlineRequest deleteRequestRequest = new DeleteParagraphOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null,null,null,null,null);
-        wordsApi.deleteParagraphOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteParagraphOnlineRequest deleteRequest = new DeleteParagraphOnlineRequest(requestDocument, 0, null, null, null, null, null, null);
+        wordsApi.deleteParagraphOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteParagraphTabStop() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteParagraphTabStopRequest deleteRequestRequest = new DeleteParagraphTabStopRequest("Sample.docx",(double)72.0,0,null,null,null,null,null,null);
-        wordsApi.deleteParagraphTabStop(deleteRequestRequest);
+        DeleteParagraphTabStopRequest deleteRequest = new DeleteParagraphTabStopRequest("Sample.docx", (double)72.0, 0, null, null, null, null, null, null);
+        wordsApi.deleteParagraphTabStop(deleteRequest);
     }
 
     @Test
@@ -648,16 +688,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteParagraphTabStopOnlineRequest deleteRequestRequest = new DeleteParagraphTabStopOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),(double)72.0,0,null,null,null,null);
-        wordsApi.deleteParagraphTabStopOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteParagraphTabStopOnlineRequest deleteRequest = new DeleteParagraphTabStopOnlineRequest(requestDocument, (double)72.0, 0, null, null, null, null);
+        wordsApi.deleteParagraphTabStopOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteRun() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteRunRequest deleteRequestRequest = new DeleteRunRequest("Sample.docx","paragraphs/1",0,null,null,null,null,null,null,null);
-        wordsApi.deleteRun(deleteRequestRequest);
+        DeleteRunRequest deleteRequest = new DeleteRunRequest("Sample.docx", "paragraphs/1", 0, null, null, null, null, null, null, null);
+        wordsApi.deleteRun(deleteRequest);
     }
 
     @Test
@@ -665,16 +706,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteRunOnlineRequest deleteRequestRequest = new DeleteRunOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),"paragraphs/1",0,null,null,null,null,null);
-        wordsApi.deleteRunOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        DeleteRunOnlineRequest deleteRequest = new DeleteRunOnlineRequest(requestDocument, "paragraphs/1", 0, null, null, null, null, null);
+        wordsApi.deleteRunOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteSection() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteSectionRequest deleteRequestRequest = new DeleteSectionRequest("Sample.docx",0,null,null,null,null,null,null,null);
-        wordsApi.deleteSection(deleteRequestRequest);
+        DeleteSectionRequest deleteRequest = new DeleteSectionRequest("Sample.docx", 0, null, null, null, null, null, null, null);
+        wordsApi.deleteSection(deleteRequest);
     }
 
     @Test
@@ -682,24 +724,25 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteSectionOnlineRequest deleteRequestRequest = new DeleteSectionOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null,null,null,null);
-        wordsApi.deleteSectionOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteSectionOnlineRequest deleteRequest = new DeleteSectionOnlineRequest(requestDocument, 0, null, null, null, null, null);
+        wordsApi.deleteSectionOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteTable() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteTableRequest deleteRequestRequest = new DeleteTableRequest("Sample.docx",1,null,null,null,null,null,null,null,null);
-        wordsApi.deleteTable(deleteRequestRequest);
+        DeleteTableRequest deleteRequest = new DeleteTableRequest("Sample.docx", 1, null, null, null, null, null, null, null, null);
+        wordsApi.deleteTable(deleteRequest);
     }
 
     @Test
     public void testDeleteTableCell() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteTableCellRequest deleteRequestRequest = new DeleteTableCellRequest("Sample.docx","sections/0/tables/2/rows/0",0,null,null,null,null,null,null,null);
-        wordsApi.deleteTableCell(deleteRequestRequest);
+        DeleteTableCellRequest deleteRequest = new DeleteTableCellRequest("Sample.docx", "sections/0/tables/2/rows/0", 0, null, null, null, null, null, null, null);
+        wordsApi.deleteTableCell(deleteRequest);
     }
 
     @Test
@@ -707,8 +750,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteTableCellOnlineRequest deleteRequestRequest = new DeleteTableCellOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"sections/0/tables/2/rows/0",0,null,null,null,null,null);
-        wordsApi.deleteTableCellOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteTableCellOnlineRequest deleteRequest = new DeleteTableCellOnlineRequest(requestDocument, "sections/0/tables/2/rows/0", 0, null, null, null, null, null);
+        wordsApi.deleteTableCellOnline(deleteRequest);
     }
 
     @Test
@@ -716,16 +760,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteTableOnlineRequest deleteRequestRequest = new DeleteTableOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),1,null,null,null,null,null,null);
-        wordsApi.deleteTableOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteTableOnlineRequest deleteRequest = new DeleteTableOnlineRequest(requestDocument, 1, null, null, null, null, null, null);
+        wordsApi.deleteTableOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteTableRow() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteTableRowRequest deleteRequestRequest = new DeleteTableRowRequest("Sample.docx","tables/1",0,null,null,null,null,null,null,null);
-        wordsApi.deleteTableRow(deleteRequestRequest);
+        DeleteTableRowRequest deleteRequest = new DeleteTableRowRequest("Sample.docx", "tables/1", 0, null, null, null, null, null, null, null);
+        wordsApi.deleteTableRow(deleteRequest);
     }
 
     @Test
@@ -733,16 +778,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteTableRowOnlineRequest deleteRequestRequest = new DeleteTableRowOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"tables/1",0,null,null,null,null,null);
-        wordsApi.deleteTableRowOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteTableRowOnlineRequest deleteRequest = new DeleteTableRowOnlineRequest(requestDocument, "tables/1", 0, null, null, null, null, null);
+        wordsApi.deleteTableRowOnline(deleteRequest);
     }
 
     @Test
     public void testDeleteWatermark() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteWatermarkRequest deleteRequestRequest = new DeleteWatermarkRequest("Sample.docx",null,null,null,null,null,null,null);
-        wordsApi.deleteWatermark(deleteRequestRequest);
+        DeleteWatermarkRequest deleteRequest = new DeleteWatermarkRequest("Sample.docx", null, null, null, null, null, null, null);
+        wordsApi.deleteWatermark(deleteRequest);
     }
 
     @Test
@@ -750,24 +796,25 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        DeleteWatermarkOnlineRequest deleteRequestRequest = new DeleteWatermarkOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,null,null,null);
-        wordsApi.deleteWatermarkOnline(deleteRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        DeleteWatermarkOnlineRequest deleteRequest = new DeleteWatermarkOnlineRequest(requestDocument, null, null, null, null, null);
+        wordsApi.deleteWatermarkOnline(deleteRequest);
     }
 
     @Test
     public void testDownloadFile() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        DownloadFileRequest downloadRequestRequest = new DownloadFileRequest("Sample.docx",null,null);
-        wordsApi.downloadFile(downloadRequestRequest);
+        DownloadFileRequest downloadRequest = new DownloadFileRequest("Sample.docx", null, null);
+        wordsApi.downloadFile(downloadRequest);
     }
 
     @Test
     public void testExecuteMailMerge() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        ExecuteMailMergeRequest mailMergeRequestRequest = new ExecuteMailMergeRequest("Sample.docx","TestExecuteTemplateData.txt",null,null,null,null,null,null,null,null,null);
-        wordsApi.executeMailMerge(mailMergeRequestRequest);
+        ExecuteMailMergeRequest mailMergeRequest = new ExecuteMailMergeRequest("Sample.docx", "TestExecuteTemplateData.txt", null, null, null, null, null, null, null, null, null);
+        wordsApi.executeMailMerge(mailMergeRequest);
     }
 
     @Test
@@ -775,24 +822,26 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        ExecuteMailMergeOnlineRequest mailMergeRequestRequest = new ExecuteMailMergeOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "TestExecuteTemplate.doc").toAbsolutePath()),Files.readAllBytes(Paths.get(documentsDir, "TestExecuteTemplateData.txt").toAbsolutePath()),null,null,null);
-        wordsApi.executeMailMergeOnline(mailMergeRequestRequest);
+        byte[] requestTemplate = Files.readAllBytes(Paths.get(documentsDir, "TestExecuteTemplate.doc").toAbsolutePath());
+        byte[] requestData = Files.readAllBytes(Paths.get(documentsDir, "TestExecuteTemplateData.txt").toAbsolutePath());
+        ExecuteMailMergeOnlineRequest mailMergeRequest = new ExecuteMailMergeOnlineRequest(requestTemplate, requestData, null, null, null);
+        wordsApi.executeMailMergeOnline(mailMergeRequest);
     }
 
     @Test
     public void testGetAvailableFonts() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetAvailableFontsRequest requestRequest = new GetAvailableFontsRequest(null);
-        wordsApi.getAvailableFonts(requestRequest);
+        GetAvailableFontsRequest request = new GetAvailableFontsRequest(null);
+        wordsApi.getAvailableFonts(request);
     }
 
     @Test
     public void testGetBookmarkByName() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetBookmarkByNameRequest requestRequest = new GetBookmarkByNameRequest("Sample.docx","aspose",null,null,null,null);
-        wordsApi.getBookmarkByName(requestRequest);
+        GetBookmarkByNameRequest request = new GetBookmarkByNameRequest("Sample.docx", "aspose", null, null, null, null);
+        wordsApi.getBookmarkByName(request);
     }
 
     @Test
@@ -800,16 +849,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetBookmarkByNameOnlineRequest requestRequest = new GetBookmarkByNameOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"aspose",null,null);
-        wordsApi.getBookmarkByNameOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetBookmarkByNameOnlineRequest request = new GetBookmarkByNameOnlineRequest(requestDocument, "aspose", null, null);
+        wordsApi.getBookmarkByNameOnline(request);
     }
 
     @Test
     public void testGetBookmarks() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetBookmarksRequest requestRequest = new GetBookmarksRequest("Sample.docx",null,null,null,null);
-        wordsApi.getBookmarks(requestRequest);
+        GetBookmarksRequest request = new GetBookmarksRequest("Sample.docx", null, null, null, null);
+        wordsApi.getBookmarks(request);
     }
 
     @Test
@@ -817,16 +867,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetBookmarksOnlineRequest requestRequest = new GetBookmarksOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null);
-        wordsApi.getBookmarksOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetBookmarksOnlineRequest request = new GetBookmarksOnlineRequest(requestDocument, null, null);
+        wordsApi.getBookmarksOnline(request);
     }
 
     @Test
     public void testGetBorder() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetBorderRequest requestRequest = new GetBorderRequest("Sample.docx","left","tables/1/rows/0/cells/0",null,null,null,null);
-        wordsApi.getBorder(requestRequest);
+        GetBorderRequest request = new GetBorderRequest("Sample.docx", "left", "tables/1/rows/0/cells/0", null, null, null, null);
+        wordsApi.getBorder(request);
     }
 
     @Test
@@ -834,16 +885,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetBorderOnlineRequest requestRequest = new GetBorderOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"left","tables/1/rows/0/cells/0",null,null);
-        wordsApi.getBorderOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetBorderOnlineRequest request = new GetBorderOnlineRequest(requestDocument, "left", "tables/1/rows/0/cells/0", null, null);
+        wordsApi.getBorderOnline(request);
     }
 
     @Test
     public void testGetBorders() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetBordersRequest requestRequest = new GetBordersRequest("Sample.docx","tables/1/rows/0/cells/0",null,null,null,null);
-        wordsApi.getBorders(requestRequest);
+        GetBordersRequest request = new GetBordersRequest("Sample.docx", "tables/1/rows/0/cells/0", null, null, null, null);
+        wordsApi.getBorders(request);
     }
 
     @Test
@@ -851,16 +903,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetBordersOnlineRequest requestRequest = new GetBordersOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"tables/1/rows/0/cells/0",null,null);
-        wordsApi.getBordersOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetBordersOnlineRequest request = new GetBordersOnlineRequest(requestDocument, "tables/1/rows/0/cells/0", null, null);
+        wordsApi.getBordersOnline(request);
     }
 
     @Test
     public void testGetComment() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetCommentRequest requestRequest = new GetCommentRequest("Sample.docx",0,null,null,null,null);
-        wordsApi.getComment(requestRequest);
+        GetCommentRequest request = new GetCommentRequest("Sample.docx", 0, null, null, null, null);
+        wordsApi.getComment(request);
     }
 
     @Test
@@ -868,16 +921,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetCommentOnlineRequest requestRequest = new GetCommentOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null);
-        wordsApi.getCommentOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetCommentOnlineRequest request = new GetCommentOnlineRequest(requestDocument, 0, null, null);
+        wordsApi.getCommentOnline(request);
     }
 
     @Test
     public void testGetComments() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetCommentsRequest requestRequest = new GetCommentsRequest("Sample.docx",null,null,null,null);
-        wordsApi.getComments(requestRequest);
+        GetCommentsRequest request = new GetCommentsRequest("Sample.docx", null, null, null, null);
+        wordsApi.getComments(request);
     }
 
     @Test
@@ -885,16 +939,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetCommentsOnlineRequest requestRequest = new GetCommentsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null);
-        wordsApi.getCommentsOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetCommentsOnlineRequest request = new GetCommentsOnlineRequest(requestDocument, null, null);
+        wordsApi.getCommentsOnline(request);
     }
 
     @Test
     public void testGetCustomXmlPart() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetCustomXmlPartRequest requestRequest = new GetCustomXmlPartRequest("Sample.docx",0,null,null,null,null);
-        wordsApi.getCustomXmlPart(requestRequest);
+        GetCustomXmlPartRequest request = new GetCustomXmlPartRequest("Sample.docx", 0, null, null, null, null);
+        wordsApi.getCustomXmlPart(request);
     }
 
     @Test
@@ -902,16 +957,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetCustomXmlPartOnlineRequest requestRequest = new GetCustomXmlPartOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null);
-        wordsApi.getCustomXmlPartOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetCustomXmlPartOnlineRequest request = new GetCustomXmlPartOnlineRequest(requestDocument, 0, null, null);
+        wordsApi.getCustomXmlPartOnline(request);
     }
 
     @Test
     public void testGetCustomXmlParts() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetCustomXmlPartsRequest requestRequest = new GetCustomXmlPartsRequest("Sample.docx",null,null,null,null);
-        wordsApi.getCustomXmlParts(requestRequest);
+        GetCustomXmlPartsRequest request = new GetCustomXmlPartsRequest("Sample.docx", null, null, null, null);
+        wordsApi.getCustomXmlParts(request);
     }
 
     @Test
@@ -919,24 +975,25 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetCustomXmlPartsOnlineRequest requestRequest = new GetCustomXmlPartsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null);
-        wordsApi.getCustomXmlPartsOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetCustomXmlPartsOnlineRequest request = new GetCustomXmlPartsOnlineRequest(requestDocument, null, null);
+        wordsApi.getCustomXmlPartsOnline(request);
     }
 
     @Test
     public void testGetDocument() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentRequest requestRequest = new GetDocumentRequest("Sample.docx",null,null,null,null);
-        wordsApi.getDocument(requestRequest);
+        GetDocumentRequest request = new GetDocumentRequest("Sample.docx", null, null, null, null);
+        wordsApi.getDocument(request);
     }
 
     @Test
     public void testGetDocumentDrawingObjectByIndex() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentDrawingObjectByIndexRequest requestRequest = new GetDocumentDrawingObjectByIndexRequest("Sample.docx",0,null,null,null,null,null);
-        wordsApi.getDocumentDrawingObjectByIndex(requestRequest);
+        GetDocumentDrawingObjectByIndexRequest request = new GetDocumentDrawingObjectByIndexRequest("Sample.docx", 0, null, null, null, null, null);
+        wordsApi.getDocumentDrawingObjectByIndex(request);
     }
 
     @Test
@@ -944,16 +1001,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentDrawingObjectByIndexOnlineRequest requestRequest = new GetDocumentDrawingObjectByIndexOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,"sections/0",null,null);
-        wordsApi.getDocumentDrawingObjectByIndexOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetDocumentDrawingObjectByIndexOnlineRequest request = new GetDocumentDrawingObjectByIndexOnlineRequest(requestDocument, 0, "sections/0", null, null);
+        wordsApi.getDocumentDrawingObjectByIndexOnline(request);
     }
 
     @Test
     public void testGetDocumentDrawingObjectImageData() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentDrawingObjectImageDataRequest requestRequest = new GetDocumentDrawingObjectImageDataRequest("Sample.docx",0,null,null,null,null,null);
-        wordsApi.getDocumentDrawingObjectImageData(requestRequest);
+        GetDocumentDrawingObjectImageDataRequest request = new GetDocumentDrawingObjectImageDataRequest("Sample.docx", 0, null, null, null, null, null);
+        wordsApi.getDocumentDrawingObjectImageData(request);
     }
 
     @Test
@@ -961,16 +1019,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentDrawingObjectImageDataOnlineRequest requestRequest = new GetDocumentDrawingObjectImageDataOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,"sections/0",null,null);
-        wordsApi.getDocumentDrawingObjectImageDataOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetDocumentDrawingObjectImageDataOnlineRequest request = new GetDocumentDrawingObjectImageDataOnlineRequest(requestDocument, 0, "sections/0", null, null);
+        wordsApi.getDocumentDrawingObjectImageDataOnline(request);
     }
 
     @Test
     public void testGetDocumentDrawingObjectOleData() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentDrawingObjectOleDataRequest requestRequest = new GetDocumentDrawingObjectOleDataRequest("Sample.docx",0,null,null,null,null,null);
-        wordsApi.getDocumentDrawingObjectOleData(requestRequest);
+        GetDocumentDrawingObjectOleDataRequest request = new GetDocumentDrawingObjectOleDataRequest("Sample.docx", 0, null, null, null, null, null);
+        wordsApi.getDocumentDrawingObjectOleData(request);
     }
 
     @Test
@@ -978,16 +1037,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentDrawingObjectOleDataOnlineRequest requestRequest = new GetDocumentDrawingObjectOleDataOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,"sections/0",null,null);
-        wordsApi.getDocumentDrawingObjectOleDataOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetDocumentDrawingObjectOleDataOnlineRequest request = new GetDocumentDrawingObjectOleDataOnlineRequest(requestDocument, 0, "sections/0", null, null);
+        wordsApi.getDocumentDrawingObjectOleDataOnline(request);
     }
 
     @Test
     public void testGetDocumentDrawingObjects() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentDrawingObjectsRequest requestRequest = new GetDocumentDrawingObjectsRequest("Sample.docx",null,null,null,null,null);
-        wordsApi.getDocumentDrawingObjects(requestRequest);
+        GetDocumentDrawingObjectsRequest request = new GetDocumentDrawingObjectsRequest("Sample.docx", null, null, null, null, null);
+        wordsApi.getDocumentDrawingObjects(request);
     }
 
     @Test
@@ -995,16 +1055,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentDrawingObjectsOnlineRequest requestRequest = new GetDocumentDrawingObjectsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"sections/0",null,null);
-        wordsApi.getDocumentDrawingObjectsOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetDocumentDrawingObjectsOnlineRequest request = new GetDocumentDrawingObjectsOnlineRequest(requestDocument, "sections/0", null, null);
+        wordsApi.getDocumentDrawingObjectsOnline(request);
     }
 
     @Test
     public void testGetDocumentFieldNames() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentFieldNamesRequest requestRequest = new GetDocumentFieldNamesRequest("Sample.docx",null,null,null,null,null);
-        wordsApi.getDocumentFieldNames(requestRequest);
+        GetDocumentFieldNamesRequest request = new GetDocumentFieldNamesRequest("Sample.docx", null, null, null, null, null);
+        wordsApi.getDocumentFieldNames(request);
     }
 
     @Test
@@ -1012,16 +1073,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentFieldNamesOnlineRequest requestRequest = new GetDocumentFieldNamesOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,true);
-        wordsApi.getDocumentFieldNamesOnline(requestRequest);
+        byte[] requestTemplate = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetDocumentFieldNamesOnlineRequest request = new GetDocumentFieldNamesOnlineRequest(requestTemplate, null, null, true);
+        wordsApi.getDocumentFieldNamesOnline(request);
     }
 
     @Test
     public void testGetDocumentHyperlinkByIndex() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentHyperlinkByIndexRequest requestRequest = new GetDocumentHyperlinkByIndexRequest("Sample.docx",0,null,null,null,null);
-        wordsApi.getDocumentHyperlinkByIndex(requestRequest);
+        GetDocumentHyperlinkByIndexRequest request = new GetDocumentHyperlinkByIndexRequest("Sample.docx", 0, null, null, null, null);
+        wordsApi.getDocumentHyperlinkByIndex(request);
     }
 
     @Test
@@ -1029,16 +1091,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentHyperlinkByIndexOnlineRequest requestRequest = new GetDocumentHyperlinkByIndexOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null);
-        wordsApi.getDocumentHyperlinkByIndexOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetDocumentHyperlinkByIndexOnlineRequest request = new GetDocumentHyperlinkByIndexOnlineRequest(requestDocument, 0, null, null);
+        wordsApi.getDocumentHyperlinkByIndexOnline(request);
     }
 
     @Test
     public void testGetDocumentHyperlinks() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentHyperlinksRequest requestRequest = new GetDocumentHyperlinksRequest("Sample.docx",null,null,null,null);
-        wordsApi.getDocumentHyperlinks(requestRequest);
+        GetDocumentHyperlinksRequest request = new GetDocumentHyperlinksRequest("Sample.docx", null, null, null, null);
+        wordsApi.getDocumentHyperlinks(request);
     }
 
     @Test
@@ -1046,16 +1109,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentHyperlinksOnlineRequest requestRequest = new GetDocumentHyperlinksOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null);
-        wordsApi.getDocumentHyperlinksOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetDocumentHyperlinksOnlineRequest request = new GetDocumentHyperlinksOnlineRequest(requestDocument, null, null);
+        wordsApi.getDocumentHyperlinksOnline(request);
     }
 
     @Test
     public void testGetDocumentProperties() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentPropertiesRequest requestRequest = new GetDocumentPropertiesRequest("Sample.docx",null,null,null,null);
-        wordsApi.getDocumentProperties(requestRequest);
+        GetDocumentPropertiesRequest request = new GetDocumentPropertiesRequest("Sample.docx", null, null, null, null);
+        wordsApi.getDocumentProperties(request);
     }
 
     @Test
@@ -1063,16 +1127,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentPropertiesOnlineRequest requestRequest = new GetDocumentPropertiesOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null);
-        wordsApi.getDocumentPropertiesOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetDocumentPropertiesOnlineRequest request = new GetDocumentPropertiesOnlineRequest(requestDocument, null, null);
+        wordsApi.getDocumentPropertiesOnline(request);
     }
 
     @Test
     public void testGetDocumentProperty() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentPropertyRequest requestRequest = new GetDocumentPropertyRequest("Sample.docx","Author",null,null,null,null);
-        wordsApi.getDocumentProperty(requestRequest);
+        GetDocumentPropertyRequest request = new GetDocumentPropertyRequest("Sample.docx", "Author", null, null, null, null);
+        wordsApi.getDocumentProperty(request);
     }
 
     @Test
@@ -1080,16 +1145,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentPropertyOnlineRequest requestRequest = new GetDocumentPropertyOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"Author",null,null);
-        wordsApi.getDocumentPropertyOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetDocumentPropertyOnlineRequest request = new GetDocumentPropertyOnlineRequest(requestDocument, "Author", null, null);
+        wordsApi.getDocumentPropertyOnline(request);
     }
 
     @Test
     public void testGetDocumentProtection() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentProtectionRequest requestRequest = new GetDocumentProtectionRequest("Sample.docx",null,null,null,null);
-        wordsApi.getDocumentProtection(requestRequest);
+        GetDocumentProtectionRequest request = new GetDocumentProtectionRequest("Sample.docx", null, null, null, null);
+        wordsApi.getDocumentProtection(request);
     }
 
     @Test
@@ -1097,16 +1163,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentProtectionOnlineRequest requestRequest = new GetDocumentProtectionOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null);
-        wordsApi.getDocumentProtectionOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetDocumentProtectionOnlineRequest request = new GetDocumentProtectionOnlineRequest(requestDocument, null, null);
+        wordsApi.getDocumentProtectionOnline(request);
     }
 
     @Test
     public void testGetDocumentStatistics() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentStatisticsRequest requestRequest = new GetDocumentStatisticsRequest("Sample.docx",null,null,null,null,null,null,null);
-        wordsApi.getDocumentStatistics(requestRequest);
+        GetDocumentStatisticsRequest request = new GetDocumentStatisticsRequest("Sample.docx", null, null, null, null, null, null, null);
+        wordsApi.getDocumentStatistics(request);
     }
 
     @Test
@@ -1114,24 +1181,25 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentStatisticsOnlineRequest requestRequest = new GetDocumentStatisticsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,null,null,null);
-        wordsApi.getDocumentStatisticsOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetDocumentStatisticsOnlineRequest request = new GetDocumentStatisticsOnlineRequest(requestDocument, null, null, null, null, null);
+        wordsApi.getDocumentStatisticsOnline(request);
     }
 
     @Test
     public void testGetDocumentWithFormat() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetDocumentWithFormatRequest requestRequest = new GetDocumentWithFormatRequest("Sample.docx","text",null,null,null,null,"/TestGetDocumentWithFormatAndOutPath.text",null);
-        wordsApi.getDocumentWithFormat(requestRequest);
+        GetDocumentWithFormatRequest request = new GetDocumentWithFormatRequest("Sample.docx", "text", null, null, null, null, "/TestGetDocumentWithFormatAndOutPath.text", null);
+        wordsApi.getDocumentWithFormat(request);
     }
 
     @Test
     public void testGetField() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetFieldRequest requestRequest = new GetFieldRequest("Sample.docx",0,null,null,null,null,null);
-        wordsApi.getField(requestRequest);
+        GetFieldRequest request = new GetFieldRequest("Sample.docx", 0, null, null, null, null, null);
+        wordsApi.getField(request);
     }
 
     @Test
@@ -1139,16 +1207,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetFieldOnlineRequest requestRequest = new GetFieldOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,"sections/0/paragraphs/0",null,null);
-        wordsApi.getFieldOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetFieldOnlineRequest request = new GetFieldOnlineRequest(requestDocument, 0, "sections/0/paragraphs/0", null, null);
+        wordsApi.getFieldOnline(request);
     }
 
     @Test
     public void testGetFields() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetFieldsRequest requestRequest = new GetFieldsRequest("Sample.docx",null,null,null,null,null);
-        wordsApi.getFields(requestRequest);
+        GetFieldsRequest request = new GetFieldsRequest("Sample.docx", null, null, null, null, null);
+        wordsApi.getFields(request);
     }
 
     @Test
@@ -1156,24 +1225,25 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetFieldsOnlineRequest requestRequest = new GetFieldsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"sections/0",null,null);
-        wordsApi.getFieldsOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetFieldsOnlineRequest request = new GetFieldsOnlineRequest(requestDocument, "sections/0", null, null);
+        wordsApi.getFieldsOnline(request);
     }
 
     @Test
     public void testGetFilesList() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetFilesListRequest requestRequest = new GetFilesListRequest("",null);
-        wordsApi.getFilesList(requestRequest);
+        GetFilesListRequest request = new GetFilesListRequest("", null);
+        wordsApi.getFilesList(request);
     }
 
     @Test
     public void testGetFootnote() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetFootnoteRequest requestRequest = new GetFootnoteRequest("Sample.docx",0,null,null,null,null,null);
-        wordsApi.getFootnote(requestRequest);
+        GetFootnoteRequest request = new GetFootnoteRequest("Sample.docx", 0, null, null, null, null, null);
+        wordsApi.getFootnote(request);
     }
 
     @Test
@@ -1181,16 +1251,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetFootnoteOnlineRequest requestRequest = new GetFootnoteOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),0,null,null,null);
-        wordsApi.getFootnoteOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        GetFootnoteOnlineRequest request = new GetFootnoteOnlineRequest(requestDocument, 0, null, null, null);
+        wordsApi.getFootnoteOnline(request);
     }
 
     @Test
     public void testGetFootnotes() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetFootnotesRequest requestRequest = new GetFootnotesRequest("Sample.docx",null,null,null,null,null);
-        wordsApi.getFootnotes(requestRequest);
+        GetFootnotesRequest request = new GetFootnotesRequest("Sample.docx", null, null, null, null, null);
+        wordsApi.getFootnotes(request);
     }
 
     @Test
@@ -1198,16 +1269,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetFootnotesOnlineRequest requestRequest = new GetFootnotesOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),null,null,null);
-        wordsApi.getFootnotesOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        GetFootnotesOnlineRequest request = new GetFootnotesOnlineRequest(requestDocument, null, null, null);
+        wordsApi.getFootnotesOnline(request);
     }
 
     @Test
     public void testGetFormField() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetFormFieldRequest requestRequest = new GetFormFieldRequest("Sample.docx",0,null,null,null,null,null);
-        wordsApi.getFormField(requestRequest);
+        GetFormFieldRequest request = new GetFormFieldRequest("Sample.docx", 0, null, null, null, null, null);
+        wordsApi.getFormField(request);
     }
 
     @Test
@@ -1215,16 +1287,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetFormFieldOnlineRequest requestRequest = new GetFormFieldOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,"sections/0",null,null);
-        wordsApi.getFormFieldOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetFormFieldOnlineRequest request = new GetFormFieldOnlineRequest(requestDocument, 0, "sections/0", null, null);
+        wordsApi.getFormFieldOnline(request);
     }
 
     @Test
     public void testGetFormFields() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetFormFieldsRequest requestRequest = new GetFormFieldsRequest("Sample.docx",null,null,null,null,null);
-        wordsApi.getFormFields(requestRequest);
+        GetFormFieldsRequest request = new GetFormFieldsRequest("Sample.docx", null, null, null, null, null);
+        wordsApi.getFormFields(request);
     }
 
     @Test
@@ -1232,24 +1305,25 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetFormFieldsOnlineRequest requestRequest = new GetFormFieldsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"sections/0",null,null);
-        wordsApi.getFormFieldsOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetFormFieldsOnlineRequest request = new GetFormFieldsOnlineRequest(requestDocument, "sections/0", null, null);
+        wordsApi.getFormFieldsOnline(request);
     }
 
     @Test
     public void testGetHeaderFooter() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetHeaderFooterRequest requestRequest = new GetHeaderFooterRequest("Sample.docx",0,null,null,null,null,null);
-        wordsApi.getHeaderFooter(requestRequest);
+        GetHeaderFooterRequest request = new GetHeaderFooterRequest("Sample.docx", 0, null, null, null, null, null);
+        wordsApi.getHeaderFooter(request);
     }
 
     @Test
     public void testGetHeaderFooterOfSection() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetHeaderFooterOfSectionRequest requestRequest = new GetHeaderFooterOfSectionRequest("Sample.docx",0,0,null,null,null,null,null);
-        wordsApi.getHeaderFooterOfSection(requestRequest);
+        GetHeaderFooterOfSectionRequest request = new GetHeaderFooterOfSectionRequest("Sample.docx", 0, 0, null, null, null, null, null);
+        wordsApi.getHeaderFooterOfSection(request);
     }
 
     @Test
@@ -1257,8 +1331,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetHeaderFooterOfSectionOnlineRequest requestRequest = new GetHeaderFooterOfSectionOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),0,0,null,null,null);
-        wordsApi.getHeaderFooterOfSectionOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        GetHeaderFooterOfSectionOnlineRequest request = new GetHeaderFooterOfSectionOnlineRequest(requestDocument, 0, 0, null, null, null);
+        wordsApi.getHeaderFooterOfSectionOnline(request);
     }
 
     @Test
@@ -1266,16 +1341,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetHeaderFooterOnlineRequest requestRequest = new GetHeaderFooterOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),0,null,null,null);
-        wordsApi.getHeaderFooterOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        GetHeaderFooterOnlineRequest request = new GetHeaderFooterOnlineRequest(requestDocument, 0, null, null, null);
+        wordsApi.getHeaderFooterOnline(request);
     }
 
     @Test
     public void testGetHeaderFooters() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetHeaderFootersRequest requestRequest = new GetHeaderFootersRequest("Sample.docx","",null,null,null,null,null);
-        wordsApi.getHeaderFooters(requestRequest);
+        GetHeaderFootersRequest request = new GetHeaderFootersRequest("Sample.docx", "", null, null, null, null, null);
+        wordsApi.getHeaderFooters(request);
     }
 
     @Test
@@ -1283,16 +1359,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetHeaderFootersOnlineRequest requestRequest = new GetHeaderFootersOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),"",null,null,null);
-        wordsApi.getHeaderFootersOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        GetHeaderFootersOnlineRequest request = new GetHeaderFootersOnlineRequest(requestDocument, "", null, null, null);
+        wordsApi.getHeaderFootersOnline(request);
     }
 
     @Test
     public void testGetList() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetListRequest requestRequest = new GetListRequest("TestGetLists.doc",1,null,null,null,null);
-        wordsApi.getList(requestRequest);
+        GetListRequest request = new GetListRequest("TestGetLists.doc", 1, null, null, null, null);
+        wordsApi.getList(request);
     }
 
     @Test
@@ -1300,16 +1377,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetListOnlineRequest requestRequest = new GetListOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),1,null,null);
-        wordsApi.getListOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        GetListOnlineRequest request = new GetListOnlineRequest(requestDocument, 1, null, null);
+        wordsApi.getListOnline(request);
     }
 
     @Test
     public void testGetLists() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetListsRequest requestRequest = new GetListsRequest("TestGetLists.doc",null,null,null,null);
-        wordsApi.getLists(requestRequest);
+        GetListsRequest request = new GetListsRequest("TestGetLists.doc", null, null, null, null);
+        wordsApi.getLists(request);
     }
 
     @Test
@@ -1317,16 +1395,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetListsOnlineRequest requestRequest = new GetListsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),null,null);
-        wordsApi.getListsOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        GetListsOnlineRequest request = new GetListsOnlineRequest(requestDocument, null, null);
+        wordsApi.getListsOnline(request);
     }
 
     @Test
     public void testGetOfficeMathObject() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetOfficeMathObjectRequest requestRequest = new GetOfficeMathObjectRequest("Sample.docx",0,null,null,null,null,null);
-        wordsApi.getOfficeMathObject(requestRequest);
+        GetOfficeMathObjectRequest request = new GetOfficeMathObjectRequest("Sample.docx", 0, null, null, null, null, null);
+        wordsApi.getOfficeMathObject(request);
     }
 
     @Test
@@ -1334,16 +1413,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetOfficeMathObjectOnlineRequest requestRequest = new GetOfficeMathObjectOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null,null);
-        wordsApi.getOfficeMathObjectOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetOfficeMathObjectOnlineRequest request = new GetOfficeMathObjectOnlineRequest(requestDocument, 0, null, null, null);
+        wordsApi.getOfficeMathObjectOnline(request);
     }
 
     @Test
     public void testGetOfficeMathObjects() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetOfficeMathObjectsRequest requestRequest = new GetOfficeMathObjectsRequest("Sample.docx",null,null,null,null,null);
-        wordsApi.getOfficeMathObjects(requestRequest);
+        GetOfficeMathObjectsRequest request = new GetOfficeMathObjectsRequest("Sample.docx", null, null, null, null, null);
+        wordsApi.getOfficeMathObjects(request);
     }
 
     @Test
@@ -1351,24 +1431,25 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetOfficeMathObjectsOnlineRequest requestRequest = new GetOfficeMathObjectsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,null);
-        wordsApi.getOfficeMathObjectsOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetOfficeMathObjectsOnlineRequest request = new GetOfficeMathObjectsOnlineRequest(requestDocument, null, null, null);
+        wordsApi.getOfficeMathObjectsOnline(request);
     }
 
     @Test
     public void testGetParagraph() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetParagraphRequest requestRequest = new GetParagraphRequest("Sample.docx",0,null,null,null,null,null);
-        wordsApi.getParagraph(requestRequest);
+        GetParagraphRequest request = new GetParagraphRequest("Sample.docx", 0, null, null, null, null, null);
+        wordsApi.getParagraph(request);
     }
 
     @Test
     public void testGetParagraphFormat() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetParagraphFormatRequest requestRequest = new GetParagraphFormatRequest("Sample.docx",0,null,null,null,null,null);
-        wordsApi.getParagraphFormat(requestRequest);
+        GetParagraphFormatRequest request = new GetParagraphFormatRequest("Sample.docx", 0, null, null, null, null, null);
+        wordsApi.getParagraphFormat(request);
     }
 
     @Test
@@ -1376,16 +1457,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetParagraphFormatOnlineRequest requestRequest = new GetParagraphFormatOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null,null);
-        wordsApi.getParagraphFormatOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetParagraphFormatOnlineRequest request = new GetParagraphFormatOnlineRequest(requestDocument, 0, null, null, null);
+        wordsApi.getParagraphFormatOnline(request);
     }
 
     @Test
     public void testGetParagraphListFormat() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetParagraphListFormatRequest requestRequest = new GetParagraphListFormatRequest("Sample.docx",0,null,null,null,null,null);
-        wordsApi.getParagraphListFormat(requestRequest);
+        GetParagraphListFormatRequest request = new GetParagraphListFormatRequest("Sample.docx", 0, null, null, null, null, null);
+        wordsApi.getParagraphListFormat(request);
     }
 
     @Test
@@ -1393,8 +1475,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetParagraphListFormatOnlineRequest requestRequest = new GetParagraphListFormatOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),0,null,null,null);
-        wordsApi.getParagraphListFormatOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        GetParagraphListFormatOnlineRequest request = new GetParagraphListFormatOnlineRequest(requestDocument, 0, null, null, null);
+        wordsApi.getParagraphListFormatOnline(request);
     }
 
     @Test
@@ -1402,16 +1485,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetParagraphOnlineRequest requestRequest = new GetParagraphOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,"sections/0",null,null);
-        wordsApi.getParagraphOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetParagraphOnlineRequest request = new GetParagraphOnlineRequest(requestDocument, 0, "sections/0", null, null);
+        wordsApi.getParagraphOnline(request);
     }
 
     @Test
     public void testGetParagraphs() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetParagraphsRequest requestRequest = new GetParagraphsRequest("Sample.docx",null,null,null,null,null);
-        wordsApi.getParagraphs(requestRequest);
+        GetParagraphsRequest request = new GetParagraphsRequest("Sample.docx", null, null, null, null, null);
+        wordsApi.getParagraphs(request);
     }
 
     @Test
@@ -1419,16 +1503,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetParagraphsOnlineRequest requestRequest = new GetParagraphsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"sections/0",null,null);
-        wordsApi.getParagraphsOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetParagraphsOnlineRequest request = new GetParagraphsOnlineRequest(requestDocument, "sections/0", null, null);
+        wordsApi.getParagraphsOnline(request);
     }
 
     @Test
     public void testGetParagraphTabStops() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetParagraphTabStopsRequest requestRequest = new GetParagraphTabStopsRequest("Sample.docx",0,null,null,null,null,null);
-        wordsApi.getParagraphTabStops(requestRequest);
+        GetParagraphTabStopsRequest request = new GetParagraphTabStopsRequest("Sample.docx", 0, null, null, null, null, null);
+        wordsApi.getParagraphTabStops(request);
     }
 
     @Test
@@ -1436,24 +1521,25 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetParagraphTabStopsOnlineRequest requestRequest = new GetParagraphTabStopsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null,null);
-        wordsApi.getParagraphTabStopsOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetParagraphTabStopsOnlineRequest request = new GetParagraphTabStopsOnlineRequest(requestDocument, 0, null, null, null);
+        wordsApi.getParagraphTabStopsOnline(request);
     }
 
     @Test
     public void testGetPublicKey() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetPublicKeyRequest requestRequest = new GetPublicKeyRequest();
-        wordsApi.getPublicKey(requestRequest);
+        GetPublicKeyRequest request = new GetPublicKeyRequest();
+        wordsApi.getPublicKey(request);
     }
 
     @Test
     public void testGetRangeText() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetRangeTextRequest requestRequest = new GetRangeTextRequest("Sample.docx","id0.0.0","id0.0.1",null,null,null,null);
-        wordsApi.getRangeText(requestRequest);
+        GetRangeTextRequest request = new GetRangeTextRequest("Sample.docx", "id0.0.0", "id0.0.1", null, null, null, null);
+        wordsApi.getRangeText(request);
     }
 
     @Test
@@ -1461,24 +1547,25 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetRangeTextOnlineRequest requestRequest = new GetRangeTextOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),"id0.0.0","id0.0.1",null,null);
-        wordsApi.getRangeTextOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        GetRangeTextOnlineRequest request = new GetRangeTextOnlineRequest(requestDocument, "id0.0.0", "id0.0.1", null, null);
+        wordsApi.getRangeTextOnline(request);
     }
 
     @Test
     public void testGetRun() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetRunRequest requestRequest = new GetRunRequest("Sample.docx","paragraphs/0",0,null,null,null,null);
-        wordsApi.getRun(requestRequest);
+        GetRunRequest request = new GetRunRequest("Sample.docx", "paragraphs/0", 0, null, null, null, null);
+        wordsApi.getRun(request);
     }
 
     @Test
     public void testGetRunFont() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetRunFontRequest requestRequest = new GetRunFontRequest("Sample.docx","paragraphs/0",0,null,null,null,null);
-        wordsApi.getRunFont(requestRequest);
+        GetRunFontRequest request = new GetRunFontRequest("Sample.docx", "paragraphs/0", 0, null, null, null, null);
+        wordsApi.getRunFont(request);
     }
 
     @Test
@@ -1486,8 +1573,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetRunFontOnlineRequest requestRequest = new GetRunFontOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"paragraphs/0",0,null,null);
-        wordsApi.getRunFontOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetRunFontOnlineRequest request = new GetRunFontOnlineRequest(requestDocument, "paragraphs/0", 0, null, null);
+        wordsApi.getRunFontOnline(request);
     }
 
     @Test
@@ -1495,16 +1583,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetRunOnlineRequest requestRequest = new GetRunOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"paragraphs/0",0,null,null);
-        wordsApi.getRunOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetRunOnlineRequest request = new GetRunOnlineRequest(requestDocument, "paragraphs/0", 0, null, null);
+        wordsApi.getRunOnline(request);
     }
 
     @Test
     public void testGetRuns() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetRunsRequest requestRequest = new GetRunsRequest("Sample.docx","sections/0/paragraphs/0",null,null,null,null);
-        wordsApi.getRuns(requestRequest);
+        GetRunsRequest request = new GetRunsRequest("Sample.docx", "sections/0/paragraphs/0", null, null, null, null);
+        wordsApi.getRuns(request);
     }
 
     @Test
@@ -1512,16 +1601,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetRunsOnlineRequest requestRequest = new GetRunsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"sections/0/paragraphs/0",null,null);
-        wordsApi.getRunsOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetRunsOnlineRequest request = new GetRunsOnlineRequest(requestDocument, "sections/0/paragraphs/0", null, null);
+        wordsApi.getRunsOnline(request);
     }
 
     @Test
     public void testGetSection() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetSectionRequest requestRequest = new GetSectionRequest("Sample.docx",0,null,null,null,null);
-        wordsApi.getSection(requestRequest);
+        GetSectionRequest request = new GetSectionRequest("Sample.docx", 0, null, null, null, null);
+        wordsApi.getSection(request);
     }
 
     @Test
@@ -1529,16 +1619,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetSectionOnlineRequest requestRequest = new GetSectionOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null);
-        wordsApi.getSectionOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetSectionOnlineRequest request = new GetSectionOnlineRequest(requestDocument, 0, null, null);
+        wordsApi.getSectionOnline(request);
     }
 
     @Test
     public void testGetSectionPageSetup() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetSectionPageSetupRequest requestRequest = new GetSectionPageSetupRequest("Sample.docx",0,null,null,null,null);
-        wordsApi.getSectionPageSetup(requestRequest);
+        GetSectionPageSetupRequest request = new GetSectionPageSetupRequest("Sample.docx", 0, null, null, null, null);
+        wordsApi.getSectionPageSetup(request);
     }
 
     @Test
@@ -1546,16 +1637,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetSectionPageSetupOnlineRequest requestRequest = new GetSectionPageSetupOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null);
-        wordsApi.getSectionPageSetupOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetSectionPageSetupOnlineRequest request = new GetSectionPageSetupOnlineRequest(requestDocument, 0, null, null);
+        wordsApi.getSectionPageSetupOnline(request);
     }
 
     @Test
     public void testGetSections() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetSectionsRequest requestRequest = new GetSectionsRequest("Sample.docx",null,null,null,null);
-        wordsApi.getSections(requestRequest);
+        GetSectionsRequest request = new GetSectionsRequest("Sample.docx", null, null, null, null);
+        wordsApi.getSections(request);
     }
 
     @Test
@@ -1563,24 +1655,25 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetSectionsOnlineRequest requestRequest = new GetSectionsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null);
-        wordsApi.getSectionsOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetSectionsOnlineRequest request = new GetSectionsOnlineRequest(requestDocument, null, null);
+        wordsApi.getSectionsOnline(request);
     }
 
     @Test
     public void testGetStyle() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetStyleRequest requestRequest = new GetStyleRequest("Sample.docx","Heading 1",null,null,null,null);
-        wordsApi.getStyle(requestRequest);
+        GetStyleRequest request = new GetStyleRequest("Sample.docx", "Heading 1", null, null, null, null);
+        wordsApi.getStyle(request);
     }
 
     @Test
     public void testGetStyleFromDocumentElement() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetStyleFromDocumentElementRequest requestRequest = new GetStyleFromDocumentElementRequest("Sample.docx","paragraphs/1/paragraphFormat",null,null,null,null);
-        wordsApi.getStyleFromDocumentElement(requestRequest);
+        GetStyleFromDocumentElementRequest request = new GetStyleFromDocumentElementRequest("Sample.docx", "paragraphs/1/paragraphFormat", null, null, null, null);
+        wordsApi.getStyleFromDocumentElement(request);
     }
 
     @Test
@@ -1588,8 +1681,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetStyleFromDocumentElementOnlineRequest requestRequest = new GetStyleFromDocumentElementOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"paragraphs/1/paragraphFormat",null,null);
-        wordsApi.getStyleFromDocumentElementOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetStyleFromDocumentElementOnlineRequest request = new GetStyleFromDocumentElementOnlineRequest(requestDocument, "paragraphs/1/paragraphFormat", null, null);
+        wordsApi.getStyleFromDocumentElementOnline(request);
     }
 
     @Test
@@ -1597,16 +1691,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetStyleOnlineRequest requestRequest = new GetStyleOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"Heading 1",null,null);
-        wordsApi.getStyleOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetStyleOnlineRequest request = new GetStyleOnlineRequest(requestDocument, "Heading 1", null, null);
+        wordsApi.getStyleOnline(request);
     }
 
     @Test
     public void testGetStyles() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetStylesRequest requestRequest = new GetStylesRequest("Sample.docx",null,null,null,null);
-        wordsApi.getStyles(requestRequest);
+        GetStylesRequest request = new GetStylesRequest("Sample.docx", null, null, null, null);
+        wordsApi.getStyles(request);
     }
 
     @Test
@@ -1614,32 +1709,33 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetStylesOnlineRequest requestRequest = new GetStylesOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null);
-        wordsApi.getStylesOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetStylesOnlineRequest request = new GetStylesOnlineRequest(requestDocument, null, null);
+        wordsApi.getStylesOnline(request);
     }
 
     @Test
     public void testGetTable() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTableRequest requestRequest = new GetTableRequest("Sample.docx",1,null,null,null,null,null);
-        wordsApi.getTable(requestRequest);
+        GetTableRequest request = new GetTableRequest("Sample.docx", 1, null, null, null, null, null);
+        wordsApi.getTable(request);
     }
 
     @Test
     public void testGetTableCell() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTableCellRequest requestRequest = new GetTableCellRequest("Sample.docx","sections/0/tables/2/rows/0",0,null,null,null,null);
-        wordsApi.getTableCell(requestRequest);
+        GetTableCellRequest request = new GetTableCellRequest("Sample.docx", "sections/0/tables/2/rows/0", 0, null, null, null, null);
+        wordsApi.getTableCell(request);
     }
 
     @Test
     public void testGetTableCellFormat() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTableCellFormatRequest requestRequest = new GetTableCellFormatRequest("Sample.docx","sections/0/tables/2/rows/0",0,null,null,null,null);
-        wordsApi.getTableCellFormat(requestRequest);
+        GetTableCellFormatRequest request = new GetTableCellFormatRequest("Sample.docx", "sections/0/tables/2/rows/0", 0, null, null, null, null);
+        wordsApi.getTableCellFormat(request);
     }
 
     @Test
@@ -1647,8 +1743,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTableCellFormatOnlineRequest requestRequest = new GetTableCellFormatOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"sections/0/tables/2/rows/0",0,null,null);
-        wordsApi.getTableCellFormatOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetTableCellFormatOnlineRequest request = new GetTableCellFormatOnlineRequest(requestDocument, "sections/0/tables/2/rows/0", 0, null, null);
+        wordsApi.getTableCellFormatOnline(request);
     }
 
     @Test
@@ -1656,8 +1753,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTableCellOnlineRequest requestRequest = new GetTableCellOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"sections/0/tables/2/rows/0",0,null,null);
-        wordsApi.getTableCellOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetTableCellOnlineRequest request = new GetTableCellOnlineRequest(requestDocument, "sections/0/tables/2/rows/0", 0, null, null);
+        wordsApi.getTableCellOnline(request);
     }
 
     @Test
@@ -1665,16 +1763,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTableOnlineRequest requestRequest = new GetTableOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),1,null,null,null);
-        wordsApi.getTableOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetTableOnlineRequest request = new GetTableOnlineRequest(requestDocument, 1, null, null, null);
+        wordsApi.getTableOnline(request);
     }
 
     @Test
     public void testGetTableProperties() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTablePropertiesRequest requestRequest = new GetTablePropertiesRequest("Sample.docx",1,null,null,null,null,null);
-        wordsApi.getTableProperties(requestRequest);
+        GetTablePropertiesRequest request = new GetTablePropertiesRequest("Sample.docx", 1, null, null, null, null, null);
+        wordsApi.getTableProperties(request);
     }
 
     @Test
@@ -1682,24 +1781,25 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTablePropertiesOnlineRequest requestRequest = new GetTablePropertiesOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),1,null,null,null);
-        wordsApi.getTablePropertiesOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetTablePropertiesOnlineRequest request = new GetTablePropertiesOnlineRequest(requestDocument, 1, null, null, null);
+        wordsApi.getTablePropertiesOnline(request);
     }
 
     @Test
     public void testGetTableRow() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTableRowRequest requestRequest = new GetTableRowRequest("Sample.docx","tables/1",0,null,null,null,null);
-        wordsApi.getTableRow(requestRequest);
+        GetTableRowRequest request = new GetTableRowRequest("Sample.docx", "tables/1", 0, null, null, null, null);
+        wordsApi.getTableRow(request);
     }
 
     @Test
     public void testGetTableRowFormat() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTableRowFormatRequest requestRequest = new GetTableRowFormatRequest("Sample.docx","sections/0/tables/2",0,null,null,null,null);
-        wordsApi.getTableRowFormat(requestRequest);
+        GetTableRowFormatRequest request = new GetTableRowFormatRequest("Sample.docx", "sections/0/tables/2", 0, null, null, null, null);
+        wordsApi.getTableRowFormat(request);
     }
 
     @Test
@@ -1707,8 +1807,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTableRowFormatOnlineRequest requestRequest = new GetTableRowFormatOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"sections/0/tables/2",0,null,null);
-        wordsApi.getTableRowFormatOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetTableRowFormatOnlineRequest request = new GetTableRowFormatOnlineRequest(requestDocument, "sections/0/tables/2", 0, null, null);
+        wordsApi.getTableRowFormatOnline(request);
     }
 
     @Test
@@ -1716,16 +1817,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTableRowOnlineRequest requestRequest = new GetTableRowOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"tables/1",0,null,null);
-        wordsApi.getTableRowOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetTableRowOnlineRequest request = new GetTableRowOnlineRequest(requestDocument, "tables/1", 0, null, null);
+        wordsApi.getTableRowOnline(request);
     }
 
     @Test
     public void testGetTables() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTablesRequest requestRequest = new GetTablesRequest("Sample.docx",null,null,null,null,null);
-        wordsApi.getTables(requestRequest);
+        GetTablesRequest request = new GetTablesRequest("Sample.docx", null, null, null, null, null);
+        wordsApi.getTables(request);
     }
 
     @Test
@@ -1733,8 +1835,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        GetTablesOnlineRequest requestRequest = new GetTablesOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,null);
-        wordsApi.getTablesOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        GetTablesOnlineRequest request = new GetTablesOnlineRequest(requestDocument, null, null, null);
+        wordsApi.getTablesOnline(request);
     }
 
     @Test
@@ -1762,8 +1865,8 @@ public class TestExamples extends TestCase
         requestComment.setAuthor("Imran Anwar");
         requestComment.setText("A new Comment");
 
-        InsertCommentRequest insertRequestRequest = new InsertCommentRequest("Sample.docx",requestComment,null,null,null,null,null,null,null);
-        wordsApi.insertComment(insertRequestRequest);
+        InsertCommentRequest insertRequest = new InsertCommentRequest("Sample.docx", requestComment, null, null, null, null, null, null, null);
+        wordsApi.insertComment(insertRequest);
     }
 
     @Test
@@ -1771,6 +1874,7 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         NodeLink requestCommentRangeStartNode = new NodeLink();
         requestCommentRangeStartNode.setNodeId("0.3.0.3");
 
@@ -1792,8 +1896,8 @@ public class TestExamples extends TestCase
         requestComment.setAuthor("Imran Anwar");
         requestComment.setText("A new Comment");
 
-        InsertCommentOnlineRequest insertRequestRequest = new InsertCommentOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestComment,null,null,null,null,null);
-        wordsApi.insertCommentOnline(insertRequestRequest);
+        InsertCommentOnlineRequest insertRequest = new InsertCommentOnlineRequest(requestDocument, requestComment, null, null, null, null, null);
+        wordsApi.insertCommentOnline(insertRequest);
     }
 
     @Test
@@ -1804,8 +1908,8 @@ public class TestExamples extends TestCase
         requestCustomXmlPart.setId("hello");
         requestCustomXmlPart.setData("<data>Hello world</data>");
 
-        InsertCustomXmlPartRequest insertRequestRequest = new InsertCustomXmlPartRequest("Sample.docx",requestCustomXmlPart,null,null,null,null,null,null,null);
-        wordsApi.insertCustomXmlPart(insertRequestRequest);
+        InsertCustomXmlPartRequest insertRequest = new InsertCustomXmlPartRequest("Sample.docx", requestCustomXmlPart, null, null, null, null, null, null, null);
+        wordsApi.insertCustomXmlPart(insertRequest);
     }
 
     @Test
@@ -1813,12 +1917,13 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         CustomXmlPartInsert requestCustomXmlPart = new CustomXmlPartInsert();
         requestCustomXmlPart.setId("hello");
         requestCustomXmlPart.setData("<data>Hello world</data>");
 
-        InsertCustomXmlPartOnlineRequest insertRequestRequest = new InsertCustomXmlPartOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestCustomXmlPart,null,null,null,null,null);
-        wordsApi.insertCustomXmlPartOnline(insertRequestRequest);
+        InsertCustomXmlPartOnlineRequest insertRequest = new InsertCustomXmlPartOnlineRequest(requestDocument, requestCustomXmlPart, null, null, null, null, null);
+        wordsApi.insertCustomXmlPartOnline(insertRequest);
     }
 
     @Test
@@ -1835,8 +1940,9 @@ public class TestExamples extends TestCase
         requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
         requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
 
-        InsertDrawingObjectRequest insertRequestRequest = new InsertDrawingObjectRequest("Sample.docx",requestDrawingObject,Files.readAllBytes(Paths.get(documentsDir, "Common/aspose-cloud.png").toAbsolutePath()),null,null,null,null,null,null,null,null);
-        wordsApi.insertDrawingObject(insertRequestRequest);
+        byte[] requestImageFile = Files.readAllBytes(Paths.get(documentsDir, "Common/aspose-cloud.png").toAbsolutePath());
+        InsertDrawingObjectRequest insertRequest = new InsertDrawingObjectRequest("Sample.docx", requestDrawingObject, requestImageFile, null, null, null, null, null, null, null, null);
+        wordsApi.insertDrawingObject(insertRequest);
     }
 
     @Test
@@ -1844,6 +1950,7 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         DrawingObjectInsert requestDrawingObject = new DrawingObjectInsert();
         requestDrawingObject.setHeight((double)0);
         requestDrawingObject.setLeft((double)0);
@@ -1853,8 +1960,9 @@ public class TestExamples extends TestCase
         requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
         requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
 
-        InsertDrawingObjectOnlineRequest insertRequestRequest = new InsertDrawingObjectOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestDrawingObject,Files.readAllBytes(Paths.get(documentsDir, "Common/aspose-cloud.png").toAbsolutePath()),null,null,null,null,null,null);
-        wordsApi.insertDrawingObjectOnline(insertRequestRequest);
+        byte[] requestImageFile = Files.readAllBytes(Paths.get(documentsDir, "Common/aspose-cloud.png").toAbsolutePath());
+        InsertDrawingObjectOnlineRequest insertRequest = new InsertDrawingObjectOnlineRequest(requestDocument, requestDrawingObject, requestImageFile, null, null, null, null, null, null);
+        wordsApi.insertDrawingObjectOnline(insertRequest);
     }
 
     @Test
@@ -1864,8 +1972,8 @@ public class TestExamples extends TestCase
         FieldInsert requestField = new FieldInsert();
         requestField.setFieldCode("{ NUMPAGES }");
 
-        InsertFieldRequest insertRequestRequest = new InsertFieldRequest("Sample.docx",requestField,null,null,null,null,null,null,null,null,null);
-        wordsApi.insertField(insertRequestRequest);
+        InsertFieldRequest insertRequest = new InsertFieldRequest("Sample.docx", requestField, null, null, null, null, null, null, null, null, null);
+        wordsApi.insertField(insertRequest);
     }
 
     @Test
@@ -1873,11 +1981,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         FieldInsert requestField = new FieldInsert();
         requestField.setFieldCode("{ NUMPAGES }");
 
-        InsertFieldOnlineRequest insertRequestRequest = new InsertFieldOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestField,"sections/0/paragraphs/0",null,null,null,null,null,null);
-        wordsApi.insertFieldOnline(insertRequestRequest);
+        InsertFieldOnlineRequest insertRequest = new InsertFieldOnlineRequest(requestDocument, requestField, "sections/0/paragraphs/0", null, null, null, null, null, null);
+        wordsApi.insertFieldOnline(insertRequest);
     }
 
     @Test
@@ -1888,8 +1997,8 @@ public class TestExamples extends TestCase
         requestFootnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
         requestFootnoteDto.setText("test endnote");
 
-        InsertFootnoteRequest insertRequestRequest = new InsertFootnoteRequest("Sample.docx",requestFootnoteDto,null,null,null,null,null,null,null,null);
-        wordsApi.insertFootnote(insertRequestRequest);
+        InsertFootnoteRequest insertRequest = new InsertFootnoteRequest("Sample.docx", requestFootnoteDto, null, null, null, null, null, null, null, null);
+        wordsApi.insertFootnote(insertRequest);
     }
 
     @Test
@@ -1897,12 +2006,13 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
         FootnoteInsert requestFootnoteDto = new FootnoteInsert();
         requestFootnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
         requestFootnoteDto.setText("test endnote");
 
-        InsertFootnoteOnlineRequest insertRequestRequest = new InsertFootnoteOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),requestFootnoteDto,null,null,null,null,null,null);
-        wordsApi.insertFootnoteOnline(insertRequestRequest);
+        InsertFootnoteOnlineRequest insertRequest = new InsertFootnoteOnlineRequest(requestDocument, requestFootnoteDto, null, null, null, null, null, null);
+        wordsApi.insertFootnoteOnline(insertRequest);
     }
 
     @Test
@@ -1918,8 +2028,8 @@ public class TestExamples extends TestCase
         requestFormField.setTextInputDefault("123");
         requestFormField.setTextInputFormat("UPPERCASE");
 
-        InsertFormFieldRequest insertRequestRequest = new InsertFormFieldRequest("Sample.docx",requestFormField,null,null,null,null,null,null,null,null,null);
-        wordsApi.insertFormField(insertRequestRequest);
+        InsertFormFieldRequest insertRequest = new InsertFormFieldRequest("Sample.docx", requestFormField, null, null, null, null, null, null, null, null, null);
+        wordsApi.insertFormField(insertRequest);
     }
 
     @Test
@@ -1927,6 +2037,7 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         FormFieldTextInput requestFormField = new FormFieldTextInput();
         requestFormField.setName("FullName");
         requestFormField.setEnabled(true);
@@ -1936,16 +2047,16 @@ public class TestExamples extends TestCase
         requestFormField.setTextInputDefault("123");
         requestFormField.setTextInputFormat("UPPERCASE");
 
-        InsertFormFieldOnlineRequest insertRequestRequest = new InsertFormFieldOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestFormField,"sections/0/paragraphs/0",null,null,null,null,null,null);
-        wordsApi.insertFormFieldOnline(insertRequestRequest);
+        InsertFormFieldOnlineRequest insertRequest = new InsertFormFieldOnlineRequest(requestDocument, requestFormField, "sections/0/paragraphs/0", null, null, null, null, null, null);
+        wordsApi.insertFormFieldOnline(insertRequest);
     }
 
     @Test
     public void testInsertHeaderFooter() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        InsertHeaderFooterRequest insertRequestRequest = new InsertHeaderFooterRequest("Sample.docx","","FooterEven",null,null,null,null,null,null,null);
-        wordsApi.insertHeaderFooter(insertRequestRequest);
+        InsertHeaderFooterRequest insertRequest = new InsertHeaderFooterRequest("Sample.docx", "", "FooterEven", null, null, null, null, null, null, null);
+        wordsApi.insertHeaderFooter(insertRequest);
     }
 
     @Test
@@ -1953,8 +2064,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        InsertHeaderFooterOnlineRequest insertRequestRequest = new InsertHeaderFooterOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),"","FooterEven",null,null,null,null,null);
-        wordsApi.insertHeaderFooterOnline(insertRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        InsertHeaderFooterOnlineRequest insertRequest = new InsertHeaderFooterOnlineRequest(requestDocument, "", "FooterEven", null, null, null, null, null);
+        wordsApi.insertHeaderFooterOnline(insertRequest);
     }
 
     @Test
@@ -1964,8 +2076,8 @@ public class TestExamples extends TestCase
         ListInsert requestListInsert = new ListInsert();
         requestListInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
 
-        InsertListRequest insertRequestRequest = new InsertListRequest("TestGetLists.doc",requestListInsert,null,null,null,null,null,null,null);
-        wordsApi.insertList(insertRequestRequest);
+        InsertListRequest insertRequest = new InsertListRequest("TestGetLists.doc", requestListInsert, null, null, null, null, null, null, null);
+        wordsApi.insertList(insertRequest);
     }
 
     @Test
@@ -1973,11 +2085,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
         ListInsert requestListInsert = new ListInsert();
         requestListInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
 
-        InsertListOnlineRequest insertRequestRequest = new InsertListOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),requestListInsert,null,null,null,null,null);
-        wordsApi.insertListOnline(insertRequestRequest);
+        InsertListOnlineRequest insertRequest = new InsertListOnlineRequest(requestDocument, requestListInsert, null, null, null, null, null);
+        wordsApi.insertListOnline(insertRequest);
     }
 
     @Test
@@ -1989,8 +2102,8 @@ public class TestExamples extends TestCase
         requestTabStopInsertDto.setLeader(TabStopInsert.LeaderEnum.NONE);
         requestTabStopInsertDto.setPosition((double)100.0);
 
-        InsertOrUpdateParagraphTabStopRequest insertRequestRequest = new InsertOrUpdateParagraphTabStopRequest("Sample.docx",0,requestTabStopInsertDto,null,null,null,null,null,null);
-        wordsApi.insertOrUpdateParagraphTabStop(insertRequestRequest);
+        InsertOrUpdateParagraphTabStopRequest insertRequest = new InsertOrUpdateParagraphTabStopRequest("Sample.docx", 0, requestTabStopInsertDto, null, null, null, null, null, null);
+        wordsApi.insertOrUpdateParagraphTabStop(insertRequest);
     }
 
     @Test
@@ -1998,13 +2111,14 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         TabStopInsert requestTabStopInsertDto = new TabStopInsert();
         requestTabStopInsertDto.setAlignment(TabStopInsert.AlignmentEnum.LEFT);
         requestTabStopInsertDto.setLeader(TabStopInsert.LeaderEnum.NONE);
         requestTabStopInsertDto.setPosition((double)72);
 
-        InsertOrUpdateParagraphTabStopOnlineRequest insertRequestRequest = new InsertOrUpdateParagraphTabStopOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestTabStopInsertDto,0,null,null,null,null);
-        wordsApi.insertOrUpdateParagraphTabStopOnline(insertRequestRequest);
+        InsertOrUpdateParagraphTabStopOnlineRequest insertRequest = new InsertOrUpdateParagraphTabStopOnlineRequest(requestDocument, requestTabStopInsertDto, 0, null, null, null, null);
+        wordsApi.insertOrUpdateParagraphTabStopOnline(insertRequest);
     }
 
     @Test
@@ -2015,8 +2129,8 @@ public class TestExamples extends TestCase
         requestPageNumber.setAlignment("center");
         requestPageNumber.setFormat("{PAGE} of {NUMPAGES}");
 
-        InsertPageNumbersRequest insertRequestRequest = new InsertPageNumbersRequest("Sample.docx",requestPageNumber,null,null,null,null,null,null,null);
-        wordsApi.insertPageNumbers(insertRequestRequest);
+        InsertPageNumbersRequest insertRequest = new InsertPageNumbersRequest("Sample.docx", requestPageNumber, null, null, null, null, null, null, null);
+        wordsApi.insertPageNumbers(insertRequest);
     }
 
     @Test
@@ -2024,12 +2138,13 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Common/Sample.docx").toAbsolutePath());
         PageNumber requestPageNumber = new PageNumber();
         requestPageNumber.setAlignment("center");
         requestPageNumber.setFormat("{PAGE} of {NUMPAGES}");
 
-        InsertPageNumbersOnlineRequest insertRequestRequest = new InsertPageNumbersOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Common/Sample.docx").toAbsolutePath()),requestPageNumber,null,null,null,null,null);
-        wordsApi.insertPageNumbersOnline(insertRequestRequest);
+        InsertPageNumbersOnlineRequest insertRequest = new InsertPageNumbersOnlineRequest(requestDocument, requestPageNumber, null, null, null, null, null);
+        wordsApi.insertPageNumbersOnline(insertRequest);
     }
 
     @Test
@@ -2039,8 +2154,8 @@ public class TestExamples extends TestCase
         ParagraphInsert requestParagraph = new ParagraphInsert();
         requestParagraph.setText("This is a new paragraph for your document");
 
-        InsertParagraphRequest insertRequestRequest = new InsertParagraphRequest("Sample.docx",requestParagraph,null,null,null,null,null,null,null,null,null);
-        wordsApi.insertParagraph(insertRequestRequest);
+        InsertParagraphRequest insertRequest = new InsertParagraphRequest("Sample.docx", requestParagraph, null, null, null, null, null, null, null, null, null);
+        wordsApi.insertParagraph(insertRequest);
     }
 
     @Test
@@ -2048,11 +2163,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         ParagraphInsert requestParagraph = new ParagraphInsert();
         requestParagraph.setText("This is a new paragraph for your document");
 
-        InsertParagraphOnlineRequest insertRequestRequest = new InsertParagraphOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestParagraph,"sections/0",null,null,null,null,null,null);
-        wordsApi.insertParagraphOnline(insertRequestRequest);
+        InsertParagraphOnlineRequest insertRequest = new InsertParagraphOnlineRequest(requestDocument, requestParagraph, "sections/0", null, null, null, null, null, null);
+        wordsApi.insertParagraphOnline(insertRequest);
     }
 
     @Test
@@ -2062,8 +2178,8 @@ public class TestExamples extends TestCase
         RunInsert requestRun = new RunInsert();
         requestRun.setText("run with text");
 
-        InsertRunRequest insertRequestRequest = new InsertRunRequest("Sample.docx","paragraphs/1",requestRun,null,null,null,null,null,null,null,null);
-        wordsApi.insertRun(insertRequestRequest);
+        InsertRunRequest insertRequest = new InsertRunRequest("Sample.docx", "paragraphs/1", requestRun, null, null, null, null, null, null, null, null);
+        wordsApi.insertRun(insertRequest);
     }
 
     @Test
@@ -2071,11 +2187,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
         RunInsert requestRun = new RunInsert();
         requestRun.setText("run with text");
 
-        InsertRunOnlineRequest insertRequestRequest = new InsertRunOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),"paragraphs/1",requestRun,null,null,null,null,null,null);
-        wordsApi.insertRunOnline(insertRequestRequest);
+        InsertRunOnlineRequest insertRequest = new InsertRunOnlineRequest(requestDocument, "paragraphs/1", requestRun, null, null, null, null, null, null);
+        wordsApi.insertRunOnline(insertRequest);
     }
 
     @Test
@@ -2086,8 +2203,8 @@ public class TestExamples extends TestCase
         requestStyleInsert.setStyleName("My Style");
         requestStyleInsert.setStyleType(StyleInsert.StyleTypeEnum.PARAGRAPH);
 
-        InsertStyleRequest insertRequestRequest = new InsertStyleRequest("Sample.docx",requestStyleInsert,null,null,null,null,null,null,null);
-        wordsApi.insertStyle(insertRequestRequest);
+        InsertStyleRequest insertRequest = new InsertStyleRequest("Sample.docx", requestStyleInsert, null, null, null, null, null, null, null);
+        wordsApi.insertStyle(insertRequest);
     }
 
     @Test
@@ -2095,12 +2212,13 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         StyleInsert requestStyleInsert = new StyleInsert();
         requestStyleInsert.setStyleName("My Style");
         requestStyleInsert.setStyleType(StyleInsert.StyleTypeEnum.PARAGRAPH);
 
-        InsertStyleOnlineRequest insertRequestRequest = new InsertStyleOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestStyleInsert,null,null,null,null,null);
-        wordsApi.insertStyleOnline(insertRequestRequest);
+        InsertStyleOnlineRequest insertRequest = new InsertStyleOnlineRequest(requestDocument, requestStyleInsert, null, null, null, null, null);
+        wordsApi.insertStyleOnline(insertRequest);
     }
 
     @Test
@@ -2111,8 +2229,8 @@ public class TestExamples extends TestCase
         requestTable.setColumnsCount(5);
         requestTable.setRowsCount(4);
 
-        InsertTableRequest insertRequestRequest = new InsertTableRequest("Sample.docx",requestTable,null,null,null,null,null,null,null,null);
-        wordsApi.insertTable(insertRequestRequest);
+        InsertTableRequest insertRequest = new InsertTableRequest("Sample.docx", requestTable, null, null, null, null, null, null, null, null);
+        wordsApi.insertTable(insertRequest);
     }
 
     @Test
@@ -2121,8 +2239,8 @@ public class TestExamples extends TestCase
         WordsApi wordsApi = new WordsApi(apiClient);
         TableCellInsert requestCell = new TableCellInsert();
 
-        InsertTableCellRequest insertRequestRequest = new InsertTableCellRequest("Sample.docx","sections/0/tables/2/rows/0",requestCell,null,null,null,null,null,null,null);
-        wordsApi.insertTableCell(insertRequestRequest);
+        InsertTableCellRequest insertRequest = new InsertTableCellRequest("Sample.docx", "sections/0/tables/2/rows/0", requestCell, null, null, null, null, null, null, null);
+        wordsApi.insertTableCell(insertRequest);
     }
 
     @Test
@@ -2130,10 +2248,11 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         TableCellInsert requestCell = new TableCellInsert();
 
-        InsertTableCellOnlineRequest insertRequestRequest = new InsertTableCellOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"sections/0/tables/2/rows/0",requestCell,null,null,null,null,null);
-        wordsApi.insertTableCellOnline(insertRequestRequest);
+        InsertTableCellOnlineRequest insertRequest = new InsertTableCellOnlineRequest(requestDocument, "sections/0/tables/2/rows/0", requestCell, null, null, null, null, null);
+        wordsApi.insertTableCellOnline(insertRequest);
     }
 
     @Test
@@ -2141,12 +2260,13 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         TableInsert requestTable = new TableInsert();
         requestTable.setColumnsCount(5);
         requestTable.setRowsCount(4);
 
-        InsertTableOnlineRequest insertRequestRequest = new InsertTableOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestTable,null,null,null,null,null,null);
-        wordsApi.insertTableOnline(insertRequestRequest);
+        InsertTableOnlineRequest insertRequest = new InsertTableOnlineRequest(requestDocument, requestTable, null, null, null, null, null, null);
+        wordsApi.insertTableOnline(insertRequest);
     }
 
     @Test
@@ -2156,8 +2276,8 @@ public class TestExamples extends TestCase
         TableRowInsert requestRow = new TableRowInsert();
         requestRow.setColumnsCount(5);
 
-        InsertTableRowRequest insertRequestRequest = new InsertTableRowRequest("Sample.docx","sections/0/tables/2",requestRow,null,null,null,null,null,null,null);
-        wordsApi.insertTableRow(insertRequestRequest);
+        InsertTableRowRequest insertRequest = new InsertTableRowRequest("Sample.docx", "sections/0/tables/2", requestRow, null, null, null, null, null, null, null);
+        wordsApi.insertTableRow(insertRequest);
     }
 
     @Test
@@ -2165,11 +2285,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         TableRowInsert requestRow = new TableRowInsert();
         requestRow.setColumnsCount(5);
 
-        InsertTableRowOnlineRequest insertRequestRequest = new InsertTableRowOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"sections/0/tables/2",requestRow,null,null,null,null,null);
-        wordsApi.insertTableRowOnline(insertRequestRequest);
+        InsertTableRowOnlineRequest insertRequest = new InsertTableRowOnlineRequest(requestDocument, "sections/0/tables/2", requestRow, null, null, null, null, null);
+        wordsApi.insertTableRowOnline(insertRequest);
     }
 
     @Test
@@ -2177,8 +2298,8 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        InsertWatermarkImageRequest insertRequestRequest = new InsertWatermarkImageRequest("Sample.docx",null,null,null,null,null,null,null,null,null,"Sample.png");
-        wordsApi.insertWatermarkImage(insertRequestRequest);
+        InsertWatermarkImageRequest insertRequest = new InsertWatermarkImageRequest("Sample.docx", null, null, null, null, null, null, null, null, null, "Sample.png");
+        wordsApi.insertWatermarkImage(insertRequest);
     }
 
     @Test
@@ -2186,8 +2307,10 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        InsertWatermarkImageOnlineRequest insertRequestRequest = new InsertWatermarkImageOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),Files.readAllBytes(Paths.get(documentsDir, "Common/aspose-cloud.png").toAbsolutePath()),null,null,null,null,null,null,null);
-        wordsApi.insertWatermarkImageOnline(insertRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        byte[] requestImageFile = Files.readAllBytes(Paths.get(documentsDir, "Common/aspose-cloud.png").toAbsolutePath());
+        InsertWatermarkImageOnlineRequest insertRequest = new InsertWatermarkImageOnlineRequest(requestDocument, requestImageFile, null, null, null, null, null, null, null);
+        wordsApi.insertWatermarkImageOnline(insertRequest);
     }
 
     @Test
@@ -2198,8 +2321,8 @@ public class TestExamples extends TestCase
         requestWatermarkText.setText("This is the text");
         requestWatermarkText.setRotationAngle((double)90.0);
 
-        InsertWatermarkTextRequest insertRequestRequest = new InsertWatermarkTextRequest("Sample.docx",requestWatermarkText,null,null,null,null,null,null,null);
-        wordsApi.insertWatermarkText(insertRequestRequest);
+        InsertWatermarkTextRequest insertRequest = new InsertWatermarkTextRequest("Sample.docx", requestWatermarkText, null, null, null, null, null, null, null);
+        wordsApi.insertWatermarkText(insertRequest);
     }
 
     @Test
@@ -2207,12 +2330,13 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         WatermarkText requestWatermarkText = new WatermarkText();
         requestWatermarkText.setText("This is the text");
         requestWatermarkText.setRotationAngle((double)90);
 
-        InsertWatermarkTextOnlineRequest insertRequestRequest = new InsertWatermarkTextOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestWatermarkText,null,null,null,null,null);
-        wordsApi.insertWatermarkTextOnline(insertRequestRequest);
+        InsertWatermarkTextOnlineRequest insertRequest = new InsertWatermarkTextOnlineRequest(requestDocument, requestWatermarkText, null, null, null, null, null);
+        wordsApi.insertWatermarkTextOnline(insertRequest);
     }
 
     @Test
@@ -2231,24 +2355,24 @@ public class TestExamples extends TestCase
         requestData.setLoadingDocumentUrl("http://google.com");
         requestData.setSaveOptions(requestDataSaveOptions);
 
-        LoadWebDocumentRequest loadRequestRequest = new LoadWebDocumentRequest(requestData,null);
-        wordsApi.loadWebDocument(loadRequestRequest);
+        LoadWebDocumentRequest loadRequest = new LoadWebDocumentRequest(requestData, null);
+        wordsApi.loadWebDocument(loadRequest);
     }
 
     @Test
     public void testMoveFile() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        MoveFileRequest moveRequestRequest = new MoveFileRequest("/TestMoveFileDest_Sample.docx","Sample.docx",null,null,null);
-        wordsApi.moveFile(moveRequestRequest);
+        MoveFileRequest moveRequest = new MoveFileRequest("/TestMoveFileDest_Sample.docx", "Sample.docx", null, null, null);
+        wordsApi.moveFile(moveRequest);
     }
 
     @Test
     public void testMoveFolder() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        MoveFolderRequest moveRequestRequest = new MoveFolderRequest("/TestMoveFolderDest_Sample","/TestMoveFolderSrc",null,null);
-        wordsApi.moveFolder(moveRequestRequest);
+        MoveFolderRequest moveRequest = new MoveFolderRequest("/TestMoveFolderDest_Sample", "/TestMoveFolderSrc", null, null);
+        wordsApi.moveFolder(moveRequest);
     }
 
     @Test
@@ -2258,8 +2382,8 @@ public class TestExamples extends TestCase
         OptimizationOptions requestOptions = new OptimizationOptions();
         requestOptions.setMsWordVersion(OptimizationOptions.MsWordVersionEnum.WORD2002);
 
-        OptimizeDocumentRequest optimizeRequestRequest = new OptimizeDocumentRequest("Sample.docx",requestOptions,null,null,null,null,null,null,null);
-        wordsApi.optimizeDocument(optimizeRequestRequest);
+        OptimizeDocumentRequest optimizeRequest = new OptimizeDocumentRequest("Sample.docx", requestOptions, null, null, null, null, null, null, null);
+        wordsApi.optimizeDocument(optimizeRequest);
     }
 
     @Test
@@ -2267,11 +2391,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         OptimizationOptions requestOptions = new OptimizationOptions();
         requestOptions.setMsWordVersion(OptimizationOptions.MsWordVersionEnum.WORD2002);
 
-        OptimizeDocumentOnlineRequest optimizeRequestRequest = new OptimizeDocumentOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestOptions,null,null,null,null,null);
-        wordsApi.optimizeDocumentOnline(optimizeRequestRequest);
+        OptimizeDocumentOnlineRequest optimizeRequest = new OptimizeDocumentOnlineRequest(requestDocument, requestOptions, null, null, null, null, null);
+        wordsApi.optimizeDocumentOnline(optimizeRequest);
     }
 
     @Test
@@ -2282,8 +2407,8 @@ public class TestExamples extends TestCase
         requestProtectionRequest.setPassword("123");
         requestProtectionRequest.setProtectionType("ReadOnly");
 
-        ProtectDocumentRequest protectRequestRequest = new ProtectDocumentRequest("Sample.docx",requestProtectionRequest,null,null,null,null,null);
-        wordsApi.protectDocument(protectRequestRequest);
+        ProtectDocumentRequest protectRequest = new ProtectDocumentRequest("Sample.docx", requestProtectionRequest, null, null, null, null, null);
+        wordsApi.protectDocument(protectRequest);
     }
 
     @Test
@@ -2291,19 +2416,20 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         ProtectionRequest requestProtectionRequest = new ProtectionRequest();
         requestProtectionRequest.setNewPassword("123");
 
-        ProtectDocumentOnlineRequest protectRequestRequest = new ProtectDocumentOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestProtectionRequest,null,null,null);
-        wordsApi.protectDocumentOnline(protectRequestRequest);
+        ProtectDocumentOnlineRequest protectRequest = new ProtectDocumentOnlineRequest(requestDocument, requestProtectionRequest, null, null, null);
+        wordsApi.protectDocumentOnline(protectRequest);
     }
 
     @Test
     public void testRejectAllRevisions() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        RejectAllRevisionsRequest rejectRequestRequest = new RejectAllRevisionsRequest("Sample.docx",null,null,null,null,null);
-        wordsApi.rejectAllRevisions(rejectRequestRequest);
+        RejectAllRevisionsRequest rejectRequest = new RejectAllRevisionsRequest("Sample.docx", null, null, null, null, null);
+        wordsApi.rejectAllRevisions(rejectRequest);
     }
 
     @Test
@@ -2311,16 +2437,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        RejectAllRevisionsOnlineRequest rejectRequestRequest = new RejectAllRevisionsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,null);
-        wordsApi.rejectAllRevisionsOnline(rejectRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        RejectAllRevisionsOnlineRequest rejectRequest = new RejectAllRevisionsOnlineRequest(requestDocument, null, null, null);
+        wordsApi.rejectAllRevisionsOnline(rejectRequest);
     }
 
     @Test
     public void testRemoveRange() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        RemoveRangeRequest removeRequestRequest = new RemoveRangeRequest("Sample.docx","id0.0.0","id0.0.1",null,null,null,null,null);
-        wordsApi.removeRange(removeRequestRequest);
+        RemoveRangeRequest removeRequest = new RemoveRangeRequest("Sample.docx", "id0.0.0", "id0.0.1", null, null, null, null, null);
+        wordsApi.removeRange(removeRequest);
     }
 
     @Test
@@ -2328,16 +2455,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        RemoveRangeOnlineRequest removeRequestRequest = new RemoveRangeOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),"id0.0.0","id0.0.1",null,null,null);
-        wordsApi.removeRangeOnline(removeRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
+        RemoveRangeOnlineRequest removeRequest = new RemoveRangeOnlineRequest(requestDocument, "id0.0.0", "id0.0.1", null, null, null);
+        wordsApi.removeRangeOnline(removeRequest);
     }
 
     @Test
     public void testRenderDrawingObject() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        RenderDrawingObjectRequest renderRequestRequest = new RenderDrawingObjectRequest("Sample.docx","png",0,null,null,null,null,null,null,null);
-        wordsApi.renderDrawingObject(renderRequestRequest);
+        RenderDrawingObjectRequest renderRequest = new RenderDrawingObjectRequest("Sample.docx", "png", 0, null, null, null, null, null, null, null);
+        wordsApi.renderDrawingObject(renderRequest);
     }
 
     @Test
@@ -2345,16 +2473,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        RenderDrawingObjectOnlineRequest renderRequestRequest = new RenderDrawingObjectOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"png",0,"sections/0",null,null,null,null);
-        wordsApi.renderDrawingObjectOnline(renderRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        RenderDrawingObjectOnlineRequest renderRequest = new RenderDrawingObjectOnlineRequest(requestDocument, "png", 0, "sections/0", null, null, null, null);
+        wordsApi.renderDrawingObjectOnline(renderRequest);
     }
 
     @Test
     public void testRenderMathObject() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        RenderMathObjectRequest renderRequestRequest = new RenderMathObjectRequest("Sample.docx","png",0,null,null,null,null,null,null,null);
-        wordsApi.renderMathObject(renderRequestRequest);
+        RenderMathObjectRequest renderRequest = new RenderMathObjectRequest("Sample.docx", "png", 0, null, null, null, null, null, null, null);
+        wordsApi.renderMathObject(renderRequest);
     }
 
     @Test
@@ -2362,16 +2491,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        RenderMathObjectOnlineRequest renderRequestRequest = new RenderMathObjectOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"png",0,null,null,null,null,null);
-        wordsApi.renderMathObjectOnline(renderRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        RenderMathObjectOnlineRequest renderRequest = new RenderMathObjectOnlineRequest(requestDocument, "png", 0, null, null, null, null, null);
+        wordsApi.renderMathObjectOnline(renderRequest);
     }
 
     @Test
     public void testRenderPage() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        RenderPageRequest renderRequestRequest = new RenderPageRequest("Sample.docx",1,"bmp",null,null,null,null,null);
-        wordsApi.renderPage(renderRequestRequest);
+        RenderPageRequest renderRequest = new RenderPageRequest("Sample.docx", 1, "bmp", null, null, null, null, null);
+        wordsApi.renderPage(renderRequest);
     }
 
     @Test
@@ -2379,16 +2509,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        RenderPageOnlineRequest renderRequestRequest = new RenderPageOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),1,"bmp",null,null,null);
-        wordsApi.renderPageOnline(renderRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        RenderPageOnlineRequest renderRequest = new RenderPageOnlineRequest(requestDocument, 1, "bmp", null, null, null);
+        wordsApi.renderPageOnline(renderRequest);
     }
 
     @Test
     public void testRenderParagraph() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        RenderParagraphRequest renderRequestRequest = new RenderParagraphRequest("Sample.docx","png",0,null,null,null,null,null,null,null);
-        wordsApi.renderParagraph(renderRequestRequest);
+        RenderParagraphRequest renderRequest = new RenderParagraphRequest("Sample.docx", "png", 0, null, null, null, null, null, null, null);
+        wordsApi.renderParagraph(renderRequest);
     }
 
     @Test
@@ -2396,16 +2527,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        RenderParagraphOnlineRequest renderRequestRequest = new RenderParagraphOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"png",0,null,null,null,null,null);
-        wordsApi.renderParagraphOnline(renderRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        RenderParagraphOnlineRequest renderRequest = new RenderParagraphOnlineRequest(requestDocument, "png", 0, null, null, null, null, null);
+        wordsApi.renderParagraphOnline(renderRequest);
     }
 
     @Test
     public void testRenderTable() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        RenderTableRequest renderRequestRequest = new RenderTableRequest("Sample.docx","png",0,null,null,null,null,null,null,null);
-        wordsApi.renderTable(renderRequestRequest);
+        RenderTableRequest renderRequest = new RenderTableRequest("Sample.docx", "png", 0, null, null, null, null, null, null, null);
+        wordsApi.renderTable(renderRequest);
     }
 
     @Test
@@ -2413,8 +2545,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        RenderTableOnlineRequest renderRequestRequest = new RenderTableOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"png",0,null,null,null,null,null);
-        wordsApi.renderTableOnline(renderRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        RenderTableOnlineRequest renderRequest = new RenderTableOnlineRequest(requestDocument, "png", 0, null, null, null, null, null);
+        wordsApi.renderTableOnline(renderRequest);
     }
 
     @Test
@@ -2425,8 +2558,8 @@ public class TestExamples extends TestCase
         requestReplaceText.setOldValue("Testing");
         requestReplaceText.setNewValue("Aspose testing");
 
-        ReplaceTextRequest replaceRequestRequest = new ReplaceTextRequest("Sample.docx",requestReplaceText,null,null,null,null,null,null,null);
-        wordsApi.replaceText(replaceRequestRequest);
+        ReplaceTextRequest replaceRequest = new ReplaceTextRequest("Sample.docx", requestReplaceText, null, null, null, null, null, null, null);
+        wordsApi.replaceText(replaceRequest);
     }
 
     @Test
@@ -2434,12 +2567,13 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         ReplaceTextParameters requestReplaceText = new ReplaceTextParameters();
         requestReplaceText.setOldValue("aspose");
         requestReplaceText.setNewValue("aspose new");
 
-        ReplaceTextOnlineRequest replaceRequestRequest = new ReplaceTextOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestReplaceText,null,null,null,null,null);
-        wordsApi.replaceTextOnline(replaceRequestRequest);
+        ReplaceTextOnlineRequest replaceRequest = new ReplaceTextOnlineRequest(requestDocument, requestReplaceText, null, null, null, null, null);
+        wordsApi.replaceTextOnline(replaceRequest);
     }
 
     @Test
@@ -2449,8 +2583,8 @@ public class TestExamples extends TestCase
         ReplaceRange requestRangeText = new ReplaceRange();
         requestRangeText.setText("Replaced header");
 
-        ReplaceWithTextRequest replaceRequestRequest = new ReplaceWithTextRequest("Sample.docx","id0.0.0",requestRangeText,"id0.0.1",null,null,null,null,null);
-        wordsApi.replaceWithText(replaceRequestRequest);
+        ReplaceWithTextRequest replaceRequest = new ReplaceWithTextRequest("Sample.docx", "id0.0.0", requestRangeText, "id0.0.1", null, null, null, null, null);
+        wordsApi.replaceWithText(replaceRequest);
     }
 
     @Test
@@ -2458,19 +2592,20 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
         ReplaceRange requestRangeText = new ReplaceRange();
         requestRangeText.setText("Replaced header");
 
-        ReplaceWithTextOnlineRequest replaceRequestRequest = new ReplaceWithTextOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),"id0.0.0",requestRangeText,"id0.0.1",null,null,null);
-        wordsApi.replaceWithTextOnline(replaceRequestRequest);
+        ReplaceWithTextOnlineRequest replaceRequest = new ReplaceWithTextOnlineRequest(requestDocument, "id0.0.0", requestRangeText, "id0.0.1", null, null, null);
+        wordsApi.replaceWithTextOnline(replaceRequest);
     }
 
     @Test
     public void testResetCache() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        ResetCacheRequest resetRequestRequest = new ResetCacheRequest();
-        wordsApi.resetCache(resetRequestRequest);
+        ResetCacheRequest resetRequest = new ResetCacheRequest();
+        wordsApi.resetCache(resetRequest);
     }
 
     @Test
@@ -2481,8 +2616,8 @@ public class TestExamples extends TestCase
         requestSaveOptionsData.setSaveFormat("docx");
         requestSaveOptionsData.setFileName("/TestSaveAsFromPdfToDoc.docx");
 
-        SaveAsRequest saveRequestRequest = new SaveAsRequest("Sample.docx",requestSaveOptionsData,null,null,null,null,null);
-        wordsApi.saveAs(saveRequestRequest);
+        SaveAsRequest saveRequest = new SaveAsRequest("Sample.docx", requestSaveOptionsData, null, null, null, null, null);
+        wordsApi.saveAs(saveRequest);
     }
 
     @Test
@@ -2490,12 +2625,13 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Common/test_multi_pages.docx").toAbsolutePath());
         SaveOptionsData requestSaveOptionsData = new SaveOptionsData();
         requestSaveOptionsData.setSaveFormat("pdf");
         requestSaveOptionsData.setFileName("/TestSaveAs.pdf");
 
-        SaveAsOnlineRequest saveRequestRequest = new SaveAsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Common/test_multi_pages.docx").toAbsolutePath()),requestSaveOptionsData,null,null,null);
-        wordsApi.saveAsOnline(saveRequestRequest);
+        SaveAsOnlineRequest saveRequest = new SaveAsOnlineRequest(requestDocument, requestSaveOptionsData, null, null, null);
+        wordsApi.saveAsOnline(saveRequest);
     }
 
     @Test
@@ -2505,8 +2641,8 @@ public class TestExamples extends TestCase
         RangeDocument requestDocumentParameters = new RangeDocument();
         requestDocumentParameters.setDocumentName("/NewDoc.docx");
 
-        SaveAsRangeRequest saveRequestRequest = new SaveAsRangeRequest("Sample.docx","id0.0.0",requestDocumentParameters,"id0.0.1",null,null,null,null);
-        wordsApi.saveAsRange(saveRequestRequest);
+        SaveAsRangeRequest saveRequest = new SaveAsRangeRequest("Sample.docx", "id0.0.0", requestDocumentParameters, "id0.0.1", null, null, null, null);
+        wordsApi.saveAsRange(saveRequest);
     }
 
     @Test
@@ -2514,11 +2650,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
         RangeDocument requestDocumentParameters = new RangeDocument();
         requestDocumentParameters.setDocumentName("/NewDoc.docx");
 
-        SaveAsRangeOnlineRequest saveRequestRequest = new SaveAsRangeOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),"id0.0.0",requestDocumentParameters,"id0.0.1",null,null);
-        wordsApi.saveAsRangeOnline(saveRequestRequest);
+        SaveAsRangeOnlineRequest saveRequest = new SaveAsRangeOnlineRequest(requestDocument, "id0.0.0", requestDocumentParameters, "id0.0.1", null, null);
+        wordsApi.saveAsRangeOnline(saveRequest);
     }
 
     @Test
@@ -2529,8 +2666,8 @@ public class TestExamples extends TestCase
         requestSaveOptions.setSaveFormat("tiff");
         requestSaveOptions.setFileName("/abc.tiff");
 
-        SaveAsTiffRequest saveRequestRequest = new SaveAsTiffRequest("Sample.docx",requestSaveOptions,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
-        wordsApi.saveAsTiff(saveRequestRequest);
+        SaveAsTiffRequest saveRequest = new SaveAsTiffRequest("Sample.docx", requestSaveOptions, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+        wordsApi.saveAsTiff(saveRequest);
     }
 
     @Test
@@ -2538,20 +2675,21 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Common/test_multi_pages.docx").toAbsolutePath());
         TiffSaveOptionsData requestSaveOptions = new TiffSaveOptionsData();
         requestSaveOptions.setSaveFormat("tiff");
         requestSaveOptions.setFileName("/abc.tiff");
 
-        SaveAsTiffOnlineRequest saveRequestRequest = new SaveAsTiffOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Common/test_multi_pages.docx").toAbsolutePath()),requestSaveOptions,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
-        wordsApi.saveAsTiffOnline(saveRequestRequest);
+        SaveAsTiffOnlineRequest saveRequest = new SaveAsTiffOnlineRequest(requestDocument, requestSaveOptions, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+        wordsApi.saveAsTiffOnline(saveRequest);
     }
 
     @Test
     public void testSearch() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        SearchRequest searchRequestRequest = new SearchRequest("Sample.docx","aspose",null,null,null,null);
-        wordsApi.search(searchRequestRequest);
+        SearchRequest searchRequest = new SearchRequest("Sample.docx", "aspose", null, null, null, null);
+        wordsApi.search(searchRequest);
     }
 
     @Test
@@ -2559,16 +2697,17 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        SearchOnlineRequest searchRequestRequest = new SearchOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"aspose",null,null);
-        wordsApi.searchOnline(searchRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        SearchOnlineRequest searchRequest = new SearchOnlineRequest(requestDocument, "aspose", null, null);
+        wordsApi.searchOnline(searchRequest);
     }
 
     @Test
     public void testSplitDocument() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        SplitDocumentRequest splitRequestRequest = new SplitDocumentRequest("Sample.docx","text",null,null,null,null,"/TestSplitDocument.text",1,2,null,null);
-        wordsApi.splitDocument(splitRequestRequest);
+        SplitDocumentRequest splitRequest = new SplitDocumentRequest("Sample.docx", "text", null, null, null, null, "/TestSplitDocument.text", 1, 2, null, null);
+        wordsApi.splitDocument(splitRequest);
     }
 
     @Test
@@ -2576,8 +2715,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        SplitDocumentOnlineRequest splitRequestRequest = new SplitDocumentOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"text",null,null,"/TestSplitDocument.text",1,2,null,null);
-        wordsApi.splitDocumentOnline(splitRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        SplitDocumentOnlineRequest splitRequest = new SplitDocumentOnlineRequest(requestDocument, "text", null, null, "/TestSplitDocument.text", 1, 2, null, null);
+        wordsApi.splitDocumentOnline(splitRequest);
     }
 
     @Test
@@ -2587,8 +2727,8 @@ public class TestExamples extends TestCase
         ProtectionRequest requestProtectionRequest = new ProtectionRequest();
         requestProtectionRequest.setPassword("aspose");
 
-        UnprotectDocumentRequest unprotectRequestRequest = new UnprotectDocumentRequest("Sample.docx",requestProtectionRequest,null,null,null,null,null);
-        wordsApi.unprotectDocument(unprotectRequestRequest);
+        UnprotectDocumentRequest unprotectRequest = new UnprotectDocumentRequest("Sample.docx", requestProtectionRequest, null, null, null, null, null);
+        wordsApi.unprotectDocument(unprotectRequest);
     }
 
     @Test
@@ -2596,11 +2736,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         ProtectionRequest requestProtectionRequest = new ProtectionRequest();
         requestProtectionRequest.setPassword("aspose");
 
-        UnprotectDocumentOnlineRequest unprotectRequestRequest = new UnprotectDocumentOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestProtectionRequest,null,null,null);
-        wordsApi.unprotectDocumentOnline(unprotectRequestRequest);
+        UnprotectDocumentOnlineRequest unprotectRequest = new UnprotectDocumentOnlineRequest(requestDocument, requestProtectionRequest, null, null, null);
+        wordsApi.unprotectDocumentOnline(unprotectRequest);
     }
 
     @Test
@@ -2613,8 +2754,8 @@ public class TestExamples extends TestCase
         requestBookmarkData.setName(bookmarkName);
         requestBookmarkData.setText("This will be the text for Aspose");
 
-        UpdateBookmarkRequest updateRequestRequest = new UpdateBookmarkRequest("Sample.docx",bookmarkName,requestBookmarkData,null,null,null,null,null,null,null);
-        wordsApi.updateBookmark(updateRequestRequest);
+        UpdateBookmarkRequest updateRequest = new UpdateBookmarkRequest("Sample.docx", bookmarkName, requestBookmarkData, null, null, null, null, null, null, null);
+        wordsApi.updateBookmark(updateRequest);
     }
 
     @Test
@@ -2624,12 +2765,13 @@ public class TestExamples extends TestCase
         WordsApi wordsApi = new WordsApi(apiClient);
         String bookmarkName = "aspose";
 
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         BookmarkData requestBookmarkData = new BookmarkData();
         requestBookmarkData.setName(bookmarkName);
         requestBookmarkData.setText("This will be the text for Aspose");
 
-        UpdateBookmarkOnlineRequest updateRequestRequest = new UpdateBookmarkOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),bookmarkName,requestBookmarkData,null,null,"Sample.docx",null,null);
-        wordsApi.updateBookmarkOnline(updateRequestRequest);
+        UpdateBookmarkOnlineRequest updateRequest = new UpdateBookmarkOnlineRequest(requestDocument, bookmarkName, requestBookmarkData, null, null, "Sample.docx", null, null);
+        wordsApi.updateBookmarkOnline(updateRequest);
     }
 
     @Test
@@ -2647,8 +2789,8 @@ public class TestExamples extends TestCase
         requestBorderProperties.setLineWidth((double)2.0);
         requestBorderProperties.setShadow(true);
 
-        UpdateBorderRequest updateRequestRequest = new UpdateBorderRequest("Sample.docx","left",requestBorderProperties,"tables/1/rows/0/cells/0",null,null,null,null,null,null,null);
-        wordsApi.updateBorder(updateRequestRequest);
+        UpdateBorderRequest updateRequest = new UpdateBorderRequest("Sample.docx", "left", requestBorderProperties, "tables/1/rows/0/cells/0", null, null, null, null, null, null, null);
+        wordsApi.updateBorder(updateRequest);
     }
 
     @Test
@@ -2656,6 +2798,7 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         XmlColor requestBorderPropertiesColor = new XmlColor();
         requestBorderPropertiesColor.setWeb("#AABBCC");
 
@@ -2667,8 +2810,8 @@ public class TestExamples extends TestCase
         requestBorderProperties.setLineWidth((double)2);
         requestBorderProperties.setShadow(true);
 
-        UpdateBorderOnlineRequest updateRequestRequest = new UpdateBorderOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestBorderProperties,"left","tables/1/rows/0/cells/0",null,null,null,null,null);
-        wordsApi.updateBorderOnline(updateRequestRequest);
+        UpdateBorderOnlineRequest updateRequest = new UpdateBorderOnlineRequest(requestDocument, requestBorderProperties, "left", "tables/1/rows/0/cells/0", null, null, null, null, null);
+        wordsApi.updateBorderOnline(updateRequest);
     }
 
     @Test
@@ -2696,8 +2839,8 @@ public class TestExamples extends TestCase
         requestComment.setAuthor("Imran Anwar");
         requestComment.setText("A new Comment");
 
-        UpdateCommentRequest updateRequestRequest = new UpdateCommentRequest("Sample.docx",0,requestComment,null,null,null,null,null,null,null);
-        wordsApi.updateComment(updateRequestRequest);
+        UpdateCommentRequest updateRequest = new UpdateCommentRequest("Sample.docx", 0, requestComment, null, null, null, null, null, null, null);
+        wordsApi.updateComment(updateRequest);
     }
 
     @Test
@@ -2705,6 +2848,7 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         NodeLink requestCommentRangeStartNode = new NodeLink();
         requestCommentRangeStartNode.setNodeId("0.3.0");
 
@@ -2726,8 +2870,8 @@ public class TestExamples extends TestCase
         requestComment.setAuthor("Imran Anwar");
         requestComment.setText("A new Comment");
 
-        UpdateCommentOnlineRequest updateRequestRequest = new UpdateCommentOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,requestComment,null,null,null,null,null);
-        wordsApi.updateCommentOnline(updateRequestRequest);
+        UpdateCommentOnlineRequest updateRequest = new UpdateCommentOnlineRequest(requestDocument, 0, requestComment, null, null, null, null, null);
+        wordsApi.updateCommentOnline(updateRequest);
     }
 
     @Test
@@ -2737,8 +2881,8 @@ public class TestExamples extends TestCase
         CustomXmlPartUpdate requestCustomXmlPart = new CustomXmlPartUpdate();
         requestCustomXmlPart.setData("<data>Hello world</data>");
 
-        UpdateCustomXmlPartRequest updateRequestRequest = new UpdateCustomXmlPartRequest("Sample.docx",0,requestCustomXmlPart,null,null,null,null,null,null,null);
-        wordsApi.updateCustomXmlPart(updateRequestRequest);
+        UpdateCustomXmlPartRequest updateRequest = new UpdateCustomXmlPartRequest("Sample.docx", 0, requestCustomXmlPart, null, null, null, null, null, null, null);
+        wordsApi.updateCustomXmlPart(updateRequest);
     }
 
     @Test
@@ -2746,11 +2890,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         CustomXmlPartUpdate requestCustomXmlPart = new CustomXmlPartUpdate();
         requestCustomXmlPart.setData("<data>Hello world</data>");
 
-        UpdateCustomXmlPartOnlineRequest updateRequestRequest = new UpdateCustomXmlPartOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,requestCustomXmlPart,null,null,null,null,null);
-        wordsApi.updateCustomXmlPartOnline(updateRequestRequest);
+        UpdateCustomXmlPartOnlineRequest updateRequest = new UpdateCustomXmlPartOnlineRequest(requestDocument, 0, requestCustomXmlPart, null, null, null, null, null);
+        wordsApi.updateCustomXmlPartOnline(updateRequest);
     }
 
     @Test
@@ -2761,8 +2906,9 @@ public class TestExamples extends TestCase
         DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
         requestDrawingObject.setLeft((double)0);
 
-        UpdateDrawingObjectRequest updateRequestRequest = new UpdateDrawingObjectRequest("Sample.docx",requestDrawingObject,Files.readAllBytes(Paths.get(documentsDir, "Common/aspose-cloud.png").toAbsolutePath()),0,null,null,null,null,null,null,null,null);
-        wordsApi.updateDrawingObject(updateRequestRequest);
+        byte[] requestImageFile = Files.readAllBytes(Paths.get(documentsDir, "Common/aspose-cloud.png").toAbsolutePath());
+        UpdateDrawingObjectRequest updateRequest = new UpdateDrawingObjectRequest("Sample.docx", requestDrawingObject, requestImageFile, 0, null, null, null, null, null, null, null, null);
+        wordsApi.updateDrawingObject(updateRequest);
     }
 
     @Test
@@ -2770,11 +2916,13 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
         requestDrawingObject.setLeft((double)0);
 
-        UpdateDrawingObjectOnlineRequest updateRequestRequest = new UpdateDrawingObjectOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestDrawingObject,Files.readAllBytes(Paths.get(documentsDir, "Common/aspose-cloud.png").toAbsolutePath()),0,null,null,null,null,null,null);
-        wordsApi.updateDrawingObjectOnline(updateRequestRequest);
+        byte[] requestImageFile = Files.readAllBytes(Paths.get(documentsDir, "Common/aspose-cloud.png").toAbsolutePath());
+        UpdateDrawingObjectOnlineRequest updateRequest = new UpdateDrawingObjectOnlineRequest(requestDocument, requestDrawingObject, requestImageFile, 0, null, null, null, null, null, null);
+        wordsApi.updateDrawingObjectOnline(updateRequest);
     }
 
     @Test
@@ -2784,8 +2932,8 @@ public class TestExamples extends TestCase
         FieldUpdate requestField = new FieldUpdate();
         requestField.setFieldCode("{ NUMPAGES }");
 
-        UpdateFieldRequest updateRequestRequest = new UpdateFieldRequest("Sample.docx",0,requestField,"sections/0/paragraphs/0",null,null,null,null,null,null,null);
-        wordsApi.updateField(updateRequestRequest);
+        UpdateFieldRequest updateRequest = new UpdateFieldRequest("Sample.docx", 0, requestField, "sections/0/paragraphs/0", null, null, null, null, null, null, null);
+        wordsApi.updateField(updateRequest);
     }
 
     @Test
@@ -2793,19 +2941,20 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         FieldUpdate requestField = new FieldUpdate();
         requestField.setFieldCode("{ NUMPAGES }");
 
-        UpdateFieldOnlineRequest updateRequestRequest = new UpdateFieldOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestField,0,"sections/0/paragraphs/0",null,null,null,null,null);
-        wordsApi.updateFieldOnline(updateRequestRequest);
+        UpdateFieldOnlineRequest updateRequest = new UpdateFieldOnlineRequest(requestDocument, requestField, 0, "sections/0/paragraphs/0", null, null, null, null, null);
+        wordsApi.updateFieldOnline(updateRequest);
     }
 
     @Test
     public void testUpdateFields() throws Exception
     {
         WordsApi wordsApi = new WordsApi(apiClient);
-        UpdateFieldsRequest updateRequestRequest = new UpdateFieldsRequest("Sample.docx",null,null,null,null,null);
-        wordsApi.updateFields(updateRequestRequest);
+        UpdateFieldsRequest updateRequest = new UpdateFieldsRequest("Sample.docx", null, null, null, null, null);
+        wordsApi.updateFields(updateRequest);
     }
 
     @Test
@@ -2813,8 +2962,9 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        UpdateFieldsOnlineRequest updateRequestRequest = new UpdateFieldsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null,null);
-        wordsApi.updateFieldsOnline(updateRequestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        UpdateFieldsOnlineRequest updateRequest = new UpdateFieldsOnlineRequest(requestDocument, null, null, null);
+        wordsApi.updateFieldsOnline(updateRequest);
     }
 
     @Test
@@ -2824,8 +2974,8 @@ public class TestExamples extends TestCase
         FootnoteUpdate requestFootnoteDto = new FootnoteUpdate();
         requestFootnoteDto.setText("new text is here");
 
-        UpdateFootnoteRequest updateRequestRequest = new UpdateFootnoteRequest("Sample.docx",0,requestFootnoteDto,null,null,null,null,null,null,null,null);
-        wordsApi.updateFootnote(updateRequestRequest);
+        UpdateFootnoteRequest updateRequest = new UpdateFootnoteRequest("Sample.docx", 0, requestFootnoteDto, null, null, null, null, null, null, null, null);
+        wordsApi.updateFootnote(updateRequest);
     }
 
     @Test
@@ -2833,11 +2983,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
         FootnoteUpdate requestFootnoteDto = new FootnoteUpdate();
         requestFootnoteDto.setText("new text is here");
 
-        UpdateFootnoteOnlineRequest updateRequestRequest = new UpdateFootnoteOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),requestFootnoteDto,0,null,null,null,null,null,null);
-        wordsApi.updateFootnoteOnline(updateRequestRequest);
+        UpdateFootnoteOnlineRequest updateRequest = new UpdateFootnoteOnlineRequest(requestDocument, requestFootnoteDto, 0, null, null, null, null, null, null);
+        wordsApi.updateFootnoteOnline(updateRequest);
     }
 
     @Test
@@ -2852,8 +3003,8 @@ public class TestExamples extends TestCase
         requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
         requestFormField.setTextInputDefault("No name");
 
-        UpdateFormFieldRequest updateRequestRequest = new UpdateFormFieldRequest("Sample.docx",0,requestFormField,null,null,null,null,null,null,null,null);
-        wordsApi.updateFormField(updateRequestRequest);
+        UpdateFormFieldRequest updateRequest = new UpdateFormFieldRequest("Sample.docx", 0, requestFormField, null, null, null, null, null, null, null, null);
+        wordsApi.updateFormField(updateRequest);
     }
 
     @Test
@@ -2861,6 +3012,7 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         FormFieldTextInput requestFormField = new FormFieldTextInput();
         requestFormField.setName("FullName");
         requestFormField.setEnabled(true);
@@ -2869,8 +3021,8 @@ public class TestExamples extends TestCase
         requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
         requestFormField.setTextInputDefault("No name");
 
-        UpdateFormFieldOnlineRequest updateRequestRequest = new UpdateFormFieldOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestFormField,0,"sections/0",null,null,null,null,null);
-        wordsApi.updateFormFieldOnline(updateRequestRequest);
+        UpdateFormFieldOnlineRequest updateRequest = new UpdateFormFieldOnlineRequest(requestDocument, requestFormField, 0, "sections/0", null, null, null, null, null);
+        wordsApi.updateFormFieldOnline(updateRequest);
     }
 
     @Test
@@ -2880,8 +3032,8 @@ public class TestExamples extends TestCase
         ListUpdate requestListUpdate = new ListUpdate();
         requestListUpdate.setIsRestartAtEachSection(true);
 
-        UpdateListRequest updateRequestRequest = new UpdateListRequest("TestGetLists.doc",1,requestListUpdate,null,null,null,null,null,null,null);
-        wordsApi.updateList(updateRequestRequest);
+        UpdateListRequest updateRequest = new UpdateListRequest("TestGetLists.doc", 1, requestListUpdate, null, null, null, null, null, null, null);
+        wordsApi.updateList(updateRequest);
     }
 
     @Test
@@ -2891,8 +3043,8 @@ public class TestExamples extends TestCase
         ListLevelUpdate requestListUpdate = new ListLevelUpdate();
         requestListUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
 
-        UpdateListLevelRequest updateRequestRequest = new UpdateListLevelRequest("TestGetLists.doc",1,1,requestListUpdate,null,null,null,null,null,null,null);
-        wordsApi.updateListLevel(updateRequestRequest);
+        UpdateListLevelRequest updateRequest = new UpdateListLevelRequest("TestGetLists.doc", 1, 1, requestListUpdate, null, null, null, null, null, null, null);
+        wordsApi.updateListLevel(updateRequest);
     }
 
     @Test
@@ -2900,11 +3052,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
         ListLevelUpdate requestListUpdate = new ListLevelUpdate();
         requestListUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
 
-        UpdateListLevelOnlineRequest updateRequestRequest = new UpdateListLevelOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),1,requestListUpdate,1,null,null,null,null,null);
-        wordsApi.updateListLevelOnline(updateRequestRequest);
+        UpdateListLevelOnlineRequest updateRequest = new UpdateListLevelOnlineRequest(requestDocument, 1, requestListUpdate, 1, null, null, null, null, null);
+        wordsApi.updateListLevelOnline(updateRequest);
     }
 
     @Test
@@ -2912,11 +3065,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
         ListUpdate requestListUpdate = new ListUpdate();
         requestListUpdate.setIsRestartAtEachSection(true);
 
-        UpdateListOnlineRequest updateRequestRequest = new UpdateListOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),1,requestListUpdate,null,null,null,null,null);
-        wordsApi.updateListOnline(updateRequestRequest);
+        UpdateListOnlineRequest updateRequest = new UpdateListOnlineRequest(requestDocument, 1, requestListUpdate, null, null, null, null, null);
+        wordsApi.updateListOnline(updateRequest);
     }
 
     @Test
@@ -2926,8 +3080,8 @@ public class TestExamples extends TestCase
         ParagraphFormatUpdate requestParagraphFormatDto = new ParagraphFormatUpdate();
         requestParagraphFormatDto.setAlignment(ParagraphFormatUpdate.AlignmentEnum.RIGHT);
 
-        UpdateParagraphFormatRequest updateRequestRequest = new UpdateParagraphFormatRequest("Sample.docx",0,requestParagraphFormatDto,null,null,null,null,null,null,null,null);
-        wordsApi.updateParagraphFormat(updateRequestRequest);
+        UpdateParagraphFormatRequest updateRequest = new UpdateParagraphFormatRequest("Sample.docx", 0, requestParagraphFormatDto, null, null, null, null, null, null, null, null);
+        wordsApi.updateParagraphFormat(updateRequest);
     }
 
     @Test
@@ -2935,11 +3089,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         ParagraphFormatUpdate requestParagraphFormatDto = new ParagraphFormatUpdate();
         requestParagraphFormatDto.setAlignment(ParagraphFormatUpdate.AlignmentEnum.RIGHT);
 
-        UpdateParagraphFormatOnlineRequest updateRequestRequest = new UpdateParagraphFormatOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestParagraphFormatDto,0,null,null,null,null,null,null);
-        wordsApi.updateParagraphFormatOnline(updateRequestRequest);
+        UpdateParagraphFormatOnlineRequest updateRequest = new UpdateParagraphFormatOnlineRequest(requestDocument, requestParagraphFormatDto, 0, null, null, null, null, null, null);
+        wordsApi.updateParagraphFormatOnline(updateRequest);
     }
 
     @Test
@@ -2949,8 +3104,8 @@ public class TestExamples extends TestCase
         ListFormatUpdate requestListFormatDto = new ListFormatUpdate();
         requestListFormatDto.setListId(2);
 
-        UpdateParagraphListFormatRequest updateRequestRequest = new UpdateParagraphListFormatRequest("Sample.docx",0,requestListFormatDto,null,null,null,null,null,null,null,null);
-        wordsApi.updateParagraphListFormat(updateRequestRequest);
+        UpdateParagraphListFormatRequest updateRequest = new UpdateParagraphListFormatRequest("Sample.docx", 0, requestListFormatDto, null, null, null, null, null, null, null, null);
+        wordsApi.updateParagraphListFormat(updateRequest);
     }
 
     @Test
@@ -2958,11 +3113,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
         ListFormatUpdate requestListFormatDto = new ListFormatUpdate();
         requestListFormatDto.setListId(2);
 
-        UpdateParagraphListFormatOnlineRequest updateRequestRequest = new UpdateParagraphListFormatOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),requestListFormatDto,0,null,null,null,null,null,null);
-        wordsApi.updateParagraphListFormatOnline(updateRequestRequest);
+        UpdateParagraphListFormatOnlineRequest updateRequest = new UpdateParagraphListFormatOnlineRequest(requestDocument, requestListFormatDto, 0, null, null, null, null, null, null);
+        wordsApi.updateParagraphListFormatOnline(updateRequest);
     }
 
     @Test
@@ -2972,8 +3128,8 @@ public class TestExamples extends TestCase
         RunUpdate requestRun = new RunUpdate();
         requestRun.setText("run with text");
 
-        UpdateRunRequest updateRequestRequest = new UpdateRunRequest("Sample.docx","paragraphs/1",0,requestRun,null,null,null,null,null,null,null);
-        wordsApi.updateRun(updateRequestRequest);
+        UpdateRunRequest updateRequest = new UpdateRunRequest("Sample.docx", "paragraphs/1", 0, requestRun, null, null, null, null, null, null, null);
+        wordsApi.updateRun(updateRequest);
     }
 
     @Test
@@ -2983,8 +3139,8 @@ public class TestExamples extends TestCase
         Font requestFontDto = new Font();
         requestFontDto.setBold(true);
 
-        UpdateRunFontRequest updateRequestRequest = new UpdateRunFontRequest("Sample.docx","paragraphs/0",0,requestFontDto,null,null,null,null,null,null,null);
-        wordsApi.updateRunFont(updateRequestRequest);
+        UpdateRunFontRequest updateRequest = new UpdateRunFontRequest("Sample.docx", "paragraphs/0", 0, requestFontDto, null, null, null, null, null, null, null);
+        wordsApi.updateRunFont(updateRequest);
     }
 
     @Test
@@ -2992,11 +3148,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         Font requestFontDto = new Font();
         requestFontDto.setBold(true);
 
-        UpdateRunFontOnlineRequest updateRequestRequest = new UpdateRunFontOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"paragraphs/0",requestFontDto,0,null,null,null,null,null);
-        wordsApi.updateRunFontOnline(updateRequestRequest);
+        UpdateRunFontOnlineRequest updateRequest = new UpdateRunFontOnlineRequest(requestDocument, "paragraphs/0", requestFontDto, 0, null, null, null, null, null);
+        wordsApi.updateRunFontOnline(updateRequest);
     }
 
     @Test
@@ -3004,11 +3161,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath());
         RunUpdate requestRun = new RunUpdate();
         requestRun.setText("run with text");
 
-        UpdateRunOnlineRequest updateRequestRequest = new UpdateRunOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),"paragraphs/1",requestRun,0,null,null,null,null,null);
-        wordsApi.updateRunOnline(updateRequestRequest);
+        UpdateRunOnlineRequest updateRequest = new UpdateRunOnlineRequest(requestDocument, "paragraphs/1", requestRun, 0, null, null, null, null, null);
+        wordsApi.updateRunOnline(updateRequest);
     }
 
     @Test
@@ -3021,8 +3179,8 @@ public class TestExamples extends TestCase
         requestPageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
         requestPageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
 
-        UpdateSectionPageSetupRequest updateRequestRequest = new UpdateSectionPageSetupRequest("Sample.docx",0,requestPageSetup,null,null,null,null,null,null,null);
-        wordsApi.updateSectionPageSetup(updateRequestRequest);
+        UpdateSectionPageSetupRequest updateRequest = new UpdateSectionPageSetupRequest("Sample.docx", 0, requestPageSetup, null, null, null, null, null, null, null);
+        wordsApi.updateSectionPageSetup(updateRequest);
     }
 
     @Test
@@ -3030,14 +3188,15 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         PageSetup requestPageSetup = new PageSetup();
         requestPageSetup.setRtlGutter(true);
         requestPageSetup.setLeftMargin((double)10);
         requestPageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
         requestPageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
 
-        UpdateSectionPageSetupOnlineRequest updateRequestRequest = new UpdateSectionPageSetupOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,requestPageSetup,null,null,null,null,null);
-        wordsApi.updateSectionPageSetupOnline(updateRequestRequest);
+        UpdateSectionPageSetupOnlineRequest updateRequest = new UpdateSectionPageSetupOnlineRequest(requestDocument, 0, requestPageSetup, null, null, null, null, null);
+        wordsApi.updateSectionPageSetupOnline(updateRequest);
     }
 
     @Test
@@ -3047,8 +3206,8 @@ public class TestExamples extends TestCase
         StyleUpdate requestStyleUpdate = new StyleUpdate();
         requestStyleUpdate.setName("My Style");
 
-        UpdateStyleRequest updateRequestRequest = new UpdateStyleRequest("Sample.docx","Heading 1",requestStyleUpdate,null,null,null,null,null,null,null);
-        wordsApi.updateStyle(updateRequestRequest);
+        UpdateStyleRequest updateRequest = new UpdateStyleRequest("Sample.docx", "Heading 1", requestStyleUpdate, null, null, null, null, null, null, null);
+        wordsApi.updateStyle(updateRequest);
     }
 
     @Test
@@ -3056,11 +3215,12 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         StyleUpdate requestStyleUpdate = new StyleUpdate();
         requestStyleUpdate.setName("My Style");
 
-        UpdateStyleOnlineRequest updateRequestRequest = new UpdateStyleOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"Heading 1",requestStyleUpdate,null,null,null,null,null);
-        wordsApi.updateStyleOnline(updateRequestRequest);
+        UpdateStyleOnlineRequest updateRequest = new UpdateStyleOnlineRequest(requestDocument, "Heading 1", requestStyleUpdate, null, null, null, null, null);
+        wordsApi.updateStyleOnline(updateRequest);
     }
 
     @Test
@@ -3073,8 +3233,8 @@ public class TestExamples extends TestCase
         requestFormat.setHorizontalMerge(TableCellFormat.HorizontalMergeEnum.FIRST);
         requestFormat.setWrapText(true);
 
-        UpdateTableCellFormatRequest updateRequestRequest = new UpdateTableCellFormatRequest("Sample.docx","sections/0/tables/2/rows/0",0,requestFormat,null,null,null,null,null,null,null);
-        wordsApi.updateTableCellFormat(updateRequestRequest);
+        UpdateTableCellFormatRequest updateRequest = new UpdateTableCellFormatRequest("Sample.docx", "sections/0/tables/2/rows/0", 0, requestFormat, null, null, null, null, null, null, null);
+        wordsApi.updateTableCellFormat(updateRequest);
     }
 
     @Test
@@ -3082,14 +3242,15 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         TableCellFormat requestFormat = new TableCellFormat();
         requestFormat.setBottomPadding((double)5);
         requestFormat.setFitText(true);
         requestFormat.setHorizontalMerge(TableCellFormat.HorizontalMergeEnum.FIRST);
         requestFormat.setWrapText(true);
 
-        UpdateTableCellFormatOnlineRequest updateRequestRequest = new UpdateTableCellFormatOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"sections/0/tables/2/rows/0",requestFormat,0,null,null,null,null,null);
-        wordsApi.updateTableCellFormatOnline(updateRequestRequest);
+        UpdateTableCellFormatOnlineRequest updateRequest = new UpdateTableCellFormatOnlineRequest(requestDocument, "sections/0/tables/2/rows/0", requestFormat, 0, null, null, null, null, null);
+        wordsApi.updateTableCellFormatOnline(updateRequest);
     }
 
     @Test
@@ -3104,8 +3265,8 @@ public class TestExamples extends TestCase
         requestProperties.setCellSpacing((double)2.0);
         requestProperties.setStyleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS);
 
-        UpdateTablePropertiesRequest updateRequestRequest = new UpdateTablePropertiesRequest("Sample.docx",1,requestProperties,null,null,null,null,null,null,null,null);
-        wordsApi.updateTableProperties(updateRequestRequest);
+        UpdateTablePropertiesRequest updateRequest = new UpdateTablePropertiesRequest("Sample.docx", 1, requestProperties, null, null, null, null, null, null, null, null);
+        wordsApi.updateTableProperties(updateRequest);
     }
 
     @Test
@@ -3113,6 +3274,7 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         TableProperties requestProperties = new TableProperties();
         requestProperties.setAlignment(TableProperties.AlignmentEnum.RIGHT);
         requestProperties.setAllowAutoFit(false);
@@ -3121,8 +3283,8 @@ public class TestExamples extends TestCase
         requestProperties.setCellSpacing((double)2);
         requestProperties.setStyleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS);
 
-        UpdateTablePropertiesOnlineRequest updateRequestRequest = new UpdateTablePropertiesOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestProperties,1,null,null,null,null,null,null);
-        wordsApi.updateTablePropertiesOnline(updateRequestRequest);
+        UpdateTablePropertiesOnlineRequest updateRequest = new UpdateTablePropertiesOnlineRequest(requestDocument, requestProperties, 1, null, null, null, null, null, null);
+        wordsApi.updateTablePropertiesOnline(updateRequest);
     }
 
     @Test
@@ -3135,8 +3297,8 @@ public class TestExamples extends TestCase
         requestFormat.setHeight((double)10.0);
         requestFormat.setHeightRule(TableRowFormat.HeightRuleEnum.EXACTLY);
 
-        UpdateTableRowFormatRequest updateRequestRequest = new UpdateTableRowFormatRequest("Sample.docx","sections/0/tables/2",0,requestFormat,null,null,null,null,null,null,null);
-        wordsApi.updateTableRowFormat(updateRequestRequest);
+        UpdateTableRowFormatRequest updateRequest = new UpdateTableRowFormatRequest("Sample.docx", "sections/0/tables/2", 0, requestFormat, null, null, null, null, null, null, null);
+        wordsApi.updateTableRowFormat(updateRequest);
     }
 
     @Test
@@ -3144,14 +3306,15 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
         TableRowFormat requestFormat = new TableRowFormat();
         requestFormat.setAllowBreakAcrossPages(true);
         requestFormat.setHeadingFormat(true);
         requestFormat.setHeight((double)10);
         requestFormat.setHeightRule(TableRowFormat.HeightRuleEnum.AUTO);
 
-        UpdateTableRowFormatOnlineRequest updateRequestRequest = new UpdateTableRowFormatOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"sections/0/tables/2",requestFormat,0,null,null,null,null,null);
-        wordsApi.updateTableRowFormatOnline(updateRequestRequest);
+        UpdateTableRowFormatOnlineRequest updateRequest = new UpdateTableRowFormatOnlineRequest(requestDocument, "sections/0/tables/2", requestFormat, 0, null, null, null, null, null);
+        wordsApi.updateTableRowFormatOnline(updateRequest);
     }
 
     @Test
@@ -3159,7 +3322,8 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        UploadFileRequest uploadRequestRequest = new UploadFileRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"Sample.docx",null);
-        wordsApi.uploadFile(uploadRequestRequest);
+        byte[] requestFileContent = Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath());
+        UploadFileRequest uploadRequest = new UploadFileRequest(requestFileContent, "Sample.docx", null);
+        wordsApi.uploadFile(uploadRequest);
     }
 }

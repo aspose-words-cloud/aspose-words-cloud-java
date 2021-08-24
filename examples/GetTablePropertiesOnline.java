@@ -1,5 +1,5 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-GetTablePropertiesOnlineRequest requestRequest = new GetTablePropertiesOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),1,null,null,null);
-wordsApi.getTablePropertiesOnline(requestRequest);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.docx").toAbsolutePath());
+GetTablePropertiesOnlineRequest request = new GetTablePropertiesOnlineRequest(requestDocument, 1, null, null, null);
+wordsApi.getTablePropertiesOnline(request);

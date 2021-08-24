@@ -3,5 +3,5 @@ WordsApi wordsApi = new WordsApi(apiClient);
 RunInsert requestRun = new RunInsert();
 requestRun.setText("run with text");
 
-InsertRunRequest insertRequestRequest = new InsertRunRequest("Sample.docx","paragraphs/1",requestRun,null,null,null,null,null,null,null,null);
-wordsApi.insertRun(insertRequestRequest);
+InsertRunRequest insertRequest = new InsertRunRequest("Sample.docx", "paragraphs/1", requestRun, null, null, null, null, null, null, null, null);
+wordsApi.insertRun(insertRequest);

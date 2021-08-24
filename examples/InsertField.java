@@ -3,5 +3,5 @@ WordsApi wordsApi = new WordsApi(apiClient);
 FieldInsert requestField = new FieldInsert();
 requestField.setFieldCode("{ NUMPAGES }");
 
-InsertFieldRequest insertRequestRequest = new InsertFieldRequest("Sample.docx",requestField,null,null,null,null,null,null,null,null,null);
-wordsApi.insertField(insertRequestRequest);
+InsertFieldRequest insertRequest = new InsertFieldRequest("Sample.docx", requestField, null, null, null, null, null, null, null, null, null);
+wordsApi.insertField(insertRequest);

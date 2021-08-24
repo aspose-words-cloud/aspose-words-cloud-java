@@ -89,8 +89,9 @@ public class TestComment  extends TestCase
     @Test
     public void testGetCommentOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetCommentOnlineRequest request = new GetCommentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             null,
             null
@@ -135,8 +136,9 @@ public class TestComment  extends TestCase
     @Test
     public void testGetCommentsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetCommentsOnlineRequest request = new GetCommentsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null
         );
@@ -206,6 +208,7 @@ public class TestComment  extends TestCase
     @Test
     public void testInsertCommentOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         NodeLink requestCommentRangeStartNode = new NodeLink();
         requestCommentRangeStartNode.setNodeId("0.3.0.3");
 
@@ -228,7 +231,7 @@ public class TestComment  extends TestCase
         requestComment.setText("A new Comment");
 
         InsertCommentOnlineRequest request = new InsertCommentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestComment,
             null,
             null,
@@ -303,6 +306,7 @@ public class TestComment  extends TestCase
     @Test
     public void testUpdateCommentOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         NodeLink requestCommentRangeStartNode = new NodeLink();
         requestCommentRangeStartNode.setNodeId("0.3.0");
 
@@ -325,7 +329,7 @@ public class TestComment  extends TestCase
         requestComment.setText("A new Comment");
 
         UpdateCommentOnlineRequest request = new UpdateCommentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             requestComment,
             null,
@@ -373,8 +377,9 @@ public class TestComment  extends TestCase
     @Test
     public void testDeleteCommentOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteCommentOnlineRequest request = new DeleteCommentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             null,
             null,
@@ -420,8 +425,9 @@ public class TestComment  extends TestCase
     @Test
     public void testDeleteCommentsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteCommentsOnlineRequest request = new DeleteCommentsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null,
             null,

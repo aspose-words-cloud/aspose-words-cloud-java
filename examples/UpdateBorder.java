@@ -11,5 +11,5 @@ requestBorderProperties.setLineStyle(Border.LineStyleEnum.DASHDOTSTROKER);
 requestBorderProperties.setLineWidth((double)2.0);
 requestBorderProperties.setShadow(true);
 
-UpdateBorderRequest updateRequestRequest = new UpdateBorderRequest("Sample.docx","left",requestBorderProperties,"tables/1/rows/0/cells/0",null,null,null,null,null,null,null);
-wordsApi.updateBorder(updateRequestRequest);
+UpdateBorderRequest updateRequest = new UpdateBorderRequest("Sample.docx", "left", requestBorderProperties, "tables/1/rows/0/cells/0", null, null, null, null, null, null, null);
+wordsApi.updateBorder(updateRequest);

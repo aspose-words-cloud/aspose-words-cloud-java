@@ -1,5 +1,5 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-GetBookmarkByNameOnlineRequest requestRequest = new GetBookmarkByNameOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),"aspose",null,null);
-wordsApi.getBookmarkByNameOnline(requestRequest);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.docx").toAbsolutePath());
+GetBookmarkByNameOnlineRequest request = new GetBookmarkByNameOnlineRequest(requestDocument, "aspose", null, null);
+wordsApi.getBookmarkByNameOnline(request);

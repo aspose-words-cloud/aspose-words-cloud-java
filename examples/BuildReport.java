@@ -8,5 +8,5 @@ ReportEngineSettings requestReportEngineSettings = new ReportEngineSettings();
 requestReportEngineSettings.setDataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON);
 requestReportEngineSettings.setReportBuildOptions(requestReportEngineSettingsReportBuildOptions);
 
-BuildReportRequest buildReportRequestRequest = new BuildReportRequest("Sample.docx","Data.json",requestReportEngineSettings,null,null,null,null,null);
-wordsApi.buildReport(buildReportRequestRequest);
+BuildReportRequest buildReportRequest = new BuildReportRequest("Sample.docx", "Data.json", requestReportEngineSettings, null, null, null, null, null);
+wordsApi.buildReport(buildReportRequest);

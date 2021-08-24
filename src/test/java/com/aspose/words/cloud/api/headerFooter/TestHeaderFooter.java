@@ -91,8 +91,9 @@ public class TestHeaderFooter  extends TestCase
     @Test
     public void testGetHeaderFootersOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetHeaderFootersOnlineRequest request = new GetHeaderFootersOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "",
             null,
             null,
@@ -140,8 +141,9 @@ public class TestHeaderFooter  extends TestCase
     @Test
     public void testGetHeaderFooterOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetHeaderFooterOnlineRequest request = new GetHeaderFooterOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             null,
             null,
@@ -190,8 +192,9 @@ public class TestHeaderFooter  extends TestCase
     @Test
     public void testGetHeaderFooterOfSectionOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetHeaderFooterOfSectionOnlineRequest request = new GetHeaderFooterOfSectionOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             0,
             null,
@@ -238,8 +241,9 @@ public class TestHeaderFooter  extends TestCase
     @Test
     public void testDeleteHeaderFooterOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteHeaderFooterOnlineRequest request = new DeleteHeaderFooterOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "",
             0,
             null,
@@ -288,8 +292,9 @@ public class TestHeaderFooter  extends TestCase
     @Test
     public void testDeleteHeadersFootersOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteHeadersFootersOnlineRequest request = new DeleteHeadersFootersOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "",
             null,
             null,
@@ -339,8 +344,9 @@ public class TestHeaderFooter  extends TestCase
     @Test
     public void testInsertHeaderFooterOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         InsertHeaderFooterOnlineRequest request = new InsertHeaderFooterOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "",
             "FooterEven",
             null,

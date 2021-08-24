@@ -1,6 +1,6 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.docx").toAbsolutePath());
 NodeLink requestCommentRangeStartNode = new NodeLink();
 requestCommentRangeStartNode.setNodeId("0.3.0.3");
 
@@ -22,5 +22,5 @@ requestComment.setInitial("IA");
 requestComment.setAuthor("Imran Anwar");
 requestComment.setText("A new Comment");
 
-InsertCommentOnlineRequest insertRequestRequest = new InsertCommentOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestComment,null,null,null,null,null);
-wordsApi.insertCommentOnline(insertRequestRequest);
+InsertCommentOnlineRequest insertRequest = new InsertCommentOnlineRequest(requestDocument, requestComment, null, null, null, null, null);
+wordsApi.insertCommentOnline(insertRequest);

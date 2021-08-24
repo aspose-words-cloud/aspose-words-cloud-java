@@ -64,9 +64,11 @@ public class TestExecuteMailMerge  extends TestCase
         String localDocumentFile = "SampleExecuteTemplate.docx";
         String localDataFile = "SampleExecuteTemplateData.txt";
 
+        byte[] requestTemplate = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDocumentFile).toAbsolutePath());
+        byte[] requestData = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDataFile).toAbsolutePath());
         ExecuteMailMergeOnlineRequest request = new ExecuteMailMergeOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDocumentFile).toAbsolutePath()),
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDataFile).toAbsolutePath()),
+            requestTemplate,
+            requestData,
             null,
             null,
             null

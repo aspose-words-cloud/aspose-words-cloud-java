@@ -1,5 +1,5 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-GetStylesOnlineRequest requestRequest = new GetStylesOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),null,null);
-wordsApi.getStylesOnline(requestRequest);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.docx").toAbsolutePath());
+GetStylesOnlineRequest request = new GetStylesOnlineRequest(requestDocument, null, null);
+wordsApi.getStylesOnline(request);

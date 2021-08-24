@@ -1,5 +1,5 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-GetParagraphTabStopsOnlineRequest requestRequest = new GetParagraphTabStopsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null,null);
-wordsApi.getParagraphTabStopsOnline(requestRequest);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.docx").toAbsolutePath());
+GetParagraphTabStopsOnlineRequest request = new GetParagraphTabStopsOnlineRequest(requestDocument, 0, null, null, null);
+wordsApi.getParagraphTabStopsOnline(request);

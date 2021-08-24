@@ -1,5 +1,5 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-GetHeaderFooterOfSectionOnlineRequest requestRequest = new GetHeaderFooterOfSectionOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),0,0,null,null,null);
-wordsApi.getHeaderFooterOfSectionOnline(requestRequest);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.doc").toAbsolutePath());
+GetHeaderFooterOfSectionOnlineRequest request = new GetHeaderFooterOfSectionOnlineRequest(requestDocument, 0, 0, null, null, null);
+wordsApi.getHeaderFooterOfSectionOnline(request);

@@ -5,5 +5,5 @@ requestCompareData.setAuthor("author");
 requestCompareData.setComparingWithDocument("TestCompareDocument2.doc");
 requestCompareData.setDateTime(OffsetDateTime.of(2015, 10, 26, 0, 0, 0, 0, ZoneOffset.UTC));
 
-CompareDocumentRequest compareRequestRequest = new CompareDocumentRequest("TestCompareDocument1.doc",requestCompareData,null,null,null,null,"/TestCompareDocumentOut.doc");
-wordsApi.compareDocument(compareRequestRequest);
+CompareDocumentRequest compareRequest = new CompareDocumentRequest("TestCompareDocument1.doc", requestCompareData, null, null, null, null, "/TestCompareDocumentOut.doc");
+wordsApi.compareDocument(compareRequest);

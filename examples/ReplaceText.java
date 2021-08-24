@@ -4,5 +4,5 @@ ReplaceTextParameters requestReplaceText = new ReplaceTextParameters();
 requestReplaceText.setOldValue("Testing");
 requestReplaceText.setNewValue("Aspose testing");
 
-ReplaceTextRequest replaceRequestRequest = new ReplaceTextRequest("Sample.docx",requestReplaceText,null,null,null,null,null,null,null);
-wordsApi.replaceText(replaceRequestRequest);
+ReplaceTextRequest replaceRequest = new ReplaceTextRequest("Sample.docx", requestReplaceText, null, null, null, null, null, null, null);
+wordsApi.replaceText(replaceRequest);

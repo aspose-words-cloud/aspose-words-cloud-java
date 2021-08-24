@@ -6,5 +6,5 @@ requestFormat.setHeadingFormat(true);
 requestFormat.setHeight((double)10.0);
 requestFormat.setHeightRule(TableRowFormat.HeightRuleEnum.EXACTLY);
 
-UpdateTableRowFormatRequest updateRequestRequest = new UpdateTableRowFormatRequest("Sample.docx","sections/0/tables/2",0,requestFormat,null,null,null,null,null,null,null);
-wordsApi.updateTableRowFormat(updateRequestRequest);
+UpdateTableRowFormatRequest updateRequest = new UpdateTableRowFormatRequest("Sample.docx", "sections/0/tables/2", 0, requestFormat, null, null, null, null, null, null, null);
+wordsApi.updateTableRowFormat(updateRequest);

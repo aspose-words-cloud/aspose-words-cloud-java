@@ -12,5 +12,5 @@ LoadWebDocumentData requestData = new LoadWebDocumentData();
 requestData.setLoadingDocumentUrl("http://google.com");
 requestData.setSaveOptions(requestDataSaveOptions);
 
-LoadWebDocumentRequest loadRequestRequest = new LoadWebDocumentRequest(requestData,null);
-wordsApi.loadWebDocument(loadRequestRequest);
+LoadWebDocumentRequest loadRequest = new LoadWebDocumentRequest(requestData, null);
+wordsApi.loadWebDocument(loadRequest);

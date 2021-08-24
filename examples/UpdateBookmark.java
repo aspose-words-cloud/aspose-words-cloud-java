@@ -6,5 +6,5 @@ BookmarkData requestBookmarkData = new BookmarkData();
 requestBookmarkData.setName(bookmarkName);
 requestBookmarkData.setText("This will be the text for Aspose");
 
-UpdateBookmarkRequest updateRequestRequest = new UpdateBookmarkRequest("Sample.docx",bookmarkName,requestBookmarkData,null,null,null,null,null,null,null);
-wordsApi.updateBookmark(updateRequestRequest);
+UpdateBookmarkRequest updateRequest = new UpdateBookmarkRequest("Sample.docx", bookmarkName, requestBookmarkData, null, null, null, null, null, null, null);
+wordsApi.updateBookmark(updateRequest);

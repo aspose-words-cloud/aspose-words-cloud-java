@@ -89,8 +89,9 @@ public class TestRange  extends TestCase
     @Test
     public void testGetRangeTextOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetRangeTextOnlineRequest request = new GetRangeTextOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "id0.0.0",
             "id0.0.1",
             null,
@@ -135,8 +136,9 @@ public class TestRange  extends TestCase
     @Test
     public void testRemoveRangeOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         RemoveRangeOnlineRequest request = new RemoveRangeOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "id0.0.0",
             "id0.0.1",
             null,
@@ -187,11 +189,12 @@ public class TestRange  extends TestCase
     @Test
     public void testSaveAsRangeOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         RangeDocument requestDocumentParameters = new RangeDocument();
         requestDocumentParameters.setDocumentName(remoteDataFolder + "/NewDoc.docx");
 
         SaveAsRangeOnlineRequest request = new SaveAsRangeOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "id0.0.0",
             requestDocumentParameters,
             "id0.0.1",
@@ -243,11 +246,12 @@ public class TestRange  extends TestCase
     @Test
     public void testReplaceWithTextOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         ReplaceRange requestRangeText = new ReplaceRange();
         requestRangeText.setText("Replaced header");
 
         ReplaceWithTextOnlineRequest request = new ReplaceWithTextOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "id0.0.0",
             requestRangeText,
             "id0.0.1",

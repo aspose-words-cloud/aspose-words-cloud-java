@@ -63,8 +63,9 @@ public class TestFile  extends TestCase
     {
         String remoteFileName = "TestUploadFile.docx";
 
+        byte[] requestFileContent = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         UploadFileRequest request = new UploadFileRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestFileContent,
             remoteDataFolder + "/" + remoteFileName,
             null
         );

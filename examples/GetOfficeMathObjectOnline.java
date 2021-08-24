@@ -1,5 +1,5 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-GetOfficeMathObjectOnlineRequest requestRequest = new GetOfficeMathObjectOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,null,null,null);
-wordsApi.getOfficeMathObjectOnline(requestRequest);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.docx").toAbsolutePath());
+GetOfficeMathObjectOnlineRequest request = new GetOfficeMathObjectOnlineRequest(requestDocument, 0, null, null, null);
+wordsApi.getOfficeMathObjectOnline(request);

@@ -1,5 +1,5 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-DeleteFormFieldOnlineRequest deleteRequestRequest = new DeleteFormFieldOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,"sections/0",null,null,null,null,null);
-wordsApi.deleteFormFieldOnline(deleteRequestRequest);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.docx").toAbsolutePath());
+DeleteFormFieldOnlineRequest deleteRequest = new DeleteFormFieldOnlineRequest(requestDocument, 0, "sections/0", null, null, null, null, null);
+wordsApi.deleteFormFieldOnline(deleteRequest);

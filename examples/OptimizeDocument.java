@@ -3,5 +3,5 @@ WordsApi wordsApi = new WordsApi(apiClient);
 OptimizationOptions requestOptions = new OptimizationOptions();
 requestOptions.setMsWordVersion(OptimizationOptions.MsWordVersionEnum.WORD2002);
 
-OptimizeDocumentRequest optimizeRequestRequest = new OptimizeDocumentRequest("Sample.docx",requestOptions,null,null,null,null,null,null,null);
-wordsApi.optimizeDocument(optimizeRequestRequest);
+OptimizeDocumentRequest optimizeRequest = new OptimizeDocumentRequest("Sample.docx", requestOptions, null, null, null, null, null, null, null);
+wordsApi.optimizeDocument(optimizeRequest);

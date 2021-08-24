@@ -4,5 +4,5 @@ TiffSaveOptionsData requestSaveOptions = new TiffSaveOptionsData();
 requestSaveOptions.setSaveFormat("tiff");
 requestSaveOptions.setFileName("/abc.tiff");
 
-SaveAsTiffRequest saveRequestRequest = new SaveAsTiffRequest("Sample.docx",requestSaveOptions,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
-wordsApi.saveAsTiff(saveRequestRequest);
+SaveAsTiffRequest saveRequest = new SaveAsTiffRequest("Sample.docx", requestSaveOptions, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+wordsApi.saveAsTiff(saveRequest);

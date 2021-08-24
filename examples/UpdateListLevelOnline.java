@@ -1,8 +1,8 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.doc").toAbsolutePath());
 ListLevelUpdate requestListUpdate = new ListLevelUpdate();
 requestListUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
 
-UpdateListLevelOnlineRequest updateRequestRequest = new UpdateListLevelOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),1,requestListUpdate,1,null,null,null,null,null);
-wordsApi.updateListLevelOnline(updateRequestRequest);
+UpdateListLevelOnlineRequest updateRequest = new UpdateListLevelOnlineRequest(requestDocument, 1, requestListUpdate, 1, null, null, null, null, null);
+wordsApi.updateListLevelOnline(updateRequest);

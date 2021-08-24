@@ -1,8 +1,8 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.doc").toAbsolutePath());
 ListInsert requestListInsert = new ListInsert();
 requestListInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
 
-InsertListOnlineRequest insertRequestRequest = new InsertListOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.doc").toAbsolutePath()),requestListInsert,null,null,null,null,null);
-wordsApi.insertListOnline(insertRequestRequest);
+InsertListOnlineRequest insertRequest = new InsertListOnlineRequest(requestDocument, requestListInsert, null, null, null, null, null);
+wordsApi.insertListOnline(insertRequest);

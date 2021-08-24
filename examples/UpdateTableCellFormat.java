@@ -6,5 +6,5 @@ requestFormat.setFitText(true);
 requestFormat.setHorizontalMerge(TableCellFormat.HorizontalMergeEnum.FIRST);
 requestFormat.setWrapText(true);
 
-UpdateTableCellFormatRequest updateRequestRequest = new UpdateTableCellFormatRequest("Sample.docx","sections/0/tables/2/rows/0",0,requestFormat,null,null,null,null,null,null,null);
-wordsApi.updateTableCellFormat(updateRequestRequest);
+UpdateTableCellFormatRequest updateRequest = new UpdateTableCellFormatRequest("Sample.docx", "sections/0/tables/2/rows/0", 0, requestFormat, null, null, null, null, null, null, null);
+wordsApi.updateTableCellFormat(updateRequest);

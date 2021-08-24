@@ -1,4 +1,4 @@
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-RenderMathObjectRequest renderRequestRequest = new RenderMathObjectRequest("Sample.docx","png",0,null,null,null,null,null,null,null);
-wordsApi.renderMathObject(renderRequestRequest);
+RenderMathObjectRequest renderRequest = new RenderMathObjectRequest("Sample.docx", "png", 0, null, null, null, null, null, null, null);
+wordsApi.renderMathObject(renderRequest);

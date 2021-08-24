@@ -21,5 +21,5 @@ requestComment.setInitial("IA");
 requestComment.setAuthor("Imran Anwar");
 requestComment.setText("A new Comment");
 
-UpdateCommentRequest updateRequestRequest = new UpdateCommentRequest("Sample.docx",0,requestComment,null,null,null,null,null,null,null);
-wordsApi.updateComment(updateRequestRequest);
+UpdateCommentRequest updateRequest = new UpdateCommentRequest("Sample.docx", 0, requestComment, null, null, null, null, null, null, null);
+wordsApi.updateComment(updateRequest);

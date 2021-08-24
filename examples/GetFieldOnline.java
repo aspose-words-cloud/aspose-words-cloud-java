@@ -1,5 +1,5 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-GetFieldOnlineRequest requestRequest = new GetFieldOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),0,"sections/0/paragraphs/0",null,null);
-wordsApi.getFieldOnline(requestRequest);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.docx").toAbsolutePath());
+GetFieldOnlineRequest request = new GetFieldOnlineRequest(requestDocument, 0, "sections/0/paragraphs/0", null, null);
+wordsApi.getFieldOnline(request);

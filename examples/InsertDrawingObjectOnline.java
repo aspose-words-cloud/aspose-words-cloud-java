@@ -1,6 +1,6 @@
-String documentsDir = "...";
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
+byte[] requestDocument = Files.readAllBytes(Paths.get("Sample.docx").toAbsolutePath());
 DrawingObjectInsert requestDrawingObject = new DrawingObjectInsert();
 requestDrawingObject.setHeight((double)0);
 requestDrawingObject.setLeft((double)0);
@@ -10,5 +10,6 @@ requestDrawingObject.setRelativeHorizontalPosition(DrawingObjectInsert.RelativeH
 requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
 requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
 
-InsertDrawingObjectOnlineRequest insertRequestRequest = new InsertDrawingObjectOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, "Sample.docx").toAbsolutePath()),requestDrawingObject,Files.readAllBytes(Paths.get(documentsDir, "Common/aspose-cloud.png").toAbsolutePath()),null,null,null,null,null,null);
-wordsApi.insertDrawingObjectOnline(insertRequestRequest);
+byte[] requestImageFile = Files.readAllBytes(Paths.get("Common/aspose-cloud.png").toAbsolutePath());
+InsertDrawingObjectOnlineRequest insertRequest = new InsertDrawingObjectOnlineRequest(requestDocument, requestDrawingObject, requestImageFile, null, null, null, null, null, null);
+wordsApi.insertDrawingObjectOnline(insertRequest);

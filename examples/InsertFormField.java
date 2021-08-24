@@ -9,5 +9,5 @@ requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
 requestFormField.setTextInputDefault("123");
 requestFormField.setTextInputFormat("UPPERCASE");
 
-InsertFormFieldRequest insertRequestRequest = new InsertFormFieldRequest("Sample.docx",requestFormField,null,null,null,null,null,null,null,null,null);
-wordsApi.insertFormField(insertRequestRequest);
+InsertFormFieldRequest insertRequest = new InsertFormFieldRequest("Sample.docx", requestFormField, null, null, null, null, null, null, null, null, null);
+wordsApi.insertFormField(insertRequest);

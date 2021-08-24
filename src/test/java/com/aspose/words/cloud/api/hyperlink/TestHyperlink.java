@@ -89,8 +89,9 @@ public class TestHyperlink  extends TestCase
     @Test
     public void testGetDocumentHyperlinkByIndexOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentHyperlinkByIndexOnlineRequest request = new GetDocumentHyperlinkByIndexOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             null,
             null
@@ -135,8 +136,9 @@ public class TestHyperlink  extends TestCase
     @Test
     public void testGetDocumentHyperlinksOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentHyperlinksOnlineRequest request = new GetDocumentHyperlinksOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null
         );
