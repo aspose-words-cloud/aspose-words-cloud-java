@@ -97,11 +97,12 @@ public class TestRun  extends TestCase
     @Test
     public void testUpdateRunOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         RunUpdate requestRun = new RunUpdate();
         requestRun.setText("run with text");
 
         UpdateRunOnlineRequest request = new UpdateRunOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "paragraphs/1",
             requestRun,
             0,
@@ -159,11 +160,12 @@ public class TestRun  extends TestCase
     @Test
     public void testInsertRunOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         RunInsert requestRun = new RunInsert();
         requestRun.setText("run with text");
 
         InsertRunOnlineRequest request = new InsertRunOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "paragraphs/1",
             requestRun,
             null,
@@ -213,8 +215,9 @@ public class TestRun  extends TestCase
     @Test
     public void testDeleteRunOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteRunOnlineRequest request = new DeleteRunOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "paragraphs/1",
             0,
             null,

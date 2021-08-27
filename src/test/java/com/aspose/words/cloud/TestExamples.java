@@ -61,12 +61,15 @@ public class TestExamples extends TestCase
         String fileName  = "test_doc.docx";
 
         // Upload original document to cloud storage.
-        UploadFileRequest uploadFileRequestRequest = new UploadFileRequest(Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath()),fileName,null);
-        wordsApi.uploadFile(uploadFileRequestRequest);
+        byte[] myVar1 = Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath());
+        String myVar2 = fileName;
+        UploadFileRequest uploadFileRequest = new UploadFileRequest(myVar1, myVar2, null);
+        wordsApi.uploadFile(uploadFileRequest);
 
         // Calls AcceptAllRevisions method for document in cloud.
-        AcceptAllRevisionsRequest requestRequest = new AcceptAllRevisionsRequest(fileName,null,null,null,null,null);
-        wordsApi.acceptAllRevisions(requestRequest);
+        String myVar3 = fileName;
+        AcceptAllRevisionsRequest request = new AcceptAllRevisionsRequest(myVar3, null, null, null, null, null);
+        wordsApi.acceptAllRevisions(request);
     }
 
     @Test
@@ -77,8 +80,9 @@ public class TestExamples extends TestCase
         String fileName  = "test_doc.docx";
 
         // Calls AcceptAllRevisionsOnline method for document in cloud.
-        AcceptAllRevisionsOnlineRequest requestRequest = new AcceptAllRevisionsOnlineRequest(Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath()),null,null,null);
-        AcceptAllRevisionsOnlineResponse acceptAllRevisionsOnlineResult = wordsApi.acceptAllRevisionsOnline(requestRequest);
+        byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath());
+        AcceptAllRevisionsOnlineRequest request = new AcceptAllRevisionsOnlineRequest(requestDocument, null, null, null);
+        AcceptAllRevisionsOnlineResponse acceptAllRevisionsOnlineResult = wordsApi.acceptAllRevisionsOnline(request);
         Files.write(Paths.get("test_result.docx"), acceptAllRevisionsOnlineResult.getDocument());
     }
 }

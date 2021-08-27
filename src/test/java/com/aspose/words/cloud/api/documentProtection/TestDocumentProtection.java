@@ -94,11 +94,12 @@ public class TestDocumentProtection  extends TestCase
     @Test
     public void testProtectDocumentOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         ProtectionRequest requestProtectionRequest = new ProtectionRequest();
         requestProtectionRequest.setNewPassword("123");
 
         ProtectDocumentOnlineRequest request = new ProtectDocumentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestProtectionRequest,
             null,
             null,
@@ -141,8 +142,9 @@ public class TestDocumentProtection  extends TestCase
     @Test
     public void testGetDocumentProtectionOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentProtectionOnlineRequest request = new GetDocumentProtectionOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null
         );
@@ -192,11 +194,12 @@ public class TestDocumentProtection  extends TestCase
     {
         String localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
 
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFilePath).toAbsolutePath());
         ProtectionRequest requestProtectionRequest = new ProtectionRequest();
         requestProtectionRequest.setPassword("aspose");
 
         UnprotectDocumentOnlineRequest request = new UnprotectDocumentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFilePath).toAbsolutePath()),
+            requestDocument,
             requestProtectionRequest,
             null,
             null,

@@ -109,8 +109,9 @@ public class TestClassification  extends TestCase
     @Test
     public void testClassifyDocumentOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         ClassifyDocumentOnlineRequest request = new ClassifyDocumentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null,
             "3",

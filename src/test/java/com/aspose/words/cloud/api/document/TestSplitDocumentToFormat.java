@@ -95,8 +95,9 @@ public class TestSplitDocumentToFormat  extends TestCase
     @Test
     public void testSplitDocumentOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         SplitDocumentOnlineRequest request = new SplitDocumentOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "text",
             null,
             null,

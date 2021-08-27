@@ -90,8 +90,9 @@ public class TestLists  extends TestCase
     @Test
     public void testGetListsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetListsOnlineRequest request = new GetListsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null
         );
@@ -134,8 +135,9 @@ public class TestLists  extends TestCase
     @Test
     public void testGetListOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetListOnlineRequest request = new GetListOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             1,
             null,
             null
@@ -184,11 +186,12 @@ public class TestLists  extends TestCase
     @Test
     public void testUpdateListOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         ListUpdate requestListUpdate = new ListUpdate();
         requestListUpdate.setIsRestartAtEachSection(true);
 
         UpdateListOnlineRequest request = new UpdateListOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             1,
             requestListUpdate,
             null,
@@ -245,11 +248,12 @@ public class TestLists  extends TestCase
     @Test
     public void testUpdateListLevelOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         ListLevelUpdate requestListUpdate = new ListLevelUpdate();
         requestListUpdate.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
 
         UpdateListLevelOnlineRequest request = new UpdateListLevelOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             1,
             requestListUpdate,
             1,
@@ -309,11 +313,12 @@ public class TestLists  extends TestCase
     @Test
     public void testInsertListOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         ListInsert requestListInsert = new ListInsert();
         requestListInsert.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
 
         InsertListOnlineRequest request = new InsertListOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestListInsert,
             null,
             null,

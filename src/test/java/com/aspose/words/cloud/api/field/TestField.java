@@ -93,8 +93,9 @@ public class TestField  extends TestCase
     @Test
     public void testGetFieldsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath());
         GetFieldsOnlineRequest request = new GetFieldsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
+            requestDocument,
             "sections/0",
             null,
             null
@@ -171,8 +172,9 @@ public class TestField  extends TestCase
     @Test
     public void testGetFieldOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath());
         GetFieldOnlineRequest request = new GetFieldOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
+            requestDocument,
             0,
             "sections/0/paragraphs/0",
             null,
@@ -257,11 +259,12 @@ public class TestField  extends TestCase
     @Test
     public void testInsertFieldOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath());
         FieldInsert requestField = new FieldInsert();
         requestField.setFieldCode("{ NUMPAGES }");
 
         InsertFieldOnlineRequest request = new InsertFieldOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
+            requestDocument,
             requestField,
             "sections/0/paragraphs/0",
             null,
@@ -358,11 +361,12 @@ public class TestField  extends TestCase
     @Test
     public void testUpdateFieldOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath());
         FieldUpdate requestField = new FieldUpdate();
         requestField.setFieldCode("{ NUMPAGES }");
 
         UpdateFieldOnlineRequest request = new UpdateFieldOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
+            requestDocument,
             requestField,
             0,
             "sections/0/paragraphs/0",
@@ -421,12 +425,13 @@ public class TestField  extends TestCase
     {
         String localFileName = "test_multi_pages.docx";
 
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localFileName).toAbsolutePath());
         PageNumber requestPageNumber = new PageNumber();
         requestPageNumber.setAlignment("center");
         requestPageNumber.setFormat("{PAGE} of {NUMPAGES}");
 
         InsertPageNumbersOnlineRequest request = new InsertPageNumbersOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localFileName).toAbsolutePath()),
+            requestDocument,
             requestPageNumber,
             null,
             null,
@@ -475,8 +480,9 @@ public class TestField  extends TestCase
     @Test
     public void testDeleteFieldOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath());
         DeleteFieldOnlineRequest request = new DeleteFieldOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, fieldFolder + "/GetField.docx").toAbsolutePath()),
+            requestDocument,
             0,
             "sections/0/paragraphs/0",
             null,
@@ -702,8 +708,9 @@ public class TestField  extends TestCase
     {
         String localFileName = "Common/test_multi_pages.docx";
 
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFileName).toAbsolutePath());
         DeleteFieldsOnlineRequest request = new DeleteFieldsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFileName).toAbsolutePath()),
+            requestDocument,
             "",
             null,
             null,
@@ -753,8 +760,9 @@ public class TestField  extends TestCase
     {
         String localFile = "Common/test_multi_pages.docx";
 
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         UpdateFieldsOnlineRequest request = new UpdateFieldsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null,
             null

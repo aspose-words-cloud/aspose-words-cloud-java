@@ -97,12 +97,13 @@ public class TestConvertDocument  extends TestCase
     {
         String localName = "test_multi_pages.docx";
 
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath());
         SaveOptionsData requestSaveOptionsData = new SaveOptionsData();
         requestSaveOptionsData.setSaveFormat("pdf");
         requestSaveOptionsData.setFileName(TestInitializer.RemoteTestOut + "/TestSaveAs.pdf");
 
         SaveAsOnlineRequest request = new SaveAsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath()),
+            requestDocument,
             requestSaveOptionsData,
             null,
             null,
@@ -206,12 +207,13 @@ public class TestConvertDocument  extends TestCase
     {
         String localName = "test_multi_pages.docx";
 
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath());
         TiffSaveOptionsData requestSaveOptions = new TiffSaveOptionsData();
         requestSaveOptions.setSaveFormat("tiff");
         requestSaveOptions.setFileName(TestInitializer.RemoteTestOut + "/abc.tiff");
 
         SaveAsTiffOnlineRequest request = new SaveAsTiffOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath()),
+            requestDocument,
             requestSaveOptions,
             null,
             null,
@@ -245,8 +247,9 @@ public class TestConvertDocument  extends TestCase
     @Test
     public void testConvertDocument() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/test_uploadfile.docx").toAbsolutePath());
         ConvertDocumentRequest request = new ConvertDocumentRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/test_uploadfile.docx").toAbsolutePath()),
+            requestDocument,
             "pdf",
             null,
             null,

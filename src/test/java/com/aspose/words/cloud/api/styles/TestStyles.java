@@ -89,8 +89,9 @@ public class TestStyles  extends TestCase
     @Test
     public void testGetStylesOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetStylesOnlineRequest request = new GetStylesOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null
         );
@@ -133,8 +134,9 @@ public class TestStyles  extends TestCase
     @Test
     public void testGetStyleOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetStyleOnlineRequest request = new GetStyleOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "Heading 1",
             null,
             null
@@ -185,11 +187,12 @@ public class TestStyles  extends TestCase
     @Test
     public void testUpdateStyleOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         StyleUpdate requestStyleUpdate = new StyleUpdate();
         requestStyleUpdate.setName("My Style");
 
         UpdateStyleOnlineRequest request = new UpdateStyleOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "Heading 1",
             requestStyleUpdate,
             null,
@@ -244,12 +247,13 @@ public class TestStyles  extends TestCase
     @Test
     public void testInsertStyleOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         StyleInsert requestStyleInsert = new StyleInsert();
         requestStyleInsert.setStyleName("My Style");
         requestStyleInsert.setStyleType(StyleInsert.StyleTypeEnum.PARAGRAPH);
 
         InsertStyleOnlineRequest request = new InsertStyleOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestStyleInsert,
             null,
             null,
@@ -302,11 +306,12 @@ public class TestStyles  extends TestCase
     @Test
     public void testCopyStyleOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         StyleCopy requestStyleCopy = new StyleCopy();
         requestStyleCopy.setStyleName("Heading 1");
 
         CopyStyleOnlineRequest request = new CopyStyleOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestStyleCopy,
             null,
             null,
@@ -353,8 +358,9 @@ public class TestStyles  extends TestCase
     @Test
     public void testGetStyleFromDocumentElementOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetStyleFromDocumentElementOnlineRequest request = new GetStyleFromDocumentElementOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "paragraphs/1/paragraphFormat",
             null,
             null
@@ -403,11 +409,12 @@ public class TestStyles  extends TestCase
     @Test
     public void testApplyStyleToDocumentElementOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         StyleApply requestStyleApply = new StyleApply();
         requestStyleApply.setStyleName("Heading 1");
 
         ApplyStyleToDocumentElementOnlineRequest request = new ApplyStyleToDocumentElementOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "paragraphs/1/paragraphFormat",
             requestStyleApply,
             null,

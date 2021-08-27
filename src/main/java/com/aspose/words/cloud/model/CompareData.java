@@ -58,6 +58,9 @@ public class CompareData {
 
     @SerializedName("DateTime")
     private OffsetDateTime dateTime = null;
+
+    @SerializedName("ResultDocumentFormat")
+    private String resultDocumentFormat = null;
     public CompareData author(String author) {
         this.author = author;
         return this;
@@ -130,6 +133,24 @@ public class CompareData {
         this.dateTime = dateTime;
     }
 
+    public CompareData resultDocumentFormat(String resultDocumentFormat) {
+        this.resultDocumentFormat = resultDocumentFormat;
+        return this;
+    }
+
+    /**
+     * Gets or sets the result document format.
+    * @return resultDocumentFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets the result document format.")
+    public String getResultDocumentFormat() {
+        return resultDocumentFormat;
+    }
+
+    public void setResultDocumentFormat(String resultDocumentFormat) {
+        this.resultDocumentFormat = resultDocumentFormat;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -144,12 +165,13 @@ public class CompareData {
             Objects.equals(this.author, compareData.author) &&
             Objects.equals(this.compareOptions, compareData.compareOptions) &&
             Objects.equals(this.comparingWithDocument, compareData.comparingWithDocument) &&
-            Objects.equals(this.dateTime, compareData.dateTime);
+            Objects.equals(this.dateTime, compareData.dateTime) &&
+            Objects.equals(this.resultDocumentFormat, compareData.resultDocumentFormat);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, compareOptions, comparingWithDocument, dateTime);
+    return Objects.hash(author, compareOptions, comparingWithDocument, dateTime, resultDocumentFormat);
   }
 
   @Override
@@ -160,6 +182,7 @@ public class CompareData {
     sb.append("    compareOptions: ").append(toIndentedString(compareOptions)).append("\n");
     sb.append("    comparingWithDocument: ").append(toIndentedString(comparingWithDocument)).append("\n");
     sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
+    sb.append("    resultDocumentFormat: ").append(toIndentedString(resultDocumentFormat)).append("\n");
     sb.append("}");
     return sb.toString();
   }

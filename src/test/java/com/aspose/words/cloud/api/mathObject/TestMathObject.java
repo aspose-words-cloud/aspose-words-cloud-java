@@ -91,8 +91,9 @@ public class TestMathObject  extends TestCase
     @Test
     public void testGetOfficeMathObjectsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetOfficeMathObjectsOnlineRequest request = new GetOfficeMathObjectsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "",
             null,
             null
@@ -167,8 +168,9 @@ public class TestMathObject  extends TestCase
     @Test
     public void testGetOfficeMathObjectOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetOfficeMathObjectOnlineRequest request = new GetOfficeMathObjectOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             "",
             null,
@@ -244,8 +246,9 @@ public class TestMathObject  extends TestCase
     @Test
     public void testRenderMathObjectOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         RenderMathObjectOnlineRequest request = new RenderMathObjectOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "png",
             0,
             "",
@@ -324,8 +327,9 @@ public class TestMathObject  extends TestCase
     @Test
     public void testDeleteOfficeMathObjectOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteOfficeMathObjectOnlineRequest request = new DeleteOfficeMathObjectOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             "",
             null,

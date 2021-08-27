@@ -88,8 +88,9 @@ public class TestDrawingObjects  extends TestCase
     @Test
     public void testGetDocumentDrawingObjectsOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentDrawingObjectsOnlineRequest request = new GetDocumentDrawingObjectsOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "sections/0",
             null,
             null
@@ -158,8 +159,9 @@ public class TestDrawingObjects  extends TestCase
     @Test
     public void testGetDocumentDrawingObjectByIndexOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentDrawingObjectByIndexOnlineRequest request = new GetDocumentDrawingObjectByIndexOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             "sections/0",
             null,
@@ -233,8 +235,9 @@ public class TestDrawingObjects  extends TestCase
     @Test
     public void testRenderDrawingObjectOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         RenderDrawingObjectOnlineRequest request = new RenderDrawingObjectOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             "png",
             0,
             "sections/0",
@@ -311,8 +314,9 @@ public class TestDrawingObjects  extends TestCase
     @Test
     public void testGetDocumentDrawingObjectImageDataOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentDrawingObjectImageDataOnlineRequest request = new GetDocumentDrawingObjectImageDataOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             "sections/0",
             null,
@@ -383,8 +387,9 @@ public class TestDrawingObjects  extends TestCase
     @Test
     public void testGetDocumentDrawingObjectOleDataOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localDrawingFile).toAbsolutePath());
         GetDocumentDrawingObjectOleDataOnlineRequest request = new GetDocumentDrawingObjectOleDataOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localDrawingFile).toAbsolutePath()),
+            requestDocument,
             0,
             "sections/0",
             null,
@@ -444,10 +449,11 @@ public class TestDrawingObjects  extends TestCase
         requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
         requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
 
+        byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         InsertDrawingObjectRequest request = new InsertDrawingObjectRequest(
             remoteFileName,
             requestDrawingObject,
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
+            requestImageFile,
             "",
             remoteDataFolder,
             null,
@@ -468,6 +474,7 @@ public class TestDrawingObjects  extends TestCase
     @Test
     public void testInsertDrawingObjectOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DrawingObjectInsert requestDrawingObject = new DrawingObjectInsert();
         requestDrawingObject.setHeight((double)0);
         requestDrawingObject.setLeft((double)0);
@@ -477,10 +484,11 @@ public class TestDrawingObjects  extends TestCase
         requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
         requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
 
+        byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         InsertDrawingObjectOnlineRequest request = new InsertDrawingObjectOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestDrawingObject,
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
+            requestImageFile,
             "",
             null,
             null,
@@ -515,10 +523,11 @@ public class TestDrawingObjects  extends TestCase
         requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
         requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
 
+        byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         InsertDrawingObjectRequest request = new InsertDrawingObjectRequest(
             remoteFileName,
             requestDrawingObject,
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
+            requestImageFile,
             null,
             remoteDataFolder,
             null,
@@ -568,8 +577,9 @@ public class TestDrawingObjects  extends TestCase
     @Test
     public void testDeleteDrawingObjectOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteDrawingObjectOnlineRequest request = new DeleteDrawingObjectOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             0,
             "",
             null,
@@ -628,10 +638,11 @@ public class TestDrawingObjects  extends TestCase
         DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
         requestDrawingObject.setLeft((double)0);
 
+        byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(
             remoteFileName,
             requestDrawingObject,
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
+            requestImageFile,
             0,
             "",
             remoteDataFolder,
@@ -653,13 +664,15 @@ public class TestDrawingObjects  extends TestCase
     @Test
     public void testUpdateDrawingObjectOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
         requestDrawingObject.setLeft((double)0);
 
+        byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         UpdateDrawingObjectOnlineRequest request = new UpdateDrawingObjectOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             requestDrawingObject,
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
+            requestImageFile,
             0,
             "",
             null,
@@ -689,10 +702,11 @@ public class TestDrawingObjects  extends TestCase
         DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
         requestDrawingObject.setLeft((double)0);
 
+        byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(
             remoteFileName,
             requestDrawingObject,
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
+            requestImageFile,
             0,
             null,
             remoteDataFolder,

@@ -87,8 +87,9 @@ public class TestBookmark  extends TestCase
     @Test
     public void testGetBookmarksOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetBookmarksOnlineRequest request = new GetBookmarksOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             null,
             null
         );
@@ -129,8 +130,9 @@ public class TestBookmark  extends TestCase
     @Test
     public void testGetBookmarkByNameOnline() throws ApiException, MessagingException, IOException
     {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetBookmarkByNameOnlineRequest request = new GetBookmarkByNameOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             bookmarkName,
             null,
             null
@@ -183,12 +185,13 @@ public class TestBookmark  extends TestCase
     {
         String remoteFileName = "TestUpdateDocumentBookmark.docx";
 
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         BookmarkData requestBookmarkData = new BookmarkData();
         requestBookmarkData.setName(bookmarkName);
         requestBookmarkData.setText("This will be the text for Aspose");
 
         UpdateBookmarkOnlineRequest request = new UpdateBookmarkOnlineRequest(
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocument,
             bookmarkName,
             requestBookmarkData,
             null,
