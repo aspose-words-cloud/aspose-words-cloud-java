@@ -47,9 +47,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container abstract class for image save options.")
 public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
-    @SerializedName("GraphicsQualityOptions")
-    private GraphicsQualityOptionsData graphicsQualityOptions = null;
-
     @SerializedName("HorizontalResolution")
     private Double horizontalResolution = null;
 
@@ -85,24 +82,6 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
 
     @SerializedName("VerticalResolution")
     private Double verticalResolution = null;
-    public ImageSaveOptionsData graphicsQualityOptions(GraphicsQualityOptionsData graphicsQualityOptions) {
-        this.graphicsQualityOptions = graphicsQualityOptions;
-        return this;
-    }
-
-    /**
-     * Gets or sets the additional System.Drawing.Graphics quality options.
-    * @return graphicsQualityOptions
-    **/
-    @ApiModelProperty(value = "Gets or sets the additional System.Drawing.Graphics quality options.")
-    public GraphicsQualityOptionsData getGraphicsQualityOptions() {
-        return graphicsQualityOptions;
-    }
-
-    public void setGraphicsQualityOptions(GraphicsQualityOptionsData graphicsQualityOptions) {
-        this.graphicsQualityOptions = graphicsQualityOptions;
-    }
-
     public ImageSaveOptionsData horizontalResolution(Double horizontalResolution) {
         this.horizontalResolution = horizontalResolution;
         return this;
@@ -336,7 +315,6 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
 
         ImageSaveOptionsData imageSaveOptionsData = (ImageSaveOptionsData) o;
         return
-            Objects.equals(this.graphicsQualityOptions, imageSaveOptionsData.graphicsQualityOptions) &&
             Objects.equals(this.horizontalResolution, imageSaveOptionsData.horizontalResolution) &&
             Objects.equals(this.imageBrightness, imageSaveOptionsData.imageBrightness) &&
             Objects.equals(this.imageColorMode, imageSaveOptionsData.imageColorMode) &&
@@ -354,7 +332,7 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(graphicsQualityOptions, horizontalResolution, imageBrightness, imageColorMode, imageContrast, paperColor, pixelFormat, resolution, scale, useAntiAliasing, useGdiEmfRenderer, useHighQualityRendering, verticalResolution, super.hashCode());
+    return Objects.hash(horizontalResolution, imageBrightness, imageColorMode, imageContrast, paperColor, pixelFormat, resolution, scale, useAntiAliasing, useGdiEmfRenderer, useHighQualityRendering, verticalResolution, super.hashCode());
   }
 
   @Override
@@ -362,7 +340,6 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImageSaveOptionsData {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    graphicsQualityOptions: ").append(toIndentedString(graphicsQualityOptions)).append("\n");
     sb.append("    horizontalResolution: ").append(toIndentedString(horizontalResolution)).append("\n");
     sb.append("    imageBrightness: ").append(toIndentedString(imageBrightness)).append("\n");
     sb.append("    imageColorMode: ").append(toIndentedString(imageColorMode)).append("\n");
