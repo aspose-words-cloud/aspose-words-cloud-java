@@ -103,8 +103,14 @@ public class ReportEngineSettings {
     @SerializedName("DataSourceType")
     private DataSourceTypeEnum dataSourceType = null;
 
+    @SerializedName("JsonDataLoadOptions")
+    private JsonDataLoadOptions jsonDataLoadOptions = null;
+
     @SerializedName("ReportBuildOptions")
     private List<ReportBuildOptions> reportBuildOptions = null;
+
+    @SerializedName("XmlDataLoadOptions")
+    private XmlDataLoadOptions xmlDataLoadOptions = null;
     public ReportEngineSettings csvDataLoadOptions(CsvDataLoadOptions csvDataLoadOptions) {
         this.csvDataLoadOptions = csvDataLoadOptions;
         return this;
@@ -159,6 +165,24 @@ public class ReportEngineSettings {
         this.dataSourceType = dataSourceType;
     }
 
+    public ReportEngineSettings jsonDataLoadOptions(JsonDataLoadOptions jsonDataLoadOptions) {
+        this.jsonDataLoadOptions = jsonDataLoadOptions;
+        return this;
+    }
+
+    /**
+     * Gets or sets the options for parsing JSON data.
+    * @return jsonDataLoadOptions
+    **/
+    @ApiModelProperty(value = "Gets or sets the options for parsing JSON data.")
+    public JsonDataLoadOptions getJsonDataLoadOptions() {
+        return jsonDataLoadOptions;
+    }
+
+    public void setJsonDataLoadOptions(JsonDataLoadOptions jsonDataLoadOptions) {
+        this.jsonDataLoadOptions = jsonDataLoadOptions;
+    }
+
     public ReportEngineSettings reportBuildOptions(List<ReportBuildOptions> reportBuildOptions) {
         this.reportBuildOptions = reportBuildOptions;
         return this;
@@ -185,6 +209,24 @@ public class ReportEngineSettings {
         this.reportBuildOptions = reportBuildOptions;
     }
 
+    public ReportEngineSettings xmlDataLoadOptions(XmlDataLoadOptions xmlDataLoadOptions) {
+        this.xmlDataLoadOptions = xmlDataLoadOptions;
+        return this;
+    }
+
+    /**
+     * Gets or sets the options for parsing XML data.
+    * @return xmlDataLoadOptions
+    **/
+    @ApiModelProperty(value = "Gets or sets the options for parsing XML data.")
+    public XmlDataLoadOptions getXmlDataLoadOptions() {
+        return xmlDataLoadOptions;
+    }
+
+    public void setXmlDataLoadOptions(XmlDataLoadOptions xmlDataLoadOptions) {
+        this.xmlDataLoadOptions = xmlDataLoadOptions;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -199,12 +241,14 @@ public class ReportEngineSettings {
             Objects.equals(this.csvDataLoadOptions, reportEngineSettings.csvDataLoadOptions) &&
             Objects.equals(this.dataSourceName, reportEngineSettings.dataSourceName) &&
             Objects.equals(this.dataSourceType, reportEngineSettings.dataSourceType) &&
-            Objects.equals(this.reportBuildOptions, reportEngineSettings.reportBuildOptions);
+            Objects.equals(this.jsonDataLoadOptions, reportEngineSettings.jsonDataLoadOptions) &&
+            Objects.equals(this.reportBuildOptions, reportEngineSettings.reportBuildOptions) &&
+            Objects.equals(this.xmlDataLoadOptions, reportEngineSettings.xmlDataLoadOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(csvDataLoadOptions, dataSourceName, dataSourceType, reportBuildOptions);
+    return Objects.hash(csvDataLoadOptions, dataSourceName, dataSourceType, jsonDataLoadOptions, reportBuildOptions, xmlDataLoadOptions);
   }
 
   @Override
@@ -214,7 +258,9 @@ public class ReportEngineSettings {
     sb.append("    csvDataLoadOptions: ").append(toIndentedString(csvDataLoadOptions)).append("\n");
     sb.append("    dataSourceName: ").append(toIndentedString(dataSourceName)).append("\n");
     sb.append("    dataSourceType: ").append(toIndentedString(dataSourceType)).append("\n");
+    sb.append("    jsonDataLoadOptions: ").append(toIndentedString(jsonDataLoadOptions)).append("\n");
     sb.append("    reportBuildOptions: ").append(toIndentedString(reportBuildOptions)).append("\n");
+    sb.append("    xmlDataLoadOptions: ").append(toIndentedString(xmlDataLoadOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

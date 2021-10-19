@@ -13,6 +13,13 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 21.10
+
+- Removed 'GraphicsQualityOptions' image save option as it no longer supported.
+- Added query parameter 'displayIntermediateResults' for batch requests. If 'false', the last response in batch will be returned only. Default is 'true'
+- Added 'JsonDataLoadOptions' and 'XmlDataLoadOptions' to 'ReportEngineSettings'
+
+
 ## Enhancements in Version 21.8
 
 - Added new api methods to get, insert, update or delete custom xml parts from documents.
@@ -164,7 +171,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>21.9.0</version>
+        <version>21.10.0</version>
     </dependency>
 </dependencies>
 ```
