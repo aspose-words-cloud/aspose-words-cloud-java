@@ -424,6 +424,10 @@ public class Font extends LinkElement {
         LISTTABLE6COLORFULACCENT6("ListTable6ColorfulAccent6"),
         LISTTABLE7COLORFULACCENT6("ListTable7ColorfulAccent6"),
         SMARTLINK("SmartLink"),
+        MENTION("Mention"),
+        SMARTHYPERLINK("SmartHyperlink"),
+        HASHTAG("Hashtag"),
+        UNRESOLVEDMENTION("UnresolvedMention"),
         USER("User"),
         NIL("Nil");
 
