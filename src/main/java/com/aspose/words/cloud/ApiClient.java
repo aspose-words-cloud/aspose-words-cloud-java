@@ -37,14 +37,23 @@ import okio.Okio;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 
+import javax.crypto.Cipher;
+import javax.crypto.NoSuchPaddingException;
 import javax.mail.BodyPart;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
 import java.io.*;
 import java.lang.reflect.Type;
+import java.math.BigInteger;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.security.InvalidKeyException;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.RSAPublicKeySpec;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -72,6 +81,7 @@ public class ApiClient {
     private String refreshToken;
     private String ClientSecret;
     private String clientId;
+    private Cipher key;
 
     public ApiClient(String clientId, String clientSecret, String baseUrl) {
         this();
@@ -97,6 +107,25 @@ public class ApiClient {
         addDefaultHeader("x-aspose-client-version", clientVersion);
         setConnectTimeout(5 * 60 * 1000);
         setReadTimeout(5 * 60 * 1000);
+    }
+
+
+    /**
+     * Gets a public key
+     * @return public key
+     */
+    public Cipher getKey() {
+        return key;
+    }
+
+    /**
+     * Sets a public key
+     * @param key
+     * @return api client
+     */
+    public ApiClient setKey(Cipher key) {
+        this.key = key;
+        return this;
     }
 
      /**
@@ -1143,6 +1172,18 @@ public class ApiClient {
         catch (Exception ex) {
             throw new ApiException(ex);
         }
+    }
+
+    public void setRsaKey(String modulus, String exponent) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException {
+        byte[] modulusByte = Base64.getDecoder().decode(modulus);
+        BigInteger modulusInt = new BigInteger(1, modulusByte);
+        byte[] exponentByte = Base64.getDecoder().decode(exponent);
+        BigInteger exponentInt = new BigInteger(1, exponentByte);
+        RSAPublicKeySpec spec = new RSAPublicKeySpec(modulusInt, exponentInt);
+        KeyFactory factory = KeyFactory.getInstance("RSA");
+        PublicKey key = factory.generatePublic(spec);
+        this.key = Cipher.getInstance("RSA");
+        this.key.init(Cipher.ENCRYPT_MODE, key);
     }
 
     /**
