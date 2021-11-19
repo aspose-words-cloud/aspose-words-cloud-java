@@ -1193,7 +1193,7 @@ public class ApiClient {
     * AddParameterToQuery
     */
     public void addParameterToQuery(List<Pair> queryParams, String paramName, Object paramValue) {
-        if (paramName.equals("password") && !paramValue.toString().isEmpty()) {
+        if (paramName.equals("password") && paramValue != null && !paramValue.toString().isEmpty()) {
             try {
                 queryParams.addAll(parameterToPair("encryptedPassword", Base64.getEncoder().encode(this.key.doFinal(paramValue.toString().getBytes(StandardCharsets.UTF_8)))));
             }
