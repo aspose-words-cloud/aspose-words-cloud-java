@@ -58,13 +58,20 @@ public class WordsApi {
         this.apiClient = apiClient;
         try {
             this.checkRsaKey();
-        } catch (ApiException e) {
-        } catch (MessagingException e) {
-        } catch (IOException e) {
-        } catch (InvalidKeySpecException e) {
-        } catch (NoSuchAlgorithmException e) {
-        } catch (NoSuchPaddingException e) {
-        } catch (InvalidKeyException e) {
+        } 
+        catch (ApiException e) {
+        }
+        catch (MessagingException e) {
+        }
+        catch (IOException e) {
+        }
+        catch (InvalidKeySpecException e) {
+        }
+        catch (NoSuchAlgorithmException e) {
+        }
+        catch (NoSuchPaddingException e) {
+        }
+        catch (InvalidKeyException e) {
         }
     }
 
@@ -76,13 +83,20 @@ public class WordsApi {
         this.apiClient = apiClient;
         try {
             this.checkRsaKey();
-        } catch (ApiException e) {
-        } catch (MessagingException e) {
-        } catch (IOException e) {
-        } catch (InvalidKeySpecException e) {
-        } catch (NoSuchAlgorithmException e) {
-        } catch (NoSuchPaddingException e) {
-        } catch (InvalidKeyException e) {
+        }
+        catch (ApiException e) {
+        }
+        catch (MessagingException e) {
+        }
+        catch (IOException e) {
+        }
+        catch (InvalidKeySpecException e) {
+        }
+        catch (NoSuchAlgorithmException e) {
+        }
+        catch (NoSuchPaddingException e) {
+        }
+        catch (InvalidKeyException e) {
         }
     }
 

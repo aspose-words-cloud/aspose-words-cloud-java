@@ -37,7 +37,9 @@ import okio.Okio;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.mail.BodyPart;
 import javax.mail.MessagingException;
@@ -48,6 +50,7 @@ import java.lang.reflect.Type;
 import java.math.BigInteger;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
@@ -1190,7 +1193,18 @@ public class ApiClient {
     * AddParameterToQuery
     */
     public void addParameterToQuery(List<Pair> queryParams, String paramName, Object paramValue) {
-        queryParams.addAll(parameterToPair(paramName, paramValue));
+        if (paramName.equals("password") && !paramValue.toString().isEmpty()) {
+            try {
+                queryParams.addAll(parameterToPair("encryptedPassword", Base64.getEncoder().encode(this.key.doFinal(paramValue.toString().getBytes(StandardCharsets.UTF_8)))));
+            }
+            catch (IllegalBlockSizeException e) {
+            }
+            catch (BadPaddingException e) {
+            }
+        }
+        else {
+            queryParams.addAll(parameterToPair(paramName, paramValue));
+        }
     }
 
     /**

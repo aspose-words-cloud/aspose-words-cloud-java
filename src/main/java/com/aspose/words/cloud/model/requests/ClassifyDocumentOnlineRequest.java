@@ -31,13 +31,10 @@ import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 /*
@@ -182,19 +179,6 @@ public class ClassifyDocumentOnlineRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "bestClassesCount", getBestClassesCount());
         apiClient.addParameterToQuery(localVarQueryParams, "taxonomy", getTaxonomy());
-        int index = 0;
-        for (int i = 0; i < localVarQueryParams.size(); i++) {
-            if (localVarQueryParams.get(i).getName().equals("password")) {
-                index = i;
-                try {
-                    apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", Base64.getEncoder().encode(apiClient.getKey().doFinal(this.password.getBytes(StandardCharsets.UTF_8))));
-                } catch (IllegalBlockSizeException e) {
-                } catch (BadPaddingException e) {
-                }
-            }
-        }
-
-        localVarQueryParams.remove(index);
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
