@@ -1238,8 +1238,7 @@ public class ApiClient {
         headers.put("Content-Type", requestBody.contentType().toString());
 
         String url = "/words/batch";
-        if (!displayIntermediateResults)
-        {
+        if (!displayIntermediateResults) {
             url += "?displayIntermediateResults=false";
         }
 

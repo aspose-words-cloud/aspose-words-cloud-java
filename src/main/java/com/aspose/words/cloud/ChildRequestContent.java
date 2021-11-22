@@ -56,12 +56,10 @@ public class ChildRequestContent extends RequestBody {
     @Override
     public void writeTo(BufferedSink bufferedSink) throws IOException {
         Request httpRequest;
-        try
-        {
+        try {
             httpRequest = request.getRequest().buildHttpRequest(this.apiClient, null, null, false);
         }
-        catch (ApiException ex)
-        {
+        catch (ApiException ex) {
             throw new IOException(ex.getMessage());
         }
 
@@ -75,8 +73,7 @@ public class ChildRequestContent extends RequestBody {
         bufferedSink.writeUtf8(request.getRequestId());
         bufferedSink.writeUtf8(CRLF);
 
-        if (request.getParentRequestId() != null)
-        {
+        if (request.getParentRequestId() != null) {
             bufferedSink.writeUtf8("DependsOn: ");
             bufferedSink.writeUtf8(request.getParentRequestId());
             bufferedSink.writeUtf8(CRLF);

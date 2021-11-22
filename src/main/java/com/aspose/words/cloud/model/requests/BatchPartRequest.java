@@ -35,8 +35,7 @@ import java.io.*;
 /*
  * A batch part request wrapper to add batch part features.
  */
-public class BatchPartRequest
-{
+public class BatchPartRequest {
     private RequestIfc request;
 
     private String requestId;
