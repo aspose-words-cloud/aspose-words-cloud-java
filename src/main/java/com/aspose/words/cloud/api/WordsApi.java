@@ -35,7 +35,6 @@ import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Response;
 import java.io.IOException;
 import javax.crypto.NoSuchPaddingException;
-import javax.mail.BodyPart;
 import javax.mail.MessagingException;
 import java.io.File;
 import java.lang.reflect.Type;
@@ -23056,32 +23055,24 @@ public class WordsApi {
         return call;
     }
 
-    public Object[] batch(BatchPartRequest... requests) throws ApiException, IOException {
-        return this.batch(true, requests);
-    }
-
-    public Object[] batch(Boolean displayIntermediateResults, BatchPartRequest... requests) throws ApiException, IOException {
+    public Object[] batch(RequestIfc... requests) throws ApiException, IOException {
         if (requests == null || requests.length == 0) {
              return null;
         }
 
-        com.squareup.okhttp.Request masterRequest = apiClient.buildBatchRequest(requests, displayIntermediateResults);
+        com.squareup.okhttp.Request masterRequest = apiClient.buildBatchRequest(requests);
         com.squareup.okhttp.Call call = apiClient.buildCall(masterRequest);
         ApiResponse<javax.mail.internet.MimeMultipart> response = apiClient.execute(call, javax.mail.internet.MimeMultipart.class);
 
         try {
-            Object[] result = new Object[response.getData().getCount()];
-            for (int i = 0; i < result.length; i++) {
-                BodyPart part = response.getData().getBodyPart(i);
-                String[] requestId = part.getHeader("RequestId");
-                if (requestId != null && requestId.length == 1) {
-                    for (BatchPartRequest batchPartRequest : requests) {
-                        if (batchPartRequest.getRequestId().equals(requestId[0])) {
-                            result[i] = apiClient.parseBatchPart(masterRequest, part, batchPartRequest.getRequest().getResponseType());
-                            break;
-                        }
-                    }
-                }
+            int count = response.getData().getCount();
+            if (count != requests.length) {
+                throw new ApiException(400, "The number of responses does not match the number of requests.");
+            }
+
+            Object[] result = new Object[count];
+            for (int i = 0; i < count; i++) {
+                result[i] = apiClient.parseBatchPart(masterRequest, response.getData().getBodyPart(i), requests[i].getResponseType());
             }
 
             return result;

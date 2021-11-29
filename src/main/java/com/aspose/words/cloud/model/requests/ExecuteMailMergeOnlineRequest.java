@@ -52,6 +52,11 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
     private byte[] data;
 
     /*
+     * Mail merge options.
+     */
+    private FieldOptions options;
+
+    /*
      * The flag indicating whether to execute Mail Merge operation with regions.
      */
     private Boolean withRegions;
@@ -71,13 +76,15 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
      *
      * @param byte[] template File with template.
      * @param byte[] data File with mailmerge data.
+     * @param FieldOptions options Mail merge options.
      * @param Boolean withRegions The flag indicating whether to execute Mail Merge operation with regions.
      * @param String cleanup The cleanup options.
      * @param String documentFileName The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
-    public ExecuteMailMergeOnlineRequest(byte[] template, byte[] data, Boolean withRegions, String cleanup, String documentFileName) {
+    public ExecuteMailMergeOnlineRequest(byte[] template, byte[] data, FieldOptions options, Boolean withRegions, String cleanup, String documentFileName) {
         this.template = template;
         this.data = data;
+        this.options = options;
         this.withRegions = withRegions;
         this.cleanup = cleanup;
         this.documentFileName = documentFileName;
@@ -109,6 +116,20 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
      */
     public void setData(byte[] value) {
         this.data = value;
+    }
+
+    /*
+     * Gets Mail merge options.
+     */
+    public FieldOptions getOptions() {
+        return this.options;
+    }
+
+    /*
+     * Sets Mail merge options.
+     */
+    public void setOptions(FieldOptions value) {
+        this.options = value;
     }
 
     /*
@@ -192,6 +213,9 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
 
         if (getData() != null)
             localVarFormParams.put("Data", getData());
+
+        if (getOptions() != null)
+            localVarFormParams.put("Options", getOptions());
 
         final String[] localVarAccepts = {
             "application/xml", "application/json"

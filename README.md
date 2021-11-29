@@ -13,11 +13,6 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
-## Enhancements in Version 21.12
-
-- Added dependsOn and resultOf features for batch requests
-- Added query parameter 'displayIntermediateResults' for batch requests. If 'false', the last response in batch will be returned only. Default is 'true'
-
 ## Enhancements in Version 21.11
 
 

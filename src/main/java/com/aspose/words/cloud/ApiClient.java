@@ -27,7 +27,7 @@
 
 package com.aspose.words.cloud;
 
-import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.requests.RequestIfc;
 import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
@@ -1193,7 +1193,7 @@ public class ApiClient {
     * AddParameterToQuery
     */
     public void addParameterToQuery(List<Pair> queryParams, String paramName, Object paramValue) {
-        if (paramName.equals("password") && paramValue != null && !paramValue.toString().isEmpty()) {
+        if (paramName.equals("password") && !paramValue.toString().isEmpty()) {
             try {
                 queryParams.addAll(parameterToPair("encryptedPassword", Base64.getEncoder().encode(this.key.doFinal(paramValue.toString().getBytes(StandardCharsets.UTF_8)))));
             }
@@ -1226,23 +1226,18 @@ public class ApiClient {
     /**
      * Build batch request
      */
-    public Request buildBatchRequest(BatchPartRequest[] requests, Boolean displayIntermediateResults) throws ApiException, IOException {
+    public Request buildBatchRequest(RequestIfc[] requests) throws ApiException, IOException {
         Headers multipartHeaders = Headers.of("Content-Disposition", "form-data");
         MultipartBuilder builder = new MultipartBuilder().type(MultipartBuilder.FORM);
-        for (BatchPartRequest request : requests) {
-            builder.addPart(multipartHeaders, new ChildRequestContent(this, request, basePath + "/words/"));
+        for (RequestIfc request : requests) {
+            Request httpRequest = request.buildHttpRequest(this, null, null, false);
+            builder.addPart(multipartHeaders, new ChildRequestContent(httpRequest, basePath + "/words/"));
         }
 
         RequestBody requestBody = builder.build();
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", requestBody.contentType().toString());
-
-        String url = "/words/batch";
-        if (!displayIntermediateResults) {
-            url += "?displayIntermediateResults=false";
-        }
-
-        return buildRequest(url, "PUT", new ArrayList<>(), new ArrayList<>(), requestBody, headers, new HashMap<>(), true, null);
+        return buildRequest("/words/batch", "PUT", new ArrayList<>(), new ArrayList<>(), requestBody, headers, new HashMap<>(), true, null);
     }
 
     /**
@@ -1339,8 +1334,7 @@ public class ApiClient {
             Headers headers = headersBuilder.build();
             byte[] rawBody = buffer.toByteArray();
             if (rawBody.length != lastSplitIndex + 2) {
-                byte[] responseBytes = new byte[rawBody.length - (lastSplitIndex + 2)];
-                System.arraycopy(rawBody, lastSplitIndex + 2, responseBytes, 0, responseBytes.length);
+                byte[] responseBytes = Arrays.copyOfRange(rawBody, lastSplitIndex + 2, rawBody.length);
                 responseBody = ResponseBody.create(MediaType.parse(headers.get("Content-Type")), responseBytes);
             }
 
