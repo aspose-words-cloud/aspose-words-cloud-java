@@ -73,6 +73,7 @@ public class TestExecuteTemplate  extends TestCase
         ExecuteMailMergeRequest request = new ExecuteMailMergeRequest(
             remoteFileName,
             localDataFile,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -104,6 +105,7 @@ public class TestExecuteTemplate  extends TestCase
         ExecuteMailMergeOnlineRequest request = new ExecuteMailMergeOnlineRequest(
             requestTemplate,
             requestData,
+            null,
             null,
             null,
             null

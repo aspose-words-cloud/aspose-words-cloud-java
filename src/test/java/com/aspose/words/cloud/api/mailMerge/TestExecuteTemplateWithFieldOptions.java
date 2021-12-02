@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="TestExecuteMailMerge.java">
+ * <copyright company="Aspose" file="TestExecuteTemplateWithFieldOptions.java">
  *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -41,9 +41,9 @@ import java.nio.file.*;
 import java.util.ArrayList;
 
 /*
- * Example of how to perform mail merge.
+ * Example of how to perform template execution.
  */
-public class TestExecuteMailMerge  extends TestCase
+public class TestExecuteTemplateWithFieldOptions  extends TestCase
 {
     private String remoteDataFolder = TestInitializer.RemoteTestFolder + "/DocumentActions/MailMerge";
     private String mailMergeFolder = "DocumentActions/MailMerge";
@@ -56,53 +56,35 @@ public class TestExecuteMailMerge  extends TestCase
     }
 
     /*
-     * Test for executing mail merge online.
+     * Test for posting execute template.
      */
     @Test
-    public void testExecuteMailMergeOnline() throws ApiException, MessagingException, IOException
+    public void testExecuteTemplateWithFieldOptions() throws ApiException, MessagingException, IOException
     {
-        String localDocumentFile = "SampleExecuteTemplate.docx";
-        String localDataFile = "SampleExecuteTemplateData.txt";
-
-        byte[] requestTemplate = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDocumentFile).toAbsolutePath());
-        byte[] requestData = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDataFile).toAbsolutePath());
-        ExecuteMailMergeOnlineRequest request = new ExecuteMailMergeOnlineRequest(
-            requestTemplate,
-            requestData,
-            null,
-            null,
-            null,
-            null
-        );
-
-        File result = TestInitializer.wordsApi.executeMailMergeOnline(request);
-        assertNotNull(result);
-    }
-
-    /*
-     * Test for executing mail merge.
-     */
-    @Test
-    public void testExecuteMailMerge() throws ApiException, MessagingException, IOException
-    {
-        String localDocumentFile = "SampleExecuteTemplate.docx";
-        String remoteFileName = "TestExecuteMailMerge.docx";
-        String localDataFile = new String(Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/SampleMailMergeTemplateData.txt")), "utf8");
+        String localDocumentFile = "TestMailMergeWithOptions.docx";
+        String remoteFileName = "TestMailMergeWithOptions.docx";
+        String localDataFile = new String(Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/TestMailMergeData.xml")), "utf8");
 
         TestInitializer.UploadFile(
             PathUtil.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDocumentFile),
             remoteDataFolder + "/" + remoteFileName
         );
 
+        UserInformation requestOptionsCurrentUser = new UserInformation();
+        requestOptionsCurrentUser.setName("SdkTestUser");
+
+        FieldOptions requestOptions = new FieldOptions();
+        requestOptions.setCurrentUser(requestOptionsCurrentUser);
+
         ExecuteMailMergeRequest request = new ExecuteMailMergeRequest(
             remoteFileName,
             localDataFile,
-            null,
+            requestOptions,
             remoteDataFolder,
             null,
             null,
             null,
-            false,
+            null,
             null,
             null,
             null,
@@ -112,6 +94,36 @@ public class TestExecuteMailMerge  extends TestCase
         DocumentResponse result = TestInitializer.wordsApi.executeMailMerge(request);
         assertNotNull(result);
         assertNotNull(result.getDocument());
-        assertEquals("TestExecuteMailMerge.docx", result.getDocument().getFileName());
+        assertEquals("TestMailMergeWithOptions.docx", result.getDocument().getFileName());
+    }
+
+    /*
+     * Test for execute template online.
+     */
+    @Test
+    public void testExecuteTemplateOnlineWithFieldOptions() throws ApiException, MessagingException, IOException
+    {
+        String localDocumentFile = "TestMailMergeWithOptions.docx";
+        String localDataFile = "TestMailMergeData.xml";
+
+        byte[] requestTemplate = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDocumentFile).toAbsolutePath());
+        byte[] requestData = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDataFile).toAbsolutePath());
+        UserInformation requestOptionsCurrentUser = new UserInformation();
+        requestOptionsCurrentUser.setName("SdkTestUser");
+
+        FieldOptions requestOptions = new FieldOptions();
+        requestOptions.setCurrentUser(requestOptionsCurrentUser);
+
+        ExecuteMailMergeOnlineRequest request = new ExecuteMailMergeOnlineRequest(
+            requestTemplate,
+            requestData,
+            requestOptions,
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.executeMailMergeOnline(request);
+        assertNotNull(result);
     }
 }
