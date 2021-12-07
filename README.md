@@ -17,6 +17,8 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 
 - Added dependsOn and resultOf features for batch requests
 - Added query parameter 'displayIntermediateResults' for batch requests. If 'false', the last response in batch will be returned only. Default is 'true'
+- Added 'timeout' in seconds
+- Support encryption of 'CommonRequest.Password'. Automatic encryption of all passwords sent to the API server as request parameters.
 
 ## Enhancements in Version 21.11
 

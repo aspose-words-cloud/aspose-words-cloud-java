@@ -105,11 +105,10 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/1.0.0/java");
         addDefaultHeader("x-aspose-client", "java sdk");
         addDefaultHeader("x-aspose-client-version", clientVersion);
-        setConnectTimeout(5 * 60 * 1000);
-        setReadTimeout(5 * 60 * 1000);
+        setConnectTimeout(180);
+        setReadTimeout(180);
     }
 
 
@@ -387,68 +386,68 @@ public class ApiClient {
     }
 
     /**
-     * Get connection timeout (in milliseconds).
+     * Get connection timeout (in seconds).
      *
-     * @return Timeout in milliseconds
+     * @return Timeout in seconds
      */
     public int getConnectTimeout() {
         return httpClient.getConnectTimeout();
     }
 
     /**
-     * Sets the connect timeout (in milliseconds).
+     * Sets the connect timeout (in seconds).
      * A value of 0 means no timeout, otherwise values must be between 1 and
      * {@link Integer#MAX_VALUE}.
      *
-     * @param connectionTimeout connection timeout in milliseconds
+     * @param connectionTimeout connection timeout in seconds
      * @return Api client
      */
     public ApiClient setConnectTimeout(int connectionTimeout) {
-        httpClient.setConnectTimeout(connectionTimeout, TimeUnit.MILLISECONDS);
+        httpClient.setConnectTimeout(connectionTimeout, TimeUnit.SECONDS);
         return this;
     }
 
     /**
-     * Get read timeout (in milliseconds).
+     * Get read timeout (in seconds).
      *
-     * @return Timeout in milliseconds
+     * @return Timeout in seconds
      */
     public int getReadTimeout() {
         return httpClient.getReadTimeout();
     }
 
     /**
-     * Sets the read timeout (in milliseconds).
+     * Sets the read timeout (in seconds).
      * A value of 0 means no timeout, otherwise values must be between 1 and
      * {@link Integer#MAX_VALUE}.
      *
-     * @param readTimeout read timeout in milliseconds
+     * @param readTimeout read timeout in seconds
      * @return Api client
      */
     public ApiClient setReadTimeout(int readTimeout) {
-        httpClient.setReadTimeout(readTimeout, TimeUnit.MILLISECONDS);
+        httpClient.setReadTimeout(readTimeout, TimeUnit.SECONDS);
         return this;
     }
 
     /**
-     * Get write timeout (in milliseconds).
+     * Get write timeout (in seconds).
      *
-     * @return Timeout in milliseconds
+     * @return Timeout in seconds
      */
     public int getWriteTimeout() {
         return httpClient.getWriteTimeout();
     }
 
     /**
-     * Sets the write timeout (in milliseconds).
+     * Sets the write timeout (in seconds).
      * A value of 0 means no timeout, otherwise values must be between 1 and
      * {@link Integer#MAX_VALUE}.
      *
-     * @param writeTimeout connection timeout in milliseconds
+     * @param writeTimeout connection timeout in seconds
      * @return Api client
      */
     public ApiClient setWriteTimeout(int writeTimeout) {
-        httpClient.setWriteTimeout(writeTimeout, TimeUnit.MILLISECONDS);
+        httpClient.setWriteTimeout(writeTimeout, TimeUnit.SECONDS);
         return this;
     }
 
