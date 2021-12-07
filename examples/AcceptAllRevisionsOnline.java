@@ -1,6 +1,6 @@
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-String fileName  = "test_doc.docx";
+String fileName = "test_doc.docx";
 
 // Calls AcceptAllRevisionsOnline method for document in cloud.
 byte[] requestDocument = Files.readAllBytes(Paths.get(fileName).toAbsolutePath());

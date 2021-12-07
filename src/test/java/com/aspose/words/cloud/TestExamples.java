@@ -58,7 +58,7 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        String fileName  = "test_doc.docx";
+        String fileName = "test_doc.docx";
 
         // Upload original document to cloud storage.
         byte[] myVar1 = Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath());
@@ -77,7 +77,7 @@ public class TestExamples extends TestCase
     {
         String documentsDir = "ExamplesData";
         WordsApi wordsApi = new WordsApi(apiClient);
-        String fileName  = "test_doc.docx";
+        String fileName = "test_doc.docx";
 
         // Calls AcceptAllRevisionsOnline method for document in cloud.
         byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath());
