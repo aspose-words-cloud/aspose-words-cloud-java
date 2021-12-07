@@ -52,7 +52,7 @@ public class ExecuteMailMergeRequest implements RequestIfc {
     private String data;
 
     /*
-     * Mail merge options.
+     * Field options.
      */
     private FieldOptions options;
 
@@ -106,7 +106,7 @@ public class ExecuteMailMergeRequest implements RequestIfc {
      *
      * @param String name The filename of the input document.
      * @param String data Mail merge data.
-     * @param FieldOptions options Mail merge options.
+     * @param FieldOptions options Field options.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -161,14 +161,14 @@ public class ExecuteMailMergeRequest implements RequestIfc {
     }
 
     /*
-     * Gets Mail merge options.
+     * Gets Field options.
      */
     public FieldOptions getOptions() {
         return this.options;
     }
 
     /*
-     * Sets Mail merge options.
+     * Sets Field options.
      */
     public void setOptions(FieldOptions value) {
         this.options = value;

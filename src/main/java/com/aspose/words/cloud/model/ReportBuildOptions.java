@@ -50,7 +50,8 @@ public enum ReportBuildOptions {
     NONE("None"),
     ALLOWMISSINGMEMBERS("AllowMissingMembers"),
     REMOVEEMPTYPARAGRAPHS("RemoveEmptyParagraphs"),
-    INLINEERRORMESSAGES("InlineErrorMessages");
+    INLINEERRORMESSAGES("InlineErrorMessages"),
+    USELEGACYHEADERFOOTERVISITING("UseLegacyHeaderFooterVisiting");
 
     private String value;
 

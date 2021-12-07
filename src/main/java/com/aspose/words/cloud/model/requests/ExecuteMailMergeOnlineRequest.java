@@ -52,7 +52,7 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
     private byte[] data;
 
     /*
-     * Mail merge options.
+     * Field options.
      */
     private FieldOptions options;
 
@@ -76,7 +76,7 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
      *
      * @param byte[] template File with template.
      * @param byte[] data File with mailmerge data.
-     * @param FieldOptions options Mail merge options.
+     * @param FieldOptions options Field options.
      * @param Boolean withRegions The flag indicating whether to execute Mail Merge operation with regions.
      * @param String cleanup The cleanup options.
      * @param String documentFileName The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
@@ -119,14 +119,14 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets Mail merge options.
+     * Gets Field options.
      */
     public FieldOptions getOptions() {
         return this.options;
     }
 
     /*
-     * Sets Mail merge options.
+     * Sets Field options.
      */
     public void setOptions(FieldOptions value) {
         this.options = value;
