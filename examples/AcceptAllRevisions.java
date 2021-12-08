@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 
 ApiClient apiClient = new ApiClient(/*clientId*/ "####-####-####-####-####", /*clientSecret*/ "##################", null);
 WordsApi wordsApi = new WordsApi(apiClient);
-String fileName  = "test_doc.docx";
+String fileName = "test_doc.docx";
 
 // Upload original document to cloud storage.
 byte[] myVar1 = Files.readAllBytes(Paths.get(fileName).toAbsolutePath());

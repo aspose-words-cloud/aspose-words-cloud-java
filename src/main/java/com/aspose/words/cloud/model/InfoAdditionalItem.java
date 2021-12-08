@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ReportBuildOptions.java">
+ * <copyright company="Aspose" file="InfoAdditionalItem.java">
  *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -43,51 +43,89 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Specifies options controlling behavior of ReportingEngine while building a report.
+ * Info additional item.
  */
-@JsonAdapter(ReportBuildOptions.Adapter.class)
-public enum ReportBuildOptions {
-    NONE("None"),
-    ALLOWMISSINGMEMBERS("AllowMissingMembers"),
-    REMOVEEMPTYPARAGRAPHS("RemoveEmptyParagraphs"),
-    INLINEERRORMESSAGES("InlineErrorMessages"),
-    USELEGACYHEADERFOOTERVISITING("UseLegacyHeaderFooterVisiting");
+@ApiModel(description = "Info additional item.")
+public class InfoAdditionalItem {
+    @SerializedName("Key")
+    private String key = null;
 
-    private String value;
-
-    ReportBuildOptions(String value) {
-        this.value = value;
+    @SerializedName("Value")
+    private String value = null;
+    public InfoAdditionalItem key(String key) {
+        this.key = key;
+        return this;
     }
 
+    /**
+     * Gets or sets Key.
+    * @return key
+    **/
+    @ApiModelProperty(value = "Gets or sets Key.")
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public InfoAdditionalItem value(String value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets or sets Value.
+    * @return value
+    **/
+    @ApiModelProperty(value = "Gets or sets Value.")
     public String getValue() {
         return value;
     }
 
+    public void setValue(String value) {
+        this.value = value;
+    }
+
     @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    public static ReportBuildOptions fromValue(String text) {
-        for (ReportBuildOptions b : ReportBuildOptions.values()) {
-            if (String.valueOf(b.value).equals(text)) {
-                return b;
-            }
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter< ReportBuildOptions > {
-        @Override
-        public void write(final JsonWriter jsonWriter, final ReportBuildOptions enumeration) throws IOException {
-            jsonWriter.value(enumeration.getValue());
+        if (o == null || getClass() != o.getClass()) {
+            return false;
         }
 
-        @Override
-        public ReportBuildOptions read(final JsonReader jsonReader) throws IOException {
-            String value = jsonReader.nextString();
-            return ReportBuildOptions.fromValue(String.valueOf(value));
-        }
+        InfoAdditionalItem infoAdditionalItem = (InfoAdditionalItem) o;
+        return
+            Objects.equals(this.key, infoAdditionalItem.key) &&
+            Objects.equals(this.value, infoAdditionalItem.value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(key, value);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class InfoAdditionalItem {\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
-

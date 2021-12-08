@@ -34,9 +34,14 @@ import com.aspose.words.cloud.model.responses.*;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Response;
 import java.io.IOException;
+import javax.crypto.NoSuchPaddingException;
+import javax.mail.BodyPart;
 import javax.mail.MessagingException;
 import java.io.File;
 import java.lang.reflect.Type;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.*;
 
 public class WordsApi {
@@ -52,6 +57,23 @@ public class WordsApi {
 
     public WordsApi(ApiClient apiClient) {
         this.apiClient = apiClient;
+        try {
+            this.checkRsaKey();
+        } 
+        catch (ApiException e) {
+        }
+        catch (MessagingException e) {
+        }
+        catch (IOException e) {
+        }
+        catch (InvalidKeySpecException e) {
+        }
+        catch (NoSuchAlgorithmException e) {
+        }
+        catch (NoSuchPaddingException e) {
+        }
+        catch (InvalidKeyException e) {
+        }
     }
 
     public ApiClient getApiClient() {
@@ -60,6 +82,23 @@ public class WordsApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+        try {
+            this.checkRsaKey();
+        }
+        catch (ApiException e) {
+        }
+        catch (MessagingException e) {
+        }
+        catch (IOException e) {
+        }
+        catch (InvalidKeySpecException e) {
+        }
+        catch (NoSuchAlgorithmException e) {
+        }
+        catch (NoSuchPaddingException e) {
+        }
+        catch (InvalidKeyException e) {
+        }
     }
 
     @SuppressWarnings("rawtypes")
@@ -10358,6 +10397,81 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getHeaderFootersOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getInfoValidateBeforeCall(GetInfoRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Returns application info.
+     * @param request Request object
+     * @return InfoResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public InfoResponse getInfo(GetInfoRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< InfoResponse > resp = getInfoWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< InfoResponse > resp = getInfoWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Returns application info.
+     * @param request Request object
+     * @return ApiResponse< InfoResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< InfoResponse > getInfoWithHttpInfo(GetInfoRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = getInfoValidateBeforeCall(request, null, null);
+        Response response = call.execute();
+        InfoResponse data = request.deserializeResponse(apiClient, response);
+        return new ApiResponse< InfoResponse >(response.code(), response.headers().toMultimap(), data);
+    }
+
+    /**
+     * Returns application info. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getInfoAsync(GetInfoRequest request, final ApiCallback< InfoResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getInfoValidateBeforeCall(request, progressListener, progressRequestListener);
         apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
     }
@@ -22942,24 +23056,32 @@ public class WordsApi {
         return call;
     }
 
-    public Object[] batch(RequestIfc... requests) throws ApiException, IOException {
+    public Object[] batch(BatchPartRequest... requests) throws ApiException, IOException {
+        return this.batch(true, requests);
+    }
+
+    public Object[] batch(Boolean displayIntermediateResults, BatchPartRequest... requests) throws ApiException, IOException {
         if (requests == null || requests.length == 0) {
              return null;
         }
 
-        com.squareup.okhttp.Request masterRequest = apiClient.buildBatchRequest(requests);
+        com.squareup.okhttp.Request masterRequest = apiClient.buildBatchRequest(requests, displayIntermediateResults);
         com.squareup.okhttp.Call call = apiClient.buildCall(masterRequest);
         ApiResponse<javax.mail.internet.MimeMultipart> response = apiClient.execute(call, javax.mail.internet.MimeMultipart.class);
 
         try {
-            int count = response.getData().getCount();
-            if (count != requests.length) {
-                throw new ApiException(400, "The number of responses does not match the number of requests.");
-            }
-
-            Object[] result = new Object[count];
-            for (int i = 0; i < count; i++) {
-                result[i] = apiClient.parseBatchPart(masterRequest, response.getData().getBodyPart(i), requests[i].getResponseType());
+            Object[] result = new Object[response.getData().getCount()];
+            for (int i = 0; i < result.length; i++) {
+                BodyPart part = response.getData().getBodyPart(i);
+                String[] requestId = part.getHeader("RequestId");
+                if (requestId != null && requestId.length == 1) {
+                    for (BatchPartRequest batchPartRequest : requests) {
+                        if (batchPartRequest.getRequestId().equals(requestId[0])) {
+                            result[i] = apiClient.parseBatchPart(masterRequest, part, batchPartRequest.getRequest().getResponseType());
+                            break;
+                        }
+                    }
+                }
             }
 
             return result;
@@ -22967,5 +23089,10 @@ public class WordsApi {
         catch (javax.mail.MessagingException e) {
             throw new ApiException(e);
         }
+    }
+
+    private void checkRsaKey() throws ApiException, MessagingException, IOException, InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, NoSuchPaddingException {
+        PublicKeyResponse pkResponse = this.getPublicKey(new GetPublicKeyRequest());
+        this.apiClient.setRsaKey(pkResponse.getModulus(), pkResponse.getExponent());
     }
 }

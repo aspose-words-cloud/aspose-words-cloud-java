@@ -27,7 +27,7 @@
 
 package com.aspose.words.cloud;
 
-import com.aspose.words.cloud.model.requests.RequestIfc;
+import com.aspose.words.cloud.model.requests.*;
 import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
@@ -37,14 +37,26 @@ import okio.Okio;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.mail.BodyPart;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
 import java.io.*;
 import java.lang.reflect.Type;
+import java.math.BigInteger;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.security.InvalidKeyException;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.RSAPublicKeySpec;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -56,7 +68,7 @@ public class ApiClient {
     private String apiVersion = "v4.0";
     private String baseUrl = "https://api.aspose.cloud";
     private String basePath = baseUrl + "/" + apiVersion;
-    private String clientVersion = "21.11";
+    private String clientVersion = "21.12";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -72,6 +84,7 @@ public class ApiClient {
     private String refreshToken;
     private String ClientSecret;
     private String clientId;
+    private Cipher key;
 
     public ApiClient(String clientId, String clientSecret, String baseUrl) {
         this();
@@ -92,11 +105,29 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/1.0.0/java");
         addDefaultHeader("x-aspose-client", "java sdk");
         addDefaultHeader("x-aspose-client-version", clientVersion);
-        setConnectTimeout(5 * 60 * 1000);
-        setReadTimeout(5 * 60 * 1000);
+        setConnectTimeout(180);
+        setReadTimeout(180);
+    }
+
+
+    /**
+     * Gets a public key
+     * @return public key
+     */
+    public Cipher getKey() {
+        return key;
+    }
+
+    /**
+     * Sets a public key
+     * @param key
+     * @return api client
+     */
+    public ApiClient setKey(Cipher key) {
+        this.key = key;
+        return this;
     }
 
      /**
@@ -355,68 +386,68 @@ public class ApiClient {
     }
 
     /**
-     * Get connection timeout (in milliseconds).
+     * Get connection timeout (in seconds).
      *
-     * @return Timeout in milliseconds
+     * @return Timeout in seconds
      */
     public int getConnectTimeout() {
         return httpClient.getConnectTimeout();
     }
 
     /**
-     * Sets the connect timeout (in milliseconds).
+     * Sets the connect timeout (in seconds).
      * A value of 0 means no timeout, otherwise values must be between 1 and
      * {@link Integer#MAX_VALUE}.
      *
-     * @param connectionTimeout connection timeout in milliseconds
+     * @param connectionTimeout connection timeout in seconds
      * @return Api client
      */
     public ApiClient setConnectTimeout(int connectionTimeout) {
-        httpClient.setConnectTimeout(connectionTimeout, TimeUnit.MILLISECONDS);
+        httpClient.setConnectTimeout(connectionTimeout, TimeUnit.SECONDS);
         return this;
     }
 
     /**
-     * Get read timeout (in milliseconds).
+     * Get read timeout (in seconds).
      *
-     * @return Timeout in milliseconds
+     * @return Timeout in seconds
      */
     public int getReadTimeout() {
         return httpClient.getReadTimeout();
     }
 
     /**
-     * Sets the read timeout (in milliseconds).
+     * Sets the read timeout (in seconds).
      * A value of 0 means no timeout, otherwise values must be between 1 and
      * {@link Integer#MAX_VALUE}.
      *
-     * @param readTimeout read timeout in milliseconds
+     * @param readTimeout read timeout in seconds
      * @return Api client
      */
     public ApiClient setReadTimeout(int readTimeout) {
-        httpClient.setReadTimeout(readTimeout, TimeUnit.MILLISECONDS);
+        httpClient.setReadTimeout(readTimeout, TimeUnit.SECONDS);
         return this;
     }
 
     /**
-     * Get write timeout (in milliseconds).
+     * Get write timeout (in seconds).
      *
-     * @return Timeout in milliseconds
+     * @return Timeout in seconds
      */
     public int getWriteTimeout() {
         return httpClient.getWriteTimeout();
     }
 
     /**
-     * Sets the write timeout (in milliseconds).
+     * Sets the write timeout (in seconds).
      * A value of 0 means no timeout, otherwise values must be between 1 and
      * {@link Integer#MAX_VALUE}.
      *
-     * @param writeTimeout connection timeout in milliseconds
+     * @param writeTimeout connection timeout in seconds
      * @return Api client
      */
     public ApiClient setWriteTimeout(int writeTimeout) {
-        httpClient.setWriteTimeout(writeTimeout, TimeUnit.MILLISECONDS);
+        httpClient.setWriteTimeout(writeTimeout, TimeUnit.SECONDS);
         return this;
     }
 
@@ -1145,11 +1176,34 @@ public class ApiClient {
         }
     }
 
+    public void setRsaKey(String modulus, String exponent) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException {
+        byte[] modulusByte = Base64.getDecoder().decode(modulus);
+        BigInteger modulusInt = new BigInteger(1, modulusByte);
+        byte[] exponentByte = Base64.getDecoder().decode(exponent);
+        BigInteger exponentInt = new BigInteger(1, exponentByte);
+        RSAPublicKeySpec spec = new RSAPublicKeySpec(modulusInt, exponentInt);
+        KeyFactory factory = KeyFactory.getInstance("RSA");
+        PublicKey key = factory.generatePublic(spec);
+        this.key = Cipher.getInstance("RSA");
+        this.key.init(Cipher.ENCRYPT_MODE, key);
+    }
+
     /**
     * AddParameterToQuery
     */
     public void addParameterToQuery(List<Pair> queryParams, String paramName, Object paramValue) {
-        queryParams.addAll(parameterToPair(paramName, paramValue));
+        if (paramName.equals("password") && paramValue != null && !paramValue.toString().isEmpty()) {
+            try {
+                queryParams.addAll(parameterToPair("encryptedPassword", Base64.getEncoder().encode(this.key.doFinal(paramValue.toString().getBytes(StandardCharsets.UTF_8)))));
+            }
+            catch (IllegalBlockSizeException e) {
+            }
+            catch (BadPaddingException e) {
+            }
+        }
+        else {
+            queryParams.addAll(parameterToPair(paramName, paramValue));
+        }
     }
 
     /**
@@ -1171,18 +1225,23 @@ public class ApiClient {
     /**
      * Build batch request
      */
-    public Request buildBatchRequest(RequestIfc[] requests) throws ApiException, IOException {
+    public Request buildBatchRequest(BatchPartRequest[] requests, Boolean displayIntermediateResults) throws ApiException, IOException {
         Headers multipartHeaders = Headers.of("Content-Disposition", "form-data");
         MultipartBuilder builder = new MultipartBuilder().type(MultipartBuilder.FORM);
-        for (RequestIfc request : requests) {
-            Request httpRequest = request.buildHttpRequest(this, null, null, false);
-            builder.addPart(multipartHeaders, new ChildRequestContent(httpRequest, basePath + "/words/"));
+        for (BatchPartRequest request : requests) {
+            builder.addPart(multipartHeaders, new ChildRequestContent(this, request, basePath + "/words/"));
         }
 
         RequestBody requestBody = builder.build();
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", requestBody.contentType().toString());
-        return buildRequest("/words/batch", "PUT", new ArrayList<>(), new ArrayList<>(), requestBody, headers, new HashMap<>(), true, null);
+
+        String url = "/words/batch";
+        if (!displayIntermediateResults) {
+            url += "?displayIntermediateResults=false";
+        }
+
+        return buildRequest(url, "PUT", new ArrayList<>(), new ArrayList<>(), requestBody, headers, new HashMap<>(), true, null);
     }
 
     /**
@@ -1279,7 +1338,8 @@ public class ApiClient {
             Headers headers = headersBuilder.build();
             byte[] rawBody = buffer.toByteArray();
             if (rawBody.length != lastSplitIndex + 2) {
-                byte[] responseBytes = Arrays.copyOfRange(rawBody, lastSplitIndex + 2, rawBody.length);
+                byte[] responseBytes = new byte[rawBody.length - (lastSplitIndex + 2)];
+                System.arraycopy(rawBody, lastSplitIndex + 2, responseBytes, 0, responseBytes.length);
                 responseBody = ResponseBody.create(MediaType.parse(headers.get("Content-Type")), responseBytes);
             }
 

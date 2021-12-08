@@ -27,6 +27,7 @@
 
 package com.aspose.words.cloud;
 
+import com.aspose.words.cloud.model.requests.*;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
@@ -37,10 +38,12 @@ import java.net.URI;
 
 public class ChildRequestContent extends RequestBody {
     private static final String CRLF = "\r\n";
-    private Request request;
+    private ApiClient apiClient;
+    private BatchPartRequest request;
     private URI baseUri;
 
-    public ChildRequestContent(Request request, String rootUrl) {
+    public ChildRequestContent(ApiClient apiClient, BatchPartRequest request, String rootUrl) {
+        this.apiClient = apiClient;
         this.request = request;
         this.baseUri = URI.create(rootUrl);
     }
@@ -52,22 +55,40 @@ public class ChildRequestContent extends RequestBody {
 
     @Override
     public void writeTo(BufferedSink bufferedSink) throws IOException {
-        bufferedSink.writeUtf8(request.method());
+        Request httpRequest;
+        try {
+            httpRequest = request.getRequest().buildHttpRequest(this.apiClient, null, null, false);
+        }
+        catch (ApiException ex) {
+            throw new IOException(ex.getMessage());
+        }
+
+        bufferedSink.writeUtf8(httpRequest.method());
         bufferedSink.writeUtf8(" ");
-        bufferedSink.writeUtf8(baseUri.relativize(request.uri()).toString());
+        bufferedSink.writeUtf8(baseUri.relativize(httpRequest.uri()).toString());
         bufferedSink.writeUtf8(" ");
         bufferedSink.writeUtf8(CRLF);
 
-        for (String key : request.headers().names()) {
+        bufferedSink.writeUtf8("RequestId: ");
+        bufferedSink.writeUtf8(request.getRequestId());
+        bufferedSink.writeUtf8(CRLF);
+
+        if (request.getParentRequestId() != null) {
+            bufferedSink.writeUtf8("DependsOn: ");
+            bufferedSink.writeUtf8(request.getParentRequestId());
+            bufferedSink.writeUtf8(CRLF);
+        }
+
+        for (String key : httpRequest.headers().names()) {
             bufferedSink.writeUtf8(key);
             bufferedSink.writeUtf8(": ");
-            bufferedSink.writeUtf8(request.headers().get(key));
+            bufferedSink.writeUtf8(httpRequest.headers().get(key));
             bufferedSink.writeUtf8(CRLF);
         }
 
         bufferedSink.writeUtf8(CRLF);
-        if (request.body() != null) {
-            request.body().writeTo(bufferedSink);
+        if (httpRequest.body() != null) {
+            httpRequest.body().writeTo(bufferedSink);
         }
     }
 }
