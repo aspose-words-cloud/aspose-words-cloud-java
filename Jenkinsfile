@@ -11,7 +11,7 @@ properties([
 	]
 ])
 
-def needToBuild = false
+def needToBuild = true
 
 def runtests(directory)
 {
