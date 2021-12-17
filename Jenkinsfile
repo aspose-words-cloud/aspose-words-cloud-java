@@ -65,8 +65,5 @@ def runtests(directory)
 
 node('words-linux') {
 	cleanWs()
-    if (!params.branch.contains("release")) {
-	    runtests("java-sdk")
-    }
-
+	runtests("java-sdk")
 }
