@@ -75,6 +75,7 @@ public class TestDrawingObjects  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -92,6 +93,7 @@ public class TestDrawingObjects  extends TestCase
         GetDocumentDrawingObjectsOnlineRequest request = new GetDocumentDrawingObjectsOnlineRequest(
             requestDocument,
             "sections/0",
+            null,
             null,
             null
         );
@@ -117,6 +119,7 @@ public class TestDrawingObjects  extends TestCase
             remoteFileName,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -146,6 +149,7 @@ public class TestDrawingObjects  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -164,6 +168,7 @@ public class TestDrawingObjects  extends TestCase
             requestDocument,
             0,
             "sections/0",
+            null,
             null,
             null
         );
@@ -190,6 +195,7 @@ public class TestDrawingObjects  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -222,6 +228,7 @@ public class TestDrawingObjects  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -241,6 +248,7 @@ public class TestDrawingObjects  extends TestCase
             "png",
             0,
             "sections/0",
+            null,
             null,
             null,
             null,
@@ -274,6 +282,7 @@ public class TestDrawingObjects  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -301,6 +310,7 @@ public class TestDrawingObjects  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -319,6 +329,7 @@ public class TestDrawingObjects  extends TestCase
             requestDocument,
             0,
             "sections/0",
+            null,
             null,
             null
         );
@@ -345,6 +356,7 @@ public class TestDrawingObjects  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -374,6 +386,7 @@ public class TestDrawingObjects  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -392,6 +405,7 @@ public class TestDrawingObjects  extends TestCase
             requestDocument,
             0,
             "sections/0",
+            null,
             null,
             null
         );
@@ -418,6 +432,7 @@ public class TestDrawingObjects  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -461,6 +476,7 @@ public class TestDrawingObjects  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -490,6 +506,7 @@ public class TestDrawingObjects  extends TestCase
             requestDrawingObject,
             requestImageFile,
             "",
+            null,
             null,
             null,
             null,
@@ -535,6 +552,7 @@ public class TestDrawingObjects  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -565,6 +583,7 @@ public class TestDrawingObjects  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -582,6 +601,7 @@ public class TestDrawingObjects  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -611,6 +631,7 @@ public class TestDrawingObjects  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -651,6 +672,7 @@ public class TestDrawingObjects  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -675,6 +697,7 @@ public class TestDrawingObjects  extends TestCase
             requestImageFile,
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -710,6 +733,7 @@ public class TestDrawingObjects  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,

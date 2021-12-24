@@ -57,9 +57,14 @@ public class SplitDocumentOnlineRequest implements RequestIfc {
     private String loadEncoding;
 
     /*
-     * Password for opening an encrypted document.
+     * Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     private String password;
+
+    /*
+     * Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    private String encryptedPassword;
 
     /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
@@ -92,18 +97,20 @@ public class SplitDocumentOnlineRequest implements RequestIfc {
      * @param byte[] document The document.
      * @param String format The format to split.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
+     * @param String password Password for opening an encrypted document. The password is provided as is (obsolete).
+     * @param String encryptedPassword Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param Integer from The start page.
      * @param Integer to The end page.
      * @param Boolean zipOutput The flag indicating whether to ZIP the output.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public SplitDocumentOnlineRequest(byte[] document, String format, String loadEncoding, String password, String destFileName, Integer from, Integer to, Boolean zipOutput, String fontsLocation) {
+    public SplitDocumentOnlineRequest(byte[] document, String format, String loadEncoding, String password, String encryptedPassword, String destFileName, Integer from, Integer to, Boolean zipOutput, String fontsLocation) {
         this.document = document;
         this.format = format;
         this.loadEncoding = loadEncoding;
         this.password = password;
+        this.encryptedPassword = encryptedPassword;
         this.destFileName = destFileName;
         this.from = from;
         this.to = to;
@@ -154,17 +161,31 @@ public class SplitDocumentOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets Password for opening an encrypted document.
+     * Gets Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     public String getPassword() {
         return this.password;
     }
 
     /*
-     * Sets Password for opening an encrypted document.
+     * Sets Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     public void setPassword(String value) {
         this.password = value;
+    }
+
+    /*
+     * Gets Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    public String getEncryptedPassword() {
+        return this.encryptedPassword;
+    }
+
+    /*
+     * Sets Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    public void setEncryptedPassword(String value) {
+        this.encryptedPassword = value;
     }
 
     /*
@@ -267,6 +288,7 @@ public class SplitDocumentOnlineRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "format", getFormat());
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
         apiClient.addParameterToQuery(localVarQueryParams, "from", getFrom());
         apiClient.addParameterToQuery(localVarQueryParams, "to", getTo());

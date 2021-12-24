@@ -75,6 +75,7 @@ public class TestPageSetup  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -94,6 +95,7 @@ public class TestPageSetup  extends TestCase
         GetSectionPageSetupOnlineRequest request = new GetSectionPageSetupOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null
         );
@@ -131,6 +133,7 @@ public class TestPageSetup  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -163,6 +166,7 @@ public class TestPageSetup  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -191,6 +195,7 @@ public class TestPageSetup  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -209,6 +214,7 @@ public class TestPageSetup  extends TestCase
             requestDocument,
             1,
             "bmp",
+            null,
             null,
             null,
             null

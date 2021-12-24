@@ -80,6 +80,7 @@ public class TestCompatibility  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -99,6 +100,7 @@ public class TestCompatibility  extends TestCase
         OptimizeDocumentOnlineRequest request = new OptimizeDocumentOnlineRequest(
             requestDocument,
             requestOptions,
+            null,
             null,
             null,
             null,

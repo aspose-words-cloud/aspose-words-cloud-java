@@ -92,6 +92,7 @@ public class TestClassification  extends TestCase
             null,
             null,
             null,
+            null,
             "3",
             null
         );
@@ -112,6 +113,7 @@ public class TestClassification  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         ClassifyDocumentOnlineRequest request = new ClassifyDocumentOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             "3",

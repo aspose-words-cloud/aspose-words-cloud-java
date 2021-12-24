@@ -77,9 +77,14 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
     private String loadEncoding;
 
     /*
-     * Password for opening an encrypted document.
+     * Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     private String password;
+
+    /*
+     * Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    private String encryptedPassword;
 
     /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
@@ -106,12 +111,13 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
+     * @param String password Password for opening an encrypted document. The password is provided as is (obsolete).
+     * @param String encryptedPassword Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateTableRowFormatRequest(String name, String tablePath, Integer index, TableRowFormat format, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateTableRowFormatRequest(String name, String tablePath, Integer index, TableRowFormat format, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
         this.tablePath = tablePath;
         this.index = index;
@@ -120,6 +126,7 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
         this.storage = storage;
         this.loadEncoding = loadEncoding;
         this.password = password;
+        this.encryptedPassword = encryptedPassword;
         this.destFileName = destFileName;
         this.revisionAuthor = revisionAuthor;
         this.revisionDateTime = revisionDateTime;
@@ -224,17 +231,31 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
     }
 
     /*
-     * Gets Password for opening an encrypted document.
+     * Gets Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     public String getPassword() {
         return this.password;
     }
 
     /*
-     * Sets Password for opening an encrypted document.
+     * Sets Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     public void setPassword(String value) {
         this.password = value;
+    }
+
+    /*
+     * Gets Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    public String getEncryptedPassword() {
+        return this.encryptedPassword;
+    }
+
+    /*
+     * Sets Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    public void setEncryptedPassword(String value) {
+        this.encryptedPassword = value;
     }
 
     /*
@@ -323,6 +344,7 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
         apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
         apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());

@@ -74,6 +74,7 @@ public class TestBookmark  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -90,6 +91,7 @@ public class TestBookmark  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetBookmarksOnlineRequest request = new GetBookmarksOnlineRequest(
             requestDocument,
+            null,
             null,
             null
         );
@@ -117,6 +119,7 @@ public class TestBookmark  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -134,6 +137,7 @@ public class TestBookmark  extends TestCase
         GetBookmarkByNameOnlineRequest request = new GetBookmarkByNameOnlineRequest(
             requestDocument,
             bookmarkName,
+            null,
             null,
             null
         );
@@ -168,6 +172,7 @@ public class TestBookmark  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -194,6 +199,7 @@ public class TestBookmark  extends TestCase
             requestDocument,
             bookmarkName,
             requestBookmarkData,
+            null,
             null,
             null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,

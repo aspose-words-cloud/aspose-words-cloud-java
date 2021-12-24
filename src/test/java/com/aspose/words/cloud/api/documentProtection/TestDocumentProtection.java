@@ -79,6 +79,7 @@ public class TestDocumentProtection  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName
         );
 
@@ -101,6 +102,7 @@ public class TestDocumentProtection  extends TestCase
         ProtectDocumentOnlineRequest request = new ProtectDocumentOnlineRequest(
             requestDocument,
             requestProtectionRequest,
+            null,
             null,
             null,
             null
@@ -129,6 +131,7 @@ public class TestDocumentProtection  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -145,6 +148,7 @@ public class TestDocumentProtection  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentProtectionOnlineRequest request = new GetDocumentProtectionOnlineRequest(
             requestDocument,
+            null,
             null,
             null
         );
@@ -177,6 +181,7 @@ public class TestDocumentProtection  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -201,6 +206,7 @@ public class TestDocumentProtection  extends TestCase
         UnprotectDocumentOnlineRequest request = new UnprotectDocumentOnlineRequest(
             requestDocument,
             requestProtectionRequest,
+            null,
             null,
             null,
             null

@@ -74,6 +74,7 @@ public class TestHyperlink  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -93,6 +94,7 @@ public class TestHyperlink  extends TestCase
         GetDocumentHyperlinkByIndexOnlineRequest request = new GetDocumentHyperlinkByIndexOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null
         );
@@ -119,6 +121,7 @@ public class TestHyperlink  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -139,6 +142,7 @@ public class TestHyperlink  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentHyperlinksOnlineRequest request = new GetDocumentHyperlinksOnlineRequest(
             requestDocument,
+            null,
             null,
             null
         );

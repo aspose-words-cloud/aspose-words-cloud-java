@@ -87,6 +87,7 @@ public class TestCompareDocument  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
         );
 
@@ -123,6 +124,7 @@ public class TestCompareDocument  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
         );
 
@@ -156,6 +158,7 @@ public class TestCompareDocument  extends TestCase
             requestDocument,
             requestCompareData,
             requestComparingDocument,
+            null,
             null,
             null,
             TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"

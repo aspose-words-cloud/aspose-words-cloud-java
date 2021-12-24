@@ -77,6 +77,7 @@ public class TestParagraph  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -97,6 +98,7 @@ public class TestParagraph  extends TestCase
             requestDocument,
             0,
             "sections/0",
+            null,
             null,
             null
         );
@@ -123,6 +125,7 @@ public class TestParagraph  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -153,6 +156,7 @@ public class TestParagraph  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -174,6 +178,7 @@ public class TestParagraph  extends TestCase
         GetParagraphsOnlineRequest request = new GetParagraphsOnlineRequest(
             requestDocument,
             "sections/0",
+            null,
             null,
             null
         );
@@ -199,6 +204,7 @@ public class TestParagraph  extends TestCase
             remoteFileName,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -232,6 +238,7 @@ public class TestParagraph  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -252,6 +259,7 @@ public class TestParagraph  extends TestCase
             requestDocument,
             "paragraphs/0",
             0,
+            null,
             null,
             null
         );
@@ -280,6 +288,7 @@ public class TestParagraph  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -300,6 +309,7 @@ public class TestParagraph  extends TestCase
             requestDocument,
             "paragraphs/0",
             0,
+            null,
             null,
             null
         );
@@ -327,6 +337,7 @@ public class TestParagraph  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -348,6 +359,7 @@ public class TestParagraph  extends TestCase
         GetRunsOnlineRequest request = new GetRunsOnlineRequest(
             requestDocument,
             "sections/0/paragraphs/0",
+            null,
             null,
             null
         );
@@ -381,6 +393,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -407,6 +420,7 @@ public class TestParagraph  extends TestCase
             "paragraphs/0",
             requestFontDto,
             0,
+            null,
             null,
             null,
             null,
@@ -445,6 +459,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -468,6 +483,7 @@ public class TestParagraph  extends TestCase
             requestDocument,
             requestParagraph,
             "sections/0",
+            null,
             null,
             null,
             null,
@@ -507,6 +523,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -539,6 +556,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -558,6 +576,7 @@ public class TestParagraph  extends TestCase
             "png",
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -591,6 +610,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -618,6 +638,7 @@ public class TestParagraph  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -638,6 +659,7 @@ public class TestParagraph  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null
         );
@@ -664,6 +686,7 @@ public class TestParagraph  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -702,6 +725,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -726,6 +750,7 @@ public class TestParagraph  extends TestCase
             requestParagraphFormatDto,
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -760,6 +785,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -777,6 +803,7 @@ public class TestParagraph  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -811,6 +838,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -837,6 +865,7 @@ public class TestParagraph  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -857,6 +886,7 @@ public class TestParagraph  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null
         );
@@ -883,6 +913,7 @@ public class TestParagraph  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -921,6 +952,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -945,6 +977,7 @@ public class TestParagraph  extends TestCase
             requestListFormatDto,
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -983,6 +1016,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -1015,6 +1049,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -1033,6 +1068,7 @@ public class TestParagraph  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -1067,6 +1103,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -1094,6 +1131,7 @@ public class TestParagraph  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -1115,6 +1153,7 @@ public class TestParagraph  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null
         );
@@ -1141,6 +1180,7 @@ public class TestParagraph  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -1180,6 +1220,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -1209,6 +1250,7 @@ public class TestParagraph  extends TestCase
             requestTabStopInsertDto,
             0,
             "",
+            null,
             null,
             null,
             null
@@ -1245,6 +1287,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -1278,6 +1321,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -1298,6 +1342,7 @@ public class TestParagraph  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null,
             null
@@ -1325,6 +1370,7 @@ public class TestParagraph  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -1359,6 +1405,7 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -1380,6 +1427,7 @@ public class TestParagraph  extends TestCase
             (double)72.0,
             0,
             "",
+            null,
             null,
             null,
             null
@@ -1408,6 +1456,7 @@ public class TestParagraph  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,

@@ -74,6 +74,7 @@ public class TestRevisions  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName
         );
 
@@ -92,6 +93,7 @@ public class TestRevisions  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         AcceptAllRevisionsOnlineRequest request = new AcceptAllRevisionsOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null
@@ -124,6 +126,7 @@ public class TestRevisions  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName
         );
 
@@ -142,6 +145,7 @@ public class TestRevisions  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         RejectAllRevisionsOnlineRequest request = new RejectAllRevisionsOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null

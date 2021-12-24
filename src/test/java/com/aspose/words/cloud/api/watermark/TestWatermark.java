@@ -80,6 +80,7 @@ public class TestWatermark  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null,
@@ -104,6 +105,7 @@ public class TestWatermark  extends TestCase
         InsertWatermarkImageOnlineRequest request = new InsertWatermarkImageOnlineRequest(
             requestDocument,
             requestImageFile,
+            null,
             null,
             null,
             null,
@@ -141,6 +143,7 @@ public class TestWatermark  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -166,6 +169,7 @@ public class TestWatermark  extends TestCase
         InsertWatermarkTextOnlineRequest request = new InsertWatermarkTextOnlineRequest(
             requestDocument,
             requestWatermarkText,
+            null,
             null,
             null,
             null,
@@ -196,6 +200,7 @@ public class TestWatermark  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -216,6 +221,7 @@ public class TestWatermark  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteWatermarkOnlineRequest request = new DeleteWatermarkOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null,

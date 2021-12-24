@@ -80,6 +80,7 @@ public class TestConvertDocument  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -105,6 +106,7 @@ public class TestConvertDocument  extends TestCase
         SaveAsOnlineRequest request = new SaveAsOnlineRequest(
             requestDocument,
             requestSaveOptionsData,
+            null,
             null,
             null,
             null
@@ -136,6 +138,7 @@ public class TestConvertDocument  extends TestCase
             remoteName,
             requestSaveOptionsData,
             remoteFolder,
+            null,
             null,
             null,
             null,
@@ -190,6 +193,7 @@ public class TestConvertDocument  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -215,6 +219,7 @@ public class TestConvertDocument  extends TestCase
         SaveAsTiffOnlineRequest request = new SaveAsTiffOnlineRequest(
             requestDocument,
             requestSaveOptions,
+            null,
             null,
             null,
             null,

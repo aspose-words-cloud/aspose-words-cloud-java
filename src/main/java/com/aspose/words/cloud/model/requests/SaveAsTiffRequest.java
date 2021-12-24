@@ -67,9 +67,14 @@ public class SaveAsTiffRequest implements RequestIfc {
     private String loadEncoding;
 
     /*
-     * Password for opening an encrypted document.
+     * Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     private String password;
+
+    /*
+     * Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    private String encryptedPassword;
 
     /*
      * The flag indicating whether to use antialiasing.
@@ -169,7 +174,8 @@ public class SaveAsTiffRequest implements RequestIfc {
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
+     * @param String password Password for opening an encrypted document. The password is provided as is (obsolete).
+     * @param String encryptedPassword Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
      * @param Boolean useAntiAliasing The flag indicating whether to use antialiasing.
      * @param Boolean useHighQualityRendering The flag indicating whether to use high quality.
      * @param Double imageBrightness The level of brightness for the generated images.
@@ -189,13 +195,14 @@ public class SaveAsTiffRequest implements RequestIfc {
      * @param Boolean zipOutput The flag indicating whether to ZIP the output.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public SaveAsTiffRequest(String name, TiffSaveOptionsData saveOptions, String folder, String storage, String loadEncoding, String password, Boolean useAntiAliasing, Boolean useHighQualityRendering, Double imageBrightness, String imageColorMode, Double imageContrast, String numeralFormat, Integer pageCount, Integer pageIndex, String paperColor, String pixelFormat, Double resolution, Double scale, String tiffCompression, String dmlRenderingMode, String dmlEffectsRenderingMode, String tiffBinarizationMethod, Boolean zipOutput, String fontsLocation) {
+    public SaveAsTiffRequest(String name, TiffSaveOptionsData saveOptions, String folder, String storage, String loadEncoding, String password, String encryptedPassword, Boolean useAntiAliasing, Boolean useHighQualityRendering, Double imageBrightness, String imageColorMode, Double imageContrast, String numeralFormat, Integer pageCount, Integer pageIndex, String paperColor, String pixelFormat, Double resolution, Double scale, String tiffCompression, String dmlRenderingMode, String dmlEffectsRenderingMode, String tiffBinarizationMethod, Boolean zipOutput, String fontsLocation) {
         this.name = name;
         this.saveOptions = saveOptions;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
         this.password = password;
+        this.encryptedPassword = encryptedPassword;
         this.useAntiAliasing = useAntiAliasing;
         this.useHighQualityRendering = useHighQualityRendering;
         this.imageBrightness = imageBrightness;
@@ -287,17 +294,31 @@ public class SaveAsTiffRequest implements RequestIfc {
     }
 
     /*
-     * Gets Password for opening an encrypted document.
+     * Gets Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     public String getPassword() {
         return this.password;
     }
 
     /*
-     * Sets Password for opening an encrypted document.
+     * Sets Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     public void setPassword(String value) {
         this.password = value;
+    }
+
+    /*
+     * Gets Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    public String getEncryptedPassword() {
+        return this.encryptedPassword;
+    }
+
+    /*
+     * Sets Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    public void setEncryptedPassword(String value) {
+        this.encryptedPassword = value;
     }
 
     /*
@@ -584,6 +605,7 @@ public class SaveAsTiffRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "useAntiAliasing", getUseAntiAliasing());
         apiClient.addParameterToQuery(localVarQueryParams, "useHighQualityRendering", getUseHighQualityRendering());
         apiClient.addParameterToQuery(localVarQueryParams, "imageBrightness", getImageBrightness());

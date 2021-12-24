@@ -67,9 +67,14 @@ public class GetDocumentDrawingObjectsRequest implements RequestIfc {
     private String loadEncoding;
 
     /*
-     * Password for opening an encrypted document.
+     * Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     private String password;
+
+    /*
+     * Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    private String encryptedPassword;
 
     /*
      * Initializes a new instance of the GetDocumentDrawingObjectsRequest class.
@@ -79,15 +84,17 @@ public class GetDocumentDrawingObjectsRequest implements RequestIfc {
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
+     * @param String password Password for opening an encrypted document. The password is provided as is (obsolete).
+     * @param String encryptedPassword Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
      */
-    public GetDocumentDrawingObjectsRequest(String name, String nodePath, String folder, String storage, String loadEncoding, String password) {
+    public GetDocumentDrawingObjectsRequest(String name, String nodePath, String folder, String storage, String loadEncoding, String password, String encryptedPassword) {
         this.name = name;
         this.nodePath = nodePath;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
         this.password = password;
+        this.encryptedPassword = encryptedPassword;
     }
 
     /*
@@ -161,17 +168,31 @@ public class GetDocumentDrawingObjectsRequest implements RequestIfc {
     }
 
     /*
-     * Gets Password for opening an encrypted document.
+     * Gets Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     public String getPassword() {
         return this.password;
     }
 
     /*
-     * Sets Password for opening an encrypted document.
+     * Sets Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     public void setPassword(String value) {
         this.password = value;
+    }
+
+    /*
+     * Gets Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    public String getEncryptedPassword() {
+        return this.encryptedPassword;
+    }
+
+    /*
+     * Sets Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    public void setEncryptedPassword(String value) {
+        this.encryptedPassword = value;
     }
 
 
@@ -202,6 +223,7 @@ public class GetDocumentDrawingObjectsRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 

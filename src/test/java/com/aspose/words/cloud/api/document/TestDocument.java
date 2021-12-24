@@ -73,6 +73,7 @@ public class TestDocument  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 

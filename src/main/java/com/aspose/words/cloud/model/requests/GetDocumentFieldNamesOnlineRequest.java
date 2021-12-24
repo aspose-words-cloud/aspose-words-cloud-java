@@ -52,9 +52,14 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
     private String loadEncoding;
 
     /*
-     * Password for opening an encrypted document.
+     * Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     private String password;
+
+    /*
+     * Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    private String encryptedPassword;
 
     /*
      * The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
@@ -66,13 +71,15 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
      *
      * @param byte[] template The template document.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
+     * @param String password Password for opening an encrypted document. The password is provided as is (obsolete).
+     * @param String encryptedPassword Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
      * @param Boolean useNonMergeFields The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
      */
-    public GetDocumentFieldNamesOnlineRequest(byte[] template, String loadEncoding, String password, Boolean useNonMergeFields) {
+    public GetDocumentFieldNamesOnlineRequest(byte[] template, String loadEncoding, String password, String encryptedPassword, Boolean useNonMergeFields) {
         this.template = template;
         this.loadEncoding = loadEncoding;
         this.password = password;
+        this.encryptedPassword = encryptedPassword;
         this.useNonMergeFields = useNonMergeFields;
     }
 
@@ -105,17 +112,31 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets Password for opening an encrypted document.
+     * Gets Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     public String getPassword() {
         return this.password;
     }
 
     /*
-     * Sets Password for opening an encrypted document.
+     * Sets Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     public void setPassword(String value) {
         this.password = value;
+    }
+
+    /*
+     * Gets Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    public String getEncryptedPassword() {
+        return this.encryptedPassword;
+    }
+
+    /*
+     * Sets Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    public void setEncryptedPassword(String value) {
+        this.encryptedPassword = value;
     }
 
     /*
@@ -156,6 +177,7 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "useNonMergeFields", getUseNonMergeFields());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();

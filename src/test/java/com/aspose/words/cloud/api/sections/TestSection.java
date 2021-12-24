@@ -74,6 +74,7 @@ public class TestSection  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -95,6 +96,7 @@ public class TestSection  extends TestCase
         GetSectionOnlineRequest request = new GetSectionOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null
         );
@@ -121,6 +123,7 @@ public class TestSection  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -141,6 +144,7 @@ public class TestSection  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetSectionsOnlineRequest request = new GetSectionsOnlineRequest(
             requestDocument,
+            null,
             null,
             null
         );
@@ -171,6 +175,7 @@ public class TestSection  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -187,6 +192,7 @@ public class TestSection  extends TestCase
         DeleteSectionOnlineRequest request = new DeleteSectionOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null,
             null,

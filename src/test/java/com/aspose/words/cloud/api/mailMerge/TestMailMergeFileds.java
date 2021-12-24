@@ -68,6 +68,7 @@ public class TestMailMergeFileds  extends TestCase
             requestTemplate,
             null,
             null,
+            null,
             true
         );
 
@@ -95,6 +96,7 @@ public class TestMailMergeFileds  extends TestCase
         GetDocumentFieldNamesRequest request = new GetDocumentFieldNamesRequest(
             remoteFileName,
             remoteDataFolder,
+            null,
             null,
             null,
             null,

@@ -79,6 +79,7 @@ public class TestText  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -105,6 +106,7 @@ public class TestText  extends TestCase
         ReplaceTextOnlineRequest request = new ReplaceTextOnlineRequest(
             requestDocument,
             requestReplaceText,
+            null,
             null,
             null,
             null,
@@ -136,6 +138,7 @@ public class TestText  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -160,6 +163,7 @@ public class TestText  extends TestCase
         SearchOnlineRequest request = new SearchOnlineRequest(
             requestDocument,
             "aspose",
+            null,
             null,
             null
         );

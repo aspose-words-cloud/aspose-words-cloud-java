@@ -62,9 +62,14 @@ public class GetHeaderFooterOfSectionOnlineRequest implements RequestIfc {
     private String loadEncoding;
 
     /*
-     * Password for opening an encrypted document.
+     * Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     private String password;
+
+    /*
+     * Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    private String encryptedPassword;
 
     /*
      * The list of HeaderFooter types.
@@ -78,15 +83,17 @@ public class GetHeaderFooterOfSectionOnlineRequest implements RequestIfc {
      * @param Integer headerFooterIndex The index of the HeaderFooter object.
      * @param Integer sectionIndex The index of the section.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
+     * @param String password Password for opening an encrypted document. The password is provided as is (obsolete).
+     * @param String encryptedPassword Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
      * @param String filterByType The list of HeaderFooter types.
      */
-    public GetHeaderFooterOfSectionOnlineRequest(byte[] document, Integer headerFooterIndex, Integer sectionIndex, String loadEncoding, String password, String filterByType) {
+    public GetHeaderFooterOfSectionOnlineRequest(byte[] document, Integer headerFooterIndex, Integer sectionIndex, String loadEncoding, String password, String encryptedPassword, String filterByType) {
         this.document = document;
         this.headerFooterIndex = headerFooterIndex;
         this.sectionIndex = sectionIndex;
         this.loadEncoding = loadEncoding;
         this.password = password;
+        this.encryptedPassword = encryptedPassword;
         this.filterByType = filterByType;
     }
 
@@ -147,17 +154,31 @@ public class GetHeaderFooterOfSectionOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets Password for opening an encrypted document.
+     * Gets Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     public String getPassword() {
         return this.password;
     }
 
     /*
-     * Sets Password for opening an encrypted document.
+     * Sets Password for opening an encrypted document. The password is provided as is (obsolete).
      */
     public void setPassword(String value) {
         this.password = value;
+    }
+
+    /*
+     * Gets Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    public String getEncryptedPassword() {
+        return this.encryptedPassword;
+    }
+
+    /*
+     * Sets Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+     */
+    public void setEncryptedPassword(String value) {
+        this.encryptedPassword = value;
     }
 
     /*
@@ -210,6 +231,7 @@ public class GetHeaderFooterOfSectionOnlineRequest implements RequestIfc {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "filterByType", getFilterByType());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();

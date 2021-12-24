@@ -74,6 +74,7 @@ public class TestCustomXmlParts  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -94,6 +95,7 @@ public class TestCustomXmlParts  extends TestCase
         GetCustomXmlPartOnlineRequest request = new GetCustomXmlPartOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null
         );
@@ -123,6 +125,7 @@ public class TestCustomXmlParts  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -144,6 +147,7 @@ public class TestCustomXmlParts  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetCustomXmlPartsOnlineRequest request = new GetCustomXmlPartsOnlineRequest(
             requestDocument,
+            null,
             null,
             null
         );
@@ -183,6 +187,7 @@ public class TestCustomXmlParts  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -207,6 +212,7 @@ public class TestCustomXmlParts  extends TestCase
         InsertCustomXmlPartOnlineRequest request = new InsertCustomXmlPartOnlineRequest(
             requestDocument,
             requestCustomXmlPart,
+            null,
             null,
             null,
             null,
@@ -247,6 +253,7 @@ public class TestCustomXmlParts  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -271,6 +278,7 @@ public class TestCustomXmlParts  extends TestCase
             requestDocument,
             0,
             requestCustomXmlPart,
+            null,
             null,
             null,
             null,
@@ -305,6 +313,7 @@ public class TestCustomXmlParts  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -323,6 +332,7 @@ public class TestCustomXmlParts  extends TestCase
         DeleteCustomXmlPartOnlineRequest request = new DeleteCustomXmlPartOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null,
             null,
@@ -353,6 +363,7 @@ public class TestCustomXmlParts  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -370,6 +381,7 @@ public class TestCustomXmlParts  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteCustomXmlPartsOnlineRequest request = new DeleteCustomXmlPartsOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null,
