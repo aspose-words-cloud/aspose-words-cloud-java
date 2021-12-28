@@ -63,21 +63,21 @@ public void testBatch() throws ApiException, MessagingException, IOException {
         UploadFileRequest request0 = new UploadFileRequest(Files.readAllBytes(new File(file).toPath()), remote_path, null);
 
         BatchPartRequest request1 = new BatchPartRequest(
-                new GetParagraphsRequest(remoteName,"sections/0", remoteFolder, null, null, null)
+                new GetParagraphsRequest(remoteName,"sections/0", remoteFolder, null, null, null, null)
         );
 
         BatchPartRequest request2 = new BatchPartRequest(
-                new GetParagraphRequest(remoteName, 0, "sections/0", remoteFolder, null, null, null)
+                new GetParagraphRequest(remoteName, 0, "sections/0", remoteFolder, null, null, null, null)
         );
 
         ParagraphInsert request3body = new ParagraphInsert();
         request3body.setText("This is a new paragraph for your document");
         BatchPartRequest request3 = new BatchPartRequest(
-                new InsertParagraphRequest(remoteName, request3body, "sections/0", remoteFolder, null, null, null, null, null, null, null)
+                new InsertParagraphRequest(remoteName, request3body, "sections/0", remoteFolder, null, null, null, null, null, null, null, null)
         );
 
         BatchPartRequest request4 = new BatchPartRequest(
-                new DeleteParagraphRequest(remoteName, 0, "", remoteFolder, null, null, null, null, null, null)
+                new DeleteParagraphRequest(remoteName, 0, "", remoteFolder, null, null, null, null, null, null, null)
         );
 
         String localDocumentFile = "ReportTemplate.docx";

@@ -65,7 +65,7 @@ public void testUrlEncode() throws ApiException, MessagingException, IOException
 
         GetBookmarkByNameRequest request = new GetBookmarkByNameRequest(remoteName, bookmarkName,
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
-                null, null, null);
+                null, null, null, null);
 
         BookmarkResponse result = TestInitializer.wordsApi.getBookmarkByName(request);
         assertNotNull(result);
