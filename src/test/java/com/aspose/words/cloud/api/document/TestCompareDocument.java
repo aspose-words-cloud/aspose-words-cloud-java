@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestCompareDocument.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -87,7 +87,9 @@ public class TestCompareDocument  extends TestCase
             null,
             null,
             null,
-            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
+            null,
+            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc",
+            null
         );
 
         DocumentResponse result = TestInitializer.wordsApi.compareDocument(request);
@@ -123,7 +125,9 @@ public class TestCompareDocument  extends TestCase
             null,
             null,
             null,
-            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
+            null,
+            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc",
+            null
         );
 
         CompareDocumentOnlineResponse result = TestInitializer.wordsApi.compareDocumentOnline(request);
@@ -158,7 +162,9 @@ public class TestCompareDocument  extends TestCase
             requestComparingDocument,
             null,
             null,
-            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
+            null,
+            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc",
+            null
         );
 
         CompareDocumentOnlineResponse result = TestInitializer.wordsApi.compareDocumentOnline(request);

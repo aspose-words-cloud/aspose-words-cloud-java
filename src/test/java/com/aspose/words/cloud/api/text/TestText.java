@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestText.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -79,6 +79,7 @@ public class TestText  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -105,6 +106,7 @@ public class TestText  extends TestCase
         ReplaceTextOnlineRequest request = new ReplaceTextOnlineRequest(
             requestDocument,
             requestReplaceText,
+            null,
             null,
             null,
             null,
@@ -136,6 +138,7 @@ public class TestText  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -160,6 +163,7 @@ public class TestText  extends TestCase
         SearchOnlineRequest request = new SearchOnlineRequest(
             requestDocument,
             "aspose",
+            null,
             null,
             null
         );

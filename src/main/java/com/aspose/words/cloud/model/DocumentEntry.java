@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DocumentEntry.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -52,6 +52,9 @@ public class DocumentEntry {
 
     @SerializedName("ImportFormatMode")
     private String importFormatMode = null;
+
+    @SerializedName("Password")
+    private String password = null;
     public DocumentEntry href(String href) {
         this.href = href;
         return this;
@@ -88,6 +91,24 @@ public class DocumentEntry {
         this.importFormatMode = importFormatMode;
     }
 
+    public DocumentEntry password(String password) {
+        this.password = password;
+        return this;
+    }
+
+    /**
+     * Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+    * @return password
+    **/
+    @ApiModelProperty(value = "Gets or sets document password encrypted on API public key. The default value is null (the document has no password).")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -100,12 +121,13 @@ public class DocumentEntry {
         DocumentEntry documentEntry = (DocumentEntry) o;
         return
             Objects.equals(this.href, documentEntry.href) &&
-            Objects.equals(this.importFormatMode, documentEntry.importFormatMode);
+            Objects.equals(this.importFormatMode, documentEntry.importFormatMode) &&
+            Objects.equals(this.password, documentEntry.password);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(href, importFormatMode);
+    return Objects.hash(href, importFormatMode, password);
   }
 
   @Override
@@ -114,6 +136,7 @@ public class DocumentEntry {
     sb.append("class DocumentEntry {\n");
     sb.append("    href: ").append(toIndentedString(href)).append("\n");
     sb.append("    importFormatMode: ").append(toIndentedString(importFormatMode)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("}");
     return sb.toString();
   }

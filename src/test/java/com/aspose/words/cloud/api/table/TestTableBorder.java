@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestTableBorder.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -74,6 +74,7 @@ public class TestTableBorder  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -96,6 +97,7 @@ public class TestTableBorder  extends TestCase
         GetBordersOnlineRequest request = new GetBordersOnlineRequest(
             requestDocument,
             "tables/1/rows/0/cells/0",
+            null,
             null,
             null
         );
@@ -124,6 +126,7 @@ public class TestTableBorder  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -145,6 +148,7 @@ public class TestTableBorder  extends TestCase
             requestDocument,
             "left",
             "tables/1/rows/0/cells/0",
+            null,
             null,
             null
         );
@@ -175,6 +179,7 @@ public class TestTableBorder  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -192,6 +197,7 @@ public class TestTableBorder  extends TestCase
         DeleteBordersOnlineRequest request = new DeleteBordersOnlineRequest(
             requestDocument,
             "tables/1/rows/0/cells/0",
+            null,
             null,
             null,
             null,
@@ -226,6 +232,7 @@ public class TestTableBorder  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -244,6 +251,7 @@ public class TestTableBorder  extends TestCase
             requestDocument,
             "left",
             "tables/1/rows/0/cells/0",
+            null,
             null,
             null,
             null,
@@ -290,6 +298,7 @@ public class TestTableBorder  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -326,6 +335,7 @@ public class TestTableBorder  extends TestCase
             requestBorderProperties,
             "left",
             "tables/1/rows/0/cells/0",
+            null,
             null,
             null,
             null,

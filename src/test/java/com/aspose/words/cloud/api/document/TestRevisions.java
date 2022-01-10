@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestRevisions.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -74,6 +74,7 @@ public class TestRevisions  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName
         );
 
@@ -92,6 +93,7 @@ public class TestRevisions  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         AcceptAllRevisionsOnlineRequest request = new AcceptAllRevisionsOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null
@@ -124,6 +126,7 @@ public class TestRevisions  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName
         );
 
@@ -142,6 +145,7 @@ public class TestRevisions  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         RejectAllRevisionsOnlineRequest request = new RejectAllRevisionsOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null

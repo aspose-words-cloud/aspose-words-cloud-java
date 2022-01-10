@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestClassification.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -92,6 +92,7 @@ public class TestClassification  extends TestCase
             null,
             null,
             null,
+            null,
             "3",
             null
         );
@@ -112,6 +113,7 @@ public class TestClassification  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         ClassifyDocumentOnlineRequest request = new ClassifyDocumentOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             "3",

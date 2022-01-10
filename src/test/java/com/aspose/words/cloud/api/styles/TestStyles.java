@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestStyles.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -73,6 +73,7 @@ public class TestStyles  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -92,6 +93,7 @@ public class TestStyles  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetStylesOnlineRequest request = new GetStylesOnlineRequest(
             requestDocument,
+            null,
             null,
             null
         );
@@ -119,6 +121,7 @@ public class TestStyles  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -138,6 +141,7 @@ public class TestStyles  extends TestCase
         GetStyleOnlineRequest request = new GetStyleOnlineRequest(
             requestDocument,
             "Heading 1",
+            null,
             null,
             null
         );
@@ -172,6 +176,7 @@ public class TestStyles  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -195,6 +200,7 @@ public class TestStyles  extends TestCase
             requestDocument,
             "Heading 1",
             requestStyleUpdate,
+            null,
             null,
             null,
             null,
@@ -232,6 +238,7 @@ public class TestStyles  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -255,6 +262,7 @@ public class TestStyles  extends TestCase
         InsertStyleOnlineRequest request = new InsertStyleOnlineRequest(
             requestDocument,
             requestStyleInsert,
+            null,
             null,
             null,
             null,
@@ -291,6 +299,7 @@ public class TestStyles  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -313,6 +322,7 @@ public class TestStyles  extends TestCase
         CopyStyleOnlineRequest request = new CopyStyleOnlineRequest(
             requestDocument,
             requestStyleCopy,
+            null,
             null,
             null,
             null,
@@ -343,6 +353,7 @@ public class TestStyles  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -362,6 +373,7 @@ public class TestStyles  extends TestCase
         GetStyleFromDocumentElementOnlineRequest request = new GetStyleFromDocumentElementOnlineRequest(
             requestDocument,
             "paragraphs/1/paragraphFormat",
+            null,
             null,
             null
         );
@@ -396,6 +408,7 @@ public class TestStyles  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -417,6 +430,7 @@ public class TestStyles  extends TestCase
             requestDocument,
             "paragraphs/1/paragraphFormat",
             requestStyleApply,
+            null,
             null,
             null,
             null,

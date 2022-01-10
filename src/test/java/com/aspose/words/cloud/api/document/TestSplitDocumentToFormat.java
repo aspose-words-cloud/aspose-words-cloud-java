@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestSplitDocumentToFormat.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -75,6 +75,7 @@ public class TestSplitDocumentToFormat  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/TestSplitDocument.text",
             1,
             2,
@@ -99,6 +100,7 @@ public class TestSplitDocumentToFormat  extends TestCase
         SplitDocumentOnlineRequest request = new SplitDocumentOnlineRequest(
             requestDocument,
             "text",
+            null,
             null,
             null,
             TestInitializer.RemoteTestOut + "/TestSplitDocument.text",
