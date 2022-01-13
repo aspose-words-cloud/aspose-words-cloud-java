@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="FieldOptions.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -159,6 +159,9 @@ public class FieldOptions {
     @SerializedName("FieldIndexFormat")
     private FieldIndexFormatEnum fieldIndexFormat = null;
 
+    @SerializedName("FieldUpdateCultureName")
+    private String fieldUpdateCultureName = null;
+
     @SerializedName("FieldUpdateCultureSource")
     private FieldUpdateCultureSourceEnum fieldUpdateCultureSource = null;
 
@@ -277,6 +280,25 @@ public class FieldOptions {
         this.fieldIndexFormat = fieldIndexFormat;
     }
 
+    public FieldOptions fieldUpdateCultureName(String fieldUpdateCultureName) {
+        this.fieldUpdateCultureName = fieldUpdateCultureName;
+        return this;
+    }
+
+    /**
+     * Gets or sets Field Update Culture Name.
+     * It is used for all fields if FieldUpdateCultureSource is FieldCode.
+    * @return fieldUpdateCultureName
+    **/
+    @ApiModelProperty(value = "Gets or sets Field Update Culture Name. It is used for all fields if FieldUpdateCultureSource is FieldCode.")
+    public String getFieldUpdateCultureName() {
+        return fieldUpdateCultureName;
+    }
+
+    public void setFieldUpdateCultureName(String fieldUpdateCultureName) {
+        this.fieldUpdateCultureName = fieldUpdateCultureName;
+    }
+
     public FieldOptions fieldUpdateCultureSource(FieldUpdateCultureSourceEnum fieldUpdateCultureSource) {
         this.fieldUpdateCultureSource = fieldUpdateCultureSource;
         return this;
@@ -356,9 +378,10 @@ public class FieldOptions {
 
     /**
      * Gets or sets PreProcess Culture Name.
+     * It is a culture code for DOC fields.
     * @return preProcessCultureName
     **/
-    @ApiModelProperty(value = "Gets or sets PreProcess Culture Name.")
+    @ApiModelProperty(value = "Gets or sets PreProcess Culture Name. It is a culture code for DOC fields.")
     public String getPreProcessCultureName() {
         return preProcessCultureName;
     }
@@ -419,6 +442,7 @@ public class FieldOptions {
             Objects.equals(this.customTocStyleSeparator, fieldOptions.customTocStyleSeparator) &&
             Objects.equals(this.defaultDocumentAuthor, fieldOptions.defaultDocumentAuthor) &&
             Objects.equals(this.fieldIndexFormat, fieldOptions.fieldIndexFormat) &&
+            Objects.equals(this.fieldUpdateCultureName, fieldOptions.fieldUpdateCultureName) &&
             Objects.equals(this.fieldUpdateCultureSource, fieldOptions.fieldUpdateCultureSource) &&
             Objects.equals(this.fileName, fieldOptions.fileName) &&
             Objects.equals(this.isBidiTextSupportedOnUpdate, fieldOptions.isBidiTextSupportedOnUpdate) &&
@@ -430,7 +454,7 @@ public class FieldOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(builtInTemplatesPaths, currentUser, customTocStyleSeparator, defaultDocumentAuthor, fieldIndexFormat, fieldUpdateCultureSource, fileName, isBidiTextSupportedOnUpdate, legacyNumberFormat, preProcessCultureName, templateName, useInvariantCultureNumberFormat);
+    return Objects.hash(builtInTemplatesPaths, currentUser, customTocStyleSeparator, defaultDocumentAuthor, fieldIndexFormat, fieldUpdateCultureName, fieldUpdateCultureSource, fileName, isBidiTextSupportedOnUpdate, legacyNumberFormat, preProcessCultureName, templateName, useInvariantCultureNumberFormat);
   }
 
   @Override
@@ -442,6 +466,7 @@ public class FieldOptions {
     sb.append("    customTocStyleSeparator: ").append(toIndentedString(customTocStyleSeparator)).append("\n");
     sb.append("    defaultDocumentAuthor: ").append(toIndentedString(defaultDocumentAuthor)).append("\n");
     sb.append("    fieldIndexFormat: ").append(toIndentedString(fieldIndexFormat)).append("\n");
+    sb.append("    fieldUpdateCultureName: ").append(toIndentedString(fieldUpdateCultureName)).append("\n");
     sb.append("    fieldUpdateCultureSource: ").append(toIndentedString(fieldUpdateCultureSource)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    isBidiTextSupportedOnUpdate: ").append(toIndentedString(isBidiTextSupportedOnUpdate)).append("\n");

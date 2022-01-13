@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestCompatibility.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -80,6 +80,7 @@ public class TestCompatibility  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -99,6 +100,7 @@ public class TestCompatibility  extends TestCase
         OptimizeDocumentOnlineRequest request = new OptimizeDocumentOnlineRequest(
             requestDocument,
             requestOptions,
+            null,
             null,
             null,
             null,

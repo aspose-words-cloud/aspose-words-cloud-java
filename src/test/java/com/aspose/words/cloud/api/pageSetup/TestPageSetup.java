@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestPageSetup.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -75,6 +75,7 @@ public class TestPageSetup  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -94,6 +95,7 @@ public class TestPageSetup  extends TestCase
         GetSectionPageSetupOnlineRequest request = new GetSectionPageSetupOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null
         );
@@ -131,6 +133,7 @@ public class TestPageSetup  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -163,6 +166,7 @@ public class TestPageSetup  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -191,6 +195,7 @@ public class TestPageSetup  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -209,6 +214,7 @@ public class TestPageSetup  extends TestCase
             requestDocument,
             1,
             "bmp",
+            null,
             null,
             null,
             null

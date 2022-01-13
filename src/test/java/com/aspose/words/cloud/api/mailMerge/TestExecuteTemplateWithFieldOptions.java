@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestExecuteTemplateWithFieldOptions.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -81,6 +81,7 @@ public class TestExecuteTemplateWithFieldOptions  extends TestCase
             localDataFile,
             requestOptions,
             remoteDataFolder,
+            null,
             null,
             null,
             null,

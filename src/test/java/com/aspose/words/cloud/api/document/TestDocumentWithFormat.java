@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestDocumentWithFormat.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -76,6 +76,7 @@ public class TestDocumentWithFormat  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -100,6 +101,7 @@ public class TestDocumentWithFormat  extends TestCase
             remoteFileName,
             "text",
             remoteDataFolder,
+            null,
             null,
             null,
             null,

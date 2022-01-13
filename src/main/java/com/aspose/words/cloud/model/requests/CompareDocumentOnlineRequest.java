@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CompareDocumentOnlineRequest.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -62,14 +62,24 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
     private String loadEncoding;
 
     /*
-     * Password for opening an encrypted document.
+     * Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      */
     private String password;
+
+    /*
+     * Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     */
+    private String encryptedPassword;
 
     /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     private String destFileName;
+
+    /*
+     * encrypted password for the second document.
+     */
+    private String encryptedPassword2;
 
     /*
      * Initializes a new instance of the CompareDocumentOnlineRequest class.
@@ -78,16 +88,20 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
      * @param CompareData compareData Compare data.
      * @param byte[] comparingDocument The comparing document.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
+     * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
+     * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param String encryptedPassword2 encrypted password for the second document.
      */
-    public CompareDocumentOnlineRequest(byte[] document, CompareData compareData, byte[] comparingDocument, String loadEncoding, String password, String destFileName) {
+    public CompareDocumentOnlineRequest(byte[] document, CompareData compareData, byte[] comparingDocument, String loadEncoding, String password, String encryptedPassword, String destFileName, String encryptedPassword2) {
         this.document = document;
         this.compareData = compareData;
         this.comparingDocument = comparingDocument;
         this.loadEncoding = loadEncoding;
         this.password = password;
+        this.encryptedPassword = encryptedPassword;
         this.destFileName = destFileName;
+        this.encryptedPassword2 = encryptedPassword2;
     }
 
     /*
@@ -147,17 +161,31 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets Password for opening an encrypted document.
+     * Gets Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      */
     public String getPassword() {
         return this.password;
     }
 
     /*
-     * Sets Password for opening an encrypted document.
+     * Sets Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      */
     public void setPassword(String value) {
         this.password = value;
+    }
+
+    /*
+     * Gets Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     */
+    public String getEncryptedPassword() {
+        return this.encryptedPassword;
+    }
+
+    /*
+     * Sets Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     */
+    public void setEncryptedPassword(String value) {
+        this.encryptedPassword = value;
     }
 
     /*
@@ -172,6 +200,20 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
      */
     public void setDestFileName(String value) {
         this.destFileName = value;
+    }
+
+    /*
+     * Gets encrypted password for the second document.
+     */
+    public String getEncryptedPassword2() {
+        return this.encryptedPassword2;
+    }
+
+    /*
+     * Sets encrypted password for the second document.
+     */
+    public void setEncryptedPassword2(String value) {
+        this.encryptedPassword2 = value;
     }
 
 
@@ -203,7 +245,9 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
+        apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword2", getEncryptedPassword2());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 

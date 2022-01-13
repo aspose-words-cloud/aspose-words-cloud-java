@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestMacros.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -76,6 +76,7 @@ public class TestMacros  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -91,6 +92,7 @@ public class TestMacros  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteMacrosOnlineRequest request = new DeleteMacrosOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null,

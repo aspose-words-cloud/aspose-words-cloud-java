@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestMathObject.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -74,6 +74,7 @@ public class TestMathObject  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -95,6 +96,7 @@ public class TestMathObject  extends TestCase
         GetOfficeMathObjectsOnlineRequest request = new GetOfficeMathObjectsOnlineRequest(
             requestDocument,
             "",
+            null,
             null,
             null
         );
@@ -120,6 +122,7 @@ public class TestMathObject  extends TestCase
             remoteFileName,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -153,6 +156,7 @@ public class TestMathObject  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -173,6 +177,7 @@ public class TestMathObject  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null
         );
@@ -199,6 +204,7 @@ public class TestMathObject  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -233,6 +239,7 @@ public class TestMathObject  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -252,6 +259,7 @@ public class TestMathObject  extends TestCase
             "png",
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -281,6 +289,7 @@ public class TestMathObject  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -315,6 +324,7 @@ public class TestMathObject  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -332,6 +342,7 @@ public class TestMathObject  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -361,6 +372,7 @@ public class TestMathObject  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestComment.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -74,6 +74,7 @@ public class TestComment  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -93,6 +94,7 @@ public class TestComment  extends TestCase
         GetCommentOnlineRequest request = new GetCommentOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null
         );
@@ -119,6 +121,7 @@ public class TestComment  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -139,6 +142,7 @@ public class TestComment  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetCommentsOnlineRequest request = new GetCommentsOnlineRequest(
             requestDocument,
+            null,
             null,
             null
         );
@@ -190,6 +194,7 @@ public class TestComment  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -233,6 +238,7 @@ public class TestComment  extends TestCase
         InsertCommentOnlineRequest request = new InsertCommentOnlineRequest(
             requestDocument,
             requestComment,
+            null,
             null,
             null,
             null,
@@ -288,6 +294,7 @@ public class TestComment  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -336,6 +343,7 @@ public class TestComment  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -363,6 +371,7 @@ public class TestComment  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -381,6 +390,7 @@ public class TestComment  extends TestCase
         DeleteCommentOnlineRequest request = new DeleteCommentOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null,
             null,
@@ -411,6 +421,7 @@ public class TestComment  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -428,6 +439,7 @@ public class TestComment  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteCommentsOnlineRequest request = new DeleteCommentsOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null,

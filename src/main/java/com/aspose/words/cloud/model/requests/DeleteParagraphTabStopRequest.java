@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteParagraphTabStopRequest.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -77,9 +77,14 @@ public class DeleteParagraphTabStopRequest implements RequestIfc {
     private String loadEncoding;
 
     /*
-     * Password for opening an encrypted document.
+     * Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      */
     private String password;
+
+    /*
+     * Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     */
+    private String encryptedPassword;
 
     /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
@@ -96,10 +101,11 @@ public class DeleteParagraphTabStopRequest implements RequestIfc {
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
+     * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
+     * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public DeleteParagraphTabStopRequest(String name, Double position, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName) {
+    public DeleteParagraphTabStopRequest(String name, Double position, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName) {
         this.name = name;
         this.position = position;
         this.index = index;
@@ -108,6 +114,7 @@ public class DeleteParagraphTabStopRequest implements RequestIfc {
         this.storage = storage;
         this.loadEncoding = loadEncoding;
         this.password = password;
+        this.encryptedPassword = encryptedPassword;
         this.destFileName = destFileName;
     }
 
@@ -210,17 +217,31 @@ public class DeleteParagraphTabStopRequest implements RequestIfc {
     }
 
     /*
-     * Gets Password for opening an encrypted document.
+     * Gets Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      */
     public String getPassword() {
         return this.password;
     }
 
     /*
-     * Sets Password for opening an encrypted document.
+     * Sets Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      */
     public void setPassword(String value) {
         this.password = value;
+    }
+
+    /*
+     * Gets Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     */
+    public String getEncryptedPassword() {
+        return this.encryptedPassword;
+    }
+
+    /*
+     * Sets Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     */
+    public void setEncryptedPassword(String value) {
+        this.encryptedPassword = value;
     }
 
     /*
@@ -277,6 +298,7 @@ public class DeleteParagraphTabStopRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestConvertDocument.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -80,6 +80,7 @@ public class TestConvertDocument  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -105,6 +106,7 @@ public class TestConvertDocument  extends TestCase
         SaveAsOnlineRequest request = new SaveAsOnlineRequest(
             requestDocument,
             requestSaveOptionsData,
+            null,
             null,
             null,
             null
@@ -136,6 +138,7 @@ public class TestConvertDocument  extends TestCase
             remoteName,
             requestSaveOptionsData,
             remoteFolder,
+            null,
             null,
             null,
             null,
@@ -190,6 +193,7 @@ public class TestConvertDocument  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -215,6 +219,7 @@ public class TestConvertDocument  extends TestCase
         SaveAsTiffOnlineRequest request = new SaveAsTiffOnlineRequest(
             requestDocument,
             requestSaveOptions,
+            null,
             null,
             null,
             null,

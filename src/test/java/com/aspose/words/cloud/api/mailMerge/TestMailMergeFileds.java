@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestMailMergeFileds.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -68,6 +68,7 @@ public class TestMailMergeFileds  extends TestCase
             requestTemplate,
             null,
             null,
+            null,
             true
         );
 
@@ -95,6 +96,7 @@ public class TestMailMergeFileds  extends TestCase
         GetDocumentFieldNamesRequest request = new GetDocumentFieldNamesRequest(
             remoteFileName,
             remoteDataFolder,
+            null,
             null,
             null,
             null,

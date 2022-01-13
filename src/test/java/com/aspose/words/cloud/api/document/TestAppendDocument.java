@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestAppendDocument.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -85,6 +85,7 @@ public class TestAppendDocument  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -123,6 +124,7 @@ public class TestAppendDocument  extends TestCase
         AppendDocumentOnlineRequest request = new AppendDocumentOnlineRequest(
             requestDocument,
             requestDocumentList,
+            null,
             null,
             null,
             null,

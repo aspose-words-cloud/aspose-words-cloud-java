@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestFormField.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -85,6 +85,7 @@ public class TestFormField  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -117,6 +118,7 @@ public class TestFormField  extends TestCase
             requestFormField,
             0,
             "sections/0",
+            null,
             null,
             null,
             null,
@@ -158,6 +160,7 @@ public class TestFormField  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -190,6 +193,7 @@ public class TestFormField  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -210,6 +214,7 @@ public class TestFormField  extends TestCase
             requestDocument,
             0,
             "sections/0",
+            null,
             null,
             null
         );
@@ -236,6 +241,7 @@ public class TestFormField  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -266,6 +272,7 @@ public class TestFormField  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -287,6 +294,7 @@ public class TestFormField  extends TestCase
         GetFormFieldsOnlineRequest request = new GetFormFieldsOnlineRequest(
             requestDocument,
             "sections/0",
+            null,
             null,
             null
         );
@@ -312,6 +320,7 @@ public class TestFormField  extends TestCase
             remoteFileName,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -355,6 +364,7 @@ public class TestFormField  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null,
@@ -388,6 +398,7 @@ public class TestFormField  extends TestCase
             requestDocument,
             requestFormField,
             "sections/0/paragraphs/0",
+            null,
             null,
             null,
             null,
@@ -430,6 +441,7 @@ public class TestFormField  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null,
@@ -464,6 +476,7 @@ public class TestFormField  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -483,6 +496,7 @@ public class TestFormField  extends TestCase
             requestDocument,
             0,
             "sections/0",
+            null,
             null,
             null,
             null,
@@ -512,6 +526,7 @@ public class TestFormField  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
