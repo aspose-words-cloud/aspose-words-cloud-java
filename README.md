@@ -19,6 +19,7 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 - Added 'DocumentEntry.Password' to set an encrypted password for appending document
 - Added 'encryptedPassword2' query parameter to CompareDocuments to set an encrypted password for the second comparing document
 
+
 ## Enhancements in Version 21.12
 
 - Added FieldOptions parameter to mail merge operations
