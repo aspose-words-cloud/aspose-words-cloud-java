@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestExecuteTemplate.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -75,6 +75,7 @@ public class TestExecuteTemplate  extends TestCase
             localDataFile,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,

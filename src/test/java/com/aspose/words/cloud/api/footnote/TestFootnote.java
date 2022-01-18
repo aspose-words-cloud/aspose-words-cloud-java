@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestFootnote.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -82,6 +82,7 @@ public class TestFootnote  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -107,6 +108,7 @@ public class TestFootnote  extends TestCase
             requestDocument,
             requestFootnoteDto,
             "",
+            null,
             null,
             null,
             null,
@@ -145,6 +147,7 @@ public class TestFootnote  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -178,6 +181,7 @@ public class TestFootnote  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -195,6 +199,7 @@ public class TestFootnote  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -229,6 +234,7 @@ public class TestFootnote  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -254,6 +260,7 @@ public class TestFootnote  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -275,6 +282,7 @@ public class TestFootnote  extends TestCase
         GetFootnotesOnlineRequest request = new GetFootnotesOnlineRequest(
             requestDocument,
             "",
+            null,
             null,
             null
         );
@@ -300,6 +308,7 @@ public class TestFootnote  extends TestCase
             remoteFileName,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -333,6 +342,7 @@ public class TestFootnote  extends TestCase
             remoteDataFolder,
             null,
             null,
+            null,
             null
         );
 
@@ -353,6 +363,7 @@ public class TestFootnote  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null
         );
@@ -379,6 +390,7 @@ public class TestFootnote  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null
@@ -417,6 +429,7 @@ public class TestFootnote  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -441,6 +454,7 @@ public class TestFootnote  extends TestCase
             requestFootnoteDto,
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -474,6 +488,7 @@ public class TestFootnote  extends TestCase
             requestFootnoteDto,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,

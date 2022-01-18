@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestDocument.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -71,6 +71,7 @@ public class TestDocument  extends TestCase
         GetDocumentRequest request = new GetDocumentRequest(
             remoteFileName,
             remoteDataFolder,
+            null,
             null,
             null,
             null

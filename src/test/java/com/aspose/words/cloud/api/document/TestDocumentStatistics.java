@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestDocumentStatistics.java">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -76,6 +76,7 @@ public class TestDocumentStatistics  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -94,6 +95,7 @@ public class TestDocumentStatistics  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentStatisticsOnlineRequest request = new GetDocumentStatisticsOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null,
