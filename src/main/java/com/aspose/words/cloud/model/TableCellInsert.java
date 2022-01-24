@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a table cell.")
 public class TableCellInsert {
     @SerializedName("InsertAfter")
-    private Integer insertAfter = null;
-    public TableCellInsert insertAfter(Integer insertAfter) {
-        this.insertAfter = insertAfter;
-        return this;
-    }
-
+    protected Integer insertAfter;
     /**
      * Gets or sets the 0-based index, the table cell will be inserted after.
     * @return insertAfter
@@ -63,8 +58,18 @@ public class TableCellInsert {
         return insertAfter;
     }
 
+    public TableCellInsert insertAfter(Integer insertAfter) {
+        this.insertAfter = insertAfter;
+        return this;
+    }
+
     public void setInsertAfter(Integer insertAfter) {
         this.insertAfter = insertAfter;
+    }
+
+
+    public TableCellInsert() {
+        this.insertAfter = null;
     }
 
     @Override
@@ -90,7 +95,7 @@ public class TableCellInsert {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableCellInsert {\n");
-    sb.append("    insertAfter: ").append(toIndentedString(insertAfter)).append("\n");
+    sb.append("    insertAfter: ").append(toIndentedString(getInsertAfter())).append("\n");
     sb.append("}");
     return sb.toString();
   }

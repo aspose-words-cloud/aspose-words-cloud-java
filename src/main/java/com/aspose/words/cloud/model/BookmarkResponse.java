@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a bookmark.")
 public class BookmarkResponse extends WordsResponse {
     @SerializedName("Bookmark")
-    private Bookmark bookmark = null;
-    public BookmarkResponse bookmark(Bookmark bookmark) {
-        this.bookmark = bookmark;
-        return this;
-    }
-
+    protected Bookmark bookmark;
     /**
      * Gets or sets the bookmark.
     * @return bookmark
@@ -63,8 +58,19 @@ public class BookmarkResponse extends WordsResponse {
         return bookmark;
     }
 
+    public BookmarkResponse bookmark(Bookmark bookmark) {
+        this.bookmark = bookmark;
+        return this;
+    }
+
     public void setBookmark(Bookmark bookmark) {
         this.bookmark = bookmark;
+    }
+
+
+    public BookmarkResponse() {
+        super();
+        this.bookmark = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class BookmarkResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BookmarkResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    bookmark: ").append(toIndentedString(bookmark)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    bookmark: ").append(toIndentedString(getBookmark())).append("\n");
     sb.append("}");
     return sb.toString();
   }

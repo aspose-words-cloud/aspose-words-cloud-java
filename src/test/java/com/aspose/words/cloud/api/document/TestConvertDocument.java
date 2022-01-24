@@ -69,8 +69,7 @@ public class TestConvertDocument  extends TestCase
             remoteFolder + "/" + remoteName
         );
 
-        SaveOptionsData requestSaveOptionsData = new SaveOptionsData();
-        requestSaveOptionsData.setSaveFormat("pdf");
+        PdfSaveOptionsData requestSaveOptionsData = new PdfSaveOptionsData();
         requestSaveOptionsData.setFileName(TestInitializer.RemoteTestOut + "/TestSaveAs.pdf");
 
         SaveAsRequest request = new SaveAsRequest(
@@ -99,8 +98,7 @@ public class TestConvertDocument  extends TestCase
         String localName = "test_multi_pages.docx";
 
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath());
-        SaveOptionsData requestSaveOptionsData = new SaveOptionsData();
-        requestSaveOptionsData.setSaveFormat("pdf");
+        PdfSaveOptionsData requestSaveOptionsData = new PdfSaveOptionsData();
         requestSaveOptionsData.setFileName(TestInitializer.RemoteTestOut + "/TestSaveAs.pdf");
 
         SaveAsOnlineRequest request = new SaveAsOnlineRequest(
@@ -130,8 +128,7 @@ public class TestConvertDocument  extends TestCase
             remoteFolder + "/" + remoteName
         );
 
-        SaveOptionsData requestSaveOptionsData = new SaveOptionsData();
-        requestSaveOptionsData.setSaveFormat("docx");
+        DocxSaveOptionsData requestSaveOptionsData = new DocxSaveOptionsData();
         requestSaveOptionsData.setFileName(TestInitializer.RemoteTestOut + "/TestSaveAsFromPdfToDoc.docx");
 
         SaveAsRequest request = new SaveAsRequest(
@@ -166,7 +163,6 @@ public class TestConvertDocument  extends TestCase
         );
 
         TiffSaveOptionsData requestSaveOptions = new TiffSaveOptionsData();
-        requestSaveOptions.setSaveFormat("tiff");
         requestSaveOptions.setFileName(TestInitializer.RemoteTestOut + "/abc.tiff");
 
         SaveAsTiffRequest request = new SaveAsTiffRequest(
@@ -213,7 +209,6 @@ public class TestConvertDocument  extends TestCase
 
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath());
         TiffSaveOptionsData requestSaveOptions = new TiffSaveOptionsData();
-        requestSaveOptions.setSaveFormat("tiff");
         requestSaveOptions.setFileName(TestInitializer.RemoteTestOut + "/abc.tiff");
 
         SaveAsTiffOnlineRequest request = new SaveAsTiffOnlineRequest(

@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a collection of form fields.")
 public class FormFieldsResponse extends WordsResponse {
     @SerializedName("FormFields")
-    private FormFieldCollection formFields = null;
-    public FormFieldsResponse formFields(FormFieldCollection formFields) {
-        this.formFields = formFields;
-        return this;
-    }
-
+    protected FormFieldCollection formFields;
     /**
      * Gets or sets the collection of form fields.
     * @return formFields
@@ -63,8 +58,19 @@ public class FormFieldsResponse extends WordsResponse {
         return formFields;
     }
 
+    public FormFieldsResponse formFields(FormFieldCollection formFields) {
+        this.formFields = formFields;
+        return this;
+    }
+
     public void setFormFields(FormFieldCollection formFields) {
         this.formFields = formFields;
+    }
+
+
+    public FormFieldsResponse() {
+        super();
+        this.formFields = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class FormFieldsResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormFieldsResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    formFields: ").append(toIndentedString(formFields)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    formFields: ").append(toIndentedString(getFormFields())).append("\n");
     sb.append("}");
     return sb.toString();
   }

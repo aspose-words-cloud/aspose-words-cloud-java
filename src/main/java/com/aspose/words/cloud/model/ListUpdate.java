@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Update document properties if document list.")
 public class ListUpdate {
     @SerializedName("IsRestartAtEachSection")
-    private Boolean isRestartAtEachSection = null;
-    public ListUpdate isRestartAtEachSection(Boolean isRestartAtEachSection) {
-        this.isRestartAtEachSection = isRestartAtEachSection;
-        return this;
-    }
-
+    protected Boolean isRestartAtEachSection;
     /**
      * Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
     * @return isRestartAtEachSection
@@ -63,8 +58,18 @@ public class ListUpdate {
         return isRestartAtEachSection;
     }
 
+    public ListUpdate isRestartAtEachSection(Boolean isRestartAtEachSection) {
+        this.isRestartAtEachSection = isRestartAtEachSection;
+        return this;
+    }
+
     public void setIsRestartAtEachSection(Boolean isRestartAtEachSection) {
         this.isRestartAtEachSection = isRestartAtEachSection;
+    }
+
+
+    public ListUpdate() {
+        this.isRestartAtEachSection = null;
     }
 
     @Override
@@ -90,7 +95,7 @@ public class ListUpdate {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListUpdate {\n");
-    sb.append("    isRestartAtEachSection: ").append(toIndentedString(isRestartAtEachSection)).append("\n");
+    sb.append("    isRestartAtEachSection: ").append(toIndentedString(getIsRestartAtEachSection())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -96,84 +96,79 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     @SerializedName("Compliance")
-    private String compliance = null;
+    protected String compliance;
 
     @SerializedName("CreateNoteHyperlinks")
-    private Boolean createNoteHyperlinks = null;
+    protected Boolean createNoteHyperlinks;
 
     @SerializedName("CustomPropertiesExport")
-    private String customPropertiesExport = null;
+    protected String customPropertiesExport;
 
     @SerializedName("DigitalSignatureDetails")
-    private PdfDigitalSignatureDetailsData digitalSignatureDetails = null;
+    protected PdfDigitalSignatureDetailsData digitalSignatureDetails;
 
     @SerializedName("DisplayDocTitle")
-    private Boolean displayDocTitle = null;
+    protected Boolean displayDocTitle;
 
     @SerializedName("DownsampleOptions")
-    private DownsampleOptionsData downsampleOptions = null;
+    protected DownsampleOptionsData downsampleOptions;
 
     @SerializedName("EmbedFullFonts")
-    private Boolean embedFullFonts = null;
+    protected Boolean embedFullFonts;
 
     @SerializedName("EncryptionDetails")
-    private PdfEncryptionDetailsData encryptionDetails = null;
+    protected PdfEncryptionDetailsData encryptionDetails;
 
     @SerializedName("ExportDocumentStructure")
-    private Boolean exportDocumentStructure = null;
+    protected Boolean exportDocumentStructure;
 
     @SerializedName("ExportLanguageToSpanTag")
-    private Boolean exportLanguageToSpanTag = null;
+    protected Boolean exportLanguageToSpanTag;
 
     @SerializedName("FontEmbeddingMode")
-    private String fontEmbeddingMode = null;
+    protected String fontEmbeddingMode;
 
     @SerializedName("HeaderFooterBookmarksExportMode")
-    private HeaderFooterBookmarksExportModeEnum headerFooterBookmarksExportMode = null;
+    protected HeaderFooterBookmarksExportModeEnum headerFooterBookmarksExportMode;
 
     @SerializedName("ImageColorSpaceExportMode")
-    private String imageColorSpaceExportMode = null;
+    protected String imageColorSpaceExportMode;
 
     @SerializedName("ImageCompression")
-    private String imageCompression = null;
+    protected String imageCompression;
 
     @SerializedName("InterpolateImages")
-    private Boolean interpolateImages = null;
+    protected Boolean interpolateImages;
 
     @SerializedName("OpenHyperlinksInNewWindow")
-    private Boolean openHyperlinksInNewWindow = null;
+    protected Boolean openHyperlinksInNewWindow;
 
     @SerializedName("OutlineOptions")
-    private OutlineOptionsData outlineOptions = null;
+    protected OutlineOptionsData outlineOptions;
 
     @SerializedName("PageMode")
-    private String pageMode = null;
+    protected String pageMode;
 
     @SerializedName("PreblendImages")
-    private Boolean preblendImages = null;
+    protected Boolean preblendImages;
 
     @SerializedName("PreserveFormFields")
-    private Boolean preserveFormFields = null;
+    protected Boolean preserveFormFields;
 
     @SerializedName("TextCompression")
-    private String textCompression = null;
+    protected String textCompression;
 
     @SerializedName("UseBookFoldPrintingSettings")
-    private Boolean useBookFoldPrintingSettings = null;
+    protected Boolean useBookFoldPrintingSettings;
 
     @SerializedName("UseCoreFonts")
-    private Boolean useCoreFonts = null;
+    protected Boolean useCoreFonts;
 
     @SerializedName("ZoomBehavior")
-    private String zoomBehavior = null;
+    protected String zoomBehavior;
 
     @SerializedName("ZoomFactor")
-    private Integer zoomFactor = null;
-    public PdfSaveOptionsData compliance(String compliance) {
-        this.compliance = compliance;
-        return this;
-    }
-
+    protected Integer zoomFactor;
     /**
      * Gets or sets the PDF standards compliance level for output documents.
     * @return compliance
@@ -183,14 +178,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return compliance;
     }
 
+    public PdfSaveOptionsData compliance(String compliance) {
+        this.compliance = compliance;
+        return this;
+    }
+
     public void setCompliance(String compliance) {
         this.compliance = compliance;
     }
 
-    public PdfSaveOptionsData createNoteHyperlinks(Boolean createNoteHyperlinks) {
-        this.createNoteHyperlinks = createNoteHyperlinks;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to convert footnote/endnote references in main text story into active hyperlinks.
@@ -203,14 +199,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return createNoteHyperlinks;
     }
 
+    public PdfSaveOptionsData createNoteHyperlinks(Boolean createNoteHyperlinks) {
+        this.createNoteHyperlinks = createNoteHyperlinks;
+        return this;
+    }
+
     public void setCreateNoteHyperlinks(Boolean createNoteHyperlinks) {
         this.createNoteHyperlinks = createNoteHyperlinks;
     }
 
-    public PdfSaveOptionsData customPropertiesExport(String customPropertiesExport) {
-        this.customPropertiesExport = customPropertiesExport;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file.
@@ -222,14 +219,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return customPropertiesExport;
     }
 
+    public PdfSaveOptionsData customPropertiesExport(String customPropertiesExport) {
+        this.customPropertiesExport = customPropertiesExport;
+        return this;
+    }
+
     public void setCustomPropertiesExport(String customPropertiesExport) {
         this.customPropertiesExport = customPropertiesExport;
     }
 
-    public PdfSaveOptionsData digitalSignatureDetails(PdfDigitalSignatureDetailsData digitalSignatureDetails) {
-        this.digitalSignatureDetails = digitalSignatureDetails;
-        return this;
-    }
 
     /**
      * Gets or sets the details for signing the output PDF document.
@@ -240,14 +238,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return digitalSignatureDetails;
     }
 
+    public PdfSaveOptionsData digitalSignatureDetails(PdfDigitalSignatureDetailsData digitalSignatureDetails) {
+        this.digitalSignatureDetails = digitalSignatureDetails;
+        return this;
+    }
+
     public void setDigitalSignatureDetails(PdfDigitalSignatureDetailsData digitalSignatureDetails) {
         this.digitalSignatureDetails = digitalSignatureDetails;
     }
 
-    public PdfSaveOptionsData displayDocTitle(Boolean displayDocTitle) {
-        this.displayDocTitle = displayDocTitle;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.
@@ -258,14 +257,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return displayDocTitle;
     }
 
+    public PdfSaveOptionsData displayDocTitle(Boolean displayDocTitle) {
+        this.displayDocTitle = displayDocTitle;
+        return this;
+    }
+
     public void setDisplayDocTitle(Boolean displayDocTitle) {
         this.displayDocTitle = displayDocTitle;
     }
 
-    public PdfSaveOptionsData downsampleOptions(DownsampleOptionsData downsampleOptions) {
-        this.downsampleOptions = downsampleOptions;
-        return this;
-    }
 
     /**
      * Gets or sets the downsample options.
@@ -276,14 +276,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return downsampleOptions;
     }
 
+    public PdfSaveOptionsData downsampleOptions(DownsampleOptionsData downsampleOptions) {
+        this.downsampleOptions = downsampleOptions;
+        return this;
+    }
+
     public void setDownsampleOptions(DownsampleOptionsData downsampleOptions) {
         this.downsampleOptions = downsampleOptions;
     }
 
-    public PdfSaveOptionsData embedFullFonts(Boolean embedFullFonts) {
-        this.embedFullFonts = embedFullFonts;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether fonts are embedded into the resulting PDF documents.
@@ -294,14 +295,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return embedFullFonts;
     }
 
+    public PdfSaveOptionsData embedFullFonts(Boolean embedFullFonts) {
+        this.embedFullFonts = embedFullFonts;
+        return this;
+    }
+
     public void setEmbedFullFonts(Boolean embedFullFonts) {
         this.embedFullFonts = embedFullFonts;
     }
 
-    public PdfSaveOptionsData encryptionDetails(PdfEncryptionDetailsData encryptionDetails) {
-        this.encryptionDetails = encryptionDetails;
-        return this;
-    }
 
     /**
      * Gets or sets the details for encrypting the output PDF document.
@@ -312,14 +314,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return encryptionDetails;
     }
 
+    public PdfSaveOptionsData encryptionDetails(PdfEncryptionDetailsData encryptionDetails) {
+        this.encryptionDetails = encryptionDetails;
+        return this;
+    }
+
     public void setEncryptionDetails(PdfEncryptionDetailsData encryptionDetails) {
         this.encryptionDetails = encryptionDetails;
     }
 
-    public PdfSaveOptionsData exportDocumentStructure(Boolean exportDocumentStructure) {
-        this.exportDocumentStructure = exportDocumentStructure;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to export document structure.
@@ -330,14 +333,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return exportDocumentStructure;
     }
 
+    public PdfSaveOptionsData exportDocumentStructure(Boolean exportDocumentStructure) {
+        this.exportDocumentStructure = exportDocumentStructure;
+        return this;
+    }
+
     public void setExportDocumentStructure(Boolean exportDocumentStructure) {
         this.exportDocumentStructure = exportDocumentStructure;
     }
 
-    public PdfSaveOptionsData exportLanguageToSpanTag(Boolean exportLanguageToSpanTag) {
-        this.exportLanguageToSpanTag = exportLanguageToSpanTag;
-        return this;
-    }
 
     /**
      * Gets or sets a value determining whether or not to create a "Span" tag in the document structure to export the text language.
@@ -348,14 +352,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return exportLanguageToSpanTag;
     }
 
+    public PdfSaveOptionsData exportLanguageToSpanTag(Boolean exportLanguageToSpanTag) {
+        this.exportLanguageToSpanTag = exportLanguageToSpanTag;
+        return this;
+    }
+
     public void setExportLanguageToSpanTag(Boolean exportLanguageToSpanTag) {
         this.exportLanguageToSpanTag = exportLanguageToSpanTag;
     }
 
-    public PdfSaveOptionsData fontEmbeddingMode(String fontEmbeddingMode) {
-        this.fontEmbeddingMode = fontEmbeddingMode;
-        return this;
-    }
 
     /**
      * Gets or sets the font embedding mode.
@@ -366,14 +371,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return fontEmbeddingMode;
     }
 
+    public PdfSaveOptionsData fontEmbeddingMode(String fontEmbeddingMode) {
+        this.fontEmbeddingMode = fontEmbeddingMode;
+        return this;
+    }
+
     public void setFontEmbeddingMode(String fontEmbeddingMode) {
         this.fontEmbeddingMode = fontEmbeddingMode;
     }
 
-    public PdfSaveOptionsData headerFooterBookmarksExportMode(HeaderFooterBookmarksExportModeEnum headerFooterBookmarksExportMode) {
-        this.headerFooterBookmarksExportMode = headerFooterBookmarksExportMode;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how bookmarks in headers/footers are exported.
@@ -385,14 +391,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return headerFooterBookmarksExportMode;
     }
 
+    public PdfSaveOptionsData headerFooterBookmarksExportMode(HeaderFooterBookmarksExportModeEnum headerFooterBookmarksExportMode) {
+        this.headerFooterBookmarksExportMode = headerFooterBookmarksExportMode;
+        return this;
+    }
+
     public void setHeaderFooterBookmarksExportMode(HeaderFooterBookmarksExportModeEnum headerFooterBookmarksExportMode) {
         this.headerFooterBookmarksExportMode = headerFooterBookmarksExportMode;
     }
 
-    public PdfSaveOptionsData imageColorSpaceExportMode(String imageColorSpaceExportMode) {
-        this.imageColorSpaceExportMode = imageColorSpaceExportMode;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how the color space will be selected for the images in PDF document.
@@ -403,14 +410,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return imageColorSpaceExportMode;
     }
 
+    public PdfSaveOptionsData imageColorSpaceExportMode(String imageColorSpaceExportMode) {
+        this.imageColorSpaceExportMode = imageColorSpaceExportMode;
+        return this;
+    }
+
     public void setImageColorSpaceExportMode(String imageColorSpaceExportMode) {
         this.imageColorSpaceExportMode = imageColorSpaceExportMode;
     }
 
-    public PdfSaveOptionsData imageCompression(String imageCompression) {
-        this.imageCompression = imageCompression;
-        return this;
-    }
 
     /**
      * Gets or sets the compression type to be used for all images in the document.
@@ -421,14 +429,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return imageCompression;
     }
 
+    public PdfSaveOptionsData imageCompression(String imageCompression) {
+        this.imageCompression = imageCompression;
+        return this;
+    }
+
     public void setImageCompression(String imageCompression) {
         this.imageCompression = imageCompression;
     }
 
-    public PdfSaveOptionsData interpolateImages(Boolean interpolateImages) {
-        this.interpolateImages = interpolateImages;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether image interpolation shall be performed by a conforming reader. When false is specified, the flag is not written to the output document and the default behavior of reader is used instead.
@@ -439,14 +448,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return interpolateImages;
     }
 
+    public PdfSaveOptionsData interpolateImages(Boolean interpolateImages) {
+        this.interpolateImages = interpolateImages;
+        return this;
+    }
+
     public void setInterpolateImages(Boolean interpolateImages) {
         this.interpolateImages = interpolateImages;
     }
 
-    public PdfSaveOptionsData openHyperlinksInNewWindow(Boolean openHyperlinksInNewWindow) {
-        this.openHyperlinksInNewWindow = openHyperlinksInNewWindow;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser.
@@ -457,14 +467,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return openHyperlinksInNewWindow;
     }
 
+    public PdfSaveOptionsData openHyperlinksInNewWindow(Boolean openHyperlinksInNewWindow) {
+        this.openHyperlinksInNewWindow = openHyperlinksInNewWindow;
+        return this;
+    }
+
     public void setOpenHyperlinksInNewWindow(Boolean openHyperlinksInNewWindow) {
         this.openHyperlinksInNewWindow = openHyperlinksInNewWindow;
     }
 
-    public PdfSaveOptionsData outlineOptions(OutlineOptionsData outlineOptions) {
-        this.outlineOptions = outlineOptions;
-        return this;
-    }
 
     /**
      * Gets or sets the outline options.
@@ -475,14 +486,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return outlineOptions;
     }
 
+    public PdfSaveOptionsData outlineOptions(OutlineOptionsData outlineOptions) {
+        this.outlineOptions = outlineOptions;
+        return this;
+    }
+
     public void setOutlineOptions(OutlineOptionsData outlineOptions) {
         this.outlineOptions = outlineOptions;
     }
 
-    public PdfSaveOptionsData pageMode(String pageMode) {
-        this.pageMode = pageMode;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how the PDF document should be displayed when opened in the PDF reader.
@@ -493,14 +505,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return pageMode;
     }
 
+    public PdfSaveOptionsData pageMode(String pageMode) {
+        this.pageMode = pageMode;
+        return this;
+    }
+
     public void setPageMode(String pageMode) {
         this.pageMode = pageMode;
     }
 
-    public PdfSaveOptionsData preblendImages(Boolean preblendImages) {
-        this.preblendImages = preblendImages;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to preblend transparent images with black background color.
@@ -511,14 +524,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return preblendImages;
     }
 
+    public PdfSaveOptionsData preblendImages(Boolean preblendImages) {
+        this.preblendImages = preblendImages;
+        return this;
+    }
+
     public void setPreblendImages(Boolean preblendImages) {
         this.preblendImages = preblendImages;
     }
 
-    public PdfSaveOptionsData preserveFormFields(Boolean preserveFormFields) {
-        this.preserveFormFields = preserveFormFields;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text.
@@ -529,14 +543,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return preserveFormFields;
     }
 
+    public PdfSaveOptionsData preserveFormFields(Boolean preserveFormFields) {
+        this.preserveFormFields = preserveFormFields;
+        return this;
+    }
+
     public void setPreserveFormFields(Boolean preserveFormFields) {
         this.preserveFormFields = preserveFormFields;
     }
 
-    public PdfSaveOptionsData textCompression(String textCompression) {
-        this.textCompression = textCompression;
-        return this;
-    }
 
     /**
      * Gets or sets the compression type to be used for all textual content in the document.
@@ -547,14 +562,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return textCompression;
     }
 
+    public PdfSaveOptionsData textCompression(String textCompression) {
+        this.textCompression = textCompression;
+        return this;
+    }
+
     public void setTextCompression(String textCompression) {
         this.textCompression = textCompression;
     }
 
-    public PdfSaveOptionsData useBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
-        this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
@@ -565,14 +581,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return useBookFoldPrintingSettings;
     }
 
+    public PdfSaveOptionsData useBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
+        this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+        return this;
+    }
+
     public void setUseBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
         this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
     }
 
-    public PdfSaveOptionsData useCoreFonts(Boolean useCoreFonts) {
-        this.useCoreFonts = useCoreFonts;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to substitute TrueType fonts Arial, Times New Roman, Courier New and Symbol with core PDF Type 1 fonts.
@@ -583,14 +600,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return useCoreFonts;
     }
 
+    public PdfSaveOptionsData useCoreFonts(Boolean useCoreFonts) {
+        this.useCoreFonts = useCoreFonts;
+        return this;
+    }
+
     public void setUseCoreFonts(Boolean useCoreFonts) {
         this.useCoreFonts = useCoreFonts;
     }
 
-    public PdfSaveOptionsData zoomBehavior(String zoomBehavior) {
-        this.zoomBehavior = zoomBehavior;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.
@@ -601,14 +619,15 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return zoomBehavior;
     }
 
+    public PdfSaveOptionsData zoomBehavior(String zoomBehavior) {
+        this.zoomBehavior = zoomBehavior;
+        return this;
+    }
+
     public void setZoomBehavior(String zoomBehavior) {
         this.zoomBehavior = zoomBehavior;
     }
 
-    public PdfSaveOptionsData zoomFactor(Integer zoomFactor) {
-        this.zoomFactor = zoomFactor;
-        return this;
-    }
 
     /**
      * Gets or sets the zoom factor (in percentages) for a document.
@@ -619,8 +638,44 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         return zoomFactor;
     }
 
+    public PdfSaveOptionsData zoomFactor(Integer zoomFactor) {
+        this.zoomFactor = zoomFactor;
+        return this;
+    }
+
     public void setZoomFactor(Integer zoomFactor) {
         this.zoomFactor = zoomFactor;
+    }
+
+
+    public PdfSaveOptionsData() {
+        super();
+        this.compliance = null;
+        this.createNoteHyperlinks = null;
+        this.customPropertiesExport = null;
+        this.digitalSignatureDetails = null;
+        this.displayDocTitle = null;
+        this.downsampleOptions = null;
+        this.embedFullFonts = null;
+        this.encryptionDetails = null;
+        this.exportDocumentStructure = null;
+        this.exportLanguageToSpanTag = null;
+        this.fontEmbeddingMode = null;
+        this.headerFooterBookmarksExportMode = null;
+        this.imageColorSpaceExportMode = null;
+        this.imageCompression = null;
+        this.interpolateImages = null;
+        this.openHyperlinksInNewWindow = null;
+        this.outlineOptions = null;
+        this.pageMode = null;
+        this.preblendImages = null;
+        this.preserveFormFields = null;
+        this.saveFormat = "pdf";
+        this.textCompression = null;
+        this.useBookFoldPrintingSettings = null;
+        this.useCoreFonts = null;
+        this.zoomBehavior = null;
+        this.zoomFactor = null;
     }
 
     @Override
@@ -671,32 +726,53 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    compliance: ").append(toIndentedString(compliance)).append("\n");
-    sb.append("    createNoteHyperlinks: ").append(toIndentedString(createNoteHyperlinks)).append("\n");
-    sb.append("    customPropertiesExport: ").append(toIndentedString(customPropertiesExport)).append("\n");
-    sb.append("    digitalSignatureDetails: ").append(toIndentedString(digitalSignatureDetails)).append("\n");
-    sb.append("    displayDocTitle: ").append(toIndentedString(displayDocTitle)).append("\n");
-    sb.append("    downsampleOptions: ").append(toIndentedString(downsampleOptions)).append("\n");
-    sb.append("    embedFullFonts: ").append(toIndentedString(embedFullFonts)).append("\n");
-    sb.append("    encryptionDetails: ").append(toIndentedString(encryptionDetails)).append("\n");
-    sb.append("    exportDocumentStructure: ").append(toIndentedString(exportDocumentStructure)).append("\n");
-    sb.append("    exportLanguageToSpanTag: ").append(toIndentedString(exportLanguageToSpanTag)).append("\n");
-    sb.append("    fontEmbeddingMode: ").append(toIndentedString(fontEmbeddingMode)).append("\n");
-    sb.append("    headerFooterBookmarksExportMode: ").append(toIndentedString(headerFooterBookmarksExportMode)).append("\n");
-    sb.append("    imageColorSpaceExportMode: ").append(toIndentedString(imageColorSpaceExportMode)).append("\n");
-    sb.append("    imageCompression: ").append(toIndentedString(imageCompression)).append("\n");
-    sb.append("    interpolateImages: ").append(toIndentedString(interpolateImages)).append("\n");
-    sb.append("    openHyperlinksInNewWindow: ").append(toIndentedString(openHyperlinksInNewWindow)).append("\n");
-    sb.append("    outlineOptions: ").append(toIndentedString(outlineOptions)).append("\n");
-    sb.append("    pageMode: ").append(toIndentedString(pageMode)).append("\n");
-    sb.append("    preblendImages: ").append(toIndentedString(preblendImages)).append("\n");
-    sb.append("    preserveFormFields: ").append(toIndentedString(preserveFormFields)).append("\n");
-    sb.append("    textCompression: ").append(toIndentedString(textCompression)).append("\n");
-    sb.append("    useBookFoldPrintingSettings: ").append(toIndentedString(useBookFoldPrintingSettings)).append("\n");
-    sb.append("    useCoreFonts: ").append(toIndentedString(useCoreFonts)).append("\n");
-    sb.append("    zoomBehavior: ").append(toIndentedString(zoomBehavior)).append("\n");
-    sb.append("    zoomFactor: ").append(toIndentedString(zoomFactor)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
+    sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
+    sb.append("    metafileRenderingOptions: ").append(toIndentedString(getMetafileRenderingOptions())).append("\n");
+    sb.append("    numeralFormat: ").append(toIndentedString(getNumeralFormat())).append("\n");
+    sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
+    sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
+    sb.append("    compliance: ").append(toIndentedString(getCompliance())).append("\n");
+    sb.append("    createNoteHyperlinks: ").append(toIndentedString(getCreateNoteHyperlinks())).append("\n");
+    sb.append("    customPropertiesExport: ").append(toIndentedString(getCustomPropertiesExport())).append("\n");
+    sb.append("    digitalSignatureDetails: ").append(toIndentedString(getDigitalSignatureDetails())).append("\n");
+    sb.append("    displayDocTitle: ").append(toIndentedString(getDisplayDocTitle())).append("\n");
+    sb.append("    downsampleOptions: ").append(toIndentedString(getDownsampleOptions())).append("\n");
+    sb.append("    embedFullFonts: ").append(toIndentedString(getEmbedFullFonts())).append("\n");
+    sb.append("    encryptionDetails: ").append(toIndentedString(getEncryptionDetails())).append("\n");
+    sb.append("    exportDocumentStructure: ").append(toIndentedString(getExportDocumentStructure())).append("\n");
+    sb.append("    exportLanguageToSpanTag: ").append(toIndentedString(getExportLanguageToSpanTag())).append("\n");
+    sb.append("    fontEmbeddingMode: ").append(toIndentedString(getFontEmbeddingMode())).append("\n");
+    sb.append("    headerFooterBookmarksExportMode: ").append(toIndentedString(getHeaderFooterBookmarksExportMode())).append("\n");
+    sb.append("    imageColorSpaceExportMode: ").append(toIndentedString(getImageColorSpaceExportMode())).append("\n");
+    sb.append("    imageCompression: ").append(toIndentedString(getImageCompression())).append("\n");
+    sb.append("    interpolateImages: ").append(toIndentedString(getInterpolateImages())).append("\n");
+    sb.append("    openHyperlinksInNewWindow: ").append(toIndentedString(getOpenHyperlinksInNewWindow())).append("\n");
+    sb.append("    outlineOptions: ").append(toIndentedString(getOutlineOptions())).append("\n");
+    sb.append("    pageMode: ").append(toIndentedString(getPageMode())).append("\n");
+    sb.append("    preblendImages: ").append(toIndentedString(getPreblendImages())).append("\n");
+    sb.append("    preserveFormFields: ").append(toIndentedString(getPreserveFormFields())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    textCompression: ").append(toIndentedString(getTextCompression())).append("\n");
+    sb.append("    useBookFoldPrintingSettings: ").append(toIndentedString(getUseBookFoldPrintingSettings())).append("\n");
+    sb.append("    useCoreFonts: ").append(toIndentedString(getUseCoreFonts())).append("\n");
+    sb.append("    zoomBehavior: ").append(toIndentedString(getZoomBehavior())).append("\n");
+    sb.append("    zoomFactor: ").append(toIndentedString(getZoomFactor())).append("\n");
     sb.append("}");
     return sb.toString();
   }

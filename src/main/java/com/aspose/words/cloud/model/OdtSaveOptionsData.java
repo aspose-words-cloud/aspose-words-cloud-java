@@ -95,21 +95,16 @@ public class OdtSaveOptionsData extends SaveOptionsData {
     }
 
     @SerializedName("IsStrictSchema11")
-    private Boolean isStrictSchema11 = null;
+    protected Boolean isStrictSchema11;
 
     @SerializedName("MeasureUnit")
-    private MeasureUnitEnum measureUnit = null;
+    protected MeasureUnitEnum measureUnit;
 
     @SerializedName("Password")
-    private String password = null;
+    protected String password;
 
     @SerializedName("PrettyFormat")
-    private Boolean prettyFormat = null;
-    public OdtSaveOptionsData isStrictSchema11(Boolean isStrictSchema11) {
-        this.isStrictSchema11 = isStrictSchema11;
-        return this;
-    }
-
+    protected Boolean prettyFormat;
     /**
      * Gets or sets a value indicating whether export should correspond to ODT specification 1.1 strictly.
     * @return isStrictSchema11
@@ -119,14 +114,15 @@ public class OdtSaveOptionsData extends SaveOptionsData {
         return isStrictSchema11;
     }
 
+    public OdtSaveOptionsData isStrictSchema11(Boolean isStrictSchema11) {
+        this.isStrictSchema11 = isStrictSchema11;
+        return this;
+    }
+
     public void setIsStrictSchema11(Boolean isStrictSchema11) {
         this.isStrictSchema11 = isStrictSchema11;
     }
 
-    public OdtSaveOptionsData measureUnit(MeasureUnitEnum measureUnit) {
-        this.measureUnit = measureUnit;
-        return this;
-    }
 
     /**
      * Gets or sets the units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.
@@ -138,14 +134,15 @@ public class OdtSaveOptionsData extends SaveOptionsData {
         return measureUnit;
     }
 
+    public OdtSaveOptionsData measureUnit(MeasureUnitEnum measureUnit) {
+        this.measureUnit = measureUnit;
+        return this;
+    }
+
     public void setMeasureUnit(MeasureUnitEnum measureUnit) {
         this.measureUnit = measureUnit;
     }
 
-    public OdtSaveOptionsData password(String password) {
-        this.password = password;
-        return this;
-    }
 
     /**
      * Gets or sets the password to encrypt document.
@@ -156,14 +153,15 @@ public class OdtSaveOptionsData extends SaveOptionsData {
         return password;
     }
 
+    public OdtSaveOptionsData password(String password) {
+        this.password = password;
+        return this;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public OdtSaveOptionsData prettyFormat(Boolean prettyFormat) {
-        this.prettyFormat = prettyFormat;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to use pretty formats output.
@@ -174,8 +172,23 @@ public class OdtSaveOptionsData extends SaveOptionsData {
         return prettyFormat;
     }
 
+    public OdtSaveOptionsData prettyFormat(Boolean prettyFormat) {
+        this.prettyFormat = prettyFormat;
+        return this;
+    }
+
     public void setPrettyFormat(Boolean prettyFormat) {
         this.prettyFormat = prettyFormat;
+    }
+
+
+    public OdtSaveOptionsData() {
+        super();
+        this.isStrictSchema11 = null;
+        this.measureUnit = null;
+        this.password = null;
+        this.prettyFormat = null;
+        this.saveFormat = "odt";
     }
 
     @Override
@@ -205,11 +218,25 @@ public class OdtSaveOptionsData extends SaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OdtSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    isStrictSchema11: ").append(toIndentedString(isStrictSchema11)).append("\n");
-    sb.append("    measureUnit: ").append(toIndentedString(measureUnit)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    prettyFormat: ").append(toIndentedString(prettyFormat)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    isStrictSchema11: ").append(toIndentedString(getIsStrictSchema11())).append("\n");
+    sb.append("    measureUnit: ").append(toIndentedString(getMeasureUnit())).append("\n");
+    sb.append("    password: ").append(toIndentedString(getPassword())).append("\n");
+    sb.append("    prettyFormat: ").append(toIndentedString(getPrettyFormat())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

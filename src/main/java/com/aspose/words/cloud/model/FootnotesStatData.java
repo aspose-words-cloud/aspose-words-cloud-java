@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container for the footnotes statistical data.")
 public class FootnotesStatData {
     @SerializedName("ParagraphCount")
-    private Integer paragraphCount = null;
+    protected Integer paragraphCount;
 
     @SerializedName("WordCount")
-    private Integer wordCount = null;
-    public FootnotesStatData paragraphCount(Integer paragraphCount) {
-        this.paragraphCount = paragraphCount;
-        return this;
-    }
-
+    protected Integer wordCount;
     /**
      * Gets or sets the total count of paragraphs in footnotes.
     * @return paragraphCount
@@ -66,14 +61,15 @@ public class FootnotesStatData {
         return paragraphCount;
     }
 
+    public FootnotesStatData paragraphCount(Integer paragraphCount) {
+        this.paragraphCount = paragraphCount;
+        return this;
+    }
+
     public void setParagraphCount(Integer paragraphCount) {
         this.paragraphCount = paragraphCount;
     }
 
-    public FootnotesStatData wordCount(Integer wordCount) {
-        this.wordCount = wordCount;
-        return this;
-    }
 
     /**
      * Gets or sets the total count of words in footnotes.
@@ -84,8 +80,19 @@ public class FootnotesStatData {
         return wordCount;
     }
 
+    public FootnotesStatData wordCount(Integer wordCount) {
+        this.wordCount = wordCount;
+        return this;
+    }
+
     public void setWordCount(Integer wordCount) {
         this.wordCount = wordCount;
+    }
+
+
+    public FootnotesStatData() {
+        this.paragraphCount = null;
+        this.wordCount = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class FootnotesStatData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FootnotesStatData {\n");
-    sb.append("    paragraphCount: ").append(toIndentedString(paragraphCount)).append("\n");
-    sb.append("    wordCount: ").append(toIndentedString(wordCount)).append("\n");
+    sb.append("    paragraphCount: ").append(toIndentedString(getParagraphCount())).append("\n");
+    sb.append("    wordCount: ").append(toIndentedString(getWordCount())).append("\n");
     sb.append("}");
     return sb.toString();
   }

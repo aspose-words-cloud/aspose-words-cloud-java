@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents a single document style to insert.")
 public class StyleApply {
     @SerializedName("StyleName")
-    private String styleName = null;
-    public StyleApply styleName(String styleName) {
-        this.styleName = styleName;
-        return this;
-    }
-
+    protected String styleName;
     /**
      * Gets or sets the case sensitive name of the style to apply.
     * @return styleName
@@ -63,8 +58,18 @@ public class StyleApply {
         return styleName;
     }
 
+    public StyleApply styleName(String styleName) {
+        this.styleName = styleName;
+        return this;
+    }
+
     public void setStyleName(String styleName) {
         this.styleName = styleName;
+    }
+
+
+    public StyleApply() {
+        this.styleName = null;
     }
 
     @Override
@@ -90,7 +95,7 @@ public class StyleApply {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StyleApply {\n");
-    sb.append("    styleName: ").append(toIndentedString(styleName)).append("\n");
+    sb.append("    styleName: ").append(toIndentedString(getStyleName())).append("\n");
     sb.append("}");
     return sb.toString();
   }

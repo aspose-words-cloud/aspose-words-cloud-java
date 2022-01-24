@@ -48,18 +48,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with data on multi-class text classification.")
 public class ClassificationResponse extends WordsResponse {
     @SerializedName("BestClassName")
-    private String bestClassName = null;
+    protected String bestClassName;
 
     @SerializedName("BestClassProbability")
-    private Double bestClassProbability = null;
+    protected Double bestClassProbability;
 
     @SerializedName("BestResults")
-    private List<ClassificationResult> bestResults = null;
-    public ClassificationResponse bestClassName(String bestClassName) {
-        this.bestClassName = bestClassName;
-        return this;
-    }
-
+    protected List<ClassificationResult> bestResults;
     /**
      * Gets or sets the best class name.
     * @return bestClassName
@@ -69,14 +64,15 @@ public class ClassificationResponse extends WordsResponse {
         return bestClassName;
     }
 
+    public ClassificationResponse bestClassName(String bestClassName) {
+        this.bestClassName = bestClassName;
+        return this;
+    }
+
     public void setBestClassName(String bestClassName) {
         this.bestClassName = bestClassName;
     }
 
-    public ClassificationResponse bestClassProbability(Double bestClassProbability) {
-        this.bestClassProbability = bestClassProbability;
-        return this;
-    }
 
     /**
      * Gets or sets the best class probability.
@@ -87,8 +83,23 @@ public class ClassificationResponse extends WordsResponse {
         return bestClassProbability;
     }
 
+    public ClassificationResponse bestClassProbability(Double bestClassProbability) {
+        this.bestClassProbability = bestClassProbability;
+        return this;
+    }
+
     public void setBestClassProbability(Double bestClassProbability) {
         this.bestClassProbability = bestClassProbability;
+    }
+
+
+    /**
+     * Gets or sets the array of best classes results.
+    * @return bestResults
+    **/
+    @ApiModelProperty(value = "Gets or sets the array of best classes results.")
+    public List<ClassificationResult> getBestResults() {
+        return bestResults;
     }
 
     public ClassificationResponse bestResults(List<ClassificationResult> bestResults) {
@@ -104,17 +115,17 @@ public class ClassificationResponse extends WordsResponse {
         return this;
     }
 
-    /**
-     * Gets or sets the array of best classes results.
-    * @return bestResults
-    **/
-    @ApiModelProperty(value = "Gets or sets the array of best classes results.")
-    public List<ClassificationResult> getBestResults() {
-        return bestResults;
-    }
 
     public void setBestResults(List<ClassificationResult> bestResults) {
         this.bestResults = bestResults;
+    }
+
+
+    public ClassificationResponse() {
+        super();
+        this.bestClassName = null;
+        this.bestClassProbability = null;
+        this.bestResults = null;
     }
 
     @Override
@@ -143,10 +154,10 @@ public class ClassificationResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClassificationResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    bestClassName: ").append(toIndentedString(bestClassName)).append("\n");
-    sb.append("    bestClassProbability: ").append(toIndentedString(bestClassProbability)).append("\n");
-    sb.append("    bestResults: ").append(toIndentedString(bestResults)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    bestClassName: ").append(toIndentedString(getBestClassName())).append("\n");
+    sb.append("    bestClassProbability: ").append(toIndentedString(getBestClassProbability())).append("\n");
+    sb.append("    bestResults: ").append(toIndentedString(getBestResults())).append("\n");
     sb.append("}");
     return sb.toString();
   }

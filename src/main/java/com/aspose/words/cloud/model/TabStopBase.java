@@ -149,18 +149,13 @@ public class TabStopBase {
     }
 
     @SerializedName("Alignment")
-    private AlignmentEnum alignment = null;
+    protected AlignmentEnum alignment;
 
     @SerializedName("Leader")
-    private LeaderEnum leader = null;
+    protected LeaderEnum leader;
 
     @SerializedName("Position")
-    private Double position = null;
-    public TabStopBase alignment(AlignmentEnum alignment) {
-        this.alignment = alignment;
-        return this;
-    }
-
+    protected Double position;
     /**
      * Gets or sets the alignment of text at this tab stop.
     * @return alignment
@@ -170,14 +165,15 @@ public class TabStopBase {
         return alignment;
     }
 
+    public TabStopBase alignment(AlignmentEnum alignment) {
+        this.alignment = alignment;
+        return this;
+    }
+
     public void setAlignment(AlignmentEnum alignment) {
         this.alignment = alignment;
     }
 
-    public TabStopBase leader(LeaderEnum leader) {
-        this.leader = leader;
-        return this;
-    }
 
     /**
      * Gets or sets the type of the leader line displayed under the tab character.
@@ -188,14 +184,15 @@ public class TabStopBase {
         return leader;
     }
 
+    public TabStopBase leader(LeaderEnum leader) {
+        this.leader = leader;
+        return this;
+    }
+
     public void setLeader(LeaderEnum leader) {
         this.leader = leader;
     }
 
-    public TabStopBase position(Double position) {
-        this.position = position;
-        return this;
-    }
 
     /**
      * Gets or sets the position of the tab stop in points.
@@ -206,8 +203,20 @@ public class TabStopBase {
         return position;
     }
 
+    public TabStopBase position(Double position) {
+        this.position = position;
+        return this;
+    }
+
     public void setPosition(Double position) {
         this.position = position;
+    }
+
+
+    public TabStopBase() {
+        this.alignment = null;
+        this.leader = null;
+        this.position = null;
     }
 
     @Override
@@ -235,9 +244,9 @@ public class TabStopBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TabStopBase {\n");
-    sb.append("    alignment: ").append(toIndentedString(alignment)).append("\n");
-    sb.append("    leader: ").append(toIndentedString(leader)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
+    sb.append("    alignment: ").append(toIndentedString(getAlignment())).append("\n");
+    sb.append("    leader: ").append(toIndentedString(getLeader())).append("\n");
+    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
     sb.append("}");
     return sb.toString();
   }

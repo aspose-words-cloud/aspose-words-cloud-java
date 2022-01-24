@@ -48,6 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "OfficeMath object link element.")
 public class OfficeMathLink extends NodeLink {
 
+    public OfficeMathLink() {
+        super();
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -69,7 +73,8 @@ public class OfficeMathLink extends NodeLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OfficeMathLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
     sb.append("}");
     return sb.toString();
   }

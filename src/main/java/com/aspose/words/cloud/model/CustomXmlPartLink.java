@@ -48,6 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "CustomXmlPart link.")
 public class CustomXmlPartLink extends LinkElement {
 
+    public CustomXmlPartLink() {
+        super();
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -69,7 +73,7 @@ public class CustomXmlPartLink extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomXmlPartLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
     sb.append("}");
     return sb.toString();
   }

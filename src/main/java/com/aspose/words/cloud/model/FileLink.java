@@ -48,6 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Provides information for the file link.")
 public class FileLink extends Link {
 
+    public FileLink() {
+        super();
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -69,7 +73,10 @@ public class FileLink extends Link {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FileLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    href: ").append(toIndentedString(getHref())).append("\n");
+    sb.append("    rel: ").append(toIndentedString(getRel())).append("\n");
+    sb.append("    title: ").append(toIndentedString(getTitle())).append("\n");
+    sb.append("    type: ").append(toIndentedString(getType())).append("\n");
     sb.append("}");
     return sb.toString();
   }

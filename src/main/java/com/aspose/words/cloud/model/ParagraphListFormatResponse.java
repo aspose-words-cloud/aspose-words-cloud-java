@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a list format for a paragraph.")
 public class ParagraphListFormatResponse extends WordsResponse {
     @SerializedName("ListFormat")
-    private ListFormat listFormat = null;
-    public ParagraphListFormatResponse listFormat(ListFormat listFormat) {
-        this.listFormat = listFormat;
-        return this;
-    }
-
+    protected ListFormat listFormat;
     /**
      * Gets or sets the list format for a paragraph.
     * @return listFormat
@@ -63,8 +58,19 @@ public class ParagraphListFormatResponse extends WordsResponse {
         return listFormat;
     }
 
+    public ParagraphListFormatResponse listFormat(ListFormat listFormat) {
+        this.listFormat = listFormat;
+        return this;
+    }
+
     public void setListFormat(ListFormat listFormat) {
         this.listFormat = listFormat;
+    }
+
+
+    public ParagraphListFormatResponse() {
+        super();
+        this.listFormat = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class ParagraphListFormatResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphListFormatResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    listFormat: ").append(toIndentedString(listFormat)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    listFormat: ").append(toIndentedString(getListFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

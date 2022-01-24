@@ -48,24 +48,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for options of metafile rendering.")
 public class MetafileRenderingOptionsData {
     @SerializedName("EmfPlusDualRenderingMode")
-    private String emfPlusDualRenderingMode = null;
+    protected String emfPlusDualRenderingMode;
 
     @SerializedName("EmulateRasterOperations")
-    private Boolean emulateRasterOperations = null;
+    protected Boolean emulateRasterOperations;
 
     @SerializedName("RenderingMode")
-    private String renderingMode = null;
+    protected String renderingMode;
 
     @SerializedName("ScaleWmfFontsToMetafileSize")
-    private Boolean scaleWmfFontsToMetafileSize = null;
+    protected Boolean scaleWmfFontsToMetafileSize;
 
     @SerializedName("UseEmfEmbeddedToWmf")
-    private Boolean useEmfEmbeddedToWmf = null;
-    public MetafileRenderingOptionsData emfPlusDualRenderingMode(String emfPlusDualRenderingMode) {
-        this.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
-        return this;
-    }
-
+    protected Boolean useEmfEmbeddedToWmf;
     /**
      * Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
     * @return emfPlusDualRenderingMode
@@ -75,14 +70,15 @@ public class MetafileRenderingOptionsData {
         return emfPlusDualRenderingMode;
     }
 
+    public MetafileRenderingOptionsData emfPlusDualRenderingMode(String emfPlusDualRenderingMode) {
+        this.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
+        return this;
+    }
+
     public void setEmfPlusDualRenderingMode(String emfPlusDualRenderingMode) {
         this.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
     }
 
-    public MetafileRenderingOptionsData emulateRasterOperations(Boolean emulateRasterOperations) {
-        this.emulateRasterOperations = emulateRasterOperations;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the raster operations should be emulated.
@@ -93,14 +89,15 @@ public class MetafileRenderingOptionsData {
         return emulateRasterOperations;
     }
 
+    public MetafileRenderingOptionsData emulateRasterOperations(Boolean emulateRasterOperations) {
+        this.emulateRasterOperations = emulateRasterOperations;
+        return this;
+    }
+
     public void setEmulateRasterOperations(Boolean emulateRasterOperations) {
         this.emulateRasterOperations = emulateRasterOperations;
     }
 
-    public MetafileRenderingOptionsData renderingMode(String renderingMode) {
-        this.renderingMode = renderingMode;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how metafile images should be rendered.
@@ -111,14 +108,15 @@ public class MetafileRenderingOptionsData {
         return renderingMode;
     }
 
+    public MetafileRenderingOptionsData renderingMode(String renderingMode) {
+        this.renderingMode = renderingMode;
+        return this;
+    }
+
     public void setRenderingMode(String renderingMode) {
         this.renderingMode = renderingMode;
     }
 
-    public MetafileRenderingOptionsData scaleWmfFontsToMetafileSize(Boolean scaleWmfFontsToMetafileSize) {
-        this.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page.
@@ -130,14 +128,15 @@ public class MetafileRenderingOptionsData {
         return scaleWmfFontsToMetafileSize;
     }
 
+    public MetafileRenderingOptionsData scaleWmfFontsToMetafileSize(Boolean scaleWmfFontsToMetafileSize) {
+        this.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
+        return this;
+    }
+
     public void setScaleWmfFontsToMetafileSize(Boolean scaleWmfFontsToMetafileSize) {
         this.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
     }
 
-    public MetafileRenderingOptionsData useEmfEmbeddedToWmf(Boolean useEmfEmbeddedToWmf) {
-        this.useEmfEmbeddedToWmf = useEmfEmbeddedToWmf;
-        return this;
-    }
 
     /**
      * Gets or sets the flag, that controls how WMF metafiles with embedded EMF metafiles should be rendered.
@@ -148,8 +147,22 @@ public class MetafileRenderingOptionsData {
         return useEmfEmbeddedToWmf;
     }
 
+    public MetafileRenderingOptionsData useEmfEmbeddedToWmf(Boolean useEmfEmbeddedToWmf) {
+        this.useEmfEmbeddedToWmf = useEmfEmbeddedToWmf;
+        return this;
+    }
+
     public void setUseEmfEmbeddedToWmf(Boolean useEmfEmbeddedToWmf) {
         this.useEmfEmbeddedToWmf = useEmfEmbeddedToWmf;
+    }
+
+
+    public MetafileRenderingOptionsData() {
+        this.emfPlusDualRenderingMode = null;
+        this.emulateRasterOperations = null;
+        this.renderingMode = null;
+        this.scaleWmfFontsToMetafileSize = null;
+        this.useEmfEmbeddedToWmf = null;
     }
 
     @Override
@@ -179,11 +192,11 @@ public class MetafileRenderingOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetafileRenderingOptionsData {\n");
-    sb.append("    emfPlusDualRenderingMode: ").append(toIndentedString(emfPlusDualRenderingMode)).append("\n");
-    sb.append("    emulateRasterOperations: ").append(toIndentedString(emulateRasterOperations)).append("\n");
-    sb.append("    renderingMode: ").append(toIndentedString(renderingMode)).append("\n");
-    sb.append("    scaleWmfFontsToMetafileSize: ").append(toIndentedString(scaleWmfFontsToMetafileSize)).append("\n");
-    sb.append("    useEmfEmbeddedToWmf: ").append(toIndentedString(useEmfEmbeddedToWmf)).append("\n");
+    sb.append("    emfPlusDualRenderingMode: ").append(toIndentedString(getEmfPlusDualRenderingMode())).append("\n");
+    sb.append("    emulateRasterOperations: ").append(toIndentedString(getEmulateRasterOperations())).append("\n");
+    sb.append("    renderingMode: ").append(toIndentedString(getRenderingMode())).append("\n");
+    sb.append("    scaleWmfFontsToMetafileSize: ").append(toIndentedString(getScaleWmfFontsToMetafileSize())).append("\n");
+    sb.append("    useEmfEmbeddedToWmf: ").append(toIndentedString(getUseEmfEmbeddedToWmf())).append("\n");
     sb.append("}");
     return sb.toString();
   }

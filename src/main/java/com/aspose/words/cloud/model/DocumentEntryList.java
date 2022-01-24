@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents a list of documents which will be appended to the original resource document.")
 public class DocumentEntryList {
     @SerializedName("ApplyBaseDocumentHeadersAndFootersToAppendingDocuments")
-    private Boolean applyBaseDocumentHeadersAndFootersToAppendingDocuments = null;
+    protected Boolean applyBaseDocumentHeadersAndFootersToAppendingDocuments;
 
     @SerializedName("DocumentEntries")
-    private List<DocumentEntry> documentEntries = null;
-    public DocumentEntryList applyBaseDocumentHeadersAndFootersToAppendingDocuments(Boolean applyBaseDocumentHeadersAndFootersToAppendingDocuments) {
-        this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
-        return this;
-    }
-
+    protected List<DocumentEntry> documentEntries;
     /**
      * Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
     * @return applyBaseDocumentHeadersAndFootersToAppendingDocuments
@@ -66,8 +61,23 @@ public class DocumentEntryList {
         return applyBaseDocumentHeadersAndFootersToAppendingDocuments;
     }
 
+    public DocumentEntryList applyBaseDocumentHeadersAndFootersToAppendingDocuments(Boolean applyBaseDocumentHeadersAndFootersToAppendingDocuments) {
+        this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+        return this;
+    }
+
     public void setApplyBaseDocumentHeadersAndFootersToAppendingDocuments(Boolean applyBaseDocumentHeadersAndFootersToAppendingDocuments) {
         this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+    }
+
+
+    /**
+     * Gets or sets the list of documents.
+    * @return documentEntries
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of documents.")
+    public List<DocumentEntry> getDocumentEntries() {
+        return documentEntries;
     }
 
     public DocumentEntryList documentEntries(List<DocumentEntry> documentEntries) {
@@ -83,17 +93,15 @@ public class DocumentEntryList {
         return this;
     }
 
-    /**
-     * Gets or sets the list of documents.
-    * @return documentEntries
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of documents.")
-    public List<DocumentEntry> getDocumentEntries() {
-        return documentEntries;
-    }
 
     public void setDocumentEntries(List<DocumentEntry> documentEntries) {
         this.documentEntries = documentEntries;
+    }
+
+
+    public DocumentEntryList() {
+        this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = null;
+        this.documentEntries = null;
     }
 
     @Override
@@ -120,8 +128,8 @@ public class DocumentEntryList {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentEntryList {\n");
-    sb.append("    applyBaseDocumentHeadersAndFootersToAppendingDocuments: ").append(toIndentedString(applyBaseDocumentHeadersAndFootersToAppendingDocuments)).append("\n");
-    sb.append("    documentEntries: ").append(toIndentedString(documentEntries)).append("\n");
+    sb.append("    applyBaseDocumentHeadersAndFootersToAppendingDocuments: ").append(toIndentedString(getApplyBaseDocumentHeadersAndFootersToAppendingDocuments())).append("\n");
+    sb.append("    documentEntries: ").append(toIndentedString(getDocumentEntries())).append("\n");
     sb.append("}");
     return sb.toString();
   }

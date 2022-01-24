@@ -48,24 +48,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Api error.")
 public class ApiError {
     @SerializedName("Code")
-    private String code = null;
+    protected String code;
 
     @SerializedName("DateTime")
-    private OffsetDateTime dateTime = null;
+    protected OffsetDateTime dateTime;
 
     @SerializedName("Description")
-    private String description = null;
+    protected String description;
 
     @SerializedName("InnerError")
-    private ApiError innerError = null;
+    protected ApiError innerError;
 
     @SerializedName("Message")
-    private String message = null;
-    public ApiError code(String code) {
-        this.code = code;
-        return this;
-    }
-
+    protected String message;
     /**
      * Gets or sets the API error code.
     * @return code
@@ -75,14 +70,15 @@ public class ApiError {
         return code;
     }
 
+    public ApiError code(String code) {
+        this.code = code;
+        return this;
+    }
+
     public void setCode(String code) {
         this.code = code;
     }
 
-    public ApiError dateTime(OffsetDateTime dateTime) {
-        this.dateTime = dateTime;
-        return this;
-    }
 
     /**
      * Gets or sets the server DateTime.
@@ -93,14 +89,15 @@ public class ApiError {
         return dateTime;
     }
 
+    public ApiError dateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+        return this;
+    }
+
     public void setDateTime(OffsetDateTime dateTime) {
         this.dateTime = dateTime;
     }
 
-    public ApiError description(String description) {
-        this.description = description;
-        return this;
-    }
 
     /**
      * Gets or sets the error description.
@@ -111,14 +108,15 @@ public class ApiError {
         return description;
     }
 
+    public ApiError description(String description) {
+        this.description = description;
+        return this;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public ApiError innerError(ApiError innerError) {
-        this.innerError = innerError;
-        return this;
-    }
 
     /**
      * Gets or sets the inner error.
@@ -129,14 +127,15 @@ public class ApiError {
         return innerError;
     }
 
+    public ApiError innerError(ApiError innerError) {
+        this.innerError = innerError;
+        return this;
+    }
+
     public void setInnerError(ApiError innerError) {
         this.innerError = innerError;
     }
 
-    public ApiError message(String message) {
-        this.message = message;
-        return this;
-    }
 
     /**
      * Gets or sets the error message.
@@ -147,8 +146,22 @@ public class ApiError {
         return message;
     }
 
+    public ApiError message(String message) {
+        this.message = message;
+        return this;
+    }
+
     public void setMessage(String message) {
         this.message = message;
+    }
+
+
+    public ApiError() {
+        this.code = null;
+        this.dateTime = null;
+        this.description = null;
+        this.innerError = null;
+        this.message = null;
     }
 
     @Override
@@ -178,11 +191,11 @@ public class ApiError {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApiError {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    innerError: ").append(toIndentedString(innerError)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    code: ").append(toIndentedString(getCode())).append("\n");
+    sb.append("    dateTime: ").append(toIndentedString(getDateTime())).append("\n");
+    sb.append("    description: ").append(toIndentedString(getDescription())).append("\n");
+    sb.append("    innerError: ").append(toIndentedString(getInnerError())).append("\n");
+    sb.append("    message: ").append(toIndentedString(getMessage())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,24 +48,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for details of digital signature.")
 public class PdfDigitalSignatureDetailsData {
     @SerializedName("CertificateFilename")
-    private String certificateFilename = null;
+    protected String certificateFilename;
 
     @SerializedName("HashAlgorithm")
-    private String hashAlgorithm = null;
+    protected String hashAlgorithm;
 
     @SerializedName("Location")
-    private String location = null;
+    protected String location;
 
     @SerializedName("Reason")
-    private String reason = null;
+    protected String reason;
 
     @SerializedName("SignatureDate")
-    private OffsetDateTime signatureDate = null;
-    public PdfDigitalSignatureDetailsData certificateFilename(String certificateFilename) {
-        this.certificateFilename = certificateFilename;
-        return this;
-    }
-
+    protected OffsetDateTime signatureDate;
     /**
      * Gets or sets the certificate's filename using for signing.
     * @return certificateFilename
@@ -75,14 +70,15 @@ public class PdfDigitalSignatureDetailsData {
         return certificateFilename;
     }
 
+    public PdfDigitalSignatureDetailsData certificateFilename(String certificateFilename) {
+        this.certificateFilename = certificateFilename;
+        return this;
+    }
+
     public void setCertificateFilename(String certificateFilename) {
         this.certificateFilename = certificateFilename;
     }
 
-    public PdfDigitalSignatureDetailsData hashAlgorithm(String hashAlgorithm) {
-        this.hashAlgorithm = hashAlgorithm;
-        return this;
-    }
 
     /**
      * Gets or sets the hash algorithm.
@@ -93,14 +89,15 @@ public class PdfDigitalSignatureDetailsData {
         return hashAlgorithm;
     }
 
+    public PdfDigitalSignatureDetailsData hashAlgorithm(String hashAlgorithm) {
+        this.hashAlgorithm = hashAlgorithm;
+        return this;
+    }
+
     public void setHashAlgorithm(String hashAlgorithm) {
         this.hashAlgorithm = hashAlgorithm;
     }
 
-    public PdfDigitalSignatureDetailsData location(String location) {
-        this.location = location;
-        return this;
-    }
 
     /**
      * Gets or sets the location of the signing.
@@ -111,14 +108,15 @@ public class PdfDigitalSignatureDetailsData {
         return location;
     }
 
+    public PdfDigitalSignatureDetailsData location(String location) {
+        this.location = location;
+        return this;
+    }
+
     public void setLocation(String location) {
         this.location = location;
     }
 
-    public PdfDigitalSignatureDetailsData reason(String reason) {
-        this.reason = reason;
-        return this;
-    }
 
     /**
      * Gets or sets the reason for the signing.
@@ -129,14 +127,15 @@ public class PdfDigitalSignatureDetailsData {
         return reason;
     }
 
+    public PdfDigitalSignatureDetailsData reason(String reason) {
+        this.reason = reason;
+        return this;
+    }
+
     public void setReason(String reason) {
         this.reason = reason;
     }
 
-    public PdfDigitalSignatureDetailsData signatureDate(OffsetDateTime signatureDate) {
-        this.signatureDate = signatureDate;
-        return this;
-    }
 
     /**
      * Gets or sets the date of the signing.
@@ -147,8 +146,22 @@ public class PdfDigitalSignatureDetailsData {
         return signatureDate;
     }
 
+    public PdfDigitalSignatureDetailsData signatureDate(OffsetDateTime signatureDate) {
+        this.signatureDate = signatureDate;
+        return this;
+    }
+
     public void setSignatureDate(OffsetDateTime signatureDate) {
         this.signatureDate = signatureDate;
+    }
+
+
+    public PdfDigitalSignatureDetailsData() {
+        this.certificateFilename = null;
+        this.hashAlgorithm = null;
+        this.location = null;
+        this.reason = null;
+        this.signatureDate = null;
     }
 
     @Override
@@ -178,11 +191,11 @@ public class PdfDigitalSignatureDetailsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfDigitalSignatureDetailsData {\n");
-    sb.append("    certificateFilename: ").append(toIndentedString(certificateFilename)).append("\n");
-    sb.append("    hashAlgorithm: ").append(toIndentedString(hashAlgorithm)).append("\n");
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
-    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-    sb.append("    signatureDate: ").append(toIndentedString(signatureDate)).append("\n");
+    sb.append("    certificateFilename: ").append(toIndentedString(getCertificateFilename())).append("\n");
+    sb.append("    hashAlgorithm: ").append(toIndentedString(getHashAlgorithm())).append("\n");
+    sb.append("    location: ").append(toIndentedString(getLocation())).append("\n");
+    sb.append("    reason: ").append(toIndentedString(getReason())).append("\n");
+    sb.append("    signatureDate: ").append(toIndentedString(getSignatureDate())).append("\n");
     sb.append("}");
     return sb.toString();
   }

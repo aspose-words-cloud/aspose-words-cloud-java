@@ -48,18 +48,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "FormField checkbox element.")
 public class FormFieldCheckbox extends FormField {
     @SerializedName("CheckBoxSize")
-    private Double checkBoxSize = null;
+    protected Double checkBoxSize;
 
     @SerializedName("Checked")
-    private Boolean checked = null;
+    protected Boolean checked;
 
     @SerializedName("IsCheckBoxExactSize")
-    private Boolean isCheckBoxExactSize = null;
-    public FormFieldCheckbox checkBoxSize(Double checkBoxSize) {
-        this.checkBoxSize = checkBoxSize;
-        return this;
-    }
-
+    protected Boolean isCheckBoxExactSize;
     /**
      * Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.
     * @return checkBoxSize
@@ -69,14 +64,15 @@ public class FormFieldCheckbox extends FormField {
         return checkBoxSize;
     }
 
+    public FormFieldCheckbox checkBoxSize(Double checkBoxSize) {
+        this.checkBoxSize = checkBoxSize;
+        return this;
+    }
+
     public void setCheckBoxSize(Double checkBoxSize) {
         this.checkBoxSize = checkBoxSize;
     }
 
-    public FormFieldCheckbox checked(Boolean checked) {
-        this.checked = checked;
-        return this;
-    }
 
     /**
      * Gets or sets the checked status of the check box form field.
@@ -87,14 +83,15 @@ public class FormFieldCheckbox extends FormField {
         return checked;
     }
 
+    public FormFieldCheckbox checked(Boolean checked) {
+        this.checked = checked;
+        return this;
+    }
+
     public void setChecked(Boolean checked) {
         this.checked = checked;
     }
 
-    public FormFieldCheckbox isCheckBoxExactSize(Boolean isCheckBoxExactSize) {
-        this.isCheckBoxExactSize = isCheckBoxExactSize;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
@@ -105,8 +102,21 @@ public class FormFieldCheckbox extends FormField {
         return isCheckBoxExactSize;
     }
 
+    public FormFieldCheckbox isCheckBoxExactSize(Boolean isCheckBoxExactSize) {
+        this.isCheckBoxExactSize = isCheckBoxExactSize;
+        return this;
+    }
+
     public void setIsCheckBoxExactSize(Boolean isCheckBoxExactSize) {
         this.isCheckBoxExactSize = isCheckBoxExactSize;
+    }
+
+
+    public FormFieldCheckbox() {
+        super();
+        this.checkBoxSize = null;
+        this.checked = null;
+        this.isCheckBoxExactSize = null;
     }
 
     @Override
@@ -135,10 +145,20 @@ public class FormFieldCheckbox extends FormField {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormFieldCheckbox {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    checkBoxSize: ").append(toIndentedString(checkBoxSize)).append("\n");
-    sb.append("    checked: ").append(toIndentedString(checked)).append("\n");
-    sb.append("    isCheckBoxExactSize: ").append(toIndentedString(isCheckBoxExactSize)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
+    sb.append("    calculateOnExit: ").append(toIndentedString(getCalculateOnExit())).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(getEnabled())).append("\n");
+    sb.append("    entryMacro: ").append(toIndentedString(getEntryMacro())).append("\n");
+    sb.append("    exitMacro: ").append(toIndentedString(getExitMacro())).append("\n");
+    sb.append("    helpText: ").append(toIndentedString(getHelpText())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
+    sb.append("    ownHelp: ").append(toIndentedString(getOwnHelp())).append("\n");
+    sb.append("    ownStatus: ").append(toIndentedString(getOwnStatus())).append("\n");
+    sb.append("    statusText: ").append(toIndentedString(getStatusText())).append("\n");
+    sb.append("    checkBoxSize: ").append(toIndentedString(getCheckBoxSize())).append("\n");
+    sb.append("    checked: ").append(toIndentedString(getChecked())).append("\n");
+    sb.append("    isCheckBoxExactSize: ").append(toIndentedString(getIsCheckBoxExactSize())).append("\n");
     sb.append("}");
     return sb.toString();
   }

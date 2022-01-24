@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Class for insert watermark text request building.")
 public class WatermarkText {
     @SerializedName("RotationAngle")
-    private Double rotationAngle = null;
+    protected Double rotationAngle;
 
     @SerializedName("Text")
-    private String text = null;
-    public WatermarkText rotationAngle(Double rotationAngle) {
-        this.rotationAngle = rotationAngle;
-        return this;
-    }
-
+    protected String text;
     /**
      * Gets or sets the watermark rotation angle.
     * @return rotationAngle
@@ -66,14 +61,15 @@ public class WatermarkText {
         return rotationAngle;
     }
 
+    public WatermarkText rotationAngle(Double rotationAngle) {
+        this.rotationAngle = rotationAngle;
+        return this;
+    }
+
     public void setRotationAngle(Double rotationAngle) {
         this.rotationAngle = rotationAngle;
     }
 
-    public WatermarkText text(String text) {
-        this.text = text;
-        return this;
-    }
 
     /**
      * Gets or sets the watermark text.
@@ -84,8 +80,19 @@ public class WatermarkText {
         return text;
     }
 
+    public WatermarkText text(String text) {
+        this.text = text;
+        return this;
+    }
+
     public void setText(String text) {
         this.text = text;
+    }
+
+
+    public WatermarkText() {
+        this.rotationAngle = null;
+        this.text = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class WatermarkText {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WatermarkText {\n");
-    sb.append("    rotationAngle: ").append(toIndentedString(rotationAngle)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    rotationAngle: ").append(toIndentedString(getRotationAngle())).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,21 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Class is used for insert page number request building.")
 public class PageNumber {
     @SerializedName("Alignment")
-    private String alignment = null;
+    protected String alignment;
 
     @SerializedName("Format")
-    private String format = null;
+    protected String format;
 
     @SerializedName("IsTop")
-    private Boolean isTop = null;
+    protected Boolean isTop;
 
     @SerializedName("SetPageNumberOnFirstPage")
-    private Boolean setPageNumberOnFirstPage = null;
-    public PageNumber alignment(String alignment) {
-        this.alignment = alignment;
-        return this;
-    }
-
+    protected Boolean setPageNumberOnFirstPage;
     /**
      * Gets or sets text alignment, possible values are left, right, center or justify.
     * @return alignment
@@ -72,14 +67,15 @@ public class PageNumber {
         return alignment;
     }
 
+    public PageNumber alignment(String alignment) {
+        this.alignment = alignment;
+        return this;
+    }
+
     public void setAlignment(String alignment) {
         this.alignment = alignment;
     }
 
-    public PageNumber format(String format) {
-        this.format = format;
-        return this;
-    }
 
     /**
      * Gets or sets the page number format, e.g. "{PAGE} of {NUMPAGES}".
@@ -90,14 +86,15 @@ public class PageNumber {
         return format;
     }
 
+    public PageNumber format(String format) {
+        this.format = format;
+        return this;
+    }
+
     public void setFormat(String format) {
         this.format = format;
     }
 
-    public PageNumber isTop(Boolean isTop) {
-        this.isTop = isTop;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.
@@ -108,14 +105,15 @@ public class PageNumber {
         return isTop;
     }
 
+    public PageNumber isTop(Boolean isTop) {
+        this.isTop = isTop;
+        return this;
+    }
+
     public void setIsTop(Boolean isTop) {
         this.isTop = isTop;
     }
 
-    public PageNumber setPageNumberOnFirstPage(Boolean setPageNumberOnFirstPage) {
-        this.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether if true the page number is added on first page too.
@@ -126,8 +124,21 @@ public class PageNumber {
         return setPageNumberOnFirstPage;
     }
 
+    public PageNumber setPageNumberOnFirstPage(Boolean setPageNumberOnFirstPage) {
+        this.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
+        return this;
+    }
+
     public void setSetPageNumberOnFirstPage(Boolean setPageNumberOnFirstPage) {
         this.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
+    }
+
+
+    public PageNumber() {
+        this.alignment = null;
+        this.format = null;
+        this.isTop = null;
+        this.setPageNumberOnFirstPage = null;
     }
 
     @Override
@@ -156,10 +167,10 @@ public class PageNumber {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PageNumber {\n");
-    sb.append("    alignment: ").append(toIndentedString(alignment)).append("\n");
-    sb.append("    format: ").append(toIndentedString(format)).append("\n");
-    sb.append("    isTop: ").append(toIndentedString(isTop)).append("\n");
-    sb.append("    setPageNumberOnFirstPage: ").append(toIndentedString(setPageNumberOnFirstPage)).append("\n");
+    sb.append("    alignment: ").append(toIndentedString(getAlignment())).append("\n");
+    sb.append("    format: ").append(toIndentedString(getFormat())).append("\n");
+    sb.append("    isTop: ").append(toIndentedString(getIsTop())).append("\n");
+    sb.append("    setPageNumberOnFirstPage: ").append(toIndentedString(getSetPageNumberOnFirstPage())).append("\n");
     sb.append("}");
     return sb.toString();
   }

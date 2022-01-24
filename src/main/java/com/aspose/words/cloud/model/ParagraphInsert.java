@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a paragraph's text.")
 public class ParagraphInsert {
     @SerializedName("Text")
-    private String text = null;
-    public ParagraphInsert text(String text) {
-        this.text = text;
-        return this;
-    }
-
+    protected String text;
     /**
      * Gets or sets the paragraph's text.
     * @return text
@@ -63,8 +58,18 @@ public class ParagraphInsert {
         return text;
     }
 
+    public ParagraphInsert text(String text) {
+        this.text = text;
+        return this;
+    }
+
     public void setText(String text) {
         this.text = text;
+    }
+
+
+    public ParagraphInsert() {
+        this.text = null;
     }
 
     @Override
@@ -90,7 +95,7 @@ public class ParagraphInsert {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphInsert {\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

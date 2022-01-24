@@ -100,12 +100,7 @@ public class OptimizationOptions {
     }
 
     @SerializedName("MsWordVersion")
-    private MsWordVersionEnum msWordVersion = null;
-    public OptimizationOptions msWordVersion(MsWordVersionEnum msWordVersion) {
-        this.msWordVersion = msWordVersion;
-        return this;
-    }
-
+    protected MsWordVersionEnum msWordVersion;
     /**
      * Gets or sets the specific MSWord version.
     * @return msWordVersion
@@ -115,8 +110,18 @@ public class OptimizationOptions {
         return msWordVersion;
     }
 
+    public OptimizationOptions msWordVersion(MsWordVersionEnum msWordVersion) {
+        this.msWordVersion = msWordVersion;
+        return this;
+    }
+
     public void setMsWordVersion(MsWordVersionEnum msWordVersion) {
         this.msWordVersion = msWordVersion;
+    }
+
+
+    public OptimizationOptions() {
+        this.msWordVersion = null;
     }
 
     @Override
@@ -142,7 +147,7 @@ public class OptimizationOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OptimizationOptions {\n");
-    sb.append("    msWordVersion: ").append(toIndentedString(msWordVersion)).append("\n");
+    sb.append("    msWordVersion: ").append(toIndentedString(getMsWordVersion())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with an array of tab stops.")
 public class TabStopsResponse extends WordsResponse {
     @SerializedName("TabStops")
-    private List<TabStop> tabStops = null;
+    protected List<TabStop> tabStops;
+    /**
+     * Gets or sets the array of tab stops.
+    * @return tabStops
+    **/
+    @ApiModelProperty(value = "Gets or sets the array of tab stops.")
+    public List<TabStop> getTabStops() {
+        return tabStops;
+    }
+
     public TabStopsResponse tabStops(List<TabStop> tabStops) {
         this.tabStops = tabStops;
         return this;
@@ -62,17 +71,15 @@ public class TabStopsResponse extends WordsResponse {
         return this;
     }
 
-    /**
-     * Gets or sets the array of tab stops.
-    * @return tabStops
-    **/
-    @ApiModelProperty(value = "Gets or sets the array of tab stops.")
-    public List<TabStop> getTabStops() {
-        return tabStops;
-    }
 
     public void setTabStops(List<TabStop> tabStops) {
         this.tabStops = tabStops;
+    }
+
+
+    public TabStopsResponse() {
+        super();
+        this.tabStops = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class TabStopsResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TabStopsResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    tabStops: ").append(toIndentedString(tabStops)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    tabStops: ").append(toIndentedString(getTabStops())).append("\n");
     sb.append("}");
     return sb.toString();
   }

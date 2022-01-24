@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a collection of OfficeMath objects.")
 public class OfficeMathObjectsCollection extends LinkElement {
     @SerializedName("List")
-    private List<OfficeMathObject> list = null;
+    protected List<OfficeMathObject> list;
+    /**
+     * Gets or sets the collection of OfficeMath objects.
+    * @return list
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of OfficeMath objects.")
+    public List<OfficeMathObject> getList() {
+        return list;
+    }
+
     public OfficeMathObjectsCollection list(List<OfficeMathObject> list) {
         this.list = list;
         return this;
@@ -62,17 +71,15 @@ public class OfficeMathObjectsCollection extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of OfficeMath objects.
-    * @return list
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of OfficeMath objects.")
-    public List<OfficeMathObject> getList() {
-        return list;
-    }
 
     public void setList(List<OfficeMathObject> list) {
         this.list = list;
+    }
+
+
+    public OfficeMathObjectsCollection() {
+        super();
+        this.list = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class OfficeMathObjectsCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OfficeMathObjectsCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    list: ").append(toIndentedString(list)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    list: ").append(toIndentedString(getList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

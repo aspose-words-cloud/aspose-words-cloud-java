@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a collection of hyperlinks.")
 public class HyperlinksResponse extends WordsResponse {
     @SerializedName("Hyperlinks")
-    private Hyperlinks hyperlinks = null;
-    public HyperlinksResponse hyperlinks(Hyperlinks hyperlinks) {
-        this.hyperlinks = hyperlinks;
-        return this;
-    }
-
+    protected Hyperlinks hyperlinks;
     /**
      * Gets or sets the collection of hyperlinks.
     * @return hyperlinks
@@ -63,8 +58,19 @@ public class HyperlinksResponse extends WordsResponse {
         return hyperlinks;
     }
 
+    public HyperlinksResponse hyperlinks(Hyperlinks hyperlinks) {
+        this.hyperlinks = hyperlinks;
+        return this;
+    }
+
     public void setHyperlinks(Hyperlinks hyperlinks) {
         this.hyperlinks = hyperlinks;
+    }
+
+
+    public HyperlinksResponse() {
+        super();
+        this.hyperlinks = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class HyperlinksResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HyperlinksResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    hyperlinks: ").append(toIndentedString(hyperlinks)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    hyperlinks: ").append(toIndentedString(getHyperlinks())).append("\n");
     sb.append("}");
     return sb.toString();
   }

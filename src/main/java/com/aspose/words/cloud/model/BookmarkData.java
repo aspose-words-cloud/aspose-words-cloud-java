@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO for bookmark updating.")
 public class BookmarkData {
     @SerializedName("Name")
-    private String name = null;
+    protected String name;
 
     @SerializedName("Text")
-    private String text = null;
-    public BookmarkData name(String name) {
-        this.name = name;
-        return this;
-    }
-
+    protected String text;
     /**
      * Gets or sets the name of the bookmark.
     * @return name
@@ -66,14 +61,15 @@ public class BookmarkData {
         return name;
     }
 
+    public BookmarkData name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public BookmarkData text(String text) {
-        this.text = text;
-        return this;
-    }
 
     /**
      * Gets or sets text, enclosed in the bookmark.
@@ -84,8 +80,19 @@ public class BookmarkData {
         return text;
     }
 
+    public BookmarkData text(String text) {
+        this.text = text;
+        return this;
+    }
+
     public void setText(String text) {
         this.text = text;
+    }
+
+
+    public BookmarkData() {
+        this.name = null;
+        this.text = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class BookmarkData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BookmarkData {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

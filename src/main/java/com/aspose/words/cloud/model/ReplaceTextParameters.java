@@ -48,24 +48,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Class for document replace text request building.")
 public class ReplaceTextParameters {
     @SerializedName("IsMatchCase")
-    private Boolean isMatchCase = null;
+    protected Boolean isMatchCase;
 
     @SerializedName("IsMatchWholeWord")
-    private Boolean isMatchWholeWord = null;
+    protected Boolean isMatchWholeWord;
 
     @SerializedName("IsOldValueRegex")
-    private Boolean isOldValueRegex = null;
+    protected Boolean isOldValueRegex;
 
     @SerializedName("NewValue")
-    private String newValue = null;
+    protected String newValue;
 
     @SerializedName("OldValue")
-    private String oldValue = null;
-    public ReplaceTextParameters isMatchCase(Boolean isMatchCase) {
-        this.isMatchCase = isMatchCase;
-        return this;
-    }
-
+    protected String oldValue;
     /**
      * Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
     * @return isMatchCase
@@ -75,14 +70,15 @@ public class ReplaceTextParameters {
         return isMatchCase;
     }
 
+    public ReplaceTextParameters isMatchCase(Boolean isMatchCase) {
+        this.isMatchCase = isMatchCase;
+        return this;
+    }
+
     public void setIsMatchCase(Boolean isMatchCase) {
         this.isMatchCase = isMatchCase;
     }
 
-    public ReplaceTextParameters isMatchWholeWord(Boolean isMatchWholeWord) {
-        this.isMatchWholeWord = isMatchWholeWord;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether flag, means that only whole word matched are replaced.
@@ -93,14 +89,15 @@ public class ReplaceTextParameters {
         return isMatchWholeWord;
     }
 
+    public ReplaceTextParameters isMatchWholeWord(Boolean isMatchWholeWord) {
+        this.isMatchWholeWord = isMatchWholeWord;
+        return this;
+    }
+
     public void setIsMatchWholeWord(Boolean isMatchWholeWord) {
         this.isMatchWholeWord = isMatchWholeWord;
     }
 
-    public ReplaceTextParameters isOldValueRegex(Boolean isOldValueRegex) {
-        this.isOldValueRegex = isOldValueRegex;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether flag, means that OldValue contains regex expression.
@@ -111,14 +108,15 @@ public class ReplaceTextParameters {
         return isOldValueRegex;
     }
 
+    public ReplaceTextParameters isOldValueRegex(Boolean isOldValueRegex) {
+        this.isOldValueRegex = isOldValueRegex;
+        return this;
+    }
+
     public void setIsOldValueRegex(Boolean isOldValueRegex) {
         this.isOldValueRegex = isOldValueRegex;
     }
 
-    public ReplaceTextParameters newValue(String newValue) {
-        this.newValue = newValue;
-        return this;
-    }
 
     /**
      * Gets or sets the new text value to replace by.
@@ -129,14 +127,15 @@ public class ReplaceTextParameters {
         return newValue;
     }
 
+    public ReplaceTextParameters newValue(String newValue) {
+        this.newValue = newValue;
+        return this;
+    }
+
     public void setNewValue(String newValue) {
         this.newValue = newValue;
     }
 
-    public ReplaceTextParameters oldValue(String oldValue) {
-        this.oldValue = oldValue;
-        return this;
-    }
 
     /**
      * Gets or sets the old text value (or regex pattern IsOldValueRegex) to replace.
@@ -147,8 +146,22 @@ public class ReplaceTextParameters {
         return oldValue;
     }
 
+    public ReplaceTextParameters oldValue(String oldValue) {
+        this.oldValue = oldValue;
+        return this;
+    }
+
     public void setOldValue(String oldValue) {
         this.oldValue = oldValue;
+    }
+
+
+    public ReplaceTextParameters() {
+        this.isMatchCase = null;
+        this.isMatchWholeWord = null;
+        this.isOldValueRegex = null;
+        this.newValue = null;
+        this.oldValue = null;
     }
 
     @Override
@@ -178,11 +191,11 @@ public class ReplaceTextParameters {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReplaceTextParameters {\n");
-    sb.append("    isMatchCase: ").append(toIndentedString(isMatchCase)).append("\n");
-    sb.append("    isMatchWholeWord: ").append(toIndentedString(isMatchWholeWord)).append("\n");
-    sb.append("    isOldValueRegex: ").append(toIndentedString(isOldValueRegex)).append("\n");
-    sb.append("    newValue: ").append(toIndentedString(newValue)).append("\n");
-    sb.append("    oldValue: ").append(toIndentedString(oldValue)).append("\n");
+    sb.append("    isMatchCase: ").append(toIndentedString(getIsMatchCase())).append("\n");
+    sb.append("    isMatchWholeWord: ").append(toIndentedString(getIsMatchWholeWord())).append("\n");
+    sb.append("    isOldValueRegex: ").append(toIndentedString(getIsOldValueRegex())).append("\n");
+    sb.append("    newValue: ").append(toIndentedString(getNewValue())).append("\n");
+    sb.append("    oldValue: ").append(toIndentedString(getOldValue())).append("\n");
     sb.append("}");
     return sb.toString();
   }

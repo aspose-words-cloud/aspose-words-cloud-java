@@ -94,21 +94,16 @@ public class FootnoteBase {
     }
 
     @SerializedName("FootnoteType")
-    private FootnoteTypeEnum footnoteType = null;
+    protected FootnoteTypeEnum footnoteType;
 
     @SerializedName("Position")
-    private DocumentPosition position = null;
+    protected DocumentPosition position;
 
     @SerializedName("ReferenceMark")
-    private String referenceMark = null;
+    protected String referenceMark;
 
     @SerializedName("Text")
-    private String text = null;
-    public FootnoteBase footnoteType(FootnoteTypeEnum footnoteType) {
-        this.footnoteType = footnoteType;
-        return this;
-    }
-
+    protected String text;
     /**
      * Gets or sets the option, that specifies whether this is a footnote or endnote.
     * @return footnoteType
@@ -118,14 +113,15 @@ public class FootnoteBase {
         return footnoteType;
     }
 
+    public FootnoteBase footnoteType(FootnoteTypeEnum footnoteType) {
+        this.footnoteType = footnoteType;
+        return this;
+    }
+
     public void setFootnoteType(FootnoteTypeEnum footnoteType) {
         this.footnoteType = footnoteType;
     }
 
-    public FootnoteBase position(DocumentPosition position) {
-        this.position = position;
-        return this;
-    }
 
     /**
      * Gets or sets the link to comment range start node.
@@ -136,14 +132,15 @@ public class FootnoteBase {
         return position;
     }
 
+    public FootnoteBase position(DocumentPosition position) {
+        this.position = position;
+        return this;
+    }
+
     public void setPosition(DocumentPosition position) {
         this.position = position;
     }
 
-    public FootnoteBase referenceMark(String referenceMark) {
-        this.referenceMark = referenceMark;
-        return this;
-    }
 
     /**
      * Gets or sets the custom reference mark to be used for this footnote.
@@ -155,14 +152,15 @@ public class FootnoteBase {
         return referenceMark;
     }
 
+    public FootnoteBase referenceMark(String referenceMark) {
+        this.referenceMark = referenceMark;
+        return this;
+    }
+
     public void setReferenceMark(String referenceMark) {
         this.referenceMark = referenceMark;
     }
 
-    public FootnoteBase text(String text) {
-        this.text = text;
-        return this;
-    }
 
     /**
      * Gets or sets text of the footnote.
@@ -173,8 +171,21 @@ public class FootnoteBase {
         return text;
     }
 
+    public FootnoteBase text(String text) {
+        this.text = text;
+        return this;
+    }
+
     public void setText(String text) {
         this.text = text;
+    }
+
+
+    public FootnoteBase() {
+        this.footnoteType = null;
+        this.position = null;
+        this.referenceMark = null;
+        this.text = null;
     }
 
     @Override
@@ -203,10 +214,10 @@ public class FootnoteBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FootnoteBase {\n");
-    sb.append("    footnoteType: ").append(toIndentedString(footnoteType)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
-    sb.append("    referenceMark: ").append(toIndentedString(referenceMark)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    footnoteType: ").append(toIndentedString(getFootnoteType())).append("\n");
+    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
+    sb.append("    referenceMark: ").append(toIndentedString(getReferenceMark())).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

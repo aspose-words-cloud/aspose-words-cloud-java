@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a page setup of a section.")
 public class SectionPageSetupResponse extends WordsResponse {
     @SerializedName("PageSetup")
-    private PageSetup pageSetup = null;
-    public SectionPageSetupResponse pageSetup(PageSetup pageSetup) {
-        this.pageSetup = pageSetup;
-        return this;
-    }
-
+    protected PageSetup pageSetup;
     /**
      * Gets or sets the page setup of a section.
     * @return pageSetup
@@ -63,8 +58,19 @@ public class SectionPageSetupResponse extends WordsResponse {
         return pageSetup;
     }
 
+    public SectionPageSetupResponse pageSetup(PageSetup pageSetup) {
+        this.pageSetup = pageSetup;
+        return this;
+    }
+
     public void setPageSetup(PageSetup pageSetup) {
         this.pageSetup = pageSetup;
+    }
+
+
+    public SectionPageSetupResponse() {
+        super();
+        this.pageSetup = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class SectionPageSetupResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SectionPageSetupResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    pageSetup: ").append(toIndentedString(pageSetup)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    pageSetup: ").append(toIndentedString(getPageSetup())).append("\n");
     sb.append("}");
     return sb.toString();
   }

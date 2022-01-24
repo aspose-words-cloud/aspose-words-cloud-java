@@ -48,21 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for details of encryption.")
 public class PdfEncryptionDetailsData {
     @SerializedName("EncryptionAlgorithm")
-    private String encryptionAlgorithm = null;
+    protected String encryptionAlgorithm;
 
     @SerializedName("OwnerPassword")
-    private String ownerPassword = null;
+    protected String ownerPassword;
 
     @SerializedName("Permissions")
-    private String permissions = null;
+    protected String permissions;
 
     @SerializedName("UserPassword")
-    private String userPassword = null;
-    public PdfEncryptionDetailsData encryptionAlgorithm(String encryptionAlgorithm) {
-        this.encryptionAlgorithm = encryptionAlgorithm;
-        return this;
-    }
-
+    protected String userPassword;
     /**
      * Gets or sets the encryption algorithm to use.
     * @return encryptionAlgorithm
@@ -72,14 +67,15 @@ public class PdfEncryptionDetailsData {
         return encryptionAlgorithm;
     }
 
+    public PdfEncryptionDetailsData encryptionAlgorithm(String encryptionAlgorithm) {
+        this.encryptionAlgorithm = encryptionAlgorithm;
+        return this;
+    }
+
     public void setEncryptionAlgorithm(String encryptionAlgorithm) {
         this.encryptionAlgorithm = encryptionAlgorithm;
     }
 
-    public PdfEncryptionDetailsData ownerPassword(String ownerPassword) {
-        this.ownerPassword = ownerPassword;
-        return this;
-    }
 
     /**
      * Gets or sets the owner password for the encrypted PDF document.
@@ -90,14 +86,15 @@ public class PdfEncryptionDetailsData {
         return ownerPassword;
     }
 
+    public PdfEncryptionDetailsData ownerPassword(String ownerPassword) {
+        this.ownerPassword = ownerPassword;
+        return this;
+    }
+
     public void setOwnerPassword(String ownerPassword) {
         this.ownerPassword = ownerPassword;
     }
 
-    public PdfEncryptionDetailsData permissions(String permissions) {
-        this.permissions = permissions;
-        return this;
-    }
 
     /**
      * Gets or sets the operations that are allowed to a user on the encrypted PDF document.
@@ -108,14 +105,15 @@ public class PdfEncryptionDetailsData {
         return permissions;
     }
 
+    public PdfEncryptionDetailsData permissions(String permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
     public void setPermissions(String permissions) {
         this.permissions = permissions;
     }
 
-    public PdfEncryptionDetailsData userPassword(String userPassword) {
-        this.userPassword = userPassword;
-        return this;
-    }
 
     /**
      * Gets or sets the user password required for opening the encrypted PDF document.
@@ -126,8 +124,21 @@ public class PdfEncryptionDetailsData {
         return userPassword;
     }
 
+    public PdfEncryptionDetailsData userPassword(String userPassword) {
+        this.userPassword = userPassword;
+        return this;
+    }
+
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
+    }
+
+
+    public PdfEncryptionDetailsData() {
+        this.encryptionAlgorithm = null;
+        this.ownerPassword = null;
+        this.permissions = null;
+        this.userPassword = null;
     }
 
     @Override
@@ -156,10 +167,10 @@ public class PdfEncryptionDetailsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfEncryptionDetailsData {\n");
-    sb.append("    encryptionAlgorithm: ").append(toIndentedString(encryptionAlgorithm)).append("\n");
-    sb.append("    ownerPassword: ").append(toIndentedString(ownerPassword)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    userPassword: ").append(toIndentedString(userPassword)).append("\n");
+    sb.append("    encryptionAlgorithm: ").append(toIndentedString(getEncryptionAlgorithm())).append("\n");
+    sb.append("    ownerPassword: ").append(toIndentedString(getOwnerPassword())).append("\n");
+    sb.append("    permissions: ").append(toIndentedString(getPermissions())).append("\n");
+    sb.append("    userPassword: ").append(toIndentedString(getUserPassword())).append("\n");
     sb.append("}");
     return sb.toString();
   }

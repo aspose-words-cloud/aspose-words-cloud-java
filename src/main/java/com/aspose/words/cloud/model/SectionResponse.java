@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a section.")
 public class SectionResponse extends WordsResponse {
     @SerializedName("Section")
-    private Section section = null;
-    public SectionResponse section(Section section) {
-        this.section = section;
-        return this;
-    }
-
+    protected Section section;
     /**
      * Gets or sets the section.
     * @return section
@@ -63,8 +58,19 @@ public class SectionResponse extends WordsResponse {
         return section;
     }
 
+    public SectionResponse section(Section section) {
+        this.section = section;
+        return this;
+    }
+
     public void setSection(Section section) {
         this.section = section;
+    }
+
+
+    public SectionResponse() {
+        super();
+        this.section = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class SectionResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SectionResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    section: ").append(toIndentedString(section)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    section: ").append(toIndentedString(getSection())).append("\n");
     sb.append("}");
     return sb.toString();
   }

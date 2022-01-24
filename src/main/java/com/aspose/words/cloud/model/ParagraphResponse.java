@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a paragraph.")
 public class ParagraphResponse extends WordsResponse {
     @SerializedName("Paragraph")
-    private Paragraph paragraph = null;
-    public ParagraphResponse paragraph(Paragraph paragraph) {
-        this.paragraph = paragraph;
-        return this;
-    }
-
+    protected Paragraph paragraph;
     /**
      * Gets or sets the paragraph.
     * @return paragraph
@@ -63,8 +58,19 @@ public class ParagraphResponse extends WordsResponse {
         return paragraph;
     }
 
+    public ParagraphResponse paragraph(Paragraph paragraph) {
+        this.paragraph = paragraph;
+        return this;
+    }
+
     public void setParagraph(Paragraph paragraph) {
         this.paragraph = paragraph;
+    }
+
+
+    public ParagraphResponse() {
+        super();
+        this.paragraph = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class ParagraphResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    paragraph: ").append(toIndentedString(paragraph)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    paragraph: ").append(toIndentedString(getParagraph())).append("\n");
     sb.append("}");
     return sb.toString();
   }

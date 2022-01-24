@@ -48,18 +48,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO for user information.")
 public class UserInformation {
     @SerializedName("Address")
-    private String address = null;
+    protected String address;
 
     @SerializedName("Initials")
-    private String initials = null;
+    protected String initials;
 
     @SerializedName("Name")
-    private String name = null;
-    public UserInformation address(String address) {
-        this.address = address;
-        return this;
-    }
-
+    protected String name;
     /**
      * Gets or sets user address.
     * @return address
@@ -69,14 +64,15 @@ public class UserInformation {
         return address;
     }
 
+    public UserInformation address(String address) {
+        this.address = address;
+        return this;
+    }
+
     public void setAddress(String address) {
         this.address = address;
     }
 
-    public UserInformation initials(String initials) {
-        this.initials = initials;
-        return this;
-    }
 
     /**
      * Gets or sets user initials.
@@ -87,14 +83,15 @@ public class UserInformation {
         return initials;
     }
 
+    public UserInformation initials(String initials) {
+        this.initials = initials;
+        return this;
+    }
+
     public void setInitials(String initials) {
         this.initials = initials;
     }
 
-    public UserInformation name(String name) {
-        this.name = name;
-        return this;
-    }
 
     /**
      * Gets or sets user name.
@@ -105,8 +102,20 @@ public class UserInformation {
         return name;
     }
 
+    public UserInformation name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    public UserInformation() {
+        this.address = null;
+        this.initials = null;
+        this.name = null;
     }
 
     @Override
@@ -134,9 +143,9 @@ public class UserInformation {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserInformation {\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    initials: ").append(toIndentedString(initials)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    address: ").append(toIndentedString(getAddress())).append("\n");
+    sb.append("    initials: ").append(toIndentedString(getInitials())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
     sb.append("}");
     return sb.toString();
   }

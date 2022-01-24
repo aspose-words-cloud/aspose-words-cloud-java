@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a HeaderFooter.")
 public class HeaderFooterResponse extends WordsResponse {
     @SerializedName("HeaderFooter")
-    private HeaderFooter headerFooter = null;
-    public HeaderFooterResponse headerFooter(HeaderFooter headerFooter) {
-        this.headerFooter = headerFooter;
-        return this;
-    }
-
+    protected HeaderFooter headerFooter;
     /**
      * Gets or sets the HeaderFooter.
     * @return headerFooter
@@ -63,8 +58,19 @@ public class HeaderFooterResponse extends WordsResponse {
         return headerFooter;
     }
 
+    public HeaderFooterResponse headerFooter(HeaderFooter headerFooter) {
+        this.headerFooter = headerFooter;
+        return this;
+    }
+
     public void setHeaderFooter(HeaderFooter headerFooter) {
         this.headerFooter = headerFooter;
+    }
+
+
+    public HeaderFooterResponse() {
+        super();
+        this.headerFooter = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class HeaderFooterResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeaderFooterResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    headerFooter: ").append(toIndentedString(headerFooter)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    headerFooter: ").append(toIndentedString(getHeaderFooter())).append("\n");
     sb.append("}");
     return sb.toString();
   }

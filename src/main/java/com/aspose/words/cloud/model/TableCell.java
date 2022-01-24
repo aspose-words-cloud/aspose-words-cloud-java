@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a table cell element.")
 public class TableCell extends NodeLink {
     @SerializedName("ChildNodes")
-    private List<NodeLink> childNodes = null;
+    protected List<NodeLink> childNodes;
+    /**
+     * Gets or sets the list of child nodes.
+    * @return childNodes
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of child nodes.")
+    public List<NodeLink> getChildNodes() {
+        return childNodes;
+    }
+
     public TableCell childNodes(List<NodeLink> childNodes) {
         this.childNodes = childNodes;
         return this;
@@ -62,17 +71,15 @@ public class TableCell extends NodeLink {
         return this;
     }
 
-    /**
-     * Gets or sets the list of child nodes.
-    * @return childNodes
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of child nodes.")
-    public List<NodeLink> getChildNodes() {
-        return childNodes;
-    }
 
     public void setChildNodes(List<NodeLink> childNodes) {
         this.childNodes = childNodes;
+    }
+
+
+    public TableCell() {
+        super();
+        this.childNodes = null;
     }
 
     @Override
@@ -99,8 +106,9 @@ public class TableCell extends NodeLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableCell {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    childNodes: ").append(toIndentedString(childNodes)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
+    sb.append("    childNodes: ").append(toIndentedString(getChildNodes())).append("\n");
     sb.append("}");
     return sb.toString();
   }

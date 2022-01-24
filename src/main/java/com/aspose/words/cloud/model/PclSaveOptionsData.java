@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for pcl save options.")
 public class PclSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("FalllbackFontName")
-    private String falllbackFontName = null;
+    protected String falllbackFontName;
 
     @SerializedName("RasterizeTransformedElements")
-    private Boolean rasterizeTransformedElements = null;
-    public PclSaveOptionsData falllbackFontName(String falllbackFontName) {
-        this.falllbackFontName = falllbackFontName;
-        return this;
-    }
-
+    protected Boolean rasterizeTransformedElements;
     /**
      * Gets or sets the font name, that will be used if no expected font is found in printer and built-in fonts collections.
     * @return falllbackFontName
@@ -66,14 +61,15 @@ public class PclSaveOptionsData extends FixedPageSaveOptionsData {
         return falllbackFontName;
     }
 
+    public PclSaveOptionsData falllbackFontName(String falllbackFontName) {
+        this.falllbackFontName = falllbackFontName;
+        return this;
+    }
+
     public void setFalllbackFontName(String falllbackFontName) {
         this.falllbackFontName = falllbackFontName;
     }
 
-    public PclSaveOptionsData rasterizeTransformedElements(Boolean rasterizeTransformedElements) {
-        this.rasterizeTransformedElements = rasterizeTransformedElements;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether complex transformed elements should be rasterized before saving to PCL document.. The default value is true.
@@ -84,8 +80,21 @@ public class PclSaveOptionsData extends FixedPageSaveOptionsData {
         return rasterizeTransformedElements;
     }
 
+    public PclSaveOptionsData rasterizeTransformedElements(Boolean rasterizeTransformedElements) {
+        this.rasterizeTransformedElements = rasterizeTransformedElements;
+        return this;
+    }
+
     public void setRasterizeTransformedElements(Boolean rasterizeTransformedElements) {
         this.rasterizeTransformedElements = rasterizeTransformedElements;
+    }
+
+
+    public PclSaveOptionsData() {
+        super();
+        this.falllbackFontName = null;
+        this.rasterizeTransformedElements = null;
+        this.saveFormat = "pcl";
     }
 
     @Override
@@ -113,9 +122,30 @@ public class PclSaveOptionsData extends FixedPageSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PclSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    falllbackFontName: ").append(toIndentedString(falllbackFontName)).append("\n");
-    sb.append("    rasterizeTransformedElements: ").append(toIndentedString(rasterizeTransformedElements)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
+    sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
+    sb.append("    metafileRenderingOptions: ").append(toIndentedString(getMetafileRenderingOptions())).append("\n");
+    sb.append("    numeralFormat: ").append(toIndentedString(getNumeralFormat())).append("\n");
+    sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
+    sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
+    sb.append("    falllbackFontName: ").append(toIndentedString(getFalllbackFontName())).append("\n");
+    sb.append("    rasterizeTransformedElements: ").append(toIndentedString(getRasterizeTransformedElements())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

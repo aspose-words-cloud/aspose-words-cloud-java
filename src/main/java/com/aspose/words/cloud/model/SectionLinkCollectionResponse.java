@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a collection of sections.")
 public class SectionLinkCollectionResponse extends WordsResponse {
     @SerializedName("Sections")
-    private SectionLinkCollection sections = null;
-    public SectionLinkCollectionResponse sections(SectionLinkCollection sections) {
-        this.sections = sections;
-        return this;
-    }
-
+    protected SectionLinkCollection sections;
     /**
      * Gets or sets the collection of sections.
     * @return sections
@@ -63,8 +58,19 @@ public class SectionLinkCollectionResponse extends WordsResponse {
         return sections;
     }
 
+    public SectionLinkCollectionResponse sections(SectionLinkCollection sections) {
+        this.sections = sections;
+        return this;
+    }
+
     public void setSections(SectionLinkCollection sections) {
         this.sections = sections;
+    }
+
+
+    public SectionLinkCollectionResponse() {
+        super();
+        this.sections = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class SectionLinkCollectionResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SectionLinkCollectionResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    sections: ").append(toIndentedString(sections)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    sections: ").append(toIndentedString(getSections())).append("\n");
     sb.append("}");
     return sb.toString();
   }

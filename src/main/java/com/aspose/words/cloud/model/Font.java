@@ -583,129 +583,124 @@ public class Font extends LinkElement {
     }
 
     @SerializedName("AllCaps")
-    private Boolean allCaps = null;
+    protected Boolean allCaps;
 
     @SerializedName("Bidi")
-    private Boolean bidi = null;
+    protected Boolean bidi;
 
     @SerializedName("Bold")
-    private Boolean bold = null;
+    protected Boolean bold;
 
     @SerializedName("BoldBi")
-    private Boolean boldBi = null;
+    protected Boolean boldBi;
 
     @SerializedName("Border")
-    private Border border = null;
+    protected Border border;
 
     @SerializedName("Color")
-    private XmlColor color = null;
+    protected XmlColor color;
 
     @SerializedName("ComplexScript")
-    private Boolean complexScript = null;
+    protected Boolean complexScript;
 
     @SerializedName("DoubleStrikeThrough")
-    private Boolean doubleStrikeThrough = null;
+    protected Boolean doubleStrikeThrough;
 
     @SerializedName("Emboss")
-    private Boolean emboss = null;
+    protected Boolean emboss;
 
     @SerializedName("Engrave")
-    private Boolean engrave = null;
+    protected Boolean engrave;
 
     @SerializedName("Hidden")
-    private Boolean hidden = null;
+    protected Boolean hidden;
 
     @SerializedName("HighlightColor")
-    private XmlColor highlightColor = null;
+    protected XmlColor highlightColor;
 
     @SerializedName("Italic")
-    private Boolean italic = null;
+    protected Boolean italic;
 
     @SerializedName("ItalicBi")
-    private Boolean italicBi = null;
+    protected Boolean italicBi;
 
     @SerializedName("Kerning")
-    private Double kerning = null;
+    protected Double kerning;
 
     @SerializedName("LocaleId")
-    private Integer localeId = null;
+    protected Integer localeId;
 
     @SerializedName("LocaleIdBi")
-    private Integer localeIdBi = null;
+    protected Integer localeIdBi;
 
     @SerializedName("LocaleIdFarEast")
-    private Integer localeIdFarEast = null;
+    protected Integer localeIdFarEast;
 
     @SerializedName("Name")
-    private String name = null;
+    protected String name;
 
     @SerializedName("NameAscii")
-    private String nameAscii = null;
+    protected String nameAscii;
 
     @SerializedName("NameBi")
-    private String nameBi = null;
+    protected String nameBi;
 
     @SerializedName("NameFarEast")
-    private String nameFarEast = null;
+    protected String nameFarEast;
 
     @SerializedName("NameOther")
-    private String nameOther = null;
+    protected String nameOther;
 
     @SerializedName("NoProofing")
-    private Boolean noProofing = null;
+    protected Boolean noProofing;
 
     @SerializedName("Outline")
-    private Boolean outline = null;
+    protected Boolean outline;
 
     @SerializedName("Position")
-    private Double position = null;
+    protected Double position;
 
     @SerializedName("Scaling")
-    private Integer scaling = null;
+    protected Integer scaling;
 
     @SerializedName("Shadow")
-    private Boolean shadow = null;
+    protected Boolean shadow;
 
     @SerializedName("Size")
-    private Double size = null;
+    protected Double size;
 
     @SerializedName("SizeBi")
-    private Double sizeBi = null;
+    protected Double sizeBi;
 
     @SerializedName("SmallCaps")
-    private Boolean smallCaps = null;
+    protected Boolean smallCaps;
 
     @SerializedName("Spacing")
-    private Double spacing = null;
+    protected Double spacing;
 
     @SerializedName("StrikeThrough")
-    private Boolean strikeThrough = null;
+    protected Boolean strikeThrough;
 
     @SerializedName("StyleIdentifier")
-    private StyleIdentifierEnum styleIdentifier = null;
+    protected StyleIdentifierEnum styleIdentifier;
 
     @SerializedName("StyleName")
-    private String styleName = null;
+    protected String styleName;
 
     @SerializedName("Subscript")
-    private Boolean subscript = null;
+    protected Boolean subscript;
 
     @SerializedName("Superscript")
-    private Boolean superscript = null;
+    protected Boolean superscript;
 
     @SerializedName("TextEffect")
-    private TextEffectEnum textEffect = null;
+    protected TextEffectEnum textEffect;
 
     @SerializedName("Underline")
-    private UnderlineEnum underline = null;
+    protected UnderlineEnum underline;
 
     @SerializedName("UnderlineColor")
-    private XmlColor underlineColor = null;
-    public Font allCaps(Boolean allCaps) {
-        this.allCaps = allCaps;
-        return this;
-    }
-
+    protected XmlColor underlineColor;
     /**
      * Gets or sets a value indicating whether the font is formatted as all capital letters.
     * @return allCaps
@@ -715,14 +710,15 @@ public class Font extends LinkElement {
         return allCaps;
     }
 
+    public Font allCaps(Boolean allCaps) {
+        this.allCaps = allCaps;
+        return this;
+    }
+
     public void setAllCaps(Boolean allCaps) {
         this.allCaps = allCaps;
     }
 
-    public Font bidi(Boolean bidi) {
-        this.bidi = bidi;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics.
@@ -733,14 +729,15 @@ public class Font extends LinkElement {
         return bidi;
     }
 
+    public Font bidi(Boolean bidi) {
+        this.bidi = bidi;
+        return this;
+    }
+
     public void setBidi(Boolean bidi) {
         this.bidi = bidi;
     }
 
-    public Font bold(Boolean bold) {
-        this.bold = bold;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the font is formatted as bold.
@@ -751,14 +748,15 @@ public class Font extends LinkElement {
         return bold;
     }
 
+    public Font bold(Boolean bold) {
+        this.bold = bold;
+        return this;
+    }
+
     public void setBold(Boolean bold) {
         this.bold = bold;
     }
 
-    public Font boldBi(Boolean boldBi) {
-        this.boldBi = boldBi;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the right-to-left text is formatted as bold.
@@ -769,14 +767,15 @@ public class Font extends LinkElement {
         return boldBi;
     }
 
+    public Font boldBi(Boolean boldBi) {
+        this.boldBi = boldBi;
+        return this;
+    }
+
     public void setBoldBi(Boolean boldBi) {
         this.boldBi = boldBi;
     }
 
-    public Font border(Border border) {
-        this.border = border;
-        return this;
-    }
 
     /**
      * Gets or sets the border object, that specifies border for the font.
@@ -787,14 +786,15 @@ public class Font extends LinkElement {
         return border;
     }
 
+    public Font border(Border border) {
+        this.border = border;
+        return this;
+    }
+
     public void setBorder(Border border) {
         this.border = border;
     }
 
-    public Font color(XmlColor color) {
-        this.color = color;
-        return this;
-    }
 
     /**
      * Gets or sets the color of the font.
@@ -805,14 +805,15 @@ public class Font extends LinkElement {
         return color;
     }
 
+    public Font color(XmlColor color) {
+        this.color = color;
+        return this;
+    }
+
     public void setColor(XmlColor color) {
         this.color = color;
     }
 
-    public Font complexScript(Boolean complexScript) {
-        this.complexScript = complexScript;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.
@@ -823,14 +824,15 @@ public class Font extends LinkElement {
         return complexScript;
     }
 
+    public Font complexScript(Boolean complexScript) {
+        this.complexScript = complexScript;
+        return this;
+    }
+
     public void setComplexScript(Boolean complexScript) {
         this.complexScript = complexScript;
     }
 
-    public Font doubleStrikeThrough(Boolean doubleStrikeThrough) {
-        this.doubleStrikeThrough = doubleStrikeThrough;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the font is formatted as double strikethrough text.
@@ -841,14 +843,15 @@ public class Font extends LinkElement {
         return doubleStrikeThrough;
     }
 
+    public Font doubleStrikeThrough(Boolean doubleStrikeThrough) {
+        this.doubleStrikeThrough = doubleStrikeThrough;
+        return this;
+    }
+
     public void setDoubleStrikeThrough(Boolean doubleStrikeThrough) {
         this.doubleStrikeThrough = doubleStrikeThrough;
     }
 
-    public Font emboss(Boolean emboss) {
-        this.emboss = emboss;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the font is formatted as embossed.
@@ -859,14 +862,15 @@ public class Font extends LinkElement {
         return emboss;
     }
 
+    public Font emboss(Boolean emboss) {
+        this.emboss = emboss;
+        return this;
+    }
+
     public void setEmboss(Boolean emboss) {
         this.emboss = emboss;
     }
 
-    public Font engrave(Boolean engrave) {
-        this.engrave = engrave;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the font is formatted as engraved.
@@ -877,14 +881,15 @@ public class Font extends LinkElement {
         return engrave;
     }
 
+    public Font engrave(Boolean engrave) {
+        this.engrave = engrave;
+        return this;
+    }
+
     public void setEngrave(Boolean engrave) {
         this.engrave = engrave;
     }
 
-    public Font hidden(Boolean hidden) {
-        this.hidden = hidden;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the font is formatted as hidden text.
@@ -895,14 +900,15 @@ public class Font extends LinkElement {
         return hidden;
     }
 
+    public Font hidden(Boolean hidden) {
+        this.hidden = hidden;
+        return this;
+    }
+
     public void setHidden(Boolean hidden) {
         this.hidden = hidden;
     }
 
-    public Font highlightColor(XmlColor highlightColor) {
-        this.highlightColor = highlightColor;
-        return this;
-    }
 
     /**
      * Gets or sets the highlight (marker) color.
@@ -913,14 +919,15 @@ public class Font extends LinkElement {
         return highlightColor;
     }
 
+    public Font highlightColor(XmlColor highlightColor) {
+        this.highlightColor = highlightColor;
+        return this;
+    }
+
     public void setHighlightColor(XmlColor highlightColor) {
         this.highlightColor = highlightColor;
     }
 
-    public Font italic(Boolean italic) {
-        this.italic = italic;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the font is formatted as italic.
@@ -931,14 +938,15 @@ public class Font extends LinkElement {
         return italic;
     }
 
+    public Font italic(Boolean italic) {
+        this.italic = italic;
+        return this;
+    }
+
     public void setItalic(Boolean italic) {
         this.italic = italic;
     }
 
-    public Font italicBi(Boolean italicBi) {
-        this.italicBi = italicBi;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the right-to-left text is formatted as italic.
@@ -949,14 +957,15 @@ public class Font extends LinkElement {
         return italicBi;
     }
 
+    public Font italicBi(Boolean italicBi) {
+        this.italicBi = italicBi;
+        return this;
+    }
+
     public void setItalicBi(Boolean italicBi) {
         this.italicBi = italicBi;
     }
 
-    public Font kerning(Double kerning) {
-        this.kerning = kerning;
-        return this;
-    }
 
     /**
      * Gets or sets the font size at which kerning starts.
@@ -967,14 +976,15 @@ public class Font extends LinkElement {
         return kerning;
     }
 
+    public Font kerning(Double kerning) {
+        this.kerning = kerning;
+        return this;
+    }
+
     public void setKerning(Double kerning) {
         this.kerning = kerning;
     }
 
-    public Font localeId(Integer localeId) {
-        this.localeId = localeId;
-        return this;
-    }
 
     /**
      * Gets or sets the locale identifier (language) of the formatted characters.
@@ -985,14 +995,15 @@ public class Font extends LinkElement {
         return localeId;
     }
 
+    public Font localeId(Integer localeId) {
+        this.localeId = localeId;
+        return this;
+    }
+
     public void setLocaleId(Integer localeId) {
         this.localeId = localeId;
     }
 
-    public Font localeIdBi(Integer localeIdBi) {
-        this.localeIdBi = localeIdBi;
-        return this;
-    }
 
     /**
      * Gets or sets the locale identifier (language) of the formatted right-to-left characters.
@@ -1003,14 +1014,15 @@ public class Font extends LinkElement {
         return localeIdBi;
     }
 
+    public Font localeIdBi(Integer localeIdBi) {
+        this.localeIdBi = localeIdBi;
+        return this;
+    }
+
     public void setLocaleIdBi(Integer localeIdBi) {
         this.localeIdBi = localeIdBi;
     }
 
-    public Font localeIdFarEast(Integer localeIdFarEast) {
-        this.localeIdFarEast = localeIdFarEast;
-        return this;
-    }
 
     /**
      * Gets or sets the locale identifier (language) of the formatted Asian characters.
@@ -1021,14 +1033,15 @@ public class Font extends LinkElement {
         return localeIdFarEast;
     }
 
+    public Font localeIdFarEast(Integer localeIdFarEast) {
+        this.localeIdFarEast = localeIdFarEast;
+        return this;
+    }
+
     public void setLocaleIdFarEast(Integer localeIdFarEast) {
         this.localeIdFarEast = localeIdFarEast;
     }
 
-    public Font name(String name) {
-        this.name = name;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the font.
@@ -1039,14 +1052,15 @@ public class Font extends LinkElement {
         return name;
     }
 
+    public Font name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public Font nameAscii(String nameAscii) {
-        this.nameAscii = nameAscii;
-        return this;
-    }
 
     /**
      * Gets or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).
@@ -1057,14 +1071,15 @@ public class Font extends LinkElement {
         return nameAscii;
     }
 
+    public Font nameAscii(String nameAscii) {
+        this.nameAscii = nameAscii;
+        return this;
+    }
+
     public void setNameAscii(String nameAscii) {
         this.nameAscii = nameAscii;
     }
 
-    public Font nameBi(String nameBi) {
-        this.nameBi = nameBi;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the font in a right-to-left language document.
@@ -1075,14 +1090,15 @@ public class Font extends LinkElement {
         return nameBi;
     }
 
+    public Font nameBi(String nameBi) {
+        this.nameBi = nameBi;
+        return this;
+    }
+
     public void setNameBi(String nameBi) {
         this.nameBi = nameBi;
     }
 
-    public Font nameFarEast(String nameFarEast) {
-        this.nameFarEast = nameFarEast;
-        return this;
-    }
 
     /**
      * Gets or sets the East Asian font name.
@@ -1093,14 +1109,15 @@ public class Font extends LinkElement {
         return nameFarEast;
     }
 
+    public Font nameFarEast(String nameFarEast) {
+        this.nameFarEast = nameFarEast;
+        return this;
+    }
+
     public void setNameFarEast(String nameFarEast) {
         this.nameFarEast = nameFarEast;
     }
 
-    public Font nameOther(String nameOther) {
-        this.nameOther = nameOther;
-        return this;
-    }
 
     /**
      * Gets or sets the font used for characters with character codes from 128 through 255.
@@ -1111,14 +1128,15 @@ public class Font extends LinkElement {
         return nameOther;
     }
 
+    public Font nameOther(String nameOther) {
+        this.nameOther = nameOther;
+        return this;
+    }
+
     public void setNameOther(String nameOther) {
         this.nameOther = nameOther;
     }
 
-    public Font noProofing(Boolean noProofing) {
-        this.noProofing = noProofing;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the formatted characters are not to be spell checked.
@@ -1129,14 +1147,15 @@ public class Font extends LinkElement {
         return noProofing;
     }
 
+    public Font noProofing(Boolean noProofing) {
+        this.noProofing = noProofing;
+        return this;
+    }
+
     public void setNoProofing(Boolean noProofing) {
         this.noProofing = noProofing;
     }
 
-    public Font outline(Boolean outline) {
-        this.outline = outline;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the font is formatted as outline.
@@ -1147,14 +1166,15 @@ public class Font extends LinkElement {
         return outline;
     }
 
+    public Font outline(Boolean outline) {
+        this.outline = outline;
+        return this;
+    }
+
     public void setOutline(Boolean outline) {
         this.outline = outline;
     }
 
-    public Font position(Double position) {
-        this.position = position;
-        return this;
-    }
 
     /**
      * Gets or sets the position of text (in points) relative to the base line.
@@ -1166,14 +1186,15 @@ public class Font extends LinkElement {
         return position;
     }
 
+    public Font position(Double position) {
+        this.position = position;
+        return this;
+    }
+
     public void setPosition(Double position) {
         this.position = position;
     }
 
-    public Font scaling(Integer scaling) {
-        this.scaling = scaling;
-        return this;
-    }
 
     /**
      * Gets or sets character width scaling in percent.
@@ -1184,14 +1205,15 @@ public class Font extends LinkElement {
         return scaling;
     }
 
+    public Font scaling(Integer scaling) {
+        this.scaling = scaling;
+        return this;
+    }
+
     public void setScaling(Integer scaling) {
         this.scaling = scaling;
     }
 
-    public Font shadow(Boolean shadow) {
-        this.shadow = shadow;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the font is formatted as shadowed.
@@ -1202,14 +1224,15 @@ public class Font extends LinkElement {
         return shadow;
     }
 
+    public Font shadow(Boolean shadow) {
+        this.shadow = shadow;
+        return this;
+    }
+
     public void setShadow(Boolean shadow) {
         this.shadow = shadow;
     }
 
-    public Font size(Double size) {
-        this.size = size;
-        return this;
-    }
 
     /**
      * Gets or sets the font size in points.
@@ -1220,14 +1243,15 @@ public class Font extends LinkElement {
         return size;
     }
 
+    public Font size(Double size) {
+        this.size = size;
+        return this;
+    }
+
     public void setSize(Double size) {
         this.size = size;
     }
 
-    public Font sizeBi(Double sizeBi) {
-        this.sizeBi = sizeBi;
-        return this;
-    }
 
     /**
      * Gets or sets the font size in points used in a right-to-left document.
@@ -1238,14 +1262,15 @@ public class Font extends LinkElement {
         return sizeBi;
     }
 
+    public Font sizeBi(Double sizeBi) {
+        this.sizeBi = sizeBi;
+        return this;
+    }
+
     public void setSizeBi(Double sizeBi) {
         this.sizeBi = sizeBi;
     }
 
-    public Font smallCaps(Boolean smallCaps) {
-        this.smallCaps = smallCaps;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the font is formatted as small capital letters.
@@ -1256,14 +1281,15 @@ public class Font extends LinkElement {
         return smallCaps;
     }
 
+    public Font smallCaps(Boolean smallCaps) {
+        this.smallCaps = smallCaps;
+        return this;
+    }
+
     public void setSmallCaps(Boolean smallCaps) {
         this.smallCaps = smallCaps;
     }
 
-    public Font spacing(Double spacing) {
-        this.spacing = spacing;
-        return this;
-    }
 
     /**
      * Gets or sets the spacing (in points) between characters.
@@ -1274,14 +1300,15 @@ public class Font extends LinkElement {
         return spacing;
     }
 
+    public Font spacing(Double spacing) {
+        this.spacing = spacing;
+        return this;
+    }
+
     public void setSpacing(Double spacing) {
         this.spacing = spacing;
     }
 
-    public Font strikeThrough(Boolean strikeThrough) {
-        this.strikeThrough = strikeThrough;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the font is formatted as strikethrough text.
@@ -1292,14 +1319,15 @@ public class Font extends LinkElement {
         return strikeThrough;
     }
 
+    public Font strikeThrough(Boolean strikeThrough) {
+        this.strikeThrough = strikeThrough;
+        return this;
+    }
+
     public void setStrikeThrough(Boolean strikeThrough) {
         this.strikeThrough = strikeThrough;
     }
 
-    public Font styleIdentifier(StyleIdentifierEnum styleIdentifier) {
-        this.styleIdentifier = styleIdentifier;
-        return this;
-    }
 
     /**
      * Gets or sets the locale independent style identifier of the character style applied to this formatting.
@@ -1310,14 +1338,15 @@ public class Font extends LinkElement {
         return styleIdentifier;
     }
 
+    public Font styleIdentifier(StyleIdentifierEnum styleIdentifier) {
+        this.styleIdentifier = styleIdentifier;
+        return this;
+    }
+
     public void setStyleIdentifier(StyleIdentifierEnum styleIdentifier) {
         this.styleIdentifier = styleIdentifier;
     }
 
-    public Font styleName(String styleName) {
-        this.styleName = styleName;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the character style applied to this formatting.
@@ -1328,14 +1357,15 @@ public class Font extends LinkElement {
         return styleName;
     }
 
+    public Font styleName(String styleName) {
+        this.styleName = styleName;
+        return this;
+    }
+
     public void setStyleName(String styleName) {
         this.styleName = styleName;
     }
 
-    public Font subscript(Boolean subscript) {
-        this.subscript = subscript;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the font is formatted as subscript.
@@ -1346,14 +1376,15 @@ public class Font extends LinkElement {
         return subscript;
     }
 
+    public Font subscript(Boolean subscript) {
+        this.subscript = subscript;
+        return this;
+    }
+
     public void setSubscript(Boolean subscript) {
         this.subscript = subscript;
     }
 
-    public Font superscript(Boolean superscript) {
-        this.superscript = superscript;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the font is formatted as superscript.
@@ -1364,14 +1395,15 @@ public class Font extends LinkElement {
         return superscript;
     }
 
+    public Font superscript(Boolean superscript) {
+        this.superscript = superscript;
+        return this;
+    }
+
     public void setSuperscript(Boolean superscript) {
         this.superscript = superscript;
     }
 
-    public Font textEffect(TextEffectEnum textEffect) {
-        this.textEffect = textEffect;
-        return this;
-    }
 
     /**
      * Gets or sets the font animation effect.
@@ -1382,14 +1414,15 @@ public class Font extends LinkElement {
         return textEffect;
     }
 
+    public Font textEffect(TextEffectEnum textEffect) {
+        this.textEffect = textEffect;
+        return this;
+    }
+
     public void setTextEffect(TextEffectEnum textEffect) {
         this.textEffect = textEffect;
     }
 
-    public Font underline(UnderlineEnum underline) {
-        this.underline = underline;
-        return this;
-    }
 
     /**
      * Gets or sets the type of underline applied to the font.
@@ -1400,14 +1433,15 @@ public class Font extends LinkElement {
         return underline;
     }
 
+    public Font underline(UnderlineEnum underline) {
+        this.underline = underline;
+        return this;
+    }
+
     public void setUnderline(UnderlineEnum underline) {
         this.underline = underline;
     }
 
-    public Font underlineColor(XmlColor underlineColor) {
-        this.underlineColor = underlineColor;
-        return this;
-    }
 
     /**
      * Gets or sets the color of the underline applied to the font.
@@ -1418,8 +1452,58 @@ public class Font extends LinkElement {
         return underlineColor;
     }
 
+    public Font underlineColor(XmlColor underlineColor) {
+        this.underlineColor = underlineColor;
+        return this;
+    }
+
     public void setUnderlineColor(XmlColor underlineColor) {
         this.underlineColor = underlineColor;
+    }
+
+
+    public Font() {
+        super();
+        this.allCaps = null;
+        this.bidi = null;
+        this.bold = null;
+        this.boldBi = null;
+        this.border = null;
+        this.color = null;
+        this.complexScript = null;
+        this.doubleStrikeThrough = null;
+        this.emboss = null;
+        this.engrave = null;
+        this.hidden = null;
+        this.highlightColor = null;
+        this.italic = null;
+        this.italicBi = null;
+        this.kerning = null;
+        this.localeId = null;
+        this.localeIdBi = null;
+        this.localeIdFarEast = null;
+        this.name = null;
+        this.nameAscii = null;
+        this.nameBi = null;
+        this.nameFarEast = null;
+        this.nameOther = null;
+        this.noProofing = null;
+        this.outline = null;
+        this.position = null;
+        this.scaling = null;
+        this.shadow = null;
+        this.size = null;
+        this.sizeBi = null;
+        this.smallCaps = null;
+        this.spacing = null;
+        this.strikeThrough = null;
+        this.styleIdentifier = null;
+        this.styleName = null;
+        this.subscript = null;
+        this.superscript = null;
+        this.textEffect = null;
+        this.underline = null;
+        this.underlineColor = null;
     }
 
     @Override
@@ -1485,47 +1569,47 @@ public class Font extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Font {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    allCaps: ").append(toIndentedString(allCaps)).append("\n");
-    sb.append("    bidi: ").append(toIndentedString(bidi)).append("\n");
-    sb.append("    bold: ").append(toIndentedString(bold)).append("\n");
-    sb.append("    boldBi: ").append(toIndentedString(boldBi)).append("\n");
-    sb.append("    border: ").append(toIndentedString(border)).append("\n");
-    sb.append("    color: ").append(toIndentedString(color)).append("\n");
-    sb.append("    complexScript: ").append(toIndentedString(complexScript)).append("\n");
-    sb.append("    doubleStrikeThrough: ").append(toIndentedString(doubleStrikeThrough)).append("\n");
-    sb.append("    emboss: ").append(toIndentedString(emboss)).append("\n");
-    sb.append("    engrave: ").append(toIndentedString(engrave)).append("\n");
-    sb.append("    hidden: ").append(toIndentedString(hidden)).append("\n");
-    sb.append("    highlightColor: ").append(toIndentedString(highlightColor)).append("\n");
-    sb.append("    italic: ").append(toIndentedString(italic)).append("\n");
-    sb.append("    italicBi: ").append(toIndentedString(italicBi)).append("\n");
-    sb.append("    kerning: ").append(toIndentedString(kerning)).append("\n");
-    sb.append("    localeId: ").append(toIndentedString(localeId)).append("\n");
-    sb.append("    localeIdBi: ").append(toIndentedString(localeIdBi)).append("\n");
-    sb.append("    localeIdFarEast: ").append(toIndentedString(localeIdFarEast)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    nameAscii: ").append(toIndentedString(nameAscii)).append("\n");
-    sb.append("    nameBi: ").append(toIndentedString(nameBi)).append("\n");
-    sb.append("    nameFarEast: ").append(toIndentedString(nameFarEast)).append("\n");
-    sb.append("    nameOther: ").append(toIndentedString(nameOther)).append("\n");
-    sb.append("    noProofing: ").append(toIndentedString(noProofing)).append("\n");
-    sb.append("    outline: ").append(toIndentedString(outline)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
-    sb.append("    scaling: ").append(toIndentedString(scaling)).append("\n");
-    sb.append("    shadow: ").append(toIndentedString(shadow)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    sizeBi: ").append(toIndentedString(sizeBi)).append("\n");
-    sb.append("    smallCaps: ").append(toIndentedString(smallCaps)).append("\n");
-    sb.append("    spacing: ").append(toIndentedString(spacing)).append("\n");
-    sb.append("    strikeThrough: ").append(toIndentedString(strikeThrough)).append("\n");
-    sb.append("    styleIdentifier: ").append(toIndentedString(styleIdentifier)).append("\n");
-    sb.append("    styleName: ").append(toIndentedString(styleName)).append("\n");
-    sb.append("    subscript: ").append(toIndentedString(subscript)).append("\n");
-    sb.append("    superscript: ").append(toIndentedString(superscript)).append("\n");
-    sb.append("    textEffect: ").append(toIndentedString(textEffect)).append("\n");
-    sb.append("    underline: ").append(toIndentedString(underline)).append("\n");
-    sb.append("    underlineColor: ").append(toIndentedString(underlineColor)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    allCaps: ").append(toIndentedString(getAllCaps())).append("\n");
+    sb.append("    bidi: ").append(toIndentedString(getBidi())).append("\n");
+    sb.append("    bold: ").append(toIndentedString(getBold())).append("\n");
+    sb.append("    boldBi: ").append(toIndentedString(getBoldBi())).append("\n");
+    sb.append("    border: ").append(toIndentedString(getBorder())).append("\n");
+    sb.append("    color: ").append(toIndentedString(getColor())).append("\n");
+    sb.append("    complexScript: ").append(toIndentedString(getComplexScript())).append("\n");
+    sb.append("    doubleStrikeThrough: ").append(toIndentedString(getDoubleStrikeThrough())).append("\n");
+    sb.append("    emboss: ").append(toIndentedString(getEmboss())).append("\n");
+    sb.append("    engrave: ").append(toIndentedString(getEngrave())).append("\n");
+    sb.append("    hidden: ").append(toIndentedString(getHidden())).append("\n");
+    sb.append("    highlightColor: ").append(toIndentedString(getHighlightColor())).append("\n");
+    sb.append("    italic: ").append(toIndentedString(getItalic())).append("\n");
+    sb.append("    italicBi: ").append(toIndentedString(getItalicBi())).append("\n");
+    sb.append("    kerning: ").append(toIndentedString(getKerning())).append("\n");
+    sb.append("    localeId: ").append(toIndentedString(getLocaleId())).append("\n");
+    sb.append("    localeIdBi: ").append(toIndentedString(getLocaleIdBi())).append("\n");
+    sb.append("    localeIdFarEast: ").append(toIndentedString(getLocaleIdFarEast())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
+    sb.append("    nameAscii: ").append(toIndentedString(getNameAscii())).append("\n");
+    sb.append("    nameBi: ").append(toIndentedString(getNameBi())).append("\n");
+    sb.append("    nameFarEast: ").append(toIndentedString(getNameFarEast())).append("\n");
+    sb.append("    nameOther: ").append(toIndentedString(getNameOther())).append("\n");
+    sb.append("    noProofing: ").append(toIndentedString(getNoProofing())).append("\n");
+    sb.append("    outline: ").append(toIndentedString(getOutline())).append("\n");
+    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
+    sb.append("    scaling: ").append(toIndentedString(getScaling())).append("\n");
+    sb.append("    shadow: ").append(toIndentedString(getShadow())).append("\n");
+    sb.append("    size: ").append(toIndentedString(getSize())).append("\n");
+    sb.append("    sizeBi: ").append(toIndentedString(getSizeBi())).append("\n");
+    sb.append("    smallCaps: ").append(toIndentedString(getSmallCaps())).append("\n");
+    sb.append("    spacing: ").append(toIndentedString(getSpacing())).append("\n");
+    sb.append("    strikeThrough: ").append(toIndentedString(getStrikeThrough())).append("\n");
+    sb.append("    styleIdentifier: ").append(toIndentedString(getStyleIdentifier())).append("\n");
+    sb.append("    styleName: ").append(toIndentedString(getStyleName())).append("\n");
+    sb.append("    subscript: ").append(toIndentedString(getSubscript())).append("\n");
+    sb.append("    superscript: ").append(toIndentedString(getSuperscript())).append("\n");
+    sb.append("    textEffect: ").append(toIndentedString(getTextEffect())).append("\n");
+    sb.append("    underline: ").append(toIndentedString(getUnderline())).append("\n");
+    sb.append("    underlineColor: ").append(toIndentedString(getUnderlineColor())).append("\n");
     sb.append("}");
     return sb.toString();
   }

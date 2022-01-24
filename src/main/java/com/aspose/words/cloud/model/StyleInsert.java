@@ -96,15 +96,10 @@ public class StyleInsert {
     }
 
     @SerializedName("StyleName")
-    private String styleName = null;
+    protected String styleName;
 
     @SerializedName("StyleType")
-    private StyleTypeEnum styleType = null;
-    public StyleInsert styleName(String styleName) {
-        this.styleName = styleName;
-        return this;
-    }
-
+    protected StyleTypeEnum styleType;
     /**
      * Gets or sets the case sensitive name of the style to create.
     * @return styleName
@@ -114,14 +109,15 @@ public class StyleInsert {
         return styleName;
     }
 
+    public StyleInsert styleName(String styleName) {
+        this.styleName = styleName;
+        return this;
+    }
+
     public void setStyleName(String styleName) {
         this.styleName = styleName;
     }
 
-    public StyleInsert styleType(StyleTypeEnum styleType) {
-        this.styleType = styleType;
-        return this;
-    }
 
     /**
      * Gets or sets the StyleType value that specifies the type of the style to create.
@@ -132,8 +128,19 @@ public class StyleInsert {
         return styleType;
     }
 
+    public StyleInsert styleType(StyleTypeEnum styleType) {
+        this.styleType = styleType;
+        return this;
+    }
+
     public void setStyleType(StyleTypeEnum styleType) {
         this.styleType = styleType;
+    }
+
+
+    public StyleInsert() {
+        this.styleName = null;
+        this.styleType = null;
     }
 
     @Override
@@ -160,8 +167,8 @@ public class StyleInsert {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StyleInsert {\n");
-    sb.append("    styleName: ").append(toIndentedString(styleName)).append("\n");
-    sb.append("    styleType: ").append(toIndentedString(styleType)).append("\n");
+    sb.append("    styleName: ").append(toIndentedString(getStyleName())).append("\n");
+    sb.append("    styleType: ").append(toIndentedString(getStyleType())).append("\n");
     sb.append("}");
     return sb.toString();
   }

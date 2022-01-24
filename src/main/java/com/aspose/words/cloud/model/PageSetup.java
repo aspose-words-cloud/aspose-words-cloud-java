@@ -498,96 +498,91 @@ public class PageSetup extends LinkElement {
     }
 
     @SerializedName("Bidi")
-    private Boolean bidi = null;
+    protected Boolean bidi;
 
     @SerializedName("BorderAlwaysInFront")
-    private Boolean borderAlwaysInFront = null;
+    protected Boolean borderAlwaysInFront;
 
     @SerializedName("BorderAppliesTo")
-    private BorderAppliesToEnum borderAppliesTo = null;
+    protected BorderAppliesToEnum borderAppliesTo;
 
     @SerializedName("BorderDistanceFrom")
-    private BorderDistanceFromEnum borderDistanceFrom = null;
+    protected BorderDistanceFromEnum borderDistanceFrom;
 
     @SerializedName("BottomMargin")
-    private Double bottomMargin = null;
+    protected Double bottomMargin;
 
     @SerializedName("DifferentFirstPageHeaderFooter")
-    private Boolean differentFirstPageHeaderFooter = null;
+    protected Boolean differentFirstPageHeaderFooter;
 
     @SerializedName("FirstPageTray")
-    private Integer firstPageTray = null;
+    protected Integer firstPageTray;
 
     @SerializedName("FooterDistance")
-    private Double footerDistance = null;
+    protected Double footerDistance;
 
     @SerializedName("Gutter")
-    private Double gutter = null;
+    protected Double gutter;
 
     @SerializedName("HeaderDistance")
-    private Double headerDistance = null;
+    protected Double headerDistance;
 
     @SerializedName("LeftMargin")
-    private Double leftMargin = null;
+    protected Double leftMargin;
 
     @SerializedName("LineNumberCountBy")
-    private Integer lineNumberCountBy = null;
+    protected Integer lineNumberCountBy;
 
     @SerializedName("LineNumberDistanceFromText")
-    private Double lineNumberDistanceFromText = null;
+    protected Double lineNumberDistanceFromText;
 
     @SerializedName("LineNumberRestartMode")
-    private LineNumberRestartModeEnum lineNumberRestartMode = null;
+    protected LineNumberRestartModeEnum lineNumberRestartMode;
 
     @SerializedName("LineStartingNumber")
-    private Integer lineStartingNumber = null;
+    protected Integer lineStartingNumber;
 
     @SerializedName("Orientation")
-    private OrientationEnum orientation = null;
+    protected OrientationEnum orientation;
 
     @SerializedName("OtherPagesTray")
-    private Integer otherPagesTray = null;
+    protected Integer otherPagesTray;
 
     @SerializedName("PageHeight")
-    private Double pageHeight = null;
+    protected Double pageHeight;
 
     @SerializedName("PageNumberStyle")
-    private PageNumberStyleEnum pageNumberStyle = null;
+    protected PageNumberStyleEnum pageNumberStyle;
 
     @SerializedName("PageStartingNumber")
-    private Integer pageStartingNumber = null;
+    protected Integer pageStartingNumber;
 
     @SerializedName("PageWidth")
-    private Double pageWidth = null;
+    protected Double pageWidth;
 
     @SerializedName("PaperSize")
-    private PaperSizeEnum paperSize = null;
+    protected PaperSizeEnum paperSize;
 
     @SerializedName("RestartPageNumbering")
-    private Boolean restartPageNumbering = null;
+    protected Boolean restartPageNumbering;
 
     @SerializedName("RightMargin")
-    private Double rightMargin = null;
+    protected Double rightMargin;
 
     @SerializedName("RtlGutter")
-    private Boolean rtlGutter = null;
+    protected Boolean rtlGutter;
 
     @SerializedName("SectionStart")
-    private SectionStartEnum sectionStart = null;
+    protected SectionStartEnum sectionStart;
 
     @SerializedName("SuppressEndnotes")
-    private Boolean suppressEndnotes = null;
+    protected Boolean suppressEndnotes;
 
     @SerializedName("TopMargin")
-    private Double topMargin = null;
+    protected Double topMargin;
 
     @SerializedName("VerticalAlignment")
-    private VerticalAlignmentEnum verticalAlignment = null;
-    public PageSetup bidi(Boolean bidi) {
-        this.bidi = bidi;
-        return this;
-    }
-
+    protected VerticalAlignmentEnum verticalAlignment;
     /**
      * Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text.
     * @return bidi
@@ -597,14 +592,15 @@ public class PageSetup extends LinkElement {
         return bidi;
     }
 
+    public PageSetup bidi(Boolean bidi) {
+        this.bidi = bidi;
+        return this;
+    }
+
     public void setBidi(Boolean bidi) {
         this.bidi = bidi;
     }
 
-    public PageSetup borderAlwaysInFront(Boolean borderAlwaysInFront) {
-        this.borderAlwaysInFront = borderAlwaysInFront;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the page border is positioned relative to intersecting texts and objects.
@@ -615,14 +611,15 @@ public class PageSetup extends LinkElement {
         return borderAlwaysInFront;
     }
 
+    public PageSetup borderAlwaysInFront(Boolean borderAlwaysInFront) {
+        this.borderAlwaysInFront = borderAlwaysInFront;
+        return this;
+    }
+
     public void setBorderAlwaysInFront(Boolean borderAlwaysInFront) {
         this.borderAlwaysInFront = borderAlwaysInFront;
     }
 
-    public PageSetup borderAppliesTo(BorderAppliesToEnum borderAppliesTo) {
-        this.borderAppliesTo = borderAppliesTo;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls which pages the page border is printed on.
@@ -633,14 +630,15 @@ public class PageSetup extends LinkElement {
         return borderAppliesTo;
     }
 
+    public PageSetup borderAppliesTo(BorderAppliesToEnum borderAppliesTo) {
+        this.borderAppliesTo = borderAppliesTo;
+        return this;
+    }
+
     public void setBorderAppliesTo(BorderAppliesToEnum borderAppliesTo) {
         this.borderAppliesTo = borderAppliesTo;
     }
 
-    public PageSetup borderDistanceFrom(BorderDistanceFromEnum borderDistanceFrom) {
-        this.borderDistanceFrom = borderDistanceFrom;
-        return this;
-    }
 
     /**
      * Gets or sets the value, that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.
@@ -651,14 +649,15 @@ public class PageSetup extends LinkElement {
         return borderDistanceFrom;
     }
 
+    public PageSetup borderDistanceFrom(BorderDistanceFromEnum borderDistanceFrom) {
+        this.borderDistanceFrom = borderDistanceFrom;
+        return this;
+    }
+
     public void setBorderDistanceFrom(BorderDistanceFromEnum borderDistanceFrom) {
         this.borderDistanceFrom = borderDistanceFrom;
     }
 
-    public PageSetup bottomMargin(Double bottomMargin) {
-        this.bottomMargin = bottomMargin;
-        return this;
-    }
 
     /**
      * Gets or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.
@@ -669,14 +668,15 @@ public class PageSetup extends LinkElement {
         return bottomMargin;
     }
 
+    public PageSetup bottomMargin(Double bottomMargin) {
+        this.bottomMargin = bottomMargin;
+        return this;
+    }
+
     public void setBottomMargin(Double bottomMargin) {
         this.bottomMargin = bottomMargin;
     }
 
-    public PageSetup differentFirstPageHeaderFooter(Boolean differentFirstPageHeaderFooter) {
-        this.differentFirstPageHeaderFooter = differentFirstPageHeaderFooter;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether a different header or footer is used on the first page.
@@ -687,14 +687,15 @@ public class PageSetup extends LinkElement {
         return differentFirstPageHeaderFooter;
     }
 
+    public PageSetup differentFirstPageHeaderFooter(Boolean differentFirstPageHeaderFooter) {
+        this.differentFirstPageHeaderFooter = differentFirstPageHeaderFooter;
+        return this;
+    }
+
     public void setDifferentFirstPageHeaderFooter(Boolean differentFirstPageHeaderFooter) {
         this.differentFirstPageHeaderFooter = differentFirstPageHeaderFooter;
     }
 
-    public PageSetup firstPageTray(Integer firstPageTray) {
-        this.firstPageTray = firstPageTray;
-        return this;
-    }
 
     /**
      * Gets or sets the paper tray (bin) to use for the first page of a section.
@@ -706,14 +707,15 @@ public class PageSetup extends LinkElement {
         return firstPageTray;
     }
 
+    public PageSetup firstPageTray(Integer firstPageTray) {
+        this.firstPageTray = firstPageTray;
+        return this;
+    }
+
     public void setFirstPageTray(Integer firstPageTray) {
         this.firstPageTray = firstPageTray;
     }
 
-    public PageSetup footerDistance(Double footerDistance) {
-        this.footerDistance = footerDistance;
-        return this;
-    }
 
     /**
      * Gets or sets the distance (in points) between the footer and the bottom of the page.
@@ -724,14 +726,15 @@ public class PageSetup extends LinkElement {
         return footerDistance;
     }
 
+    public PageSetup footerDistance(Double footerDistance) {
+        this.footerDistance = footerDistance;
+        return this;
+    }
+
     public void setFooterDistance(Double footerDistance) {
         this.footerDistance = footerDistance;
     }
 
-    public PageSetup gutter(Double gutter) {
-        this.gutter = gutter;
-        return this;
-    }
 
     /**
      * Gets or sets the amount of extra space added to the margin for document binding.
@@ -742,14 +745,15 @@ public class PageSetup extends LinkElement {
         return gutter;
     }
 
+    public PageSetup gutter(Double gutter) {
+        this.gutter = gutter;
+        return this;
+    }
+
     public void setGutter(Double gutter) {
         this.gutter = gutter;
     }
 
-    public PageSetup headerDistance(Double headerDistance) {
-        this.headerDistance = headerDistance;
-        return this;
-    }
 
     /**
      * Gets or sets the distance (in points) between the header and the top of the page.
@@ -760,14 +764,15 @@ public class PageSetup extends LinkElement {
         return headerDistance;
     }
 
+    public PageSetup headerDistance(Double headerDistance) {
+        this.headerDistance = headerDistance;
+        return this;
+    }
+
     public void setHeaderDistance(Double headerDistance) {
         this.headerDistance = headerDistance;
     }
 
-    public PageSetup leftMargin(Double leftMargin) {
-        this.leftMargin = leftMargin;
-        return this;
-    }
 
     /**
      * Gets or sets the distance (in points) between the left edge of the page and the left boundary of the body text.
@@ -778,14 +783,15 @@ public class PageSetup extends LinkElement {
         return leftMargin;
     }
 
+    public PageSetup leftMargin(Double leftMargin) {
+        this.leftMargin = leftMargin;
+        return this;
+    }
+
     public void setLeftMargin(Double leftMargin) {
         this.leftMargin = leftMargin;
     }
 
-    public PageSetup lineNumberCountBy(Integer lineNumberCountBy) {
-        this.lineNumberCountBy = lineNumberCountBy;
-        return this;
-    }
 
     /**
      * Gets or sets the numeric increment for line numbers.
@@ -796,14 +802,15 @@ public class PageSetup extends LinkElement {
         return lineNumberCountBy;
     }
 
+    public PageSetup lineNumberCountBy(Integer lineNumberCountBy) {
+        this.lineNumberCountBy = lineNumberCountBy;
+        return this;
+    }
+
     public void setLineNumberCountBy(Integer lineNumberCountBy) {
         this.lineNumberCountBy = lineNumberCountBy;
     }
 
-    public PageSetup lineNumberDistanceFromText(Double lineNumberDistanceFromText) {
-        this.lineNumberDistanceFromText = lineNumberDistanceFromText;
-        return this;
-    }
 
     /**
      * Gets or sets the distance between the right edge of line numbers and the left edge of the document.
@@ -814,14 +821,15 @@ public class PageSetup extends LinkElement {
         return lineNumberDistanceFromText;
     }
 
+    public PageSetup lineNumberDistanceFromText(Double lineNumberDistanceFromText) {
+        this.lineNumberDistanceFromText = lineNumberDistanceFromText;
+        return this;
+    }
+
     public void setLineNumberDistanceFromText(Double lineNumberDistanceFromText) {
         this.lineNumberDistanceFromText = lineNumberDistanceFromText;
     }
 
-    public PageSetup lineNumberRestartMode(LineNumberRestartModeEnum lineNumberRestartMode) {
-        this.lineNumberRestartMode = lineNumberRestartMode;
-        return this;
-    }
 
     /**
      * Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.
@@ -832,14 +840,15 @@ public class PageSetup extends LinkElement {
         return lineNumberRestartMode;
     }
 
+    public PageSetup lineNumberRestartMode(LineNumberRestartModeEnum lineNumberRestartMode) {
+        this.lineNumberRestartMode = lineNumberRestartMode;
+        return this;
+    }
+
     public void setLineNumberRestartMode(LineNumberRestartModeEnum lineNumberRestartMode) {
         this.lineNumberRestartMode = lineNumberRestartMode;
     }
 
-    public PageSetup lineStartingNumber(Integer lineStartingNumber) {
-        this.lineStartingNumber = lineStartingNumber;
-        return this;
-    }
 
     /**
      * Gets or sets the starting line number.
@@ -850,14 +859,15 @@ public class PageSetup extends LinkElement {
         return lineStartingNumber;
     }
 
+    public PageSetup lineStartingNumber(Integer lineStartingNumber) {
+        this.lineStartingNumber = lineStartingNumber;
+        return this;
+    }
+
     public void setLineStartingNumber(Integer lineStartingNumber) {
         this.lineStartingNumber = lineStartingNumber;
     }
 
-    public PageSetup orientation(OrientationEnum orientation) {
-        this.orientation = orientation;
-        return this;
-    }
 
     /**
      * Gets or sets the orientation of the page.
@@ -868,14 +878,15 @@ public class PageSetup extends LinkElement {
         return orientation;
     }
 
+    public PageSetup orientation(OrientationEnum orientation) {
+        this.orientation = orientation;
+        return this;
+    }
+
     public void setOrientation(OrientationEnum orientation) {
         this.orientation = orientation;
     }
 
-    public PageSetup otherPagesTray(Integer otherPagesTray) {
-        this.otherPagesTray = otherPagesTray;
-        return this;
-    }
 
     /**
      * Gets or sets the paper tray (bin) to be used for all but the first page of a section.
@@ -887,14 +898,15 @@ public class PageSetup extends LinkElement {
         return otherPagesTray;
     }
 
+    public PageSetup otherPagesTray(Integer otherPagesTray) {
+        this.otherPagesTray = otherPagesTray;
+        return this;
+    }
+
     public void setOtherPagesTray(Integer otherPagesTray) {
         this.otherPagesTray = otherPagesTray;
     }
 
-    public PageSetup pageHeight(Double pageHeight) {
-        this.pageHeight = pageHeight;
-        return this;
-    }
 
     /**
      * Gets or sets the height of the page in points.
@@ -905,14 +917,15 @@ public class PageSetup extends LinkElement {
         return pageHeight;
     }
 
+    public PageSetup pageHeight(Double pageHeight) {
+        this.pageHeight = pageHeight;
+        return this;
+    }
+
     public void setPageHeight(Double pageHeight) {
         this.pageHeight = pageHeight;
     }
 
-    public PageSetup pageNumberStyle(PageNumberStyleEnum pageNumberStyle) {
-        this.pageNumberStyle = pageNumberStyle;
-        return this;
-    }
 
     /**
      * Gets or sets the page number format.
@@ -923,14 +936,15 @@ public class PageSetup extends LinkElement {
         return pageNumberStyle;
     }
 
+    public PageSetup pageNumberStyle(PageNumberStyleEnum pageNumberStyle) {
+        this.pageNumberStyle = pageNumberStyle;
+        return this;
+    }
+
     public void setPageNumberStyle(PageNumberStyleEnum pageNumberStyle) {
         this.pageNumberStyle = pageNumberStyle;
     }
 
-    public PageSetup pageStartingNumber(Integer pageStartingNumber) {
-        this.pageStartingNumber = pageStartingNumber;
-        return this;
-    }
 
     /**
      * Gets or sets the starting page number of the section.
@@ -941,14 +955,15 @@ public class PageSetup extends LinkElement {
         return pageStartingNumber;
     }
 
+    public PageSetup pageStartingNumber(Integer pageStartingNumber) {
+        this.pageStartingNumber = pageStartingNumber;
+        return this;
+    }
+
     public void setPageStartingNumber(Integer pageStartingNumber) {
         this.pageStartingNumber = pageStartingNumber;
     }
 
-    public PageSetup pageWidth(Double pageWidth) {
-        this.pageWidth = pageWidth;
-        return this;
-    }
 
     /**
      * Gets or sets the width of the page in points.
@@ -959,14 +974,15 @@ public class PageSetup extends LinkElement {
         return pageWidth;
     }
 
+    public PageSetup pageWidth(Double pageWidth) {
+        this.pageWidth = pageWidth;
+        return this;
+    }
+
     public void setPageWidth(Double pageWidth) {
         this.pageWidth = pageWidth;
     }
 
-    public PageSetup paperSize(PaperSizeEnum paperSize) {
-        this.paperSize = paperSize;
-        return this;
-    }
 
     /**
      * Gets or sets the paper size.
@@ -977,14 +993,15 @@ public class PageSetup extends LinkElement {
         return paperSize;
     }
 
+    public PageSetup paperSize(PaperSizeEnum paperSize) {
+        this.paperSize = paperSize;
+        return this;
+    }
+
     public void setPaperSize(PaperSizeEnum paperSize) {
         this.paperSize = paperSize;
     }
 
-    public PageSetup restartPageNumbering(Boolean restartPageNumbering) {
-        this.restartPageNumbering = restartPageNumbering;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether page numbering restarts at the beginning of the section.
@@ -995,14 +1012,15 @@ public class PageSetup extends LinkElement {
         return restartPageNumbering;
     }
 
+    public PageSetup restartPageNumbering(Boolean restartPageNumbering) {
+        this.restartPageNumbering = restartPageNumbering;
+        return this;
+    }
+
     public void setRestartPageNumbering(Boolean restartPageNumbering) {
         this.restartPageNumbering = restartPageNumbering;
     }
 
-    public PageSetup rightMargin(Double rightMargin) {
-        this.rightMargin = rightMargin;
-        return this;
-    }
 
     /**
      * Gets or sets the distance (in points) between the right edge of the page and the right boundary of the body text.
@@ -1013,14 +1031,15 @@ public class PageSetup extends LinkElement {
         return rightMargin;
     }
 
+    public PageSetup rightMargin(Double rightMargin) {
+        this.rightMargin = rightMargin;
+        return this;
+    }
+
     public void setRightMargin(Double rightMargin) {
         this.rightMargin = rightMargin;
     }
 
-    public PageSetup rtlGutter(Boolean rtlGutter) {
-        this.rtlGutter = rtlGutter;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.
@@ -1031,14 +1050,15 @@ public class PageSetup extends LinkElement {
         return rtlGutter;
     }
 
+    public PageSetup rtlGutter(Boolean rtlGutter) {
+        this.rtlGutter = rtlGutter;
+        return this;
+    }
+
     public void setRtlGutter(Boolean rtlGutter) {
         this.rtlGutter = rtlGutter;
     }
 
-    public PageSetup sectionStart(SectionStartEnum sectionStart) {
-        this.sectionStart = sectionStart;
-        return this;
-    }
 
     /**
      * Gets or sets the type of section break for the specified object.
@@ -1049,14 +1069,15 @@ public class PageSetup extends LinkElement {
         return sectionStart;
     }
 
+    public PageSetup sectionStart(SectionStartEnum sectionStart) {
+        this.sectionStart = sectionStart;
+        return this;
+    }
+
     public void setSectionStart(SectionStartEnum sectionStart) {
         this.sectionStart = sectionStart;
     }
 
-    public PageSetup suppressEndnotes(Boolean suppressEndnotes) {
-        this.suppressEndnotes = suppressEndnotes;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.
@@ -1067,14 +1088,15 @@ public class PageSetup extends LinkElement {
         return suppressEndnotes;
     }
 
+    public PageSetup suppressEndnotes(Boolean suppressEndnotes) {
+        this.suppressEndnotes = suppressEndnotes;
+        return this;
+    }
+
     public void setSuppressEndnotes(Boolean suppressEndnotes) {
         this.suppressEndnotes = suppressEndnotes;
     }
 
-    public PageSetup topMargin(Double topMargin) {
-        this.topMargin = topMargin;
-        return this;
-    }
 
     /**
      * Gets or sets the distance (in points) between the top edge of the page and the top boundary of the body text.
@@ -1085,14 +1107,15 @@ public class PageSetup extends LinkElement {
         return topMargin;
     }
 
+    public PageSetup topMargin(Double topMargin) {
+        this.topMargin = topMargin;
+        return this;
+    }
+
     public void setTopMargin(Double topMargin) {
         this.topMargin = topMargin;
     }
 
-    public PageSetup verticalAlignment(VerticalAlignmentEnum verticalAlignment) {
-        this.verticalAlignment = verticalAlignment;
-        return this;
-    }
 
     /**
      * Gets or sets the vertical alignment of text on each page in the document.or section.
@@ -1103,8 +1126,47 @@ public class PageSetup extends LinkElement {
         return verticalAlignment;
     }
 
+    public PageSetup verticalAlignment(VerticalAlignmentEnum verticalAlignment) {
+        this.verticalAlignment = verticalAlignment;
+        return this;
+    }
+
     public void setVerticalAlignment(VerticalAlignmentEnum verticalAlignment) {
         this.verticalAlignment = verticalAlignment;
+    }
+
+
+    public PageSetup() {
+        super();
+        this.bidi = null;
+        this.borderAlwaysInFront = null;
+        this.borderAppliesTo = null;
+        this.borderDistanceFrom = null;
+        this.bottomMargin = null;
+        this.differentFirstPageHeaderFooter = null;
+        this.firstPageTray = null;
+        this.footerDistance = null;
+        this.gutter = null;
+        this.headerDistance = null;
+        this.leftMargin = null;
+        this.lineNumberCountBy = null;
+        this.lineNumberDistanceFromText = null;
+        this.lineNumberRestartMode = null;
+        this.lineStartingNumber = null;
+        this.orientation = null;
+        this.otherPagesTray = null;
+        this.pageHeight = null;
+        this.pageNumberStyle = null;
+        this.pageStartingNumber = null;
+        this.pageWidth = null;
+        this.paperSize = null;
+        this.restartPageNumbering = null;
+        this.rightMargin = null;
+        this.rtlGutter = null;
+        this.sectionStart = null;
+        this.suppressEndnotes = null;
+        this.topMargin = null;
+        this.verticalAlignment = null;
     }
 
     @Override
@@ -1159,36 +1221,36 @@ public class PageSetup extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PageSetup {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    bidi: ").append(toIndentedString(bidi)).append("\n");
-    sb.append("    borderAlwaysInFront: ").append(toIndentedString(borderAlwaysInFront)).append("\n");
-    sb.append("    borderAppliesTo: ").append(toIndentedString(borderAppliesTo)).append("\n");
-    sb.append("    borderDistanceFrom: ").append(toIndentedString(borderDistanceFrom)).append("\n");
-    sb.append("    bottomMargin: ").append(toIndentedString(bottomMargin)).append("\n");
-    sb.append("    differentFirstPageHeaderFooter: ").append(toIndentedString(differentFirstPageHeaderFooter)).append("\n");
-    sb.append("    firstPageTray: ").append(toIndentedString(firstPageTray)).append("\n");
-    sb.append("    footerDistance: ").append(toIndentedString(footerDistance)).append("\n");
-    sb.append("    gutter: ").append(toIndentedString(gutter)).append("\n");
-    sb.append("    headerDistance: ").append(toIndentedString(headerDistance)).append("\n");
-    sb.append("    leftMargin: ").append(toIndentedString(leftMargin)).append("\n");
-    sb.append("    lineNumberCountBy: ").append(toIndentedString(lineNumberCountBy)).append("\n");
-    sb.append("    lineNumberDistanceFromText: ").append(toIndentedString(lineNumberDistanceFromText)).append("\n");
-    sb.append("    lineNumberRestartMode: ").append(toIndentedString(lineNumberRestartMode)).append("\n");
-    sb.append("    lineStartingNumber: ").append(toIndentedString(lineStartingNumber)).append("\n");
-    sb.append("    orientation: ").append(toIndentedString(orientation)).append("\n");
-    sb.append("    otherPagesTray: ").append(toIndentedString(otherPagesTray)).append("\n");
-    sb.append("    pageHeight: ").append(toIndentedString(pageHeight)).append("\n");
-    sb.append("    pageNumberStyle: ").append(toIndentedString(pageNumberStyle)).append("\n");
-    sb.append("    pageStartingNumber: ").append(toIndentedString(pageStartingNumber)).append("\n");
-    sb.append("    pageWidth: ").append(toIndentedString(pageWidth)).append("\n");
-    sb.append("    paperSize: ").append(toIndentedString(paperSize)).append("\n");
-    sb.append("    restartPageNumbering: ").append(toIndentedString(restartPageNumbering)).append("\n");
-    sb.append("    rightMargin: ").append(toIndentedString(rightMargin)).append("\n");
-    sb.append("    rtlGutter: ").append(toIndentedString(rtlGutter)).append("\n");
-    sb.append("    sectionStart: ").append(toIndentedString(sectionStart)).append("\n");
-    sb.append("    suppressEndnotes: ").append(toIndentedString(suppressEndnotes)).append("\n");
-    sb.append("    topMargin: ").append(toIndentedString(topMargin)).append("\n");
-    sb.append("    verticalAlignment: ").append(toIndentedString(verticalAlignment)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    bidi: ").append(toIndentedString(getBidi())).append("\n");
+    sb.append("    borderAlwaysInFront: ").append(toIndentedString(getBorderAlwaysInFront())).append("\n");
+    sb.append("    borderAppliesTo: ").append(toIndentedString(getBorderAppliesTo())).append("\n");
+    sb.append("    borderDistanceFrom: ").append(toIndentedString(getBorderDistanceFrom())).append("\n");
+    sb.append("    bottomMargin: ").append(toIndentedString(getBottomMargin())).append("\n");
+    sb.append("    differentFirstPageHeaderFooter: ").append(toIndentedString(getDifferentFirstPageHeaderFooter())).append("\n");
+    sb.append("    firstPageTray: ").append(toIndentedString(getFirstPageTray())).append("\n");
+    sb.append("    footerDistance: ").append(toIndentedString(getFooterDistance())).append("\n");
+    sb.append("    gutter: ").append(toIndentedString(getGutter())).append("\n");
+    sb.append("    headerDistance: ").append(toIndentedString(getHeaderDistance())).append("\n");
+    sb.append("    leftMargin: ").append(toIndentedString(getLeftMargin())).append("\n");
+    sb.append("    lineNumberCountBy: ").append(toIndentedString(getLineNumberCountBy())).append("\n");
+    sb.append("    lineNumberDistanceFromText: ").append(toIndentedString(getLineNumberDistanceFromText())).append("\n");
+    sb.append("    lineNumberRestartMode: ").append(toIndentedString(getLineNumberRestartMode())).append("\n");
+    sb.append("    lineStartingNumber: ").append(toIndentedString(getLineStartingNumber())).append("\n");
+    sb.append("    orientation: ").append(toIndentedString(getOrientation())).append("\n");
+    sb.append("    otherPagesTray: ").append(toIndentedString(getOtherPagesTray())).append("\n");
+    sb.append("    pageHeight: ").append(toIndentedString(getPageHeight())).append("\n");
+    sb.append("    pageNumberStyle: ").append(toIndentedString(getPageNumberStyle())).append("\n");
+    sb.append("    pageStartingNumber: ").append(toIndentedString(getPageStartingNumber())).append("\n");
+    sb.append("    pageWidth: ").append(toIndentedString(getPageWidth())).append("\n");
+    sb.append("    paperSize: ").append(toIndentedString(getPaperSize())).append("\n");
+    sb.append("    restartPageNumbering: ").append(toIndentedString(getRestartPageNumbering())).append("\n");
+    sb.append("    rightMargin: ").append(toIndentedString(getRightMargin())).append("\n");
+    sb.append("    rtlGutter: ").append(toIndentedString(getRtlGutter())).append("\n");
+    sb.append("    sectionStart: ").append(toIndentedString(getSectionStart())).append("\n");
+    sb.append("    suppressEndnotes: ").append(toIndentedString(getSuppressEndnotes())).append("\n");
+    sb.append("    topMargin: ").append(toIndentedString(getTopMargin())).append("\n");
+    sb.append("    verticalAlignment: ").append(toIndentedString(getVerticalAlignment())).append("\n");
     sb.append("}");
     return sb.toString();
   }

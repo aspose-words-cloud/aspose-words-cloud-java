@@ -95,15 +95,10 @@ public class PreferredWidth {
     }
 
     @SerializedName("Type")
-    private TypeEnum type = null;
+    protected TypeEnum type;
 
     @SerializedName("Value")
-    private Double value = null;
-    public PreferredWidth type(TypeEnum type) {
-        this.type = type;
-        return this;
-    }
-
+    protected Double value;
     /**
      * Gets or sets the unit of measure used for this preferred width value.
     * @return type
@@ -113,14 +108,15 @@ public class PreferredWidth {
         return type;
     }
 
+    public PreferredWidth type(TypeEnum type) {
+        this.type = type;
+        return this;
+    }
+
     public void setType(TypeEnum type) {
         this.type = type;
     }
 
-    public PreferredWidth value(Double value) {
-        this.value = value;
-        return this;
-    }
 
     /**
      * Gets or sets the preferred width value. The unit of measure is specified in the Type property.
@@ -131,8 +127,19 @@ public class PreferredWidth {
         return value;
     }
 
+    public PreferredWidth value(Double value) {
+        this.value = value;
+        return this;
+    }
+
     public void setValue(Double value) {
         this.value = value;
+    }
+
+
+    public PreferredWidth() {
+        this.type = null;
+        this.value = null;
     }
 
     @Override
@@ -159,8 +166,8 @@ public class PreferredWidth {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PreferredWidth {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    type: ").append(toIndentedString(getType())).append("\n");
+    sb.append("    value: ").append(toIndentedString(getValue())).append("\n");
     sb.append("}");
     return sb.toString();
   }

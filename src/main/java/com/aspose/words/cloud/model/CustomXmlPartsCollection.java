@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The collection of CustomXmlPart.")
 public class CustomXmlPartsCollection extends LinkElement {
     @SerializedName("CustomXmlPartsList")
-    private List<CustomXmlPart> customXmlPartsList = null;
+    protected List<CustomXmlPart> customXmlPartsList;
+    /**
+     * Gets or sets the collection of CustomXmlPart.
+    * @return customXmlPartsList
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of CustomXmlPart.")
+    public List<CustomXmlPart> getCustomXmlPartsList() {
+        return customXmlPartsList;
+    }
+
     public CustomXmlPartsCollection customXmlPartsList(List<CustomXmlPart> customXmlPartsList) {
         this.customXmlPartsList = customXmlPartsList;
         return this;
@@ -62,17 +71,15 @@ public class CustomXmlPartsCollection extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of CustomXmlPart.
-    * @return customXmlPartsList
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of CustomXmlPart.")
-    public List<CustomXmlPart> getCustomXmlPartsList() {
-        return customXmlPartsList;
-    }
 
     public void setCustomXmlPartsList(List<CustomXmlPart> customXmlPartsList) {
         this.customXmlPartsList = customXmlPartsList;
+    }
+
+
+    public CustomXmlPartsCollection() {
+        super();
+        this.customXmlPartsList = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class CustomXmlPartsCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomXmlPartsCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    customXmlPartsList: ").append(toIndentedString(customXmlPartsList)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    customXmlPartsList: ").append(toIndentedString(getCustomXmlPartsList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

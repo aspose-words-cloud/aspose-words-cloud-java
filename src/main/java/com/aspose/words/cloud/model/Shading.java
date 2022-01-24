@@ -146,18 +146,13 @@ public class Shading {
     }
 
     @SerializedName("BackgroundPatternColor")
-    private XmlColor backgroundPatternColor = null;
+    protected XmlColor backgroundPatternColor;
 
     @SerializedName("ForegroundPatternColor")
-    private XmlColor foregroundPatternColor = null;
+    protected XmlColor foregroundPatternColor;
 
     @SerializedName("Texture")
-    private TextureEnum texture = null;
-    public Shading backgroundPatternColor(XmlColor backgroundPatternColor) {
-        this.backgroundPatternColor = backgroundPatternColor;
-        return this;
-    }
-
+    protected TextureEnum texture;
     /**
      * Gets or sets the color that's applied to the background of the Shading object.
     * @return backgroundPatternColor
@@ -167,14 +162,15 @@ public class Shading {
         return backgroundPatternColor;
     }
 
+    public Shading backgroundPatternColor(XmlColor backgroundPatternColor) {
+        this.backgroundPatternColor = backgroundPatternColor;
+        return this;
+    }
+
     public void setBackgroundPatternColor(XmlColor backgroundPatternColor) {
         this.backgroundPatternColor = backgroundPatternColor;
     }
 
-    public Shading foregroundPatternColor(XmlColor foregroundPatternColor) {
-        this.foregroundPatternColor = foregroundPatternColor;
-        return this;
-    }
 
     /**
      * Gets or sets the color that's applied to the foreground of the Shading object.
@@ -185,14 +181,15 @@ public class Shading {
         return foregroundPatternColor;
     }
 
+    public Shading foregroundPatternColor(XmlColor foregroundPatternColor) {
+        this.foregroundPatternColor = foregroundPatternColor;
+        return this;
+    }
+
     public void setForegroundPatternColor(XmlColor foregroundPatternColor) {
         this.foregroundPatternColor = foregroundPatternColor;
     }
 
-    public Shading texture(TextureEnum texture) {
-        this.texture = texture;
-        return this;
-    }
 
     /**
      * Gets or sets the shading texture.
@@ -203,8 +200,20 @@ public class Shading {
         return texture;
     }
 
+    public Shading texture(TextureEnum texture) {
+        this.texture = texture;
+        return this;
+    }
+
     public void setTexture(TextureEnum texture) {
         this.texture = texture;
+    }
+
+
+    public Shading() {
+        this.backgroundPatternColor = null;
+        this.foregroundPatternColor = null;
+        this.texture = null;
     }
 
     @Override
@@ -232,9 +241,9 @@ public class Shading {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Shading {\n");
-    sb.append("    backgroundPatternColor: ").append(toIndentedString(backgroundPatternColor)).append("\n");
-    sb.append("    foregroundPatternColor: ").append(toIndentedString(foregroundPatternColor)).append("\n");
-    sb.append("    texture: ").append(toIndentedString(texture)).append("\n");
+    sb.append("    backgroundPatternColor: ").append(toIndentedString(getBackgroundPatternColor())).append("\n");
+    sb.append("    foregroundPatternColor: ").append(toIndentedString(getForegroundPatternColor())).append("\n");
+    sb.append("    texture: ").append(toIndentedString(getTexture())).append("\n");
     sb.append("}");
     return sb.toString();
   }

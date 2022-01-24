@@ -192,126 +192,121 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     @SerializedName("AllowNegativeIndent")
-    private Boolean allowNegativeIndent = null;
+    protected Boolean allowNegativeIndent;
 
     @SerializedName("CssClassNamePrefix")
-    private String cssClassNamePrefix = null;
+    protected String cssClassNamePrefix;
 
     @SerializedName("CssStyleSheetFileName")
-    private String cssStyleSheetFileName = null;
+    protected String cssStyleSheetFileName;
 
     @SerializedName("CssStyleSheetType")
-    private String cssStyleSheetType = null;
+    protected String cssStyleSheetType;
 
     @SerializedName("DocumentSplitCriteria")
-    private String documentSplitCriteria = null;
+    protected String documentSplitCriteria;
 
     @SerializedName("DocumentSplitHeadingLevel")
-    private Integer documentSplitHeadingLevel = null;
+    protected Integer documentSplitHeadingLevel;
 
     @SerializedName("Encoding")
-    private String encoding = null;
+    protected String encoding;
 
     @SerializedName("ExportDocumentProperties")
-    private Boolean exportDocumentProperties = null;
+    protected Boolean exportDocumentProperties;
 
     @SerializedName("ExportDropDownFormFieldAsText")
-    private Boolean exportDropDownFormFieldAsText = null;
+    protected Boolean exportDropDownFormFieldAsText;
 
     @SerializedName("ExportFontResources")
-    private Boolean exportFontResources = null;
+    protected Boolean exportFontResources;
 
     @SerializedName("ExportFontsAsBase64")
-    private Boolean exportFontsAsBase64 = null;
+    protected Boolean exportFontsAsBase64;
 
     @SerializedName("ExportHeadersFootersMode")
-    private String exportHeadersFootersMode = null;
+    protected String exportHeadersFootersMode;
 
     @SerializedName("ExportImagesAsBase64")
-    private Boolean exportImagesAsBase64 = null;
+    protected Boolean exportImagesAsBase64;
 
     @SerializedName("ExportLanguageInformation")
-    private Boolean exportLanguageInformation = null;
+    protected Boolean exportLanguageInformation;
 
     @SerializedName("ExportListLabels")
-    private String exportListLabels = null;
+    protected String exportListLabels;
 
     @SerializedName("ExportOriginalUrlForLinkedImages")
-    private Boolean exportOriginalUrlForLinkedImages = null;
+    protected Boolean exportOriginalUrlForLinkedImages;
 
     @SerializedName("ExportPageMargins")
-    private Boolean exportPageMargins = null;
+    protected Boolean exportPageMargins;
 
     @SerializedName("ExportPageSetup")
-    private Boolean exportPageSetup = null;
+    protected Boolean exportPageSetup;
 
     @SerializedName("ExportRelativeFontSize")
-    private Boolean exportRelativeFontSize = null;
+    protected Boolean exportRelativeFontSize;
 
     @SerializedName("ExportRoundtripInformation")
-    private Boolean exportRoundtripInformation = null;
+    protected Boolean exportRoundtripInformation;
 
     @SerializedName("ExportTextBoxAsSvg")
-    private Boolean exportTextBoxAsSvg = null;
+    protected Boolean exportTextBoxAsSvg;
 
     @SerializedName("ExportTextInputFormFieldAsText")
-    private Boolean exportTextInputFormFieldAsText = null;
+    protected Boolean exportTextInputFormFieldAsText;
 
     @SerializedName("ExportTocPageNumbers")
-    private Boolean exportTocPageNumbers = null;
+    protected Boolean exportTocPageNumbers;
 
     @SerializedName("ExportXhtmlTransitional")
-    private Boolean exportXhtmlTransitional = null;
+    protected Boolean exportXhtmlTransitional;
 
     @SerializedName("FontResourcesSubsettingSizeThreshold")
-    private Integer fontResourcesSubsettingSizeThreshold = null;
+    protected Integer fontResourcesSubsettingSizeThreshold;
 
     @SerializedName("FontsFolder")
-    private String fontsFolder = null;
+    protected String fontsFolder;
 
     @SerializedName("FontsFolderAlias")
-    private String fontsFolderAlias = null;
+    protected String fontsFolderAlias;
 
     @SerializedName("HtmlVersion")
-    private HtmlVersionEnum htmlVersion = null;
+    protected HtmlVersionEnum htmlVersion;
 
     @SerializedName("ImageResolution")
-    private Integer imageResolution = null;
+    protected Integer imageResolution;
 
     @SerializedName("ImagesFolder")
-    private String imagesFolder = null;
+    protected String imagesFolder;
 
     @SerializedName("ImagesFolderAlias")
-    private String imagesFolderAlias = null;
+    protected String imagesFolderAlias;
 
     @SerializedName("MetafileFormat")
-    private MetafileFormatEnum metafileFormat = null;
+    protected MetafileFormatEnum metafileFormat;
 
     @SerializedName("OfficeMathOutputMode")
-    private OfficeMathOutputModeEnum officeMathOutputMode = null;
+    protected OfficeMathOutputModeEnum officeMathOutputMode;
 
     @SerializedName("PrettyFormat")
-    private Boolean prettyFormat = null;
+    protected Boolean prettyFormat;
 
     @SerializedName("ResolveFontNames")
-    private Boolean resolveFontNames = null;
+    protected Boolean resolveFontNames;
 
     @SerializedName("ResourceFolder")
-    private String resourceFolder = null;
+    protected String resourceFolder;
 
     @SerializedName("ResourceFolderAlias")
-    private String resourceFolderAlias = null;
+    protected String resourceFolderAlias;
 
     @SerializedName("ScaleImageToShapeSize")
-    private Boolean scaleImageToShapeSize = null;
+    protected Boolean scaleImageToShapeSize;
 
     @SerializedName("TableWidthOutputMode")
-    private String tableWidthOutputMode = null;
-    public HtmlSaveOptionsData allowNegativeIndent(Boolean allowNegativeIndent) {
-        this.allowNegativeIndent = allowNegativeIndent;
-        return this;
-    }
-
+    protected String tableWidthOutputMode;
     /**
      * Gets or sets a value indicating whether negative left and right indents of paragraphs are allowed (not normalized).
     * @return allowNegativeIndent
@@ -321,14 +316,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return allowNegativeIndent;
     }
 
+    public HtmlSaveOptionsData allowNegativeIndent(Boolean allowNegativeIndent) {
+        this.allowNegativeIndent = allowNegativeIndent;
+        return this;
+    }
+
     public void setAllowNegativeIndent(Boolean allowNegativeIndent) {
         this.allowNegativeIndent = allowNegativeIndent;
     }
 
-    public HtmlSaveOptionsData cssClassNamePrefix(String cssClassNamePrefix) {
-        this.cssClassNamePrefix = cssClassNamePrefix;
-        return this;
-    }
 
     /**
      * Gets or sets the prefix which is added to all CSS class names. The default value is an empty string and generated CSS class names have no common prefix.
@@ -341,14 +337,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return cssClassNamePrefix;
     }
 
+    public HtmlSaveOptionsData cssClassNamePrefix(String cssClassNamePrefix) {
+        this.cssClassNamePrefix = cssClassNamePrefix;
+        return this;
+    }
+
     public void setCssClassNamePrefix(String cssClassNamePrefix) {
         this.cssClassNamePrefix = cssClassNamePrefix;
     }
 
-    public HtmlSaveOptionsData cssStyleSheetFileName(String cssStyleSheetFileName) {
-        this.cssStyleSheetFileName = cssStyleSheetFileName;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the CSS file written when the document is exported to HTML.
@@ -359,14 +356,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return cssStyleSheetFileName;
     }
 
+    public HtmlSaveOptionsData cssStyleSheetFileName(String cssStyleSheetFileName) {
+        this.cssStyleSheetFileName = cssStyleSheetFileName;
+        return this;
+    }
+
     public void setCssStyleSheetFileName(String cssStyleSheetFileName) {
         this.cssStyleSheetFileName = cssStyleSheetFileName;
     }
 
-    public HtmlSaveOptionsData cssStyleSheetType(String cssStyleSheetType) {
-        this.cssStyleSheetType = cssStyleSheetType;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how the CSS styles are exported.
@@ -377,14 +375,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return cssStyleSheetType;
     }
 
+    public HtmlSaveOptionsData cssStyleSheetType(String cssStyleSheetType) {
+        this.cssStyleSheetType = cssStyleSheetType;
+        return this;
+    }
+
     public void setCssStyleSheetType(String cssStyleSheetType) {
         this.cssStyleSheetType = cssStyleSheetType;
     }
 
-    public HtmlSaveOptionsData documentSplitCriteria(String documentSplitCriteria) {
-        this.documentSplitCriteria = documentSplitCriteria;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how the document should be split when saving.
@@ -395,14 +394,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return documentSplitCriteria;
     }
 
+    public HtmlSaveOptionsData documentSplitCriteria(String documentSplitCriteria) {
+        this.documentSplitCriteria = documentSplitCriteria;
+        return this;
+    }
+
     public void setDocumentSplitCriteria(String documentSplitCriteria) {
         this.documentSplitCriteria = documentSplitCriteria;
     }
 
-    public HtmlSaveOptionsData documentSplitHeadingLevel(Integer documentSplitHeadingLevel) {
-        this.documentSplitHeadingLevel = documentSplitHeadingLevel;
-        return this;
-    }
 
     /**
      * Gets or sets the maximum level of headings at which to split the document.
@@ -413,14 +413,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return documentSplitHeadingLevel;
     }
 
+    public HtmlSaveOptionsData documentSplitHeadingLevel(Integer documentSplitHeadingLevel) {
+        this.documentSplitHeadingLevel = documentSplitHeadingLevel;
+        return this;
+    }
+
     public void setDocumentSplitHeadingLevel(Integer documentSplitHeadingLevel) {
         this.documentSplitHeadingLevel = documentSplitHeadingLevel;
     }
 
-    public HtmlSaveOptionsData encoding(String encoding) {
-        this.encoding = encoding;
-        return this;
-    }
 
     /**
      * Gets or sets the character encoding to use when exporting.
@@ -431,14 +432,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return encoding;
     }
 
+    public HtmlSaveOptionsData encoding(String encoding) {
+        this.encoding = encoding;
+        return this;
+    }
+
     public void setEncoding(String encoding) {
         this.encoding = encoding;
     }
 
-    public HtmlSaveOptionsData exportDocumentProperties(Boolean exportDocumentProperties) {
-        this.exportDocumentProperties = exportDocumentProperties;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to export built-in and custom document properties.
@@ -449,14 +451,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportDocumentProperties;
     }
 
+    public HtmlSaveOptionsData exportDocumentProperties(Boolean exportDocumentProperties) {
+        this.exportDocumentProperties = exportDocumentProperties;
+        return this;
+    }
+
     public void setExportDocumentProperties(Boolean exportDocumentProperties) {
         this.exportDocumentProperties = exportDocumentProperties;
     }
 
-    public HtmlSaveOptionsData exportDropDownFormFieldAsText(Boolean exportDropDownFormFieldAsText) {
-        this.exportDropDownFormFieldAsText = exportDropDownFormFieldAsText;
-        return this;
-    }
 
     /**
      * Gets or sets the flag, that controls how drop-down form fields are saved to HTML.
@@ -468,14 +471,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportDropDownFormFieldAsText;
     }
 
+    public HtmlSaveOptionsData exportDropDownFormFieldAsText(Boolean exportDropDownFormFieldAsText) {
+        this.exportDropDownFormFieldAsText = exportDropDownFormFieldAsText;
+        return this;
+    }
+
     public void setExportDropDownFormFieldAsText(Boolean exportDropDownFormFieldAsText) {
         this.exportDropDownFormFieldAsText = exportDropDownFormFieldAsText;
     }
 
-    public HtmlSaveOptionsData exportFontResources(Boolean exportFontResources) {
-        this.exportFontResources = exportFontResources;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether font resources should be exported.
@@ -486,14 +490,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportFontResources;
     }
 
+    public HtmlSaveOptionsData exportFontResources(Boolean exportFontResources) {
+        this.exportFontResources = exportFontResources;
+        return this;
+    }
+
     public void setExportFontResources(Boolean exportFontResources) {
         this.exportFontResources = exportFontResources;
     }
 
-    public HtmlSaveOptionsData exportFontsAsBase64(Boolean exportFontsAsBase64) {
-        this.exportFontsAsBase64 = exportFontsAsBase64;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether fonts resources should be embedded to HTML in Base64 encoding. The default value is false.
@@ -504,14 +509,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportFontsAsBase64;
     }
 
+    public HtmlSaveOptionsData exportFontsAsBase64(Boolean exportFontsAsBase64) {
+        this.exportFontsAsBase64 = exportFontsAsBase64;
+        return this;
+    }
+
     public void setExportFontsAsBase64(Boolean exportFontsAsBase64) {
         this.exportFontsAsBase64 = exportFontsAsBase64;
     }
 
-    public HtmlSaveOptionsData exportHeadersFootersMode(String exportHeadersFootersMode) {
-        this.exportHeadersFootersMode = exportHeadersFootersMode;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how headers and footers are exported.
@@ -522,14 +528,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportHeadersFootersMode;
     }
 
+    public HtmlSaveOptionsData exportHeadersFootersMode(String exportHeadersFootersMode) {
+        this.exportHeadersFootersMode = exportHeadersFootersMode;
+        return this;
+    }
+
     public void setExportHeadersFootersMode(String exportHeadersFootersMode) {
         this.exportHeadersFootersMode = exportHeadersFootersMode;
     }
 
-    public HtmlSaveOptionsData exportImagesAsBase64(Boolean exportImagesAsBase64) {
-        this.exportImagesAsBase64 = exportImagesAsBase64;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether images are saved in Base64 format.
@@ -540,14 +547,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportImagesAsBase64;
     }
 
+    public HtmlSaveOptionsData exportImagesAsBase64(Boolean exportImagesAsBase64) {
+        this.exportImagesAsBase64 = exportImagesAsBase64;
+        return this;
+    }
+
     public void setExportImagesAsBase64(Boolean exportImagesAsBase64) {
         this.exportImagesAsBase64 = exportImagesAsBase64;
     }
 
-    public HtmlSaveOptionsData exportLanguageInformation(Boolean exportLanguageInformation) {
-        this.exportLanguageInformation = exportLanguageInformation;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether language information is exported.
@@ -558,14 +566,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportLanguageInformation;
     }
 
+    public HtmlSaveOptionsData exportLanguageInformation(Boolean exportLanguageInformation) {
+        this.exportLanguageInformation = exportLanguageInformation;
+        return this;
+    }
+
     public void setExportLanguageInformation(Boolean exportLanguageInformation) {
         this.exportLanguageInformation = exportLanguageInformation;
     }
 
-    public HtmlSaveOptionsData exportListLabels(String exportListLabels) {
-        this.exportListLabels = exportListLabels;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how list labels are exported.
@@ -576,14 +585,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportListLabels;
     }
 
+    public HtmlSaveOptionsData exportListLabels(String exportListLabels) {
+        this.exportListLabels = exportListLabels;
+        return this;
+    }
+
     public void setExportListLabels(String exportListLabels) {
         this.exportListLabels = exportListLabels;
     }
 
-    public HtmlSaveOptionsData exportOriginalUrlForLinkedImages(Boolean exportOriginalUrlForLinkedImages) {
-        this.exportOriginalUrlForLinkedImages = exportOriginalUrlForLinkedImages;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the original URL should be used as the URL of the linked images.
@@ -595,14 +605,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportOriginalUrlForLinkedImages;
     }
 
+    public HtmlSaveOptionsData exportOriginalUrlForLinkedImages(Boolean exportOriginalUrlForLinkedImages) {
+        this.exportOriginalUrlForLinkedImages = exportOriginalUrlForLinkedImages;
+        return this;
+    }
+
     public void setExportOriginalUrlForLinkedImages(Boolean exportOriginalUrlForLinkedImages) {
         this.exportOriginalUrlForLinkedImages = exportOriginalUrlForLinkedImages;
     }
 
-    public HtmlSaveOptionsData exportPageMargins(Boolean exportPageMargins) {
-        this.exportPageMargins = exportPageMargins;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether page margins are exported to HTML, MHTML or EPUB.
@@ -614,14 +625,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportPageMargins;
     }
 
+    public HtmlSaveOptionsData exportPageMargins(Boolean exportPageMargins) {
+        this.exportPageMargins = exportPageMargins;
+        return this;
+    }
+
     public void setExportPageMargins(Boolean exportPageMargins) {
         this.exportPageMargins = exportPageMargins;
     }
 
-    public HtmlSaveOptionsData exportPageSetup(Boolean exportPageSetup) {
-        this.exportPageSetup = exportPageSetup;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether page setup is exported.
@@ -632,14 +644,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportPageSetup;
     }
 
+    public HtmlSaveOptionsData exportPageSetup(Boolean exportPageSetup) {
+        this.exportPageSetup = exportPageSetup;
+        return this;
+    }
+
     public void setExportPageSetup(Boolean exportPageSetup) {
         this.exportPageSetup = exportPageSetup;
     }
 
-    public HtmlSaveOptionsData exportRelativeFontSize(Boolean exportRelativeFontSize) {
-        this.exportRelativeFontSize = exportRelativeFontSize;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether font sizes should be output in relative units when saving.
@@ -650,14 +663,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportRelativeFontSize;
     }
 
+    public HtmlSaveOptionsData exportRelativeFontSize(Boolean exportRelativeFontSize) {
+        this.exportRelativeFontSize = exportRelativeFontSize;
+        return this;
+    }
+
     public void setExportRelativeFontSize(Boolean exportRelativeFontSize) {
         this.exportRelativeFontSize = exportRelativeFontSize;
     }
 
-    public HtmlSaveOptionsData exportRoundtripInformation(Boolean exportRoundtripInformation) {
-        this.exportRoundtripInformation = exportRoundtripInformation;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to write the roundtrip information when saving to HTML. The default value is true.
@@ -668,14 +682,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportRoundtripInformation;
     }
 
+    public HtmlSaveOptionsData exportRoundtripInformation(Boolean exportRoundtripInformation) {
+        this.exportRoundtripInformation = exportRoundtripInformation;
+        return this;
+    }
+
     public void setExportRoundtripInformation(Boolean exportRoundtripInformation) {
         this.exportRoundtripInformation = exportRoundtripInformation;
     }
 
-    public HtmlSaveOptionsData exportTextBoxAsSvg(Boolean exportTextBoxAsSvg) {
-        this.exportTextBoxAsSvg = exportTextBoxAsSvg;
-        return this;
-    }
 
     /**
      * Gets or sets the flag, that controls how textboxes represented by Aspose.Words.Drawing.Shape are saved to HTML, MHTML or EPUB. The default value is false.
@@ -687,14 +702,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportTextBoxAsSvg;
     }
 
+    public HtmlSaveOptionsData exportTextBoxAsSvg(Boolean exportTextBoxAsSvg) {
+        this.exportTextBoxAsSvg = exportTextBoxAsSvg;
+        return this;
+    }
+
     public void setExportTextBoxAsSvg(Boolean exportTextBoxAsSvg) {
         this.exportTextBoxAsSvg = exportTextBoxAsSvg;
     }
 
-    public HtmlSaveOptionsData exportTextInputFormFieldAsText(Boolean exportTextInputFormFieldAsText) {
-        this.exportTextInputFormFieldAsText = exportTextInputFormFieldAsText;
-        return this;
-    }
 
     /**
      * Gets or sets the flag, that controls how text input form fields are saved.
@@ -705,14 +721,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportTextInputFormFieldAsText;
     }
 
+    public HtmlSaveOptionsData exportTextInputFormFieldAsText(Boolean exportTextInputFormFieldAsText) {
+        this.exportTextInputFormFieldAsText = exportTextInputFormFieldAsText;
+        return this;
+    }
+
     public void setExportTextInputFormFieldAsText(Boolean exportTextInputFormFieldAsText) {
         this.exportTextInputFormFieldAsText = exportTextInputFormFieldAsText;
     }
 
-    public HtmlSaveOptionsData exportTocPageNumbers(Boolean exportTocPageNumbers) {
-        this.exportTocPageNumbers = exportTocPageNumbers;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to write page numbers to table of contents when saving.
@@ -723,14 +740,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportTocPageNumbers;
     }
 
+    public HtmlSaveOptionsData exportTocPageNumbers(Boolean exportTocPageNumbers) {
+        this.exportTocPageNumbers = exportTocPageNumbers;
+        return this;
+    }
+
     public void setExportTocPageNumbers(Boolean exportTocPageNumbers) {
         this.exportTocPageNumbers = exportTocPageNumbers;
     }
 
-    public HtmlSaveOptionsData exportXhtmlTransitional(Boolean exportXhtmlTransitional) {
-        this.exportXhtmlTransitional = exportXhtmlTransitional;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to write the DOCTYPE declaration when saving.
@@ -741,14 +759,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return exportXhtmlTransitional;
     }
 
+    public HtmlSaveOptionsData exportXhtmlTransitional(Boolean exportXhtmlTransitional) {
+        this.exportXhtmlTransitional = exportXhtmlTransitional;
+        return this;
+    }
+
     public void setExportXhtmlTransitional(Boolean exportXhtmlTransitional) {
         this.exportXhtmlTransitional = exportXhtmlTransitional;
     }
 
-    public HtmlSaveOptionsData fontResourcesSubsettingSizeThreshold(Integer fontResourcesSubsettingSizeThreshold) {
-        this.fontResourcesSubsettingSizeThreshold = fontResourcesSubsettingSizeThreshold;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls which font resources need subsetting when saving.
@@ -759,14 +778,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return fontResourcesSubsettingSizeThreshold;
     }
 
+    public HtmlSaveOptionsData fontResourcesSubsettingSizeThreshold(Integer fontResourcesSubsettingSizeThreshold) {
+        this.fontResourcesSubsettingSizeThreshold = fontResourcesSubsettingSizeThreshold;
+        return this;
+    }
+
     public void setFontResourcesSubsettingSizeThreshold(Integer fontResourcesSubsettingSizeThreshold) {
         this.fontResourcesSubsettingSizeThreshold = fontResourcesSubsettingSizeThreshold;
     }
 
-    public HtmlSaveOptionsData fontsFolder(String fontsFolder) {
-        this.fontsFolder = fontsFolder;
-        return this;
-    }
 
     /**
      * Gets or sets the physical folder where fonts are saved when exporting a document.
@@ -777,14 +797,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return fontsFolder;
     }
 
+    public HtmlSaveOptionsData fontsFolder(String fontsFolder) {
+        this.fontsFolder = fontsFolder;
+        return this;
+    }
+
     public void setFontsFolder(String fontsFolder) {
         this.fontsFolder = fontsFolder;
     }
 
-    public HtmlSaveOptionsData fontsFolderAlias(String fontsFolderAlias) {
-        this.fontsFolderAlias = fontsFolderAlias;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the folder used to construct font URIs.
@@ -795,14 +816,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return fontsFolderAlias;
     }
 
+    public HtmlSaveOptionsData fontsFolderAlias(String fontsFolderAlias) {
+        this.fontsFolderAlias = fontsFolderAlias;
+        return this;
+    }
+
     public void setFontsFolderAlias(String fontsFolderAlias) {
         this.fontsFolderAlias = fontsFolderAlias;
     }
 
-    public HtmlSaveOptionsData htmlVersion(HtmlVersionEnum htmlVersion) {
-        this.htmlVersion = htmlVersion;
-        return this;
-    }
 
     /**
      * Gets or sets the version of HTML standard, that should be used when saving the document to HTML or MHTML.
@@ -814,14 +836,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return htmlVersion;
     }
 
+    public HtmlSaveOptionsData htmlVersion(HtmlVersionEnum htmlVersion) {
+        this.htmlVersion = htmlVersion;
+        return this;
+    }
+
     public void setHtmlVersion(HtmlVersionEnum htmlVersion) {
         this.htmlVersion = htmlVersion;
     }
 
-    public HtmlSaveOptionsData imageResolution(Integer imageResolution) {
-        this.imageResolution = imageResolution;
-        return this;
-    }
 
     /**
      * Gets or sets the output resolution for images when exporting.
@@ -832,14 +855,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return imageResolution;
     }
 
+    public HtmlSaveOptionsData imageResolution(Integer imageResolution) {
+        this.imageResolution = imageResolution;
+        return this;
+    }
+
     public void setImageResolution(Integer imageResolution) {
         this.imageResolution = imageResolution;
     }
 
-    public HtmlSaveOptionsData imagesFolder(String imagesFolder) {
-        this.imagesFolder = imagesFolder;
-        return this;
-    }
 
     /**
      * Gets or sets the physical folder where images are saved when exporting a document.
@@ -850,14 +874,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return imagesFolder;
     }
 
+    public HtmlSaveOptionsData imagesFolder(String imagesFolder) {
+        this.imagesFolder = imagesFolder;
+        return this;
+    }
+
     public void setImagesFolder(String imagesFolder) {
         this.imagesFolder = imagesFolder;
     }
 
-    public HtmlSaveOptionsData imagesFolderAlias(String imagesFolderAlias) {
-        this.imagesFolderAlias = imagesFolderAlias;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the folder used to construct image URIs.
@@ -868,14 +893,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return imagesFolderAlias;
     }
 
+    public HtmlSaveOptionsData imagesFolderAlias(String imagesFolderAlias) {
+        this.imagesFolderAlias = imagesFolderAlias;
+        return this;
+    }
+
     public void setImagesFolderAlias(String imagesFolderAlias) {
         this.imagesFolderAlias = imagesFolderAlias;
     }
 
-    public HtmlSaveOptionsData metafileFormat(MetafileFormatEnum metafileFormat) {
-        this.metafileFormat = metafileFormat;
-        return this;
-    }
 
     /**
      * Gets or sets the options, that controls in what format metafiles are saved when exporting to HTML, MHTML, or EPUB.
@@ -889,14 +915,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return metafileFormat;
     }
 
+    public HtmlSaveOptionsData metafileFormat(MetafileFormatEnum metafileFormat) {
+        this.metafileFormat = metafileFormat;
+        return this;
+    }
+
     public void setMetafileFormat(MetafileFormatEnum metafileFormat) {
         this.metafileFormat = metafileFormat;
     }
 
-    public HtmlSaveOptionsData officeMathOutputMode(OfficeMathOutputModeEnum officeMathOutputMode) {
-        this.officeMathOutputMode = officeMathOutputMode;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how OfficeMath objects are exported to HTML, MHTML or EPUB. The default value is HtmlOfficeMathOutputMode.Image.
@@ -907,14 +934,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return officeMathOutputMode;
     }
 
+    public HtmlSaveOptionsData officeMathOutputMode(OfficeMathOutputModeEnum officeMathOutputMode) {
+        this.officeMathOutputMode = officeMathOutputMode;
+        return this;
+    }
+
     public void setOfficeMathOutputMode(OfficeMathOutputModeEnum officeMathOutputMode) {
         this.officeMathOutputMode = officeMathOutputMode;
     }
 
-    public HtmlSaveOptionsData prettyFormat(Boolean prettyFormat) {
-        this.prettyFormat = prettyFormat;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to use pretty formats output.
@@ -925,14 +953,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return prettyFormat;
     }
 
+    public HtmlSaveOptionsData prettyFormat(Boolean prettyFormat) {
+        this.prettyFormat = prettyFormat;
+        return this;
+    }
+
     public void setPrettyFormat(Boolean prettyFormat) {
         this.prettyFormat = prettyFormat;
     }
 
-    public HtmlSaveOptionsData resolveFontNames(Boolean resolveFontNames) {
-        this.resolveFontNames = resolveFontNames;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether font family names used in the document are resolved and substituted according to FontSettings when being written into HTML-based formats.
@@ -944,14 +973,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return resolveFontNames;
     }
 
+    public HtmlSaveOptionsData resolveFontNames(Boolean resolveFontNames) {
+        this.resolveFontNames = resolveFontNames;
+        return this;
+    }
+
     public void setResolveFontNames(Boolean resolveFontNames) {
         this.resolveFontNames = resolveFontNames;
     }
 
-    public HtmlSaveOptionsData resourceFolder(String resourceFolder) {
-        this.resourceFolder = resourceFolder;
-        return this;
-    }
 
     /**
      * Gets or sets the physical folder where all resources like images, fonts, and external CSS are saved when a document is exported to HTML. The default value is an empty string.
@@ -962,14 +992,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return resourceFolder;
     }
 
+    public HtmlSaveOptionsData resourceFolder(String resourceFolder) {
+        this.resourceFolder = resourceFolder;
+        return this;
+    }
+
     public void setResourceFolder(String resourceFolder) {
         this.resourceFolder = resourceFolder;
     }
 
-    public HtmlSaveOptionsData resourceFolderAlias(String resourceFolderAlias) {
-        this.resourceFolderAlias = resourceFolderAlias;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the folder used to construct URIs of all resources written into HTML document. The default value is an empty string.
@@ -980,14 +1011,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return resourceFolderAlias;
     }
 
+    public HtmlSaveOptionsData resourceFolderAlias(String resourceFolderAlias) {
+        this.resourceFolderAlias = resourceFolderAlias;
+        return this;
+    }
+
     public void setResourceFolderAlias(String resourceFolderAlias) {
         this.resourceFolderAlias = resourceFolderAlias;
     }
 
-    public HtmlSaveOptionsData scaleImageToShapeSize(Boolean scaleImageToShapeSize) {
-        this.scaleImageToShapeSize = scaleImageToShapeSize;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether images are scaled by Aspose.Words to the bounding shape size when exporting.
@@ -998,14 +1030,15 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return scaleImageToShapeSize;
     }
 
+    public HtmlSaveOptionsData scaleImageToShapeSize(Boolean scaleImageToShapeSize) {
+        this.scaleImageToShapeSize = scaleImageToShapeSize;
+        return this;
+    }
+
     public void setScaleImageToShapeSize(Boolean scaleImageToShapeSize) {
         this.scaleImageToShapeSize = scaleImageToShapeSize;
     }
 
-    public HtmlSaveOptionsData tableWidthOutputMode(String tableWidthOutputMode) {
-        this.tableWidthOutputMode = tableWidthOutputMode;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how table, row and cell widths are exported.
@@ -1016,8 +1049,58 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         return tableWidthOutputMode;
     }
 
+    public HtmlSaveOptionsData tableWidthOutputMode(String tableWidthOutputMode) {
+        this.tableWidthOutputMode = tableWidthOutputMode;
+        return this;
+    }
+
     public void setTableWidthOutputMode(String tableWidthOutputMode) {
         this.tableWidthOutputMode = tableWidthOutputMode;
+    }
+
+
+    public HtmlSaveOptionsData() {
+        super();
+        this.allowNegativeIndent = null;
+        this.cssClassNamePrefix = null;
+        this.cssStyleSheetFileName = null;
+        this.cssStyleSheetType = null;
+        this.documentSplitCriteria = null;
+        this.documentSplitHeadingLevel = null;
+        this.encoding = null;
+        this.exportDocumentProperties = null;
+        this.exportDropDownFormFieldAsText = null;
+        this.exportFontResources = null;
+        this.exportFontsAsBase64 = null;
+        this.exportHeadersFootersMode = null;
+        this.exportImagesAsBase64 = null;
+        this.exportLanguageInformation = null;
+        this.exportListLabels = null;
+        this.exportOriginalUrlForLinkedImages = null;
+        this.exportPageMargins = null;
+        this.exportPageSetup = null;
+        this.exportRelativeFontSize = null;
+        this.exportRoundtripInformation = null;
+        this.exportTextBoxAsSvg = null;
+        this.exportTextInputFormFieldAsText = null;
+        this.exportTocPageNumbers = null;
+        this.exportXhtmlTransitional = null;
+        this.fontResourcesSubsettingSizeThreshold = null;
+        this.fontsFolder = null;
+        this.fontsFolderAlias = null;
+        this.htmlVersion = null;
+        this.imageResolution = null;
+        this.imagesFolder = null;
+        this.imagesFolderAlias = null;
+        this.metafileFormat = null;
+        this.officeMathOutputMode = null;
+        this.prettyFormat = null;
+        this.resolveFontNames = null;
+        this.resourceFolder = null;
+        this.resourceFolderAlias = null;
+        this.saveFormat = "html";
+        this.scaleImageToShapeSize = null;
+        this.tableWidthOutputMode = null;
     }
 
     @Override
@@ -1082,46 +1165,60 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HtmlSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    allowNegativeIndent: ").append(toIndentedString(allowNegativeIndent)).append("\n");
-    sb.append("    cssClassNamePrefix: ").append(toIndentedString(cssClassNamePrefix)).append("\n");
-    sb.append("    cssStyleSheetFileName: ").append(toIndentedString(cssStyleSheetFileName)).append("\n");
-    sb.append("    cssStyleSheetType: ").append(toIndentedString(cssStyleSheetType)).append("\n");
-    sb.append("    documentSplitCriteria: ").append(toIndentedString(documentSplitCriteria)).append("\n");
-    sb.append("    documentSplitHeadingLevel: ").append(toIndentedString(documentSplitHeadingLevel)).append("\n");
-    sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
-    sb.append("    exportDocumentProperties: ").append(toIndentedString(exportDocumentProperties)).append("\n");
-    sb.append("    exportDropDownFormFieldAsText: ").append(toIndentedString(exportDropDownFormFieldAsText)).append("\n");
-    sb.append("    exportFontResources: ").append(toIndentedString(exportFontResources)).append("\n");
-    sb.append("    exportFontsAsBase64: ").append(toIndentedString(exportFontsAsBase64)).append("\n");
-    sb.append("    exportHeadersFootersMode: ").append(toIndentedString(exportHeadersFootersMode)).append("\n");
-    sb.append("    exportImagesAsBase64: ").append(toIndentedString(exportImagesAsBase64)).append("\n");
-    sb.append("    exportLanguageInformation: ").append(toIndentedString(exportLanguageInformation)).append("\n");
-    sb.append("    exportListLabels: ").append(toIndentedString(exportListLabels)).append("\n");
-    sb.append("    exportOriginalUrlForLinkedImages: ").append(toIndentedString(exportOriginalUrlForLinkedImages)).append("\n");
-    sb.append("    exportPageMargins: ").append(toIndentedString(exportPageMargins)).append("\n");
-    sb.append("    exportPageSetup: ").append(toIndentedString(exportPageSetup)).append("\n");
-    sb.append("    exportRelativeFontSize: ").append(toIndentedString(exportRelativeFontSize)).append("\n");
-    sb.append("    exportRoundtripInformation: ").append(toIndentedString(exportRoundtripInformation)).append("\n");
-    sb.append("    exportTextBoxAsSvg: ").append(toIndentedString(exportTextBoxAsSvg)).append("\n");
-    sb.append("    exportTextInputFormFieldAsText: ").append(toIndentedString(exportTextInputFormFieldAsText)).append("\n");
-    sb.append("    exportTocPageNumbers: ").append(toIndentedString(exportTocPageNumbers)).append("\n");
-    sb.append("    exportXhtmlTransitional: ").append(toIndentedString(exportXhtmlTransitional)).append("\n");
-    sb.append("    fontResourcesSubsettingSizeThreshold: ").append(toIndentedString(fontResourcesSubsettingSizeThreshold)).append("\n");
-    sb.append("    fontsFolder: ").append(toIndentedString(fontsFolder)).append("\n");
-    sb.append("    fontsFolderAlias: ").append(toIndentedString(fontsFolderAlias)).append("\n");
-    sb.append("    htmlVersion: ").append(toIndentedString(htmlVersion)).append("\n");
-    sb.append("    imageResolution: ").append(toIndentedString(imageResolution)).append("\n");
-    sb.append("    imagesFolder: ").append(toIndentedString(imagesFolder)).append("\n");
-    sb.append("    imagesFolderAlias: ").append(toIndentedString(imagesFolderAlias)).append("\n");
-    sb.append("    metafileFormat: ").append(toIndentedString(metafileFormat)).append("\n");
-    sb.append("    officeMathOutputMode: ").append(toIndentedString(officeMathOutputMode)).append("\n");
-    sb.append("    prettyFormat: ").append(toIndentedString(prettyFormat)).append("\n");
-    sb.append("    resolveFontNames: ").append(toIndentedString(resolveFontNames)).append("\n");
-    sb.append("    resourceFolder: ").append(toIndentedString(resourceFolder)).append("\n");
-    sb.append("    resourceFolderAlias: ").append(toIndentedString(resourceFolderAlias)).append("\n");
-    sb.append("    scaleImageToShapeSize: ").append(toIndentedString(scaleImageToShapeSize)).append("\n");
-    sb.append("    tableWidthOutputMode: ").append(toIndentedString(tableWidthOutputMode)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    allowNegativeIndent: ").append(toIndentedString(getAllowNegativeIndent())).append("\n");
+    sb.append("    cssClassNamePrefix: ").append(toIndentedString(getCssClassNamePrefix())).append("\n");
+    sb.append("    cssStyleSheetFileName: ").append(toIndentedString(getCssStyleSheetFileName())).append("\n");
+    sb.append("    cssStyleSheetType: ").append(toIndentedString(getCssStyleSheetType())).append("\n");
+    sb.append("    documentSplitCriteria: ").append(toIndentedString(getDocumentSplitCriteria())).append("\n");
+    sb.append("    documentSplitHeadingLevel: ").append(toIndentedString(getDocumentSplitHeadingLevel())).append("\n");
+    sb.append("    encoding: ").append(toIndentedString(getEncoding())).append("\n");
+    sb.append("    exportDocumentProperties: ").append(toIndentedString(getExportDocumentProperties())).append("\n");
+    sb.append("    exportDropDownFormFieldAsText: ").append(toIndentedString(getExportDropDownFormFieldAsText())).append("\n");
+    sb.append("    exportFontResources: ").append(toIndentedString(getExportFontResources())).append("\n");
+    sb.append("    exportFontsAsBase64: ").append(toIndentedString(getExportFontsAsBase64())).append("\n");
+    sb.append("    exportHeadersFootersMode: ").append(toIndentedString(getExportHeadersFootersMode())).append("\n");
+    sb.append("    exportImagesAsBase64: ").append(toIndentedString(getExportImagesAsBase64())).append("\n");
+    sb.append("    exportLanguageInformation: ").append(toIndentedString(getExportLanguageInformation())).append("\n");
+    sb.append("    exportListLabels: ").append(toIndentedString(getExportListLabels())).append("\n");
+    sb.append("    exportOriginalUrlForLinkedImages: ").append(toIndentedString(getExportOriginalUrlForLinkedImages())).append("\n");
+    sb.append("    exportPageMargins: ").append(toIndentedString(getExportPageMargins())).append("\n");
+    sb.append("    exportPageSetup: ").append(toIndentedString(getExportPageSetup())).append("\n");
+    sb.append("    exportRelativeFontSize: ").append(toIndentedString(getExportRelativeFontSize())).append("\n");
+    sb.append("    exportRoundtripInformation: ").append(toIndentedString(getExportRoundtripInformation())).append("\n");
+    sb.append("    exportTextBoxAsSvg: ").append(toIndentedString(getExportTextBoxAsSvg())).append("\n");
+    sb.append("    exportTextInputFormFieldAsText: ").append(toIndentedString(getExportTextInputFormFieldAsText())).append("\n");
+    sb.append("    exportTocPageNumbers: ").append(toIndentedString(getExportTocPageNumbers())).append("\n");
+    sb.append("    exportXhtmlTransitional: ").append(toIndentedString(getExportXhtmlTransitional())).append("\n");
+    sb.append("    fontResourcesSubsettingSizeThreshold: ").append(toIndentedString(getFontResourcesSubsettingSizeThreshold())).append("\n");
+    sb.append("    fontsFolder: ").append(toIndentedString(getFontsFolder())).append("\n");
+    sb.append("    fontsFolderAlias: ").append(toIndentedString(getFontsFolderAlias())).append("\n");
+    sb.append("    htmlVersion: ").append(toIndentedString(getHtmlVersion())).append("\n");
+    sb.append("    imageResolution: ").append(toIndentedString(getImageResolution())).append("\n");
+    sb.append("    imagesFolder: ").append(toIndentedString(getImagesFolder())).append("\n");
+    sb.append("    imagesFolderAlias: ").append(toIndentedString(getImagesFolderAlias())).append("\n");
+    sb.append("    metafileFormat: ").append(toIndentedString(getMetafileFormat())).append("\n");
+    sb.append("    officeMathOutputMode: ").append(toIndentedString(getOfficeMathOutputMode())).append("\n");
+    sb.append("    prettyFormat: ").append(toIndentedString(getPrettyFormat())).append("\n");
+    sb.append("    resolveFontNames: ").append(toIndentedString(getResolveFontNames())).append("\n");
+    sb.append("    resourceFolder: ").append(toIndentedString(getResourceFolder())).append("\n");
+    sb.append("    resourceFolderAlias: ").append(toIndentedString(getResourceFolderAlias())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    scaleImageToShapeSize: ").append(toIndentedString(getScaleImageToShapeSize())).append("\n");
+    sb.append("    tableWidthOutputMode: ").append(toIndentedString(getTableWidthOutputMode())).append("\n");
     sb.append("}");
     return sb.toString();
   }

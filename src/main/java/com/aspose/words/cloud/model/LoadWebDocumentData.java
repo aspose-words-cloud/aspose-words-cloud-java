@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Contains data for load web document.")
 public class LoadWebDocumentData {
     @SerializedName("LoadingDocumentUrl")
-    private String loadingDocumentUrl = null;
+    protected String loadingDocumentUrl;
 
     @SerializedName("SaveOptions")
-    private SaveOptionsData saveOptions = null;
-    public LoadWebDocumentData loadingDocumentUrl(String loadingDocumentUrl) {
-        this.loadingDocumentUrl = loadingDocumentUrl;
-        return this;
-    }
-
+    protected SaveOptionsData saveOptions;
     /**
      * Gets or sets the web document URL.
     * @return loadingDocumentUrl
@@ -66,14 +61,15 @@ public class LoadWebDocumentData {
         return loadingDocumentUrl;
     }
 
+    public LoadWebDocumentData loadingDocumentUrl(String loadingDocumentUrl) {
+        this.loadingDocumentUrl = loadingDocumentUrl;
+        return this;
+    }
+
     public void setLoadingDocumentUrl(String loadingDocumentUrl) {
         this.loadingDocumentUrl = loadingDocumentUrl;
     }
 
-    public LoadWebDocumentData saveOptions(SaveOptionsData saveOptions) {
-        this.saveOptions = saveOptions;
-        return this;
-    }
 
     /**
      * Gets or sets the save options.
@@ -84,8 +80,19 @@ public class LoadWebDocumentData {
         return saveOptions;
     }
 
+    public LoadWebDocumentData saveOptions(SaveOptionsData saveOptions) {
+        this.saveOptions = saveOptions;
+        return this;
+    }
+
     public void setSaveOptions(SaveOptionsData saveOptions) {
         this.saveOptions = saveOptions;
+    }
+
+
+    public LoadWebDocumentData() {
+        this.loadingDocumentUrl = null;
+        this.saveOptions = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class LoadWebDocumentData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LoadWebDocumentData {\n");
-    sb.append("    loadingDocumentUrl: ").append(toIndentedString(loadingDocumentUrl)).append("\n");
-    sb.append("    saveOptions: ").append(toIndentedString(saveOptions)).append("\n");
+    sb.append("    loadingDocumentUrl: ").append(toIndentedString(getLoadingDocumentUrl())).append("\n");
+    sb.append("    saveOptions: ").append(toIndentedString(getSaveOptions())).append("\n");
     sb.append("}");
     return sb.toString();
   }

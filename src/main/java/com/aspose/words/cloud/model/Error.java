@@ -48,21 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Error.")
 public class Error {
     @SerializedName("Code")
-    private String code = null;
+    protected String code;
 
     @SerializedName("Description")
-    private String description = null;
+    protected String description;
 
     @SerializedName("InnerError")
-    private ErrorDetails innerError = null;
+    protected ErrorDetails innerError;
 
     @SerializedName("Message")
-    private String message = null;
-    public Error code(String code) {
-        this.code = code;
-        return this;
-    }
-
+    protected String message;
     /**
      * Code.
     * @return code
@@ -72,14 +67,15 @@ public class Error {
         return code;
     }
 
+    public Error code(String code) {
+        this.code = code;
+        return this;
+    }
+
     public void setCode(String code) {
         this.code = code;
     }
 
-    public Error description(String description) {
-        this.description = description;
-        return this;
-    }
 
     /**
      * Description.
@@ -90,14 +86,15 @@ public class Error {
         return description;
     }
 
+    public Error description(String description) {
+        this.description = description;
+        return this;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public Error innerError(ErrorDetails innerError) {
-        this.innerError = innerError;
-        return this;
-    }
 
     /**
      * Inner Error.
@@ -108,14 +105,15 @@ public class Error {
         return innerError;
     }
 
+    public Error innerError(ErrorDetails innerError) {
+        this.innerError = innerError;
+        return this;
+    }
+
     public void setInnerError(ErrorDetails innerError) {
         this.innerError = innerError;
     }
 
-    public Error message(String message) {
-        this.message = message;
-        return this;
-    }
 
     /**
      * Message.
@@ -126,8 +124,21 @@ public class Error {
         return message;
     }
 
+    public Error message(String message) {
+        this.message = message;
+        return this;
+    }
+
     public void setMessage(String message) {
         this.message = message;
+    }
+
+
+    public Error() {
+        this.code = null;
+        this.description = null;
+        this.innerError = null;
+        this.message = null;
     }
 
     @Override
@@ -156,10 +167,10 @@ public class Error {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Error {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    innerError: ").append(toIndentedString(innerError)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    code: ").append(toIndentedString(getCode())).append("\n");
+    sb.append("    description: ").append(toIndentedString(getDescription())).append("\n");
+    sb.append("    innerError: ").append(toIndentedString(getInnerError())).append("\n");
+    sb.append("    message: ").append(toIndentedString(getMessage())).append("\n");
     sb.append("}");
     return sb.toString();
   }

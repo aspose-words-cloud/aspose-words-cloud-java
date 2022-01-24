@@ -48,21 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with font info.")
 public class FontInfo {
     @SerializedName("FilePath")
-    private String filePath = null;
+    protected String filePath;
 
     @SerializedName("FontFamilyName")
-    private String fontFamilyName = null;
+    protected String fontFamilyName;
 
     @SerializedName("FullFontName")
-    private String fullFontName = null;
+    protected String fullFontName;
 
     @SerializedName("Version")
-    private String version = null;
-    public FontInfo filePath(String filePath) {
-        this.filePath = filePath;
-        return this;
-    }
-
+    protected String version;
     /**
      * Gets or sets the path to the font file if any.
     * @return filePath
@@ -72,14 +67,15 @@ public class FontInfo {
         return filePath;
     }
 
+    public FontInfo filePath(String filePath) {
+        this.filePath = filePath;
+        return this;
+    }
+
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
 
-    public FontInfo fontFamilyName(String fontFamilyName) {
-        this.fontFamilyName = fontFamilyName;
-        return this;
-    }
 
     /**
      * Gets or sets the family name of the font.
@@ -90,14 +86,15 @@ public class FontInfo {
         return fontFamilyName;
     }
 
+    public FontInfo fontFamilyName(String fontFamilyName) {
+        this.fontFamilyName = fontFamilyName;
+        return this;
+    }
+
     public void setFontFamilyName(String fontFamilyName) {
         this.fontFamilyName = fontFamilyName;
     }
 
-    public FontInfo fullFontName(String fullFontName) {
-        this.fullFontName = fullFontName;
-        return this;
-    }
 
     /**
      * Gets or sets the full name of the font.
@@ -108,14 +105,15 @@ public class FontInfo {
         return fullFontName;
     }
 
+    public FontInfo fullFontName(String fullFontName) {
+        this.fullFontName = fullFontName;
+        return this;
+    }
+
     public void setFullFontName(String fullFontName) {
         this.fullFontName = fullFontName;
     }
 
-    public FontInfo version(String version) {
-        this.version = version;
-        return this;
-    }
 
     /**
      * Gets or sets the version string of the font.
@@ -126,8 +124,21 @@ public class FontInfo {
         return version;
     }
 
+    public FontInfo version(String version) {
+        this.version = version;
+        return this;
+    }
+
     public void setVersion(String version) {
         this.version = version;
+    }
+
+
+    public FontInfo() {
+        this.filePath = null;
+        this.fontFamilyName = null;
+        this.fullFontName = null;
+        this.version = null;
     }
 
     @Override
@@ -156,10 +167,10 @@ public class FontInfo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FontInfo {\n");
-    sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
-    sb.append("    fontFamilyName: ").append(toIndentedString(fontFamilyName)).append("\n");
-    sb.append("    fullFontName: ").append(toIndentedString(fullFontName)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    filePath: ").append(toIndentedString(getFilePath())).append("\n");
+    sb.append("    fontFamilyName: ").append(toIndentedString(getFontFamilyName())).append("\n");
+    sb.append("    fullFontName: ").append(toIndentedString(getFullFontName())).append("\n");
+    sb.append("    version: ").append(toIndentedString(getVersion())).append("\n");
     sb.append("}");
     return sb.toString();
   }

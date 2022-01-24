@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Paragraph list format element for update.")
 public class ListFormatUpdate {
     @SerializedName("ListId")
-    private Integer listId = null;
+    protected Integer listId;
 
     @SerializedName("ListLevelNumber")
-    private Integer listLevelNumber = null;
-    public ListFormatUpdate listId(Integer listId) {
-        this.listId = listId;
-        return this;
-    }
-
+    protected Integer listLevelNumber;
     /**
      * Gets or sets the list id of this paragraph.
     * @return listId
@@ -66,14 +61,15 @@ public class ListFormatUpdate {
         return listId;
     }
 
+    public ListFormatUpdate listId(Integer listId) {
+        this.listId = listId;
+        return this;
+    }
+
     public void setListId(Integer listId) {
         this.listId = listId;
     }
 
-    public ListFormatUpdate listLevelNumber(Integer listLevelNumber) {
-        this.listLevelNumber = listLevelNumber;
-        return this;
-    }
 
     /**
      * Gets or sets the list level number (0 to 8) for the paragraph.
@@ -84,8 +80,19 @@ public class ListFormatUpdate {
         return listLevelNumber;
     }
 
+    public ListFormatUpdate listLevelNumber(Integer listLevelNumber) {
+        this.listLevelNumber = listLevelNumber;
+        return this;
+    }
+
     public void setListLevelNumber(Integer listLevelNumber) {
         this.listLevelNumber = listLevelNumber;
+    }
+
+
+    public ListFormatUpdate() {
+        this.listId = null;
+        this.listLevelNumber = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class ListFormatUpdate {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListFormatUpdate {\n");
-    sb.append("    listId: ").append(toIndentedString(listId)).append("\n");
-    sb.append("    listLevelNumber: ").append(toIndentedString(listLevelNumber)).append("\n");
+    sb.append("    listId: ").append(toIndentedString(getListId())).append("\n");
+    sb.append("    listLevelNumber: ").append(toIndentedString(getListLevelNumber())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,18 +48,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for Downsample options.")
 public class DownsampleOptionsData {
     @SerializedName("DownsampleImages")
-    private Boolean downsampleImages = null;
+    protected Boolean downsampleImages;
 
     @SerializedName("Resolution")
-    private Integer resolution = null;
+    protected Integer resolution;
 
     @SerializedName("ResolutionThreshold")
-    private Integer resolutionThreshold = null;
-    public DownsampleOptionsData downsampleImages(Boolean downsampleImages) {
-        this.downsampleImages = downsampleImages;
-        return this;
-    }
-
+    protected Integer resolutionThreshold;
     /**
      * Gets or sets a value indicating whether images should be downsampled.
     * @return downsampleImages
@@ -69,14 +64,15 @@ public class DownsampleOptionsData {
         return downsampleImages;
     }
 
+    public DownsampleOptionsData downsampleImages(Boolean downsampleImages) {
+        this.downsampleImages = downsampleImages;
+        return this;
+    }
+
     public void setDownsampleImages(Boolean downsampleImages) {
         this.downsampleImages = downsampleImages;
     }
 
-    public DownsampleOptionsData resolution(Integer resolution) {
-        this.resolution = resolution;
-        return this;
-    }
 
     /**
      * Gets or sets the resolution in pixels per inch which the images should be downsampled to.
@@ -87,14 +83,15 @@ public class DownsampleOptionsData {
         return resolution;
     }
 
+    public DownsampleOptionsData resolution(Integer resolution) {
+        this.resolution = resolution;
+        return this;
+    }
+
     public void setResolution(Integer resolution) {
         this.resolution = resolution;
     }
 
-    public DownsampleOptionsData resolutionThreshold(Integer resolutionThreshold) {
-        this.resolutionThreshold = resolutionThreshold;
-        return this;
-    }
 
     /**
      * Gets or sets the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
@@ -105,8 +102,20 @@ public class DownsampleOptionsData {
         return resolutionThreshold;
     }
 
+    public DownsampleOptionsData resolutionThreshold(Integer resolutionThreshold) {
+        this.resolutionThreshold = resolutionThreshold;
+        return this;
+    }
+
     public void setResolutionThreshold(Integer resolutionThreshold) {
         this.resolutionThreshold = resolutionThreshold;
+    }
+
+
+    public DownsampleOptionsData() {
+        this.downsampleImages = null;
+        this.resolution = null;
+        this.resolutionThreshold = null;
     }
 
     @Override
@@ -134,9 +143,9 @@ public class DownsampleOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DownsampleOptionsData {\n");
-    sb.append("    downsampleImages: ").append(toIndentedString(downsampleImages)).append("\n");
-    sb.append("    resolution: ").append(toIndentedString(resolution)).append("\n");
-    sb.append("    resolutionThreshold: ").append(toIndentedString(resolutionThreshold)).append("\n");
+    sb.append("    downsampleImages: ").append(toIndentedString(getDownsampleImages())).append("\n");
+    sb.append("    resolution: ").append(toIndentedString(getResolution())).append("\n");
+    sb.append("    resolutionThreshold: ").append(toIndentedString(getResolutionThreshold())).append("\n");
     sb.append("}");
     return sb.toString();
   }

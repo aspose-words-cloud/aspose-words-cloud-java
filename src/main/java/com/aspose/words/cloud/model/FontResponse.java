@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a font.")
 public class FontResponse extends WordsResponse {
     @SerializedName("Font")
-    private Font font = null;
-    public FontResponse font(Font font) {
-        this.font = font;
-        return this;
-    }
-
+    protected Font font;
     /**
      * Gets or sets the font.
     * @return font
@@ -63,8 +58,19 @@ public class FontResponse extends WordsResponse {
         return font;
     }
 
+    public FontResponse font(Font font) {
+        this.font = font;
+        return this;
+    }
+
     public void setFont(Font font) {
         this.font = font;
+    }
+
+
+    public FontResponse() {
+        super();
+        this.font = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class FontResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FontResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    font: ").append(toIndentedString(font)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    font: ").append(toIndentedString(getFont())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -671,87 +671,82 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     @SerializedName("AddSpaceBetweenFarEastAndAlpha")
-    private Boolean addSpaceBetweenFarEastAndAlpha = null;
+    protected Boolean addSpaceBetweenFarEastAndAlpha;
 
     @SerializedName("AddSpaceBetweenFarEastAndDigit")
-    private Boolean addSpaceBetweenFarEastAndDigit = null;
+    protected Boolean addSpaceBetweenFarEastAndDigit;
 
     @SerializedName("Alignment")
-    private AlignmentEnum alignment = null;
+    protected AlignmentEnum alignment;
 
     @SerializedName("Bidi")
-    private Boolean bidi = null;
+    protected Boolean bidi;
 
     @SerializedName("DropCapPosition")
-    private DropCapPositionEnum dropCapPosition = null;
+    protected DropCapPositionEnum dropCapPosition;
 
     @SerializedName("FirstLineIndent")
-    private Double firstLineIndent = null;
+    protected Double firstLineIndent;
 
     @SerializedName("KeepTogether")
-    private Boolean keepTogether = null;
+    protected Boolean keepTogether;
 
     @SerializedName("KeepWithNext")
-    private Boolean keepWithNext = null;
+    protected Boolean keepWithNext;
 
     @SerializedName("LeftIndent")
-    private Double leftIndent = null;
+    protected Double leftIndent;
 
     @SerializedName("LineSpacing")
-    private Double lineSpacing = null;
+    protected Double lineSpacing;
 
     @SerializedName("LineSpacingRule")
-    private LineSpacingRuleEnum lineSpacingRule = null;
+    protected LineSpacingRuleEnum lineSpacingRule;
 
     @SerializedName("LinesToDrop")
-    private Integer linesToDrop = null;
+    protected Integer linesToDrop;
 
     @SerializedName("NoSpaceBetweenParagraphsOfSameStyle")
-    private Boolean noSpaceBetweenParagraphsOfSameStyle = null;
+    protected Boolean noSpaceBetweenParagraphsOfSameStyle;
 
     @SerializedName("OutlineLevel")
-    private OutlineLevelEnum outlineLevel = null;
+    protected OutlineLevelEnum outlineLevel;
 
     @SerializedName("PageBreakBefore")
-    private Boolean pageBreakBefore = null;
+    protected Boolean pageBreakBefore;
 
     @SerializedName("RightIndent")
-    private Double rightIndent = null;
+    protected Double rightIndent;
 
     @SerializedName("Shading")
-    private Shading shading = null;
+    protected Shading shading;
 
     @SerializedName("SpaceAfter")
-    private Double spaceAfter = null;
+    protected Double spaceAfter;
 
     @SerializedName("SpaceAfterAuto")
-    private Boolean spaceAfterAuto = null;
+    protected Boolean spaceAfterAuto;
 
     @SerializedName("SpaceBefore")
-    private Double spaceBefore = null;
+    protected Double spaceBefore;
 
     @SerializedName("SpaceBeforeAuto")
-    private Boolean spaceBeforeAuto = null;
+    protected Boolean spaceBeforeAuto;
 
     @SerializedName("StyleIdentifier")
-    private StyleIdentifierEnum styleIdentifier = null;
+    protected StyleIdentifierEnum styleIdentifier;
 
     @SerializedName("StyleName")
-    private String styleName = null;
+    protected String styleName;
 
     @SerializedName("SuppressAutoHyphens")
-    private Boolean suppressAutoHyphens = null;
+    protected Boolean suppressAutoHyphens;
 
     @SerializedName("SuppressLineNumbers")
-    private Boolean suppressLineNumbers = null;
+    protected Boolean suppressLineNumbers;
 
     @SerializedName("WidowControl")
-    private Boolean widowControl = null;
-    public ParagraphFormatBase addSpaceBetweenFarEastAndAlpha(Boolean addSpaceBetweenFarEastAndAlpha) {
-        this.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;
-        return this;
-    }
-
+    protected Boolean widowControl;
     /**
      * Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.
     * @return addSpaceBetweenFarEastAndAlpha
@@ -761,14 +756,15 @@ public class ParagraphFormatBase extends LinkElement {
         return addSpaceBetweenFarEastAndAlpha;
     }
 
+    public ParagraphFormatBase addSpaceBetweenFarEastAndAlpha(Boolean addSpaceBetweenFarEastAndAlpha) {
+        this.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;
+        return this;
+    }
+
     public void setAddSpaceBetweenFarEastAndAlpha(Boolean addSpaceBetweenFarEastAndAlpha) {
         this.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;
     }
 
-    public ParagraphFormatBase addSpaceBetweenFarEastAndDigit(Boolean addSpaceBetweenFarEastAndDigit) {
-        this.addSpaceBetweenFarEastAndDigit = addSpaceBetweenFarEastAndDigit;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.
@@ -779,14 +775,15 @@ public class ParagraphFormatBase extends LinkElement {
         return addSpaceBetweenFarEastAndDigit;
     }
 
+    public ParagraphFormatBase addSpaceBetweenFarEastAndDigit(Boolean addSpaceBetweenFarEastAndDigit) {
+        this.addSpaceBetweenFarEastAndDigit = addSpaceBetweenFarEastAndDigit;
+        return this;
+    }
+
     public void setAddSpaceBetweenFarEastAndDigit(Boolean addSpaceBetweenFarEastAndDigit) {
         this.addSpaceBetweenFarEastAndDigit = addSpaceBetweenFarEastAndDigit;
     }
 
-    public ParagraphFormatBase alignment(AlignmentEnum alignment) {
-        this.alignment = alignment;
-        return this;
-    }
 
     /**
      * Gets or sets text alignment for the paragraph.
@@ -797,14 +794,15 @@ public class ParagraphFormatBase extends LinkElement {
         return alignment;
     }
 
+    public ParagraphFormatBase alignment(AlignmentEnum alignment) {
+        this.alignment = alignment;
+        return this;
+    }
+
     public void setAlignment(AlignmentEnum alignment) {
         this.alignment = alignment;
     }
 
-    public ParagraphFormatBase bidi(Boolean bidi) {
-        this.bidi = bidi;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether this is a right-to-left paragraph.
@@ -815,14 +813,15 @@ public class ParagraphFormatBase extends LinkElement {
         return bidi;
     }
 
+    public ParagraphFormatBase bidi(Boolean bidi) {
+        this.bidi = bidi;
+        return this;
+    }
+
     public void setBidi(Boolean bidi) {
         this.bidi = bidi;
     }
 
-    public ParagraphFormatBase dropCapPosition(DropCapPositionEnum dropCapPosition) {
-        this.dropCapPosition = dropCapPosition;
-        return this;
-    }
 
     /**
      * Gets or sets the position for a drop cap text.
@@ -833,14 +832,15 @@ public class ParagraphFormatBase extends LinkElement {
         return dropCapPosition;
     }
 
+    public ParagraphFormatBase dropCapPosition(DropCapPositionEnum dropCapPosition) {
+        this.dropCapPosition = dropCapPosition;
+        return this;
+    }
+
     public void setDropCapPosition(DropCapPositionEnum dropCapPosition) {
         this.dropCapPosition = dropCapPosition;
     }
 
-    public ParagraphFormatBase firstLineIndent(Double firstLineIndent) {
-        this.firstLineIndent = firstLineIndent;
-        return this;
-    }
 
     /**
      * Gets or sets the value (in points) for a first line or hanging indent.
@@ -852,14 +852,15 @@ public class ParagraphFormatBase extends LinkElement {
         return firstLineIndent;
     }
 
+    public ParagraphFormatBase firstLineIndent(Double firstLineIndent) {
+        this.firstLineIndent = firstLineIndent;
+        return this;
+    }
+
     public void setFirstLineIndent(Double firstLineIndent) {
         this.firstLineIndent = firstLineIndent;
     }
 
-    public ParagraphFormatBase keepTogether(Boolean keepTogether) {
-        this.keepTogether = keepTogether;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether all lines in the paragraph are to remain on the same page.
@@ -870,14 +871,15 @@ public class ParagraphFormatBase extends LinkElement {
         return keepTogether;
     }
 
+    public ParagraphFormatBase keepTogether(Boolean keepTogether) {
+        this.keepTogether = keepTogether;
+        return this;
+    }
+
     public void setKeepTogether(Boolean keepTogether) {
         this.keepTogether = keepTogether;
     }
 
-    public ParagraphFormatBase keepWithNext(Boolean keepWithNext) {
-        this.keepWithNext = keepWithNext;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the paragraph is to remains on the same page as the paragraph that follows it.
@@ -888,14 +890,15 @@ public class ParagraphFormatBase extends LinkElement {
         return keepWithNext;
     }
 
+    public ParagraphFormatBase keepWithNext(Boolean keepWithNext) {
+        this.keepWithNext = keepWithNext;
+        return this;
+    }
+
     public void setKeepWithNext(Boolean keepWithNext) {
         this.keepWithNext = keepWithNext;
     }
 
-    public ParagraphFormatBase leftIndent(Double leftIndent) {
-        this.leftIndent = leftIndent;
-        return this;
-    }
 
     /**
      * Gets or sets the value (in points), that represents the left indent for paragraph.
@@ -906,14 +909,15 @@ public class ParagraphFormatBase extends LinkElement {
         return leftIndent;
     }
 
+    public ParagraphFormatBase leftIndent(Double leftIndent) {
+        this.leftIndent = leftIndent;
+        return this;
+    }
+
     public void setLeftIndent(Double leftIndent) {
         this.leftIndent = leftIndent;
     }
 
-    public ParagraphFormatBase lineSpacing(Double lineSpacing) {
-        this.lineSpacing = lineSpacing;
-        return this;
-    }
 
     /**
      * Gets or sets the line spacing (in points) for the paragraph.
@@ -924,14 +928,15 @@ public class ParagraphFormatBase extends LinkElement {
         return lineSpacing;
     }
 
+    public ParagraphFormatBase lineSpacing(Double lineSpacing) {
+        this.lineSpacing = lineSpacing;
+        return this;
+    }
+
     public void setLineSpacing(Double lineSpacing) {
         this.lineSpacing = lineSpacing;
     }
 
-    public ParagraphFormatBase lineSpacingRule(LineSpacingRuleEnum lineSpacingRule) {
-        this.lineSpacingRule = lineSpacingRule;
-        return this;
-    }
 
     /**
      * Gets or sets the line spacing for the paragraph.
@@ -942,14 +947,15 @@ public class ParagraphFormatBase extends LinkElement {
         return lineSpacingRule;
     }
 
+    public ParagraphFormatBase lineSpacingRule(LineSpacingRuleEnum lineSpacingRule) {
+        this.lineSpacingRule = lineSpacingRule;
+        return this;
+    }
+
     public void setLineSpacingRule(LineSpacingRuleEnum lineSpacingRule) {
         this.lineSpacingRule = lineSpacingRule;
     }
 
-    public ParagraphFormatBase linesToDrop(Integer linesToDrop) {
-        this.linesToDrop = linesToDrop;
-        return this;
-    }
 
     /**
      * Gets or sets the number of lines of the paragraph text used to calculate the drop cap height.
@@ -960,14 +966,15 @@ public class ParagraphFormatBase extends LinkElement {
         return linesToDrop;
     }
 
+    public ParagraphFormatBase linesToDrop(Integer linesToDrop) {
+        this.linesToDrop = linesToDrop;
+        return this;
+    }
+
     public void setLinesToDrop(Integer linesToDrop) {
         this.linesToDrop = linesToDrop;
     }
 
-    public ParagraphFormatBase noSpaceBetweenParagraphsOfSameStyle(Boolean noSpaceBetweenParagraphsOfSameStyle) {
-        this.noSpaceBetweenParagraphsOfSameStyle = noSpaceBetweenParagraphsOfSameStyle;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.
@@ -978,14 +985,15 @@ public class ParagraphFormatBase extends LinkElement {
         return noSpaceBetweenParagraphsOfSameStyle;
     }
 
+    public ParagraphFormatBase noSpaceBetweenParagraphsOfSameStyle(Boolean noSpaceBetweenParagraphsOfSameStyle) {
+        this.noSpaceBetweenParagraphsOfSameStyle = noSpaceBetweenParagraphsOfSameStyle;
+        return this;
+    }
+
     public void setNoSpaceBetweenParagraphsOfSameStyle(Boolean noSpaceBetweenParagraphsOfSameStyle) {
         this.noSpaceBetweenParagraphsOfSameStyle = noSpaceBetweenParagraphsOfSameStyle;
     }
 
-    public ParagraphFormatBase outlineLevel(OutlineLevelEnum outlineLevel) {
-        this.outlineLevel = outlineLevel;
-        return this;
-    }
 
     /**
      * Gets or sets the outline level of the paragraph in the document.
@@ -996,14 +1004,15 @@ public class ParagraphFormatBase extends LinkElement {
         return outlineLevel;
     }
 
+    public ParagraphFormatBase outlineLevel(OutlineLevelEnum outlineLevel) {
+        this.outlineLevel = outlineLevel;
+        return this;
+    }
+
     public void setOutlineLevel(OutlineLevelEnum outlineLevel) {
         this.outlineLevel = outlineLevel;
     }
 
-    public ParagraphFormatBase pageBreakBefore(Boolean pageBreakBefore) {
-        this.pageBreakBefore = pageBreakBefore;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether a page break is forced before the paragraph.
@@ -1014,14 +1023,15 @@ public class ParagraphFormatBase extends LinkElement {
         return pageBreakBefore;
     }
 
+    public ParagraphFormatBase pageBreakBefore(Boolean pageBreakBefore) {
+        this.pageBreakBefore = pageBreakBefore;
+        return this;
+    }
+
     public void setPageBreakBefore(Boolean pageBreakBefore) {
         this.pageBreakBefore = pageBreakBefore;
     }
 
-    public ParagraphFormatBase rightIndent(Double rightIndent) {
-        this.rightIndent = rightIndent;
-        return this;
-    }
 
     /**
      * Gets or sets the value (in points) that represents the right indent for paragraph.
@@ -1032,14 +1042,15 @@ public class ParagraphFormatBase extends LinkElement {
         return rightIndent;
     }
 
+    public ParagraphFormatBase rightIndent(Double rightIndent) {
+        this.rightIndent = rightIndent;
+        return this;
+    }
+
     public void setRightIndent(Double rightIndent) {
         this.rightIndent = rightIndent;
     }
 
-    public ParagraphFormatBase shading(Shading shading) {
-        this.shading = shading;
-        return this;
-    }
 
     /**
      * Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
@@ -1050,14 +1061,15 @@ public class ParagraphFormatBase extends LinkElement {
         return shading;
     }
 
+    public ParagraphFormatBase shading(Shading shading) {
+        this.shading = shading;
+        return this;
+    }
+
     public void setShading(Shading shading) {
         this.shading = shading;
     }
 
-    public ParagraphFormatBase spaceAfter(Double spaceAfter) {
-        this.spaceAfter = spaceAfter;
-        return this;
-    }
 
     /**
      * Gets or sets the amount of spacing (in points) after the paragraph.
@@ -1068,14 +1080,15 @@ public class ParagraphFormatBase extends LinkElement {
         return spaceAfter;
     }
 
+    public ParagraphFormatBase spaceAfter(Double spaceAfter) {
+        this.spaceAfter = spaceAfter;
+        return this;
+    }
+
     public void setSpaceAfter(Double spaceAfter) {
         this.spaceAfter = spaceAfter;
     }
 
-    public ParagraphFormatBase spaceAfterAuto(Boolean spaceAfterAuto) {
-        this.spaceAfterAuto = spaceAfterAuto;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the amount of spacing after the paragraph is set automatically.
@@ -1086,14 +1099,15 @@ public class ParagraphFormatBase extends LinkElement {
         return spaceAfterAuto;
     }
 
+    public ParagraphFormatBase spaceAfterAuto(Boolean spaceAfterAuto) {
+        this.spaceAfterAuto = spaceAfterAuto;
+        return this;
+    }
+
     public void setSpaceAfterAuto(Boolean spaceAfterAuto) {
         this.spaceAfterAuto = spaceAfterAuto;
     }
 
-    public ParagraphFormatBase spaceBefore(Double spaceBefore) {
-        this.spaceBefore = spaceBefore;
-        return this;
-    }
 
     /**
      * Gets or sets the amount of spacing (in points) before the paragraph.
@@ -1104,14 +1118,15 @@ public class ParagraphFormatBase extends LinkElement {
         return spaceBefore;
     }
 
+    public ParagraphFormatBase spaceBefore(Double spaceBefore) {
+        this.spaceBefore = spaceBefore;
+        return this;
+    }
+
     public void setSpaceBefore(Double spaceBefore) {
         this.spaceBefore = spaceBefore;
     }
 
-    public ParagraphFormatBase spaceBeforeAuto(Boolean spaceBeforeAuto) {
-        this.spaceBeforeAuto = spaceBeforeAuto;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the amount of spacing before the paragraph is set automatically.
@@ -1122,14 +1137,15 @@ public class ParagraphFormatBase extends LinkElement {
         return spaceBeforeAuto;
     }
 
+    public ParagraphFormatBase spaceBeforeAuto(Boolean spaceBeforeAuto) {
+        this.spaceBeforeAuto = spaceBeforeAuto;
+        return this;
+    }
+
     public void setSpaceBeforeAuto(Boolean spaceBeforeAuto) {
         this.spaceBeforeAuto = spaceBeforeAuto;
     }
 
-    public ParagraphFormatBase styleIdentifier(StyleIdentifierEnum styleIdentifier) {
-        this.styleIdentifier = styleIdentifier;
-        return this;
-    }
 
     /**
      * Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.
@@ -1140,14 +1156,15 @@ public class ParagraphFormatBase extends LinkElement {
         return styleIdentifier;
     }
 
+    public ParagraphFormatBase styleIdentifier(StyleIdentifierEnum styleIdentifier) {
+        this.styleIdentifier = styleIdentifier;
+        return this;
+    }
+
     public void setStyleIdentifier(StyleIdentifierEnum styleIdentifier) {
         this.styleIdentifier = styleIdentifier;
     }
 
-    public ParagraphFormatBase styleName(String styleName) {
-        this.styleName = styleName;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the paragraph style applied to this formatting.
@@ -1158,14 +1175,15 @@ public class ParagraphFormatBase extends LinkElement {
         return styleName;
     }
 
+    public ParagraphFormatBase styleName(String styleName) {
+        this.styleName = styleName;
+        return this;
+    }
+
     public void setStyleName(String styleName) {
         this.styleName = styleName;
     }
 
-    public ParagraphFormatBase suppressAutoHyphens(Boolean suppressAutoHyphens) {
-        this.suppressAutoHyphens = suppressAutoHyphens;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.
@@ -1176,14 +1194,15 @@ public class ParagraphFormatBase extends LinkElement {
         return suppressAutoHyphens;
     }
 
+    public ParagraphFormatBase suppressAutoHyphens(Boolean suppressAutoHyphens) {
+        this.suppressAutoHyphens = suppressAutoHyphens;
+        return this;
+    }
+
     public void setSuppressAutoHyphens(Boolean suppressAutoHyphens) {
         this.suppressAutoHyphens = suppressAutoHyphens;
     }
 
-    public ParagraphFormatBase suppressLineNumbers(Boolean suppressLineNumbers) {
-        this.suppressLineNumbers = suppressLineNumbers;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.
@@ -1194,14 +1213,15 @@ public class ParagraphFormatBase extends LinkElement {
         return suppressLineNumbers;
     }
 
+    public ParagraphFormatBase suppressLineNumbers(Boolean suppressLineNumbers) {
+        this.suppressLineNumbers = suppressLineNumbers;
+        return this;
+    }
+
     public void setSuppressLineNumbers(Boolean suppressLineNumbers) {
         this.suppressLineNumbers = suppressLineNumbers;
     }
 
-    public ParagraphFormatBase widowControl(Boolean widowControl) {
-        this.widowControl = widowControl;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.
@@ -1212,8 +1232,44 @@ public class ParagraphFormatBase extends LinkElement {
         return widowControl;
     }
 
+    public ParagraphFormatBase widowControl(Boolean widowControl) {
+        this.widowControl = widowControl;
+        return this;
+    }
+
     public void setWidowControl(Boolean widowControl) {
         this.widowControl = widowControl;
+    }
+
+
+    public ParagraphFormatBase() {
+        super();
+        this.addSpaceBetweenFarEastAndAlpha = null;
+        this.addSpaceBetweenFarEastAndDigit = null;
+        this.alignment = null;
+        this.bidi = null;
+        this.dropCapPosition = null;
+        this.firstLineIndent = null;
+        this.keepTogether = null;
+        this.keepWithNext = null;
+        this.leftIndent = null;
+        this.lineSpacing = null;
+        this.lineSpacingRule = null;
+        this.linesToDrop = null;
+        this.noSpaceBetweenParagraphsOfSameStyle = null;
+        this.outlineLevel = null;
+        this.pageBreakBefore = null;
+        this.rightIndent = null;
+        this.shading = null;
+        this.spaceAfter = null;
+        this.spaceAfterAuto = null;
+        this.spaceBefore = null;
+        this.spaceBeforeAuto = null;
+        this.styleIdentifier = null;
+        this.styleName = null;
+        this.suppressAutoHyphens = null;
+        this.suppressLineNumbers = null;
+        this.widowControl = null;
     }
 
     @Override
@@ -1265,33 +1321,33 @@ public class ParagraphFormatBase extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphFormatBase {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    addSpaceBetweenFarEastAndAlpha: ").append(toIndentedString(addSpaceBetweenFarEastAndAlpha)).append("\n");
-    sb.append("    addSpaceBetweenFarEastAndDigit: ").append(toIndentedString(addSpaceBetweenFarEastAndDigit)).append("\n");
-    sb.append("    alignment: ").append(toIndentedString(alignment)).append("\n");
-    sb.append("    bidi: ").append(toIndentedString(bidi)).append("\n");
-    sb.append("    dropCapPosition: ").append(toIndentedString(dropCapPosition)).append("\n");
-    sb.append("    firstLineIndent: ").append(toIndentedString(firstLineIndent)).append("\n");
-    sb.append("    keepTogether: ").append(toIndentedString(keepTogether)).append("\n");
-    sb.append("    keepWithNext: ").append(toIndentedString(keepWithNext)).append("\n");
-    sb.append("    leftIndent: ").append(toIndentedString(leftIndent)).append("\n");
-    sb.append("    lineSpacing: ").append(toIndentedString(lineSpacing)).append("\n");
-    sb.append("    lineSpacingRule: ").append(toIndentedString(lineSpacingRule)).append("\n");
-    sb.append("    linesToDrop: ").append(toIndentedString(linesToDrop)).append("\n");
-    sb.append("    noSpaceBetweenParagraphsOfSameStyle: ").append(toIndentedString(noSpaceBetweenParagraphsOfSameStyle)).append("\n");
-    sb.append("    outlineLevel: ").append(toIndentedString(outlineLevel)).append("\n");
-    sb.append("    pageBreakBefore: ").append(toIndentedString(pageBreakBefore)).append("\n");
-    sb.append("    rightIndent: ").append(toIndentedString(rightIndent)).append("\n");
-    sb.append("    shading: ").append(toIndentedString(shading)).append("\n");
-    sb.append("    spaceAfter: ").append(toIndentedString(spaceAfter)).append("\n");
-    sb.append("    spaceAfterAuto: ").append(toIndentedString(spaceAfterAuto)).append("\n");
-    sb.append("    spaceBefore: ").append(toIndentedString(spaceBefore)).append("\n");
-    sb.append("    spaceBeforeAuto: ").append(toIndentedString(spaceBeforeAuto)).append("\n");
-    sb.append("    styleIdentifier: ").append(toIndentedString(styleIdentifier)).append("\n");
-    sb.append("    styleName: ").append(toIndentedString(styleName)).append("\n");
-    sb.append("    suppressAutoHyphens: ").append(toIndentedString(suppressAutoHyphens)).append("\n");
-    sb.append("    suppressLineNumbers: ").append(toIndentedString(suppressLineNumbers)).append("\n");
-    sb.append("    widowControl: ").append(toIndentedString(widowControl)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    addSpaceBetweenFarEastAndAlpha: ").append(toIndentedString(getAddSpaceBetweenFarEastAndAlpha())).append("\n");
+    sb.append("    addSpaceBetweenFarEastAndDigit: ").append(toIndentedString(getAddSpaceBetweenFarEastAndDigit())).append("\n");
+    sb.append("    alignment: ").append(toIndentedString(getAlignment())).append("\n");
+    sb.append("    bidi: ").append(toIndentedString(getBidi())).append("\n");
+    sb.append("    dropCapPosition: ").append(toIndentedString(getDropCapPosition())).append("\n");
+    sb.append("    firstLineIndent: ").append(toIndentedString(getFirstLineIndent())).append("\n");
+    sb.append("    keepTogether: ").append(toIndentedString(getKeepTogether())).append("\n");
+    sb.append("    keepWithNext: ").append(toIndentedString(getKeepWithNext())).append("\n");
+    sb.append("    leftIndent: ").append(toIndentedString(getLeftIndent())).append("\n");
+    sb.append("    lineSpacing: ").append(toIndentedString(getLineSpacing())).append("\n");
+    sb.append("    lineSpacingRule: ").append(toIndentedString(getLineSpacingRule())).append("\n");
+    sb.append("    linesToDrop: ").append(toIndentedString(getLinesToDrop())).append("\n");
+    sb.append("    noSpaceBetweenParagraphsOfSameStyle: ").append(toIndentedString(getNoSpaceBetweenParagraphsOfSameStyle())).append("\n");
+    sb.append("    outlineLevel: ").append(toIndentedString(getOutlineLevel())).append("\n");
+    sb.append("    pageBreakBefore: ").append(toIndentedString(getPageBreakBefore())).append("\n");
+    sb.append("    rightIndent: ").append(toIndentedString(getRightIndent())).append("\n");
+    sb.append("    shading: ").append(toIndentedString(getShading())).append("\n");
+    sb.append("    spaceAfter: ").append(toIndentedString(getSpaceAfter())).append("\n");
+    sb.append("    spaceAfterAuto: ").append(toIndentedString(getSpaceAfterAuto())).append("\n");
+    sb.append("    spaceBefore: ").append(toIndentedString(getSpaceBefore())).append("\n");
+    sb.append("    spaceBeforeAuto: ").append(toIndentedString(getSpaceBeforeAuto())).append("\n");
+    sb.append("    styleIdentifier: ").append(toIndentedString(getStyleIdentifier())).append("\n");
+    sb.append("    styleName: ").append(toIndentedString(getStyleName())).append("\n");
+    sb.append("    suppressAutoHyphens: ").append(toIndentedString(getSuppressAutoHyphens())).append("\n");
+    sb.append("    suppressLineNumbers: ").append(toIndentedString(getSuppressLineNumbers())).append("\n");
+    sb.append("    widowControl: ").append(toIndentedString(getWidowControl())).append("\n");
     sb.append("}");
     return sb.toString();
   }

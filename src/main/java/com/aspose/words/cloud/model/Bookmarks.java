@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents an array of bookmarks.")
 public class Bookmarks extends LinkElement {
     @SerializedName("BookmarkList")
-    private List<Bookmark> bookmarkList = null;
+    protected List<Bookmark> bookmarkList;
+    /**
+     * Gets or sets the array of bookmarks.
+    * @return bookmarkList
+    **/
+    @ApiModelProperty(value = "Gets or sets the array of bookmarks.")
+    public List<Bookmark> getBookmarkList() {
+        return bookmarkList;
+    }
+
     public Bookmarks bookmarkList(List<Bookmark> bookmarkList) {
         this.bookmarkList = bookmarkList;
         return this;
@@ -62,17 +71,15 @@ public class Bookmarks extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the array of bookmarks.
-    * @return bookmarkList
-    **/
-    @ApiModelProperty(value = "Gets or sets the array of bookmarks.")
-    public List<Bookmark> getBookmarkList() {
-        return bookmarkList;
-    }
 
     public void setBookmarkList(List<Bookmark> bookmarkList) {
         this.bookmarkList = bookmarkList;
+    }
+
+
+    public Bookmarks() {
+        super();
+        this.bookmarkList = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class Bookmarks extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Bookmarks {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    bookmarkList: ").append(toIndentedString(bookmarkList)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    bookmarkList: ").append(toIndentedString(getBookmarkList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with paragraph format tab stop.")
 public class TabStop extends TabStopBase {
     @SerializedName("IsClear")
-    private Boolean isClear = null;
-    public TabStop isClear(Boolean isClear) {
-        this.isClear = isClear;
-        return this;
-    }
-
+    protected Boolean isClear;
     /**
      * Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.
     * @return isClear
@@ -63,8 +58,19 @@ public class TabStop extends TabStopBase {
         return isClear;
     }
 
+    public TabStop isClear(Boolean isClear) {
+        this.isClear = isClear;
+        return this;
+    }
+
     public void setIsClear(Boolean isClear) {
         this.isClear = isClear;
+    }
+
+
+    public TabStop() {
+        super();
+        this.isClear = null;
     }
 
     @Override
@@ -91,8 +97,10 @@ public class TabStop extends TabStopBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TabStop {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    isClear: ").append(toIndentedString(isClear)).append("\n");
+    sb.append("    alignment: ").append(toIndentedString(getAlignment())).append("\n");
+    sb.append("    leader: ").append(toIndentedString(getLeader())).append("\n");
+    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
+    sb.append("    isClear: ").append(toIndentedString(getIsClear())).append("\n");
     sb.append("}");
     return sb.toString();
   }

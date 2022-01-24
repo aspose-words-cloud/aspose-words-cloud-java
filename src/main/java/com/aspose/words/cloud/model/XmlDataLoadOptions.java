@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents options for XML data loading.")
 public class XmlDataLoadOptions {
     @SerializedName("AlwaysGenerateRootObject")
-    private Boolean alwaysGenerateRootObject = null;
-    public XmlDataLoadOptions alwaysGenerateRootObject(Boolean alwaysGenerateRootObject) {
-        this.alwaysGenerateRootObject = alwaysGenerateRootObject;
-        return this;
-    }
-
+    protected Boolean alwaysGenerateRootObject;
     /**
      * Gets or sets a flag indicating whether a generated data source will always contain an object for an XML root
      * element. If an XML root element has no attributes and all its child elements have same names, such an object
@@ -65,8 +60,18 @@ public class XmlDataLoadOptions {
         return alwaysGenerateRootObject;
     }
 
+    public XmlDataLoadOptions alwaysGenerateRootObject(Boolean alwaysGenerateRootObject) {
+        this.alwaysGenerateRootObject = alwaysGenerateRootObject;
+        return this;
+    }
+
     public void setAlwaysGenerateRootObject(Boolean alwaysGenerateRootObject) {
         this.alwaysGenerateRootObject = alwaysGenerateRootObject;
+    }
+
+
+    public XmlDataLoadOptions() {
+        this.alwaysGenerateRootObject = null;
     }
 
     @Override
@@ -92,7 +97,7 @@ public class XmlDataLoadOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class XmlDataLoadOptions {\n");
-    sb.append("    alwaysGenerateRootObject: ").append(toIndentedString(alwaysGenerateRootObject)).append("\n");
+    sb.append("    alwaysGenerateRootObject: ").append(toIndentedString(getAlwaysGenerateRootObject())).append("\n");
     sb.append("}");
     return sb.toString();
   }

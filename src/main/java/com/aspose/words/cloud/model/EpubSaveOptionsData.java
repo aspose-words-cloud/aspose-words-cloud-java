@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for epub save options.")
 public class EpubSaveOptionsData extends HtmlSaveOptionsData {
     @SerializedName("EpubNavigationMapLevel")
-    private Integer epubNavigationMapLevel = null;
-    public EpubSaveOptionsData epubNavigationMapLevel(Integer epubNavigationMapLevel) {
-        this.epubNavigationMapLevel = epubNavigationMapLevel;
-        return this;
-    }
-
+    protected Integer epubNavigationMapLevel;
     /**
      * Gets or sets the maximum level of headings populated to the navigation map when exporting.
     * @return epubNavigationMapLevel
@@ -63,8 +58,20 @@ public class EpubSaveOptionsData extends HtmlSaveOptionsData {
         return epubNavigationMapLevel;
     }
 
+    public EpubSaveOptionsData epubNavigationMapLevel(Integer epubNavigationMapLevel) {
+        this.epubNavigationMapLevel = epubNavigationMapLevel;
+        return this;
+    }
+
     public void setEpubNavigationMapLevel(Integer epubNavigationMapLevel) {
         this.epubNavigationMapLevel = epubNavigationMapLevel;
+    }
+
+
+    public EpubSaveOptionsData() {
+        super();
+        this.epubNavigationMapLevel = null;
+        this.saveFormat = "epub";
     }
 
     @Override
@@ -91,8 +98,61 @@ public class EpubSaveOptionsData extends HtmlSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EpubSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    epubNavigationMapLevel: ").append(toIndentedString(epubNavigationMapLevel)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    allowNegativeIndent: ").append(toIndentedString(getAllowNegativeIndent())).append("\n");
+    sb.append("    cssClassNamePrefix: ").append(toIndentedString(getCssClassNamePrefix())).append("\n");
+    sb.append("    cssStyleSheetFileName: ").append(toIndentedString(getCssStyleSheetFileName())).append("\n");
+    sb.append("    cssStyleSheetType: ").append(toIndentedString(getCssStyleSheetType())).append("\n");
+    sb.append("    documentSplitCriteria: ").append(toIndentedString(getDocumentSplitCriteria())).append("\n");
+    sb.append("    documentSplitHeadingLevel: ").append(toIndentedString(getDocumentSplitHeadingLevel())).append("\n");
+    sb.append("    encoding: ").append(toIndentedString(getEncoding())).append("\n");
+    sb.append("    exportDocumentProperties: ").append(toIndentedString(getExportDocumentProperties())).append("\n");
+    sb.append("    exportDropDownFormFieldAsText: ").append(toIndentedString(getExportDropDownFormFieldAsText())).append("\n");
+    sb.append("    exportFontResources: ").append(toIndentedString(getExportFontResources())).append("\n");
+    sb.append("    exportFontsAsBase64: ").append(toIndentedString(getExportFontsAsBase64())).append("\n");
+    sb.append("    exportHeadersFootersMode: ").append(toIndentedString(getExportHeadersFootersMode())).append("\n");
+    sb.append("    exportImagesAsBase64: ").append(toIndentedString(getExportImagesAsBase64())).append("\n");
+    sb.append("    exportLanguageInformation: ").append(toIndentedString(getExportLanguageInformation())).append("\n");
+    sb.append("    exportListLabels: ").append(toIndentedString(getExportListLabels())).append("\n");
+    sb.append("    exportOriginalUrlForLinkedImages: ").append(toIndentedString(getExportOriginalUrlForLinkedImages())).append("\n");
+    sb.append("    exportPageMargins: ").append(toIndentedString(getExportPageMargins())).append("\n");
+    sb.append("    exportPageSetup: ").append(toIndentedString(getExportPageSetup())).append("\n");
+    sb.append("    exportRelativeFontSize: ").append(toIndentedString(getExportRelativeFontSize())).append("\n");
+    sb.append("    exportRoundtripInformation: ").append(toIndentedString(getExportRoundtripInformation())).append("\n");
+    sb.append("    exportTextBoxAsSvg: ").append(toIndentedString(getExportTextBoxAsSvg())).append("\n");
+    sb.append("    exportTextInputFormFieldAsText: ").append(toIndentedString(getExportTextInputFormFieldAsText())).append("\n");
+    sb.append("    exportTocPageNumbers: ").append(toIndentedString(getExportTocPageNumbers())).append("\n");
+    sb.append("    exportXhtmlTransitional: ").append(toIndentedString(getExportXhtmlTransitional())).append("\n");
+    sb.append("    fontResourcesSubsettingSizeThreshold: ").append(toIndentedString(getFontResourcesSubsettingSizeThreshold())).append("\n");
+    sb.append("    fontsFolder: ").append(toIndentedString(getFontsFolder())).append("\n");
+    sb.append("    fontsFolderAlias: ").append(toIndentedString(getFontsFolderAlias())).append("\n");
+    sb.append("    htmlVersion: ").append(toIndentedString(getHtmlVersion())).append("\n");
+    sb.append("    imageResolution: ").append(toIndentedString(getImageResolution())).append("\n");
+    sb.append("    imagesFolder: ").append(toIndentedString(getImagesFolder())).append("\n");
+    sb.append("    imagesFolderAlias: ").append(toIndentedString(getImagesFolderAlias())).append("\n");
+    sb.append("    metafileFormat: ").append(toIndentedString(getMetafileFormat())).append("\n");
+    sb.append("    officeMathOutputMode: ").append(toIndentedString(getOfficeMathOutputMode())).append("\n");
+    sb.append("    prettyFormat: ").append(toIndentedString(getPrettyFormat())).append("\n");
+    sb.append("    resolveFontNames: ").append(toIndentedString(getResolveFontNames())).append("\n");
+    sb.append("    resourceFolder: ").append(toIndentedString(getResourceFolder())).append("\n");
+    sb.append("    resourceFolderAlias: ").append(toIndentedString(getResourceFolderAlias())).append("\n");
+    sb.append("    scaleImageToShapeSize: ").append(toIndentedString(getScaleImageToShapeSize())).append("\n");
+    sb.append("    tableWidthOutputMode: ").append(toIndentedString(getTableWidthOutputMode())).append("\n");
+    sb.append("    epubNavigationMapLevel: ").append(toIndentedString(getEpubNavigationMapLevel())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for xaml fixed save options.")
 public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("ResourcesFolder")
-    private String resourcesFolder = null;
+    protected String resourcesFolder;
 
     @SerializedName("ResourcesFolderAlias")
-    private String resourcesFolderAlias = null;
-    public XamlFixedSaveOptionsData resourcesFolder(String resourcesFolder) {
-        this.resourcesFolder = resourcesFolder;
-        return this;
-    }
-
+    protected String resourcesFolderAlias;
     /**
      * Gets or sets the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format.
      * The default value is null.
@@ -67,14 +62,15 @@ public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return resourcesFolder;
     }
 
+    public XamlFixedSaveOptionsData resourcesFolder(String resourcesFolder) {
+        this.resourcesFolder = resourcesFolder;
+        return this;
+    }
+
     public void setResourcesFolder(String resourcesFolder) {
         this.resourcesFolder = resourcesFolder;
     }
 
-    public XamlFixedSaveOptionsData resourcesFolderAlias(String resourcesFolderAlias) {
-        this.resourcesFolderAlias = resourcesFolderAlias;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the folder used to construct image URIs written into an fixed page Xaml document. The default value is null.
@@ -85,8 +81,21 @@ public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return resourcesFolderAlias;
     }
 
+    public XamlFixedSaveOptionsData resourcesFolderAlias(String resourcesFolderAlias) {
+        this.resourcesFolderAlias = resourcesFolderAlias;
+        return this;
+    }
+
     public void setResourcesFolderAlias(String resourcesFolderAlias) {
         this.resourcesFolderAlias = resourcesFolderAlias;
+    }
+
+
+    public XamlFixedSaveOptionsData() {
+        super();
+        this.resourcesFolder = null;
+        this.resourcesFolderAlias = null;
+        this.saveFormat = "xamlfixed";
     }
 
     @Override
@@ -114,9 +123,30 @@ public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class XamlFixedSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    resourcesFolder: ").append(toIndentedString(resourcesFolder)).append("\n");
-    sb.append("    resourcesFolderAlias: ").append(toIndentedString(resourcesFolderAlias)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
+    sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
+    sb.append("    metafileRenderingOptions: ").append(toIndentedString(getMetafileRenderingOptions())).append("\n");
+    sb.append("    numeralFormat: ").append(toIndentedString(getNumeralFormat())).append("\n");
+    sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
+    sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
+    sb.append("    resourcesFolder: ").append(toIndentedString(getResourcesFolder())).append("\n");
+    sb.append("    resourcesFolderAlias: ").append(toIndentedString(getResourcesFolderAlias())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

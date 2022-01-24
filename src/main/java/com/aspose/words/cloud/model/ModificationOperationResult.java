@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "result of the operation which modifies the original document and saves the result.")
 public class ModificationOperationResult {
     @SerializedName("Dest")
-    private FileLink dest = null;
+    protected FileLink dest;
 
     @SerializedName("Source")
-    private FileLink source = null;
-    public ModificationOperationResult dest(FileLink dest) {
-        this.dest = dest;
-        return this;
-    }
-
+    protected FileLink source;
     /**
      * Gets or sets the link to the dest document (result of the modification operation).
     * @return dest
@@ -66,14 +61,15 @@ public class ModificationOperationResult {
         return dest;
     }
 
+    public ModificationOperationResult dest(FileLink dest) {
+        this.dest = dest;
+        return this;
+    }
+
     public void setDest(FileLink dest) {
         this.dest = dest;
     }
 
-    public ModificationOperationResult source(FileLink source) {
-        this.source = source;
-        return this;
-    }
 
     /**
      * Gets or sets the link to the source document (source for the modification operation).
@@ -84,8 +80,19 @@ public class ModificationOperationResult {
         return source;
     }
 
+    public ModificationOperationResult source(FileLink source) {
+        this.source = source;
+        return this;
+    }
+
     public void setSource(FileLink source) {
         this.source = source;
+    }
+
+
+    public ModificationOperationResult() {
+        this.dest = null;
+        this.source = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class ModificationOperationResult {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModificationOperationResult {\n");
-    sb.append("    dest: ").append(toIndentedString(dest)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    dest: ").append(toIndentedString(getDest())).append("\n");
+    sb.append("    source: ").append(toIndentedString(getSource())).append("\n");
     sb.append("}");
     return sb.toString();
   }

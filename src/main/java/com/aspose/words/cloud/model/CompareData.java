@@ -48,24 +48,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for compare documents.")
 public class CompareData {
     @SerializedName("Author")
-    private String author = null;
+    protected String author;
 
     @SerializedName("CompareOptions")
-    private CompareOptions compareOptions = null;
+    protected CompareOptions compareOptions;
 
     @SerializedName("ComparingWithDocument")
-    private String comparingWithDocument = null;
+    protected String comparingWithDocument;
 
     @SerializedName("DateTime")
-    private OffsetDateTime dateTime = null;
+    protected OffsetDateTime dateTime;
 
     @SerializedName("ResultDocumentFormat")
-    private String resultDocumentFormat = null;
-    public CompareData author(String author) {
-        this.author = author;
-        return this;
-    }
-
+    protected String resultDocumentFormat;
     /**
      * Gets or sets the initials of the author to use for revisions.
     * @return author
@@ -75,14 +70,15 @@ public class CompareData {
         return author;
     }
 
+    public CompareData author(String author) {
+        this.author = author;
+        return this;
+    }
+
     public void setAuthor(String author) {
         this.author = author;
     }
 
-    public CompareData compareOptions(CompareOptions compareOptions) {
-        this.compareOptions = compareOptions;
-        return this;
-    }
 
     /**
      * Gets or sets the compare options.
@@ -93,14 +89,15 @@ public class CompareData {
         return compareOptions;
     }
 
+    public CompareData compareOptions(CompareOptions compareOptions) {
+        this.compareOptions = compareOptions;
+        return this;
+    }
+
     public void setCompareOptions(CompareOptions compareOptions) {
         this.compareOptions = compareOptions;
     }
 
-    public CompareData comparingWithDocument(String comparingWithDocument) {
-        this.comparingWithDocument = comparingWithDocument;
-        return this;
-    }
 
     /**
      * Gets or sets the path to document to compare at the server.
@@ -111,14 +108,15 @@ public class CompareData {
         return comparingWithDocument;
     }
 
+    public CompareData comparingWithDocument(String comparingWithDocument) {
+        this.comparingWithDocument = comparingWithDocument;
+        return this;
+    }
+
     public void setComparingWithDocument(String comparingWithDocument) {
         this.comparingWithDocument = comparingWithDocument;
     }
 
-    public CompareData dateTime(OffsetDateTime dateTime) {
-        this.dateTime = dateTime;
-        return this;
-    }
 
     /**
      * Gets or sets the date and time to use for revisions.
@@ -129,14 +127,15 @@ public class CompareData {
         return dateTime;
     }
 
+    public CompareData dateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+        return this;
+    }
+
     public void setDateTime(OffsetDateTime dateTime) {
         this.dateTime = dateTime;
     }
 
-    public CompareData resultDocumentFormat(String resultDocumentFormat) {
-        this.resultDocumentFormat = resultDocumentFormat;
-        return this;
-    }
 
     /**
      * Gets or sets the result document format.
@@ -147,8 +146,22 @@ public class CompareData {
         return resultDocumentFormat;
     }
 
+    public CompareData resultDocumentFormat(String resultDocumentFormat) {
+        this.resultDocumentFormat = resultDocumentFormat;
+        return this;
+    }
+
     public void setResultDocumentFormat(String resultDocumentFormat) {
         this.resultDocumentFormat = resultDocumentFormat;
+    }
+
+
+    public CompareData() {
+        this.author = null;
+        this.compareOptions = null;
+        this.comparingWithDocument = null;
+        this.dateTime = null;
+        this.resultDocumentFormat = null;
     }
 
     @Override
@@ -178,11 +191,11 @@ public class CompareData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CompareData {\n");
-    sb.append("    author: ").append(toIndentedString(author)).append("\n");
-    sb.append("    compareOptions: ").append(toIndentedString(compareOptions)).append("\n");
-    sb.append("    comparingWithDocument: ").append(toIndentedString(comparingWithDocument)).append("\n");
-    sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
-    sb.append("    resultDocumentFormat: ").append(toIndentedString(resultDocumentFormat)).append("\n");
+    sb.append("    author: ").append(toIndentedString(getAuthor())).append("\n");
+    sb.append("    compareOptions: ").append(toIndentedString(getCompareOptions())).append("\n");
+    sb.append("    comparingWithDocument: ").append(toIndentedString(getComparingWithDocument())).append("\n");
+    sb.append("    dateTime: ").append(toIndentedString(getDateTime())).append("\n");
+    sb.append("    resultDocumentFormat: ").append(toIndentedString(getResultDocumentFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

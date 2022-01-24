@@ -48,13 +48,22 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Result of saving.")
 public class SaveResult {
     @SerializedName("AdditionalItems")
-    private List<FileLink> additionalItems = null;
+    protected List<FileLink> additionalItems;
 
     @SerializedName("DestDocument")
-    private FileLink destDocument = null;
+    protected FileLink destDocument;
 
     @SerializedName("SourceDocument")
-    private FileLink sourceDocument = null;
+    protected FileLink sourceDocument;
+    /**
+     * Gets or sets the list of links to additional items (css, images etc).
+    * @return additionalItems
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of links to additional items (css, images etc).")
+    public List<FileLink> getAdditionalItems() {
+        return additionalItems;
+    }
+
     public SaveResult additionalItems(List<FileLink> additionalItems) {
         this.additionalItems = additionalItems;
         return this;
@@ -68,23 +77,11 @@ public class SaveResult {
         return this;
     }
 
-    /**
-     * Gets or sets the list of links to additional items (css, images etc).
-    * @return additionalItems
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of links to additional items (css, images etc).")
-    public List<FileLink> getAdditionalItems() {
-        return additionalItems;
-    }
 
     public void setAdditionalItems(List<FileLink> additionalItems) {
         this.additionalItems = additionalItems;
     }
 
-    public SaveResult destDocument(FileLink destDocument) {
-        this.destDocument = destDocument;
-        return this;
-    }
 
     /**
      * Gets or sets the link to destination document.
@@ -95,14 +92,15 @@ public class SaveResult {
         return destDocument;
     }
 
+    public SaveResult destDocument(FileLink destDocument) {
+        this.destDocument = destDocument;
+        return this;
+    }
+
     public void setDestDocument(FileLink destDocument) {
         this.destDocument = destDocument;
     }
 
-    public SaveResult sourceDocument(FileLink sourceDocument) {
-        this.sourceDocument = sourceDocument;
-        return this;
-    }
 
     /**
      * Gets or sets the link to source document.
@@ -113,8 +111,20 @@ public class SaveResult {
         return sourceDocument;
     }
 
+    public SaveResult sourceDocument(FileLink sourceDocument) {
+        this.sourceDocument = sourceDocument;
+        return this;
+    }
+
     public void setSourceDocument(FileLink sourceDocument) {
         this.sourceDocument = sourceDocument;
+    }
+
+
+    public SaveResult() {
+        this.additionalItems = null;
+        this.destDocument = null;
+        this.sourceDocument = null;
     }
 
     @Override
@@ -142,9 +152,9 @@ public class SaveResult {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SaveResult {\n");
-    sb.append("    additionalItems: ").append(toIndentedString(additionalItems)).append("\n");
-    sb.append("    destDocument: ").append(toIndentedString(destDocument)).append("\n");
-    sb.append("    sourceDocument: ").append(toIndentedString(sourceDocument)).append("\n");
+    sb.append("    additionalItems: ").append(toIndentedString(getAdditionalItems())).append("\n");
+    sb.append("    destDocument: ").append(toIndentedString(getDestDocument())).append("\n");
+    sb.append("    sourceDocument: ").append(toIndentedString(getSourceDocument())).append("\n");
     sb.append("}");
     return sb.toString();
   }

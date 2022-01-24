@@ -48,51 +48,46 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for fixed html save options.")
 public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("CssClassNamesPrefix")
-    private String cssClassNamesPrefix = null;
+    protected String cssClassNamesPrefix;
 
     @SerializedName("Encoding")
-    private String encoding = null;
+    protected String encoding;
 
     @SerializedName("ExportEmbeddedCss")
-    private Boolean exportEmbeddedCss = null;
+    protected Boolean exportEmbeddedCss;
 
     @SerializedName("ExportEmbeddedFonts")
-    private Boolean exportEmbeddedFonts = null;
+    protected Boolean exportEmbeddedFonts;
 
     @SerializedName("ExportEmbeddedImages")
-    private Boolean exportEmbeddedImages = null;
+    protected Boolean exportEmbeddedImages;
 
     @SerializedName("ExportFormFields")
-    private Boolean exportFormFields = null;
+    protected Boolean exportFormFields;
 
     @SerializedName("FontFormat")
-    private String fontFormat = null;
+    protected String fontFormat;
 
     @SerializedName("PageHorizontalAlignment")
-    private String pageHorizontalAlignment = null;
+    protected String pageHorizontalAlignment;
 
     @SerializedName("PageMargins")
-    private Double pageMargins = null;
+    protected Double pageMargins;
 
     @SerializedName("ResourcesFolder")
-    private String resourcesFolder = null;
+    protected String resourcesFolder;
 
     @SerializedName("ResourcesFolderAlias")
-    private String resourcesFolderAlias = null;
+    protected String resourcesFolderAlias;
 
     @SerializedName("SaveFontFaceCssSeparately")
-    private Boolean saveFontFaceCssSeparately = null;
+    protected Boolean saveFontFaceCssSeparately;
 
     @SerializedName("ShowPageBorder")
-    private Boolean showPageBorder = null;
+    protected Boolean showPageBorder;
 
     @SerializedName("UseTargetMachineFonts")
-    private Boolean useTargetMachineFonts = null;
-    public HtmlFixedSaveOptionsData cssClassNamesPrefix(String cssClassNamesPrefix) {
-        this.cssClassNamesPrefix = cssClassNamesPrefix;
-        return this;
-    }
-
+    protected Boolean useTargetMachineFonts;
     /**
      * Gets or sets the prefix which is added to all class names in style.css file.
      * Default value is "aw".
@@ -103,14 +98,15 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return cssClassNamesPrefix;
     }
 
+    public HtmlFixedSaveOptionsData cssClassNamesPrefix(String cssClassNamesPrefix) {
+        this.cssClassNamesPrefix = cssClassNamesPrefix;
+        return this;
+    }
+
     public void setCssClassNamesPrefix(String cssClassNamesPrefix) {
         this.cssClassNamesPrefix = cssClassNamesPrefix;
     }
 
-    public HtmlFixedSaveOptionsData encoding(String encoding) {
-        this.encoding = encoding;
-        return this;
-    }
 
     /**
      * Gets or sets the character encoding.
@@ -121,14 +117,15 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return encoding;
     }
 
+    public HtmlFixedSaveOptionsData encoding(String encoding) {
+        this.encoding = encoding;
+        return this;
+    }
+
     public void setEncoding(String encoding) {
         this.encoding = encoding;
     }
 
-    public HtmlFixedSaveOptionsData exportEmbeddedCss(Boolean exportEmbeddedCss) {
-        this.exportEmbeddedCss = exportEmbeddedCss;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the CSS (Cascading Style Sheet) should be embedded into the Html document.
@@ -139,14 +136,15 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return exportEmbeddedCss;
     }
 
+    public HtmlFixedSaveOptionsData exportEmbeddedCss(Boolean exportEmbeddedCss) {
+        this.exportEmbeddedCss = exportEmbeddedCss;
+        return this;
+    }
+
     public void setExportEmbeddedCss(Boolean exportEmbeddedCss) {
         this.exportEmbeddedCss = exportEmbeddedCss;
     }
 
-    public HtmlFixedSaveOptionsData exportEmbeddedFonts(Boolean exportEmbeddedFonts) {
-        this.exportEmbeddedFonts = exportEmbeddedFonts;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether fonts should be embedded into the Html document in Base64 format.
@@ -157,14 +155,15 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return exportEmbeddedFonts;
     }
 
+    public HtmlFixedSaveOptionsData exportEmbeddedFonts(Boolean exportEmbeddedFonts) {
+        this.exportEmbeddedFonts = exportEmbeddedFonts;
+        return this;
+    }
+
     public void setExportEmbeddedFonts(Boolean exportEmbeddedFonts) {
         this.exportEmbeddedFonts = exportEmbeddedFonts;
     }
 
-    public HtmlFixedSaveOptionsData exportEmbeddedImages(Boolean exportEmbeddedImages) {
-        this.exportEmbeddedImages = exportEmbeddedImages;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether images should be embedded into the Html document in Base64 format.
@@ -175,14 +174,15 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return exportEmbeddedImages;
     }
 
+    public HtmlFixedSaveOptionsData exportEmbeddedImages(Boolean exportEmbeddedImages) {
+        this.exportEmbeddedImages = exportEmbeddedImages;
+        return this;
+    }
+
     public void setExportEmbeddedImages(Boolean exportEmbeddedImages) {
         this.exportEmbeddedImages = exportEmbeddedImages;
     }
 
-    public HtmlFixedSaveOptionsData exportFormFields(Boolean exportFormFields) {
-        this.exportFormFields = exportFormFields;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether form fields are exported as interactive items (as 'input' tag) rather than converted to text or graphics.
@@ -193,14 +193,15 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return exportFormFields;
     }
 
+    public HtmlFixedSaveOptionsData exportFormFields(Boolean exportFormFields) {
+        this.exportFormFields = exportFormFields;
+        return this;
+    }
+
     public void setExportFormFields(Boolean exportFormFields) {
         this.exportFormFields = exportFormFields;
     }
 
-    public HtmlFixedSaveOptionsData fontFormat(String fontFormat) {
-        this.fontFormat = fontFormat;
-        return this;
-    }
 
     /**
      * Gets or sets the export format of fonts.
@@ -211,14 +212,15 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return fontFormat;
     }
 
+    public HtmlFixedSaveOptionsData fontFormat(String fontFormat) {
+        this.fontFormat = fontFormat;
+        return this;
+    }
+
     public void setFontFormat(String fontFormat) {
         this.fontFormat = fontFormat;
     }
 
-    public HtmlFixedSaveOptionsData pageHorizontalAlignment(String pageHorizontalAlignment) {
-        this.pageHorizontalAlignment = pageHorizontalAlignment;
-        return this;
-    }
 
     /**
      * Gets or sets the horizontal alignment of pages in the HTML document.
@@ -230,14 +232,15 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return pageHorizontalAlignment;
     }
 
+    public HtmlFixedSaveOptionsData pageHorizontalAlignment(String pageHorizontalAlignment) {
+        this.pageHorizontalAlignment = pageHorizontalAlignment;
+        return this;
+    }
+
     public void setPageHorizontalAlignment(String pageHorizontalAlignment) {
         this.pageHorizontalAlignment = pageHorizontalAlignment;
     }
 
-    public HtmlFixedSaveOptionsData pageMargins(Double pageMargins) {
-        this.pageMargins = pageMargins;
-        return this;
-    }
 
     /**
      * Gets or sets the margin around pages in HTML document.
@@ -250,14 +253,15 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return pageMargins;
     }
 
+    public HtmlFixedSaveOptionsData pageMargins(Double pageMargins) {
+        this.pageMargins = pageMargins;
+        return this;
+    }
+
     public void setPageMargins(Double pageMargins) {
         this.pageMargins = pageMargins;
     }
 
-    public HtmlFixedSaveOptionsData resourcesFolder(String resourcesFolder) {
-        this.resourcesFolder = resourcesFolder;
-        return this;
-    }
 
     /**
      * Gets or sets the physical folder where resources are saved when exporting the document.
@@ -268,14 +272,15 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return resourcesFolder;
     }
 
+    public HtmlFixedSaveOptionsData resourcesFolder(String resourcesFolder) {
+        this.resourcesFolder = resourcesFolder;
+        return this;
+    }
+
     public void setResourcesFolder(String resourcesFolder) {
         this.resourcesFolder = resourcesFolder;
     }
 
-    public HtmlFixedSaveOptionsData resourcesFolderAlias(String resourcesFolderAlias) {
-        this.resourcesFolderAlias = resourcesFolderAlias;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the folder used to construct resource URIs.
@@ -286,14 +291,15 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return resourcesFolderAlias;
     }
 
+    public HtmlFixedSaveOptionsData resourcesFolderAlias(String resourcesFolderAlias) {
+        this.resourcesFolderAlias = resourcesFolderAlias;
+        return this;
+    }
+
     public void setResourcesFolderAlias(String resourcesFolderAlias) {
         this.resourcesFolderAlias = resourcesFolderAlias;
     }
 
-    public HtmlFixedSaveOptionsData saveFontFaceCssSeparately(Boolean saveFontFaceCssSeparately) {
-        this.saveFontFaceCssSeparately = saveFontFaceCssSeparately;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether "@font-face" CSS rules should be placed into a separate file "fontFaces.css" when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). The default value is false, all CSS rules are written into single file "styles.css".
@@ -304,14 +310,15 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return saveFontFaceCssSeparately;
     }
 
+    public HtmlFixedSaveOptionsData saveFontFaceCssSeparately(Boolean saveFontFaceCssSeparately) {
+        this.saveFontFaceCssSeparately = saveFontFaceCssSeparately;
+        return this;
+    }
+
     public void setSaveFontFaceCssSeparately(Boolean saveFontFaceCssSeparately) {
         this.saveFontFaceCssSeparately = saveFontFaceCssSeparately;
     }
 
-    public HtmlFixedSaveOptionsData showPageBorder(Boolean showPageBorder) {
-        this.showPageBorder = showPageBorder;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to show border around pages.
@@ -322,14 +329,15 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return showPageBorder;
     }
 
+    public HtmlFixedSaveOptionsData showPageBorder(Boolean showPageBorder) {
+        this.showPageBorder = showPageBorder;
+        return this;
+    }
+
     public void setShowPageBorder(Boolean showPageBorder) {
         this.showPageBorder = showPageBorder;
     }
 
-    public HtmlFixedSaveOptionsData useTargetMachineFonts(Boolean useTargetMachineFonts) {
-        this.useTargetMachineFonts = useTargetMachineFonts;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether fonts from target machine must be used to display the document. If this flag is set to true, Aspose.Words.Saving.HtmlFixedSaveOptions.FontFormat and Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedFonts properties do not have effect, also Aspose.Words.Saving.HtmlFixedSaveOptions.ResourceSavingCallback is not fired for fonts. The default value is false.
@@ -340,8 +348,33 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         return useTargetMachineFonts;
     }
 
+    public HtmlFixedSaveOptionsData useTargetMachineFonts(Boolean useTargetMachineFonts) {
+        this.useTargetMachineFonts = useTargetMachineFonts;
+        return this;
+    }
+
     public void setUseTargetMachineFonts(Boolean useTargetMachineFonts) {
         this.useTargetMachineFonts = useTargetMachineFonts;
+    }
+
+
+    public HtmlFixedSaveOptionsData() {
+        super();
+        this.cssClassNamesPrefix = null;
+        this.encoding = null;
+        this.exportEmbeddedCss = null;
+        this.exportEmbeddedFonts = null;
+        this.exportEmbeddedImages = null;
+        this.exportFormFields = null;
+        this.fontFormat = null;
+        this.pageHorizontalAlignment = null;
+        this.pageMargins = null;
+        this.resourcesFolder = null;
+        this.resourcesFolderAlias = null;
+        this.saveFontFaceCssSeparately = null;
+        this.saveFormat = "htmlfixed";
+        this.showPageBorder = null;
+        this.useTargetMachineFonts = null;
     }
 
     @Override
@@ -381,21 +414,42 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HtmlFixedSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    cssClassNamesPrefix: ").append(toIndentedString(cssClassNamesPrefix)).append("\n");
-    sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
-    sb.append("    exportEmbeddedCss: ").append(toIndentedString(exportEmbeddedCss)).append("\n");
-    sb.append("    exportEmbeddedFonts: ").append(toIndentedString(exportEmbeddedFonts)).append("\n");
-    sb.append("    exportEmbeddedImages: ").append(toIndentedString(exportEmbeddedImages)).append("\n");
-    sb.append("    exportFormFields: ").append(toIndentedString(exportFormFields)).append("\n");
-    sb.append("    fontFormat: ").append(toIndentedString(fontFormat)).append("\n");
-    sb.append("    pageHorizontalAlignment: ").append(toIndentedString(pageHorizontalAlignment)).append("\n");
-    sb.append("    pageMargins: ").append(toIndentedString(pageMargins)).append("\n");
-    sb.append("    resourcesFolder: ").append(toIndentedString(resourcesFolder)).append("\n");
-    sb.append("    resourcesFolderAlias: ").append(toIndentedString(resourcesFolderAlias)).append("\n");
-    sb.append("    saveFontFaceCssSeparately: ").append(toIndentedString(saveFontFaceCssSeparately)).append("\n");
-    sb.append("    showPageBorder: ").append(toIndentedString(showPageBorder)).append("\n");
-    sb.append("    useTargetMachineFonts: ").append(toIndentedString(useTargetMachineFonts)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
+    sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
+    sb.append("    metafileRenderingOptions: ").append(toIndentedString(getMetafileRenderingOptions())).append("\n");
+    sb.append("    numeralFormat: ").append(toIndentedString(getNumeralFormat())).append("\n");
+    sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
+    sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
+    sb.append("    cssClassNamesPrefix: ").append(toIndentedString(getCssClassNamesPrefix())).append("\n");
+    sb.append("    encoding: ").append(toIndentedString(getEncoding())).append("\n");
+    sb.append("    exportEmbeddedCss: ").append(toIndentedString(getExportEmbeddedCss())).append("\n");
+    sb.append("    exportEmbeddedFonts: ").append(toIndentedString(getExportEmbeddedFonts())).append("\n");
+    sb.append("    exportEmbeddedImages: ").append(toIndentedString(getExportEmbeddedImages())).append("\n");
+    sb.append("    exportFormFields: ").append(toIndentedString(getExportFormFields())).append("\n");
+    sb.append("    fontFormat: ").append(toIndentedString(getFontFormat())).append("\n");
+    sb.append("    pageHorizontalAlignment: ").append(toIndentedString(getPageHorizontalAlignment())).append("\n");
+    sb.append("    pageMargins: ").append(toIndentedString(getPageMargins())).append("\n");
+    sb.append("    resourcesFolder: ").append(toIndentedString(getResourcesFolder())).append("\n");
+    sb.append("    resourcesFolderAlias: ").append(toIndentedString(getResourcesFolderAlias())).append("\n");
+    sb.append("    saveFontFaceCssSeparately: ").append(toIndentedString(getSaveFontFaceCssSeparately())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    showPageBorder: ").append(toIndentedString(getShowPageBorder())).append("\n");
+    sb.append("    useTargetMachineFonts: ").append(toIndentedString(getUseTargetMachineFonts())).append("\n");
     sb.append("}");
     return sb.toString();
   }

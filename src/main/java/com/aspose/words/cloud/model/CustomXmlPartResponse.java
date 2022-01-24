@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a custom xml part.")
 public class CustomXmlPartResponse extends WordsResponse {
     @SerializedName("CustomXmlPart")
-    private CustomXmlPart customXmlPart = null;
-    public CustomXmlPartResponse customXmlPart(CustomXmlPart customXmlPart) {
-        this.customXmlPart = customXmlPart;
-        return this;
-    }
-
+    protected CustomXmlPart customXmlPart;
     /**
      * Gets or sets the custom xml part.
     * @return customXmlPart
@@ -63,8 +58,19 @@ public class CustomXmlPartResponse extends WordsResponse {
         return customXmlPart;
     }
 
+    public CustomXmlPartResponse customXmlPart(CustomXmlPart customXmlPart) {
+        this.customXmlPart = customXmlPart;
+        return this;
+    }
+
     public void setCustomXmlPart(CustomXmlPart customXmlPart) {
         this.customXmlPart = customXmlPart;
+    }
+
+
+    public CustomXmlPartResponse() {
+        super();
+        this.customXmlPart = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class CustomXmlPartResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomXmlPartResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    customXmlPart: ").append(toIndentedString(customXmlPart)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    customXmlPart: ").append(toIndentedString(getCustomXmlPart())).append("\n");
     sb.append("}");
     return sb.toString();
   }

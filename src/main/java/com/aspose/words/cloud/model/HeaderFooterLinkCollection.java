@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The collection of HeaderFooter's links.")
 public class HeaderFooterLinkCollection extends LinkElement {
     @SerializedName("List")
-    private List<HeaderFooterLink> list = null;
+    protected List<HeaderFooterLink> list;
+    /**
+     * Gets or sets the collection of HeaderFooter's links.
+    * @return list
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of HeaderFooter's links.")
+    public List<HeaderFooterLink> getList() {
+        return list;
+    }
+
     public HeaderFooterLinkCollection list(List<HeaderFooterLink> list) {
         this.list = list;
         return this;
@@ -62,17 +71,15 @@ public class HeaderFooterLinkCollection extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of HeaderFooter's links.
-    * @return list
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of HeaderFooter's links.")
-    public List<HeaderFooterLink> getList() {
-        return list;
-    }
 
     public void setList(List<HeaderFooterLink> list) {
         this.list = list;
+    }
+
+
+    public HeaderFooterLinkCollection() {
+        super();
+        this.list = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class HeaderFooterLinkCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeaderFooterLinkCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    list: ").append(toIndentedString(list)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    list: ").append(toIndentedString(getList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

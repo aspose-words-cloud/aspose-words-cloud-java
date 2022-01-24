@@ -145,43 +145,52 @@ public class FieldOptions {
     }
 
     @SerializedName("BuiltInTemplatesPaths")
-    private List<String> builtInTemplatesPaths = null;
+    protected List<String> builtInTemplatesPaths;
 
     @SerializedName("CurrentUser")
-    private UserInformation currentUser = null;
+    protected UserInformation currentUser;
 
     @SerializedName("CustomTocStyleSeparator")
-    private String customTocStyleSeparator = null;
+    protected String customTocStyleSeparator;
 
     @SerializedName("DefaultDocumentAuthor")
-    private String defaultDocumentAuthor = null;
+    protected String defaultDocumentAuthor;
 
     @SerializedName("FieldIndexFormat")
-    private FieldIndexFormatEnum fieldIndexFormat = null;
+    protected FieldIndexFormatEnum fieldIndexFormat;
 
     @SerializedName("FieldUpdateCultureName")
-    private String fieldUpdateCultureName = null;
+    protected String fieldUpdateCultureName;
 
     @SerializedName("FieldUpdateCultureSource")
-    private FieldUpdateCultureSourceEnum fieldUpdateCultureSource = null;
+    protected FieldUpdateCultureSourceEnum fieldUpdateCultureSource;
 
     @SerializedName("FileName")
-    private String fileName = null;
+    protected String fileName;
 
     @SerializedName("IsBidiTextSupportedOnUpdate")
-    private Boolean isBidiTextSupportedOnUpdate = null;
+    protected Boolean isBidiTextSupportedOnUpdate;
 
     @SerializedName("LegacyNumberFormat")
-    private Boolean legacyNumberFormat = null;
+    protected Boolean legacyNumberFormat;
 
     @SerializedName("PreProcessCultureName")
-    private String preProcessCultureName = null;
+    protected String preProcessCultureName;
 
     @SerializedName("TemplateName")
-    private String templateName = null;
+    protected String templateName;
 
     @SerializedName("UseInvariantCultureNumberFormat")
-    private Boolean useInvariantCultureNumberFormat = null;
+    protected Boolean useInvariantCultureNumberFormat;
+    /**
+     * Gets or sets BuiltIn Templates Paths.
+    * @return builtInTemplatesPaths
+    **/
+    @ApiModelProperty(value = "Gets or sets BuiltIn Templates Paths.")
+    public List<String> getBuiltInTemplatesPaths() {
+        return builtInTemplatesPaths;
+    }
+
     public FieldOptions builtInTemplatesPaths(List<String> builtInTemplatesPaths) {
         this.builtInTemplatesPaths = builtInTemplatesPaths;
         return this;
@@ -195,23 +204,11 @@ public class FieldOptions {
         return this;
     }
 
-    /**
-     * Gets or sets BuiltIn Templates Paths.
-    * @return builtInTemplatesPaths
-    **/
-    @ApiModelProperty(value = "Gets or sets BuiltIn Templates Paths.")
-    public List<String> getBuiltInTemplatesPaths() {
-        return builtInTemplatesPaths;
-    }
 
     public void setBuiltInTemplatesPaths(List<String> builtInTemplatesPaths) {
         this.builtInTemplatesPaths = builtInTemplatesPaths;
     }
 
-    public FieldOptions currentUser(UserInformation currentUser) {
-        this.currentUser = currentUser;
-        return this;
-    }
 
     /**
      * Gets or sets Curren tUser.
@@ -222,14 +219,15 @@ public class FieldOptions {
         return currentUser;
     }
 
+    public FieldOptions currentUser(UserInformation currentUser) {
+        this.currentUser = currentUser;
+        return this;
+    }
+
     public void setCurrentUser(UserInformation currentUser) {
         this.currentUser = currentUser;
     }
 
-    public FieldOptions customTocStyleSeparator(String customTocStyleSeparator) {
-        this.customTocStyleSeparator = customTocStyleSeparator;
-        return this;
-    }
 
     /**
      * Gets or sets Custom Toc Style Separator.
@@ -240,14 +238,15 @@ public class FieldOptions {
         return customTocStyleSeparator;
     }
 
+    public FieldOptions customTocStyleSeparator(String customTocStyleSeparator) {
+        this.customTocStyleSeparator = customTocStyleSeparator;
+        return this;
+    }
+
     public void setCustomTocStyleSeparator(String customTocStyleSeparator) {
         this.customTocStyleSeparator = customTocStyleSeparator;
     }
 
-    public FieldOptions defaultDocumentAuthor(String defaultDocumentAuthor) {
-        this.defaultDocumentAuthor = defaultDocumentAuthor;
-        return this;
-    }
 
     /**
      * Gets or sets Default Document Author.
@@ -258,14 +257,15 @@ public class FieldOptions {
         return defaultDocumentAuthor;
     }
 
+    public FieldOptions defaultDocumentAuthor(String defaultDocumentAuthor) {
+        this.defaultDocumentAuthor = defaultDocumentAuthor;
+        return this;
+    }
+
     public void setDefaultDocumentAuthor(String defaultDocumentAuthor) {
         this.defaultDocumentAuthor = defaultDocumentAuthor;
     }
 
-    public FieldOptions fieldIndexFormat(FieldIndexFormatEnum fieldIndexFormat) {
-        this.fieldIndexFormat = fieldIndexFormat;
-        return this;
-    }
 
     /**
      * Gets or sets Field Index Format.
@@ -276,14 +276,15 @@ public class FieldOptions {
         return fieldIndexFormat;
     }
 
+    public FieldOptions fieldIndexFormat(FieldIndexFormatEnum fieldIndexFormat) {
+        this.fieldIndexFormat = fieldIndexFormat;
+        return this;
+    }
+
     public void setFieldIndexFormat(FieldIndexFormatEnum fieldIndexFormat) {
         this.fieldIndexFormat = fieldIndexFormat;
     }
 
-    public FieldOptions fieldUpdateCultureName(String fieldUpdateCultureName) {
-        this.fieldUpdateCultureName = fieldUpdateCultureName;
-        return this;
-    }
 
     /**
      * Gets or sets Field Update Culture Name.
@@ -295,14 +296,15 @@ public class FieldOptions {
         return fieldUpdateCultureName;
     }
 
+    public FieldOptions fieldUpdateCultureName(String fieldUpdateCultureName) {
+        this.fieldUpdateCultureName = fieldUpdateCultureName;
+        return this;
+    }
+
     public void setFieldUpdateCultureName(String fieldUpdateCultureName) {
         this.fieldUpdateCultureName = fieldUpdateCultureName;
     }
 
-    public FieldOptions fieldUpdateCultureSource(FieldUpdateCultureSourceEnum fieldUpdateCultureSource) {
-        this.fieldUpdateCultureSource = fieldUpdateCultureSource;
-        return this;
-    }
 
     /**
      * Gets or sets Field Update Culture Source.
@@ -313,14 +315,15 @@ public class FieldOptions {
         return fieldUpdateCultureSource;
     }
 
+    public FieldOptions fieldUpdateCultureSource(FieldUpdateCultureSourceEnum fieldUpdateCultureSource) {
+        this.fieldUpdateCultureSource = fieldUpdateCultureSource;
+        return this;
+    }
+
     public void setFieldUpdateCultureSource(FieldUpdateCultureSourceEnum fieldUpdateCultureSource) {
         this.fieldUpdateCultureSource = fieldUpdateCultureSource;
     }
 
-    public FieldOptions fileName(String fileName) {
-        this.fileName = fileName;
-        return this;
-    }
 
     /**
      * Gets or sets File Name.
@@ -331,14 +334,15 @@ public class FieldOptions {
         return fileName;
     }
 
+    public FieldOptions fileName(String fileName) {
+        this.fileName = fileName;
+        return this;
+    }
+
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
-    public FieldOptions isBidiTextSupportedOnUpdate(Boolean isBidiTextSupportedOnUpdate) {
-        this.isBidiTextSupportedOnUpdate = isBidiTextSupportedOnUpdate;
-        return this;
-    }
 
     /**
      * Gets or sets if Bidi Text Supported OnUpdate.
@@ -349,14 +353,15 @@ public class FieldOptions {
         return isBidiTextSupportedOnUpdate;
     }
 
+    public FieldOptions isBidiTextSupportedOnUpdate(Boolean isBidiTextSupportedOnUpdate) {
+        this.isBidiTextSupportedOnUpdate = isBidiTextSupportedOnUpdate;
+        return this;
+    }
+
     public void setIsBidiTextSupportedOnUpdate(Boolean isBidiTextSupportedOnUpdate) {
         this.isBidiTextSupportedOnUpdate = isBidiTextSupportedOnUpdate;
     }
 
-    public FieldOptions legacyNumberFormat(Boolean legacyNumberFormat) {
-        this.legacyNumberFormat = legacyNumberFormat;
-        return this;
-    }
 
     /**
      * Gets or sets if Legacy Number Format.
@@ -367,14 +372,15 @@ public class FieldOptions {
         return legacyNumberFormat;
     }
 
+    public FieldOptions legacyNumberFormat(Boolean legacyNumberFormat) {
+        this.legacyNumberFormat = legacyNumberFormat;
+        return this;
+    }
+
     public void setLegacyNumberFormat(Boolean legacyNumberFormat) {
         this.legacyNumberFormat = legacyNumberFormat;
     }
 
-    public FieldOptions preProcessCultureName(String preProcessCultureName) {
-        this.preProcessCultureName = preProcessCultureName;
-        return this;
-    }
 
     /**
      * Gets or sets PreProcess Culture Name.
@@ -386,14 +392,15 @@ public class FieldOptions {
         return preProcessCultureName;
     }
 
+    public FieldOptions preProcessCultureName(String preProcessCultureName) {
+        this.preProcessCultureName = preProcessCultureName;
+        return this;
+    }
+
     public void setPreProcessCultureName(String preProcessCultureName) {
         this.preProcessCultureName = preProcessCultureName;
     }
 
-    public FieldOptions templateName(String templateName) {
-        this.templateName = templateName;
-        return this;
-    }
 
     /**
      * Gets or sets Template Name.
@@ -404,14 +411,15 @@ public class FieldOptions {
         return templateName;
     }
 
+    public FieldOptions templateName(String templateName) {
+        this.templateName = templateName;
+        return this;
+    }
+
     public void setTemplateName(String templateName) {
         this.templateName = templateName;
     }
 
-    public FieldOptions useInvariantCultureNumberFormat(Boolean useInvariantCultureNumberFormat) {
-        this.useInvariantCultureNumberFormat = useInvariantCultureNumberFormat;
-        return this;
-    }
 
     /**
      * Gets or sets if Use Invariant Culture Number Format.
@@ -422,8 +430,30 @@ public class FieldOptions {
         return useInvariantCultureNumberFormat;
     }
 
+    public FieldOptions useInvariantCultureNumberFormat(Boolean useInvariantCultureNumberFormat) {
+        this.useInvariantCultureNumberFormat = useInvariantCultureNumberFormat;
+        return this;
+    }
+
     public void setUseInvariantCultureNumberFormat(Boolean useInvariantCultureNumberFormat) {
         this.useInvariantCultureNumberFormat = useInvariantCultureNumberFormat;
+    }
+
+
+    public FieldOptions() {
+        this.builtInTemplatesPaths = null;
+        this.currentUser = null;
+        this.customTocStyleSeparator = null;
+        this.defaultDocumentAuthor = null;
+        this.fieldIndexFormat = null;
+        this.fieldUpdateCultureName = null;
+        this.fieldUpdateCultureSource = null;
+        this.fileName = null;
+        this.isBidiTextSupportedOnUpdate = null;
+        this.legacyNumberFormat = null;
+        this.preProcessCultureName = null;
+        this.templateName = null;
+        this.useInvariantCultureNumberFormat = null;
     }
 
     @Override
@@ -461,19 +491,19 @@ public class FieldOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldOptions {\n");
-    sb.append("    builtInTemplatesPaths: ").append(toIndentedString(builtInTemplatesPaths)).append("\n");
-    sb.append("    currentUser: ").append(toIndentedString(currentUser)).append("\n");
-    sb.append("    customTocStyleSeparator: ").append(toIndentedString(customTocStyleSeparator)).append("\n");
-    sb.append("    defaultDocumentAuthor: ").append(toIndentedString(defaultDocumentAuthor)).append("\n");
-    sb.append("    fieldIndexFormat: ").append(toIndentedString(fieldIndexFormat)).append("\n");
-    sb.append("    fieldUpdateCultureName: ").append(toIndentedString(fieldUpdateCultureName)).append("\n");
-    sb.append("    fieldUpdateCultureSource: ").append(toIndentedString(fieldUpdateCultureSource)).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-    sb.append("    isBidiTextSupportedOnUpdate: ").append(toIndentedString(isBidiTextSupportedOnUpdate)).append("\n");
-    sb.append("    legacyNumberFormat: ").append(toIndentedString(legacyNumberFormat)).append("\n");
-    sb.append("    preProcessCultureName: ").append(toIndentedString(preProcessCultureName)).append("\n");
-    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
-    sb.append("    useInvariantCultureNumberFormat: ").append(toIndentedString(useInvariantCultureNumberFormat)).append("\n");
+    sb.append("    builtInTemplatesPaths: ").append(toIndentedString(getBuiltInTemplatesPaths())).append("\n");
+    sb.append("    currentUser: ").append(toIndentedString(getCurrentUser())).append("\n");
+    sb.append("    customTocStyleSeparator: ").append(toIndentedString(getCustomTocStyleSeparator())).append("\n");
+    sb.append("    defaultDocumentAuthor: ").append(toIndentedString(getDefaultDocumentAuthor())).append("\n");
+    sb.append("    fieldIndexFormat: ").append(toIndentedString(getFieldIndexFormat())).append("\n");
+    sb.append("    fieldUpdateCultureName: ").append(toIndentedString(getFieldUpdateCultureName())).append("\n");
+    sb.append("    fieldUpdateCultureSource: ").append(toIndentedString(getFieldUpdateCultureSource())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    isBidiTextSupportedOnUpdate: ").append(toIndentedString(getIsBidiTextSupportedOnUpdate())).append("\n");
+    sb.append("    legacyNumberFormat: ").append(toIndentedString(getLegacyNumberFormat())).append("\n");
+    sb.append("    preProcessCultureName: ").append(toIndentedString(getPreProcessCultureName())).append("\n");
+    sb.append("    templateName: ").append(toIndentedString(getTemplateName())).append("\n");
+    sb.append("    useInvariantCultureNumberFormat: ").append(toIndentedString(getUseInvariantCultureNumberFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

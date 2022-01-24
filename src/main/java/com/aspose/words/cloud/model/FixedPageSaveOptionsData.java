@@ -48,30 +48,25 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).")
 public class FixedPageSaveOptionsData extends SaveOptionsData {
     @SerializedName("ColorMode")
-    private String colorMode = null;
+    protected String colorMode;
 
     @SerializedName("JpegQuality")
-    private Integer jpegQuality = null;
+    protected Integer jpegQuality;
 
     @SerializedName("MetafileRenderingOptions")
-    private MetafileRenderingOptionsData metafileRenderingOptions = null;
+    protected MetafileRenderingOptionsData metafileRenderingOptions;
 
     @SerializedName("NumeralFormat")
-    private String numeralFormat = null;
+    protected String numeralFormat;
 
     @SerializedName("OptimizeOutput")
-    private Boolean optimizeOutput = null;
+    protected Boolean optimizeOutput;
 
     @SerializedName("PageCount")
-    private Integer pageCount = null;
+    protected Integer pageCount;
 
     @SerializedName("PageIndex")
-    private Integer pageIndex = null;
-    public FixedPageSaveOptionsData colorMode(String colorMode) {
-        this.colorMode = colorMode;
-        return this;
-    }
-
+    protected Integer pageIndex;
     /**
      * Gets or sets the value determining how colors are rendered.
      * { Normal | Grayscale}.
@@ -82,14 +77,15 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
         return colorMode;
     }
 
+    public FixedPageSaveOptionsData colorMode(String colorMode) {
+        this.colorMode = colorMode;
+        return this;
+    }
+
     public void setColorMode(String colorMode) {
         this.colorMode = colorMode;
     }
 
-    public FixedPageSaveOptionsData jpegQuality(Integer jpegQuality) {
-        this.jpegQuality = jpegQuality;
-        return this;
-    }
 
     /**
      * Gets or sets the quality of the JPEG images inside PDF document.
@@ -100,14 +96,15 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
         return jpegQuality;
     }
 
+    public FixedPageSaveOptionsData jpegQuality(Integer jpegQuality) {
+        this.jpegQuality = jpegQuality;
+        return this;
+    }
+
     public void setJpegQuality(Integer jpegQuality) {
         this.jpegQuality = jpegQuality;
     }
 
-    public FixedPageSaveOptionsData metafileRenderingOptions(MetafileRenderingOptionsData metafileRenderingOptions) {
-        this.metafileRenderingOptions = metafileRenderingOptions;
-        return this;
-    }
 
     /**
      * Gets or sets the metafile rendering options.
@@ -118,14 +115,15 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
         return metafileRenderingOptions;
     }
 
+    public FixedPageSaveOptionsData metafileRenderingOptions(MetafileRenderingOptionsData metafileRenderingOptions) {
+        this.metafileRenderingOptions = metafileRenderingOptions;
+        return this;
+    }
+
     public void setMetafileRenderingOptions(MetafileRenderingOptionsData metafileRenderingOptions) {
         this.metafileRenderingOptions = metafileRenderingOptions;
     }
 
-    public FixedPageSaveOptionsData numeralFormat(String numeralFormat) {
-        this.numeralFormat = numeralFormat;
-        return this;
-    }
 
     /**
      * Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
@@ -136,14 +134,15 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
         return numeralFormat;
     }
 
+    public FixedPageSaveOptionsData numeralFormat(String numeralFormat) {
+        this.numeralFormat = numeralFormat;
+        return this;
+    }
+
     public void setNumeralFormat(String numeralFormat) {
         this.numeralFormat = numeralFormat;
     }
 
-    public FixedPageSaveOptionsData optimizeOutput(Boolean optimizeOutput) {
-        this.optimizeOutput = optimizeOutput;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether it is required to optimize output of XPS.
@@ -156,14 +155,15 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
         return optimizeOutput;
     }
 
+    public FixedPageSaveOptionsData optimizeOutput(Boolean optimizeOutput) {
+        this.optimizeOutput = optimizeOutput;
+        return this;
+    }
+
     public void setOptimizeOutput(Boolean optimizeOutput) {
         this.optimizeOutput = optimizeOutput;
     }
 
-    public FixedPageSaveOptionsData pageCount(Integer pageCount) {
-        this.pageCount = pageCount;
-        return this;
-    }
 
     /**
      * Gets or sets the number of pages to render.
@@ -174,14 +174,15 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
         return pageCount;
     }
 
+    public FixedPageSaveOptionsData pageCount(Integer pageCount) {
+        this.pageCount = pageCount;
+        return this;
+    }
+
     public void setPageCount(Integer pageCount) {
         this.pageCount = pageCount;
     }
 
-    public FixedPageSaveOptionsData pageIndex(Integer pageIndex) {
-        this.pageIndex = pageIndex;
-        return this;
-    }
 
     /**
      * Gets or sets the 0-based index of the first page to render.
@@ -192,8 +193,25 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
         return pageIndex;
     }
 
+    public FixedPageSaveOptionsData pageIndex(Integer pageIndex) {
+        this.pageIndex = pageIndex;
+        return this;
+    }
+
     public void setPageIndex(Integer pageIndex) {
         this.pageIndex = pageIndex;
+    }
+
+
+    public FixedPageSaveOptionsData() {
+        super();
+        this.colorMode = null;
+        this.jpegQuality = null;
+        this.metafileRenderingOptions = null;
+        this.numeralFormat = null;
+        this.optimizeOutput = null;
+        this.pageCount = null;
+        this.pageIndex = null;
     }
 
     @Override
@@ -226,14 +244,28 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FixedPageSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    colorMode: ").append(toIndentedString(colorMode)).append("\n");
-    sb.append("    jpegQuality: ").append(toIndentedString(jpegQuality)).append("\n");
-    sb.append("    metafileRenderingOptions: ").append(toIndentedString(metafileRenderingOptions)).append("\n");
-    sb.append("    numeralFormat: ").append(toIndentedString(numeralFormat)).append("\n");
-    sb.append("    optimizeOutput: ").append(toIndentedString(optimizeOutput)).append("\n");
-    sb.append("    pageCount: ").append(toIndentedString(pageCount)).append("\n");
-    sb.append("    pageIndex: ").append(toIndentedString(pageIndex)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
+    sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
+    sb.append("    metafileRenderingOptions: ").append(toIndentedString(getMetafileRenderingOptions())).append("\n");
+    sb.append("    numeralFormat: ").append(toIndentedString(getNumeralFormat())).append("\n");
+    sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
+    sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
     sb.append("}");
     return sb.toString();
   }
