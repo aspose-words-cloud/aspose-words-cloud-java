@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with data on document's protection.")
 public class ProtectionDataResponse extends WordsResponse {
     @SerializedName("DocumentLink")
-    private FileLink documentLink = null;
+    protected FileLink documentLink;
 
     @SerializedName("ProtectionData")
-    private ProtectionData protectionData = null;
-    public ProtectionDataResponse documentLink(FileLink documentLink) {
-        this.documentLink = documentLink;
-        return this;
-    }
-
+    protected ProtectionData protectionData;
     /**
      * Gets or sets the link to the document.
     * @return documentLink
@@ -66,14 +61,15 @@ public class ProtectionDataResponse extends WordsResponse {
         return documentLink;
     }
 
+    public ProtectionDataResponse documentLink(FileLink documentLink) {
+        this.documentLink = documentLink;
+        return this;
+    }
+
     public void setDocumentLink(FileLink documentLink) {
         this.documentLink = documentLink;
     }
 
-    public ProtectionDataResponse protectionData(ProtectionData protectionData) {
-        this.protectionData = protectionData;
-        return this;
-    }
 
     /**
      * Gets or sets the protection properties of the document.
@@ -84,8 +80,20 @@ public class ProtectionDataResponse extends WordsResponse {
         return protectionData;
     }
 
+    public ProtectionDataResponse protectionData(ProtectionData protectionData) {
+        this.protectionData = protectionData;
+        return this;
+    }
+
     public void setProtectionData(ProtectionData protectionData) {
         this.protectionData = protectionData;
+    }
+
+
+    public ProtectionDataResponse() {
+        super();
+        this.documentLink = null;
+        this.protectionData = null;
     }
 
     @Override
@@ -113,9 +121,9 @@ public class ProtectionDataResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProtectionDataResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    documentLink: ").append(toIndentedString(documentLink)).append("\n");
-    sb.append("    protectionData: ").append(toIndentedString(protectionData)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    documentLink: ").append(toIndentedString(getDocumentLink())).append("\n");
+    sb.append("    protectionData: ").append(toIndentedString(getProtectionData())).append("\n");
     sb.append("}");
     return sb.toString();
   }

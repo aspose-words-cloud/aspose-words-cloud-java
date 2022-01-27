@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a table element.")
 public class Table extends NodeLink {
     @SerializedName("TableProperties")
-    private TableProperties tableProperties = null;
+    protected TableProperties tableProperties;
 
     @SerializedName("TableRowList")
-    private List<TableRow> tableRowList = null;
-    public Table tableProperties(TableProperties tableProperties) {
-        this.tableProperties = tableProperties;
-        return this;
-    }
-
+    protected List<TableRow> tableRowList;
     /**
      * Gets or sets table properties.
     * @return tableProperties
@@ -66,8 +61,23 @@ public class Table extends NodeLink {
         return tableProperties;
     }
 
+    public Table tableProperties(TableProperties tableProperties) {
+        this.tableProperties = tableProperties;
+        return this;
+    }
+
     public void setTableProperties(TableProperties tableProperties) {
         this.tableProperties = tableProperties;
+    }
+
+
+    /**
+     * Gets or sets the collection of table's rows.
+    * @return tableRowList
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of table's rows.")
+    public List<TableRow> getTableRowList() {
+        return tableRowList;
     }
 
     public Table tableRowList(List<TableRow> tableRowList) {
@@ -83,17 +93,16 @@ public class Table extends NodeLink {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of table's rows.
-    * @return tableRowList
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of table's rows.")
-    public List<TableRow> getTableRowList() {
-        return tableRowList;
-    }
 
     public void setTableRowList(List<TableRow> tableRowList) {
         this.tableRowList = tableRowList;
+    }
+
+
+    public Table() {
+        super();
+        this.tableProperties = null;
+        this.tableRowList = null;
     }
 
     @Override
@@ -121,9 +130,10 @@ public class Table extends NodeLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Table {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    tableProperties: ").append(toIndentedString(tableProperties)).append("\n");
-    sb.append("    tableRowList: ").append(toIndentedString(tableRowList)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
+    sb.append("    tableProperties: ").append(toIndentedString(getTableProperties())).append("\n");
+    sb.append("    tableRowList: ").append(toIndentedString(getTableRowList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

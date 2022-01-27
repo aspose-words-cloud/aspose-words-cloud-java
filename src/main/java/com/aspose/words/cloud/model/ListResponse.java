@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a list information.")
 public class ListResponse extends WordsResponse {
     @SerializedName("List")
-    private ListInfo list = null;
-    public ListResponse list(ListInfo list) {
-        this.list = list;
-        return this;
-    }
-
+    protected ListInfo list;
     /**
      * Gets or sets the list information.
     * @return list
@@ -63,8 +58,19 @@ public class ListResponse extends WordsResponse {
         return list;
     }
 
+    public ListResponse list(ListInfo list) {
+        this.list = list;
+        return this;
+    }
+
     public void setList(ListInfo list) {
         this.list = list;
+    }
+
+
+    public ListResponse() {
+        super();
+        this.list = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class ListResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    list: ").append(toIndentedString(list)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    list: ").append(toIndentedString(getList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -96,21 +96,16 @@ public class TxtSaveOptionsBaseData extends SaveOptionsData {
     }
 
     @SerializedName("Encoding")
-    private String encoding = null;
+    protected String encoding;
 
     @SerializedName("ExportHeadersFootersMode")
-    private ExportHeadersFootersModeEnum exportHeadersFootersMode = null;
+    protected ExportHeadersFootersModeEnum exportHeadersFootersMode;
 
     @SerializedName("ForcePageBreaks")
-    private Boolean forcePageBreaks = null;
+    protected Boolean forcePageBreaks;
 
     @SerializedName("ParagraphBreak")
-    private String paragraphBreak = null;
-    public TxtSaveOptionsBaseData encoding(String encoding) {
-        this.encoding = encoding;
-        return this;
-    }
-
+    protected String paragraphBreak;
     /**
      * Gets or sets the character encoding to use when exporting in plain text format.
     * @return encoding
@@ -120,14 +115,15 @@ public class TxtSaveOptionsBaseData extends SaveOptionsData {
         return encoding;
     }
 
+    public TxtSaveOptionsBaseData encoding(String encoding) {
+        this.encoding = encoding;
+        return this;
+    }
+
     public void setEncoding(String encoding) {
         this.encoding = encoding;
     }
 
-    public TxtSaveOptionsBaseData exportHeadersFootersMode(ExportHeadersFootersModeEnum exportHeadersFootersMode) {
-        this.exportHeadersFootersMode = exportHeadersFootersMode;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls whether to output headers and footers when exporting in plain text format.
@@ -139,14 +135,15 @@ public class TxtSaveOptionsBaseData extends SaveOptionsData {
         return exportHeadersFootersMode;
     }
 
+    public TxtSaveOptionsBaseData exportHeadersFootersMode(ExportHeadersFootersModeEnum exportHeadersFootersMode) {
+        this.exportHeadersFootersMode = exportHeadersFootersMode;
+        return this;
+    }
+
     public void setExportHeadersFootersMode(ExportHeadersFootersModeEnum exportHeadersFootersMode) {
         this.exportHeadersFootersMode = exportHeadersFootersMode;
     }
 
-    public TxtSaveOptionsBaseData forcePageBreaks(Boolean forcePageBreaks) {
-        this.forcePageBreaks = forcePageBreaks;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the page breaks should be preserved during export.
@@ -158,14 +155,15 @@ public class TxtSaveOptionsBaseData extends SaveOptionsData {
         return forcePageBreaks;
     }
 
+    public TxtSaveOptionsBaseData forcePageBreaks(Boolean forcePageBreaks) {
+        this.forcePageBreaks = forcePageBreaks;
+        return this;
+    }
+
     public void setForcePageBreaks(Boolean forcePageBreaks) {
         this.forcePageBreaks = forcePageBreaks;
     }
 
-    public TxtSaveOptionsBaseData paragraphBreak(String paragraphBreak) {
-        this.paragraphBreak = paragraphBreak;
-        return this;
-    }
 
     /**
      * Gets or sets the string to use as a paragraph break when exporting in plain text format.
@@ -176,8 +174,22 @@ public class TxtSaveOptionsBaseData extends SaveOptionsData {
         return paragraphBreak;
     }
 
+    public TxtSaveOptionsBaseData paragraphBreak(String paragraphBreak) {
+        this.paragraphBreak = paragraphBreak;
+        return this;
+    }
+
     public void setParagraphBreak(String paragraphBreak) {
         this.paragraphBreak = paragraphBreak;
+    }
+
+
+    public TxtSaveOptionsBaseData() {
+        super();
+        this.encoding = null;
+        this.exportHeadersFootersMode = null;
+        this.forcePageBreaks = null;
+        this.paragraphBreak = null;
     }
 
     @Override
@@ -207,11 +219,25 @@ public class TxtSaveOptionsBaseData extends SaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TxtSaveOptionsBaseData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
-    sb.append("    exportHeadersFootersMode: ").append(toIndentedString(exportHeadersFootersMode)).append("\n");
-    sb.append("    forcePageBreaks: ").append(toIndentedString(forcePageBreaks)).append("\n");
-    sb.append("    paragraphBreak: ").append(toIndentedString(paragraphBreak)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    encoding: ").append(toIndentedString(getEncoding())).append("\n");
+    sb.append("    exportHeadersFootersMode: ").append(toIndentedString(getExportHeadersFootersMode())).append("\n");
+    sb.append("    forcePageBreaks: ").append(toIndentedString(getForcePageBreaks())).append("\n");
+    sb.append("    paragraphBreak: ").append(toIndentedString(getParagraphBreak())).append("\n");
     sb.append("}");
     return sb.toString();
   }

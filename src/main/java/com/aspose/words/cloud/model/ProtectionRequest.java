@@ -48,18 +48,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Request on changing of protection.")
 public class ProtectionRequest {
     @SerializedName("NewPassword")
-    private String newPassword = null;
+    protected String newPassword;
 
     @SerializedName("Password")
-    private String password = null;
+    protected String password;
 
     @SerializedName("ProtectionType")
-    private String protectionType = null;
-    public ProtectionRequest newPassword(String newPassword) {
-        this.newPassword = newPassword;
-        return this;
-    }
-
+    protected String protectionType;
     /**
      * Gets or sets the new password.
     * @return newPassword
@@ -69,14 +64,15 @@ public class ProtectionRequest {
         return newPassword;
     }
 
+    public ProtectionRequest newPassword(String newPassword) {
+        this.newPassword = newPassword;
+        return this;
+    }
+
     public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
     }
 
-    public ProtectionRequest password(String password) {
-        this.password = password;
-        return this;
-    }
 
     /**
      * Gets or sets the current password.
@@ -87,14 +83,15 @@ public class ProtectionRequest {
         return password;
     }
 
+    public ProtectionRequest password(String password) {
+        this.password = password;
+        return this;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public ProtectionRequest protectionType(String protectionType) {
-        this.protectionType = protectionType;
-        return this;
-    }
 
     /**
      * Gets or sets the new type of protection.
@@ -105,8 +102,20 @@ public class ProtectionRequest {
         return protectionType;
     }
 
+    public ProtectionRequest protectionType(String protectionType) {
+        this.protectionType = protectionType;
+        return this;
+    }
+
     public void setProtectionType(String protectionType) {
         this.protectionType = protectionType;
+    }
+
+
+    public ProtectionRequest() {
+        this.newPassword = null;
+        this.password = null;
+        this.protectionType = null;
     }
 
     @Override
@@ -134,9 +143,9 @@ public class ProtectionRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProtectionRequest {\n");
-    sb.append("    newPassword: ").append(toIndentedString(newPassword)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    protectionType: ").append(toIndentedString(protectionType)).append("\n");
+    sb.append("    newPassword: ").append(toIndentedString(getNewPassword())).append("\n");
+    sb.append("    password: ").append(toIndentedString(getPassword())).append("\n");
+    sb.append("    protectionType: ").append(toIndentedString(getProtectionType())).append("\n");
     sb.append("}");
     return sb.toString();
   }

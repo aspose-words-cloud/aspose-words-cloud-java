@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with an API error.")
 public class WordsApiErrorResponse extends WordsResponse {
     @SerializedName("Error")
-    private ApiError error = null;
-    public WordsApiErrorResponse error(ApiError error) {
-        this.error = error;
-        return this;
-    }
-
+    protected ApiError error;
     /**
      * Gets or sets the API error.
     * @return error
@@ -63,8 +58,19 @@ public class WordsApiErrorResponse extends WordsResponse {
         return error;
     }
 
+    public WordsApiErrorResponse error(ApiError error) {
+        this.error = error;
+        return this;
+    }
+
     public void setError(ApiError error) {
         this.error = error;
+    }
+
+
+    public WordsApiErrorResponse() {
+        super();
+        this.error = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class WordsApiErrorResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WordsApiErrorResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    error: ").append(toIndentedString(getError())).append("\n");
     sb.append("}");
     return sb.toString();
   }

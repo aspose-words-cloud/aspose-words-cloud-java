@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The collection of paragraph's links.")
 public class ParagraphLinkCollection extends LinkElement {
     @SerializedName("ParagraphLinkList")
-    private List<ParagraphLink> paragraphLinkList = null;
+    protected List<ParagraphLink> paragraphLinkList;
+    /**
+     * Gets or sets the collection of paragraph's links.
+    * @return paragraphLinkList
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of paragraph's links.")
+    public List<ParagraphLink> getParagraphLinkList() {
+        return paragraphLinkList;
+    }
+
     public ParagraphLinkCollection paragraphLinkList(List<ParagraphLink> paragraphLinkList) {
         this.paragraphLinkList = paragraphLinkList;
         return this;
@@ -62,17 +71,15 @@ public class ParagraphLinkCollection extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of paragraph's links.
-    * @return paragraphLinkList
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of paragraph's links.")
-    public List<ParagraphLink> getParagraphLinkList() {
-        return paragraphLinkList;
-    }
 
     public void setParagraphLinkList(List<ParagraphLink> paragraphLinkList) {
         this.paragraphLinkList = paragraphLinkList;
+    }
+
+
+    public ParagraphLinkCollection() {
+        super();
+        this.paragraphLinkList = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class ParagraphLinkCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphLinkCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    paragraphLinkList: ").append(toIndentedString(paragraphLinkList)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    paragraphLinkList: ").append(toIndentedString(getParagraphLinkList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for xaml flow save options.")
 public class XamlFlowSaveOptionsData extends SaveOptionsData {
     @SerializedName("ImagesFolder")
-    private String imagesFolder = null;
+    protected String imagesFolder;
 
     @SerializedName("ImagesFolderAlias")
-    private String imagesFolderAlias = null;
-    public XamlFlowSaveOptionsData imagesFolder(String imagesFolder) {
-        this.imagesFolder = imagesFolder;
-        return this;
-    }
-
+    protected String imagesFolderAlias;
     /**
      * Gets or sets the physical folder where images are saved when exporting.
     * @return imagesFolder
@@ -66,14 +61,15 @@ public class XamlFlowSaveOptionsData extends SaveOptionsData {
         return imagesFolder;
     }
 
+    public XamlFlowSaveOptionsData imagesFolder(String imagesFolder) {
+        this.imagesFolder = imagesFolder;
+        return this;
+    }
+
     public void setImagesFolder(String imagesFolder) {
         this.imagesFolder = imagesFolder;
     }
 
-    public XamlFlowSaveOptionsData imagesFolderAlias(String imagesFolderAlias) {
-        this.imagesFolderAlias = imagesFolderAlias;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the folder used to construct image URIs.
@@ -84,8 +80,21 @@ public class XamlFlowSaveOptionsData extends SaveOptionsData {
         return imagesFolderAlias;
     }
 
+    public XamlFlowSaveOptionsData imagesFolderAlias(String imagesFolderAlias) {
+        this.imagesFolderAlias = imagesFolderAlias;
+        return this;
+    }
+
     public void setImagesFolderAlias(String imagesFolderAlias) {
         this.imagesFolderAlias = imagesFolderAlias;
+    }
+
+
+    public XamlFlowSaveOptionsData() {
+        super();
+        this.imagesFolder = null;
+        this.imagesFolderAlias = null;
+        this.saveFormat = "xamlflow";
     }
 
     @Override
@@ -113,9 +122,23 @@ public class XamlFlowSaveOptionsData extends SaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class XamlFlowSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    imagesFolder: ").append(toIndentedString(imagesFolder)).append("\n");
-    sb.append("    imagesFolderAlias: ").append(toIndentedString(imagesFolderAlias)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    imagesFolder: ").append(toIndentedString(getImagesFolder())).append("\n");
+    sb.append("    imagesFolderAlias: ").append(toIndentedString(getImagesFolderAlias())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

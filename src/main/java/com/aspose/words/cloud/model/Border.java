@@ -172,27 +172,22 @@ public class Border extends LinkElement {
     }
 
     @SerializedName("BorderType")
-    private BorderTypeEnum borderType = null;
+    protected BorderTypeEnum borderType;
 
     @SerializedName("Color")
-    private XmlColor color = null;
+    protected XmlColor color;
 
     @SerializedName("DistanceFromText")
-    private Double distanceFromText = null;
+    protected Double distanceFromText;
 
     @SerializedName("LineStyle")
-    private LineStyleEnum lineStyle = null;
+    protected LineStyleEnum lineStyle;
 
     @SerializedName("LineWidth")
-    private Double lineWidth = null;
+    protected Double lineWidth;
 
     @SerializedName("Shadow")
-    private Boolean shadow = null;
-    public Border borderType(BorderTypeEnum borderType) {
-        this.borderType = borderType;
-        return this;
-    }
-
+    protected Boolean shadow;
     /**
      * Gets or sets the border type.
     * @return borderType
@@ -202,14 +197,15 @@ public class Border extends LinkElement {
         return borderType;
     }
 
+    public Border borderType(BorderTypeEnum borderType) {
+        this.borderType = borderType;
+        return this;
+    }
+
     public void setBorderType(BorderTypeEnum borderType) {
         this.borderType = borderType;
     }
 
-    public Border color(XmlColor color) {
-        this.color = color;
-        return this;
-    }
 
     /**
      * Gets or sets the border color.
@@ -220,14 +216,15 @@ public class Border extends LinkElement {
         return color;
     }
 
+    public Border color(XmlColor color) {
+        this.color = color;
+        return this;
+    }
+
     public void setColor(XmlColor color) {
         this.color = color;
     }
 
-    public Border distanceFromText(Double distanceFromText) {
-        this.distanceFromText = distanceFromText;
-        return this;
-    }
 
     /**
      * Gets or sets the distance of the border from text or from the page edge in points.
@@ -238,14 +235,15 @@ public class Border extends LinkElement {
         return distanceFromText;
     }
 
+    public Border distanceFromText(Double distanceFromText) {
+        this.distanceFromText = distanceFromText;
+        return this;
+    }
+
     public void setDistanceFromText(Double distanceFromText) {
         this.distanceFromText = distanceFromText;
     }
 
-    public Border lineStyle(LineStyleEnum lineStyle) {
-        this.lineStyle = lineStyle;
-        return this;
-    }
 
     /**
      * Gets or sets the border style.
@@ -256,14 +254,15 @@ public class Border extends LinkElement {
         return lineStyle;
     }
 
+    public Border lineStyle(LineStyleEnum lineStyle) {
+        this.lineStyle = lineStyle;
+        return this;
+    }
+
     public void setLineStyle(LineStyleEnum lineStyle) {
         this.lineStyle = lineStyle;
     }
 
-    public Border lineWidth(Double lineWidth) {
-        this.lineWidth = lineWidth;
-        return this;
-    }
 
     /**
      * Gets or sets the border width in points.
@@ -274,14 +273,15 @@ public class Border extends LinkElement {
         return lineWidth;
     }
 
+    public Border lineWidth(Double lineWidth) {
+        this.lineWidth = lineWidth;
+        return this;
+    }
+
     public void setLineWidth(Double lineWidth) {
         this.lineWidth = lineWidth;
     }
 
-    public Border shadow(Boolean shadow) {
-        this.shadow = shadow;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the border has a shadow.
@@ -292,8 +292,24 @@ public class Border extends LinkElement {
         return shadow;
     }
 
+    public Border shadow(Boolean shadow) {
+        this.shadow = shadow;
+        return this;
+    }
+
     public void setShadow(Boolean shadow) {
         this.shadow = shadow;
+    }
+
+
+    public Border() {
+        super();
+        this.borderType = null;
+        this.color = null;
+        this.distanceFromText = null;
+        this.lineStyle = null;
+        this.lineWidth = null;
+        this.shadow = null;
     }
 
     @Override
@@ -325,13 +341,13 @@ public class Border extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Border {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    borderType: ").append(toIndentedString(borderType)).append("\n");
-    sb.append("    color: ").append(toIndentedString(color)).append("\n");
-    sb.append("    distanceFromText: ").append(toIndentedString(distanceFromText)).append("\n");
-    sb.append("    lineStyle: ").append(toIndentedString(lineStyle)).append("\n");
-    sb.append("    lineWidth: ").append(toIndentedString(lineWidth)).append("\n");
-    sb.append("    shadow: ").append(toIndentedString(shadow)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    borderType: ").append(toIndentedString(getBorderType())).append("\n");
+    sb.append("    color: ").append(toIndentedString(getColor())).append("\n");
+    sb.append("    distanceFromText: ").append(toIndentedString(getDistanceFromText())).append("\n");
+    sb.append("    lineStyle: ").append(toIndentedString(getLineStyle())).append("\n");
+    sb.append("    lineWidth: ").append(toIndentedString(getLineWidth())).append("\n");
+    sb.append("    shadow: ").append(toIndentedString(getShadow())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -205,39 +205,34 @@ public class DrawingObject extends DrawingObjectLink {
     }
 
     @SerializedName("Height")
-    private Double height = null;
+    protected Double height;
 
     @SerializedName("ImageDataLink")
-    private WordsApiLink imageDataLink = null;
+    protected WordsApiLink imageDataLink;
 
     @SerializedName("Left")
-    private Double left = null;
+    protected Double left;
 
     @SerializedName("OleDataLink")
-    private WordsApiLink oleDataLink = null;
+    protected WordsApiLink oleDataLink;
 
     @SerializedName("RelativeHorizontalPosition")
-    private RelativeHorizontalPositionEnum relativeHorizontalPosition = null;
+    protected RelativeHorizontalPositionEnum relativeHorizontalPosition;
 
     @SerializedName("RelativeVerticalPosition")
-    private RelativeVerticalPositionEnum relativeVerticalPosition = null;
+    protected RelativeVerticalPositionEnum relativeVerticalPosition;
 
     @SerializedName("RenderLinks")
-    private List<WordsApiLink> renderLinks = null;
+    protected List<WordsApiLink> renderLinks;
 
     @SerializedName("Top")
-    private Double top = null;
+    protected Double top;
 
     @SerializedName("Width")
-    private Double width = null;
+    protected Double width;
 
     @SerializedName("WrapType")
-    private WrapTypeEnum wrapType = null;
-    public DrawingObject height(Double height) {
-        this.height = height;
-        return this;
-    }
-
+    protected WrapTypeEnum wrapType;
     /**
      * Gets or sets the height of the DrawingObject in points.
     * @return height
@@ -247,14 +242,15 @@ public class DrawingObject extends DrawingObjectLink {
         return height;
     }
 
+    public DrawingObject height(Double height) {
+        this.height = height;
+        return this;
+    }
+
     public void setHeight(Double height) {
         this.height = height;
     }
 
-    public DrawingObject imageDataLink(WordsApiLink imageDataLink) {
-        this.imageDataLink = imageDataLink;
-        return this;
-    }
 
     /**
      * Gets or sets the link to image data. Can be null if shape does not have an image.
@@ -265,14 +261,15 @@ public class DrawingObject extends DrawingObjectLink {
         return imageDataLink;
     }
 
+    public DrawingObject imageDataLink(WordsApiLink imageDataLink) {
+        this.imageDataLink = imageDataLink;
+        return this;
+    }
+
     public void setImageDataLink(WordsApiLink imageDataLink) {
         this.imageDataLink = imageDataLink;
     }
 
-    public DrawingObject left(Double left) {
-        this.left = left;
-        return this;
-    }
 
     /**
      * Gets or sets the distance in points from the origin to the left side of the image.
@@ -283,14 +280,15 @@ public class DrawingObject extends DrawingObjectLink {
         return left;
     }
 
+    public DrawingObject left(Double left) {
+        this.left = left;
+        return this;
+    }
+
     public void setLeft(Double left) {
         this.left = left;
     }
 
-    public DrawingObject oleDataLink(WordsApiLink oleDataLink) {
-        this.oleDataLink = oleDataLink;
-        return this;
-    }
 
     /**
      * Gets or sets the link to OLE object. Can be null if shape does not have OLE data.
@@ -301,14 +299,15 @@ public class DrawingObject extends DrawingObjectLink {
         return oleDataLink;
     }
 
+    public DrawingObject oleDataLink(WordsApiLink oleDataLink) {
+        this.oleDataLink = oleDataLink;
+        return this;
+    }
+
     public void setOleDataLink(WordsApiLink oleDataLink) {
         this.oleDataLink = oleDataLink;
     }
 
-    public DrawingObject relativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
-        this.relativeHorizontalPosition = relativeHorizontalPosition;
-        return this;
-    }
 
     /**
      * Gets or sets the relative horizontal position, from which the distance to the image is measured.
@@ -319,14 +318,15 @@ public class DrawingObject extends DrawingObjectLink {
         return relativeHorizontalPosition;
     }
 
+    public DrawingObject relativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
+        this.relativeHorizontalPosition = relativeHorizontalPosition;
+        return this;
+    }
+
     public void setRelativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
         this.relativeHorizontalPosition = relativeHorizontalPosition;
     }
 
-    public DrawingObject relativeVerticalPosition(RelativeVerticalPositionEnum relativeVerticalPosition) {
-        this.relativeVerticalPosition = relativeVerticalPosition;
-        return this;
-    }
 
     /**
      * Gets or sets the relative vertical position, from which the distance to the image is measured.
@@ -337,8 +337,23 @@ public class DrawingObject extends DrawingObjectLink {
         return relativeVerticalPosition;
     }
 
+    public DrawingObject relativeVerticalPosition(RelativeVerticalPositionEnum relativeVerticalPosition) {
+        this.relativeVerticalPosition = relativeVerticalPosition;
+        return this;
+    }
+
     public void setRelativeVerticalPosition(RelativeVerticalPositionEnum relativeVerticalPosition) {
         this.relativeVerticalPosition = relativeVerticalPosition;
+    }
+
+
+    /**
+     * Gets or sets the list of links that originate from this DrawingObjectDto.
+    * @return renderLinks
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of links that originate from this DrawingObjectDto.")
+    public List<WordsApiLink> getRenderLinks() {
+        return renderLinks;
     }
 
     public DrawingObject renderLinks(List<WordsApiLink> renderLinks) {
@@ -354,23 +369,11 @@ public class DrawingObject extends DrawingObjectLink {
         return this;
     }
 
-    /**
-     * Gets or sets the list of links that originate from this DrawingObjectDto.
-    * @return renderLinks
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of links that originate from this DrawingObjectDto.")
-    public List<WordsApiLink> getRenderLinks() {
-        return renderLinks;
-    }
 
     public void setRenderLinks(List<WordsApiLink> renderLinks) {
         this.renderLinks = renderLinks;
     }
 
-    public DrawingObject top(Double top) {
-        this.top = top;
-        return this;
-    }
 
     /**
      * Gets or sets the distance in points from the origin to the top side of the image.
@@ -381,14 +384,15 @@ public class DrawingObject extends DrawingObjectLink {
         return top;
     }
 
+    public DrawingObject top(Double top) {
+        this.top = top;
+        return this;
+    }
+
     public void setTop(Double top) {
         this.top = top;
     }
 
-    public DrawingObject width(Double width) {
-        this.width = width;
-        return this;
-    }
 
     /**
      * Gets or sets the width of the DrawingObjects in points.
@@ -399,14 +403,15 @@ public class DrawingObject extends DrawingObjectLink {
         return width;
     }
 
+    public DrawingObject width(Double width) {
+        this.width = width;
+        return this;
+    }
+
     public void setWidth(Double width) {
         this.width = width;
     }
 
-    public DrawingObject wrapType(WrapTypeEnum wrapType) {
-        this.wrapType = wrapType;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how to wrap text around the image.
@@ -417,8 +422,28 @@ public class DrawingObject extends DrawingObjectLink {
         return wrapType;
     }
 
+    public DrawingObject wrapType(WrapTypeEnum wrapType) {
+        this.wrapType = wrapType;
+        return this;
+    }
+
     public void setWrapType(WrapTypeEnum wrapType) {
         this.wrapType = wrapType;
+    }
+
+
+    public DrawingObject() {
+        super();
+        this.height = null;
+        this.imageDataLink = null;
+        this.left = null;
+        this.oleDataLink = null;
+        this.relativeHorizontalPosition = null;
+        this.relativeVerticalPosition = null;
+        this.renderLinks = null;
+        this.top = null;
+        this.width = null;
+        this.wrapType = null;
     }
 
     @Override
@@ -454,17 +479,18 @@ public class DrawingObject extends DrawingObjectLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObject {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    height: ").append(toIndentedString(height)).append("\n");
-    sb.append("    imageDataLink: ").append(toIndentedString(imageDataLink)).append("\n");
-    sb.append("    left: ").append(toIndentedString(left)).append("\n");
-    sb.append("    oleDataLink: ").append(toIndentedString(oleDataLink)).append("\n");
-    sb.append("    relativeHorizontalPosition: ").append(toIndentedString(relativeHorizontalPosition)).append("\n");
-    sb.append("    relativeVerticalPosition: ").append(toIndentedString(relativeVerticalPosition)).append("\n");
-    sb.append("    renderLinks: ").append(toIndentedString(renderLinks)).append("\n");
-    sb.append("    top: ").append(toIndentedString(top)).append("\n");
-    sb.append("    width: ").append(toIndentedString(width)).append("\n");
-    sb.append("    wrapType: ").append(toIndentedString(wrapType)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
+    sb.append("    height: ").append(toIndentedString(getHeight())).append("\n");
+    sb.append("    imageDataLink: ").append(toIndentedString(getImageDataLink())).append("\n");
+    sb.append("    left: ").append(toIndentedString(getLeft())).append("\n");
+    sb.append("    oleDataLink: ").append(toIndentedString(getOleDataLink())).append("\n");
+    sb.append("    relativeHorizontalPosition: ").append(toIndentedString(getRelativeHorizontalPosition())).append("\n");
+    sb.append("    relativeVerticalPosition: ").append(toIndentedString(getRelativeVerticalPosition())).append("\n");
+    sb.append("    renderLinks: ").append(toIndentedString(getRenderLinks())).append("\n");
+    sb.append("    top: ").append(toIndentedString(getTop())).append("\n");
+    sb.append("    width: ").append(toIndentedString(getWidth())).append("\n");
+    sb.append("    wrapType: ").append(toIndentedString(getWrapType())).append("\n");
     sb.append("}");
     return sb.toString();
   }

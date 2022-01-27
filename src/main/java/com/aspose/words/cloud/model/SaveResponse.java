@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a save result.")
 public class SaveResponse extends WordsResponse {
     @SerializedName("SaveResult")
-    private SaveResult saveResult = null;
-    public SaveResponse saveResult(SaveResult saveResult) {
-        this.saveResult = saveResult;
-        return this;
-    }
-
+    protected SaveResult saveResult;
     /**
      * Gets or sets the save result.
     * @return saveResult
@@ -63,8 +58,19 @@ public class SaveResponse extends WordsResponse {
         return saveResult;
     }
 
+    public SaveResponse saveResult(SaveResult saveResult) {
+        this.saveResult = saveResult;
+        return this;
+    }
+
     public void setSaveResult(SaveResult saveResult) {
         this.saveResult = saveResult;
+    }
+
+
+    public SaveResponse() {
+        super();
+        this.saveResult = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class SaveResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SaveResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    saveResult: ").append(toIndentedString(saveResult)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    saveResult: ").append(toIndentedString(getSaveResult())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,6 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Run element for insert.")
 public class RunUpdate extends RunBase {
 
+    public RunUpdate() {
+        super();
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -69,7 +73,7 @@ public class RunUpdate extends RunBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RunUpdate {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

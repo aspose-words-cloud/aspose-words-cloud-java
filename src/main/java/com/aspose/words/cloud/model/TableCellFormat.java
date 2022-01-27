@@ -239,45 +239,40 @@ public class TableCellFormat extends LinkElement {
     }
 
     @SerializedName("BottomPadding")
-    private Double bottomPadding = null;
+    protected Double bottomPadding;
 
     @SerializedName("FitText")
-    private Boolean fitText = null;
+    protected Boolean fitText;
 
     @SerializedName("HorizontalMerge")
-    private HorizontalMergeEnum horizontalMerge = null;
+    protected HorizontalMergeEnum horizontalMerge;
 
     @SerializedName("LeftPadding")
-    private Double leftPadding = null;
+    protected Double leftPadding;
 
     @SerializedName("Orientation")
-    private OrientationEnum orientation = null;
+    protected OrientationEnum orientation;
 
     @SerializedName("PreferredWidth")
-    private PreferredWidth preferredWidth = null;
+    protected PreferredWidth preferredWidth;
 
     @SerializedName("RightPadding")
-    private Double rightPadding = null;
+    protected Double rightPadding;
 
     @SerializedName("TopPadding")
-    private Double topPadding = null;
+    protected Double topPadding;
 
     @SerializedName("VerticalAlignment")
-    private VerticalAlignmentEnum verticalAlignment = null;
+    protected VerticalAlignmentEnum verticalAlignment;
 
     @SerializedName("VerticalMerge")
-    private VerticalMergeEnum verticalMerge = null;
+    protected VerticalMergeEnum verticalMerge;
 
     @SerializedName("Width")
-    private Double width = null;
+    protected Double width;
 
     @SerializedName("WrapText")
-    private Boolean wrapText = null;
-    public TableCellFormat bottomPadding(Double bottomPadding) {
-        this.bottomPadding = bottomPadding;
-        return this;
-    }
-
+    protected Boolean wrapText;
     /**
      * Gets or sets the amount of space (in points) to add below the contents of the cell.
     * @return bottomPadding
@@ -287,14 +282,15 @@ public class TableCellFormat extends LinkElement {
         return bottomPadding;
     }
 
+    public TableCellFormat bottomPadding(Double bottomPadding) {
+        this.bottomPadding = bottomPadding;
+        return this;
+    }
+
     public void setBottomPadding(Double bottomPadding) {
         this.bottomPadding = bottomPadding;
     }
 
-    public TableCellFormat fitText(Boolean fitText) {
-        this.fitText = fitText;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to fit text in the cell, compress each paragraph to the width of the cell.
@@ -305,14 +301,15 @@ public class TableCellFormat extends LinkElement {
         return fitText;
     }
 
+    public TableCellFormat fitText(Boolean fitText) {
+        this.fitText = fitText;
+        return this;
+    }
+
     public void setFitText(Boolean fitText) {
         this.fitText = fitText;
     }
 
-    public TableCellFormat horizontalMerge(HorizontalMergeEnum horizontalMerge) {
-        this.horizontalMerge = horizontalMerge;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.
@@ -323,14 +320,15 @@ public class TableCellFormat extends LinkElement {
         return horizontalMerge;
     }
 
+    public TableCellFormat horizontalMerge(HorizontalMergeEnum horizontalMerge) {
+        this.horizontalMerge = horizontalMerge;
+        return this;
+    }
+
     public void setHorizontalMerge(HorizontalMergeEnum horizontalMerge) {
         this.horizontalMerge = horizontalMerge;
     }
 
-    public TableCellFormat leftPadding(Double leftPadding) {
-        this.leftPadding = leftPadding;
-        return this;
-    }
 
     /**
      * Gets or sets the amount of space (in points) to add to the left of the contents of the cell.
@@ -341,14 +339,15 @@ public class TableCellFormat extends LinkElement {
         return leftPadding;
     }
 
+    public TableCellFormat leftPadding(Double leftPadding) {
+        this.leftPadding = leftPadding;
+        return this;
+    }
+
     public void setLeftPadding(Double leftPadding) {
         this.leftPadding = leftPadding;
     }
 
-    public TableCellFormat orientation(OrientationEnum orientation) {
-        this.orientation = orientation;
-        return this;
-    }
 
     /**
      * Gets or sets the orientation of text in a table cell.
@@ -359,14 +358,15 @@ public class TableCellFormat extends LinkElement {
         return orientation;
     }
 
+    public TableCellFormat orientation(OrientationEnum orientation) {
+        this.orientation = orientation;
+        return this;
+    }
+
     public void setOrientation(OrientationEnum orientation) {
         this.orientation = orientation;
     }
 
-    public TableCellFormat preferredWidth(PreferredWidth preferredWidth) {
-        this.preferredWidth = preferredWidth;
-        return this;
-    }
 
     /**
      * Gets or sets the preferred width of the cell.
@@ -377,14 +377,15 @@ public class TableCellFormat extends LinkElement {
         return preferredWidth;
     }
 
+    public TableCellFormat preferredWidth(PreferredWidth preferredWidth) {
+        this.preferredWidth = preferredWidth;
+        return this;
+    }
+
     public void setPreferredWidth(PreferredWidth preferredWidth) {
         this.preferredWidth = preferredWidth;
     }
 
-    public TableCellFormat rightPadding(Double rightPadding) {
-        this.rightPadding = rightPadding;
-        return this;
-    }
 
     /**
      * Gets or sets the amount of space (in points) to add to the right of the contents of the cell.
@@ -395,14 +396,15 @@ public class TableCellFormat extends LinkElement {
         return rightPadding;
     }
 
+    public TableCellFormat rightPadding(Double rightPadding) {
+        this.rightPadding = rightPadding;
+        return this;
+    }
+
     public void setRightPadding(Double rightPadding) {
         this.rightPadding = rightPadding;
     }
 
-    public TableCellFormat topPadding(Double topPadding) {
-        this.topPadding = topPadding;
-        return this;
-    }
 
     /**
      * Gets or sets the amount of space (in points) to add above the contents of the cell.
@@ -413,14 +415,15 @@ public class TableCellFormat extends LinkElement {
         return topPadding;
     }
 
+    public TableCellFormat topPadding(Double topPadding) {
+        this.topPadding = topPadding;
+        return this;
+    }
+
     public void setTopPadding(Double topPadding) {
         this.topPadding = topPadding;
     }
 
-    public TableCellFormat verticalAlignment(VerticalAlignmentEnum verticalAlignment) {
-        this.verticalAlignment = verticalAlignment;
-        return this;
-    }
 
     /**
      * Gets or sets the vertical alignment of text in the cell.
@@ -431,14 +434,15 @@ public class TableCellFormat extends LinkElement {
         return verticalAlignment;
     }
 
+    public TableCellFormat verticalAlignment(VerticalAlignmentEnum verticalAlignment) {
+        this.verticalAlignment = verticalAlignment;
+        return this;
+    }
+
     public void setVerticalAlignment(VerticalAlignmentEnum verticalAlignment) {
         this.verticalAlignment = verticalAlignment;
     }
 
-    public TableCellFormat verticalMerge(VerticalMergeEnum verticalMerge) {
-        this.verticalMerge = verticalMerge;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how the cell is merged with other cells vertically.
@@ -449,14 +453,15 @@ public class TableCellFormat extends LinkElement {
         return verticalMerge;
     }
 
+    public TableCellFormat verticalMerge(VerticalMergeEnum verticalMerge) {
+        this.verticalMerge = verticalMerge;
+        return this;
+    }
+
     public void setVerticalMerge(VerticalMergeEnum verticalMerge) {
         this.verticalMerge = verticalMerge;
     }
 
-    public TableCellFormat width(Double width) {
-        this.width = width;
-        return this;
-    }
 
     /**
      * Gets or sets the width of the cell in points.
@@ -467,14 +472,15 @@ public class TableCellFormat extends LinkElement {
         return width;
     }
 
+    public TableCellFormat width(Double width) {
+        this.width = width;
+        return this;
+    }
+
     public void setWidth(Double width) {
         this.width = width;
     }
 
-    public TableCellFormat wrapText(Boolean wrapText) {
-        this.wrapText = wrapText;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to wrap text in the cell.
@@ -485,8 +491,30 @@ public class TableCellFormat extends LinkElement {
         return wrapText;
     }
 
+    public TableCellFormat wrapText(Boolean wrapText) {
+        this.wrapText = wrapText;
+        return this;
+    }
+
     public void setWrapText(Boolean wrapText) {
         this.wrapText = wrapText;
+    }
+
+
+    public TableCellFormat() {
+        super();
+        this.bottomPadding = null;
+        this.fitText = null;
+        this.horizontalMerge = null;
+        this.leftPadding = null;
+        this.orientation = null;
+        this.preferredWidth = null;
+        this.rightPadding = null;
+        this.topPadding = null;
+        this.verticalAlignment = null;
+        this.verticalMerge = null;
+        this.width = null;
+        this.wrapText = null;
     }
 
     @Override
@@ -524,19 +552,19 @@ public class TableCellFormat extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableCellFormat {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    bottomPadding: ").append(toIndentedString(bottomPadding)).append("\n");
-    sb.append("    fitText: ").append(toIndentedString(fitText)).append("\n");
-    sb.append("    horizontalMerge: ").append(toIndentedString(horizontalMerge)).append("\n");
-    sb.append("    leftPadding: ").append(toIndentedString(leftPadding)).append("\n");
-    sb.append("    orientation: ").append(toIndentedString(orientation)).append("\n");
-    sb.append("    preferredWidth: ").append(toIndentedString(preferredWidth)).append("\n");
-    sb.append("    rightPadding: ").append(toIndentedString(rightPadding)).append("\n");
-    sb.append("    topPadding: ").append(toIndentedString(topPadding)).append("\n");
-    sb.append("    verticalAlignment: ").append(toIndentedString(verticalAlignment)).append("\n");
-    sb.append("    verticalMerge: ").append(toIndentedString(verticalMerge)).append("\n");
-    sb.append("    width: ").append(toIndentedString(width)).append("\n");
-    sb.append("    wrapText: ").append(toIndentedString(wrapText)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    bottomPadding: ").append(toIndentedString(getBottomPadding())).append("\n");
+    sb.append("    fitText: ").append(toIndentedString(getFitText())).append("\n");
+    sb.append("    horizontalMerge: ").append(toIndentedString(getHorizontalMerge())).append("\n");
+    sb.append("    leftPadding: ").append(toIndentedString(getLeftPadding())).append("\n");
+    sb.append("    orientation: ").append(toIndentedString(getOrientation())).append("\n");
+    sb.append("    preferredWidth: ").append(toIndentedString(getPreferredWidth())).append("\n");
+    sb.append("    rightPadding: ").append(toIndentedString(getRightPadding())).append("\n");
+    sb.append("    topPadding: ").append(toIndentedString(getTopPadding())).append("\n");
+    sb.append("    verticalAlignment: ").append(toIndentedString(getVerticalAlignment())).append("\n");
+    sb.append("    verticalMerge: ").append(toIndentedString(getVerticalMerge())).append("\n");
+    sb.append("    width: ").append(toIndentedString(getWidth())).append("\n");
+    sb.append("    wrapText: ").append(toIndentedString(getWrapText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

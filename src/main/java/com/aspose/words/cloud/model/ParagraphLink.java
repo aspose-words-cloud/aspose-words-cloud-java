@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Paragraph link element.")
 public class ParagraphLink extends NodeLink {
     @SerializedName("Text")
-    private String text = null;
-    public ParagraphLink text(String text) {
-        this.text = text;
-        return this;
-    }
-
+    protected String text;
     /**
      * Gets or sets the paragraph's text.
     * @return text
@@ -63,8 +58,19 @@ public class ParagraphLink extends NodeLink {
         return text;
     }
 
+    public ParagraphLink text(String text) {
+        this.text = text;
+        return this;
+    }
+
     public void setText(String text) {
         this.text = text;
+    }
+
+
+    public ParagraphLink() {
+        super();
+        this.text = null;
     }
 
     @Override
@@ -91,8 +97,9 @@ public class ParagraphLink extends NodeLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

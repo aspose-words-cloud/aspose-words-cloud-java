@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a hyperlink.")
 public class HyperlinkResponse extends WordsResponse {
     @SerializedName("Hyperlink")
-    private Hyperlink hyperlink = null;
-    public HyperlinkResponse hyperlink(Hyperlink hyperlink) {
-        this.hyperlink = hyperlink;
-        return this;
-    }
-
+    protected Hyperlink hyperlink;
     /**
      * Gets or sets the hyperlink.
     * @return hyperlink
@@ -63,8 +58,19 @@ public class HyperlinkResponse extends WordsResponse {
         return hyperlink;
     }
 
+    public HyperlinkResponse hyperlink(Hyperlink hyperlink) {
+        this.hyperlink = hyperlink;
+        return this;
+    }
+
     public void setHyperlink(Hyperlink hyperlink) {
         this.hyperlink = hyperlink;
+    }
+
+
+    public HyperlinkResponse() {
+        super();
+        this.hyperlink = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class HyperlinkResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HyperlinkResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    hyperlink: ").append(toIndentedString(hyperlink)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    hyperlink: ").append(toIndentedString(getHyperlink())).append("\n");
     sb.append("}");
     return sb.toString();
   }

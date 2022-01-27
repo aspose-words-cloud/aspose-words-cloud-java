@@ -48,6 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Footnote for update.")
 public class FootnoteUpdate extends FootnoteBase {
 
+    public FootnoteUpdate() {
+        super();
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -69,7 +73,10 @@ public class FootnoteUpdate extends FootnoteBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FootnoteUpdate {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    footnoteType: ").append(toIndentedString(getFootnoteType())).append("\n");
+    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
+    sb.append("    referenceMark: ").append(toIndentedString(getReferenceMark())).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

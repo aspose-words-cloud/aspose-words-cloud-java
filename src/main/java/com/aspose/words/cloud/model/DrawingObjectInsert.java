@@ -205,33 +205,28 @@ public class DrawingObjectInsert {
     }
 
     @SerializedName("Height")
-    private Double height = null;
+    protected Double height;
 
     @SerializedName("Left")
-    private Double left = null;
+    protected Double left;
 
     @SerializedName("Position")
-    private DocumentPosition position = null;
+    protected DocumentPosition position;
 
     @SerializedName("RelativeHorizontalPosition")
-    private RelativeHorizontalPositionEnum relativeHorizontalPosition = null;
+    protected RelativeHorizontalPositionEnum relativeHorizontalPosition;
 
     @SerializedName("RelativeVerticalPosition")
-    private RelativeVerticalPositionEnum relativeVerticalPosition = null;
+    protected RelativeVerticalPositionEnum relativeVerticalPosition;
 
     @SerializedName("Top")
-    private Double top = null;
+    protected Double top;
 
     @SerializedName("Width")
-    private Double width = null;
+    protected Double width;
 
     @SerializedName("WrapType")
-    private WrapTypeEnum wrapType = null;
-    public DrawingObjectInsert height(Double height) {
-        this.height = height;
-        return this;
-    }
-
+    protected WrapTypeEnum wrapType;
     /**
      * Gets or sets the height of the DrawingObject in points.
     * @return height
@@ -241,14 +236,15 @@ public class DrawingObjectInsert {
         return height;
     }
 
+    public DrawingObjectInsert height(Double height) {
+        this.height = height;
+        return this;
+    }
+
     public void setHeight(Double height) {
         this.height = height;
     }
 
-    public DrawingObjectInsert left(Double left) {
-        this.left = left;
-        return this;
-    }
 
     /**
      * Gets or sets the distance in points from the origin to the left side of the image.
@@ -259,14 +255,15 @@ public class DrawingObjectInsert {
         return left;
     }
 
+    public DrawingObjectInsert left(Double left) {
+        this.left = left;
+        return this;
+    }
+
     public void setLeft(Double left) {
         this.left = left;
     }
 
-    public DrawingObjectInsert position(DocumentPosition position) {
-        this.position = position;
-        return this;
-    }
 
     /**
      * Gets or sets the position, before which the DrawingObject will be inserted.
@@ -277,14 +274,15 @@ public class DrawingObjectInsert {
         return position;
     }
 
+    public DrawingObjectInsert position(DocumentPosition position) {
+        this.position = position;
+        return this;
+    }
+
     public void setPosition(DocumentPosition position) {
         this.position = position;
     }
 
-    public DrawingObjectInsert relativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
-        this.relativeHorizontalPosition = relativeHorizontalPosition;
-        return this;
-    }
 
     /**
      * Gets or sets the relative horizontal position, from which the distance to the image is measured.
@@ -295,14 +293,15 @@ public class DrawingObjectInsert {
         return relativeHorizontalPosition;
     }
 
+    public DrawingObjectInsert relativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
+        this.relativeHorizontalPosition = relativeHorizontalPosition;
+        return this;
+    }
+
     public void setRelativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
         this.relativeHorizontalPosition = relativeHorizontalPosition;
     }
 
-    public DrawingObjectInsert relativeVerticalPosition(RelativeVerticalPositionEnum relativeVerticalPosition) {
-        this.relativeVerticalPosition = relativeVerticalPosition;
-        return this;
-    }
 
     /**
      * Gets or sets the relative vertical position, from which the distance to the image is measured.
@@ -313,14 +312,15 @@ public class DrawingObjectInsert {
         return relativeVerticalPosition;
     }
 
+    public DrawingObjectInsert relativeVerticalPosition(RelativeVerticalPositionEnum relativeVerticalPosition) {
+        this.relativeVerticalPosition = relativeVerticalPosition;
+        return this;
+    }
+
     public void setRelativeVerticalPosition(RelativeVerticalPositionEnum relativeVerticalPosition) {
         this.relativeVerticalPosition = relativeVerticalPosition;
     }
 
-    public DrawingObjectInsert top(Double top) {
-        this.top = top;
-        return this;
-    }
 
     /**
      * Gets or sets the distance in points from the origin to the top side of the image.
@@ -331,14 +331,15 @@ public class DrawingObjectInsert {
         return top;
     }
 
+    public DrawingObjectInsert top(Double top) {
+        this.top = top;
+        return this;
+    }
+
     public void setTop(Double top) {
         this.top = top;
     }
 
-    public DrawingObjectInsert width(Double width) {
-        this.width = width;
-        return this;
-    }
 
     /**
      * Gets or sets the width of the DrawingObjects in points.
@@ -349,14 +350,15 @@ public class DrawingObjectInsert {
         return width;
     }
 
+    public DrawingObjectInsert width(Double width) {
+        this.width = width;
+        return this;
+    }
+
     public void setWidth(Double width) {
         this.width = width;
     }
 
-    public DrawingObjectInsert wrapType(WrapTypeEnum wrapType) {
-        this.wrapType = wrapType;
-        return this;
-    }
 
     /**
      * Gets or sets the option indicating how to wrap text around the image.
@@ -367,8 +369,25 @@ public class DrawingObjectInsert {
         return wrapType;
     }
 
+    public DrawingObjectInsert wrapType(WrapTypeEnum wrapType) {
+        this.wrapType = wrapType;
+        return this;
+    }
+
     public void setWrapType(WrapTypeEnum wrapType) {
         this.wrapType = wrapType;
+    }
+
+
+    public DrawingObjectInsert() {
+        this.height = null;
+        this.left = null;
+        this.position = null;
+        this.relativeHorizontalPosition = null;
+        this.relativeVerticalPosition = null;
+        this.top = null;
+        this.width = null;
+        this.wrapType = null;
     }
 
     @Override
@@ -401,14 +420,14 @@ public class DrawingObjectInsert {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObjectInsert {\n");
-    sb.append("    height: ").append(toIndentedString(height)).append("\n");
-    sb.append("    left: ").append(toIndentedString(left)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
-    sb.append("    relativeHorizontalPosition: ").append(toIndentedString(relativeHorizontalPosition)).append("\n");
-    sb.append("    relativeVerticalPosition: ").append(toIndentedString(relativeVerticalPosition)).append("\n");
-    sb.append("    top: ").append(toIndentedString(top)).append("\n");
-    sb.append("    width: ").append(toIndentedString(width)).append("\n");
-    sb.append("    wrapType: ").append(toIndentedString(wrapType)).append("\n");
+    sb.append("    height: ").append(toIndentedString(getHeight())).append("\n");
+    sb.append("    left: ").append(toIndentedString(getLeft())).append("\n");
+    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
+    sb.append("    relativeHorizontalPosition: ").append(toIndentedString(getRelativeHorizontalPosition())).append("\n");
+    sb.append("    relativeVerticalPosition: ").append(toIndentedString(getRelativeVerticalPosition())).append("\n");
+    sb.append("    top: ").append(toIndentedString(getTop())).append("\n");
+    sb.append("    width: ").append(toIndentedString(getWidth())).append("\n");
+    sb.append("    wrapType: ").append(toIndentedString(getWrapType())).append("\n");
     sb.append("}");
     return sb.toString();
   }

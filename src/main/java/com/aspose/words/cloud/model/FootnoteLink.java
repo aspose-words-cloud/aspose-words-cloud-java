@@ -48,6 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Footnote link.")
 public class FootnoteLink extends NodeLink {
 
+    public FootnoteLink() {
+        super();
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -69,7 +73,8 @@ public class FootnoteLink extends NodeLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FootnoteLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
     sb.append("}");
     return sb.toString();
   }

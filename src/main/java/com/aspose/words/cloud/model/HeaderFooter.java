@@ -48,13 +48,22 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a section element.")
 public class HeaderFooter extends HeaderFooterLink {
     @SerializedName("ChildNodes")
-    private List<NodeLink> childNodes = null;
+    protected List<NodeLink> childNodes;
 
     @SerializedName("DrawingObjects")
-    private LinkElement drawingObjects = null;
+    protected LinkElement drawingObjects;
 
     @SerializedName("Paragraphs")
-    private LinkElement paragraphs = null;
+    protected LinkElement paragraphs;
+    /**
+     * Gets or sets the child nodes.
+    * @return childNodes
+    **/
+    @ApiModelProperty(value = "Gets or sets the child nodes.")
+    public List<NodeLink> getChildNodes() {
+        return childNodes;
+    }
+
     public HeaderFooter childNodes(List<NodeLink> childNodes) {
         this.childNodes = childNodes;
         return this;
@@ -68,23 +77,11 @@ public class HeaderFooter extends HeaderFooterLink {
         return this;
     }
 
-    /**
-     * Gets or sets the child nodes.
-    * @return childNodes
-    **/
-    @ApiModelProperty(value = "Gets or sets the child nodes.")
-    public List<NodeLink> getChildNodes() {
-        return childNodes;
-    }
 
     public void setChildNodes(List<NodeLink> childNodes) {
         this.childNodes = childNodes;
     }
 
-    public HeaderFooter drawingObjects(LinkElement drawingObjects) {
-        this.drawingObjects = drawingObjects;
-        return this;
-    }
 
     /**
      * Gets or sets the link to DrawingObjects resource.
@@ -95,14 +92,15 @@ public class HeaderFooter extends HeaderFooterLink {
         return drawingObjects;
     }
 
+    public HeaderFooter drawingObjects(LinkElement drawingObjects) {
+        this.drawingObjects = drawingObjects;
+        return this;
+    }
+
     public void setDrawingObjects(LinkElement drawingObjects) {
         this.drawingObjects = drawingObjects;
     }
 
-    public HeaderFooter paragraphs(LinkElement paragraphs) {
-        this.paragraphs = paragraphs;
-        return this;
-    }
 
     /**
      * Gets or sets the link to Paragraphs resource.
@@ -113,8 +111,21 @@ public class HeaderFooter extends HeaderFooterLink {
         return paragraphs;
     }
 
+    public HeaderFooter paragraphs(LinkElement paragraphs) {
+        this.paragraphs = paragraphs;
+        return this;
+    }
+
     public void setParagraphs(LinkElement paragraphs) {
         this.paragraphs = paragraphs;
+    }
+
+
+    public HeaderFooter() {
+        super();
+        this.childNodes = null;
+        this.drawingObjects = null;
+        this.paragraphs = null;
     }
 
     @Override
@@ -143,10 +154,11 @@ public class HeaderFooter extends HeaderFooterLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeaderFooter {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    childNodes: ").append(toIndentedString(childNodes)).append("\n");
-    sb.append("    drawingObjects: ").append(toIndentedString(drawingObjects)).append("\n");
-    sb.append("    paragraphs: ").append(toIndentedString(paragraphs)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    type: ").append(toIndentedString(getType())).append("\n");
+    sb.append("    childNodes: ").append(toIndentedString(getChildNodes())).append("\n");
+    sb.append("    drawingObjects: ").append(toIndentedString(getDrawingObjects())).append("\n");
+    sb.append("    paragraphs: ").append(toIndentedString(getParagraphs())).append("\n");
     sb.append("}");
     return sb.toString();
   }

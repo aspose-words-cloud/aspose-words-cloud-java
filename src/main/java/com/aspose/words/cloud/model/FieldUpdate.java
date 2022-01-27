@@ -48,6 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Field for update.")
 public class FieldUpdate extends FieldBase {
 
+    public FieldUpdate() {
+        super();
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -69,7 +73,8 @@ public class FieldUpdate extends FieldBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldUpdate {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    fieldCode: ").append(toIndentedString(getFieldCode())).append("\n");
+    sb.append("    localeId: ").append(toIndentedString(getLocaleId())).append("\n");
     sb.append("}");
     return sb.toString();
   }

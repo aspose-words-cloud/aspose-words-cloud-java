@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a table row.")
 public class TableRowResponse extends WordsResponse {
     @SerializedName("Row")
-    private TableRow row = null;
-    public TableRowResponse row(TableRow row) {
-        this.row = row;
-        return this;
-    }
-
+    protected TableRow row;
     /**
      * Gets or sets the table row.
     * @return row
@@ -63,8 +58,19 @@ public class TableRowResponse extends WordsResponse {
         return row;
     }
 
+    public TableRowResponse row(TableRow row) {
+        this.row = row;
+        return this;
+    }
+
     public void setRow(TableRow row) {
         this.row = row;
+    }
+
+
+    public TableRowResponse() {
+        super();
+        this.row = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class TableRowResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableRowResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    row: ").append(toIndentedString(row)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    row: ").append(toIndentedString(getRow())).append("\n");
     sb.append("}");
     return sb.toString();
   }

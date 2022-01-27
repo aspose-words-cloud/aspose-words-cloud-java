@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents a single classification result.")
 public class ClassificationResult {
     @SerializedName("ClassName")
-    private String className = null;
+    protected String className;
 
     @SerializedName("ClassProbability")
-    private Double classProbability = null;
-    public ClassificationResult className(String className) {
-        this.className = className;
-        return this;
-    }
-
+    protected Double classProbability;
     /**
      * Gets or sets the name of the class.
     * @return className
@@ -66,14 +61,15 @@ public class ClassificationResult {
         return className;
     }
 
+    public ClassificationResult className(String className) {
+        this.className = className;
+        return this;
+    }
+
     public void setClassName(String className) {
         this.className = className;
     }
 
-    public ClassificationResult classProbability(Double classProbability) {
-        this.classProbability = classProbability;
-        return this;
-    }
 
     /**
      * Gets or sets the probability of class.
@@ -84,8 +80,19 @@ public class ClassificationResult {
         return classProbability;
     }
 
+    public ClassificationResult classProbability(Double classProbability) {
+        this.classProbability = classProbability;
+        return this;
+    }
+
     public void setClassProbability(Double classProbability) {
         this.classProbability = classProbability;
+    }
+
+
+    public ClassificationResult() {
+        this.className = null;
+        this.classProbability = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class ClassificationResult {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClassificationResult {\n");
-    sb.append("    className: ").append(toIndentedString(className)).append("\n");
-    sb.append("    classProbability: ").append(toIndentedString(classProbability)).append("\n");
+    sb.append("    className: ").append(toIndentedString(getClassName())).append("\n");
+    sb.append("    classProbability: ").append(toIndentedString(getClassProbability())).append("\n");
     sb.append("}");
     return sb.toString();
   }

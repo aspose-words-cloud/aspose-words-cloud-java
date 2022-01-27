@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with the formatting properties of a table row.")
 public class TableRowFormatResponse extends WordsResponse {
     @SerializedName("RowFormat")
-    private TableRowFormat rowFormat = null;
-    public TableRowFormatResponse rowFormat(TableRowFormat rowFormat) {
-        this.rowFormat = rowFormat;
-        return this;
-    }
-
+    protected TableRowFormat rowFormat;
     /**
      * Gets or sets the formatting properties of a table row.
     * @return rowFormat
@@ -63,8 +58,19 @@ public class TableRowFormatResponse extends WordsResponse {
         return rowFormat;
     }
 
+    public TableRowFormatResponse rowFormat(TableRowFormat rowFormat) {
+        this.rowFormat = rowFormat;
+        return this;
+    }
+
     public void setRowFormat(TableRowFormat rowFormat) {
         this.rowFormat = rowFormat;
+    }
+
+
+    public TableRowFormatResponse() {
+        super();
+        this.rowFormat = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class TableRowFormatResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableRowFormatResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    rowFormat: ").append(toIndentedString(rowFormat)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    rowFormat: ").append(toIndentedString(getRowFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

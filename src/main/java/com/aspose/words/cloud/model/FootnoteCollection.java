@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a collection of footnotes.")
 public class FootnoteCollection extends LinkElement {
     @SerializedName("List")
-    private List<Footnote> list = null;
+    protected List<Footnote> list;
+    /**
+     * Gets or sets the collection of footnotes.
+    * @return list
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of footnotes.")
+    public List<Footnote> getList() {
+        return list;
+    }
+
     public FootnoteCollection list(List<Footnote> list) {
         this.list = list;
         return this;
@@ -62,17 +71,15 @@ public class FootnoteCollection extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of footnotes.
-    * @return list
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of footnotes.")
-    public List<Footnote> getList() {
-        return list;
-    }
 
     public void setList(List<Footnote> list) {
         this.list = list;
+    }
+
+
+    public FootnoteCollection() {
+        super();
+        this.list = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class FootnoteCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FootnoteCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    list: ").append(toIndentedString(list)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    list: ").append(toIndentedString(getList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

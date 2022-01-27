@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The collection of search results.")
 public class SearchResultsCollection extends LinkElement {
     @SerializedName("ResultsList")
-    private List<SearchResult> resultsList = null;
+    protected List<SearchResult> resultsList;
+    /**
+     * Gets or sets the collection of comments.
+    * @return resultsList
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of comments.")
+    public List<SearchResult> getResultsList() {
+        return resultsList;
+    }
+
     public SearchResultsCollection resultsList(List<SearchResult> resultsList) {
         this.resultsList = resultsList;
         return this;
@@ -62,17 +71,15 @@ public class SearchResultsCollection extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of comments.
-    * @return resultsList
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of comments.")
-    public List<SearchResult> getResultsList() {
-        return resultsList;
-    }
 
     public void setResultsList(List<SearchResult> resultsList) {
         this.resultsList = resultsList;
+    }
+
+
+    public SearchResultsCollection() {
+        super();
+        this.resultsList = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class SearchResultsCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResultsCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    resultsList: ").append(toIndentedString(resultsList)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    resultsList: ").append(toIndentedString(getResultsList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

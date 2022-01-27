@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a number of occurrences of the captured text in the document.")
 public class ReplaceTextResponse extends WordsResponse {
     @SerializedName("DocumentLink")
-    private FileLink documentLink = null;
+    protected FileLink documentLink;
 
     @SerializedName("Matches")
-    private Integer matches = null;
-    public ReplaceTextResponse documentLink(FileLink documentLink) {
-        this.documentLink = documentLink;
-        return this;
-    }
-
+    protected Integer matches;
     /**
      * Gets or sets the link to the document.
     * @return documentLink
@@ -66,14 +61,15 @@ public class ReplaceTextResponse extends WordsResponse {
         return documentLink;
     }
 
+    public ReplaceTextResponse documentLink(FileLink documentLink) {
+        this.documentLink = documentLink;
+        return this;
+    }
+
     public void setDocumentLink(FileLink documentLink) {
         this.documentLink = documentLink;
     }
 
-    public ReplaceTextResponse matches(Integer matches) {
-        this.matches = matches;
-        return this;
-    }
 
     /**
      * Gets or sets the number of occurrences of the captured text in the document.
@@ -84,8 +80,20 @@ public class ReplaceTextResponse extends WordsResponse {
         return matches;
     }
 
+    public ReplaceTextResponse matches(Integer matches) {
+        this.matches = matches;
+        return this;
+    }
+
     public void setMatches(Integer matches) {
         this.matches = matches;
+    }
+
+
+    public ReplaceTextResponse() {
+        super();
+        this.documentLink = null;
+        this.matches = null;
     }
 
     @Override
@@ -113,9 +121,9 @@ public class ReplaceTextResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReplaceTextResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    documentLink: ").append(toIndentedString(documentLink)).append("\n");
-    sb.append("    matches: ").append(toIndentedString(matches)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    documentLink: ").append(toIndentedString(getDocumentLink())).append("\n");
+    sb.append("    matches: ").append(toIndentedString(getMatches())).append("\n");
     sb.append("}");
     return sb.toString();
   }

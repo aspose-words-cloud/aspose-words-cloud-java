@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a range's text.")
 public class RangeTextResponse extends WordsResponse {
     @SerializedName("Text")
-    private String text = null;
-    public RangeTextResponse text(String text) {
-        this.text = text;
-        return this;
-    }
-
+    protected String text;
     /**
      * Gets or sets the range's text.
     * @return text
@@ -63,8 +58,19 @@ public class RangeTextResponse extends WordsResponse {
         return text;
     }
 
+    public RangeTextResponse text(String text) {
+        this.text = text;
+        return this;
+    }
+
     public void setText(String text) {
         this.text = text;
+    }
+
+
+    public RangeTextResponse() {
+        super();
+        this.text = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class RangeTextResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RangeTextResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

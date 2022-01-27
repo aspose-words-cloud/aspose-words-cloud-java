@@ -48,27 +48,22 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Comment.")
 public class CommentBase {
     @SerializedName("Author")
-    private String author = null;
+    protected String author;
 
     @SerializedName("DateTime")
-    private OffsetDateTime dateTime = null;
+    protected OffsetDateTime dateTime;
 
     @SerializedName("Initial")
-    private String initial = null;
+    protected String initial;
 
     @SerializedName("RangeEnd")
-    private DocumentPosition rangeEnd = null;
+    protected DocumentPosition rangeEnd;
 
     @SerializedName("RangeStart")
-    private DocumentPosition rangeStart = null;
+    protected DocumentPosition rangeStart;
 
     @SerializedName("Text")
-    private String text = null;
-    public CommentBase author(String author) {
-        this.author = author;
-        return this;
-    }
-
+    protected String text;
     /**
      * Gets or sets the author name for a comment.
     * @return author
@@ -78,14 +73,15 @@ public class CommentBase {
         return author;
     }
 
+    public CommentBase author(String author) {
+        this.author = author;
+        return this;
+    }
+
     public void setAuthor(String author) {
         this.author = author;
     }
 
-    public CommentBase dateTime(OffsetDateTime dateTime) {
-        this.dateTime = dateTime;
-        return this;
-    }
 
     /**
      * Gets or sets the date and time that the comment was made.
@@ -96,14 +92,15 @@ public class CommentBase {
         return dateTime;
     }
 
+    public CommentBase dateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+        return this;
+    }
+
     public void setDateTime(OffsetDateTime dateTime) {
         this.dateTime = dateTime;
     }
 
-    public CommentBase initial(String initial) {
-        this.initial = initial;
-        return this;
-    }
 
     /**
      * Gets or sets the initials of the user associated with a specific comment.
@@ -114,14 +111,15 @@ public class CommentBase {
         return initial;
     }
 
+    public CommentBase initial(String initial) {
+        this.initial = initial;
+        return this;
+    }
+
     public void setInitial(String initial) {
         this.initial = initial;
     }
 
-    public CommentBase rangeEnd(DocumentPosition rangeEnd) {
-        this.rangeEnd = rangeEnd;
-        return this;
-    }
 
     /**
      * Gets or sets the link to comment range end node.
@@ -132,14 +130,15 @@ public class CommentBase {
         return rangeEnd;
     }
 
+    public CommentBase rangeEnd(DocumentPosition rangeEnd) {
+        this.rangeEnd = rangeEnd;
+        return this;
+    }
+
     public void setRangeEnd(DocumentPosition rangeEnd) {
         this.rangeEnd = rangeEnd;
     }
 
-    public CommentBase rangeStart(DocumentPosition rangeStart) {
-        this.rangeStart = rangeStart;
-        return this;
-    }
 
     /**
      * Gets or sets the link to comment range start node.
@@ -150,14 +149,15 @@ public class CommentBase {
         return rangeStart;
     }
 
+    public CommentBase rangeStart(DocumentPosition rangeStart) {
+        this.rangeStart = rangeStart;
+        return this;
+    }
+
     public void setRangeStart(DocumentPosition rangeStart) {
         this.rangeStart = rangeStart;
     }
 
-    public CommentBase text(String text) {
-        this.text = text;
-        return this;
-    }
 
     /**
      * Gets or sets text of the comment.
@@ -168,8 +168,23 @@ public class CommentBase {
         return text;
     }
 
+    public CommentBase text(String text) {
+        this.text = text;
+        return this;
+    }
+
     public void setText(String text) {
         this.text = text;
+    }
+
+
+    public CommentBase() {
+        this.author = null;
+        this.dateTime = null;
+        this.initial = null;
+        this.rangeEnd = null;
+        this.rangeStart = null;
+        this.text = null;
     }
 
     @Override
@@ -200,12 +215,12 @@ public class CommentBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommentBase {\n");
-    sb.append("    author: ").append(toIndentedString(author)).append("\n");
-    sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
-    sb.append("    initial: ").append(toIndentedString(initial)).append("\n");
-    sb.append("    rangeEnd: ").append(toIndentedString(rangeEnd)).append("\n");
-    sb.append("    rangeStart: ").append(toIndentedString(rangeStart)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    author: ").append(toIndentedString(getAuthor())).append("\n");
+    sb.append("    dateTime: ").append(toIndentedString(getDateTime())).append("\n");
+    sb.append("    initial: ").append(toIndentedString(getInitial())).append("\n");
+    sb.append("    rangeEnd: ").append(toIndentedString(getRangeEnd())).append("\n");
+    sb.append("    rangeStart: ").append(toIndentedString(getRangeStart())).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Info additional item.")
 public class InfoAdditionalItem {
     @SerializedName("Key")
-    private String key = null;
+    protected String key;
 
     @SerializedName("Value")
-    private String value = null;
-    public InfoAdditionalItem key(String key) {
-        this.key = key;
-        return this;
-    }
-
+    protected String value;
     /**
      * Gets or sets Key.
     * @return key
@@ -66,14 +61,15 @@ public class InfoAdditionalItem {
         return key;
     }
 
+    public InfoAdditionalItem key(String key) {
+        this.key = key;
+        return this;
+    }
+
     public void setKey(String key) {
         this.key = key;
     }
 
-    public InfoAdditionalItem value(String value) {
-        this.value = value;
-        return this;
-    }
 
     /**
      * Gets or sets Value.
@@ -84,8 +80,19 @@ public class InfoAdditionalItem {
         return value;
     }
 
+    public InfoAdditionalItem value(String value) {
+        this.value = value;
+        return this;
+    }
+
     public void setValue(String value) {
         this.value = value;
+    }
+
+
+    public InfoAdditionalItem() {
+        this.key = null;
+        this.value = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class InfoAdditionalItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InfoAdditionalItem {\n");
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    key: ").append(toIndentedString(getKey())).append("\n");
+    sb.append("    value: ").append(toIndentedString(getValue())).append("\n");
     sb.append("}");
     return sb.toString();
   }

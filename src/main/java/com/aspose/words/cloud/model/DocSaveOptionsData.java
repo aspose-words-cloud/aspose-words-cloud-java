@@ -48,21 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for doc/dot save options.")
 public class DocSaveOptionsData extends SaveOptionsData {
     @SerializedName("AlwaysCompressMetafiles")
-    private Boolean alwaysCompressMetafiles = null;
+    protected Boolean alwaysCompressMetafiles;
 
     @SerializedName("Password")
-    private String password = null;
+    protected String password;
 
     @SerializedName("SavePictureBullet")
-    private Boolean savePictureBullet = null;
+    protected Boolean savePictureBullet;
 
     @SerializedName("SaveRoutingSlip")
-    private Boolean saveRoutingSlip = null;
-    public DocSaveOptionsData alwaysCompressMetafiles(Boolean alwaysCompressMetafiles) {
-        this.alwaysCompressMetafiles = alwaysCompressMetafiles;
-        return this;
-    }
-
+    protected Boolean saveRoutingSlip;
     /**
      * Gets or sets a value indicating when False, that small metafiles are not compressed for performance reason.
      * The default value is true, all metafiles are compressed regardless of its size.
@@ -73,14 +68,15 @@ public class DocSaveOptionsData extends SaveOptionsData {
         return alwaysCompressMetafiles;
     }
 
+    public DocSaveOptionsData alwaysCompressMetafiles(Boolean alwaysCompressMetafiles) {
+        this.alwaysCompressMetafiles = alwaysCompressMetafiles;
+        return this;
+    }
+
     public void setAlwaysCompressMetafiles(Boolean alwaysCompressMetafiles) {
         this.alwaysCompressMetafiles = alwaysCompressMetafiles;
     }
 
-    public DocSaveOptionsData password(String password) {
-        this.password = password;
-        return this;
-    }
 
     /**
      * Gets or sets the password.
@@ -91,14 +87,15 @@ public class DocSaveOptionsData extends SaveOptionsData {
         return password;
     }
 
+    public DocSaveOptionsData password(String password) {
+        this.password = password;
+        return this;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public DocSaveOptionsData savePictureBullet(Boolean savePictureBullet) {
-        this.savePictureBullet = savePictureBullet;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating when False, that PictureBullet data is not saved to the output document.
@@ -110,14 +107,15 @@ public class DocSaveOptionsData extends SaveOptionsData {
         return savePictureBullet;
     }
 
+    public DocSaveOptionsData savePictureBullet(Boolean savePictureBullet) {
+        this.savePictureBullet = savePictureBullet;
+        return this;
+    }
+
     public void setSavePictureBullet(Boolean savePictureBullet) {
         this.savePictureBullet = savePictureBullet;
     }
 
-    public DocSaveOptionsData saveRoutingSlip(Boolean saveRoutingSlip) {
-        this.saveRoutingSlip = saveRoutingSlip;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to save RoutingSlip data to output document.
@@ -128,8 +126,23 @@ public class DocSaveOptionsData extends SaveOptionsData {
         return saveRoutingSlip;
     }
 
+    public DocSaveOptionsData saveRoutingSlip(Boolean saveRoutingSlip) {
+        this.saveRoutingSlip = saveRoutingSlip;
+        return this;
+    }
+
     public void setSaveRoutingSlip(Boolean saveRoutingSlip) {
         this.saveRoutingSlip = saveRoutingSlip;
+    }
+
+
+    public DocSaveOptionsData() {
+        super();
+        this.alwaysCompressMetafiles = null;
+        this.password = null;
+        this.saveFormat = "doc";
+        this.savePictureBullet = null;
+        this.saveRoutingSlip = null;
     }
 
     @Override
@@ -159,11 +172,25 @@ public class DocSaveOptionsData extends SaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    alwaysCompressMetafiles: ").append(toIndentedString(alwaysCompressMetafiles)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    savePictureBullet: ").append(toIndentedString(savePictureBullet)).append("\n");
-    sb.append("    saveRoutingSlip: ").append(toIndentedString(saveRoutingSlip)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    alwaysCompressMetafiles: ").append(toIndentedString(getAlwaysCompressMetafiles())).append("\n");
+    sb.append("    password: ").append(toIndentedString(getPassword())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    savePictureBullet: ").append(toIndentedString(getSavePictureBullet())).append("\n");
+    sb.append("    saveRoutingSlip: ").append(toIndentedString(getSaveRoutingSlip())).append("\n");
     sb.append("}");
     return sb.toString();
   }

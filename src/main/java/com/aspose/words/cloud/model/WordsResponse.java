@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The base class for all responses.")
 public class WordsResponse {
     @SerializedName("RequestId")
-    private String requestId = null;
-    public WordsResponse requestId(String requestId) {
-        this.requestId = requestId;
-        return this;
-    }
-
+    protected String requestId;
     /**
      * Gets or sets the request Id.
     * @return requestId
@@ -63,8 +58,18 @@ public class WordsResponse {
         return requestId;
     }
 
+    public WordsResponse requestId(String requestId) {
+        this.requestId = requestId;
+        return this;
+    }
+
     public void setRequestId(String requestId) {
         this.requestId = requestId;
+    }
+
+
+    public WordsResponse() {
+        this.requestId = null;
     }
 
     @Override
@@ -90,7 +95,7 @@ public class WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WordsResponse {\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
     sb.append("}");
     return sb.toString();
   }

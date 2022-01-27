@@ -48,21 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for text save options.")
 public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     @SerializedName("AddBidiMarks")
-    private Boolean addBidiMarks = null;
+    protected Boolean addBidiMarks;
 
     @SerializedName("MaxCharactersPerLine")
-    private Integer maxCharactersPerLine = null;
+    protected Integer maxCharactersPerLine;
 
     @SerializedName("PreserveTableLayout")
-    private Boolean preserveTableLayout = null;
+    protected Boolean preserveTableLayout;
 
     @SerializedName("SimplifyListLabels")
-    private Boolean simplifyListLabels = null;
-    public TextSaveOptionsData addBidiMarks(Boolean addBidiMarks) {
-        this.addBidiMarks = addBidiMarks;
-        return this;
-    }
-
+    protected Boolean simplifyListLabels;
     /**
      * Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format.
      * The default value is true.
@@ -73,14 +68,15 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
         return addBidiMarks;
     }
 
+    public TextSaveOptionsData addBidiMarks(Boolean addBidiMarks) {
+        this.addBidiMarks = addBidiMarks;
+        return this;
+    }
+
     public void setAddBidiMarks(Boolean addBidiMarks) {
         this.addBidiMarks = addBidiMarks;
     }
 
-    public TextSaveOptionsData maxCharactersPerLine(Integer maxCharactersPerLine) {
-        this.maxCharactersPerLine = maxCharactersPerLine;
-        return this;
-    }
 
     /**
      * Gets or sets an integer value that specifies the maximum number of characters per one line.
@@ -92,14 +88,15 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
         return maxCharactersPerLine;
     }
 
+    public TextSaveOptionsData maxCharactersPerLine(Integer maxCharactersPerLine) {
+        this.maxCharactersPerLine = maxCharactersPerLine;
+        return this;
+    }
+
     public void setMaxCharactersPerLine(Integer maxCharactersPerLine) {
         this.maxCharactersPerLine = maxCharactersPerLine;
     }
 
-    public TextSaveOptionsData preserveTableLayout(Boolean preserveTableLayout) {
-        this.preserveTableLayout = preserveTableLayout;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
@@ -110,14 +107,15 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
         return preserveTableLayout;
     }
 
+    public TextSaveOptionsData preserveTableLayout(Boolean preserveTableLayout) {
+        this.preserveTableLayout = preserveTableLayout;
+        return this;
+    }
+
     public void setPreserveTableLayout(Boolean preserveTableLayout) {
         this.preserveTableLayout = preserveTableLayout;
     }
 
-    public TextSaveOptionsData simplifyListLabels(Boolean simplifyListLabels) {
-        this.simplifyListLabels = simplifyListLabels;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
@@ -128,8 +126,23 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
         return simplifyListLabels;
     }
 
+    public TextSaveOptionsData simplifyListLabels(Boolean simplifyListLabels) {
+        this.simplifyListLabels = simplifyListLabels;
+        return this;
+    }
+
     public void setSimplifyListLabels(Boolean simplifyListLabels) {
         this.simplifyListLabels = simplifyListLabels;
+    }
+
+
+    public TextSaveOptionsData() {
+        super();
+        this.addBidiMarks = null;
+        this.maxCharactersPerLine = null;
+        this.preserveTableLayout = null;
+        this.saveFormat = "txt";
+        this.simplifyListLabels = null;
     }
 
     @Override
@@ -159,11 +172,29 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TextSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    addBidiMarks: ").append(toIndentedString(addBidiMarks)).append("\n");
-    sb.append("    maxCharactersPerLine: ").append(toIndentedString(maxCharactersPerLine)).append("\n");
-    sb.append("    preserveTableLayout: ").append(toIndentedString(preserveTableLayout)).append("\n");
-    sb.append("    simplifyListLabels: ").append(toIndentedString(simplifyListLabels)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    encoding: ").append(toIndentedString(getEncoding())).append("\n");
+    sb.append("    exportHeadersFootersMode: ").append(toIndentedString(getExportHeadersFootersMode())).append("\n");
+    sb.append("    forcePageBreaks: ").append(toIndentedString(getForcePageBreaks())).append("\n");
+    sb.append("    paragraphBreak: ").append(toIndentedString(getParagraphBreak())).append("\n");
+    sb.append("    addBidiMarks: ").append(toIndentedString(getAddBidiMarks())).append("\n");
+    sb.append("    maxCharactersPerLine: ").append(toIndentedString(getMaxCharactersPerLine())).append("\n");
+    sb.append("    preserveTableLayout: ").append(toIndentedString(getPreserveTableLayout())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    simplifyListLabels: ").append(toIndentedString(getSimplifyListLabels())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,18 +48,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Words document property DTO.")
 public class DocumentProperty extends LinkElement {
     @SerializedName("BuiltIn")
-    private Boolean builtIn = null;
+    protected Boolean builtIn;
 
     @SerializedName("Name")
-    private String name = null;
+    protected String name;
 
     @SerializedName("Value")
-    private String value = null;
-    public DocumentProperty builtIn(Boolean builtIn) {
-        this.builtIn = builtIn;
-        return this;
-    }
-
+    protected String value;
     /**
      * Gets or sets a value indicating whether the property is built-in or not.
      * If true the property is built-in, if false the property is custom.
@@ -70,14 +65,15 @@ public class DocumentProperty extends LinkElement {
         return builtIn;
     }
 
+    public DocumentProperty builtIn(Boolean builtIn) {
+        this.builtIn = builtIn;
+        return this;
+    }
+
     public void setBuiltIn(Boolean builtIn) {
         this.builtIn = builtIn;
     }
 
-    public DocumentProperty name(String name) {
-        this.name = name;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the document property.
@@ -88,14 +84,15 @@ public class DocumentProperty extends LinkElement {
         return name;
     }
 
+    public DocumentProperty name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public DocumentProperty value(String value) {
-        this.value = value;
-        return this;
-    }
 
     /**
      * Gets or sets the value of the document property.
@@ -106,8 +103,21 @@ public class DocumentProperty extends LinkElement {
         return value;
     }
 
+    public DocumentProperty value(String value) {
+        this.value = value;
+        return this;
+    }
+
     public void setValue(String value) {
         this.value = value;
+    }
+
+
+    public DocumentProperty() {
+        super();
+        this.builtIn = null;
+        this.name = null;
+        this.value = null;
     }
 
     @Override
@@ -136,10 +146,10 @@ public class DocumentProperty extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentProperty {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    builtIn: ").append(toIndentedString(builtIn)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    builtIn: ").append(toIndentedString(getBuiltIn())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
+    sb.append("    value: ").append(toIndentedString(getValue())).append("\n");
     sb.append("}");
     return sb.toString();
   }

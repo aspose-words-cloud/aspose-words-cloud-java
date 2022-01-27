@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a Range element.")
 public class RangeDocumentDto {
     @SerializedName("DocumentName")
-    private String documentName = null;
-    public RangeDocumentDto documentName(String documentName) {
-        this.documentName = documentName;
-        return this;
-    }
-
+    protected String documentName;
     /**
      * Gets or sets the name for a new document.
     * @return documentName
@@ -63,8 +58,18 @@ public class RangeDocumentDto {
         return documentName;
     }
 
+    public RangeDocumentDto documentName(String documentName) {
+        this.documentName = documentName;
+        return this;
+    }
+
     public void setDocumentName(String documentName) {
         this.documentName = documentName;
+    }
+
+
+    public RangeDocumentDto() {
+        this.documentName = null;
     }
 
     @Override
@@ -90,7 +95,7 @@ public class RangeDocumentDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RangeDocumentDto {\n");
-    sb.append("    documentName: ").append(toIndentedString(documentName)).append("\n");
+    sb.append("    documentName: ").append(toIndentedString(getDocumentName())).append("\n");
     sb.append("}");
     return sb.toString();
   }

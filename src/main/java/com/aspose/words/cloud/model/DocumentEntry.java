@@ -48,18 +48,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents a document which will be appended to the original resource document.")
 public class DocumentEntry {
     @SerializedName("Href")
-    private String href = null;
+    protected String href;
 
     @SerializedName("ImportFormatMode")
-    private String importFormatMode = null;
+    protected String importFormatMode;
 
     @SerializedName("Password")
-    private String password = null;
-    public DocumentEntry href(String href) {
-        this.href = href;
-        return this;
-    }
-
+    protected String password;
     /**
      * Gets or sets the path to document to append at the server.
     * @return href
@@ -69,14 +64,15 @@ public class DocumentEntry {
         return href;
     }
 
+    public DocumentEntry href(String href) {
+        this.href = href;
+        return this;
+    }
+
     public void setHref(String href) {
         this.href = href;
     }
 
-    public DocumentEntry importFormatMode(String importFormatMode) {
-        this.importFormatMode = importFormatMode;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
@@ -87,14 +83,15 @@ public class DocumentEntry {
         return importFormatMode;
     }
 
+    public DocumentEntry importFormatMode(String importFormatMode) {
+        this.importFormatMode = importFormatMode;
+        return this;
+    }
+
     public void setImportFormatMode(String importFormatMode) {
         this.importFormatMode = importFormatMode;
     }
 
-    public DocumentEntry password(String password) {
-        this.password = password;
-        return this;
-    }
 
     /**
      * Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
@@ -105,8 +102,20 @@ public class DocumentEntry {
         return password;
     }
 
+    public DocumentEntry password(String password) {
+        this.password = password;
+        return this;
+    }
+
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public DocumentEntry() {
+        this.href = null;
+        this.importFormatMode = null;
+        this.password = null;
     }
 
     @Override
@@ -134,9 +143,9 @@ public class DocumentEntry {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentEntry {\n");
-    sb.append("    href: ").append(toIndentedString(href)).append("\n");
-    sb.append("    importFormatMode: ").append(toIndentedString(importFormatMode)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    href: ").append(toIndentedString(getHref())).append("\n");
+    sb.append("    importFormatMode: ").append(toIndentedString(getImportFormatMode())).append("\n");
+    sb.append("    password: ").append(toIndentedString(getPassword())).append("\n");
     sb.append("}");
     return sb.toString();
   }

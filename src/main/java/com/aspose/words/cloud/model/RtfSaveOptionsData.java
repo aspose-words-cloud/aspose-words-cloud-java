@@ -48,21 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for rtf save options.")
 public class RtfSaveOptionsData extends SaveOptionsData {
     @SerializedName("ExportCompactSize")
-    private Boolean exportCompactSize = null;
+    protected Boolean exportCompactSize;
 
     @SerializedName("ExportImagesForOldReaders")
-    private Boolean exportImagesForOldReaders = null;
+    protected Boolean exportImagesForOldReaders;
 
     @SerializedName("PrettyFormat")
-    private Boolean prettyFormat = null;
+    protected Boolean prettyFormat;
 
     @SerializedName("SaveImagesAsWmf")
-    private Boolean saveImagesAsWmf = null;
-    public RtfSaveOptionsData exportCompactSize(Boolean exportCompactSize) {
-        this.exportCompactSize = exportCompactSize;
-        return this;
-    }
-
+    protected Boolean saveImagesAsWmf;
     /**
      * Gets or sets a value indicating whether to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
     * @return exportCompactSize
@@ -72,14 +67,15 @@ public class RtfSaveOptionsData extends SaveOptionsData {
         return exportCompactSize;
     }
 
+    public RtfSaveOptionsData exportCompactSize(Boolean exportCompactSize) {
+        this.exportCompactSize = exportCompactSize;
+        return this;
+    }
+
     public void setExportCompactSize(Boolean exportCompactSize) {
         this.exportCompactSize = exportCompactSize;
     }
 
-    public RtfSaveOptionsData exportImagesForOldReaders(Boolean exportImagesForOldReaders) {
-        this.exportImagesForOldReaders = exportImagesForOldReaders;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the keywords for "old readers" are written to RTF or not.
@@ -90,14 +86,15 @@ public class RtfSaveOptionsData extends SaveOptionsData {
         return exportImagesForOldReaders;
     }
 
+    public RtfSaveOptionsData exportImagesForOldReaders(Boolean exportImagesForOldReaders) {
+        this.exportImagesForOldReaders = exportImagesForOldReaders;
+        return this;
+    }
+
     public void setExportImagesForOldReaders(Boolean exportImagesForOldReaders) {
         this.exportImagesForOldReaders = exportImagesForOldReaders;
     }
 
-    public RtfSaveOptionsData prettyFormat(Boolean prettyFormat) {
-        this.prettyFormat = prettyFormat;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to use pretty formats output.
@@ -108,14 +105,15 @@ public class RtfSaveOptionsData extends SaveOptionsData {
         return prettyFormat;
     }
 
+    public RtfSaveOptionsData prettyFormat(Boolean prettyFormat) {
+        this.prettyFormat = prettyFormat;
+        return this;
+    }
+
     public void setPrettyFormat(Boolean prettyFormat) {
         this.prettyFormat = prettyFormat;
     }
 
-    public RtfSaveOptionsData saveImagesAsWmf(Boolean saveImagesAsWmf) {
-        this.saveImagesAsWmf = saveImagesAsWmf;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.
@@ -126,8 +124,23 @@ public class RtfSaveOptionsData extends SaveOptionsData {
         return saveImagesAsWmf;
     }
 
+    public RtfSaveOptionsData saveImagesAsWmf(Boolean saveImagesAsWmf) {
+        this.saveImagesAsWmf = saveImagesAsWmf;
+        return this;
+    }
+
     public void setSaveImagesAsWmf(Boolean saveImagesAsWmf) {
         this.saveImagesAsWmf = saveImagesAsWmf;
+    }
+
+
+    public RtfSaveOptionsData() {
+        super();
+        this.exportCompactSize = null;
+        this.exportImagesForOldReaders = null;
+        this.prettyFormat = null;
+        this.saveFormat = "rtf";
+        this.saveImagesAsWmf = null;
     }
 
     @Override
@@ -157,11 +170,25 @@ public class RtfSaveOptionsData extends SaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RtfSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    exportCompactSize: ").append(toIndentedString(exportCompactSize)).append("\n");
-    sb.append("    exportImagesForOldReaders: ").append(toIndentedString(exportImagesForOldReaders)).append("\n");
-    sb.append("    prettyFormat: ").append(toIndentedString(prettyFormat)).append("\n");
-    sb.append("    saveImagesAsWmf: ").append(toIndentedString(saveImagesAsWmf)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    exportCompactSize: ").append(toIndentedString(getExportCompactSize())).append("\n");
+    sb.append("    exportImagesForOldReaders: ").append(toIndentedString(getExportImagesForOldReaders())).append("\n");
+    sb.append("    prettyFormat: ").append(toIndentedString(getPrettyFormat())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    saveImagesAsWmf: ").append(toIndentedString(getSaveImagesAsWmf())).append("\n");
     sb.append("}");
     return sb.toString();
   }

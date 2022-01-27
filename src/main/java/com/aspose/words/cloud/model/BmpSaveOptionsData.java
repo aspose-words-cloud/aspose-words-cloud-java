@@ -48,6 +48,11 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for bmp save options.")
 public class BmpSaveOptionsData extends ImageSaveOptionsData {
 
+    public BmpSaveOptionsData() {
+        super();
+        this.saveFormat = "bmp";
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -69,7 +74,40 @@ public class BmpSaveOptionsData extends ImageSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BmpSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
+    sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
+    sb.append("    metafileRenderingOptions: ").append(toIndentedString(getMetafileRenderingOptions())).append("\n");
+    sb.append("    numeralFormat: ").append(toIndentedString(getNumeralFormat())).append("\n");
+    sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
+    sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
+    sb.append("    horizontalResolution: ").append(toIndentedString(getHorizontalResolution())).append("\n");
+    sb.append("    imageBrightness: ").append(toIndentedString(getImageBrightness())).append("\n");
+    sb.append("    imageColorMode: ").append(toIndentedString(getImageColorMode())).append("\n");
+    sb.append("    imageContrast: ").append(toIndentedString(getImageContrast())).append("\n");
+    sb.append("    paperColor: ").append(toIndentedString(getPaperColor())).append("\n");
+    sb.append("    pixelFormat: ").append(toIndentedString(getPixelFormat())).append("\n");
+    sb.append("    resolution: ").append(toIndentedString(getResolution())).append("\n");
+    sb.append("    scale: ").append(toIndentedString(getScale())).append("\n");
+    sb.append("    useAntiAliasing: ").append(toIndentedString(getUseAntiAliasing())).append("\n");
+    sb.append("    useGdiEmfRenderer: ").append(toIndentedString(getUseGdiEmfRenderer())).append("\n");
+    sb.append("    useHighQualityRendering: ").append(toIndentedString(getUseHighQualityRendering())).append("\n");
+    sb.append("    verticalResolution: ").append(toIndentedString(getVerticalResolution())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

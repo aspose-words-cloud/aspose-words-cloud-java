@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with the formatting properties of a paragraph.")
 public class ParagraphFormatResponse extends WordsResponse {
     @SerializedName("ParagraphFormat")
-    private ParagraphFormat paragraphFormat = null;
-    public ParagraphFormatResponse paragraphFormat(ParagraphFormat paragraphFormat) {
-        this.paragraphFormat = paragraphFormat;
-        return this;
-    }
-
+    protected ParagraphFormat paragraphFormat;
     /**
      * Gets or sets the formatting properties of a paragraph.
     * @return paragraphFormat
@@ -63,8 +58,19 @@ public class ParagraphFormatResponse extends WordsResponse {
         return paragraphFormat;
     }
 
+    public ParagraphFormatResponse paragraphFormat(ParagraphFormat paragraphFormat) {
+        this.paragraphFormat = paragraphFormat;
+        return this;
+    }
+
     public void setParagraphFormat(ParagraphFormat paragraphFormat) {
         this.paragraphFormat = paragraphFormat;
+    }
+
+
+    public ParagraphFormatResponse() {
+        super();
+        this.paragraphFormat = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class ParagraphFormatResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphFormatResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    paragraphFormat: ").append(toIndentedString(paragraphFormat)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    paragraphFormat: ").append(toIndentedString(getParagraphFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

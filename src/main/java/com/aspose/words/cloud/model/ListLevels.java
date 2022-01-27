@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a single document list.")
 public class ListLevels extends LinkElement {
     @SerializedName("ListLevel")
-    private List<ListLevel> listLevel = null;
+    protected List<ListLevel> listLevel;
+    /**
+     * Gets or sets the collection of list levels for this list.
+    * @return listLevel
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of list levels for this list.")
+    public List<ListLevel> getListLevel() {
+        return listLevel;
+    }
+
     public ListLevels listLevel(List<ListLevel> listLevel) {
         this.listLevel = listLevel;
         return this;
@@ -62,17 +71,15 @@ public class ListLevels extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of list levels for this list.
-    * @return listLevel
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of list levels for this list.")
-    public List<ListLevel> getListLevel() {
-        return listLevel;
-    }
 
     public void setListLevel(List<ListLevel> listLevel) {
         this.listLevel = listLevel;
+    }
+
+
+    public ListLevels() {
+        super();
+        this.listLevel = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class ListLevels extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListLevels {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    listLevel: ").append(toIndentedString(listLevel)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    listLevel: ").append(toIndentedString(getListLevel())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,6 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Paragraph format element update DTO.")
 public class ParagraphFormatUpdate extends ParagraphFormatBase {
 
+    public ParagraphFormatUpdate() {
+        super();
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -69,7 +73,33 @@ public class ParagraphFormatUpdate extends ParagraphFormatBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphFormatUpdate {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    addSpaceBetweenFarEastAndAlpha: ").append(toIndentedString(getAddSpaceBetweenFarEastAndAlpha())).append("\n");
+    sb.append("    addSpaceBetweenFarEastAndDigit: ").append(toIndentedString(getAddSpaceBetweenFarEastAndDigit())).append("\n");
+    sb.append("    alignment: ").append(toIndentedString(getAlignment())).append("\n");
+    sb.append("    bidi: ").append(toIndentedString(getBidi())).append("\n");
+    sb.append("    dropCapPosition: ").append(toIndentedString(getDropCapPosition())).append("\n");
+    sb.append("    firstLineIndent: ").append(toIndentedString(getFirstLineIndent())).append("\n");
+    sb.append("    keepTogether: ").append(toIndentedString(getKeepTogether())).append("\n");
+    sb.append("    keepWithNext: ").append(toIndentedString(getKeepWithNext())).append("\n");
+    sb.append("    leftIndent: ").append(toIndentedString(getLeftIndent())).append("\n");
+    sb.append("    lineSpacing: ").append(toIndentedString(getLineSpacing())).append("\n");
+    sb.append("    lineSpacingRule: ").append(toIndentedString(getLineSpacingRule())).append("\n");
+    sb.append("    linesToDrop: ").append(toIndentedString(getLinesToDrop())).append("\n");
+    sb.append("    noSpaceBetweenParagraphsOfSameStyle: ").append(toIndentedString(getNoSpaceBetweenParagraphsOfSameStyle())).append("\n");
+    sb.append("    outlineLevel: ").append(toIndentedString(getOutlineLevel())).append("\n");
+    sb.append("    pageBreakBefore: ").append(toIndentedString(getPageBreakBefore())).append("\n");
+    sb.append("    rightIndent: ").append(toIndentedString(getRightIndent())).append("\n");
+    sb.append("    shading: ").append(toIndentedString(getShading())).append("\n");
+    sb.append("    spaceAfter: ").append(toIndentedString(getSpaceAfter())).append("\n");
+    sb.append("    spaceAfterAuto: ").append(toIndentedString(getSpaceAfterAuto())).append("\n");
+    sb.append("    spaceBefore: ").append(toIndentedString(getSpaceBefore())).append("\n");
+    sb.append("    spaceBeforeAuto: ").append(toIndentedString(getSpaceBeforeAuto())).append("\n");
+    sb.append("    styleIdentifier: ").append(toIndentedString(getStyleIdentifier())).append("\n");
+    sb.append("    styleName: ").append(toIndentedString(getStyleName())).append("\n");
+    sb.append("    suppressAutoHyphens: ").append(toIndentedString(getSuppressAutoHyphens())).append("\n");
+    sb.append("    suppressLineNumbers: ").append(toIndentedString(getSuppressLineNumbers())).append("\n");
+    sb.append("    widowControl: ").append(toIndentedString(getWidowControl())).append("\n");
     sb.append("}");
     return sb.toString();
   }

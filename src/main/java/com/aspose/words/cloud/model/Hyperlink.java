@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Hyperlink element.")
 public class Hyperlink extends LinkElement {
     @SerializedName("DisplayText")
-    private String displayText = null;
+    protected String displayText;
 
     @SerializedName("Value")
-    private String value = null;
-    public Hyperlink displayText(String displayText) {
-        this.displayText = displayText;
-        return this;
-    }
-
+    protected String value;
     /**
      * Gets or sets the hypelink's display text.
     * @return displayText
@@ -66,14 +61,15 @@ public class Hyperlink extends LinkElement {
         return displayText;
     }
 
+    public Hyperlink displayText(String displayText) {
+        this.displayText = displayText;
+        return this;
+    }
+
     public void setDisplayText(String displayText) {
         this.displayText = displayText;
     }
 
-    public Hyperlink value(String value) {
-        this.value = value;
-        return this;
-    }
 
     /**
      * Gets or sets the value.
@@ -84,8 +80,20 @@ public class Hyperlink extends LinkElement {
         return value;
     }
 
+    public Hyperlink value(String value) {
+        this.value = value;
+        return this;
+    }
+
     public void setValue(String value) {
         this.value = value;
+    }
+
+
+    public Hyperlink() {
+        super();
+        this.displayText = null;
+        this.value = null;
     }
 
     @Override
@@ -113,9 +121,9 @@ public class Hyperlink extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Hyperlink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    displayText: ").append(toIndentedString(displayText)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    displayText: ").append(toIndentedString(getDisplayText())).append("\n");
+    sb.append("    value: ").append(toIndentedString(getValue())).append("\n");
     sb.append("}");
     return sb.toString();
   }

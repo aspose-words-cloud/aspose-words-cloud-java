@@ -48,21 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents a single document style properties to update.")
 public class StyleUpdate {
     @SerializedName("BaseStyleName")
-    private String baseStyleName = null;
+    protected String baseStyleName;
 
     @SerializedName("IsQuickStyle")
-    private Boolean isQuickStyle = null;
+    protected Boolean isQuickStyle;
 
     @SerializedName("Name")
-    private String name = null;
+    protected String name;
 
     @SerializedName("NextParagraphStyleName")
-    private String nextParagraphStyleName = null;
-    public StyleUpdate baseStyleName(String baseStyleName) {
-        this.baseStyleName = baseStyleName;
-        return this;
-    }
-
+    protected String nextParagraphStyleName;
     /**
      * Gets or sets the name of the style this style is based on.
     * @return baseStyleName
@@ -72,14 +67,15 @@ public class StyleUpdate {
         return baseStyleName;
     }
 
+    public StyleUpdate baseStyleName(String baseStyleName) {
+        this.baseStyleName = baseStyleName;
+        return this;
+    }
+
     public void setBaseStyleName(String baseStyleName) {
         this.baseStyleName = baseStyleName;
     }
 
-    public StyleUpdate isQuickStyle(Boolean isQuickStyle) {
-        this.isQuickStyle = isQuickStyle;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
@@ -90,14 +86,15 @@ public class StyleUpdate {
         return isQuickStyle;
     }
 
+    public StyleUpdate isQuickStyle(Boolean isQuickStyle) {
+        this.isQuickStyle = isQuickStyle;
+        return this;
+    }
+
     public void setIsQuickStyle(Boolean isQuickStyle) {
         this.isQuickStyle = isQuickStyle;
     }
 
-    public StyleUpdate name(String name) {
-        this.name = name;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the style.
@@ -108,14 +105,15 @@ public class StyleUpdate {
         return name;
     }
 
+    public StyleUpdate name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public StyleUpdate nextParagraphStyleName(String nextParagraphStyleName) {
-        this.nextParagraphStyleName = nextParagraphStyleName;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
@@ -126,8 +124,21 @@ public class StyleUpdate {
         return nextParagraphStyleName;
     }
 
+    public StyleUpdate nextParagraphStyleName(String nextParagraphStyleName) {
+        this.nextParagraphStyleName = nextParagraphStyleName;
+        return this;
+    }
+
     public void setNextParagraphStyleName(String nextParagraphStyleName) {
         this.nextParagraphStyleName = nextParagraphStyleName;
+    }
+
+
+    public StyleUpdate() {
+        this.baseStyleName = null;
+        this.isQuickStyle = null;
+        this.name = null;
+        this.nextParagraphStyleName = null;
     }
 
     @Override
@@ -156,10 +167,10 @@ public class StyleUpdate {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StyleUpdate {\n");
-    sb.append("    baseStyleName: ").append(toIndentedString(baseStyleName)).append("\n");
-    sb.append("    isQuickStyle: ").append(toIndentedString(isQuickStyle)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    nextParagraphStyleName: ").append(toIndentedString(nextParagraphStyleName)).append("\n");
+    sb.append("    baseStyleName: ").append(toIndentedString(getBaseStyleName())).append("\n");
+    sb.append("    isQuickStyle: ").append(toIndentedString(getIsQuickStyle())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
+    sb.append("    nextParagraphStyleName: ").append(toIndentedString(getNextParagraphStyleName())).append("\n");
     sb.append("}");
     return sb.toString();
   }

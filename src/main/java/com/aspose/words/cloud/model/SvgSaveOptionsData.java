@@ -48,27 +48,22 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for svg save options.")
 public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("ExportEmbeddedImages")
-    private Boolean exportEmbeddedImages = null;
+    protected Boolean exportEmbeddedImages;
 
     @SerializedName("FitToViewPort")
-    private Boolean fitToViewPort = null;
+    protected Boolean fitToViewPort;
 
     @SerializedName("ResourcesFolder")
-    private String resourcesFolder = null;
+    protected String resourcesFolder;
 
     @SerializedName("ResourcesFolderAlias")
-    private String resourcesFolderAlias = null;
+    protected String resourcesFolderAlias;
 
     @SerializedName("ShowPageBorder")
-    private Boolean showPageBorder = null;
+    protected Boolean showPageBorder;
 
     @SerializedName("TextOutputMode")
-    private String textOutputMode = null;
-    public SvgSaveOptionsData exportEmbeddedImages(Boolean exportEmbeddedImages) {
-        this.exportEmbeddedImages = exportEmbeddedImages;
-        return this;
-    }
-
+    protected String textOutputMode;
     /**
      * Gets or sets a value indicating whether images should be embedded into SVG document as base64.
     * @return exportEmbeddedImages
@@ -78,14 +73,15 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
         return exportEmbeddedImages;
     }
 
+    public SvgSaveOptionsData exportEmbeddedImages(Boolean exportEmbeddedImages) {
+        this.exportEmbeddedImages = exportEmbeddedImages;
+        return this;
+    }
+
     public void setExportEmbeddedImages(Boolean exportEmbeddedImages) {
         this.exportEmbeddedImages = exportEmbeddedImages;
     }
 
-    public SvgSaveOptionsData fitToViewPort(Boolean fitToViewPort) {
-        this.fitToViewPort = fitToViewPort;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
@@ -96,14 +92,15 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
         return fitToViewPort;
     }
 
+    public SvgSaveOptionsData fitToViewPort(Boolean fitToViewPort) {
+        this.fitToViewPort = fitToViewPort;
+        return this;
+    }
+
     public void setFitToViewPort(Boolean fitToViewPort) {
         this.fitToViewPort = fitToViewPort;
     }
 
-    public SvgSaveOptionsData resourcesFolder(String resourcesFolder) {
-        this.resourcesFolder = resourcesFolder;
-        return this;
-    }
 
     /**
      * Gets or sets the physical folder where resources (images) are saved when exporting.
@@ -114,14 +111,15 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
         return resourcesFolder;
     }
 
+    public SvgSaveOptionsData resourcesFolder(String resourcesFolder) {
+        this.resourcesFolder = resourcesFolder;
+        return this;
+    }
+
     public void setResourcesFolder(String resourcesFolder) {
         this.resourcesFolder = resourcesFolder;
     }
 
-    public SvgSaveOptionsData resourcesFolderAlias(String resourcesFolderAlias) {
-        this.resourcesFolderAlias = resourcesFolderAlias;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the folder used to construct image URIs.
@@ -132,14 +130,15 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
         return resourcesFolderAlias;
     }
 
+    public SvgSaveOptionsData resourcesFolderAlias(String resourcesFolderAlias) {
+        this.resourcesFolderAlias = resourcesFolderAlias;
+        return this;
+    }
+
     public void setResourcesFolderAlias(String resourcesFolderAlias) {
         this.resourcesFolderAlias = resourcesFolderAlias;
     }
 
-    public SvgSaveOptionsData showPageBorder(Boolean showPageBorder) {
-        this.showPageBorder = showPageBorder;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to show or hide page stepper.
@@ -150,14 +149,15 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
         return showPageBorder;
     }
 
+    public SvgSaveOptionsData showPageBorder(Boolean showPageBorder) {
+        this.showPageBorder = showPageBorder;
+        return this;
+    }
+
     public void setShowPageBorder(Boolean showPageBorder) {
         this.showPageBorder = showPageBorder;
     }
 
-    public SvgSaveOptionsData textOutputMode(String textOutputMode) {
-        this.textOutputMode = textOutputMode;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how text should be rendered.
@@ -168,8 +168,25 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
         return textOutputMode;
     }
 
+    public SvgSaveOptionsData textOutputMode(String textOutputMode) {
+        this.textOutputMode = textOutputMode;
+        return this;
+    }
+
     public void setTextOutputMode(String textOutputMode) {
         this.textOutputMode = textOutputMode;
+    }
+
+
+    public SvgSaveOptionsData() {
+        super();
+        this.exportEmbeddedImages = null;
+        this.fitToViewPort = null;
+        this.resourcesFolder = null;
+        this.resourcesFolderAlias = null;
+        this.saveFormat = "svg";
+        this.showPageBorder = null;
+        this.textOutputMode = null;
     }
 
     @Override
@@ -201,13 +218,34 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SvgSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    exportEmbeddedImages: ").append(toIndentedString(exportEmbeddedImages)).append("\n");
-    sb.append("    fitToViewPort: ").append(toIndentedString(fitToViewPort)).append("\n");
-    sb.append("    resourcesFolder: ").append(toIndentedString(resourcesFolder)).append("\n");
-    sb.append("    resourcesFolderAlias: ").append(toIndentedString(resourcesFolderAlias)).append("\n");
-    sb.append("    showPageBorder: ").append(toIndentedString(showPageBorder)).append("\n");
-    sb.append("    textOutputMode: ").append(toIndentedString(textOutputMode)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
+    sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
+    sb.append("    metafileRenderingOptions: ").append(toIndentedString(getMetafileRenderingOptions())).append("\n");
+    sb.append("    numeralFormat: ").append(toIndentedString(getNumeralFormat())).append("\n");
+    sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
+    sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
+    sb.append("    exportEmbeddedImages: ").append(toIndentedString(getExportEmbeddedImages())).append("\n");
+    sb.append("    fitToViewPort: ").append(toIndentedString(getFitToViewPort())).append("\n");
+    sb.append("    resourcesFolder: ").append(toIndentedString(getResourcesFolder())).append("\n");
+    sb.append("    resourcesFolderAlias: ").append(toIndentedString(getResourcesFolderAlias())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    showPageBorder: ").append(toIndentedString(getShowPageBorder())).append("\n");
+    sb.append("    textOutputMode: ").append(toIndentedString(getTextOutputMode())).append("\n");
     sb.append("}");
     return sb.toString();
   }

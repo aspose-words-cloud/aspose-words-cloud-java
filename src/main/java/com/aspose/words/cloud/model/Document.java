@@ -113,27 +113,22 @@ public class Document {
     }
 
     @SerializedName("DocumentProperties")
-    private DocumentProperties documentProperties = null;
+    protected DocumentProperties documentProperties;
 
     @SerializedName("FileName")
-    private String fileName = null;
+    protected String fileName;
 
     @SerializedName("IsEncrypted")
-    private Boolean isEncrypted = null;
+    protected Boolean isEncrypted;
 
     @SerializedName("IsSigned")
-    private Boolean isSigned = null;
+    protected Boolean isSigned;
 
     @SerializedName("Links")
-    private List<Link> links = null;
+    protected List<Link> links;
 
     @SerializedName("SourceFormat")
-    private SourceFormatEnum sourceFormat = null;
-    public Document documentProperties(DocumentProperties documentProperties) {
-        this.documentProperties = documentProperties;
-        return this;
-    }
-
+    protected SourceFormatEnum sourceFormat;
     /**
      * Gets or sets the document properties.
     * @return documentProperties
@@ -143,14 +138,15 @@ public class Document {
         return documentProperties;
     }
 
+    public Document documentProperties(DocumentProperties documentProperties) {
+        this.documentProperties = documentProperties;
+        return this;
+    }
+
     public void setDocumentProperties(DocumentProperties documentProperties) {
         this.documentProperties = documentProperties;
     }
 
-    public Document fileName(String fileName) {
-        this.fileName = fileName;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the file.
@@ -161,14 +157,15 @@ public class Document {
         return fileName;
     }
 
+    public Document fileName(String fileName) {
+        this.fileName = fileName;
+        return this;
+    }
+
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
-    public Document isEncrypted(Boolean isEncrypted) {
-        this.isEncrypted = isEncrypted;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the document is encrypted and requires a password to open.
@@ -179,14 +176,15 @@ public class Document {
         return isEncrypted;
     }
 
+    public Document isEncrypted(Boolean isEncrypted) {
+        this.isEncrypted = isEncrypted;
+        return this;
+    }
+
     public void setIsEncrypted(Boolean isEncrypted) {
         this.isEncrypted = isEncrypted;
     }
 
-    public Document isSigned(Boolean isSigned) {
-        this.isSigned = isSigned;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
@@ -197,8 +195,23 @@ public class Document {
         return isSigned;
     }
 
+    public Document isSigned(Boolean isSigned) {
+        this.isSigned = isSigned;
+        return this;
+    }
+
     public void setIsSigned(Boolean isSigned) {
         this.isSigned = isSigned;
+    }
+
+
+    /**
+     * Gets or sets the list of links that originate from this document.
+    * @return links
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of links that originate from this document.")
+    public List<Link> getLinks() {
+        return links;
     }
 
     public Document links(List<Link> links) {
@@ -214,23 +227,11 @@ public class Document {
         return this;
     }
 
-    /**
-     * Gets or sets the list of links that originate from this document.
-    * @return links
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of links that originate from this document.")
-    public List<Link> getLinks() {
-        return links;
-    }
 
     public void setLinks(List<Link> links) {
         this.links = links;
     }
 
-    public Document sourceFormat(SourceFormatEnum sourceFormat) {
-        this.sourceFormat = sourceFormat;
-        return this;
-    }
 
     /**
      * Gets or sets the original format of the document.
@@ -241,8 +242,23 @@ public class Document {
         return sourceFormat;
     }
 
+    public Document sourceFormat(SourceFormatEnum sourceFormat) {
+        this.sourceFormat = sourceFormat;
+        return this;
+    }
+
     public void setSourceFormat(SourceFormatEnum sourceFormat) {
         this.sourceFormat = sourceFormat;
+    }
+
+
+    public Document() {
+        this.documentProperties = null;
+        this.fileName = null;
+        this.isEncrypted = null;
+        this.isSigned = null;
+        this.links = null;
+        this.sourceFormat = null;
     }
 
     @Override
@@ -273,12 +289,12 @@ public class Document {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Document {\n");
-    sb.append("    documentProperties: ").append(toIndentedString(documentProperties)).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-    sb.append("    isEncrypted: ").append(toIndentedString(isEncrypted)).append("\n");
-    sb.append("    isSigned: ").append(toIndentedString(isSigned)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    sourceFormat: ").append(toIndentedString(sourceFormat)).append("\n");
+    sb.append("    documentProperties: ").append(toIndentedString(getDocumentProperties())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    isEncrypted: ").append(toIndentedString(getIsEncrypted())).append("\n");
+    sb.append("    isSigned: ").append(toIndentedString(getIsSigned())).append("\n");
+    sb.append("    links: ").append(toIndentedString(getLinks())).append("\n");
+    sb.append("    sourceFormat: ").append(toIndentedString(getSourceFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

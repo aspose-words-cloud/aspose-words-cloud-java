@@ -94,54 +94,49 @@ public class SaveOptionsData {
     }
 
     @SerializedName("AllowEmbeddingPostScriptFonts")
-    private Boolean allowEmbeddingPostScriptFonts = null;
+    protected Boolean allowEmbeddingPostScriptFonts;
 
     @SerializedName("CustomTimeZoneInfoData")
-    private TimeZoneInfoData customTimeZoneInfoData = null;
+    protected TimeZoneInfoData customTimeZoneInfoData;
 
     @SerializedName("Dml3DEffectsRenderingMode")
-    private Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode = null;
+    protected Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode;
 
     @SerializedName("DmlEffectsRenderingMode")
-    private String dmlEffectsRenderingMode = null;
+    protected String dmlEffectsRenderingMode;
 
     @SerializedName("DmlRenderingMode")
-    private String dmlRenderingMode = null;
+    protected String dmlRenderingMode;
 
     @SerializedName("FileName")
-    private String fileName = null;
+    protected String fileName;
 
     @SerializedName("FlatOpcXmlMappingOnly")
-    private Boolean flatOpcXmlMappingOnly = null;
+    protected Boolean flatOpcXmlMappingOnly;
 
     @SerializedName("ImlRenderingMode")
-    private String imlRenderingMode = null;
+    protected String imlRenderingMode;
 
     @SerializedName("SaveFormat")
-    private String saveFormat = null;
+    protected String saveFormat;
 
     @SerializedName("UpdateCreatedTimeProperty")
-    private Boolean updateCreatedTimeProperty = null;
+    protected Boolean updateCreatedTimeProperty;
 
     @SerializedName("UpdateFields")
-    private Boolean updateFields = null;
+    protected Boolean updateFields;
 
     @SerializedName("UpdateLastPrintedProperty")
-    private Boolean updateLastPrintedProperty = null;
+    protected Boolean updateLastPrintedProperty;
 
     @SerializedName("UpdateLastSavedTimeProperty")
-    private Boolean updateLastSavedTimeProperty = null;
+    protected Boolean updateLastSavedTimeProperty;
 
     @SerializedName("UpdateSdtContent")
-    private Boolean updateSdtContent = null;
+    protected Boolean updateSdtContent;
 
     @SerializedName("ZipOutput")
-    private Boolean zipOutput = null;
-    public SaveOptionsData allowEmbeddingPostScriptFonts(Boolean allowEmbeddingPostScriptFonts) {
-        this.allowEmbeddingPostScriptFonts = allowEmbeddingPostScriptFonts;
-        return this;
-    }
-
+    protected Boolean zipOutput;
     /**
      * Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
     * @return allowEmbeddingPostScriptFonts
@@ -151,14 +146,15 @@ public class SaveOptionsData {
         return allowEmbeddingPostScriptFonts;
     }
 
+    public SaveOptionsData allowEmbeddingPostScriptFonts(Boolean allowEmbeddingPostScriptFonts) {
+        this.allowEmbeddingPostScriptFonts = allowEmbeddingPostScriptFonts;
+        return this;
+    }
+
     public void setAllowEmbeddingPostScriptFonts(Boolean allowEmbeddingPostScriptFonts) {
         this.allowEmbeddingPostScriptFonts = allowEmbeddingPostScriptFonts;
     }
 
-    public SaveOptionsData customTimeZoneInfoData(TimeZoneInfoData customTimeZoneInfoData) {
-        this.customTimeZoneInfoData = customTimeZoneInfoData;
-        return this;
-    }
 
     /**
      * Gets or sets CustomTimeZoneInfo.
@@ -169,14 +165,15 @@ public class SaveOptionsData {
         return customTimeZoneInfoData;
     }
 
+    public SaveOptionsData customTimeZoneInfoData(TimeZoneInfoData customTimeZoneInfoData) {
+        this.customTimeZoneInfoData = customTimeZoneInfoData;
+        return this;
+    }
+
     public void setCustomTimeZoneInfoData(TimeZoneInfoData customTimeZoneInfoData) {
         this.customTimeZoneInfoData = customTimeZoneInfoData;
     }
 
-    public SaveOptionsData dml3DEffectsRenderingMode(Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode) {
-        this.dml3DEffectsRenderingMode = dml3DEffectsRenderingMode;
-        return this;
-    }
 
     /**
      * Gets or sets the value determining how 3D effects are rendered.
@@ -187,14 +184,15 @@ public class SaveOptionsData {
         return dml3DEffectsRenderingMode;
     }
 
+    public SaveOptionsData dml3DEffectsRenderingMode(Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode) {
+        this.dml3DEffectsRenderingMode = dml3DEffectsRenderingMode;
+        return this;
+    }
+
     public void setDml3DEffectsRenderingMode(Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode) {
         this.dml3DEffectsRenderingMode = dml3DEffectsRenderingMode;
     }
 
-    public SaveOptionsData dmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
-        this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
-        return this;
-    }
 
     /**
      * Gets or sets the value determining how DrawingML effects are rendered.
@@ -206,14 +204,15 @@ public class SaveOptionsData {
         return dmlEffectsRenderingMode;
     }
 
+    public SaveOptionsData dmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
+        this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
+        return this;
+    }
+
     public void setDmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
         this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
     }
 
-    public SaveOptionsData dmlRenderingMode(String dmlRenderingMode) {
-        this.dmlRenderingMode = dmlRenderingMode;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how DrawingML shapes are rendered.
@@ -224,14 +223,15 @@ public class SaveOptionsData {
         return dmlRenderingMode;
     }
 
+    public SaveOptionsData dmlRenderingMode(String dmlRenderingMode) {
+        this.dmlRenderingMode = dmlRenderingMode;
+        return this;
+    }
+
     public void setDmlRenderingMode(String dmlRenderingMode) {
         this.dmlRenderingMode = dmlRenderingMode;
     }
 
-    public SaveOptionsData fileName(String fileName) {
-        this.fileName = fileName;
-        return this;
-    }
 
     /**
      * Gets or sets the name of destination file.
@@ -242,14 +242,15 @@ public class SaveOptionsData {
         return fileName;
     }
 
+    public SaveOptionsData fileName(String fileName) {
+        this.fileName = fileName;
+        return this;
+    }
+
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
-    public SaveOptionsData flatOpcXmlMappingOnly(Boolean flatOpcXmlMappingOnly) {
-        this.flatOpcXmlMappingOnly = flatOpcXmlMappingOnly;
-        return this;
-    }
 
     /**
      * Gets or sets value determining which document formats are allowed to be mapped by Aspose.Words.Markup.StructuredDocumentTag.XmlMapping.
@@ -261,14 +262,15 @@ public class SaveOptionsData {
         return flatOpcXmlMappingOnly;
     }
 
+    public SaveOptionsData flatOpcXmlMappingOnly(Boolean flatOpcXmlMappingOnly) {
+        this.flatOpcXmlMappingOnly = flatOpcXmlMappingOnly;
+        return this;
+    }
+
     public void setFlatOpcXmlMappingOnly(Boolean flatOpcXmlMappingOnly) {
         this.flatOpcXmlMappingOnly = flatOpcXmlMappingOnly;
     }
 
-    public SaveOptionsData imlRenderingMode(String imlRenderingMode) {
-        this.imlRenderingMode = imlRenderingMode;
-        return this;
-    }
 
     /**
      * Gets or sets the value determining how ink (InkML) objects are rendered.
@@ -279,14 +281,15 @@ public class SaveOptionsData {
         return imlRenderingMode;
     }
 
+    public SaveOptionsData imlRenderingMode(String imlRenderingMode) {
+        this.imlRenderingMode = imlRenderingMode;
+        return this;
+    }
+
     public void setImlRenderingMode(String imlRenderingMode) {
         this.imlRenderingMode = imlRenderingMode;
     }
 
-    public SaveOptionsData saveFormat(String saveFormat) {
-        this.saveFormat = saveFormat;
-        return this;
-    }
 
     /**
      * Gets or sets the format of save.
@@ -297,14 +300,7 @@ public class SaveOptionsData {
         return saveFormat;
     }
 
-    public void setSaveFormat(String saveFormat) {
-        this.saveFormat = saveFormat;
-    }
 
-    public SaveOptionsData updateCreatedTimeProperty(Boolean updateCreatedTimeProperty) {
-        this.updateCreatedTimeProperty = updateCreatedTimeProperty;
-        return this;
-    }
 
     /**
      * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving.
@@ -316,14 +312,15 @@ public class SaveOptionsData {
         return updateCreatedTimeProperty;
     }
 
+    public SaveOptionsData updateCreatedTimeProperty(Boolean updateCreatedTimeProperty) {
+        this.updateCreatedTimeProperty = updateCreatedTimeProperty;
+        return this;
+    }
+
     public void setUpdateCreatedTimeProperty(Boolean updateCreatedTimeProperty) {
         this.updateCreatedTimeProperty = updateCreatedTimeProperty;
     }
 
-    public SaveOptionsData updateFields(Boolean updateFields) {
-        this.updateFields = updateFields;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether fields should be updated before saving the document to a fixed page format. The default value is true.
@@ -334,14 +331,15 @@ public class SaveOptionsData {
         return updateFields;
     }
 
+    public SaveOptionsData updateFields(Boolean updateFields) {
+        this.updateFields = updateFields;
+        return this;
+    }
+
     public void setUpdateFields(Boolean updateFields) {
         this.updateFields = updateFields;
     }
 
-    public SaveOptionsData updateLastPrintedProperty(Boolean updateLastPrintedProperty) {
-        this.updateLastPrintedProperty = updateLastPrintedProperty;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
@@ -352,14 +350,15 @@ public class SaveOptionsData {
         return updateLastPrintedProperty;
     }
 
+    public SaveOptionsData updateLastPrintedProperty(Boolean updateLastPrintedProperty) {
+        this.updateLastPrintedProperty = updateLastPrintedProperty;
+        return this;
+    }
+
     public void setUpdateLastPrintedProperty(Boolean updateLastPrintedProperty) {
         this.updateLastPrintedProperty = updateLastPrintedProperty;
     }
 
-    public SaveOptionsData updateLastSavedTimeProperty(Boolean updateLastSavedTimeProperty) {
-        this.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
@@ -370,14 +369,15 @@ public class SaveOptionsData {
         return updateLastSavedTimeProperty;
     }
 
+    public SaveOptionsData updateLastSavedTimeProperty(Boolean updateLastSavedTimeProperty) {
+        this.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
+        return this;
+    }
+
     public void setUpdateLastSavedTimeProperty(Boolean updateLastSavedTimeProperty) {
         this.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
     }
 
-    public SaveOptionsData updateSdtContent(Boolean updateSdtContent) {
-        this.updateSdtContent = updateSdtContent;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.
@@ -388,14 +388,15 @@ public class SaveOptionsData {
         return updateSdtContent;
     }
 
+    public SaveOptionsData updateSdtContent(Boolean updateSdtContent) {
+        this.updateSdtContent = updateSdtContent;
+        return this;
+    }
+
     public void setUpdateSdtContent(Boolean updateSdtContent) {
         this.updateSdtContent = updateSdtContent;
     }
 
-    public SaveOptionsData zipOutput(Boolean zipOutput) {
-        this.zipOutput = zipOutput;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to zip output or not.
@@ -407,8 +408,32 @@ public class SaveOptionsData {
         return zipOutput;
     }
 
+    public SaveOptionsData zipOutput(Boolean zipOutput) {
+        this.zipOutput = zipOutput;
+        return this;
+    }
+
     public void setZipOutput(Boolean zipOutput) {
         this.zipOutput = zipOutput;
+    }
+
+
+    public SaveOptionsData() {
+        this.allowEmbeddingPostScriptFonts = null;
+        this.customTimeZoneInfoData = null;
+        this.dml3DEffectsRenderingMode = null;
+        this.dmlEffectsRenderingMode = null;
+        this.dmlRenderingMode = null;
+        this.fileName = null;
+        this.flatOpcXmlMappingOnly = null;
+        this.imlRenderingMode = null;
+        this.saveFormat = null;
+        this.updateCreatedTimeProperty = null;
+        this.updateFields = null;
+        this.updateLastPrintedProperty = null;
+        this.updateLastSavedTimeProperty = null;
+        this.updateSdtContent = null;
+        this.zipOutput = null;
     }
 
     @Override
@@ -448,21 +473,21 @@ public class SaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SaveOptionsData {\n");
-    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(allowEmbeddingPostScriptFonts)).append("\n");
-    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(customTimeZoneInfoData)).append("\n");
-    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(dml3DEffectsRenderingMode)).append("\n");
-    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(dmlEffectsRenderingMode)).append("\n");
-    sb.append("    dmlRenderingMode: ").append(toIndentedString(dmlRenderingMode)).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(flatOpcXmlMappingOnly)).append("\n");
-    sb.append("    imlRenderingMode: ").append(toIndentedString(imlRenderingMode)).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(saveFormat)).append("\n");
-    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(updateCreatedTimeProperty)).append("\n");
-    sb.append("    updateFields: ").append(toIndentedString(updateFields)).append("\n");
-    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(updateLastPrintedProperty)).append("\n");
-    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(updateLastSavedTimeProperty)).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(updateSdtContent)).append("\n");
-    sb.append("    zipOutput: ").append(toIndentedString(zipOutput)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
     sb.append("}");
     return sb.toString();
   }

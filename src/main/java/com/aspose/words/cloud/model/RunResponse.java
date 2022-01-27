@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a Run element.")
 public class RunResponse extends WordsResponse {
     @SerializedName("Run")
-    private Run run = null;
-    public RunResponse run(Run run) {
-        this.run = run;
-        return this;
-    }
-
+    protected Run run;
     /**
      * Gets or sets the Run element.
     * @return run
@@ -63,8 +58,19 @@ public class RunResponse extends WordsResponse {
         return run;
     }
 
+    public RunResponse run(Run run) {
+        this.run = run;
+        return this;
+    }
+
     public void setRun(Run run) {
         this.run = run;
+    }
+
+
+    public RunResponse() {
+        super();
+        this.run = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class RunResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RunResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    run: ").append(toIndentedString(run)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    run: ").append(toIndentedString(getRun())).append("\n");
     sb.append("}");
     return sb.toString();
   }

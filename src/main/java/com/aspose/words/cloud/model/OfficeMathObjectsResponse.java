@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a collection of OfficeMath objects.")
 public class OfficeMathObjectsResponse extends WordsResponse {
     @SerializedName("OfficeMathObjects")
-    private OfficeMathObjectsCollection officeMathObjects = null;
-    public OfficeMathObjectsResponse officeMathObjects(OfficeMathObjectsCollection officeMathObjects) {
-        this.officeMathObjects = officeMathObjects;
-        return this;
-    }
-
+    protected OfficeMathObjectsCollection officeMathObjects;
     /**
      * Gets or sets the collection of OfficeMath objects.
     * @return officeMathObjects
@@ -63,8 +58,19 @@ public class OfficeMathObjectsResponse extends WordsResponse {
         return officeMathObjects;
     }
 
+    public OfficeMathObjectsResponse officeMathObjects(OfficeMathObjectsCollection officeMathObjects) {
+        this.officeMathObjects = officeMathObjects;
+        return this;
+    }
+
     public void setOfficeMathObjects(OfficeMathObjectsCollection officeMathObjects) {
         this.officeMathObjects = officeMathObjects;
+    }
+
+
+    public OfficeMathObjectsResponse() {
+        super();
+        this.officeMathObjects = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class OfficeMathObjectsResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OfficeMathObjectsResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    officeMathObjects: ").append(toIndentedString(officeMathObjects)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    officeMathObjects: ").append(toIndentedString(getOfficeMathObjects())).append("\n");
     sb.append("}");
     return sb.toString();
   }

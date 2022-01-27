@@ -94,15 +94,10 @@ public class ReplaceRange {
     }
 
     @SerializedName("Text")
-    private String text = null;
+    protected String text;
 
     @SerializedName("TextType")
-    private TextTypeEnum textType = null;
-    public ReplaceRange text(String text) {
-        this.text = text;
-        return this;
-    }
-
+    protected TextTypeEnum textType;
     /**
      * Gets or sets the range's text.
     * @return text
@@ -112,14 +107,15 @@ public class ReplaceRange {
         return text;
     }
 
+    public ReplaceRange text(String text) {
+        this.text = text;
+        return this;
+    }
+
     public void setText(String text) {
         this.text = text;
     }
 
-    public ReplaceRange textType(TextTypeEnum textType) {
-        this.textType = textType;
-        return this;
-    }
 
     /**
      * Gets or sets the range's text type.
@@ -130,8 +126,19 @@ public class ReplaceRange {
         return textType;
     }
 
+    public ReplaceRange textType(TextTypeEnum textType) {
+        this.textType = textType;
+        return this;
+    }
+
     public void setTextType(TextTypeEnum textType) {
         this.textType = textType;
+    }
+
+
+    public ReplaceRange() {
+        this.text = null;
+        this.textType = null;
     }
 
     @Override
@@ -158,8 +165,8 @@ public class ReplaceRange {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReplaceRange {\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
-    sb.append("    textType: ").append(toIndentedString(textType)).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
+    sb.append("    textType: ").append(toIndentedString(getTextType())).append("\n");
     sb.append("}");
     return sb.toString();
   }

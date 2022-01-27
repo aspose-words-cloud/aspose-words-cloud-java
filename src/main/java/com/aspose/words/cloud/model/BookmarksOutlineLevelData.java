@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for individual bookmarks outline level.")
 public class BookmarksOutlineLevelData {
     @SerializedName("BookmarksOutlineLevel")
-    private Integer bookmarksOutlineLevel = null;
+    protected Integer bookmarksOutlineLevel;
 
     @SerializedName("Name")
-    private String name = null;
-    public BookmarksOutlineLevelData bookmarksOutlineLevel(Integer bookmarksOutlineLevel) {
-        this.bookmarksOutlineLevel = bookmarksOutlineLevel;
-        return this;
-    }
-
+    protected String name;
     /**
      * Gets or sets the bookmark's level.
     * @return bookmarksOutlineLevel
@@ -66,14 +61,15 @@ public class BookmarksOutlineLevelData {
         return bookmarksOutlineLevel;
     }
 
+    public BookmarksOutlineLevelData bookmarksOutlineLevel(Integer bookmarksOutlineLevel) {
+        this.bookmarksOutlineLevel = bookmarksOutlineLevel;
+        return this;
+    }
+
     public void setBookmarksOutlineLevel(Integer bookmarksOutlineLevel) {
         this.bookmarksOutlineLevel = bookmarksOutlineLevel;
     }
 
-    public BookmarksOutlineLevelData name(String name) {
-        this.name = name;
-        return this;
-    }
 
     /**
      * Gets or sets the bookmark's name.
@@ -84,8 +80,19 @@ public class BookmarksOutlineLevelData {
         return name;
     }
 
+    public BookmarksOutlineLevelData name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    public BookmarksOutlineLevelData() {
+        this.bookmarksOutlineLevel = null;
+        this.name = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class BookmarksOutlineLevelData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BookmarksOutlineLevelData {\n");
-    sb.append("    bookmarksOutlineLevel: ").append(toIndentedString(bookmarksOutlineLevel)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    bookmarksOutlineLevel: ").append(toIndentedString(getBookmarksOutlineLevel())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
     sb.append("}");
     return sb.toString();
   }

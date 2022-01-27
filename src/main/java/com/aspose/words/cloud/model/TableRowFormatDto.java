@@ -47,6 +47,9 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "")
 public class TableRowFormatDto {
 
+    public TableRowFormatDto() {
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

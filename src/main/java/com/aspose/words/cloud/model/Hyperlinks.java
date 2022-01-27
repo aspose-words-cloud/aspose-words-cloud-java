@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Collection of Hyperlink.")
 public class Hyperlinks extends LinkElement {
     @SerializedName("HyperlinkList")
-    private List<Hyperlink> hyperlinkList = null;
+    protected List<Hyperlink> hyperlinkList;
+    /**
+     * Gets or sets the array of Hyperlink.
+    * @return hyperlinkList
+    **/
+    @ApiModelProperty(value = "Gets or sets the array of Hyperlink.")
+    public List<Hyperlink> getHyperlinkList() {
+        return hyperlinkList;
+    }
+
     public Hyperlinks hyperlinkList(List<Hyperlink> hyperlinkList) {
         this.hyperlinkList = hyperlinkList;
         return this;
@@ -62,17 +71,15 @@ public class Hyperlinks extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the array of Hyperlink.
-    * @return hyperlinkList
-    **/
-    @ApiModelProperty(value = "Gets or sets the array of Hyperlink.")
-    public List<Hyperlink> getHyperlinkList() {
-        return hyperlinkList;
-    }
 
     public void setHyperlinkList(List<Hyperlink> hyperlinkList) {
         this.hyperlinkList = hyperlinkList;
+    }
+
+
+    public Hyperlinks() {
+        super();
+        this.hyperlinkList = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class Hyperlinks extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Hyperlinks {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    hyperlinkList: ").append(toIndentedString(hyperlinkList)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    hyperlinkList: ").append(toIndentedString(getHyperlinkList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

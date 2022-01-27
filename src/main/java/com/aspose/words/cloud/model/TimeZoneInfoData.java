@@ -48,21 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Class to specify TimeZoneInfo parameters.")
 public class TimeZoneInfoData {
     @SerializedName("BaseUtcOffset")
-    private String baseUtcOffset = null;
+    protected String baseUtcOffset;
 
     @SerializedName("DisplayName")
-    private String displayName = null;
+    protected String displayName;
 
     @SerializedName("Id")
-    private String id = null;
+    protected String id;
 
     @SerializedName("StandardDisplayName")
-    private String standardDisplayName = null;
-    public TimeZoneInfoData baseUtcOffset(String baseUtcOffset) {
-        this.baseUtcOffset = baseUtcOffset;
-        return this;
-    }
-
+    protected String standardDisplayName;
     /**
      * Gets or sets base utc offset in hh:mm:ss format.
     * @return baseUtcOffset
@@ -72,14 +67,15 @@ public class TimeZoneInfoData {
         return baseUtcOffset;
     }
 
+    public TimeZoneInfoData baseUtcOffset(String baseUtcOffset) {
+        this.baseUtcOffset = baseUtcOffset;
+        return this;
+    }
+
     public void setBaseUtcOffset(String baseUtcOffset) {
         this.baseUtcOffset = baseUtcOffset;
     }
 
-    public TimeZoneInfoData displayName(String displayName) {
-        this.displayName = displayName;
-        return this;
-    }
 
     /**
      * Gets or sets display name.
@@ -90,14 +86,15 @@ public class TimeZoneInfoData {
         return displayName;
     }
 
+    public TimeZoneInfoData displayName(String displayName) {
+        this.displayName = displayName;
+        return this;
+    }
+
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
     }
 
-    public TimeZoneInfoData id(String id) {
-        this.id = id;
-        return this;
-    }
 
     /**
      * Gets or sets an Id string for CustomTimeZoneInfo.
@@ -108,14 +105,15 @@ public class TimeZoneInfoData {
         return id;
     }
 
+    public TimeZoneInfoData id(String id) {
+        this.id = id;
+        return this;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
 
-    public TimeZoneInfoData standardDisplayName(String standardDisplayName) {
-        this.standardDisplayName = standardDisplayName;
-        return this;
-    }
 
     /**
      * Gets or sets standard display name.
@@ -126,8 +124,21 @@ public class TimeZoneInfoData {
         return standardDisplayName;
     }
 
+    public TimeZoneInfoData standardDisplayName(String standardDisplayName) {
+        this.standardDisplayName = standardDisplayName;
+        return this;
+    }
+
     public void setStandardDisplayName(String standardDisplayName) {
         this.standardDisplayName = standardDisplayName;
+    }
+
+
+    public TimeZoneInfoData() {
+        this.baseUtcOffset = null;
+        this.displayName = null;
+        this.id = null;
+        this.standardDisplayName = null;
     }
 
     @Override
@@ -156,10 +167,10 @@ public class TimeZoneInfoData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TimeZoneInfoData {\n");
-    sb.append("    baseUtcOffset: ").append(toIndentedString(baseUtcOffset)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    standardDisplayName: ").append(toIndentedString(standardDisplayName)).append("\n");
+    sb.append("    baseUtcOffset: ").append(toIndentedString(getBaseUtcOffset())).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(getDisplayName())).append("\n");
+    sb.append("    id: ").append(toIndentedString(getId())).append("\n");
+    sb.append("    standardDisplayName: ").append(toIndentedString(getStandardDisplayName())).append("\n");
     sb.append("}");
     return sb.toString();
   }

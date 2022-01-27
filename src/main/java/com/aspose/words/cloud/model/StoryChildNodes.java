@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Child nodes of Story or InlineStory.")
 public class StoryChildNodes {
     @SerializedName("ChildNodes")
-    private List<NodeLink> childNodes = null;
+    protected List<NodeLink> childNodes;
+    /**
+     * Gets or sets the list of child nodes.
+    * @return childNodes
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of child nodes.")
+    public List<NodeLink> getChildNodes() {
+        return childNodes;
+    }
+
     public StoryChildNodes childNodes(List<NodeLink> childNodes) {
         this.childNodes = childNodes;
         return this;
@@ -62,17 +71,14 @@ public class StoryChildNodes {
         return this;
     }
 
-    /**
-     * Gets or sets the list of child nodes.
-    * @return childNodes
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of child nodes.")
-    public List<NodeLink> getChildNodes() {
-        return childNodes;
-    }
 
     public void setChildNodes(List<NodeLink> childNodes) {
         this.childNodes = childNodes;
+    }
+
+
+    public StoryChildNodes() {
+        this.childNodes = null;
     }
 
     @Override
@@ -98,7 +104,7 @@ public class StoryChildNodes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StoryChildNodes {\n");
-    sb.append("    childNodes: ").append(toIndentedString(childNodes)).append("\n");
+    sb.append("    childNodes: ").append(toIndentedString(getChildNodes())).append("\n");
     sb.append("}");
     return sb.toString();
   }

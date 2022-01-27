@@ -48,13 +48,22 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Result of splitting document.")
 public class SplitDocumentResult {
     @SerializedName("Pages")
-    private List<FileLink> pages = null;
+    protected List<FileLink> pages;
 
     @SerializedName("SourceDocument")
-    private FileLink sourceDocument = null;
+    protected FileLink sourceDocument;
 
     @SerializedName("ZippedPages")
-    private FileLink zippedPages = null;
+    protected FileLink zippedPages;
+    /**
+     * Gets or sets the list of pages.
+    * @return pages
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of pages.")
+    public List<FileLink> getPages() {
+        return pages;
+    }
+
     public SplitDocumentResult pages(List<FileLink> pages) {
         this.pages = pages;
         return this;
@@ -68,23 +77,11 @@ public class SplitDocumentResult {
         return this;
     }
 
-    /**
-     * Gets or sets the list of pages.
-    * @return pages
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of pages.")
-    public List<FileLink> getPages() {
-        return pages;
-    }
 
     public void setPages(List<FileLink> pages) {
         this.pages = pages;
     }
 
-    public SplitDocumentResult sourceDocument(FileLink sourceDocument) {
-        this.sourceDocument = sourceDocument;
-        return this;
-    }
 
     /**
      * Gets or sets the link to the source document.
@@ -95,14 +92,15 @@ public class SplitDocumentResult {
         return sourceDocument;
     }
 
+    public SplitDocumentResult sourceDocument(FileLink sourceDocument) {
+        this.sourceDocument = sourceDocument;
+        return this;
+    }
+
     public void setSourceDocument(FileLink sourceDocument) {
         this.sourceDocument = sourceDocument;
     }
 
-    public SplitDocumentResult zippedPages(FileLink zippedPages) {
-        this.zippedPages = zippedPages;
-        return this;
-    }
 
     /**
      * Gets or sets the link to the file archive with pages.
@@ -113,8 +111,20 @@ public class SplitDocumentResult {
         return zippedPages;
     }
 
+    public SplitDocumentResult zippedPages(FileLink zippedPages) {
+        this.zippedPages = zippedPages;
+        return this;
+    }
+
     public void setZippedPages(FileLink zippedPages) {
         this.zippedPages = zippedPages;
+    }
+
+
+    public SplitDocumentResult() {
+        this.pages = null;
+        this.sourceDocument = null;
+        this.zippedPages = null;
     }
 
     @Override
@@ -142,9 +152,9 @@ public class SplitDocumentResult {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SplitDocumentResult {\n");
-    sb.append("    pages: ").append(toIndentedString(pages)).append("\n");
-    sb.append("    sourceDocument: ").append(toIndentedString(sourceDocument)).append("\n");
-    sb.append("    zippedPages: ").append(toIndentedString(zippedPages)).append("\n");
+    sb.append("    pages: ").append(toIndentedString(getPages())).append("\n");
+    sb.append("    sourceDocument: ").append(toIndentedString(getSourceDocument())).append("\n");
+    sb.append("    zippedPages: ").append(toIndentedString(getZippedPages())).append("\n");
     sb.append("}");
     return sb.toString();
   }

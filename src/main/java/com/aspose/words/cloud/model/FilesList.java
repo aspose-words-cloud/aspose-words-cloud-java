@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Files list.")
 public class FilesList {
     @SerializedName("Value")
-    private List<StorageFile> value = null;
+    protected List<StorageFile> value;
+    /**
+     * Files and folders contained by folder StorageFile.
+    * @return value
+    **/
+    @ApiModelProperty(value = "Files and folders contained by folder StorageFile.")
+    public List<StorageFile> getValue() {
+        return value;
+    }
+
     public FilesList value(List<StorageFile> value) {
         this.value = value;
         return this;
@@ -62,17 +71,14 @@ public class FilesList {
         return this;
     }
 
-    /**
-     * Files and folders contained by folder StorageFile.
-    * @return value
-    **/
-    @ApiModelProperty(value = "Files and folders contained by folder StorageFile.")
-    public List<StorageFile> getValue() {
-        return value;
-    }
 
     public void setValue(List<StorageFile> value) {
         this.value = value;
+    }
+
+
+    public FilesList() {
+        this.value = null;
     }
 
     @Override
@@ -98,7 +104,7 @@ public class FilesList {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilesList {\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    value: ").append(toIndentedString(getValue())).append("\n");
     sb.append("}");
     return sb.toString();
   }

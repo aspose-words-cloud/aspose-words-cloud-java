@@ -205,30 +205,25 @@ public class DrawingObjectUpdate {
     }
 
     @SerializedName("Height")
-    private Double height = null;
+    protected Double height;
 
     @SerializedName("Left")
-    private Double left = null;
+    protected Double left;
 
     @SerializedName("RelativeHorizontalPosition")
-    private RelativeHorizontalPositionEnum relativeHorizontalPosition = null;
+    protected RelativeHorizontalPositionEnum relativeHorizontalPosition;
 
     @SerializedName("RelativeVerticalPosition")
-    private RelativeVerticalPositionEnum relativeVerticalPosition = null;
+    protected RelativeVerticalPositionEnum relativeVerticalPosition;
 
     @SerializedName("Top")
-    private Double top = null;
+    protected Double top;
 
     @SerializedName("Width")
-    private Double width = null;
+    protected Double width;
 
     @SerializedName("WrapType")
-    private WrapTypeEnum wrapType = null;
-    public DrawingObjectUpdate height(Double height) {
-        this.height = height;
-        return this;
-    }
-
+    protected WrapTypeEnum wrapType;
     /**
      * Gets or sets the height of the DrawingObject in points.
     * @return height
@@ -238,14 +233,15 @@ public class DrawingObjectUpdate {
         return height;
     }
 
+    public DrawingObjectUpdate height(Double height) {
+        this.height = height;
+        return this;
+    }
+
     public void setHeight(Double height) {
         this.height = height;
     }
 
-    public DrawingObjectUpdate left(Double left) {
-        this.left = left;
-        return this;
-    }
 
     /**
      * Gets or sets the distance in points from the origin to the left side of the image.
@@ -256,14 +252,15 @@ public class DrawingObjectUpdate {
         return left;
     }
 
+    public DrawingObjectUpdate left(Double left) {
+        this.left = left;
+        return this;
+    }
+
     public void setLeft(Double left) {
         this.left = left;
     }
 
-    public DrawingObjectUpdate relativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
-        this.relativeHorizontalPosition = relativeHorizontalPosition;
-        return this;
-    }
 
     /**
      * Gets or sets the relative horizontal position, from which the distance to the image is measured.
@@ -274,14 +271,15 @@ public class DrawingObjectUpdate {
         return relativeHorizontalPosition;
     }
 
+    public DrawingObjectUpdate relativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
+        this.relativeHorizontalPosition = relativeHorizontalPosition;
+        return this;
+    }
+
     public void setRelativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
         this.relativeHorizontalPosition = relativeHorizontalPosition;
     }
 
-    public DrawingObjectUpdate relativeVerticalPosition(RelativeVerticalPositionEnum relativeVerticalPosition) {
-        this.relativeVerticalPosition = relativeVerticalPosition;
-        return this;
-    }
 
     /**
      * Gets or sets the relative vertical position, from which the distance to the image measured.
@@ -292,14 +290,15 @@ public class DrawingObjectUpdate {
         return relativeVerticalPosition;
     }
 
+    public DrawingObjectUpdate relativeVerticalPosition(RelativeVerticalPositionEnum relativeVerticalPosition) {
+        this.relativeVerticalPosition = relativeVerticalPosition;
+        return this;
+    }
+
     public void setRelativeVerticalPosition(RelativeVerticalPositionEnum relativeVerticalPosition) {
         this.relativeVerticalPosition = relativeVerticalPosition;
     }
 
-    public DrawingObjectUpdate top(Double top) {
-        this.top = top;
-        return this;
-    }
 
     /**
      * Gets or sets the distance in points from the origin to the top side of the image.
@@ -310,14 +309,15 @@ public class DrawingObjectUpdate {
         return top;
     }
 
+    public DrawingObjectUpdate top(Double top) {
+        this.top = top;
+        return this;
+    }
+
     public void setTop(Double top) {
         this.top = top;
     }
 
-    public DrawingObjectUpdate width(Double width) {
-        this.width = width;
-        return this;
-    }
 
     /**
      * Gets or sets the width of the DrawingObjects in points.
@@ -328,14 +328,15 @@ public class DrawingObjectUpdate {
         return width;
     }
 
+    public DrawingObjectUpdate width(Double width) {
+        this.width = width;
+        return this;
+    }
+
     public void setWidth(Double width) {
         this.width = width;
     }
 
-    public DrawingObjectUpdate wrapType(WrapTypeEnum wrapType) {
-        this.wrapType = wrapType;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls how to wrap text around the image.
@@ -346,8 +347,24 @@ public class DrawingObjectUpdate {
         return wrapType;
     }
 
+    public DrawingObjectUpdate wrapType(WrapTypeEnum wrapType) {
+        this.wrapType = wrapType;
+        return this;
+    }
+
     public void setWrapType(WrapTypeEnum wrapType) {
         this.wrapType = wrapType;
+    }
+
+
+    public DrawingObjectUpdate() {
+        this.height = null;
+        this.left = null;
+        this.relativeHorizontalPosition = null;
+        this.relativeVerticalPosition = null;
+        this.top = null;
+        this.width = null;
+        this.wrapType = null;
     }
 
     @Override
@@ -379,13 +396,13 @@ public class DrawingObjectUpdate {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObjectUpdate {\n");
-    sb.append("    height: ").append(toIndentedString(height)).append("\n");
-    sb.append("    left: ").append(toIndentedString(left)).append("\n");
-    sb.append("    relativeHorizontalPosition: ").append(toIndentedString(relativeHorizontalPosition)).append("\n");
-    sb.append("    relativeVerticalPosition: ").append(toIndentedString(relativeVerticalPosition)).append("\n");
-    sb.append("    top: ").append(toIndentedString(top)).append("\n");
-    sb.append("    width: ").append(toIndentedString(width)).append("\n");
-    sb.append("    wrapType: ").append(toIndentedString(wrapType)).append("\n");
+    sb.append("    height: ").append(toIndentedString(getHeight())).append("\n");
+    sb.append("    left: ").append(toIndentedString(getLeft())).append("\n");
+    sb.append("    relativeHorizontalPosition: ").append(toIndentedString(getRelativeHorizontalPosition())).append("\n");
+    sb.append("    relativeVerticalPosition: ").append(toIndentedString(getRelativeVerticalPosition())).append("\n");
+    sb.append("    top: ").append(toIndentedString(getTop())).append("\n");
+    sb.append("    width: ").append(toIndentedString(getWidth())).append("\n");
+    sb.append("    wrapType: ").append(toIndentedString(getWrapType())).append("\n");
     sb.append("}");
     return sb.toString();
   }

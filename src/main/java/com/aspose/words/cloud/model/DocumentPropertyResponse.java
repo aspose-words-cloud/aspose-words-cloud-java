@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a document property.")
 public class DocumentPropertyResponse extends WordsResponse {
     @SerializedName("DocumentProperty")
-    private DocumentProperty documentProperty = null;
-    public DocumentPropertyResponse documentProperty(DocumentProperty documentProperty) {
-        this.documentProperty = documentProperty;
-        return this;
-    }
-
+    protected DocumentProperty documentProperty;
     /**
      * Gets or sets the document property.
     * @return documentProperty
@@ -63,8 +58,19 @@ public class DocumentPropertyResponse extends WordsResponse {
         return documentProperty;
     }
 
+    public DocumentPropertyResponse documentProperty(DocumentProperty documentProperty) {
+        this.documentProperty = documentProperty;
+        return this;
+    }
+
     public void setDocumentProperty(DocumentProperty documentProperty) {
         this.documentProperty = documentProperty;
+    }
+
+
+    public DocumentPropertyResponse() {
+        super();
+        this.documentProperty = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class DocumentPropertyResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentPropertyResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    documentProperty: ").append(toIndentedString(documentProperty)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    documentProperty: ").append(toIndentedString(getDocumentProperty())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a table row element.")
 public class TableRow extends NodeLink {
     @SerializedName("RowFormat")
-    private TableRowFormat rowFormat = null;
+    protected TableRowFormat rowFormat;
 
     @SerializedName("TableCellList")
-    private List<TableCell> tableCellList = null;
-    public TableRow rowFormat(TableRowFormat rowFormat) {
-        this.rowFormat = rowFormat;
-        return this;
-    }
-
+    protected List<TableCell> tableCellList;
     /**
      * Gets or sets the formatting properties of a row.
     * @return rowFormat
@@ -66,8 +61,23 @@ public class TableRow extends NodeLink {
         return rowFormat;
     }
 
+    public TableRow rowFormat(TableRowFormat rowFormat) {
+        this.rowFormat = rowFormat;
+        return this;
+    }
+
     public void setRowFormat(TableRowFormat rowFormat) {
         this.rowFormat = rowFormat;
+    }
+
+
+    /**
+     * Gets or sets the collection of rows.
+    * @return tableCellList
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of rows.")
+    public List<TableCell> getTableCellList() {
+        return tableCellList;
     }
 
     public TableRow tableCellList(List<TableCell> tableCellList) {
@@ -83,17 +93,16 @@ public class TableRow extends NodeLink {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of rows.
-    * @return tableCellList
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of rows.")
-    public List<TableCell> getTableCellList() {
-        return tableCellList;
-    }
 
     public void setTableCellList(List<TableCell> tableCellList) {
         this.tableCellList = tableCellList;
+    }
+
+
+    public TableRow() {
+        super();
+        this.rowFormat = null;
+        this.tableCellList = null;
     }
 
     @Override
@@ -121,9 +130,10 @@ public class TableRow extends NodeLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableRow {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    rowFormat: ").append(toIndentedString(rowFormat)).append("\n");
-    sb.append("    tableCellList: ").append(toIndentedString(tableCellList)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
+    sb.append("    rowFormat: ").append(toIndentedString(getRowFormat())).append("\n");
+    sb.append("    tableCellList: ").append(toIndentedString(getTableCellList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

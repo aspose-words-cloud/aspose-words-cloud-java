@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a table cell.")
 public class TableCellResponse extends WordsResponse {
     @SerializedName("Cell")
-    private TableCell cell = null;
-    public TableCellResponse cell(TableCell cell) {
-        this.cell = cell;
-        return this;
-    }
-
+    protected TableCell cell;
     /**
      * Gets or sets the table cell.
     * @return cell
@@ -63,8 +58,19 @@ public class TableCellResponse extends WordsResponse {
         return cell;
     }
 
+    public TableCellResponse cell(TableCell cell) {
+        this.cell = cell;
+        return this;
+    }
+
     public void setCell(TableCell cell) {
         this.cell = cell;
+    }
+
+
+    public TableCellResponse() {
+        super();
+        this.cell = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class TableCellResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableCellResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    cell: ").append(toIndentedString(cell)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    cell: ").append(toIndentedString(getCell())).append("\n");
     sb.append("}");
     return sb.toString();
   }

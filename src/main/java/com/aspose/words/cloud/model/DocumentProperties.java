@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The collection of document properties.")
 public class DocumentProperties extends LinkElement {
     @SerializedName("List")
-    private List<DocumentProperty> list = null;
+    protected List<DocumentProperty> list;
+    /**
+     * Gets or sets the collection of document properties.
+    * @return list
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of document properties.")
+    public List<DocumentProperty> getList() {
+        return list;
+    }
+
     public DocumentProperties list(List<DocumentProperty> list) {
         this.list = list;
         return this;
@@ -62,17 +71,15 @@ public class DocumentProperties extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of document properties.
-    * @return list
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of document properties.")
-    public List<DocumentProperty> getList() {
-        return list;
-    }
 
     public void setList(List<DocumentProperty> list) {
         this.list = list;
+    }
+
+
+    public DocumentProperties() {
+        super();
+        this.list = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class DocumentProperties extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentProperties {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    list: ").append(toIndentedString(list)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    list: ").append(toIndentedString(getList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

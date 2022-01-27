@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents a single bookmark.")
 public class Bookmark extends LinkElement {
     @SerializedName("Name")
-    private String name = null;
+    protected String name;
 
     @SerializedName("Text")
-    private String text = null;
-    public Bookmark name(String name) {
-        this.name = name;
-        return this;
-    }
-
+    protected String text;
     /**
      * Gets or sets the name of the bookmark.
     * @return name
@@ -66,14 +61,15 @@ public class Bookmark extends LinkElement {
         return name;
     }
 
+    public Bookmark name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public Bookmark text(String text) {
-        this.text = text;
-        return this;
-    }
 
     /**
      * Gets or sets text, enclosed in the bookmark.
@@ -84,8 +80,20 @@ public class Bookmark extends LinkElement {
         return text;
     }
 
+    public Bookmark text(String text) {
+        this.text = text;
+        return this;
+    }
+
     public void setText(String text) {
         this.text = text;
+    }
+
+
+    public Bookmark() {
+        super();
+        this.name = null;
+        this.text = null;
     }
 
     @Override
@@ -113,9 +121,9 @@ public class Bookmark extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Bookmark {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

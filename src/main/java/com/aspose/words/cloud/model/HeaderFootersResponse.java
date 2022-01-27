@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a collection of HeaderFooter elements.")
 public class HeaderFootersResponse extends WordsResponse {
     @SerializedName("HeaderFooters")
-    private HeaderFooterLinkCollection headerFooters = null;
-    public HeaderFootersResponse headerFooters(HeaderFooterLinkCollection headerFooters) {
-        this.headerFooters = headerFooters;
-        return this;
-    }
-
+    protected HeaderFooterLinkCollection headerFooters;
     /**
      * Gets or sets the collection of HeaderFooter elements.
     * @return headerFooters
@@ -63,8 +58,19 @@ public class HeaderFootersResponse extends WordsResponse {
         return headerFooters;
     }
 
+    public HeaderFootersResponse headerFooters(HeaderFooterLinkCollection headerFooters) {
+        this.headerFooters = headerFooters;
+        return this;
+    }
+
     public void setHeaderFooters(HeaderFooterLinkCollection headerFooters) {
         this.headerFooters = headerFooters;
+    }
+
+
+    public HeaderFootersResponse() {
+        super();
+        this.headerFooters = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class HeaderFootersResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeaderFootersResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    headerFooters: ").append(toIndentedString(headerFooters)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    headerFooters: ").append(toIndentedString(getHeaderFooters())).append("\n");
     sb.append("}");
     return sb.toString();
   }

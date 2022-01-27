@@ -48,6 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "A DTO to Insert / replace a tab stop.")
 public class TabStopInsert extends TabStopBase {
 
+    public TabStopInsert() {
+        super();
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -69,7 +73,9 @@ public class TabStopInsert extends TabStopBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TabStopInsert {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    alignment: ").append(toIndentedString(getAlignment())).append("\n");
+    sb.append("    leader: ").append(toIndentedString(getLeader())).append("\n");
+    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
     sb.append("}");
     return sb.toString();
   }

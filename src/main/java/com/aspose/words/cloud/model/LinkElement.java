@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Reference to a document.")
 public class LinkElement {
     @SerializedName("Link")
-    private WordsApiLink link = null;
-    public LinkElement link(WordsApiLink link) {
-        this.link = link;
-        return this;
-    }
-
+    protected WordsApiLink link;
     /**
      * Gets or sets the link to the document.
     * @return link
@@ -63,8 +58,18 @@ public class LinkElement {
         return link;
     }
 
+    public LinkElement link(WordsApiLink link) {
+        this.link = link;
+        return this;
+    }
+
     public void setLink(WordsApiLink link) {
         this.link = link;
+    }
+
+
+    public LinkElement() {
+        this.link = null;
     }
 
     @Override
@@ -90,7 +95,7 @@ public class LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LinkElement {\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with an array of styles.")
 public class StylesResponse extends WordsResponse {
     @SerializedName("Styles")
-    private List<Style> styles = null;
+    protected List<Style> styles;
+    /**
+     * Gets or sets the array of styles.
+    * @return styles
+    **/
+    @ApiModelProperty(value = "Gets or sets the array of styles.")
+    public List<Style> getStyles() {
+        return styles;
+    }
+
     public StylesResponse styles(List<Style> styles) {
         this.styles = styles;
         return this;
@@ -62,17 +71,15 @@ public class StylesResponse extends WordsResponse {
         return this;
     }
 
-    /**
-     * Gets or sets the array of styles.
-    * @return styles
-    **/
-    @ApiModelProperty(value = "Gets or sets the array of styles.")
-    public List<Style> getStyles() {
-        return styles;
-    }
 
     public void setStyles(List<Style> styles) {
         this.styles = styles;
+    }
+
+
+    public StylesResponse() {
+        super();
+        this.styles = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class StylesResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StylesResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    styles: ").append(toIndentedString(styles)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    styles: ").append(toIndentedString(getStyles())).append("\n");
     sb.append("}");
     return sb.toString();
   }

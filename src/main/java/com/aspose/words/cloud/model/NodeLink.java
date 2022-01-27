@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Reference to node.")
 public class NodeLink extends LinkElement {
     @SerializedName("NodeId")
-    private String nodeId = null;
-    public NodeLink nodeId(String nodeId) {
-        this.nodeId = nodeId;
-        return this;
-    }
-
+    protected String nodeId;
     /**
      * Gets or sets the node id.
     * @return nodeId
@@ -63,8 +58,19 @@ public class NodeLink extends LinkElement {
         return nodeId;
     }
 
+    public NodeLink nodeId(String nodeId) {
+        this.nodeId = nodeId;
+        return this;
+    }
+
     public void setNodeId(String nodeId) {
         this.nodeId = nodeId;
+    }
+
+
+    public NodeLink() {
+        super();
+        this.nodeId = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class NodeLink extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NodeLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
     sb.append("}");
     return sb.toString();
   }

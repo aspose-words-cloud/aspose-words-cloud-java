@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a CustomXmlPart.")
 public class CustomXmlPart extends CustomXmlPartLink {
     @SerializedName("Data")
-    private String data = null;
+    protected String data;
 
     @SerializedName("Id")
-    private String id = null;
-    public CustomXmlPart data(String data) {
-        this.data = data;
-        return this;
-    }
-
+    protected String id;
     /**
      * Gets or sets the custom xml part data.
     * @return data
@@ -66,14 +61,15 @@ public class CustomXmlPart extends CustomXmlPartLink {
         return data;
     }
 
+    public CustomXmlPart data(String data) {
+        this.data = data;
+        return this;
+    }
+
     public void setData(String data) {
         this.data = data;
     }
 
-    public CustomXmlPart id(String id) {
-        this.id = id;
-        return this;
-    }
 
     /**
      * Gets or sets the custom xml part id.
@@ -84,8 +80,20 @@ public class CustomXmlPart extends CustomXmlPartLink {
         return id;
     }
 
+    public CustomXmlPart id(String id) {
+        this.id = id;
+        return this;
+    }
+
     public void setId(String id) {
         this.id = id;
+    }
+
+
+    public CustomXmlPart() {
+        super();
+        this.data = null;
+        this.id = null;
     }
 
     @Override
@@ -113,9 +121,9 @@ public class CustomXmlPart extends CustomXmlPartLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomXmlPart {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    data: ").append(toIndentedString(getData())).append("\n");
+    sb.append("    id: ").append(toIndentedString(getId())).append("\n");
     sb.append("}");
     return sb.toString();
   }

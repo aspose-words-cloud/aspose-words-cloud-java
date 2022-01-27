@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "REST response for RSA public key info.")
 public class PublicKeyResponse extends WordsResponse {
     @SerializedName("Exponent")
-    private String exponent = null;
+    protected String exponent;
 
     @SerializedName("Modulus")
-    private String modulus = null;
-    public PublicKeyResponse exponent(String exponent) {
-        this.exponent = exponent;
-        return this;
-    }
-
+    protected String modulus;
     /**
      * Gets or sets RSA key exponent as Base64 string.
     * @return exponent
@@ -66,14 +61,15 @@ public class PublicKeyResponse extends WordsResponse {
         return exponent;
     }
 
+    public PublicKeyResponse exponent(String exponent) {
+        this.exponent = exponent;
+        return this;
+    }
+
     public void setExponent(String exponent) {
         this.exponent = exponent;
     }
 
-    public PublicKeyResponse modulus(String modulus) {
-        this.modulus = modulus;
-        return this;
-    }
 
     /**
      * Gets or sets RSA key modulus as Base64 string.
@@ -84,8 +80,20 @@ public class PublicKeyResponse extends WordsResponse {
         return modulus;
     }
 
+    public PublicKeyResponse modulus(String modulus) {
+        this.modulus = modulus;
+        return this;
+    }
+
     public void setModulus(String modulus) {
         this.modulus = modulus;
+    }
+
+
+    public PublicKeyResponse() {
+        super();
+        this.exponent = null;
+        this.modulus = null;
     }
 
     @Override
@@ -113,9 +121,9 @@ public class PublicKeyResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PublicKeyResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    exponent: ").append(toIndentedString(exponent)).append("\n");
-    sb.append("    modulus: ").append(toIndentedString(modulus)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    exponent: ").append(toIndentedString(getExponent())).append("\n");
+    sb.append("    modulus: ").append(toIndentedString(getModulus())).append("\n");
     sb.append("}");
     return sb.toString();
   }
