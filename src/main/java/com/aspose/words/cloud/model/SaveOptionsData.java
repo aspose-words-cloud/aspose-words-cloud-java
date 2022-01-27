@@ -292,10 +292,10 @@ public class SaveOptionsData {
 
 
     /**
-     * Gets or sets the format of save.
+     * Gets the format of save.
     * @return saveFormat
     **/
-    @ApiModelProperty(value = "Gets or sets the format of save.")
+    @ApiModelProperty(value = "Gets the format of save.")
     public String getSaveFormat() {
         return saveFormat;
     }
