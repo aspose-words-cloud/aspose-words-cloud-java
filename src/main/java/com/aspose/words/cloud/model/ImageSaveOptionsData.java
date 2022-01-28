@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container abstract class for image save options.
  */
 @ApiModel(description = "Container abstract class for image save options.")
-public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
+public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("HorizontalResolution")
     protected Double horizontalResolution;
 

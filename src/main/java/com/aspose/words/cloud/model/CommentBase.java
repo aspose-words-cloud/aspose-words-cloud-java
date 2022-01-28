@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Comment.
  */
 @ApiModel(description = "Comment.")
-public class CommentBase {
+public abstract class CommentBase {
     @SerializedName("Author")
     protected String author;
 

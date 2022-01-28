@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for docx/docm/dotx/dotm/flatopc save options.
  */
 @ApiModel(description = "Container class for docx/docm/dotx/dotm/flatopc save options.")
-public class OoxmlSaveOptionsData extends SaveOptionsData {
+public abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     /**
      * Gets or sets the compression level.
      */

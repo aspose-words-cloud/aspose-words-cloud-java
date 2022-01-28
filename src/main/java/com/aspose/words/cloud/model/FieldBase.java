@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Field.
  */
 @ApiModel(description = "Field.")
-public class FieldBase {
+public abstract class FieldBase {
     @SerializedName("FieldCode")
     protected String fieldCode;
 

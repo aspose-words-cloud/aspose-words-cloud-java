@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Words document property DTO base class.
  */
 @ApiModel(description = "Words document property DTO base class.")
-public class DocumentPropertyBase {
+public abstract class DocumentPropertyBase {
     @SerializedName("Value")
     protected String value;
     /**
