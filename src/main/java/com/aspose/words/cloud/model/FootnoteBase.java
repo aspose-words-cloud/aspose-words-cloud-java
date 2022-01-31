@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Footnote base class.
  */
 @ApiModel(description = "Footnote base class.")
-public class FootnoteBase {
+public abstract class FootnoteBase {
     /**
      * Gets or sets the option, that specifies whether this is a footnote or endnote.
      */

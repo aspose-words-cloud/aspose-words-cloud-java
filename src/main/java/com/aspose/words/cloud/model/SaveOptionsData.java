@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * base container class for save options data.
  */
 @ApiModel(description = "base container class for save options data.")
-public class SaveOptionsData {
+public abstract class SaveOptionsData {
     /**
      * Gets or sets the value determining how 3D effects are rendered.
      */

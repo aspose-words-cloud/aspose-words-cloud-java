@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Base class for save options of text formats.
  */
 @ApiModel(description = "Base class for save options of text formats.")
-public class TxtSaveOptionsBaseData extends SaveOptionsData {
+public abstract class TxtSaveOptionsBaseData extends SaveOptionsData {
     /**
      * Gets or sets the option that controls whether to output headers and footers when exporting in plain text format.
      * default value is TxtExportHeadersFootersMode.PrimaryOnly.

@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
  */
 @ApiModel(description = "Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).")
-public class FixedPageSaveOptionsData extends SaveOptionsData {
+public abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     @SerializedName("ColorMode")
     protected String colorMode;
 

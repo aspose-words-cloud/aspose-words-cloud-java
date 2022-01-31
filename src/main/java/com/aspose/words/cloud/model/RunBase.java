@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Run element.
  */
 @ApiModel(description = "Run element.")
-public class RunBase {
+public abstract class RunBase {
     @SerializedName("Text")
     protected String text;
     /**
