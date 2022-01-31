@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Paragraph format element base class.
  */
 @ApiModel(description = "Paragraph format element base class.")
-public abstract class ParagraphFormatBase extends LinkElement {
+public class ParagraphFormatBase extends LinkElement {
     /**
      * Gets or sets text alignment for the paragraph.
      */
