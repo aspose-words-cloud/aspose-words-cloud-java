@@ -17,6 +17,7 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 
 - Made 'SaveOprionsData.SaveFormat' property readonly with default value.
 - Added subclasses for all formats of SaveOprionsData with specified SaveFormat.
+- 'SaveOptionsData', 'FixedPageSaveOptionsData', 'ImageSaveOptionsData', 'OoxmlSaveOptionsData', 'TxtSaveOptionsBaseData' classes now is abstract.
 
 
 ## Enhancements in Version 22.1
