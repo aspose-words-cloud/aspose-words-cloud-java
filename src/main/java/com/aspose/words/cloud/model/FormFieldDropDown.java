@@ -48,10 +48,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "FormField dropdownlist element.")
 public class FormFieldDropDown extends FormField {
     @SerializedName("DropDownItems")
-    private List<String> dropDownItems = null;
+    protected List<String> dropDownItems;
 
     @SerializedName("DropDownSelectedIndex")
-    private Integer dropDownSelectedIndex = null;
+    protected Integer dropDownSelectedIndex;
+    /**
+     * Gets or sets the items array of a dropdown form field.
+    * @return dropDownItems
+    **/
+    @ApiModelProperty(value = "Gets or sets the items array of a dropdown form field.")
+    public List<String> getDropDownItems() {
+        return dropDownItems;
+    }
+
     public FormFieldDropDown dropDownItems(List<String> dropDownItems) {
         this.dropDownItems = dropDownItems;
         return this;
@@ -65,23 +74,11 @@ public class FormFieldDropDown extends FormField {
         return this;
     }
 
-    /**
-     * Gets or sets the items array of a dropdown form field.
-    * @return dropDownItems
-    **/
-    @ApiModelProperty(value = "Gets or sets the items array of a dropdown form field.")
-    public List<String> getDropDownItems() {
-        return dropDownItems;
-    }
 
     public void setDropDownItems(List<String> dropDownItems) {
         this.dropDownItems = dropDownItems;
     }
 
-    public FormFieldDropDown dropDownSelectedIndex(Integer dropDownSelectedIndex) {
-        this.dropDownSelectedIndex = dropDownSelectedIndex;
-        return this;
-    }
 
     /**
      * Gets or sets the index specifying the currently selected item in a dropdown form field.
@@ -92,8 +89,20 @@ public class FormFieldDropDown extends FormField {
         return dropDownSelectedIndex;
     }
 
+    public FormFieldDropDown dropDownSelectedIndex(Integer dropDownSelectedIndex) {
+        this.dropDownSelectedIndex = dropDownSelectedIndex;
+        return this;
+    }
+
     public void setDropDownSelectedIndex(Integer dropDownSelectedIndex) {
         this.dropDownSelectedIndex = dropDownSelectedIndex;
+    }
+
+
+    public FormFieldDropDown() {
+        super();
+        this.dropDownItems = null;
+        this.dropDownSelectedIndex = null;
     }
 
     @Override
@@ -121,9 +130,19 @@ public class FormFieldDropDown extends FormField {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormFieldDropDown {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    dropDownItems: ").append(toIndentedString(dropDownItems)).append("\n");
-    sb.append("    dropDownSelectedIndex: ").append(toIndentedString(dropDownSelectedIndex)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
+    sb.append("    calculateOnExit: ").append(toIndentedString(getCalculateOnExit())).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(getEnabled())).append("\n");
+    sb.append("    entryMacro: ").append(toIndentedString(getEntryMacro())).append("\n");
+    sb.append("    exitMacro: ").append(toIndentedString(getExitMacro())).append("\n");
+    sb.append("    helpText: ").append(toIndentedString(getHelpText())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
+    sb.append("    ownHelp: ").append(toIndentedString(getOwnHelp())).append("\n");
+    sb.append("    ownStatus: ").append(toIndentedString(getOwnStatus())).append("\n");
+    sb.append("    statusText: ").append(toIndentedString(getStatusText())).append("\n");
+    sb.append("    dropDownItems: ").append(toIndentedString(getDropDownItems())).append("\n");
+    sb.append("    dropDownSelectedIndex: ").append(toIndentedString(getDropDownSelectedIndex())).append("\n");
     sb.append("}");
     return sb.toString();
   }

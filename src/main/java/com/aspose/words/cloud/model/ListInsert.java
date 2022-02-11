@@ -114,12 +114,7 @@ public class ListInsert {
     }
 
     @SerializedName("Template")
-    private TemplateEnum template = null;
-    public ListInsert template(TemplateEnum template) {
-        this.template = template;
-        return this;
-    }
-
+    protected TemplateEnum template;
     /**
      * Gets or sets the option that controls how list should be restarted at each section.
     * @return template
@@ -129,8 +124,18 @@ public class ListInsert {
         return template;
     }
 
+    public ListInsert template(TemplateEnum template) {
+        this.template = template;
+        return this;
+    }
+
     public void setTemplate(TemplateEnum template) {
         this.template = template;
+    }
+
+
+    public ListInsert() {
+        this.template = null;
     }
 
     @Override
@@ -156,7 +161,7 @@ public class ListInsert {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListInsert {\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    template: ").append(toIndentedString(getTemplate())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Field link.")
 public class FieldLink extends NodeLink {
     @SerializedName("FieldCode")
-    private String fieldCode = null;
-    public FieldLink fieldCode(String fieldCode) {
-        this.fieldCode = fieldCode;
-        return this;
-    }
-
+    protected String fieldCode;
     /**
      * Gets or sets the field code.
     * @return fieldCode
@@ -63,8 +58,19 @@ public class FieldLink extends NodeLink {
         return fieldCode;
     }
 
+    public FieldLink fieldCode(String fieldCode) {
+        this.fieldCode = fieldCode;
+        return this;
+    }
+
     public void setFieldCode(String fieldCode) {
         this.fieldCode = fieldCode;
+    }
+
+
+    public FieldLink() {
+        super();
+        this.fieldCode = null;
     }
 
     @Override
@@ -91,8 +97,9 @@ public class FieldLink extends NodeLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    fieldCode: ").append(toIndentedString(fieldCode)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
+    sb.append("    fieldCode: ").append(toIndentedString(getFieldCode())).append("\n");
     sb.append("}");
     return sb.toString();
   }

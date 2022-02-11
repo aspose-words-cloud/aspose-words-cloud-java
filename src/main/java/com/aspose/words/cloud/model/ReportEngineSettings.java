@@ -95,27 +95,22 @@ public class ReportEngineSettings {
     }
 
     @SerializedName("CsvDataLoadOptions")
-    private CsvDataLoadOptions csvDataLoadOptions = null;
+    protected CsvDataLoadOptions csvDataLoadOptions;
 
     @SerializedName("DataSourceName")
-    private String dataSourceName = null;
+    protected String dataSourceName;
 
     @SerializedName("DataSourceType")
-    private DataSourceTypeEnum dataSourceType = null;
+    protected DataSourceTypeEnum dataSourceType;
 
     @SerializedName("JsonDataLoadOptions")
-    private JsonDataLoadOptions jsonDataLoadOptions = null;
+    protected JsonDataLoadOptions jsonDataLoadOptions;
 
     @SerializedName("ReportBuildOptions")
-    private List<ReportBuildOptions> reportBuildOptions = null;
+    protected List<ReportBuildOptions> reportBuildOptions;
 
     @SerializedName("XmlDataLoadOptions")
-    private XmlDataLoadOptions xmlDataLoadOptions = null;
-    public ReportEngineSettings csvDataLoadOptions(CsvDataLoadOptions csvDataLoadOptions) {
-        this.csvDataLoadOptions = csvDataLoadOptions;
-        return this;
-    }
-
+    protected XmlDataLoadOptions xmlDataLoadOptions;
     /**
      * Gets or sets the options for parsing CSV data.
     * @return csvDataLoadOptions
@@ -125,14 +120,15 @@ public class ReportEngineSettings {
         return csvDataLoadOptions;
     }
 
+    public ReportEngineSettings csvDataLoadOptions(CsvDataLoadOptions csvDataLoadOptions) {
+        this.csvDataLoadOptions = csvDataLoadOptions;
+        return this;
+    }
+
     public void setCsvDataLoadOptions(CsvDataLoadOptions csvDataLoadOptions) {
         this.csvDataLoadOptions = csvDataLoadOptions;
     }
 
-    public ReportEngineSettings dataSourceName(String dataSourceName) {
-        this.dataSourceName = dataSourceName;
-        return this;
-    }
 
     /**
      * Gets or sets the name to reference the data source object in the template.
@@ -143,14 +139,15 @@ public class ReportEngineSettings {
         return dataSourceName;
     }
 
+    public ReportEngineSettings dataSourceName(String dataSourceName) {
+        this.dataSourceName = dataSourceName;
+        return this;
+    }
+
     public void setDataSourceName(String dataSourceName) {
         this.dataSourceName = dataSourceName;
     }
 
-    public ReportEngineSettings dataSourceType(DataSourceTypeEnum dataSourceType) {
-        this.dataSourceType = dataSourceType;
-        return this;
-    }
 
     /**
      * Gets or sets type of datasource.
@@ -161,14 +158,15 @@ public class ReportEngineSettings {
         return dataSourceType;
     }
 
+    public ReportEngineSettings dataSourceType(DataSourceTypeEnum dataSourceType) {
+        this.dataSourceType = dataSourceType;
+        return this;
+    }
+
     public void setDataSourceType(DataSourceTypeEnum dataSourceType) {
         this.dataSourceType = dataSourceType;
     }
 
-    public ReportEngineSettings jsonDataLoadOptions(JsonDataLoadOptions jsonDataLoadOptions) {
-        this.jsonDataLoadOptions = jsonDataLoadOptions;
-        return this;
-    }
 
     /**
      * Gets or sets the options for parsing JSON data.
@@ -179,8 +177,23 @@ public class ReportEngineSettings {
         return jsonDataLoadOptions;
     }
 
+    public ReportEngineSettings jsonDataLoadOptions(JsonDataLoadOptions jsonDataLoadOptions) {
+        this.jsonDataLoadOptions = jsonDataLoadOptions;
+        return this;
+    }
+
     public void setJsonDataLoadOptions(JsonDataLoadOptions jsonDataLoadOptions) {
         this.jsonDataLoadOptions = jsonDataLoadOptions;
+    }
+
+
+    /**
+     * Gets or sets type of options to build report.
+    * @return reportBuildOptions
+    **/
+    @ApiModelProperty(value = "Gets or sets type of options to build report.")
+    public List<ReportBuildOptions> getReportBuildOptions() {
+        return reportBuildOptions;
     }
 
     public ReportEngineSettings reportBuildOptions(List<ReportBuildOptions> reportBuildOptions) {
@@ -196,23 +209,11 @@ public class ReportEngineSettings {
         return this;
     }
 
-    /**
-     * Gets or sets type of options to build report.
-    * @return reportBuildOptions
-    **/
-    @ApiModelProperty(value = "Gets or sets type of options to build report.")
-    public List<ReportBuildOptions> getReportBuildOptions() {
-        return reportBuildOptions;
-    }
 
     public void setReportBuildOptions(List<ReportBuildOptions> reportBuildOptions) {
         this.reportBuildOptions = reportBuildOptions;
     }
 
-    public ReportEngineSettings xmlDataLoadOptions(XmlDataLoadOptions xmlDataLoadOptions) {
-        this.xmlDataLoadOptions = xmlDataLoadOptions;
-        return this;
-    }
 
     /**
      * Gets or sets the options for parsing XML data.
@@ -223,8 +224,23 @@ public class ReportEngineSettings {
         return xmlDataLoadOptions;
     }
 
+    public ReportEngineSettings xmlDataLoadOptions(XmlDataLoadOptions xmlDataLoadOptions) {
+        this.xmlDataLoadOptions = xmlDataLoadOptions;
+        return this;
+    }
+
     public void setXmlDataLoadOptions(XmlDataLoadOptions xmlDataLoadOptions) {
         this.xmlDataLoadOptions = xmlDataLoadOptions;
+    }
+
+
+    public ReportEngineSettings() {
+        this.csvDataLoadOptions = null;
+        this.dataSourceName = null;
+        this.dataSourceType = null;
+        this.jsonDataLoadOptions = null;
+        this.reportBuildOptions = null;
+        this.xmlDataLoadOptions = null;
     }
 
     @Override
@@ -255,12 +271,12 @@ public class ReportEngineSettings {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportEngineSettings {\n");
-    sb.append("    csvDataLoadOptions: ").append(toIndentedString(csvDataLoadOptions)).append("\n");
-    sb.append("    dataSourceName: ").append(toIndentedString(dataSourceName)).append("\n");
-    sb.append("    dataSourceType: ").append(toIndentedString(dataSourceType)).append("\n");
-    sb.append("    jsonDataLoadOptions: ").append(toIndentedString(jsonDataLoadOptions)).append("\n");
-    sb.append("    reportBuildOptions: ").append(toIndentedString(reportBuildOptions)).append("\n");
-    sb.append("    xmlDataLoadOptions: ").append(toIndentedString(xmlDataLoadOptions)).append("\n");
+    sb.append("    csvDataLoadOptions: ").append(toIndentedString(getCsvDataLoadOptions())).append("\n");
+    sb.append("    dataSourceName: ").append(toIndentedString(getDataSourceName())).append("\n");
+    sb.append("    dataSourceType: ").append(toIndentedString(getDataSourceType())).append("\n");
+    sb.append("    jsonDataLoadOptions: ").append(toIndentedString(getJsonDataLoadOptions())).append("\n");
+    sb.append("    reportBuildOptions: ").append(toIndentedString(getReportBuildOptions())).append("\n");
+    sb.append("    xmlDataLoadOptions: ").append(toIndentedString(getXmlDataLoadOptions())).append("\n");
     sb.append("}");
     return sb.toString();
   }

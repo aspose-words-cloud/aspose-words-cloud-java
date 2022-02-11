@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a collection of lists, contained in the document.")
 public class ListsResponse extends WordsResponse {
     @SerializedName("Lists")
-    private Lists lists = null;
-    public ListsResponse lists(Lists lists) {
-        this.lists = lists;
-        return this;
-    }
-
+    protected Lists lists;
     /**
      * Gets or sets the collection of lists, contained in the document.
     * @return lists
@@ -63,8 +58,19 @@ public class ListsResponse extends WordsResponse {
         return lists;
     }
 
+    public ListsResponse lists(Lists lists) {
+        this.lists = lists;
+        return this;
+    }
+
     public void setLists(Lists lists) {
         this.lists = lists;
+    }
+
+
+    public ListsResponse() {
+        super();
+        this.lists = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class ListsResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListsResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    lists: ").append(toIndentedString(lists)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    lists: ").append(toIndentedString(getLists())).append("\n");
     sb.append("}");
     return sb.toString();
   }

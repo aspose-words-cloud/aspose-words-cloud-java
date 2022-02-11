@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a position in the document tree.")
 public class DocumentPosition {
     @SerializedName("Node")
-    private NodeLink node = null;
+    protected NodeLink node;
 
     @SerializedName("Offset")
-    private Integer offset = null;
-    public DocumentPosition node(NodeLink node) {
-        this.node = node;
-        return this;
-    }
-
+    protected Integer offset;
     /**
      * Gets or sets the link to a node.
     * @return node
@@ -66,14 +61,15 @@ public class DocumentPosition {
         return node;
     }
 
+    public DocumentPosition node(NodeLink node) {
+        this.node = node;
+        return this;
+    }
+
     public void setNode(NodeLink node) {
         this.node = node;
     }
 
-    public DocumentPosition offset(Integer offset) {
-        this.offset = offset;
-        return this;
-    }
 
     /**
      * Gets or sets the offset in the node.
@@ -84,8 +80,19 @@ public class DocumentPosition {
         return offset;
     }
 
+    public DocumentPosition offset(Integer offset) {
+        this.offset = offset;
+        return this;
+    }
+
     public void setOffset(Integer offset) {
         this.offset = offset;
+    }
+
+
+    public DocumentPosition() {
+        this.node = null;
+        this.offset = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class DocumentPosition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentPosition {\n");
-    sb.append("    node: ").append(toIndentedString(node)).append("\n");
-    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    node: ").append(toIndentedString(getNode())).append("\n");
+    sb.append("    offset: ").append(toIndentedString(getOffset())).append("\n");
     sb.append("}");
     return sb.toString();
   }

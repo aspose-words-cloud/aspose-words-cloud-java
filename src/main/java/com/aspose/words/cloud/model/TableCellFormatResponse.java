@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with the formatting properties of a table cell.")
 public class TableCellFormatResponse extends WordsResponse {
     @SerializedName("CellFormat")
-    private TableCellFormat cellFormat = null;
-    public TableCellFormatResponse cellFormat(TableCellFormat cellFormat) {
-        this.cellFormat = cellFormat;
-        return this;
-    }
-
+    protected TableCellFormat cellFormat;
     /**
      * Gets or sets the formatting properties of a table cell.
     * @return cellFormat
@@ -63,8 +58,19 @@ public class TableCellFormatResponse extends WordsResponse {
         return cellFormat;
     }
 
+    public TableCellFormatResponse cellFormat(TableCellFormat cellFormat) {
+        this.cellFormat = cellFormat;
+        return this;
+    }
+
     public void setCellFormat(TableCellFormat cellFormat) {
         this.cellFormat = cellFormat;
+    }
+
+
+    public TableCellFormatResponse() {
+        super();
+        this.cellFormat = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class TableCellFormatResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableCellFormatResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    cellFormat: ").append(toIndentedString(cellFormat)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    cellFormat: ").append(toIndentedString(getCellFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

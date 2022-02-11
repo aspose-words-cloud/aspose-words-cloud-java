@@ -48,24 +48,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "File or folder information.")
 public class StorageFile {
     @SerializedName("IsFolder")
-    private Boolean isFolder = null;
+    protected Boolean isFolder;
 
     @SerializedName("ModifiedDate")
-    private OffsetDateTime modifiedDate = null;
+    protected OffsetDateTime modifiedDate;
 
     @SerializedName("Name")
-    private String name = null;
+    protected String name;
 
     @SerializedName("Path")
-    private String path = null;
+    protected String path;
 
     @SerializedName("Size")
-    private Integer size = null;
-    public StorageFile isFolder(Boolean isFolder) {
-        this.isFolder = isFolder;
-        return this;
-    }
-
+    protected Integer size;
     /**
      * True if it is a folder.
     * @return isFolder
@@ -75,14 +70,15 @@ public class StorageFile {
         return isFolder;
     }
 
+    public StorageFile isFolder(Boolean isFolder) {
+        this.isFolder = isFolder;
+        return this;
+    }
+
     public void setIsFolder(Boolean isFolder) {
         this.isFolder = isFolder;
     }
 
-    public StorageFile modifiedDate(OffsetDateTime modifiedDate) {
-        this.modifiedDate = modifiedDate;
-        return this;
-    }
 
     /**
      * File or folder last modified DateTime.
@@ -93,14 +89,15 @@ public class StorageFile {
         return modifiedDate;
     }
 
+    public StorageFile modifiedDate(OffsetDateTime modifiedDate) {
+        this.modifiedDate = modifiedDate;
+        return this;
+    }
+
     public void setModifiedDate(OffsetDateTime modifiedDate) {
         this.modifiedDate = modifiedDate;
     }
 
-    public StorageFile name(String name) {
-        this.name = name;
-        return this;
-    }
 
     /**
      * File or folder name.
@@ -111,14 +108,15 @@ public class StorageFile {
         return name;
     }
 
+    public StorageFile name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public StorageFile path(String path) {
-        this.path = path;
-        return this;
-    }
 
     /**
      * File or folder path.
@@ -129,14 +127,15 @@ public class StorageFile {
         return path;
     }
 
+    public StorageFile path(String path) {
+        this.path = path;
+        return this;
+    }
+
     public void setPath(String path) {
         this.path = path;
     }
 
-    public StorageFile size(Integer size) {
-        this.size = size;
-        return this;
-    }
 
     /**
      * File or folder size.
@@ -147,8 +146,22 @@ public class StorageFile {
         return size;
     }
 
+    public StorageFile size(Integer size) {
+        this.size = size;
+        return this;
+    }
+
     public void setSize(Integer size) {
         this.size = size;
+    }
+
+
+    public StorageFile() {
+        this.isFolder = null;
+        this.modifiedDate = null;
+        this.name = null;
+        this.path = null;
+        this.size = null;
     }
 
     @Override
@@ -178,11 +191,11 @@ public class StorageFile {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageFile {\n");
-    sb.append("    isFolder: ").append(toIndentedString(isFolder)).append("\n");
-    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    isFolder: ").append(toIndentedString(getIsFolder())).append("\n");
+    sb.append("    modifiedDate: ").append(toIndentedString(getModifiedDate())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
+    sb.append("    path: ").append(toIndentedString(getPath())).append("\n");
+    sb.append("    size: ").append(toIndentedString(getSize())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,21 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for xps save options.")
 public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("BookmarksOutlineLevel")
-    private Integer bookmarksOutlineLevel = null;
+    protected Integer bookmarksOutlineLevel;
 
     @SerializedName("HeadingsOutlineLevels")
-    private Integer headingsOutlineLevels = null;
+    protected Integer headingsOutlineLevels;
 
     @SerializedName("OutlineOptions")
-    private OutlineOptionsData outlineOptions = null;
+    protected OutlineOptionsData outlineOptions;
 
     @SerializedName("UseBookFoldPrintingSettings")
-    private Boolean useBookFoldPrintingSettings = null;
-    public XpsSaveOptionsData bookmarksOutlineLevel(Integer bookmarksOutlineLevel) {
-        this.bookmarksOutlineLevel = bookmarksOutlineLevel;
-        return this;
-    }
-
+    protected Boolean useBookFoldPrintingSettings;
     /**
      * Gets or sets the level in the XPS document outline at which to display Word bookmarks.
     * @return bookmarksOutlineLevel
@@ -72,14 +67,15 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
         return bookmarksOutlineLevel;
     }
 
+    public XpsSaveOptionsData bookmarksOutlineLevel(Integer bookmarksOutlineLevel) {
+        this.bookmarksOutlineLevel = bookmarksOutlineLevel;
+        return this;
+    }
+
     public void setBookmarksOutlineLevel(Integer bookmarksOutlineLevel) {
         this.bookmarksOutlineLevel = bookmarksOutlineLevel;
     }
 
-    public XpsSaveOptionsData headingsOutlineLevels(Integer headingsOutlineLevels) {
-        this.headingsOutlineLevels = headingsOutlineLevels;
-        return this;
-    }
 
     /**
      * Gets or sets the number of heading levels (paragraphs formatted with the Heading styles) to include in the XPS document outline.
@@ -90,14 +86,15 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
         return headingsOutlineLevels;
     }
 
+    public XpsSaveOptionsData headingsOutlineLevels(Integer headingsOutlineLevels) {
+        this.headingsOutlineLevels = headingsOutlineLevels;
+        return this;
+    }
+
     public void setHeadingsOutlineLevels(Integer headingsOutlineLevels) {
         this.headingsOutlineLevels = headingsOutlineLevels;
     }
 
-    public XpsSaveOptionsData outlineOptions(OutlineOptionsData outlineOptions) {
-        this.outlineOptions = outlineOptions;
-        return this;
-    }
 
     /**
      * Gets or sets the outline options.
@@ -108,14 +105,15 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
         return outlineOptions;
     }
 
+    public XpsSaveOptionsData outlineOptions(OutlineOptionsData outlineOptions) {
+        this.outlineOptions = outlineOptions;
+        return this;
+    }
+
     public void setOutlineOptions(OutlineOptionsData outlineOptions) {
         this.outlineOptions = outlineOptions;
     }
 
-    public XpsSaveOptionsData useBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
-        this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
@@ -126,8 +124,23 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
         return useBookFoldPrintingSettings;
     }
 
+    public XpsSaveOptionsData useBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
+        this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+        return this;
+    }
+
     public void setUseBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
         this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+    }
+
+
+    public XpsSaveOptionsData() {
+        super();
+        this.bookmarksOutlineLevel = null;
+        this.headingsOutlineLevels = null;
+        this.outlineOptions = null;
+        this.saveFormat = "xps";
+        this.useBookFoldPrintingSettings = null;
     }
 
     @Override
@@ -157,11 +170,32 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class XpsSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    bookmarksOutlineLevel: ").append(toIndentedString(bookmarksOutlineLevel)).append("\n");
-    sb.append("    headingsOutlineLevels: ").append(toIndentedString(headingsOutlineLevels)).append("\n");
-    sb.append("    outlineOptions: ").append(toIndentedString(outlineOptions)).append("\n");
-    sb.append("    useBookFoldPrintingSettings: ").append(toIndentedString(useBookFoldPrintingSettings)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
+    sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
+    sb.append("    metafileRenderingOptions: ").append(toIndentedString(getMetafileRenderingOptions())).append("\n");
+    sb.append("    numeralFormat: ").append(toIndentedString(getNumeralFormat())).append("\n");
+    sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
+    sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
+    sb.append("    bookmarksOutlineLevel: ").append(toIndentedString(getBookmarksOutlineLevel())).append("\n");
+    sb.append("    headingsOutlineLevels: ").append(toIndentedString(getHeadingsOutlineLevels())).append("\n");
+    sb.append("    outlineOptions: ").append(toIndentedString(getOutlineOptions())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    useBookFoldPrintingSettings: ").append(toIndentedString(getUseBookFoldPrintingSettings())).append("\n");
     sb.append("}");
     return sb.toString();
   }

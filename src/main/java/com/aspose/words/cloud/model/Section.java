@@ -48,19 +48,28 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a section element.")
 public class Section extends LinkElement {
     @SerializedName("ChildNodes")
-    private List<NodeLink> childNodes = null;
+    protected List<NodeLink> childNodes;
 
     @SerializedName("HeaderFooters")
-    private LinkElement headerFooters = null;
+    protected LinkElement headerFooters;
 
     @SerializedName("PageSetup")
-    private LinkElement pageSetup = null;
+    protected LinkElement pageSetup;
 
     @SerializedName("Paragraphs")
-    private LinkElement paragraphs = null;
+    protected LinkElement paragraphs;
 
     @SerializedName("Tables")
-    private LinkElement tables = null;
+    protected LinkElement tables;
+    /**
+     * Gets or sets the list of child nodes.
+    * @return childNodes
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of child nodes.")
+    public List<NodeLink> getChildNodes() {
+        return childNodes;
+    }
+
     public Section childNodes(List<NodeLink> childNodes) {
         this.childNodes = childNodes;
         return this;
@@ -74,23 +83,11 @@ public class Section extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the list of child nodes.
-    * @return childNodes
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of child nodes.")
-    public List<NodeLink> getChildNodes() {
-        return childNodes;
-    }
 
     public void setChildNodes(List<NodeLink> childNodes) {
         this.childNodes = childNodes;
     }
 
-    public Section headerFooters(LinkElement headerFooters) {
-        this.headerFooters = headerFooters;
-        return this;
-    }
 
     /**
      * Gets or sets the link to HeaderFooters resource.
@@ -101,14 +98,15 @@ public class Section extends LinkElement {
         return headerFooters;
     }
 
+    public Section headerFooters(LinkElement headerFooters) {
+        this.headerFooters = headerFooters;
+        return this;
+    }
+
     public void setHeaderFooters(LinkElement headerFooters) {
         this.headerFooters = headerFooters;
     }
 
-    public Section pageSetup(LinkElement pageSetup) {
-        this.pageSetup = pageSetup;
-        return this;
-    }
 
     /**
      * Gets or sets the link to PageSetup resource.
@@ -119,14 +117,15 @@ public class Section extends LinkElement {
         return pageSetup;
     }
 
+    public Section pageSetup(LinkElement pageSetup) {
+        this.pageSetup = pageSetup;
+        return this;
+    }
+
     public void setPageSetup(LinkElement pageSetup) {
         this.pageSetup = pageSetup;
     }
 
-    public Section paragraphs(LinkElement paragraphs) {
-        this.paragraphs = paragraphs;
-        return this;
-    }
 
     /**
      * Gets or sets the link to Paragraphs resource.
@@ -137,14 +136,15 @@ public class Section extends LinkElement {
         return paragraphs;
     }
 
+    public Section paragraphs(LinkElement paragraphs) {
+        this.paragraphs = paragraphs;
+        return this;
+    }
+
     public void setParagraphs(LinkElement paragraphs) {
         this.paragraphs = paragraphs;
     }
 
-    public Section tables(LinkElement tables) {
-        this.tables = tables;
-        return this;
-    }
 
     /**
      * Gets or sets the link to Tables resource.
@@ -155,8 +155,23 @@ public class Section extends LinkElement {
         return tables;
     }
 
+    public Section tables(LinkElement tables) {
+        this.tables = tables;
+        return this;
+    }
+
     public void setTables(LinkElement tables) {
         this.tables = tables;
+    }
+
+
+    public Section() {
+        super();
+        this.childNodes = null;
+        this.headerFooters = null;
+        this.pageSetup = null;
+        this.paragraphs = null;
+        this.tables = null;
     }
 
     @Override
@@ -187,12 +202,12 @@ public class Section extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Section {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    childNodes: ").append(toIndentedString(childNodes)).append("\n");
-    sb.append("    headerFooters: ").append(toIndentedString(headerFooters)).append("\n");
-    sb.append("    pageSetup: ").append(toIndentedString(pageSetup)).append("\n");
-    sb.append("    paragraphs: ").append(toIndentedString(paragraphs)).append("\n");
-    sb.append("    tables: ").append(toIndentedString(tables)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    childNodes: ").append(toIndentedString(getChildNodes())).append("\n");
+    sb.append("    headerFooters: ").append(toIndentedString(getHeaderFooters())).append("\n");
+    sb.append("    pageSetup: ").append(toIndentedString(getPageSetup())).append("\n");
+    sb.append("    paragraphs: ").append(toIndentedString(getParagraphs())).append("\n");
+    sb.append("    tables: ").append(toIndentedString(getTables())).append("\n");
     sb.append("}");
     return sb.toString();
   }

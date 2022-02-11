@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a collection of fields.")
 public class FieldCollection extends LinkElement {
     @SerializedName("List")
-    private List<Field> list = null;
+    protected List<Field> list;
+    /**
+     * Gets or sets the collection of fields.
+    * @return list
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of fields.")
+    public List<Field> getList() {
+        return list;
+    }
+
     public FieldCollection list(List<Field> list) {
         this.list = list;
         return this;
@@ -62,17 +71,15 @@ public class FieldCollection extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of fields.
-    * @return list
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of fields.")
-    public List<Field> getList() {
-        return list;
-    }
 
     public void setList(List<Field> list) {
         this.list = list;
+    }
+
+
+    public FieldCollection() {
+        super();
+        this.list = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class FieldCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    list: ").append(toIndentedString(list)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    list: ").append(toIndentedString(getList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

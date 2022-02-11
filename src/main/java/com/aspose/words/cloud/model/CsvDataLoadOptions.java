@@ -48,21 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents options for parsing CSV data.")
 public class CsvDataLoadOptions {
     @SerializedName("CommentChar")
-    private String commentChar = null;
+    protected String commentChar;
 
     @SerializedName("Delimiter")
-    private String delimiter = null;
+    protected String delimiter;
 
     @SerializedName("HasHeaders")
-    private Boolean hasHeaders = null;
+    protected Boolean hasHeaders;
 
     @SerializedName("QuoteChar")
-    private String quoteChar = null;
-    public CsvDataLoadOptions commentChar(String commentChar) {
-        this.commentChar = commentChar;
-        return this;
-    }
-
+    protected String quoteChar;
     /**
      * Gets or sets the character that is used to comment lines of CSV data.
     * @return commentChar
@@ -72,14 +67,15 @@ public class CsvDataLoadOptions {
         return commentChar;
     }
 
+    public CsvDataLoadOptions commentChar(String commentChar) {
+        this.commentChar = commentChar;
+        return this;
+    }
+
     public void setCommentChar(String commentChar) {
         this.commentChar = commentChar;
     }
 
-    public CsvDataLoadOptions delimiter(String delimiter) {
-        this.delimiter = delimiter;
-        return this;
-    }
 
     /**
      * Gets or sets the character to be used as a column delimiter.
@@ -90,14 +86,15 @@ public class CsvDataLoadOptions {
         return delimiter;
     }
 
+    public CsvDataLoadOptions delimiter(String delimiter) {
+        this.delimiter = delimiter;
+        return this;
+    }
+
     public void setDelimiter(String delimiter) {
         this.delimiter = delimiter;
     }
 
-    public CsvDataLoadOptions hasHeaders(Boolean hasHeaders) {
-        this.hasHeaders = hasHeaders;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the first record of CSV data contains column names.
@@ -108,14 +105,15 @@ public class CsvDataLoadOptions {
         return hasHeaders;
     }
 
+    public CsvDataLoadOptions hasHeaders(Boolean hasHeaders) {
+        this.hasHeaders = hasHeaders;
+        return this;
+    }
+
     public void setHasHeaders(Boolean hasHeaders) {
         this.hasHeaders = hasHeaders;
     }
 
-    public CsvDataLoadOptions quoteChar(String quoteChar) {
-        this.quoteChar = quoteChar;
-        return this;
-    }
 
     /**
      * Gets or sets the character that is used to quote field values.
@@ -126,8 +124,21 @@ public class CsvDataLoadOptions {
         return quoteChar;
     }
 
+    public CsvDataLoadOptions quoteChar(String quoteChar) {
+        this.quoteChar = quoteChar;
+        return this;
+    }
+
     public void setQuoteChar(String quoteChar) {
         this.quoteChar = quoteChar;
+    }
+
+
+    public CsvDataLoadOptions() {
+        this.commentChar = null;
+        this.delimiter = null;
+        this.hasHeaders = null;
+        this.quoteChar = null;
     }
 
     @Override
@@ -156,10 +167,10 @@ public class CsvDataLoadOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CsvDataLoadOptions {\n");
-    sb.append("    commentChar: ").append(toIndentedString(commentChar)).append("\n");
-    sb.append("    delimiter: ").append(toIndentedString(delimiter)).append("\n");
-    sb.append("    hasHeaders: ").append(toIndentedString(hasHeaders)).append("\n");
-    sb.append("    quoteChar: ").append(toIndentedString(quoteChar)).append("\n");
+    sb.append("    commentChar: ").append(toIndentedString(getCommentChar())).append("\n");
+    sb.append("    delimiter: ").append(toIndentedString(getDelimiter())).append("\n");
+    sb.append("    hasHeaders: ").append(toIndentedString(getHasHeaders())).append("\n");
+    sb.append("    quoteChar: ").append(toIndentedString(getQuoteChar())).append("\n");
     sb.append("}");
     return sb.toString();
   }

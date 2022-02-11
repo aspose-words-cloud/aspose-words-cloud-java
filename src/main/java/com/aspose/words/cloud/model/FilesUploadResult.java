@@ -48,10 +48,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "File upload result.")
 public class FilesUploadResult {
     @SerializedName("Errors")
-    private List<Error> errors = null;
+    protected List<Error> errors;
 
     @SerializedName("Uploaded")
-    private List<String> uploaded = null;
+    protected List<String> uploaded;
+    /**
+     * List of errors.
+    * @return errors
+    **/
+    @ApiModelProperty(value = "List of errors.")
+    public List<Error> getErrors() {
+        return errors;
+    }
+
     public FilesUploadResult errors(List<Error> errors) {
         this.errors = errors;
         return this;
@@ -65,17 +74,19 @@ public class FilesUploadResult {
         return this;
     }
 
-    /**
-     * List of errors.
-    * @return errors
-    **/
-    @ApiModelProperty(value = "List of errors.")
-    public List<Error> getErrors() {
-        return errors;
-    }
 
     public void setErrors(List<Error> errors) {
         this.errors = errors;
+    }
+
+
+    /**
+     * List of uploaded file names.
+    * @return uploaded
+    **/
+    @ApiModelProperty(value = "List of uploaded file names.")
+    public List<String> getUploaded() {
+        return uploaded;
     }
 
     public FilesUploadResult uploaded(List<String> uploaded) {
@@ -91,17 +102,15 @@ public class FilesUploadResult {
         return this;
     }
 
-    /**
-     * List of uploaded file names.
-    * @return uploaded
-    **/
-    @ApiModelProperty(value = "List of uploaded file names.")
-    public List<String> getUploaded() {
-        return uploaded;
-    }
 
     public void setUploaded(List<String> uploaded) {
         this.uploaded = uploaded;
+    }
+
+
+    public FilesUploadResult() {
+        this.errors = null;
+        this.uploaded = null;
     }
 
     @Override
@@ -128,8 +137,8 @@ public class FilesUploadResult {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilesUploadResult {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
-    sb.append("    uploaded: ").append(toIndentedString(uploaded)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(getErrors())).append("\n");
+    sb.append("    uploaded: ").append(toIndentedString(getUploaded())).append("\n");
     sb.append("}");
     return sb.toString();
   }

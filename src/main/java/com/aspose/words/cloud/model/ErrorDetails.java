@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The error details.")
 public class ErrorDetails {
     @SerializedName("ErrorDateTime")
-    private OffsetDateTime errorDateTime = null;
+    protected OffsetDateTime errorDateTime;
 
     @SerializedName("RequestId")
-    private String requestId = null;
-    public ErrorDetails errorDateTime(OffsetDateTime errorDateTime) {
-        this.errorDateTime = errorDateTime;
-        return this;
-    }
-
+    protected String requestId;
     /**
      * Error datetime.
     * @return errorDateTime
@@ -66,14 +61,15 @@ public class ErrorDetails {
         return errorDateTime;
     }
 
+    public ErrorDetails errorDateTime(OffsetDateTime errorDateTime) {
+        this.errorDateTime = errorDateTime;
+        return this;
+    }
+
     public void setErrorDateTime(OffsetDateTime errorDateTime) {
         this.errorDateTime = errorDateTime;
     }
 
-    public ErrorDetails requestId(String requestId) {
-        this.requestId = requestId;
-        return this;
-    }
 
     /**
      * The request id.
@@ -84,8 +80,19 @@ public class ErrorDetails {
         return requestId;
     }
 
+    public ErrorDetails requestId(String requestId) {
+        this.requestId = requestId;
+        return this;
+    }
+
     public void setRequestId(String requestId) {
         this.requestId = requestId;
+    }
+
+
+    public ErrorDetails() {
+        this.errorDateTime = null;
+        this.requestId = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class ErrorDetails {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ErrorDetails {\n");
-    sb.append("    errorDateTime: ").append(toIndentedString(errorDateTime)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    errorDateTime: ").append(toIndentedString(getErrorDateTime())).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
     sb.append("}");
     return sb.toString();
   }

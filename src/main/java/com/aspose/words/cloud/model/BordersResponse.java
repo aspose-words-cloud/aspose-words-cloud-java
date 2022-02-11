@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a collection of borders.")
 public class BordersResponse extends WordsResponse {
     @SerializedName("Borders")
-    private BordersCollection borders = null;
-    public BordersResponse borders(BordersCollection borders) {
-        this.borders = borders;
-        return this;
-    }
-
+    protected BordersCollection borders;
     /**
      * Gets or sets the collection of borders.
     * @return borders
@@ -63,8 +58,19 @@ public class BordersResponse extends WordsResponse {
         return borders;
     }
 
+    public BordersResponse borders(BordersCollection borders) {
+        this.borders = borders;
+        return this;
+    }
+
     public void setBorders(BordersCollection borders) {
         this.borders = borders;
+    }
+
+
+    public BordersResponse() {
+        super();
+        this.borders = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class BordersResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BordersResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    borders: ").append(toIndentedString(borders)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    borders: ").append(toIndentedString(getBorders())).append("\n");
     sb.append("}");
     return sb.toString();
   }

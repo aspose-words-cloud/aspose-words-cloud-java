@@ -95,21 +95,16 @@ public class TableRowFormat extends LinkElement {
     }
 
     @SerializedName("AllowBreakAcrossPages")
-    private Boolean allowBreakAcrossPages = null;
+    protected Boolean allowBreakAcrossPages;
 
     @SerializedName("HeadingFormat")
-    private Boolean headingFormat = null;
+    protected Boolean headingFormat;
 
     @SerializedName("Height")
-    private Double height = null;
+    protected Double height;
 
     @SerializedName("HeightRule")
-    private HeightRuleEnum heightRule = null;
-    public TableRowFormat allowBreakAcrossPages(Boolean allowBreakAcrossPages) {
-        this.allowBreakAcrossPages = allowBreakAcrossPages;
-        return this;
-    }
-
+    protected HeightRuleEnum heightRule;
     /**
      * Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.
     * @return allowBreakAcrossPages
@@ -119,14 +114,15 @@ public class TableRowFormat extends LinkElement {
         return allowBreakAcrossPages;
     }
 
+    public TableRowFormat allowBreakAcrossPages(Boolean allowBreakAcrossPages) {
+        this.allowBreakAcrossPages = allowBreakAcrossPages;
+        return this;
+    }
+
     public void setAllowBreakAcrossPages(Boolean allowBreakAcrossPages) {
         this.allowBreakAcrossPages = allowBreakAcrossPages;
     }
 
-    public TableRowFormat headingFormat(Boolean headingFormat) {
-        this.headingFormat = headingFormat;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
@@ -137,14 +133,15 @@ public class TableRowFormat extends LinkElement {
         return headingFormat;
     }
 
+    public TableRowFormat headingFormat(Boolean headingFormat) {
+        this.headingFormat = headingFormat;
+        return this;
+    }
+
     public void setHeadingFormat(Boolean headingFormat) {
         this.headingFormat = headingFormat;
     }
 
-    public TableRowFormat height(Double height) {
-        this.height = height;
-        return this;
-    }
 
     /**
      * Gets or sets the height of the table row in points.
@@ -155,14 +152,15 @@ public class TableRowFormat extends LinkElement {
         return height;
     }
 
+    public TableRowFormat height(Double height) {
+        this.height = height;
+        return this;
+    }
+
     public void setHeight(Double height) {
         this.height = height;
     }
 
-    public TableRowFormat heightRule(HeightRuleEnum heightRule) {
-        this.heightRule = heightRule;
-        return this;
-    }
 
     /**
      * Gets or sets the rule for determining the height of the table row.
@@ -173,8 +171,22 @@ public class TableRowFormat extends LinkElement {
         return heightRule;
     }
 
+    public TableRowFormat heightRule(HeightRuleEnum heightRule) {
+        this.heightRule = heightRule;
+        return this;
+    }
+
     public void setHeightRule(HeightRuleEnum heightRule) {
         this.heightRule = heightRule;
+    }
+
+
+    public TableRowFormat() {
+        super();
+        this.allowBreakAcrossPages = null;
+        this.headingFormat = null;
+        this.height = null;
+        this.heightRule = null;
     }
 
     @Override
@@ -204,11 +216,11 @@ public class TableRowFormat extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableRowFormat {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    allowBreakAcrossPages: ").append(toIndentedString(allowBreakAcrossPages)).append("\n");
-    sb.append("    headingFormat: ").append(toIndentedString(headingFormat)).append("\n");
-    sb.append("    height: ").append(toIndentedString(height)).append("\n");
-    sb.append("    heightRule: ").append(toIndentedString(heightRule)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    allowBreakAcrossPages: ").append(toIndentedString(getAllowBreakAcrossPages())).append("\n");
+    sb.append("    headingFormat: ").append(toIndentedString(getHeadingFormat())).append("\n");
+    sb.append("    height: ").append(toIndentedString(getHeight())).append("\n");
+    sb.append("    heightRule: ").append(toIndentedString(getHeightRule())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a DrawingObject.")
 public class DrawingObjectResponse extends WordsResponse {
     @SerializedName("DrawingObject")
-    private DrawingObject drawingObject = null;
-    public DrawingObjectResponse drawingObject(DrawingObject drawingObject) {
-        this.drawingObject = drawingObject;
-        return this;
-    }
-
+    protected DrawingObject drawingObject;
     /**
      * Gets or sets the DrawingObject.
     * @return drawingObject
@@ -63,8 +58,19 @@ public class DrawingObjectResponse extends WordsResponse {
         return drawingObject;
     }
 
+    public DrawingObjectResponse drawingObject(DrawingObject drawingObject) {
+        this.drawingObject = drawingObject;
+        return this;
+    }
+
     public void setDrawingObject(DrawingObject drawingObject) {
         this.drawingObject = drawingObject;
+    }
+
+
+    public DrawingObjectResponse() {
+        super();
+        this.drawingObject = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class DrawingObjectResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObjectResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    drawingObject: ").append(toIndentedString(drawingObject)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    drawingObject: ").append(toIndentedString(getDrawingObject())).append("\n");
     sb.append("}");
     return sb.toString();
   }

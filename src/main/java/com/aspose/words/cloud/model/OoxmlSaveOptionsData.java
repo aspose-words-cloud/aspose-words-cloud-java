@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for docx/docm/dotx/dotm/flatopc save options.
  */
 @ApiModel(description = "Container class for docx/docm/dotx/dotm/flatopc save options.")
-public class OoxmlSaveOptionsData extends SaveOptionsData {
+public abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     /**
      * Gets or sets the compression level.
      */
@@ -96,21 +96,16 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
     }
 
     @SerializedName("Compliance")
-    private String compliance = null;
+    protected String compliance;
 
     @SerializedName("CompressionLevel")
-    private CompressionLevelEnum compressionLevel = null;
+    protected CompressionLevelEnum compressionLevel;
 
     @SerializedName("Password")
-    private String password = null;
+    protected String password;
 
     @SerializedName("PrettyFormat")
-    private Boolean prettyFormat = null;
-    public OoxmlSaveOptionsData compliance(String compliance) {
-        this.compliance = compliance;
-        return this;
-    }
-
+    protected Boolean prettyFormat;
     /**
      * Gets or sets the oOXML version for the output document.
     * @return compliance
@@ -120,14 +115,15 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
         return compliance;
     }
 
+    public OoxmlSaveOptionsData compliance(String compliance) {
+        this.compliance = compliance;
+        return this;
+    }
+
     public void setCompliance(String compliance) {
         this.compliance = compliance;
     }
 
-    public OoxmlSaveOptionsData compressionLevel(CompressionLevelEnum compressionLevel) {
-        this.compressionLevel = compressionLevel;
-        return this;
-    }
 
     /**
      * Gets or sets the compression level.
@@ -138,14 +134,15 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
         return compressionLevel;
     }
 
+    public OoxmlSaveOptionsData compressionLevel(CompressionLevelEnum compressionLevel) {
+        this.compressionLevel = compressionLevel;
+        return this;
+    }
+
     public void setCompressionLevel(CompressionLevelEnum compressionLevel) {
         this.compressionLevel = compressionLevel;
     }
 
-    public OoxmlSaveOptionsData password(String password) {
-        this.password = password;
-        return this;
-    }
 
     /**
      * Gets or sets the password to encrypt document using ECMA376 Standard encryption algorithm.
@@ -156,14 +153,15 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
         return password;
     }
 
+    public OoxmlSaveOptionsData password(String password) {
+        this.password = password;
+        return this;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public OoxmlSaveOptionsData prettyFormat(Boolean prettyFormat) {
-        this.prettyFormat = prettyFormat;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to use pretty formats output.
@@ -174,8 +172,22 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
         return prettyFormat;
     }
 
+    public OoxmlSaveOptionsData prettyFormat(Boolean prettyFormat) {
+        this.prettyFormat = prettyFormat;
+        return this;
+    }
+
     public void setPrettyFormat(Boolean prettyFormat) {
         this.prettyFormat = prettyFormat;
+    }
+
+
+    public OoxmlSaveOptionsData() {
+        super();
+        this.compliance = null;
+        this.compressionLevel = null;
+        this.password = null;
+        this.prettyFormat = null;
     }
 
     @Override
@@ -205,11 +217,25 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OoxmlSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    compliance: ").append(toIndentedString(compliance)).append("\n");
-    sb.append("    compressionLevel: ").append(toIndentedString(compressionLevel)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    prettyFormat: ").append(toIndentedString(prettyFormat)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    compliance: ").append(toIndentedString(getCompliance())).append("\n");
+    sb.append("    compressionLevel: ").append(toIndentedString(getCompressionLevel())).append("\n");
+    sb.append("    password: ").append(toIndentedString(getPassword())).append("\n");
+    sb.append("    prettyFormat: ").append(toIndentedString(getPrettyFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,6 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents link for Drawing Object DTO.")
 public class DrawingObjectLink extends NodeLink {
 
+    public DrawingObjectLink() {
+        super();
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -69,7 +73,8 @@ public class DrawingObjectLink extends NodeLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObjectLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
     sb.append("}");
     return sb.toString();
   }

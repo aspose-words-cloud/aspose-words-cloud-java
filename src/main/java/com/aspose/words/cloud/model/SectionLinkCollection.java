@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The collection of section's links.")
 public class SectionLinkCollection extends LinkElement {
     @SerializedName("SectionLinkList")
-    private List<SectionLink> sectionLinkList = null;
+    protected List<SectionLink> sectionLinkList;
+    /**
+     * Gets or sets the collection of section's links.
+    * @return sectionLinkList
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of section's links.")
+    public List<SectionLink> getSectionLinkList() {
+        return sectionLinkList;
+    }
+
     public SectionLinkCollection sectionLinkList(List<SectionLink> sectionLinkList) {
         this.sectionLinkList = sectionLinkList;
         return this;
@@ -62,17 +71,15 @@ public class SectionLinkCollection extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of section's links.
-    * @return sectionLinkList
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of section's links.")
-    public List<SectionLink> getSectionLinkList() {
-        return sectionLinkList;
-    }
 
     public void setSectionLinkList(List<SectionLink> sectionLinkList) {
         this.sectionLinkList = sectionLinkList;
+    }
+
+
+    public SectionLinkCollection() {
+        super();
+        this.sectionLinkList = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class SectionLinkCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SectionLinkCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    sectionLinkList: ").append(toIndentedString(sectionLinkList)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    sectionLinkList: ").append(toIndentedString(getSectionLinkList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

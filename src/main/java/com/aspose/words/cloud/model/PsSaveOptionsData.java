@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for ps save options.")
 public class PsSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("UseBookFoldPrintingSettings")
-    private Boolean useBookFoldPrintingSettings = null;
-    public PsSaveOptionsData useBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
-        this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
-        return this;
-    }
-
+    protected Boolean useBookFoldPrintingSettings;
     /**
      * Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
     * @return useBookFoldPrintingSettings
@@ -63,8 +58,20 @@ public class PsSaveOptionsData extends FixedPageSaveOptionsData {
         return useBookFoldPrintingSettings;
     }
 
+    public PsSaveOptionsData useBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
+        this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+        return this;
+    }
+
     public void setUseBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
         this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+    }
+
+
+    public PsSaveOptionsData() {
+        super();
+        this.saveFormat = "ps";
+        this.useBookFoldPrintingSettings = null;
     }
 
     @Override
@@ -91,8 +98,29 @@ public class PsSaveOptionsData extends FixedPageSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PsSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    useBookFoldPrintingSettings: ").append(toIndentedString(useBookFoldPrintingSettings)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
+    sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
+    sb.append("    metafileRenderingOptions: ").append(toIndentedString(getMetafileRenderingOptions())).append("\n");
+    sb.append("    numeralFormat: ").append(toIndentedString(getNumeralFormat())).append("\n");
+    sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
+    sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    useBookFoldPrintingSettings: ").append(toIndentedString(getUseBookFoldPrintingSettings())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -46,14 +46,9 @@ import io.swagger.annotations.ApiModelProperty;
  * Words document property DTO base class.
  */
 @ApiModel(description = "Words document property DTO base class.")
-public class DocumentPropertyBase {
+public abstract class DocumentPropertyBase {
     @SerializedName("Value")
-    private String value = null;
-    public DocumentPropertyBase value(String value) {
-        this.value = value;
-        return this;
-    }
-
+    protected String value;
     /**
      * Gets or sets the value of the document property.
     * @return value
@@ -63,8 +58,18 @@ public class DocumentPropertyBase {
         return value;
     }
 
+    public DocumentPropertyBase value(String value) {
+        this.value = value;
+        return this;
+    }
+
     public void setValue(String value) {
         this.value = value;
+    }
+
+
+    public DocumentPropertyBase() {
+        this.value = null;
     }
 
     @Override
@@ -90,7 +95,7 @@ public class DocumentPropertyBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentPropertyBase {\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    value: ").append(toIndentedString(getValue())).append("\n");
     sb.append("}");
     return sb.toString();
   }

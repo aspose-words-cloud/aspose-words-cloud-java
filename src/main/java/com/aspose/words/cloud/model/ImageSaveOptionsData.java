@@ -46,47 +46,42 @@ import io.swagger.annotations.ApiModelProperty;
  * Container abstract class for image save options.
  */
 @ApiModel(description = "Container abstract class for image save options.")
-public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
+public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("HorizontalResolution")
-    private Double horizontalResolution = null;
+    protected Double horizontalResolution;
 
     @SerializedName("ImageBrightness")
-    private Double imageBrightness = null;
+    protected Double imageBrightness;
 
     @SerializedName("ImageColorMode")
-    private String imageColorMode = null;
+    protected String imageColorMode;
 
     @SerializedName("ImageContrast")
-    private Double imageContrast = null;
+    protected Double imageContrast;
 
     @SerializedName("PaperColor")
-    private String paperColor = null;
+    protected String paperColor;
 
     @SerializedName("PixelFormat")
-    private String pixelFormat = null;
+    protected String pixelFormat;
 
     @SerializedName("Resolution")
-    private Double resolution = null;
+    protected Double resolution;
 
     @SerializedName("Scale")
-    private Double scale = null;
+    protected Double scale;
 
     @SerializedName("UseAntiAliasing")
-    private Boolean useAntiAliasing = null;
+    protected Boolean useAntiAliasing;
 
     @SerializedName("UseGdiEmfRenderer")
-    private Boolean useGdiEmfRenderer = null;
+    protected Boolean useGdiEmfRenderer;
 
     @SerializedName("UseHighQualityRendering")
-    private Boolean useHighQualityRendering = null;
+    protected Boolean useHighQualityRendering;
 
     @SerializedName("VerticalResolution")
-    private Double verticalResolution = null;
-    public ImageSaveOptionsData horizontalResolution(Double horizontalResolution) {
-        this.horizontalResolution = horizontalResolution;
-        return this;
-    }
-
+    protected Double verticalResolution;
     /**
      * Gets or sets the horizontal resolution in dots per inch for the generated images.
      * This property has effect only when saving to raster image formats.
@@ -98,14 +93,15 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         return horizontalResolution;
     }
 
+    public ImageSaveOptionsData horizontalResolution(Double horizontalResolution) {
+        this.horizontalResolution = horizontalResolution;
+        return this;
+    }
+
     public void setHorizontalResolution(Double horizontalResolution) {
         this.horizontalResolution = horizontalResolution;
     }
 
-    public ImageSaveOptionsData imageBrightness(Double imageBrightness) {
-        this.imageBrightness = imageBrightness;
-        return this;
-    }
 
     /**
      * Gets or sets the brightness level of the image.
@@ -116,14 +112,15 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         return imageBrightness;
     }
 
+    public ImageSaveOptionsData imageBrightness(Double imageBrightness) {
+        this.imageBrightness = imageBrightness;
+        return this;
+    }
+
     public void setImageBrightness(Double imageBrightness) {
         this.imageBrightness = imageBrightness;
     }
 
-    public ImageSaveOptionsData imageColorMode(String imageColorMode) {
-        this.imageColorMode = imageColorMode;
-        return this;
-    }
 
     /**
      * Gets or sets the color mode of the image.
@@ -134,14 +131,15 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         return imageColorMode;
     }
 
+    public ImageSaveOptionsData imageColorMode(String imageColorMode) {
+        this.imageColorMode = imageColorMode;
+        return this;
+    }
+
     public void setImageColorMode(String imageColorMode) {
         this.imageColorMode = imageColorMode;
     }
 
-    public ImageSaveOptionsData imageContrast(Double imageContrast) {
-        this.imageContrast = imageContrast;
-        return this;
-    }
 
     /**
      * Gets or sets the contrast level of the image.
@@ -152,14 +150,15 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         return imageContrast;
     }
 
+    public ImageSaveOptionsData imageContrast(Double imageContrast) {
+        this.imageContrast = imageContrast;
+        return this;
+    }
+
     public void setImageContrast(Double imageContrast) {
         this.imageContrast = imageContrast;
     }
 
-    public ImageSaveOptionsData paperColor(String paperColor) {
-        this.paperColor = paperColor;
-        return this;
-    }
 
     /**
      * Gets or sets the background (paper) color of the image.
@@ -170,14 +169,15 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         return paperColor;
     }
 
+    public ImageSaveOptionsData paperColor(String paperColor) {
+        this.paperColor = paperColor;
+        return this;
+    }
+
     public void setPaperColor(String paperColor) {
         this.paperColor = paperColor;
     }
 
-    public ImageSaveOptionsData pixelFormat(String pixelFormat) {
-        this.pixelFormat = pixelFormat;
-        return this;
-    }
 
     /**
      * Gets or sets the pixel format of the image.
@@ -188,14 +188,15 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         return pixelFormat;
     }
 
+    public ImageSaveOptionsData pixelFormat(String pixelFormat) {
+        this.pixelFormat = pixelFormat;
+        return this;
+    }
+
     public void setPixelFormat(String pixelFormat) {
         this.pixelFormat = pixelFormat;
     }
 
-    public ImageSaveOptionsData resolution(Double resolution) {
-        this.resolution = resolution;
-        return this;
-    }
 
     /**
      * Gets or sets both horizontal and vertical resolution in dots per inch for the generated images.
@@ -208,14 +209,15 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         return resolution;
     }
 
+    public ImageSaveOptionsData resolution(Double resolution) {
+        this.resolution = resolution;
+        return this;
+    }
+
     public void setResolution(Double resolution) {
         this.resolution = resolution;
     }
 
-    public ImageSaveOptionsData scale(Double scale) {
-        this.scale = scale;
-        return this;
-    }
 
     /**
      * Gets or sets the zoom factor of the image.
@@ -226,14 +228,15 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         return scale;
     }
 
+    public ImageSaveOptionsData scale(Double scale) {
+        this.scale = scale;
+        return this;
+    }
+
     public void setScale(Double scale) {
         this.scale = scale;
     }
 
-    public ImageSaveOptionsData useAntiAliasing(Boolean useAntiAliasing) {
-        this.useAntiAliasing = useAntiAliasing;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to use anti-aliasing for rendering.
@@ -244,14 +247,15 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         return useAntiAliasing;
     }
 
+    public ImageSaveOptionsData useAntiAliasing(Boolean useAntiAliasing) {
+        this.useAntiAliasing = useAntiAliasing;
+        return this;
+    }
+
     public void setUseAntiAliasing(Boolean useAntiAliasing) {
         this.useAntiAliasing = useAntiAliasing;
     }
 
-    public ImageSaveOptionsData useGdiEmfRenderer(Boolean useGdiEmfRenderer) {
-        this.useGdiEmfRenderer = useGdiEmfRenderer;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
@@ -262,14 +266,15 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         return useGdiEmfRenderer;
     }
 
+    public ImageSaveOptionsData useGdiEmfRenderer(Boolean useGdiEmfRenderer) {
+        this.useGdiEmfRenderer = useGdiEmfRenderer;
+        return this;
+    }
+
     public void setUseGdiEmfRenderer(Boolean useGdiEmfRenderer) {
         this.useGdiEmfRenderer = useGdiEmfRenderer;
     }
 
-    public ImageSaveOptionsData useHighQualityRendering(Boolean useHighQualityRendering) {
-        this.useHighQualityRendering = useHighQualityRendering;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to use high quality (i.e. slow) rendering algorithms.
@@ -280,14 +285,15 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         return useHighQualityRendering;
     }
 
+    public ImageSaveOptionsData useHighQualityRendering(Boolean useHighQualityRendering) {
+        this.useHighQualityRendering = useHighQualityRendering;
+        return this;
+    }
+
     public void setUseHighQualityRendering(Boolean useHighQualityRendering) {
         this.useHighQualityRendering = useHighQualityRendering;
     }
 
-    public ImageSaveOptionsData verticalResolution(Double verticalResolution) {
-        this.verticalResolution = verticalResolution;
-        return this;
-    }
 
     /**
      * Gets or sets the vertical resolution in dots per inch for the generated images.
@@ -300,8 +306,30 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         return verticalResolution;
     }
 
+    public ImageSaveOptionsData verticalResolution(Double verticalResolution) {
+        this.verticalResolution = verticalResolution;
+        return this;
+    }
+
     public void setVerticalResolution(Double verticalResolution) {
         this.verticalResolution = verticalResolution;
+    }
+
+
+    public ImageSaveOptionsData() {
+        super();
+        this.horizontalResolution = null;
+        this.imageBrightness = null;
+        this.imageColorMode = null;
+        this.imageContrast = null;
+        this.paperColor = null;
+        this.pixelFormat = null;
+        this.resolution = null;
+        this.scale = null;
+        this.useAntiAliasing = null;
+        this.useGdiEmfRenderer = null;
+        this.useHighQualityRendering = null;
+        this.verticalResolution = null;
     }
 
     @Override
@@ -339,19 +367,40 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImageSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    horizontalResolution: ").append(toIndentedString(horizontalResolution)).append("\n");
-    sb.append("    imageBrightness: ").append(toIndentedString(imageBrightness)).append("\n");
-    sb.append("    imageColorMode: ").append(toIndentedString(imageColorMode)).append("\n");
-    sb.append("    imageContrast: ").append(toIndentedString(imageContrast)).append("\n");
-    sb.append("    paperColor: ").append(toIndentedString(paperColor)).append("\n");
-    sb.append("    pixelFormat: ").append(toIndentedString(pixelFormat)).append("\n");
-    sb.append("    resolution: ").append(toIndentedString(resolution)).append("\n");
-    sb.append("    scale: ").append(toIndentedString(scale)).append("\n");
-    sb.append("    useAntiAliasing: ").append(toIndentedString(useAntiAliasing)).append("\n");
-    sb.append("    useGdiEmfRenderer: ").append(toIndentedString(useGdiEmfRenderer)).append("\n");
-    sb.append("    useHighQualityRendering: ").append(toIndentedString(useHighQualityRendering)).append("\n");
-    sb.append("    verticalResolution: ").append(toIndentedString(verticalResolution)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
+    sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
+    sb.append("    metafileRenderingOptions: ").append(toIndentedString(getMetafileRenderingOptions())).append("\n");
+    sb.append("    numeralFormat: ").append(toIndentedString(getNumeralFormat())).append("\n");
+    sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
+    sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
+    sb.append("    horizontalResolution: ").append(toIndentedString(getHorizontalResolution())).append("\n");
+    sb.append("    imageBrightness: ").append(toIndentedString(getImageBrightness())).append("\n");
+    sb.append("    imageColorMode: ").append(toIndentedString(getImageColorMode())).append("\n");
+    sb.append("    imageContrast: ").append(toIndentedString(getImageContrast())).append("\n");
+    sb.append("    paperColor: ").append(toIndentedString(getPaperColor())).append("\n");
+    sb.append("    pixelFormat: ").append(toIndentedString(getPixelFormat())).append("\n");
+    sb.append("    resolution: ").append(toIndentedString(getResolution())).append("\n");
+    sb.append("    scale: ").append(toIndentedString(getScale())).append("\n");
+    sb.append("    useAntiAliasing: ").append(toIndentedString(getUseAntiAliasing())).append("\n");
+    sb.append("    useGdiEmfRenderer: ").append(toIndentedString(getUseGdiEmfRenderer())).append("\n");
+    sb.append("    useHighQualityRendering: ").append(toIndentedString(getUseHighQualityRendering())).append("\n");
+    sb.append("    verticalResolution: ").append(toIndentedString(getVerticalResolution())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,18 +48,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a paragraph list format element.")
 public class ListFormat extends LinkElement {
     @SerializedName("IsListItem")
-    private Boolean isListItem = null;
+    protected Boolean isListItem;
 
     @SerializedName("ListId")
-    private Integer listId = null;
+    protected Integer listId;
 
     @SerializedName("ListLevelNumber")
-    private Integer listLevelNumber = null;
-    public ListFormat isListItem(Boolean isListItem) {
-        this.isListItem = isListItem;
-        return this;
-    }
-
+    protected Integer listLevelNumber;
     /**
      * Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
     * @return isListItem
@@ -69,14 +64,15 @@ public class ListFormat extends LinkElement {
         return isListItem;
     }
 
+    public ListFormat isListItem(Boolean isListItem) {
+        this.isListItem = isListItem;
+        return this;
+    }
+
     public void setIsListItem(Boolean isListItem) {
         this.isListItem = isListItem;
     }
 
-    public ListFormat listId(Integer listId) {
-        this.listId = listId;
-        return this;
-    }
 
     /**
      * Gets or sets the list id of this paragraph.
@@ -87,14 +83,15 @@ public class ListFormat extends LinkElement {
         return listId;
     }
 
+    public ListFormat listId(Integer listId) {
+        this.listId = listId;
+        return this;
+    }
+
     public void setListId(Integer listId) {
         this.listId = listId;
     }
 
-    public ListFormat listLevelNumber(Integer listLevelNumber) {
-        this.listLevelNumber = listLevelNumber;
-        return this;
-    }
 
     /**
      * Gets or sets the list level number (0 to 8) for the paragraph.
@@ -105,8 +102,21 @@ public class ListFormat extends LinkElement {
         return listLevelNumber;
     }
 
+    public ListFormat listLevelNumber(Integer listLevelNumber) {
+        this.listLevelNumber = listLevelNumber;
+        return this;
+    }
+
     public void setListLevelNumber(Integer listLevelNumber) {
         this.listLevelNumber = listLevelNumber;
+    }
+
+
+    public ListFormat() {
+        super();
+        this.isListItem = null;
+        this.listId = null;
+        this.listLevelNumber = null;
     }
 
     @Override
@@ -135,10 +145,10 @@ public class ListFormat extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListFormat {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    isListItem: ").append(toIndentedString(isListItem)).append("\n");
-    sb.append("    listId: ").append(toIndentedString(listId)).append("\n");
-    sb.append("    listLevelNumber: ").append(toIndentedString(listLevelNumber)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    isListItem: ").append(toIndentedString(getIsListItem())).append("\n");
+    sb.append("    listId: ").append(toIndentedString(getListId())).append("\n");
+    sb.append("    listLevelNumber: ").append(toIndentedString(getListLevelNumber())).append("\n");
     sb.append("}");
     return sb.toString();
   }

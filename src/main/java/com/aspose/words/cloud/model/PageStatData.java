@@ -48,21 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container for the page's statistical data.")
 public class PageStatData {
     @SerializedName("FootnotesStatData")
-    private FootnotesStatData footnotesStatData = null;
+    protected FootnotesStatData footnotesStatData;
 
     @SerializedName("PageNumber")
-    private Integer pageNumber = null;
+    protected Integer pageNumber;
 
     @SerializedName("ParagraphCount")
-    private Integer paragraphCount = null;
+    protected Integer paragraphCount;
 
     @SerializedName("WordCount")
-    private Integer wordCount = null;
-    public PageStatData footnotesStatData(FootnotesStatData footnotesStatData) {
-        this.footnotesStatData = footnotesStatData;
-        return this;
-    }
-
+    protected Integer wordCount;
     /**
      * Gets or sets the detailed statistics on the footnotes.
     * @return footnotesStatData
@@ -72,14 +67,15 @@ public class PageStatData {
         return footnotesStatData;
     }
 
+    public PageStatData footnotesStatData(FootnotesStatData footnotesStatData) {
+        this.footnotesStatData = footnotesStatData;
+        return this;
+    }
+
     public void setFootnotesStatData(FootnotesStatData footnotesStatData) {
         this.footnotesStatData = footnotesStatData;
     }
 
-    public PageStatData pageNumber(Integer pageNumber) {
-        this.pageNumber = pageNumber;
-        return this;
-    }
 
     /**
      * Gets or sets the page number.
@@ -90,14 +86,15 @@ public class PageStatData {
         return pageNumber;
     }
 
+    public PageStatData pageNumber(Integer pageNumber) {
+        this.pageNumber = pageNumber;
+        return this;
+    }
+
     public void setPageNumber(Integer pageNumber) {
         this.pageNumber = pageNumber;
     }
 
-    public PageStatData paragraphCount(Integer paragraphCount) {
-        this.paragraphCount = paragraphCount;
-        return this;
-    }
 
     /**
      * Gets or sets the total count of paragraphs in the page.
@@ -108,14 +105,15 @@ public class PageStatData {
         return paragraphCount;
     }
 
+    public PageStatData paragraphCount(Integer paragraphCount) {
+        this.paragraphCount = paragraphCount;
+        return this;
+    }
+
     public void setParagraphCount(Integer paragraphCount) {
         this.paragraphCount = paragraphCount;
     }
 
-    public PageStatData wordCount(Integer wordCount) {
-        this.wordCount = wordCount;
-        return this;
-    }
 
     /**
      * Gets or sets the total count of words in the page.
@@ -126,8 +124,21 @@ public class PageStatData {
         return wordCount;
     }
 
+    public PageStatData wordCount(Integer wordCount) {
+        this.wordCount = wordCount;
+        return this;
+    }
+
     public void setWordCount(Integer wordCount) {
         this.wordCount = wordCount;
+    }
+
+
+    public PageStatData() {
+        this.footnotesStatData = null;
+        this.pageNumber = null;
+        this.paragraphCount = null;
+        this.wordCount = null;
     }
 
     @Override
@@ -156,10 +167,10 @@ public class PageStatData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PageStatData {\n");
-    sb.append("    footnotesStatData: ").append(toIndentedString(footnotesStatData)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    paragraphCount: ").append(toIndentedString(paragraphCount)).append("\n");
-    sb.append("    wordCount: ").append(toIndentedString(wordCount)).append("\n");
+    sb.append("    footnotesStatData: ").append(toIndentedString(getFootnotesStatData())).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(getPageNumber())).append("\n");
+    sb.append("    paragraphCount: ").append(toIndentedString(getParagraphCount())).append("\n");
+    sb.append("    wordCount: ").append(toIndentedString(getWordCount())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for wml save options.")
 public class WordMLSaveOptionsData extends SaveOptionsData {
     @SerializedName("PrettyFormat")
-    private Boolean prettyFormat = null;
-    public WordMLSaveOptionsData prettyFormat(Boolean prettyFormat) {
-        this.prettyFormat = prettyFormat;
-        return this;
-    }
-
+    protected Boolean prettyFormat;
     /**
      * Gets or sets a value indicating whether to use pretty formats output.
     * @return prettyFormat
@@ -63,8 +58,20 @@ public class WordMLSaveOptionsData extends SaveOptionsData {
         return prettyFormat;
     }
 
+    public WordMLSaveOptionsData prettyFormat(Boolean prettyFormat) {
+        this.prettyFormat = prettyFormat;
+        return this;
+    }
+
     public void setPrettyFormat(Boolean prettyFormat) {
         this.prettyFormat = prettyFormat;
+    }
+
+
+    public WordMLSaveOptionsData() {
+        super();
+        this.prettyFormat = null;
+        this.saveFormat = "wml";
     }
 
     @Override
@@ -91,8 +98,22 @@ public class WordMLSaveOptionsData extends SaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WordMLSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    prettyFormat: ").append(toIndentedString(prettyFormat)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    prettyFormat: ").append(toIndentedString(getPrettyFormat())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

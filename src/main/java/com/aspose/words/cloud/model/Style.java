@@ -518,37 +518,46 @@ public class Style extends LinkElement {
     }
 
     @SerializedName("Aliases")
-    private List<String> aliases = null;
+    protected List<String> aliases;
 
     @SerializedName("BaseStyleName")
-    private String baseStyleName = null;
+    protected String baseStyleName;
 
     @SerializedName("BuiltIn")
-    private Boolean builtIn = null;
+    protected Boolean builtIn;
 
     @SerializedName("Font")
-    private Font font = null;
+    protected Font font;
 
     @SerializedName("IsHeading")
-    private Boolean isHeading = null;
+    protected Boolean isHeading;
 
     @SerializedName("IsQuickStyle")
-    private Boolean isQuickStyle = null;
+    protected Boolean isQuickStyle;
 
     @SerializedName("LinkedStyleName")
-    private String linkedStyleName = null;
+    protected String linkedStyleName;
 
     @SerializedName("Name")
-    private String name = null;
+    protected String name;
 
     @SerializedName("NextParagraphStyleName")
-    private String nextParagraphStyleName = null;
+    protected String nextParagraphStyleName;
 
     @SerializedName("StyleIdentifier")
-    private StyleIdentifierEnum styleIdentifier = null;
+    protected StyleIdentifierEnum styleIdentifier;
 
     @SerializedName("Type")
-    private TypeEnum type = null;
+    protected TypeEnum type;
+    /**
+     * Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
+    * @return aliases
+    **/
+    @ApiModelProperty(value = "Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.")
+    public List<String> getAliases() {
+        return aliases;
+    }
+
     public Style aliases(List<String> aliases) {
         this.aliases = aliases;
         return this;
@@ -562,23 +571,11 @@ public class Style extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
-    * @return aliases
-    **/
-    @ApiModelProperty(value = "Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.")
-    public List<String> getAliases() {
-        return aliases;
-    }
 
     public void setAliases(List<String> aliases) {
         this.aliases = aliases;
     }
 
-    public Style baseStyleName(String baseStyleName) {
-        this.baseStyleName = baseStyleName;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the style this style is based on.
@@ -589,14 +586,15 @@ public class Style extends LinkElement {
         return baseStyleName;
     }
 
+    public Style baseStyleName(String baseStyleName) {
+        this.baseStyleName = baseStyleName;
+        return this;
+    }
+
     public void setBaseStyleName(String baseStyleName) {
         this.baseStyleName = baseStyleName;
     }
 
-    public Style builtIn(Boolean builtIn) {
-        this.builtIn = builtIn;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether this style is one of the built-in styles in MS Word.
@@ -607,14 +605,15 @@ public class Style extends LinkElement {
         return builtIn;
     }
 
+    public Style builtIn(Boolean builtIn) {
+        this.builtIn = builtIn;
+        return this;
+    }
+
     public void setBuiltIn(Boolean builtIn) {
         this.builtIn = builtIn;
     }
 
-    public Style font(Font font) {
-        this.font = font;
-        return this;
-    }
 
     /**
      * Gets or sets the character formatting of the style.
@@ -625,14 +624,15 @@ public class Style extends LinkElement {
         return font;
     }
 
+    public Style font(Font font) {
+        this.font = font;
+        return this;
+    }
+
     public void setFont(Font font) {
         this.font = font;
     }
 
-    public Style isHeading(Boolean isHeading) {
-        this.isHeading = isHeading;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the style is one of the built-in Heading styles.
@@ -643,14 +643,15 @@ public class Style extends LinkElement {
         return isHeading;
     }
 
+    public Style isHeading(Boolean isHeading) {
+        this.isHeading = isHeading;
+        return this;
+    }
+
     public void setIsHeading(Boolean isHeading) {
         this.isHeading = isHeading;
     }
 
-    public Style isQuickStyle(Boolean isQuickStyle) {
-        this.isQuickStyle = isQuickStyle;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
@@ -661,14 +662,15 @@ public class Style extends LinkElement {
         return isQuickStyle;
     }
 
+    public Style isQuickStyle(Boolean isQuickStyle) {
+        this.isQuickStyle = isQuickStyle;
+        return this;
+    }
+
     public void setIsQuickStyle(Boolean isQuickStyle) {
         this.isQuickStyle = isQuickStyle;
     }
 
-    public Style linkedStyleName(String linkedStyleName) {
-        this.linkedStyleName = linkedStyleName;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.
@@ -679,14 +681,15 @@ public class Style extends LinkElement {
         return linkedStyleName;
     }
 
+    public Style linkedStyleName(String linkedStyleName) {
+        this.linkedStyleName = linkedStyleName;
+        return this;
+    }
+
     public void setLinkedStyleName(String linkedStyleName) {
         this.linkedStyleName = linkedStyleName;
     }
 
-    public Style name(String name) {
-        this.name = name;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the style.
@@ -697,14 +700,15 @@ public class Style extends LinkElement {
         return name;
     }
 
+    public Style name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public Style nextParagraphStyleName(String nextParagraphStyleName) {
-        this.nextParagraphStyleName = nextParagraphStyleName;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
@@ -715,14 +719,15 @@ public class Style extends LinkElement {
         return nextParagraphStyleName;
     }
 
+    public Style nextParagraphStyleName(String nextParagraphStyleName) {
+        this.nextParagraphStyleName = nextParagraphStyleName;
+        return this;
+    }
+
     public void setNextParagraphStyleName(String nextParagraphStyleName) {
         this.nextParagraphStyleName = nextParagraphStyleName;
     }
 
-    public Style styleIdentifier(StyleIdentifierEnum styleIdentifier) {
-        this.styleIdentifier = styleIdentifier;
-        return this;
-    }
 
     /**
      * Gets or sets the locale independent style identifier for a built-in style.
@@ -733,14 +738,15 @@ public class Style extends LinkElement {
         return styleIdentifier;
     }
 
+    public Style styleIdentifier(StyleIdentifierEnum styleIdentifier) {
+        this.styleIdentifier = styleIdentifier;
+        return this;
+    }
+
     public void setStyleIdentifier(StyleIdentifierEnum styleIdentifier) {
         this.styleIdentifier = styleIdentifier;
     }
 
-    public Style type(TypeEnum type) {
-        this.type = type;
-        return this;
-    }
 
     /**
      * Gets or sets the style type (paragraph or character).
@@ -751,8 +757,29 @@ public class Style extends LinkElement {
         return type;
     }
 
+    public Style type(TypeEnum type) {
+        this.type = type;
+        return this;
+    }
+
     public void setType(TypeEnum type) {
         this.type = type;
+    }
+
+
+    public Style() {
+        super();
+        this.aliases = null;
+        this.baseStyleName = null;
+        this.builtIn = null;
+        this.font = null;
+        this.isHeading = null;
+        this.isQuickStyle = null;
+        this.linkedStyleName = null;
+        this.name = null;
+        this.nextParagraphStyleName = null;
+        this.styleIdentifier = null;
+        this.type = null;
     }
 
     @Override
@@ -789,18 +816,18 @@ public class Style extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Style {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    aliases: ").append(toIndentedString(aliases)).append("\n");
-    sb.append("    baseStyleName: ").append(toIndentedString(baseStyleName)).append("\n");
-    sb.append("    builtIn: ").append(toIndentedString(builtIn)).append("\n");
-    sb.append("    font: ").append(toIndentedString(font)).append("\n");
-    sb.append("    isHeading: ").append(toIndentedString(isHeading)).append("\n");
-    sb.append("    isQuickStyle: ").append(toIndentedString(isQuickStyle)).append("\n");
-    sb.append("    linkedStyleName: ").append(toIndentedString(linkedStyleName)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    nextParagraphStyleName: ").append(toIndentedString(nextParagraphStyleName)).append("\n");
-    sb.append("    styleIdentifier: ").append(toIndentedString(styleIdentifier)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    aliases: ").append(toIndentedString(getAliases())).append("\n");
+    sb.append("    baseStyleName: ").append(toIndentedString(getBaseStyleName())).append("\n");
+    sb.append("    builtIn: ").append(toIndentedString(getBuiltIn())).append("\n");
+    sb.append("    font: ").append(toIndentedString(getFont())).append("\n");
+    sb.append("    isHeading: ").append(toIndentedString(getIsHeading())).append("\n");
+    sb.append("    isQuickStyle: ").append(toIndentedString(getIsQuickStyle())).append("\n");
+    sb.append("    linkedStyleName: ").append(toIndentedString(getLinkedStyleName())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
+    sb.append("    nextParagraphStyleName: ").append(toIndentedString(getNextParagraphStyleName())).append("\n");
+    sb.append("    styleIdentifier: ").append(toIndentedString(getStyleIdentifier())).append("\n");
+    sb.append("    type: ").append(toIndentedString(getType())).append("\n");
     sb.append("}");
     return sb.toString();
   }

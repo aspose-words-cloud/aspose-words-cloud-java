@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a collection of comments.")
 public class CommentsResponse extends WordsResponse {
     @SerializedName("Comments")
-    private CommentsCollection comments = null;
-    public CommentsResponse comments(CommentsCollection comments) {
-        this.comments = comments;
-        return this;
-    }
-
+    protected CommentsCollection comments;
     /**
      * Gets or sets the collection of comments.
     * @return comments
@@ -63,8 +58,19 @@ public class CommentsResponse extends WordsResponse {
         return comments;
     }
 
+    public CommentsResponse comments(CommentsCollection comments) {
+        this.comments = comments;
+        return this;
+    }
+
     public void setComments(CommentsCollection comments) {
         this.comments = comments;
+    }
+
+
+    public CommentsResponse() {
+        super();
+        this.comments = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class CommentsResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommentsResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    comments: ").append(toIndentedString(getComments())).append("\n");
     sb.append("}");
     return sb.toString();
   }

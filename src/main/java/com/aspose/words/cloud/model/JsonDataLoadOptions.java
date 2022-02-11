@@ -96,18 +96,13 @@ public class JsonDataLoadOptions {
     }
 
     @SerializedName("AlwaysGenerateRootObject")
-    private Boolean alwaysGenerateRootObject = null;
+    protected Boolean alwaysGenerateRootObject;
 
     @SerializedName("ExactDateTimeParseFormats")
-    private List<String> exactDateTimeParseFormats = null;
+    protected List<String> exactDateTimeParseFormats;
 
     @SerializedName("SimpleValueParseMode")
-    private SimpleValueParseModeEnum simpleValueParseMode = null;
-    public JsonDataLoadOptions alwaysGenerateRootObject(Boolean alwaysGenerateRootObject) {
-        this.alwaysGenerateRootObject = alwaysGenerateRootObject;
-        return this;
-    }
-
+    protected SimpleValueParseModeEnum simpleValueParseMode;
     /**
      * Gets or sets a value indicating whether a generated data source will always contain
      * an object for a JSON root element. If a JSON root element contains a single complex
@@ -119,8 +114,24 @@ public class JsonDataLoadOptions {
         return alwaysGenerateRootObject;
     }
 
+    public JsonDataLoadOptions alwaysGenerateRootObject(Boolean alwaysGenerateRootObject) {
+        this.alwaysGenerateRootObject = alwaysGenerateRootObject;
+        return this;
+    }
+
     public void setAlwaysGenerateRootObject(Boolean alwaysGenerateRootObject) {
         this.alwaysGenerateRootObject = alwaysGenerateRootObject;
+    }
+
+
+    /**
+     * Gets or sets exact formats for parsing JSON date-time values while loading JSON.
+     * The default is null.
+    * @return exactDateTimeParseFormats
+    **/
+    @ApiModelProperty(value = "Gets or sets exact formats for parsing JSON date-time values while loading JSON. The default is null.")
+    public List<String> getExactDateTimeParseFormats() {
+        return exactDateTimeParseFormats;
     }
 
     public JsonDataLoadOptions exactDateTimeParseFormats(List<String> exactDateTimeParseFormats) {
@@ -136,24 +147,11 @@ public class JsonDataLoadOptions {
         return this;
     }
 
-    /**
-     * Gets or sets exact formats for parsing JSON date-time values while loading JSON.
-     * The default is null.
-    * @return exactDateTimeParseFormats
-    **/
-    @ApiModelProperty(value = "Gets or sets exact formats for parsing JSON date-time values while loading JSON. The default is null.")
-    public List<String> getExactDateTimeParseFormats() {
-        return exactDateTimeParseFormats;
-    }
 
     public void setExactDateTimeParseFormats(List<String> exactDateTimeParseFormats) {
         this.exactDateTimeParseFormats = exactDateTimeParseFormats;
     }
 
-    public JsonDataLoadOptions simpleValueParseMode(SimpleValueParseModeEnum simpleValueParseMode) {
-        this.simpleValueParseMode = simpleValueParseMode;
-        return this;
-    }
 
     /**
      * Gets or sets a mode for parsing JSON simple values (null, boolean, number, integer,
@@ -166,8 +164,20 @@ public class JsonDataLoadOptions {
         return simpleValueParseMode;
     }
 
+    public JsonDataLoadOptions simpleValueParseMode(SimpleValueParseModeEnum simpleValueParseMode) {
+        this.simpleValueParseMode = simpleValueParseMode;
+        return this;
+    }
+
     public void setSimpleValueParseMode(SimpleValueParseModeEnum simpleValueParseMode) {
         this.simpleValueParseMode = simpleValueParseMode;
+    }
+
+
+    public JsonDataLoadOptions() {
+        this.alwaysGenerateRootObject = null;
+        this.exactDateTimeParseFormats = null;
+        this.simpleValueParseMode = null;
     }
 
     @Override
@@ -195,9 +205,9 @@ public class JsonDataLoadOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class JsonDataLoadOptions {\n");
-    sb.append("    alwaysGenerateRootObject: ").append(toIndentedString(alwaysGenerateRootObject)).append("\n");
-    sb.append("    exactDateTimeParseFormats: ").append(toIndentedString(exactDateTimeParseFormats)).append("\n");
-    sb.append("    simpleValueParseMode: ").append(toIndentedString(simpleValueParseMode)).append("\n");
+    sb.append("    alwaysGenerateRootObject: ").append(toIndentedString(getAlwaysGenerateRootObject())).append("\n");
+    sb.append("    exactDateTimeParseFormats: ").append(toIndentedString(getExactDateTimeParseFormats())).append("\n");
+    sb.append("    simpleValueParseMode: ").append(toIndentedString(getSimpleValueParseMode())).append("\n");
     sb.append("}");
     return sb.toString();
   }

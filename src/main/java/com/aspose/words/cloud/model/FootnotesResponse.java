@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a collection of footnotes.")
 public class FootnotesResponse extends WordsResponse {
     @SerializedName("Footnotes")
-    private FootnoteCollection footnotes = null;
-    public FootnotesResponse footnotes(FootnoteCollection footnotes) {
-        this.footnotes = footnotes;
-        return this;
-    }
-
+    protected FootnoteCollection footnotes;
     /**
      * Gets or sets the collection of footnotes.
     * @return footnotes
@@ -63,8 +58,19 @@ public class FootnotesResponse extends WordsResponse {
         return footnotes;
     }
 
+    public FootnotesResponse footnotes(FootnoteCollection footnotes) {
+        this.footnotes = footnotes;
+        return this;
+    }
+
     public void setFootnotes(FootnoteCollection footnotes) {
         this.footnotes = footnotes;
+    }
+
+
+    public FootnotesResponse() {
+        super();
+        this.footnotes = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class FootnotesResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FootnotesResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    footnotes: ").append(toIndentedString(footnotes)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    footnotes: ").append(toIndentedString(getFootnotes())).append("\n");
     sb.append("}");
     return sb.toString();
   }

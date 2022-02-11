@@ -46,17 +46,12 @@ import io.swagger.annotations.ApiModelProperty;
  * Field.
  */
 @ApiModel(description = "Field.")
-public class FieldBase {
+public abstract class FieldBase {
     @SerializedName("FieldCode")
-    private String fieldCode = null;
+    protected String fieldCode;
 
     @SerializedName("LocaleId")
-    private String localeId = null;
-    public FieldBase fieldCode(String fieldCode) {
-        this.fieldCode = fieldCode;
-        return this;
-    }
-
+    protected String localeId;
     /**
      * Gets or sets the field code.
     * @return fieldCode
@@ -66,14 +61,15 @@ public class FieldBase {
         return fieldCode;
     }
 
+    public FieldBase fieldCode(String fieldCode) {
+        this.fieldCode = fieldCode;
+        return this;
+    }
+
     public void setFieldCode(String fieldCode) {
         this.fieldCode = fieldCode;
     }
 
-    public FieldBase localeId(String localeId) {
-        this.localeId = localeId;
-        return this;
-    }
 
     /**
      * Gets or sets the LCID of the field.
@@ -84,8 +80,19 @@ public class FieldBase {
         return localeId;
     }
 
+    public FieldBase localeId(String localeId) {
+        this.localeId = localeId;
+        return this;
+    }
+
     public void setLocaleId(String localeId) {
         this.localeId = localeId;
+    }
+
+
+    public FieldBase() {
+        this.fieldCode = null;
+        this.localeId = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class FieldBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldBase {\n");
-    sb.append("    fieldCode: ").append(toIndentedString(fieldCode)).append("\n");
-    sb.append("    localeId: ").append(toIndentedString(localeId)).append("\n");
+    sb.append("    fieldCode: ").append(toIndentedString(getFieldCode())).append("\n");
+    sb.append("    localeId: ").append(toIndentedString(getLocaleId())).append("\n");
     sb.append("}");
     return sb.toString();
   }

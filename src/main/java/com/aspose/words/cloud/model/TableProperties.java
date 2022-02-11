@@ -617,51 +617,46 @@ public class TableProperties extends LinkElement {
     }
 
     @SerializedName("Alignment")
-    private AlignmentEnum alignment = null;
+    protected AlignmentEnum alignment;
 
     @SerializedName("AllowAutoFit")
-    private Boolean allowAutoFit = null;
+    protected Boolean allowAutoFit;
 
     @SerializedName("Bidi")
-    private Boolean bidi = null;
+    protected Boolean bidi;
 
     @SerializedName("BottomPadding")
-    private Double bottomPadding = null;
+    protected Double bottomPadding;
 
     @SerializedName("CellSpacing")
-    private Double cellSpacing = null;
+    protected Double cellSpacing;
 
     @SerializedName("LeftIndent")
-    private Double leftIndent = null;
+    protected Double leftIndent;
 
     @SerializedName("LeftPadding")
-    private Double leftPadding = null;
+    protected Double leftPadding;
 
     @SerializedName("PreferredWidth")
-    private PreferredWidth preferredWidth = null;
+    protected PreferredWidth preferredWidth;
 
     @SerializedName("RightPadding")
-    private Double rightPadding = null;
+    protected Double rightPadding;
 
     @SerializedName("StyleIdentifier")
-    private StyleIdentifierEnum styleIdentifier = null;
+    protected StyleIdentifierEnum styleIdentifier;
 
     @SerializedName("StyleName")
-    private String styleName = null;
+    protected String styleName;
 
     @SerializedName("StyleOptions")
-    private StyleOptionsEnum styleOptions = null;
+    protected StyleOptionsEnum styleOptions;
 
     @SerializedName("TextWrapping")
-    private TextWrappingEnum textWrapping = null;
+    protected TextWrappingEnum textWrapping;
 
     @SerializedName("TopPadding")
-    private Double topPadding = null;
-    public TableProperties alignment(AlignmentEnum alignment) {
-        this.alignment = alignment;
-        return this;
-    }
-
+    protected Double topPadding;
     /**
      * Gets or sets the option that controls how an inline table is aligned in the document.
     * @return alignment
@@ -671,14 +666,15 @@ public class TableProperties extends LinkElement {
         return alignment;
     }
 
+    public TableProperties alignment(AlignmentEnum alignment) {
+        this.alignment = alignment;
+        return this;
+    }
+
     public void setAlignment(AlignmentEnum alignment) {
         this.alignment = alignment;
     }
 
-    public TableProperties allowAutoFit(Boolean allowAutoFit) {
-        this.allowAutoFit = allowAutoFit;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.
@@ -689,14 +685,15 @@ public class TableProperties extends LinkElement {
         return allowAutoFit;
     }
 
+    public TableProperties allowAutoFit(Boolean allowAutoFit) {
+        this.allowAutoFit = allowAutoFit;
+        return this;
+    }
+
     public void setAllowAutoFit(Boolean allowAutoFit) {
         this.allowAutoFit = allowAutoFit;
     }
 
-    public TableProperties bidi(Boolean bidi) {
-        this.bidi = bidi;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether this is a right-to-left table.
@@ -707,14 +704,15 @@ public class TableProperties extends LinkElement {
         return bidi;
     }
 
+    public TableProperties bidi(Boolean bidi) {
+        this.bidi = bidi;
+        return this;
+    }
+
     public void setBidi(Boolean bidi) {
         this.bidi = bidi;
     }
 
-    public TableProperties bottomPadding(Double bottomPadding) {
-        this.bottomPadding = bottomPadding;
-        return this;
-    }
 
     /**
      * Gets or sets the amount of space (in points) to add below the contents of cells.
@@ -725,14 +723,15 @@ public class TableProperties extends LinkElement {
         return bottomPadding;
     }
 
+    public TableProperties bottomPadding(Double bottomPadding) {
+        this.bottomPadding = bottomPadding;
+        return this;
+    }
+
     public void setBottomPadding(Double bottomPadding) {
         this.bottomPadding = bottomPadding;
     }
 
-    public TableProperties cellSpacing(Double cellSpacing) {
-        this.cellSpacing = cellSpacing;
-        return this;
-    }
 
     /**
      * Gets or sets the amount of space (in points) between the cells.
@@ -743,14 +742,15 @@ public class TableProperties extends LinkElement {
         return cellSpacing;
     }
 
+    public TableProperties cellSpacing(Double cellSpacing) {
+        this.cellSpacing = cellSpacing;
+        return this;
+    }
+
     public void setCellSpacing(Double cellSpacing) {
         this.cellSpacing = cellSpacing;
     }
 
-    public TableProperties leftIndent(Double leftIndent) {
-        this.leftIndent = leftIndent;
-        return this;
-    }
 
     /**
      * Gets or sets the value, that represents the left indent of the table.
@@ -761,14 +761,15 @@ public class TableProperties extends LinkElement {
         return leftIndent;
     }
 
+    public TableProperties leftIndent(Double leftIndent) {
+        this.leftIndent = leftIndent;
+        return this;
+    }
+
     public void setLeftIndent(Double leftIndent) {
         this.leftIndent = leftIndent;
     }
 
-    public TableProperties leftPadding(Double leftPadding) {
-        this.leftPadding = leftPadding;
-        return this;
-    }
 
     /**
      * Gets or sets the amount of space (in points) to add to the left of the contents of cells.
@@ -779,14 +780,15 @@ public class TableProperties extends LinkElement {
         return leftPadding;
     }
 
+    public TableProperties leftPadding(Double leftPadding) {
+        this.leftPadding = leftPadding;
+        return this;
+    }
+
     public void setLeftPadding(Double leftPadding) {
         this.leftPadding = leftPadding;
     }
 
-    public TableProperties preferredWidth(PreferredWidth preferredWidth) {
-        this.preferredWidth = preferredWidth;
-        return this;
-    }
 
     /**
      * Gets or sets the table preferred width.
@@ -798,14 +800,15 @@ public class TableProperties extends LinkElement {
         return preferredWidth;
     }
 
+    public TableProperties preferredWidth(PreferredWidth preferredWidth) {
+        this.preferredWidth = preferredWidth;
+        return this;
+    }
+
     public void setPreferredWidth(PreferredWidth preferredWidth) {
         this.preferredWidth = preferredWidth;
     }
 
-    public TableProperties rightPadding(Double rightPadding) {
-        this.rightPadding = rightPadding;
-        return this;
-    }
 
     /**
      * Gets or sets the amount of space (in points) to add to the right of the contents of cells.
@@ -816,14 +819,15 @@ public class TableProperties extends LinkElement {
         return rightPadding;
     }
 
+    public TableProperties rightPadding(Double rightPadding) {
+        this.rightPadding = rightPadding;
+        return this;
+    }
+
     public void setRightPadding(Double rightPadding) {
         this.rightPadding = rightPadding;
     }
 
-    public TableProperties styleIdentifier(StyleIdentifierEnum styleIdentifier) {
-        this.styleIdentifier = styleIdentifier;
-        return this;
-    }
 
     /**
      * Gets or sets the locale independent style identifier of the table style applied to this table.
@@ -834,14 +838,15 @@ public class TableProperties extends LinkElement {
         return styleIdentifier;
     }
 
+    public TableProperties styleIdentifier(StyleIdentifierEnum styleIdentifier) {
+        this.styleIdentifier = styleIdentifier;
+        return this;
+    }
+
     public void setStyleIdentifier(StyleIdentifierEnum styleIdentifier) {
         this.styleIdentifier = styleIdentifier;
     }
 
-    public TableProperties styleName(String styleName) {
-        this.styleName = styleName;
-        return this;
-    }
 
     /**
      * Gets or sets the name of the table style applied to this table.
@@ -852,14 +857,15 @@ public class TableProperties extends LinkElement {
         return styleName;
     }
 
+    public TableProperties styleName(String styleName) {
+        this.styleName = styleName;
+        return this;
+    }
+
     public void setStyleName(String styleName) {
         this.styleName = styleName;
     }
 
-    public TableProperties styleOptions(StyleOptionsEnum styleOptions) {
-        this.styleOptions = styleOptions;
-        return this;
-    }
 
     /**
      * Gets or sets the bit flags, that specify how a table style is applied to this table.
@@ -870,14 +876,15 @@ public class TableProperties extends LinkElement {
         return styleOptions;
     }
 
+    public TableProperties styleOptions(StyleOptionsEnum styleOptions) {
+        this.styleOptions = styleOptions;
+        return this;
+    }
+
     public void setStyleOptions(StyleOptionsEnum styleOptions) {
         this.styleOptions = styleOptions;
     }
 
-    public TableProperties textWrapping(TextWrappingEnum textWrapping) {
-        this.textWrapping = textWrapping;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls text wrapping for the table.
@@ -888,14 +895,15 @@ public class TableProperties extends LinkElement {
         return textWrapping;
     }
 
+    public TableProperties textWrapping(TextWrappingEnum textWrapping) {
+        this.textWrapping = textWrapping;
+        return this;
+    }
+
     public void setTextWrapping(TextWrappingEnum textWrapping) {
         this.textWrapping = textWrapping;
     }
 
-    public TableProperties topPadding(Double topPadding) {
-        this.topPadding = topPadding;
-        return this;
-    }
 
     /**
      * Gets or sets the amount of space (in points) to add above the contents of cells.
@@ -906,8 +914,32 @@ public class TableProperties extends LinkElement {
         return topPadding;
     }
 
+    public TableProperties topPadding(Double topPadding) {
+        this.topPadding = topPadding;
+        return this;
+    }
+
     public void setTopPadding(Double topPadding) {
         this.topPadding = topPadding;
+    }
+
+
+    public TableProperties() {
+        super();
+        this.alignment = null;
+        this.allowAutoFit = null;
+        this.bidi = null;
+        this.bottomPadding = null;
+        this.cellSpacing = null;
+        this.leftIndent = null;
+        this.leftPadding = null;
+        this.preferredWidth = null;
+        this.rightPadding = null;
+        this.styleIdentifier = null;
+        this.styleName = null;
+        this.styleOptions = null;
+        this.textWrapping = null;
+        this.topPadding = null;
     }
 
     @Override
@@ -947,21 +979,21 @@ public class TableProperties extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableProperties {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    alignment: ").append(toIndentedString(alignment)).append("\n");
-    sb.append("    allowAutoFit: ").append(toIndentedString(allowAutoFit)).append("\n");
-    sb.append("    bidi: ").append(toIndentedString(bidi)).append("\n");
-    sb.append("    bottomPadding: ").append(toIndentedString(bottomPadding)).append("\n");
-    sb.append("    cellSpacing: ").append(toIndentedString(cellSpacing)).append("\n");
-    sb.append("    leftIndent: ").append(toIndentedString(leftIndent)).append("\n");
-    sb.append("    leftPadding: ").append(toIndentedString(leftPadding)).append("\n");
-    sb.append("    preferredWidth: ").append(toIndentedString(preferredWidth)).append("\n");
-    sb.append("    rightPadding: ").append(toIndentedString(rightPadding)).append("\n");
-    sb.append("    styleIdentifier: ").append(toIndentedString(styleIdentifier)).append("\n");
-    sb.append("    styleName: ").append(toIndentedString(styleName)).append("\n");
-    sb.append("    styleOptions: ").append(toIndentedString(styleOptions)).append("\n");
-    sb.append("    textWrapping: ").append(toIndentedString(textWrapping)).append("\n");
-    sb.append("    topPadding: ").append(toIndentedString(topPadding)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    alignment: ").append(toIndentedString(getAlignment())).append("\n");
+    sb.append("    allowAutoFit: ").append(toIndentedString(getAllowAutoFit())).append("\n");
+    sb.append("    bidi: ").append(toIndentedString(getBidi())).append("\n");
+    sb.append("    bottomPadding: ").append(toIndentedString(getBottomPadding())).append("\n");
+    sb.append("    cellSpacing: ").append(toIndentedString(getCellSpacing())).append("\n");
+    sb.append("    leftIndent: ").append(toIndentedString(getLeftIndent())).append("\n");
+    sb.append("    leftPadding: ").append(toIndentedString(getLeftPadding())).append("\n");
+    sb.append("    preferredWidth: ").append(toIndentedString(getPreferredWidth())).append("\n");
+    sb.append("    rightPadding: ").append(toIndentedString(getRightPadding())).append("\n");
+    sb.append("    styleIdentifier: ").append(toIndentedString(getStyleIdentifier())).append("\n");
+    sb.append("    styleName: ").append(toIndentedString(getStyleName())).append("\n");
+    sb.append("    styleOptions: ").append(toIndentedString(getStyleOptions())).append("\n");
+    sb.append("    textWrapping: ").append(toIndentedString(getTextWrapping())).append("\n");
+    sb.append("    topPadding: ").append(toIndentedString(getTopPadding())).append("\n");
     sb.append("}");
     return sb.toString();
   }

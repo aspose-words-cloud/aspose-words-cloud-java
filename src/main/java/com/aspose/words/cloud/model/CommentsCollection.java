@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The collection of comments.")
 public class CommentsCollection extends LinkElement {
     @SerializedName("CommentList")
-    private List<Comment> commentList = null;
+    protected List<Comment> commentList;
+    /**
+     * Gets or sets the collection of comments.
+    * @return commentList
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of comments.")
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
     public CommentsCollection commentList(List<Comment> commentList) {
         this.commentList = commentList;
         return this;
@@ -62,17 +71,15 @@ public class CommentsCollection extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of comments.
-    * @return commentList
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of comments.")
-    public List<Comment> getCommentList() {
-        return commentList;
-    }
 
     public void setCommentList(List<Comment> commentList) {
         this.commentList = commentList;
+    }
+
+
+    public CommentsCollection() {
+        super();
+        this.commentList = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class CommentsCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommentsCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    commentList: ").append(toIndentedString(commentList)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    commentList: ").append(toIndentedString(getCommentList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

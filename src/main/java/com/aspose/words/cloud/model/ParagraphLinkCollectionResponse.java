@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a collection of paragraphs.")
 public class ParagraphLinkCollectionResponse extends WordsResponse {
     @SerializedName("Paragraphs")
-    private ParagraphLinkCollection paragraphs = null;
-    public ParagraphLinkCollectionResponse paragraphs(ParagraphLinkCollection paragraphs) {
-        this.paragraphs = paragraphs;
-        return this;
-    }
-
+    protected ParagraphLinkCollection paragraphs;
     /**
      * Gets or sets the collection of paragraphs.
     * @return paragraphs
@@ -63,8 +58,19 @@ public class ParagraphLinkCollectionResponse extends WordsResponse {
         return paragraphs;
     }
 
+    public ParagraphLinkCollectionResponse paragraphs(ParagraphLinkCollection paragraphs) {
+        this.paragraphs = paragraphs;
+        return this;
+    }
+
     public void setParagraphs(ParagraphLinkCollection paragraphs) {
         this.paragraphs = paragraphs;
+    }
+
+
+    public ParagraphLinkCollectionResponse() {
+        super();
+        this.paragraphs = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class ParagraphLinkCollectionResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphLinkCollectionResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    paragraphs: ").append(toIndentedString(paragraphs)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    paragraphs: ").append(toIndentedString(getParagraphs())).append("\n");
     sb.append("}");
     return sb.toString();
   }

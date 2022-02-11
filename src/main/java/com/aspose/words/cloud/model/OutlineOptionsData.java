@@ -48,22 +48,31 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for outline options.")
 public class OutlineOptionsData {
     @SerializedName("BookmarksOutlineLevels")
-    private List<BookmarksOutlineLevelData> bookmarksOutlineLevels = null;
+    protected List<BookmarksOutlineLevelData> bookmarksOutlineLevels;
 
     @SerializedName("CreateMissingOutlineLevels")
-    private Boolean createMissingOutlineLevels = null;
+    protected Boolean createMissingOutlineLevels;
 
     @SerializedName("CreateOutlinesForHeadingsInTables")
-    private Boolean createOutlinesForHeadingsInTables = null;
+    protected Boolean createOutlinesForHeadingsInTables;
 
     @SerializedName("DefaultBookmarksOutlineLevel")
-    private Integer defaultBookmarksOutlineLevel = null;
+    protected Integer defaultBookmarksOutlineLevel;
 
     @SerializedName("ExpandedOutlineLevels")
-    private Integer expandedOutlineLevels = null;
+    protected Integer expandedOutlineLevels;
 
     @SerializedName("HeadingsOutlineLevels")
-    private Integer headingsOutlineLevels = null;
+    protected Integer headingsOutlineLevels;
+    /**
+     * Gets or sets the individual bookmarks outline level.
+    * @return bookmarksOutlineLevels
+    **/
+    @ApiModelProperty(value = "Gets or sets the individual bookmarks outline level.")
+    public List<BookmarksOutlineLevelData> getBookmarksOutlineLevels() {
+        return bookmarksOutlineLevels;
+    }
+
     public OutlineOptionsData bookmarksOutlineLevels(List<BookmarksOutlineLevelData> bookmarksOutlineLevels) {
         this.bookmarksOutlineLevels = bookmarksOutlineLevels;
         return this;
@@ -77,23 +86,11 @@ public class OutlineOptionsData {
         return this;
     }
 
-    /**
-     * Gets or sets the individual bookmarks outline level.
-    * @return bookmarksOutlineLevels
-    **/
-    @ApiModelProperty(value = "Gets or sets the individual bookmarks outline level.")
-    public List<BookmarksOutlineLevelData> getBookmarksOutlineLevels() {
-        return bookmarksOutlineLevels;
-    }
 
     public void setBookmarksOutlineLevels(List<BookmarksOutlineLevelData> bookmarksOutlineLevels) {
         this.bookmarksOutlineLevels = bookmarksOutlineLevels;
     }
 
-    public OutlineOptionsData createMissingOutlineLevels(Boolean createMissingOutlineLevels) {
-        this.createMissingOutlineLevels = createMissingOutlineLevels;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to create missing outline levels when the document is exported. The default value is false.
@@ -104,14 +101,15 @@ public class OutlineOptionsData {
         return createMissingOutlineLevels;
     }
 
+    public OutlineOptionsData createMissingOutlineLevels(Boolean createMissingOutlineLevels) {
+        this.createMissingOutlineLevels = createMissingOutlineLevels;
+        return this;
+    }
+
     public void setCreateMissingOutlineLevels(Boolean createMissingOutlineLevels) {
         this.createMissingOutlineLevels = createMissingOutlineLevels;
     }
 
-    public OutlineOptionsData createOutlinesForHeadingsInTables(Boolean createOutlinesForHeadingsInTables) {
-        this.createOutlinesForHeadingsInTables = createOutlinesForHeadingsInTables;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.
@@ -122,14 +120,15 @@ public class OutlineOptionsData {
         return createOutlinesForHeadingsInTables;
     }
 
+    public OutlineOptionsData createOutlinesForHeadingsInTables(Boolean createOutlinesForHeadingsInTables) {
+        this.createOutlinesForHeadingsInTables = createOutlinesForHeadingsInTables;
+        return this;
+    }
+
     public void setCreateOutlinesForHeadingsInTables(Boolean createOutlinesForHeadingsInTables) {
         this.createOutlinesForHeadingsInTables = createOutlinesForHeadingsInTables;
     }
 
-    public OutlineOptionsData defaultBookmarksOutlineLevel(Integer defaultBookmarksOutlineLevel) {
-        this.defaultBookmarksOutlineLevel = defaultBookmarksOutlineLevel;
-        return this;
-    }
 
     /**
      * Gets or sets the default level in the document outline at which to display Word bookmarks.
@@ -140,14 +139,15 @@ public class OutlineOptionsData {
         return defaultBookmarksOutlineLevel;
     }
 
+    public OutlineOptionsData defaultBookmarksOutlineLevel(Integer defaultBookmarksOutlineLevel) {
+        this.defaultBookmarksOutlineLevel = defaultBookmarksOutlineLevel;
+        return this;
+    }
+
     public void setDefaultBookmarksOutlineLevel(Integer defaultBookmarksOutlineLevel) {
         this.defaultBookmarksOutlineLevel = defaultBookmarksOutlineLevel;
     }
 
-    public OutlineOptionsData expandedOutlineLevels(Integer expandedOutlineLevels) {
-        this.expandedOutlineLevels = expandedOutlineLevels;
-        return this;
-    }
 
     /**
      * Gets or sets the number of levels in the document outline to show expanded when the file is viewed.
@@ -158,14 +158,15 @@ public class OutlineOptionsData {
         return expandedOutlineLevels;
     }
 
+    public OutlineOptionsData expandedOutlineLevels(Integer expandedOutlineLevels) {
+        this.expandedOutlineLevels = expandedOutlineLevels;
+        return this;
+    }
+
     public void setExpandedOutlineLevels(Integer expandedOutlineLevels) {
         this.expandedOutlineLevels = expandedOutlineLevels;
     }
 
-    public OutlineOptionsData headingsOutlineLevels(Integer headingsOutlineLevels) {
-        this.headingsOutlineLevels = headingsOutlineLevels;
-        return this;
-    }
 
     /**
      * Gets or sets the number of levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
@@ -176,8 +177,23 @@ public class OutlineOptionsData {
         return headingsOutlineLevels;
     }
 
+    public OutlineOptionsData headingsOutlineLevels(Integer headingsOutlineLevels) {
+        this.headingsOutlineLevels = headingsOutlineLevels;
+        return this;
+    }
+
     public void setHeadingsOutlineLevels(Integer headingsOutlineLevels) {
         this.headingsOutlineLevels = headingsOutlineLevels;
+    }
+
+
+    public OutlineOptionsData() {
+        this.bookmarksOutlineLevels = null;
+        this.createMissingOutlineLevels = null;
+        this.createOutlinesForHeadingsInTables = null;
+        this.defaultBookmarksOutlineLevel = null;
+        this.expandedOutlineLevels = null;
+        this.headingsOutlineLevels = null;
     }
 
     @Override
@@ -208,12 +224,12 @@ public class OutlineOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OutlineOptionsData {\n");
-    sb.append("    bookmarksOutlineLevels: ").append(toIndentedString(bookmarksOutlineLevels)).append("\n");
-    sb.append("    createMissingOutlineLevels: ").append(toIndentedString(createMissingOutlineLevels)).append("\n");
-    sb.append("    createOutlinesForHeadingsInTables: ").append(toIndentedString(createOutlinesForHeadingsInTables)).append("\n");
-    sb.append("    defaultBookmarksOutlineLevel: ").append(toIndentedString(defaultBookmarksOutlineLevel)).append("\n");
-    sb.append("    expandedOutlineLevels: ").append(toIndentedString(expandedOutlineLevels)).append("\n");
-    sb.append("    headingsOutlineLevels: ").append(toIndentedString(headingsOutlineLevels)).append("\n");
+    sb.append("    bookmarksOutlineLevels: ").append(toIndentedString(getBookmarksOutlineLevels())).append("\n");
+    sb.append("    createMissingOutlineLevels: ").append(toIndentedString(getCreateMissingOutlineLevels())).append("\n");
+    sb.append("    createOutlinesForHeadingsInTables: ").append(toIndentedString(getCreateOutlinesForHeadingsInTables())).append("\n");
+    sb.append("    defaultBookmarksOutlineLevel: ").append(toIndentedString(getDefaultBookmarksOutlineLevel())).append("\n");
+    sb.append("    expandedOutlineLevels: ").append(toIndentedString(getExpandedOutlineLevels())).append("\n");
+    sb.append("    headingsOutlineLevels: ").append(toIndentedString(getHeadingsOutlineLevels())).append("\n");
     sb.append("}");
     return sb.toString();
   }

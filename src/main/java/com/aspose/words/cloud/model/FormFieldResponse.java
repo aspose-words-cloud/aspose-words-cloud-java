@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a form field.")
 public class FormFieldResponse extends WordsResponse {
     @SerializedName("FormField")
-    private FormField formField = null;
-    public FormFieldResponse formField(FormField formField) {
-        this.formField = formField;
-        return this;
-    }
-
+    protected FormField formField;
     /**
      * Gets or sets the form field.
     * @return formField
@@ -63,8 +58,19 @@ public class FormFieldResponse extends WordsResponse {
         return formField;
     }
 
+    public FormFieldResponse formField(FormField formField) {
+        this.formField = formField;
+        return this;
+    }
+
     public void setFormField(FormField formField) {
         this.formField = formField;
+    }
+
+
+    public FormFieldResponse() {
+        super();
+        this.formField = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class FormFieldResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormFieldResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    formField: ").append(toIndentedString(formField)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    formField: ").append(toIndentedString(getFormField())).append("\n");
     sb.append("}");
     return sb.toString();
   }

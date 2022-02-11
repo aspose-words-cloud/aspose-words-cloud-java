@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a style.")
 public class StyleResponse extends WordsResponse {
     @SerializedName("Style")
-    private Style style = null;
-    public StyleResponse style(Style style) {
-        this.style = style;
-        return this;
-    }
-
+    protected Style style;
     /**
      * Gets or sets the style, containded in the document.
     * @return style
@@ -63,8 +58,19 @@ public class StyleResponse extends WordsResponse {
         return style;
     }
 
+    public StyleResponse style(Style style) {
+        this.style = style;
+        return this;
+    }
+
     public void setStyle(Style style) {
         this.style = style;
+    }
+
+
+    public StyleResponse() {
+        super();
+        this.style = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class StyleResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StyleResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    style: ").append(toIndentedString(style)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    style: ").append(toIndentedString(getStyle())).append("\n");
     sb.append("}");
     return sb.toString();
   }

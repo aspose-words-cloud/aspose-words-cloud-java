@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Utility class for Color serialization.")
 public class XmlColor {
     @SerializedName("Alpha")
-    private Integer alpha = null;
+    protected Integer alpha;
 
     @SerializedName("Web")
-    private String web = null;
-    public XmlColor alpha(Integer alpha) {
-        this.alpha = alpha;
-        return this;
-    }
-
+    protected String web;
     /**
      * Gets or sets the Alpha component of color structure.
     * @return alpha
@@ -66,14 +61,15 @@ public class XmlColor {
         return alpha;
     }
 
+    public XmlColor alpha(Integer alpha) {
+        this.alpha = alpha;
+        return this;
+    }
+
     public void setAlpha(Integer alpha) {
         this.alpha = alpha;
     }
 
-    public XmlColor web(String web) {
-        this.web = web;
-        return this;
-    }
 
     /**
      * Gets or sets the HTML string color representation.
@@ -84,8 +80,19 @@ public class XmlColor {
         return web;
     }
 
+    public XmlColor web(String web) {
+        this.web = web;
+        return this;
+    }
+
     public void setWeb(String web) {
         this.web = web;
+    }
+
+
+    public XmlColor() {
+        this.alpha = null;
+        this.web = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class XmlColor {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class XmlColor {\n");
-    sb.append("    alpha: ").append(toIndentedString(alpha)).append("\n");
-    sb.append("    web: ").append(toIndentedString(web)).append("\n");
+    sb.append("    alpha: ").append(toIndentedString(getAlpha())).append("\n");
+    sb.append("    web: ").append(toIndentedString(getWeb())).append("\n");
     sb.append("}");
     return sb.toString();
   }

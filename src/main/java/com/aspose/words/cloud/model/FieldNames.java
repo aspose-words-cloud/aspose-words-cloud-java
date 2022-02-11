@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents a collection of merge fields within a document.")
 public class FieldNames extends LinkElement {
     @SerializedName("Names")
-    private List<String> names = null;
+    protected List<String> names;
+    /**
+     * Gets or sets the collection of fields names.
+    * @return names
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of fields names.")
+    public List<String> getNames() {
+        return names;
+    }
+
     public FieldNames names(List<String> names) {
         this.names = names;
         return this;
@@ -62,17 +71,15 @@ public class FieldNames extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of fields names.
-    * @return names
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of fields names.")
-    public List<String> getNames() {
-        return names;
-    }
 
     public void setNames(List<String> names) {
         this.names = names;
+    }
+
+
+    public FieldNames() {
+        super();
+        this.names = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class FieldNames extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldNames {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    names: ").append(toIndentedString(names)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    names: ").append(toIndentedString(getNames())).append("\n");
     sb.append("}");
     return sb.toString();
   }

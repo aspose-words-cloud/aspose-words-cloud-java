@@ -47,6 +47,9 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "")
 public class FontDto {
 
+    public FontDto() {
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

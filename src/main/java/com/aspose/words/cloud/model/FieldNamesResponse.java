@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a collection of mail merge fields.")
 public class FieldNamesResponse extends WordsResponse {
     @SerializedName("FieldNames")
-    private FieldNames fieldNames = null;
-    public FieldNamesResponse fieldNames(FieldNames fieldNames) {
-        this.fieldNames = fieldNames;
-        return this;
-    }
-
+    protected FieldNames fieldNames;
     /**
      * Gets or sets the collection of mail merge fields.
     * @return fieldNames
@@ -63,8 +58,19 @@ public class FieldNamesResponse extends WordsResponse {
         return fieldNames;
     }
 
+    public FieldNamesResponse fieldNames(FieldNames fieldNames) {
+        this.fieldNames = fieldNames;
+        return this;
+    }
+
     public void setFieldNames(FieldNames fieldNames) {
         this.fieldNames = fieldNames;
+    }
+
+
+    public FieldNamesResponse() {
+        super();
+        this.fieldNames = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class FieldNamesResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldNamesResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    fieldNames: ").append(toIndentedString(fieldNames)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    fieldNames: ").append(toIndentedString(getFieldNames())).append("\n");
     sb.append("}");
     return sb.toString();
   }

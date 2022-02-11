@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Result of search operation.")
 public class SearchResult {
     @SerializedName("RangeEnd")
-    private DocumentPosition rangeEnd = null;
+    protected DocumentPosition rangeEnd;
 
     @SerializedName("RangeStart")
-    private DocumentPosition rangeStart = null;
-    public SearchResult rangeEnd(DocumentPosition rangeEnd) {
-        this.rangeEnd = rangeEnd;
-        return this;
-    }
-
+    protected DocumentPosition rangeStart;
     /**
      * Gets or sets the link to result range end node.
     * @return rangeEnd
@@ -66,14 +61,15 @@ public class SearchResult {
         return rangeEnd;
     }
 
+    public SearchResult rangeEnd(DocumentPosition rangeEnd) {
+        this.rangeEnd = rangeEnd;
+        return this;
+    }
+
     public void setRangeEnd(DocumentPosition rangeEnd) {
         this.rangeEnd = rangeEnd;
     }
 
-    public SearchResult rangeStart(DocumentPosition rangeStart) {
-        this.rangeStart = rangeStart;
-        return this;
-    }
 
     /**
      * Gets or sets the link to result range start node.
@@ -84,8 +80,19 @@ public class SearchResult {
         return rangeStart;
     }
 
+    public SearchResult rangeStart(DocumentPosition rangeStart) {
+        this.rangeStart = rangeStart;
+        return this;
+    }
+
     public void setRangeStart(DocumentPosition rangeStart) {
         this.rangeStart = rangeStart;
+    }
+
+
+    public SearchResult() {
+        this.rangeEnd = null;
+        this.rangeStart = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class SearchResult {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResult {\n");
-    sb.append("    rangeEnd: ").append(toIndentedString(rangeEnd)).append("\n");
-    sb.append("    rangeStart: ").append(toIndentedString(rangeStart)).append("\n");
+    sb.append("    rangeEnd: ").append(toIndentedString(getRangeEnd())).append("\n");
+    sb.append("    rangeStart: ").append(toIndentedString(getRangeStart())).append("\n");
     sb.append("}");
     return sb.toString();
   }

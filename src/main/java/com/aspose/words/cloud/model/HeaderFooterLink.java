@@ -98,12 +98,7 @@ public class HeaderFooterLink extends LinkElement {
     }
 
     @SerializedName("Type")
-    private TypeEnum type = null;
-    public HeaderFooterLink type(TypeEnum type) {
-        this.type = type;
-        return this;
-    }
-
+    protected TypeEnum type;
     /**
      * Gets or sets the paragraph's text.
     * @return type
@@ -113,8 +108,19 @@ public class HeaderFooterLink extends LinkElement {
         return type;
     }
 
+    public HeaderFooterLink type(TypeEnum type) {
+        this.type = type;
+        return this;
+    }
+
     public void setType(TypeEnum type) {
         this.type = type;
+    }
+
+
+    public HeaderFooterLink() {
+        super();
+        this.type = null;
     }
 
     @Override
@@ -141,8 +147,8 @@ public class HeaderFooterLink extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeaderFooterLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    type: ").append(toIndentedString(getType())).append("\n");
     sb.append("}");
     return sb.toString();
   }

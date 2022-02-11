@@ -46,14 +46,9 @@ import io.swagger.annotations.ApiModelProperty;
  * Run element.
  */
 @ApiModel(description = "Run element.")
-public class RunBase {
+public abstract class RunBase {
     @SerializedName("Text")
-    private String text = null;
-    public RunBase text(String text) {
-        this.text = text;
-        return this;
-    }
-
+    protected String text;
     /**
      * Gets or sets the run's text.
     * @return text
@@ -63,8 +58,18 @@ public class RunBase {
         return text;
     }
 
+    public RunBase text(String text) {
+        this.text = text;
+        return this;
+    }
+
     public void setText(String text) {
         this.text = text;
+    }
+
+
+    public RunBase() {
+        this.text = null;
     }
 
     @Override
@@ -90,7 +95,7 @@ public class RunBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RunBase {\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

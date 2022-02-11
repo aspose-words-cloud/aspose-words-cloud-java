@@ -48,13 +48,22 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with data on system, additional and custom fonts, available for document processing.")
 public class AvailableFontsResponse extends WordsResponse {
     @SerializedName("AdditionalFonts")
-    private List<FontInfo> additionalFonts = null;
+    protected List<FontInfo> additionalFonts;
 
     @SerializedName("CustomFonts")
-    private List<FontInfo> customFonts = null;
+    protected List<FontInfo> customFonts;
 
     @SerializedName("SystemFonts")
-    private List<FontInfo> systemFonts = null;
+    protected List<FontInfo> systemFonts;
+    /**
+     * Gets or sets the list of additional fonts, provided by Aspose team.
+    * @return additionalFonts
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of additional fonts, provided by Aspose team.")
+    public List<FontInfo> getAdditionalFonts() {
+        return additionalFonts;
+    }
+
     public AvailableFontsResponse additionalFonts(List<FontInfo> additionalFonts) {
         this.additionalFonts = additionalFonts;
         return this;
@@ -68,17 +77,19 @@ public class AvailableFontsResponse extends WordsResponse {
         return this;
     }
 
-    /**
-     * Gets or sets the list of additional fonts, provided by Aspose team.
-    * @return additionalFonts
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of additional fonts, provided by Aspose team.")
-    public List<FontInfo> getAdditionalFonts() {
-        return additionalFonts;
-    }
 
     public void setAdditionalFonts(List<FontInfo> additionalFonts) {
         this.additionalFonts = additionalFonts;
+    }
+
+
+    /**
+     * Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify "fontsLocation" parameter in any request.
+    * @return customFonts
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify \"fontsLocation\" parameter in any request.")
+    public List<FontInfo> getCustomFonts() {
+        return customFonts;
     }
 
     public AvailableFontsResponse customFonts(List<FontInfo> customFonts) {
@@ -94,17 +105,19 @@ public class AvailableFontsResponse extends WordsResponse {
         return this;
     }
 
-    /**
-     * Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify "fontsLocation" parameter in any request.
-    * @return customFonts
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify \"fontsLocation\" parameter in any request.")
-    public List<FontInfo> getCustomFonts() {
-        return customFonts;
-    }
 
     public void setCustomFonts(List<FontInfo> customFonts) {
         this.customFonts = customFonts;
+    }
+
+
+    /**
+     * Gets or sets the list of system fonts, available on the server.
+    * @return systemFonts
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of system fonts, available on the server.")
+    public List<FontInfo> getSystemFonts() {
+        return systemFonts;
     }
 
     public AvailableFontsResponse systemFonts(List<FontInfo> systemFonts) {
@@ -120,17 +133,17 @@ public class AvailableFontsResponse extends WordsResponse {
         return this;
     }
 
-    /**
-     * Gets or sets the list of system fonts, available on the server.
-    * @return systemFonts
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of system fonts, available on the server.")
-    public List<FontInfo> getSystemFonts() {
-        return systemFonts;
-    }
 
     public void setSystemFonts(List<FontInfo> systemFonts) {
         this.systemFonts = systemFonts;
+    }
+
+
+    public AvailableFontsResponse() {
+        super();
+        this.additionalFonts = null;
+        this.customFonts = null;
+        this.systemFonts = null;
     }
 
     @Override
@@ -159,10 +172,10 @@ public class AvailableFontsResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AvailableFontsResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    additionalFonts: ").append(toIndentedString(additionalFonts)).append("\n");
-    sb.append("    customFonts: ").append(toIndentedString(customFonts)).append("\n");
-    sb.append("    systemFonts: ").append(toIndentedString(systemFonts)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    additionalFonts: ").append(toIndentedString(getAdditionalFonts())).append("\n");
+    sb.append("    customFonts: ").append(toIndentedString(getCustomFonts())).append("\n");
+    sb.append("    systemFonts: ").append(toIndentedString(getSystemFonts())).append("\n");
     sb.append("}");
     return sb.toString();
   }

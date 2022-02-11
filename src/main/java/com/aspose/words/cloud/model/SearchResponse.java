@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a regular expression pattern and a collection of search results.")
 public class SearchResponse extends WordsResponse {
     @SerializedName("SearchingPattern")
-    private String searchingPattern = null;
+    protected String searchingPattern;
 
     @SerializedName("SearchResults")
-    private SearchResultsCollection searchResults = null;
-    public SearchResponse searchingPattern(String searchingPattern) {
-        this.searchingPattern = searchingPattern;
-        return this;
-    }
-
+    protected SearchResultsCollection searchResults;
     /**
      * Gets or sets the regular expression pattern used to find matches.
     * @return searchingPattern
@@ -66,14 +61,15 @@ public class SearchResponse extends WordsResponse {
         return searchingPattern;
     }
 
+    public SearchResponse searchingPattern(String searchingPattern) {
+        this.searchingPattern = searchingPattern;
+        return this;
+    }
+
     public void setSearchingPattern(String searchingPattern) {
         this.searchingPattern = searchingPattern;
     }
 
-    public SearchResponse searchResults(SearchResultsCollection searchResults) {
-        this.searchResults = searchResults;
-        return this;
-    }
 
     /**
      * Gets or sets the collection of search results.
@@ -84,8 +80,20 @@ public class SearchResponse extends WordsResponse {
         return searchResults;
     }
 
+    public SearchResponse searchResults(SearchResultsCollection searchResults) {
+        this.searchResults = searchResults;
+        return this;
+    }
+
     public void setSearchResults(SearchResultsCollection searchResults) {
         this.searchResults = searchResults;
+    }
+
+
+    public SearchResponse() {
+        super();
+        this.searchingPattern = null;
+        this.searchResults = null;
     }
 
     @Override
@@ -113,9 +121,9 @@ public class SearchResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    searchingPattern: ").append(toIndentedString(searchingPattern)).append("\n");
-    sb.append("    searchResults: ").append(toIndentedString(searchResults)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    searchingPattern: ").append(toIndentedString(getSearchingPattern())).append("\n");
+    sb.append("    searchResults: ").append(toIndentedString(getSearchResults())).append("\n");
     sb.append("}");
     return sb.toString();
   }

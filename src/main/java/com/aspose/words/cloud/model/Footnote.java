@@ -94,24 +94,19 @@ public class Footnote extends FootnoteLink {
     }
 
     @SerializedName("Content")
-    private StoryChildNodes content = null;
+    protected StoryChildNodes content;
 
     @SerializedName("FootnoteType")
-    private FootnoteTypeEnum footnoteType = null;
+    protected FootnoteTypeEnum footnoteType;
 
     @SerializedName("Position")
-    private DocumentPosition position = null;
+    protected DocumentPosition position;
 
     @SerializedName("ReferenceMark")
-    private String referenceMark = null;
+    protected String referenceMark;
 
     @SerializedName("Text")
-    private String text = null;
-    public Footnote content(StoryChildNodes content) {
-        this.content = content;
-        return this;
-    }
-
+    protected String text;
     /**
      * Gets or sets the content of the footnote.
     * @return content
@@ -121,14 +116,15 @@ public class Footnote extends FootnoteLink {
         return content;
     }
 
+    public Footnote content(StoryChildNodes content) {
+        this.content = content;
+        return this;
+    }
+
     public void setContent(StoryChildNodes content) {
         this.content = content;
     }
 
-    public Footnote footnoteType(FootnoteTypeEnum footnoteType) {
-        this.footnoteType = footnoteType;
-        return this;
-    }
 
     /**
      * Gets or sets the value, that specifies whether this is a footnote or endnote.
@@ -139,14 +135,15 @@ public class Footnote extends FootnoteLink {
         return footnoteType;
     }
 
+    public Footnote footnoteType(FootnoteTypeEnum footnoteType) {
+        this.footnoteType = footnoteType;
+        return this;
+    }
+
     public void setFootnoteType(FootnoteTypeEnum footnoteType) {
         this.footnoteType = footnoteType;
     }
 
-    public Footnote position(DocumentPosition position) {
-        this.position = position;
-        return this;
-    }
 
     /**
      * Gets or sets the link to comment range start node.
@@ -157,14 +154,15 @@ public class Footnote extends FootnoteLink {
         return position;
     }
 
+    public Footnote position(DocumentPosition position) {
+        this.position = position;
+        return this;
+    }
+
     public void setPosition(DocumentPosition position) {
         this.position = position;
     }
 
-    public Footnote referenceMark(String referenceMark) {
-        this.referenceMark = referenceMark;
-        return this;
-    }
 
     /**
      * Gets or sets the custom reference mark to be used for this footnote.
@@ -176,14 +174,15 @@ public class Footnote extends FootnoteLink {
         return referenceMark;
     }
 
+    public Footnote referenceMark(String referenceMark) {
+        this.referenceMark = referenceMark;
+        return this;
+    }
+
     public void setReferenceMark(String referenceMark) {
         this.referenceMark = referenceMark;
     }
 
-    public Footnote text(String text) {
-        this.text = text;
-        return this;
-    }
 
     /**
      * Gets or sets text of the footnote.
@@ -194,8 +193,23 @@ public class Footnote extends FootnoteLink {
         return text;
     }
 
+    public Footnote text(String text) {
+        this.text = text;
+        return this;
+    }
+
     public void setText(String text) {
         this.text = text;
+    }
+
+
+    public Footnote() {
+        super();
+        this.content = null;
+        this.footnoteType = null;
+        this.position = null;
+        this.referenceMark = null;
+        this.text = null;
     }
 
     @Override
@@ -226,12 +240,13 @@ public class Footnote extends FootnoteLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Footnote {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    footnoteType: ").append(toIndentedString(footnoteType)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
-    sb.append("    referenceMark: ").append(toIndentedString(referenceMark)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
+    sb.append("    content: ").append(toIndentedString(getContent())).append("\n");
+    sb.append("    footnoteType: ").append(toIndentedString(getFootnoteType())).append("\n");
+    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
+    sb.append("    referenceMark: ").append(toIndentedString(getReferenceMark())).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

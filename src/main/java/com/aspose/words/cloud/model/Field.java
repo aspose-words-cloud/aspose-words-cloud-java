@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a field.")
 public class Field extends FieldLink {
     @SerializedName("LocaleId")
-    private String localeId = null;
+    protected String localeId;
 
     @SerializedName("Result")
-    private String result = null;
-    public Field localeId(String localeId) {
-        this.localeId = localeId;
-        return this;
-    }
-
+    protected String result;
     /**
      * Gets or sets the LCID of the field.
     * @return localeId
@@ -66,14 +61,15 @@ public class Field extends FieldLink {
         return localeId;
     }
 
+    public Field localeId(String localeId) {
+        this.localeId = localeId;
+        return this;
+    }
+
     public void setLocaleId(String localeId) {
         this.localeId = localeId;
     }
 
-    public Field result(String result) {
-        this.result = result;
-        return this;
-    }
 
     /**
      * Gets or sets the field result.
@@ -84,8 +80,20 @@ public class Field extends FieldLink {
         return result;
     }
 
+    public Field result(String result) {
+        this.result = result;
+        return this;
+    }
+
     public void setResult(String result) {
         this.result = result;
+    }
+
+
+    public Field() {
+        super();
+        this.localeId = null;
+        this.result = null;
     }
 
     @Override
@@ -113,9 +121,11 @@ public class Field extends FieldLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Field {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    localeId: ").append(toIndentedString(localeId)).append("\n");
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
+    sb.append("    fieldCode: ").append(toIndentedString(getFieldCode())).append("\n");
+    sb.append("    localeId: ").append(toIndentedString(getLocaleId())).append("\n");
+    sb.append("    result: ").append(toIndentedString(getResult())).append("\n");
     sb.append("}");
     return sb.toString();
   }

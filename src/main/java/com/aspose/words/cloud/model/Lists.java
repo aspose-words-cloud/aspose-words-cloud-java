@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with an array of document lists.")
 public class Lists extends LinkElement {
     @SerializedName("ListInfo")
-    private List<ListInfo> listInfo = null;
+    protected List<ListInfo> listInfo;
+    /**
+     * Gets or sets the array of document lists.
+    * @return listInfo
+    **/
+    @ApiModelProperty(value = "Gets or sets the array of document lists.")
+    public List<ListInfo> getListInfo() {
+        return listInfo;
+    }
+
     public Lists listInfo(List<ListInfo> listInfo) {
         this.listInfo = listInfo;
         return this;
@@ -62,17 +71,15 @@ public class Lists extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the array of document lists.
-    * @return listInfo
-    **/
-    @ApiModelProperty(value = "Gets or sets the array of document lists.")
-    public List<ListInfo> getListInfo() {
-        return listInfo;
-    }
 
     public void setListInfo(List<ListInfo> listInfo) {
         this.listInfo = listInfo;
+    }
+
+
+    public Lists() {
+        super();
+        this.listInfo = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class Lists extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Lists {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    listInfo: ").append(toIndentedString(listInfo)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    listInfo: ").append(toIndentedString(getListInfo())).append("\n");
     sb.append("}");
     return sb.toString();
   }

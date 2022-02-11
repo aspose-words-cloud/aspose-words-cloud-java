@@ -48,13 +48,22 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Response with API info.")
 public class InfoResponse extends WordsResponse {
     @SerializedName("AdditionalInfo")
-    private List<InfoAdditionalItem> additionalInfo = null;
+    protected List<InfoAdditionalItem> additionalInfo;
 
     @SerializedName("Name")
-    private String name = null;
+    protected String name;
 
     @SerializedName("Version")
-    private String version = null;
+    protected String version;
+    /**
+     * Gets or sets additional info.
+    * @return additionalInfo
+    **/
+    @ApiModelProperty(value = "Gets or sets additional info.")
+    public List<InfoAdditionalItem> getAdditionalInfo() {
+        return additionalInfo;
+    }
+
     public InfoResponse additionalInfo(List<InfoAdditionalItem> additionalInfo) {
         this.additionalInfo = additionalInfo;
         return this;
@@ -68,23 +77,11 @@ public class InfoResponse extends WordsResponse {
         return this;
     }
 
-    /**
-     * Gets or sets additional info.
-    * @return additionalInfo
-    **/
-    @ApiModelProperty(value = "Gets or sets additional info.")
-    public List<InfoAdditionalItem> getAdditionalInfo() {
-        return additionalInfo;
-    }
 
     public void setAdditionalInfo(List<InfoAdditionalItem> additionalInfo) {
         this.additionalInfo = additionalInfo;
     }
 
-    public InfoResponse name(String name) {
-        this.name = name;
-        return this;
-    }
 
     /**
      * Gets or sets application name.
@@ -95,14 +92,15 @@ public class InfoResponse extends WordsResponse {
         return name;
     }
 
+    public InfoResponse name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public InfoResponse version(String version) {
-        this.version = version;
-        return this;
-    }
 
     /**
      * Gets or sets version.
@@ -113,8 +111,21 @@ public class InfoResponse extends WordsResponse {
         return version;
     }
 
+    public InfoResponse version(String version) {
+        this.version = version;
+        return this;
+    }
+
     public void setVersion(String version) {
         this.version = version;
+    }
+
+
+    public InfoResponse() {
+        super();
+        this.additionalInfo = null;
+        this.name = null;
+        this.version = null;
     }
 
     @Override
@@ -143,10 +154,10 @@ public class InfoResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InfoResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    additionalInfo: ").append(toIndentedString(additionalInfo)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    additionalInfo: ").append(toIndentedString(getAdditionalInfo())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
+    sb.append("    version: ").append(toIndentedString(getVersion())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).")
 public class RevisionsModificationResponse extends WordsResponse {
     @SerializedName("Result")
-    private ModificationOperationResult result = null;
-    public RevisionsModificationResponse result(ModificationOperationResult result) {
-        this.result = result;
-        return this;
-    }
-
+    protected ModificationOperationResult result;
     /**
      * Gets or sets the result of the modification operations for the revisions collection.
     * @return result
@@ -63,8 +58,19 @@ public class RevisionsModificationResponse extends WordsResponse {
         return result;
     }
 
+    public RevisionsModificationResponse result(ModificationOperationResult result) {
+        this.result = result;
+        return this;
+    }
+
     public void setResult(ModificationOperationResult result) {
         this.result = result;
+    }
+
+
+    public RevisionsModificationResponse() {
+        super();
+        this.result = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class RevisionsModificationResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RevisionsModificationResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    result: ").append(toIndentedString(getResult())).append("\n");
     sb.append("}");
     return sb.toString();
   }

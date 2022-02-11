@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a document description.")
 public class DocumentResponse extends WordsResponse {
     @SerializedName("Document")
-    private Document document = null;
-    public DocumentResponse document(Document document) {
-        this.document = document;
-        return this;
-    }
-
+    protected Document document;
     /**
      * Gets or sets the document description.
     * @return document
@@ -63,8 +58,19 @@ public class DocumentResponse extends WordsResponse {
         return document;
     }
 
+    public DocumentResponse document(Document document) {
+        this.document = document;
+        return this;
+    }
+
     public void setDocument(Document document) {
         this.document = document;
+    }
+
+
+    public DocumentResponse() {
+        super();
+        this.document = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class DocumentResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    document: ").append(toIndentedString(document)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    document: ").append(toIndentedString(getDocument())).append("\n");
     sb.append("}");
     return sb.toString();
   }

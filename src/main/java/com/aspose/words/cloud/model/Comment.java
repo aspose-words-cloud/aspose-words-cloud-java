@@ -48,30 +48,25 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a comment.")
 public class Comment extends CommentLink {
     @SerializedName("Author")
-    private String author = null;
+    protected String author;
 
     @SerializedName("Content")
-    private StoryChildNodes content = null;
+    protected StoryChildNodes content;
 
     @SerializedName("DateTime")
-    private OffsetDateTime dateTime = null;
+    protected OffsetDateTime dateTime;
 
     @SerializedName("Initial")
-    private String initial = null;
+    protected String initial;
 
     @SerializedName("RangeEnd")
-    private DocumentPosition rangeEnd = null;
+    protected DocumentPosition rangeEnd;
 
     @SerializedName("RangeStart")
-    private DocumentPosition rangeStart = null;
+    protected DocumentPosition rangeStart;
 
     @SerializedName("Text")
-    private String text = null;
-    public Comment author(String author) {
-        this.author = author;
-        return this;
-    }
-
+    protected String text;
     /**
      * Gets or sets the author name for a comment.
     * @return author
@@ -81,14 +76,15 @@ public class Comment extends CommentLink {
         return author;
     }
 
+    public Comment author(String author) {
+        this.author = author;
+        return this;
+    }
+
     public void setAuthor(String author) {
         this.author = author;
     }
 
-    public Comment content(StoryChildNodes content) {
-        this.content = content;
-        return this;
-    }
 
     /**
      * Gets or sets the content of the comment.
@@ -99,14 +95,15 @@ public class Comment extends CommentLink {
         return content;
     }
 
+    public Comment content(StoryChildNodes content) {
+        this.content = content;
+        return this;
+    }
+
     public void setContent(StoryChildNodes content) {
         this.content = content;
     }
 
-    public Comment dateTime(OffsetDateTime dateTime) {
-        this.dateTime = dateTime;
-        return this;
-    }
 
     /**
      * Gets or sets the date and time that the comment was made.
@@ -117,14 +114,15 @@ public class Comment extends CommentLink {
         return dateTime;
     }
 
+    public Comment dateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+        return this;
+    }
+
     public void setDateTime(OffsetDateTime dateTime) {
         this.dateTime = dateTime;
     }
 
-    public Comment initial(String initial) {
-        this.initial = initial;
-        return this;
-    }
 
     /**
      * Gets or sets the initials of the user associated with a specific comment.
@@ -135,14 +133,15 @@ public class Comment extends CommentLink {
         return initial;
     }
 
+    public Comment initial(String initial) {
+        this.initial = initial;
+        return this;
+    }
+
     public void setInitial(String initial) {
         this.initial = initial;
     }
 
-    public Comment rangeEnd(DocumentPosition rangeEnd) {
-        this.rangeEnd = rangeEnd;
-        return this;
-    }
 
     /**
      * Gets or sets the link to comment range end node.
@@ -153,14 +152,15 @@ public class Comment extends CommentLink {
         return rangeEnd;
     }
 
+    public Comment rangeEnd(DocumentPosition rangeEnd) {
+        this.rangeEnd = rangeEnd;
+        return this;
+    }
+
     public void setRangeEnd(DocumentPosition rangeEnd) {
         this.rangeEnd = rangeEnd;
     }
 
-    public Comment rangeStart(DocumentPosition rangeStart) {
-        this.rangeStart = rangeStart;
-        return this;
-    }
 
     /**
      * Gets or sets the link to comment range start node.
@@ -171,14 +171,15 @@ public class Comment extends CommentLink {
         return rangeStart;
     }
 
+    public Comment rangeStart(DocumentPosition rangeStart) {
+        this.rangeStart = rangeStart;
+        return this;
+    }
+
     public void setRangeStart(DocumentPosition rangeStart) {
         this.rangeStart = rangeStart;
     }
 
-    public Comment text(String text) {
-        this.text = text;
-        return this;
-    }
 
     /**
      * Gets or sets text of the comment.
@@ -189,8 +190,25 @@ public class Comment extends CommentLink {
         return text;
     }
 
+    public Comment text(String text) {
+        this.text = text;
+        return this;
+    }
+
     public void setText(String text) {
         this.text = text;
+    }
+
+
+    public Comment() {
+        super();
+        this.author = null;
+        this.content = null;
+        this.dateTime = null;
+        this.initial = null;
+        this.rangeEnd = null;
+        this.rangeStart = null;
+        this.text = null;
     }
 
     @Override
@@ -223,14 +241,14 @@ public class Comment extends CommentLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Comment {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    author: ").append(toIndentedString(author)).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
-    sb.append("    initial: ").append(toIndentedString(initial)).append("\n");
-    sb.append("    rangeEnd: ").append(toIndentedString(rangeEnd)).append("\n");
-    sb.append("    rangeStart: ").append(toIndentedString(rangeStart)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    author: ").append(toIndentedString(getAuthor())).append("\n");
+    sb.append("    content: ").append(toIndentedString(getContent())).append("\n");
+    sb.append("    dateTime: ").append(toIndentedString(getDateTime())).append("\n");
+    sb.append("    initial: ").append(toIndentedString(getInitial())).append("\n");
+    sb.append("    rangeEnd: ").append(toIndentedString(getRangeEnd())).append("\n");
+    sb.append("    rangeStart: ").append(toIndentedString(getRangeStart())).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

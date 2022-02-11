@@ -48,36 +48,31 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "FromField.")
 public class FormField extends NodeLink {
     @SerializedName("CalculateOnExit")
-    private Boolean calculateOnExit = null;
+    protected Boolean calculateOnExit;
 
     @SerializedName("Enabled")
-    private Boolean enabled = null;
+    protected Boolean enabled;
 
     @SerializedName("EntryMacro")
-    private String entryMacro = null;
+    protected String entryMacro;
 
     @SerializedName("ExitMacro")
-    private String exitMacro = null;
+    protected String exitMacro;
 
     @SerializedName("HelpText")
-    private String helpText = null;
+    protected String helpText;
 
     @SerializedName("Name")
-    private String name = null;
+    protected String name;
 
     @SerializedName("OwnHelp")
-    private Boolean ownHelp = null;
+    protected Boolean ownHelp;
 
     @SerializedName("OwnStatus")
-    private Boolean ownStatus = null;
+    protected Boolean ownStatus;
 
     @SerializedName("StatusText")
-    private String statusText = null;
-    public FormField calculateOnExit(Boolean calculateOnExit) {
-        this.calculateOnExit = calculateOnExit;
-        return this;
-    }
-
+    protected String statusText;
     /**
      * Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
     * @return calculateOnExit
@@ -87,14 +82,15 @@ public class FormField extends NodeLink {
         return calculateOnExit;
     }
 
+    public FormField calculateOnExit(Boolean calculateOnExit) {
+        this.calculateOnExit = calculateOnExit;
+        return this;
+    }
+
     public void setCalculateOnExit(Boolean calculateOnExit) {
         this.calculateOnExit = calculateOnExit;
     }
 
-    public FormField enabled(Boolean enabled) {
-        this.enabled = enabled;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether a form field is enabled.
@@ -105,14 +101,15 @@ public class FormField extends NodeLink {
         return enabled;
     }
 
+    public FormField enabled(Boolean enabled) {
+        this.enabled = enabled;
+        return this;
+    }
+
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public FormField entryMacro(String entryMacro) {
-        this.entryMacro = entryMacro;
-        return this;
-    }
 
     /**
      * Gets or sets the entry macro name for the form field.
@@ -123,14 +120,15 @@ public class FormField extends NodeLink {
         return entryMacro;
     }
 
+    public FormField entryMacro(String entryMacro) {
+        this.entryMacro = entryMacro;
+        return this;
+    }
+
     public void setEntryMacro(String entryMacro) {
         this.entryMacro = entryMacro;
     }
 
-    public FormField exitMacro(String exitMacro) {
-        this.exitMacro = exitMacro;
-        return this;
-    }
 
     /**
      * Gets or sets the exit macro name for the form field.
@@ -141,14 +139,15 @@ public class FormField extends NodeLink {
         return exitMacro;
     }
 
+    public FormField exitMacro(String exitMacro) {
+        this.exitMacro = exitMacro;
+        return this;
+    }
+
     public void setExitMacro(String exitMacro) {
         this.exitMacro = exitMacro;
     }
 
-    public FormField helpText(String helpText) {
-        this.helpText = helpText;
-        return this;
-    }
 
     /**
      * Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
@@ -159,14 +158,15 @@ public class FormField extends NodeLink {
         return helpText;
     }
 
+    public FormField helpText(String helpText) {
+        this.helpText = helpText;
+        return this;
+    }
+
     public void setHelpText(String helpText) {
         this.helpText = helpText;
     }
 
-    public FormField name(String name) {
-        this.name = name;
-        return this;
-    }
 
     /**
      * Gets or sets the form field name.
@@ -177,14 +177,15 @@ public class FormField extends NodeLink {
         return name;
     }
 
+    public FormField name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public FormField ownHelp(Boolean ownHelp) {
-        this.ownHelp = ownHelp;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
@@ -195,14 +196,15 @@ public class FormField extends NodeLink {
         return ownHelp;
     }
 
+    public FormField ownHelp(Boolean ownHelp) {
+        this.ownHelp = ownHelp;
+        return this;
+    }
+
     public void setOwnHelp(Boolean ownHelp) {
         this.ownHelp = ownHelp;
     }
 
-    public FormField ownStatus(Boolean ownStatus) {
-        this.ownStatus = ownStatus;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
@@ -213,14 +215,15 @@ public class FormField extends NodeLink {
         return ownStatus;
     }
 
+    public FormField ownStatus(Boolean ownStatus) {
+        this.ownStatus = ownStatus;
+        return this;
+    }
+
     public void setOwnStatus(Boolean ownStatus) {
         this.ownStatus = ownStatus;
     }
 
-    public FormField statusText(String statusText) {
-        this.statusText = statusText;
-        return this;
-    }
 
     /**
      * Gets or sets text, displayed in the status bar when a form field has the focus.
@@ -231,8 +234,27 @@ public class FormField extends NodeLink {
         return statusText;
     }
 
+    public FormField statusText(String statusText) {
+        this.statusText = statusText;
+        return this;
+    }
+
     public void setStatusText(String statusText) {
         this.statusText = statusText;
+    }
+
+
+    public FormField() {
+        super();
+        this.calculateOnExit = null;
+        this.enabled = null;
+        this.entryMacro = null;
+        this.exitMacro = null;
+        this.helpText = null;
+        this.name = null;
+        this.ownHelp = null;
+        this.ownStatus = null;
+        this.statusText = null;
     }
 
     @Override
@@ -267,16 +289,17 @@ public class FormField extends NodeLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormField {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    calculateOnExit: ").append(toIndentedString(calculateOnExit)).append("\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    entryMacro: ").append(toIndentedString(entryMacro)).append("\n");
-    sb.append("    exitMacro: ").append(toIndentedString(exitMacro)).append("\n");
-    sb.append("    helpText: ").append(toIndentedString(helpText)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    ownHelp: ").append(toIndentedString(ownHelp)).append("\n");
-    sb.append("    ownStatus: ").append(toIndentedString(ownStatus)).append("\n");
-    sb.append("    statusText: ").append(toIndentedString(statusText)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
+    sb.append("    calculateOnExit: ").append(toIndentedString(getCalculateOnExit())).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(getEnabled())).append("\n");
+    sb.append("    entryMacro: ").append(toIndentedString(getEntryMacro())).append("\n");
+    sb.append("    exitMacro: ").append(toIndentedString(getExitMacro())).append("\n");
+    sb.append("    helpText: ").append(toIndentedString(getHelpText())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
+    sb.append("    ownHelp: ").append(toIndentedString(getOwnHelp())).append("\n");
+    sb.append("    ownStatus: ").append(toIndentedString(getOwnStatus())).append("\n");
+    sb.append("    statusText: ").append(toIndentedString(getStatusText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

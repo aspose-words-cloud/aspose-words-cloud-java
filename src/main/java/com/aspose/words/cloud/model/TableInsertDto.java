@@ -48,18 +48,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a table element.")
 public class TableInsertDto {
     @SerializedName("ColumnsCount")
-    private Integer columnsCount = null;
+    protected Integer columnsCount;
 
     @SerializedName("Position")
-    private DocumentPosition position = null;
+    protected DocumentPosition position;
 
     @SerializedName("RowsCount")
-    private Integer rowsCount = null;
-    public TableInsertDto columnsCount(Integer columnsCount) {
-        this.columnsCount = columnsCount;
-        return this;
-    }
-
+    protected Integer rowsCount;
     /**
      * Gets or sets the number of columns. The default value is 2.
     * @return columnsCount
@@ -69,14 +64,15 @@ public class TableInsertDto {
         return columnsCount;
     }
 
+    public TableInsertDto columnsCount(Integer columnsCount) {
+        this.columnsCount = columnsCount;
+        return this;
+    }
+
     public void setColumnsCount(Integer columnsCount) {
         this.columnsCount = columnsCount;
     }
 
-    public TableInsertDto position(DocumentPosition position) {
-        this.position = position;
-        return this;
-    }
 
     /**
      * Gets or sets the position to insert the table. The table will be inserted before the specified position.
@@ -87,14 +83,15 @@ public class TableInsertDto {
         return position;
     }
 
+    public TableInsertDto position(DocumentPosition position) {
+        this.position = position;
+        return this;
+    }
+
     public void setPosition(DocumentPosition position) {
         this.position = position;
     }
 
-    public TableInsertDto rowsCount(Integer rowsCount) {
-        this.rowsCount = rowsCount;
-        return this;
-    }
 
     /**
      * Gets or sets the number of rows. The default value is 2.
@@ -105,8 +102,20 @@ public class TableInsertDto {
         return rowsCount;
     }
 
+    public TableInsertDto rowsCount(Integer rowsCount) {
+        this.rowsCount = rowsCount;
+        return this;
+    }
+
     public void setRowsCount(Integer rowsCount) {
         this.rowsCount = rowsCount;
+    }
+
+
+    public TableInsertDto() {
+        this.columnsCount = null;
+        this.position = null;
+        this.rowsCount = null;
     }
 
     @Override
@@ -134,9 +143,9 @@ public class TableInsertDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableInsertDto {\n");
-    sb.append("    columnsCount: ").append(toIndentedString(columnsCount)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
-    sb.append("    rowsCount: ").append(toIndentedString(rowsCount)).append("\n");
+    sb.append("    columnsCount: ").append(toIndentedString(getColumnsCount())).append("\n");
+    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
+    sb.append("    rowsCount: ").append(toIndentedString(getRowsCount())).append("\n");
     sb.append("}");
     return sb.toString();
   }

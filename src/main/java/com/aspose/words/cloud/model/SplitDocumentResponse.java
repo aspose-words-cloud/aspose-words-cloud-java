@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a result of document splitting.")
 public class SplitDocumentResponse extends WordsResponse {
     @SerializedName("SplitResult")
-    private SplitDocumentResult splitResult = null;
-    public SplitDocumentResponse splitResult(SplitDocumentResult splitResult) {
-        this.splitResult = splitResult;
-        return this;
-    }
-
+    protected SplitDocumentResult splitResult;
     /**
      * Gets or sets the result of document splitting.
     * @return splitResult
@@ -63,8 +58,19 @@ public class SplitDocumentResponse extends WordsResponse {
         return splitResult;
     }
 
+    public SplitDocumentResponse splitResult(SplitDocumentResult splitResult) {
+        this.splitResult = splitResult;
+        return this;
+    }
+
     public void setSplitResult(SplitDocumentResult splitResult) {
         this.splitResult = splitResult;
+    }
+
+
+    public SplitDocumentResponse() {
+        super();
+        this.splitResult = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class SplitDocumentResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SplitDocumentResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    splitResult: ").append(toIndentedString(splitResult)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    splitResult: ").append(toIndentedString(getSplitResult())).append("\n");
     sb.append("}");
     return sb.toString();
   }

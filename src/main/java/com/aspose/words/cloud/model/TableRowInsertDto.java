@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a table row element.")
 public class TableRowInsertDto {
     @SerializedName("ColumnsCount")
-    private Integer columnsCount = null;
+    protected Integer columnsCount;
 
     @SerializedName("InsertAfter")
-    private Integer insertAfter = null;
-    public TableRowInsertDto columnsCount(Integer columnsCount) {
-        this.columnsCount = columnsCount;
-        return this;
-    }
-
+    protected Integer insertAfter;
     /**
      * Gets or sets the count of columns. The default value is 1.
     * @return columnsCount
@@ -66,14 +61,15 @@ public class TableRowInsertDto {
         return columnsCount;
     }
 
+    public TableRowInsertDto columnsCount(Integer columnsCount) {
+        this.columnsCount = columnsCount;
+        return this;
+    }
+
     public void setColumnsCount(Integer columnsCount) {
         this.columnsCount = columnsCount;
     }
 
-    public TableRowInsertDto insertAfter(Integer insertAfter) {
-        this.insertAfter = insertAfter;
-        return this;
-    }
 
     /**
      * Gets or sets table row will be inserted after row with specified 0-based index.
@@ -84,8 +80,19 @@ public class TableRowInsertDto {
         return insertAfter;
     }
 
+    public TableRowInsertDto insertAfter(Integer insertAfter) {
+        this.insertAfter = insertAfter;
+        return this;
+    }
+
     public void setInsertAfter(Integer insertAfter) {
         this.insertAfter = insertAfter;
+    }
+
+
+    public TableRowInsertDto() {
+        this.columnsCount = null;
+        this.insertAfter = null;
     }
 
     @Override
@@ -112,8 +119,8 @@ public class TableRowInsertDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableRowInsertDto {\n");
-    sb.append("    columnsCount: ").append(toIndentedString(columnsCount)).append("\n");
-    sb.append("    insertAfter: ").append(toIndentedString(insertAfter)).append("\n");
+    sb.append("    columnsCount: ").append(toIndentedString(getColumnsCount())).append("\n");
+    sb.append("    insertAfter: ").append(toIndentedString(getInsertAfter())).append("\n");
     sb.append("}");
     return sb.toString();
   }

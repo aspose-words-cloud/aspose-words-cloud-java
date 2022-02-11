@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with a collection of tables.")
 public class TableLinkCollectionResponse extends WordsResponse {
     @SerializedName("Tables")
-    private TableLinkCollection tables = null;
-    public TableLinkCollectionResponse tables(TableLinkCollection tables) {
-        this.tables = tables;
-        return this;
-    }
-
+    protected TableLinkCollection tables;
     /**
      * Gets or sets the collection of tables.
     * @return tables
@@ -63,8 +58,19 @@ public class TableLinkCollectionResponse extends WordsResponse {
         return tables;
     }
 
+    public TableLinkCollectionResponse tables(TableLinkCollection tables) {
+        this.tables = tables;
+        return this;
+    }
+
     public void setTables(TableLinkCollection tables) {
         this.tables = tables;
+    }
+
+
+    public TableLinkCollectionResponse() {
+        super();
+        this.tables = null;
     }
 
     @Override
@@ -91,8 +97,8 @@ public class TableLinkCollectionResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableLinkCollectionResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    tables: ").append(toIndentedString(tables)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    tables: ").append(toIndentedString(getTables())).append("\n");
     sb.append("}");
     return sb.toString();
   }

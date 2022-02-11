@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The collection of table's links.")
 public class TableLinkCollection extends LinkElement {
     @SerializedName("TableLinkList")
-    private List<TableLink> tableLinkList = null;
+    protected List<TableLink> tableLinkList;
+    /**
+     * Gets or sets the collection of table's links.
+    * @return tableLinkList
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of table's links.")
+    public List<TableLink> getTableLinkList() {
+        return tableLinkList;
+    }
+
     public TableLinkCollection tableLinkList(List<TableLink> tableLinkList) {
         this.tableLinkList = tableLinkList;
         return this;
@@ -62,17 +71,15 @@ public class TableLinkCollection extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of table's links.
-    * @return tableLinkList
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of table's links.")
-    public List<TableLink> getTableLinkList() {
-        return tableLinkList;
-    }
 
     public void setTableLinkList(List<TableLink> tableLinkList) {
         this.tableLinkList = tableLinkList;
+    }
+
+
+    public TableLinkCollection() {
+        super();
+        this.tableLinkList = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class TableLinkCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableLinkCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    tableLinkList: ").append(toIndentedString(tableLinkList)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    tableLinkList: ").append(toIndentedString(getTableLinkList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

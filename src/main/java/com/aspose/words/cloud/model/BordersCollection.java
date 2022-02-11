@@ -48,7 +48,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The collection of borders.")
 public class BordersCollection extends LinkElement {
     @SerializedName("List")
-    private List<Border> list = null;
+    protected List<Border> list;
+    /**
+     * Gets or sets the collection of comments.
+    * @return list
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of comments.")
+    public List<Border> getList() {
+        return list;
+    }
+
     public BordersCollection list(List<Border> list) {
         this.list = list;
         return this;
@@ -62,17 +71,15 @@ public class BordersCollection extends LinkElement {
         return this;
     }
 
-    /**
-     * Gets or sets the collection of comments.
-    * @return list
-    **/
-    @ApiModelProperty(value = "Gets or sets the collection of comments.")
-    public List<Border> getList() {
-        return list;
-    }
 
     public void setList(List<Border> list) {
         this.list = list;
+    }
+
+
+    public BordersCollection() {
+        super();
+        this.list = null;
     }
 
     @Override
@@ -99,8 +106,8 @@ public class BordersCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BordersCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    list: ").append(toIndentedString(list)).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    list: ").append(toIndentedString(getList())).append("\n");
     sb.append("}");
     return sb.toString();
   }

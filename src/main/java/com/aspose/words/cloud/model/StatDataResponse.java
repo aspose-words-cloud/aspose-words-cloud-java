@@ -48,15 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The REST response with document's statistical data.")
 public class StatDataResponse extends WordsResponse {
     @SerializedName("DocumentLink")
-    private FileLink documentLink = null;
+    protected FileLink documentLink;
 
     @SerializedName("StatData")
-    private DocumentStatData statData = null;
-    public StatDataResponse documentLink(FileLink documentLink) {
-        this.documentLink = documentLink;
-        return this;
-    }
-
+    protected DocumentStatData statData;
     /**
      * Gets or sets the link to the document.
     * @return documentLink
@@ -66,14 +61,15 @@ public class StatDataResponse extends WordsResponse {
         return documentLink;
     }
 
+    public StatDataResponse documentLink(FileLink documentLink) {
+        this.documentLink = documentLink;
+        return this;
+    }
+
     public void setDocumentLink(FileLink documentLink) {
         this.documentLink = documentLink;
     }
 
-    public StatDataResponse statData(DocumentStatData statData) {
-        this.statData = statData;
-        return this;
-    }
 
     /**
      * Gets or sets the statistical data of the document.
@@ -84,8 +80,20 @@ public class StatDataResponse extends WordsResponse {
         return statData;
     }
 
+    public StatDataResponse statData(DocumentStatData statData) {
+        this.statData = statData;
+        return this;
+    }
+
     public void setStatData(DocumentStatData statData) {
         this.statData = statData;
+    }
+
+
+    public StatDataResponse() {
+        super();
+        this.documentLink = null;
+        this.statData = null;
     }
 
     @Override
@@ -113,9 +121,9 @@ public class StatDataResponse extends WordsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatDataResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    documentLink: ").append(toIndentedString(documentLink)).append("\n");
-    sb.append("    statData: ").append(toIndentedString(statData)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    documentLink: ").append(toIndentedString(getDocumentLink())).append("\n");
+    sb.append("    statData: ").append(toIndentedString(getStatData())).append("\n");
     sb.append("}");
     return sb.toString();
   }

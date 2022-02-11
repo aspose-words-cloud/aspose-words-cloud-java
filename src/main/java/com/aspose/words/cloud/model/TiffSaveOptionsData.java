@@ -48,18 +48,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for tiff save options.")
 public class TiffSaveOptionsData extends ImageSaveOptionsData {
     @SerializedName("ThresholdForFloydSteinbergDithering")
-    private Integer thresholdForFloydSteinbergDithering = null;
+    protected Integer thresholdForFloydSteinbergDithering;
 
     @SerializedName("TiffBinarizationMethod")
-    private String tiffBinarizationMethod = null;
+    protected String tiffBinarizationMethod;
 
     @SerializedName("TiffCompression")
-    private String tiffCompression = null;
-    public TiffSaveOptionsData thresholdForFloydSteinbergDithering(Integer thresholdForFloydSteinbergDithering) {
-        this.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;
-        return this;
-    }
-
+    protected String tiffCompression;
     /**
      * Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering.
      * Default value is 128.
@@ -70,14 +65,15 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
         return thresholdForFloydSteinbergDithering;
     }
 
+    public TiffSaveOptionsData thresholdForFloydSteinbergDithering(Integer thresholdForFloydSteinbergDithering) {
+        this.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;
+        return this;
+    }
+
     public void setThresholdForFloydSteinbergDithering(Integer thresholdForFloydSteinbergDithering) {
         this.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;
     }
 
-    public TiffSaveOptionsData tiffBinarizationMethod(String tiffBinarizationMethod) {
-        this.tiffBinarizationMethod = tiffBinarizationMethod;
-        return this;
-    }
 
     /**
      * Gets or sets the method used while converting images to 1 bpp format.
@@ -88,14 +84,15 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
         return tiffBinarizationMethod;
     }
 
+    public TiffSaveOptionsData tiffBinarizationMethod(String tiffBinarizationMethod) {
+        this.tiffBinarizationMethod = tiffBinarizationMethod;
+        return this;
+    }
+
     public void setTiffBinarizationMethod(String tiffBinarizationMethod) {
         this.tiffBinarizationMethod = tiffBinarizationMethod;
     }
 
-    public TiffSaveOptionsData tiffCompression(String tiffCompression) {
-        this.tiffCompression = tiffCompression;
-        return this;
-    }
 
     /**
      * Gets or sets the type of compression.
@@ -106,8 +103,22 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
         return tiffCompression;
     }
 
+    public TiffSaveOptionsData tiffCompression(String tiffCompression) {
+        this.tiffCompression = tiffCompression;
+        return this;
+    }
+
     public void setTiffCompression(String tiffCompression) {
         this.tiffCompression = tiffCompression;
+    }
+
+
+    public TiffSaveOptionsData() {
+        super();
+        this.saveFormat = "tiff";
+        this.thresholdForFloydSteinbergDithering = null;
+        this.tiffBinarizationMethod = null;
+        this.tiffCompression = null;
     }
 
     @Override
@@ -136,10 +147,43 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TiffSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    thresholdForFloydSteinbergDithering: ").append(toIndentedString(thresholdForFloydSteinbergDithering)).append("\n");
-    sb.append("    tiffBinarizationMethod: ").append(toIndentedString(tiffBinarizationMethod)).append("\n");
-    sb.append("    tiffCompression: ").append(toIndentedString(tiffCompression)).append("\n");
+    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
+    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
+    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
+    sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
+    sb.append("    metafileRenderingOptions: ").append(toIndentedString(getMetafileRenderingOptions())).append("\n");
+    sb.append("    numeralFormat: ").append(toIndentedString(getNumeralFormat())).append("\n");
+    sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
+    sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
+    sb.append("    horizontalResolution: ").append(toIndentedString(getHorizontalResolution())).append("\n");
+    sb.append("    imageBrightness: ").append(toIndentedString(getImageBrightness())).append("\n");
+    sb.append("    imageColorMode: ").append(toIndentedString(getImageColorMode())).append("\n");
+    sb.append("    imageContrast: ").append(toIndentedString(getImageContrast())).append("\n");
+    sb.append("    paperColor: ").append(toIndentedString(getPaperColor())).append("\n");
+    sb.append("    pixelFormat: ").append(toIndentedString(getPixelFormat())).append("\n");
+    sb.append("    resolution: ").append(toIndentedString(getResolution())).append("\n");
+    sb.append("    scale: ").append(toIndentedString(getScale())).append("\n");
+    sb.append("    useAntiAliasing: ").append(toIndentedString(getUseAntiAliasing())).append("\n");
+    sb.append("    useGdiEmfRenderer: ").append(toIndentedString(getUseGdiEmfRenderer())).append("\n");
+    sb.append("    useHighQualityRendering: ").append(toIndentedString(getUseHighQualityRendering())).append("\n");
+    sb.append("    verticalResolution: ").append(toIndentedString(getVerticalResolution())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    thresholdForFloydSteinbergDithering: ").append(toIndentedString(getThresholdForFloydSteinbergDithering())).append("\n");
+    sb.append("    tiffBinarizationMethod: ").append(toIndentedString(getTiffBinarizationMethod())).append("\n");
+    sb.append("    tiffCompression: ").append(toIndentedString(getTiffCompression())).append("\n");
     sb.append("}");
     return sb.toString();
   }

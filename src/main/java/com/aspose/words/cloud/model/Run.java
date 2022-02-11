@@ -48,6 +48,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Run element.")
 public class Run extends RunLink {
 
+    public Run() {
+        super();
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -69,7 +73,9 @@ public class Run extends RunLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Run {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
+    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

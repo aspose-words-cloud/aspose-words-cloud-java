@@ -48,12 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container for the data about protection of the document.")
 public class ProtectionData {
     @SerializedName("ProtectionType")
-    private String protectionType = null;
-    public ProtectionData protectionType(String protectionType) {
-        this.protectionType = protectionType;
-        return this;
-    }
-
+    protected String protectionType;
     /**
      * Gets or sets type of the protection.
     * @return protectionType
@@ -63,8 +58,18 @@ public class ProtectionData {
         return protectionType;
     }
 
+    public ProtectionData protectionType(String protectionType) {
+        this.protectionType = protectionType;
+        return this;
+    }
+
     public void setProtectionType(String protectionType) {
         this.protectionType = protectionType;
+    }
+
+
+    public ProtectionData() {
+        this.protectionType = null;
     }
 
     @Override
@@ -90,7 +95,7 @@ public class ProtectionData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProtectionData {\n");
-    sb.append("    protectionType: ").append(toIndentedString(protectionType)).append("\n");
+    sb.append("    protectionType: ").append(toIndentedString(getProtectionType())).append("\n");
     sb.append("}");
     return sb.toString();
   }

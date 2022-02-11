@@ -94,39 +94,34 @@ public class CompareOptions {
     }
 
     @SerializedName("AcceptAllRevisionsBeforeComparison")
-    private Boolean acceptAllRevisionsBeforeComparison = null;
+    protected Boolean acceptAllRevisionsBeforeComparison;
 
     @SerializedName("IgnoreCaseChanges")
-    private Boolean ignoreCaseChanges = null;
+    protected Boolean ignoreCaseChanges;
 
     @SerializedName("IgnoreComments")
-    private Boolean ignoreComments = null;
+    protected Boolean ignoreComments;
 
     @SerializedName("IgnoreFields")
-    private Boolean ignoreFields = null;
+    protected Boolean ignoreFields;
 
     @SerializedName("IgnoreFootnotes")
-    private Boolean ignoreFootnotes = null;
+    protected Boolean ignoreFootnotes;
 
     @SerializedName("IgnoreFormatting")
-    private Boolean ignoreFormatting = null;
+    protected Boolean ignoreFormatting;
 
     @SerializedName("IgnoreHeadersAndFooters")
-    private Boolean ignoreHeadersAndFooters = null;
+    protected Boolean ignoreHeadersAndFooters;
 
     @SerializedName("IgnoreTables")
-    private Boolean ignoreTables = null;
+    protected Boolean ignoreTables;
 
     @SerializedName("IgnoreTextboxes")
-    private Boolean ignoreTextboxes = null;
+    protected Boolean ignoreTextboxes;
 
     @SerializedName("Target")
-    private TargetEnum target = null;
-    public CompareOptions acceptAllRevisionsBeforeComparison(Boolean acceptAllRevisionsBeforeComparison) {
-        this.acceptAllRevisionsBeforeComparison = acceptAllRevisionsBeforeComparison;
-        return this;
-    }
-
+    protected TargetEnum target;
     /**
      * Gets or sets whether accept revisions before comparison or not.
     * @return acceptAllRevisionsBeforeComparison
@@ -136,14 +131,15 @@ public class CompareOptions {
         return acceptAllRevisionsBeforeComparison;
     }
 
+    public CompareOptions acceptAllRevisionsBeforeComparison(Boolean acceptAllRevisionsBeforeComparison) {
+        this.acceptAllRevisionsBeforeComparison = acceptAllRevisionsBeforeComparison;
+        return this;
+    }
+
     public void setAcceptAllRevisionsBeforeComparison(Boolean acceptAllRevisionsBeforeComparison) {
         this.acceptAllRevisionsBeforeComparison = acceptAllRevisionsBeforeComparison;
     }
 
-    public CompareOptions ignoreCaseChanges(Boolean ignoreCaseChanges) {
-        this.ignoreCaseChanges = ignoreCaseChanges;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether documents comparison is case insensitive. By default comparison is case sensitive.
@@ -154,14 +150,15 @@ public class CompareOptions {
         return ignoreCaseChanges;
     }
 
+    public CompareOptions ignoreCaseChanges(Boolean ignoreCaseChanges) {
+        this.ignoreCaseChanges = ignoreCaseChanges;
+        return this;
+    }
+
     public void setIgnoreCaseChanges(Boolean ignoreCaseChanges) {
         this.ignoreCaseChanges = ignoreCaseChanges;
     }
 
-    public CompareOptions ignoreComments(Boolean ignoreComments) {
-        this.ignoreComments = ignoreComments;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether comments content is ignored. By default comments are not ignored.
@@ -172,14 +169,15 @@ public class CompareOptions {
         return ignoreComments;
     }
 
+    public CompareOptions ignoreComments(Boolean ignoreComments) {
+        this.ignoreComments = ignoreComments;
+        return this;
+    }
+
     public void setIgnoreComments(Boolean ignoreComments) {
         this.ignoreComments = ignoreComments;
     }
 
-    public CompareOptions ignoreFields(Boolean ignoreFields) {
-        this.ignoreFields = ignoreFields;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether fields content is ignored. By default fields are not ignored.
@@ -190,14 +188,15 @@ public class CompareOptions {
         return ignoreFields;
     }
 
+    public CompareOptions ignoreFields(Boolean ignoreFields) {
+        this.ignoreFields = ignoreFields;
+        return this;
+    }
+
     public void setIgnoreFields(Boolean ignoreFields) {
         this.ignoreFields = ignoreFields;
     }
 
-    public CompareOptions ignoreFootnotes(Boolean ignoreFootnotes) {
-        this.ignoreFootnotes = ignoreFootnotes;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether footnotes/endnotes content is ignored. By default footnotes/endnotes are not ignored.
@@ -208,14 +207,15 @@ public class CompareOptions {
         return ignoreFootnotes;
     }
 
+    public CompareOptions ignoreFootnotes(Boolean ignoreFootnotes) {
+        this.ignoreFootnotes = ignoreFootnotes;
+        return this;
+    }
+
     public void setIgnoreFootnotes(Boolean ignoreFootnotes) {
         this.ignoreFootnotes = ignoreFootnotes;
     }
 
-    public CompareOptions ignoreFormatting(Boolean ignoreFormatting) {
-        this.ignoreFormatting = ignoreFormatting;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether formatting is ignored. By default document formatting is not ignored.
@@ -226,14 +226,15 @@ public class CompareOptions {
         return ignoreFormatting;
     }
 
+    public CompareOptions ignoreFormatting(Boolean ignoreFormatting) {
+        this.ignoreFormatting = ignoreFormatting;
+        return this;
+    }
+
     public void setIgnoreFormatting(Boolean ignoreFormatting) {
         this.ignoreFormatting = ignoreFormatting;
     }
 
-    public CompareOptions ignoreHeadersAndFooters(Boolean ignoreHeadersAndFooters) {
-        this.ignoreHeadersAndFooters = ignoreHeadersAndFooters;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether headers and footers content is ignored. By default headers and footers are not ignored.
@@ -244,14 +245,15 @@ public class CompareOptions {
         return ignoreHeadersAndFooters;
     }
 
+    public CompareOptions ignoreHeadersAndFooters(Boolean ignoreHeadersAndFooters) {
+        this.ignoreHeadersAndFooters = ignoreHeadersAndFooters;
+        return this;
+    }
+
     public void setIgnoreHeadersAndFooters(Boolean ignoreHeadersAndFooters) {
         this.ignoreHeadersAndFooters = ignoreHeadersAndFooters;
     }
 
-    public CompareOptions ignoreTables(Boolean ignoreTables) {
-        this.ignoreTables = ignoreTables;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether tables content is ignored. By default tables are not ignored.
@@ -262,14 +264,15 @@ public class CompareOptions {
         return ignoreTables;
     }
 
+    public CompareOptions ignoreTables(Boolean ignoreTables) {
+        this.ignoreTables = ignoreTables;
+        return this;
+    }
+
     public void setIgnoreTables(Boolean ignoreTables) {
         this.ignoreTables = ignoreTables;
     }
 
-    public CompareOptions ignoreTextboxes(Boolean ignoreTextboxes) {
-        this.ignoreTextboxes = ignoreTextboxes;
-        return this;
-    }
 
     /**
      * Gets or sets a value indicating whether textboxes content is ignored. By default textboxes are not ignored.
@@ -280,14 +283,15 @@ public class CompareOptions {
         return ignoreTextboxes;
     }
 
+    public CompareOptions ignoreTextboxes(Boolean ignoreTextboxes) {
+        this.ignoreTextboxes = ignoreTextboxes;
+        return this;
+    }
+
     public void setIgnoreTextboxes(Boolean ignoreTextboxes) {
         this.ignoreTextboxes = ignoreTextboxes;
     }
 
-    public CompareOptions target(TargetEnum target) {
-        this.target = target;
-        return this;
-    }
 
     /**
      * Gets or sets the option that controls which document shall be used as a target during comparison.
@@ -298,8 +302,27 @@ public class CompareOptions {
         return target;
     }
 
+    public CompareOptions target(TargetEnum target) {
+        this.target = target;
+        return this;
+    }
+
     public void setTarget(TargetEnum target) {
         this.target = target;
+    }
+
+
+    public CompareOptions() {
+        this.acceptAllRevisionsBeforeComparison = null;
+        this.ignoreCaseChanges = null;
+        this.ignoreComments = null;
+        this.ignoreFields = null;
+        this.ignoreFootnotes = null;
+        this.ignoreFormatting = null;
+        this.ignoreHeadersAndFooters = null;
+        this.ignoreTables = null;
+        this.ignoreTextboxes = null;
+        this.target = null;
     }
 
     @Override
@@ -334,16 +357,16 @@ public class CompareOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CompareOptions {\n");
-    sb.append("    acceptAllRevisionsBeforeComparison: ").append(toIndentedString(acceptAllRevisionsBeforeComparison)).append("\n");
-    sb.append("    ignoreCaseChanges: ").append(toIndentedString(ignoreCaseChanges)).append("\n");
-    sb.append("    ignoreComments: ").append(toIndentedString(ignoreComments)).append("\n");
-    sb.append("    ignoreFields: ").append(toIndentedString(ignoreFields)).append("\n");
-    sb.append("    ignoreFootnotes: ").append(toIndentedString(ignoreFootnotes)).append("\n");
-    sb.append("    ignoreFormatting: ").append(toIndentedString(ignoreFormatting)).append("\n");
-    sb.append("    ignoreHeadersAndFooters: ").append(toIndentedString(ignoreHeadersAndFooters)).append("\n");
-    sb.append("    ignoreTables: ").append(toIndentedString(ignoreTables)).append("\n");
-    sb.append("    ignoreTextboxes: ").append(toIndentedString(ignoreTextboxes)).append("\n");
-    sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    acceptAllRevisionsBeforeComparison: ").append(toIndentedString(getAcceptAllRevisionsBeforeComparison())).append("\n");
+    sb.append("    ignoreCaseChanges: ").append(toIndentedString(getIgnoreCaseChanges())).append("\n");
+    sb.append("    ignoreComments: ").append(toIndentedString(getIgnoreComments())).append("\n");
+    sb.append("    ignoreFields: ").append(toIndentedString(getIgnoreFields())).append("\n");
+    sb.append("    ignoreFootnotes: ").append(toIndentedString(getIgnoreFootnotes())).append("\n");
+    sb.append("    ignoreFormatting: ").append(toIndentedString(getIgnoreFormatting())).append("\n");
+    sb.append("    ignoreHeadersAndFooters: ").append(toIndentedString(getIgnoreHeadersAndFooters())).append("\n");
+    sb.append("    ignoreTables: ").append(toIndentedString(getIgnoreTables())).append("\n");
+    sb.append("    ignoreTextboxes: ").append(toIndentedString(getIgnoreTextboxes())).append("\n");
+    sb.append("    target: ").append(toIndentedString(getTarget())).append("\n");
     sb.append("}");
     return sb.toString();
   }
