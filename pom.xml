@@ -17,7 +17,7 @@
     <distributionManagement>
         <repository>
             <id>aspose</id>
-            <url>http://repository.aspose.cloud/repo/</url>
+            <url>https://repository.aspose.cloud/repo/</url>
         </repository>
     </distributionManagement>
 
