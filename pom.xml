@@ -17,8 +17,8 @@
     <distributionManagement>
         <repository>
             <id>aspose</id>
-            <url>https://repository.aspose.cloud/repo/</url>
-        </repository>
+            <url>https://repository.aspose.cloud/internal</url>
+        </repository>        
     </distributionManagement>
 
     <licenses>
