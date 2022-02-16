@@ -245,6 +245,7 @@ public class DeleteAllParagraphTabStopsRequest implements RequestIfc {
      * @throws ApiException If fail to serialize the request body object
      * @throws IOException If fail to serialize the request body object
      */
+    @Override
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
         // verify the required parameter 'Name' is set
         if (getName() == null) {
@@ -294,18 +295,12 @@ public class DeleteAllParagraphTabStopsRequest implements RequestIfc {
     }
 
     /*
-     * Gets response type for this request.
-     */
-    public Type getResponseType() {
-        return TabStopsResponse.class;
-    }
-
-    /*
      * Deserialize response message.
      *
      * @param apiClient ApiClient instance
      * @param response Response instance
      */
+    @Override
     public TabStopsResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         return (TabStopsResponse) apiClient.deserialize(response, TabStopsResponse.class);
     }

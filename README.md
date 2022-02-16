@@ -15,10 +15,12 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 
 ## Enhancements in Version 22.2
 
-- Made 'SaveOprionsData.SaveFormat' property readonly with default value.
+- Made 'SaveOptionsData.SaveFormat' property readonly with default value.
 - Added subclasses for all formats of SaveOprionsData with specified SaveFormat.
 - 'SaveOptionsData', 'FixedPageSaveOptionsData', 'ImageSaveOptionsData', 'OoxmlSaveOptionsData', 'TxtSaveOptionsBaseData' classes now is abstract.
-
+- Online methods returns the dictionary of files with included original filename as key instead of single file content in 'Document' property.
+- Changed 'CssStyleSheetType' property type to enum instead of string in 'HtmlSaveOptionsData'.
+- Changed type of the file from 'File' to 'byte[]' in the response to prevent HDD usage.
 
 ## Enhancements in Version 22.1
 
@@ -197,7 +199,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>22.2.0</version>
+        <version>22.1.0</version>
     </dependency>
 </dependencies>
 ```

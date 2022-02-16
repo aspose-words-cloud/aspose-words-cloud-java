@@ -266,6 +266,7 @@ public class UpdateListLevelOnlineRequest implements RequestIfc {
      * @throws ApiException If fail to serialize the request body object
      * @throws IOException If fail to serialize the request body object
      */
+    @Override
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
         // verify the required parameter 'Document' is set
         if (getDocument() == null) {
@@ -341,23 +342,17 @@ public class UpdateListLevelOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets response type for this request.
-     */
-    public Type getResponseType() {
-        return UpdateListLevelOnlineResponse.class;
-    }
-
-    /*
      * Deserialize response message.
      *
      * @param apiClient ApiClient instance
      * @param response Response instance
      */
+    @Override
     public UpdateListLevelOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new UpdateListLevelOnlineResponse(
-            (ListResponse) apiClient.parseModel(multipart.getBodyPart(0), ListResponse.class),
-            apiClient.parseDocument(multipart.getBodyPart(1))
+            (ListResponse) apiClient.parseModel(apiClient.findBodyPartInMultipart("Model", multipart), ListResponse.class),
+            apiClient.parseFilesCollection(apiClient.findBodyPartInMultipart("Document", multipart))
         );
     }
 }

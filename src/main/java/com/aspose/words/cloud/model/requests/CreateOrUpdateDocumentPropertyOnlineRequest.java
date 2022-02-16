@@ -245,6 +245,7 @@ public class CreateOrUpdateDocumentPropertyOnlineRequest implements RequestIfc {
      * @throws ApiException If fail to serialize the request body object
      * @throws IOException If fail to serialize the request body object
      */
+    @Override
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
         // verify the required parameter 'Document' is set
         if (getDocument() == null) {
@@ -314,23 +315,17 @@ public class CreateOrUpdateDocumentPropertyOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets response type for this request.
-     */
-    public Type getResponseType() {
-        return CreateOrUpdateDocumentPropertyOnlineResponse.class;
-    }
-
-    /*
      * Deserialize response message.
      *
      * @param apiClient ApiClient instance
      * @param response Response instance
      */
+    @Override
     public CreateOrUpdateDocumentPropertyOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new CreateOrUpdateDocumentPropertyOnlineResponse(
-            (DocumentPropertyResponse) apiClient.parseModel(multipart.getBodyPart(0), DocumentPropertyResponse.class),
-            apiClient.parseDocument(multipart.getBodyPart(1))
+            (DocumentPropertyResponse) apiClient.parseModel(apiClient.findBodyPartInMultipart("Model", multipart), DocumentPropertyResponse.class),
+            apiClient.parseFilesCollection(apiClient.findBodyPartInMultipart("Document", multipart))
         );
     }
 }

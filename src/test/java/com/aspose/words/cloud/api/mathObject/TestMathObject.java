@@ -34,11 +34,10 @@ import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
-import java.io.File;
 import java.io.IOException;
 import javax.mail.MessagingException;
 import java.nio.file.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /*
  * Example of how to work with MathObjects.
@@ -243,7 +242,7 @@ public class TestMathObject  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderMathObject(request);
+        byte[] result = TestInitializer.wordsApi.renderMathObject(request);
         assertNotNull(result);
     }
 
@@ -266,7 +265,7 @@ public class TestMathObject  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderMathObjectOnline(request);
+        byte[] result = TestInitializer.wordsApi.renderMathObjectOnline(request);
         assertNotNull(result);
     }
 
@@ -297,7 +296,7 @@ public class TestMathObject  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderMathObject(request);
+        byte[] result = TestInitializer.wordsApi.renderMathObject(request);
         assertNotNull(result);
     }
 
@@ -350,7 +349,7 @@ public class TestMathObject  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.deleteOfficeMathObjectOnline(request);
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteOfficeMathObjectOnline(request);
         assertNotNull(result);
     }
 

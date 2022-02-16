@@ -34,11 +34,10 @@ import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
-import java.io.File;
 import java.io.IOException;
 import javax.mail.MessagingException;
 import java.nio.file.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /*
  * Example of how to work wtih table.
@@ -271,7 +270,7 @@ public class TestTable  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.deleteTableOnline(request);
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteTableOnline(request);
         assertNotNull(result);
     }
 
@@ -714,7 +713,7 @@ public class TestTable  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.deleteTableRowOnline(request);
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteTableRowOnline(request);
         assertNotNull(result);
     }
 
@@ -1002,7 +1001,7 @@ public class TestTable  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.deleteTableCellOnline(request);
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteTableCellOnline(request);
         assertNotNull(result);
     }
 
@@ -1215,7 +1214,7 @@ public class TestTable  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderTable(request);
+        byte[] result = TestInitializer.wordsApi.renderTable(request);
         assertNotNull(result);
     }
 
@@ -1238,7 +1237,7 @@ public class TestTable  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderTableOnline(request);
+        byte[] result = TestInitializer.wordsApi.renderTableOnline(request);
         assertNotNull(result);
     }
 
@@ -1269,7 +1268,7 @@ public class TestTable  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderTable(request);
+        byte[] result = TestInitializer.wordsApi.renderTable(request);
         assertNotNull(result);
     }
 }

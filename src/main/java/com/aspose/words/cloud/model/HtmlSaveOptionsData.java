@@ -48,6 +48,53 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for html save options.")
 public class HtmlSaveOptionsData extends SaveOptionsData {
     /**
+     * Gets or sets the option that controls how the CSS styles are exported.
+     */
+    @JsonAdapter(CssStyleSheetTypeEnum.Adapter.class)
+    public enum CssStyleSheetTypeEnum {
+        INLINE("Inline"),
+        EMBEDDED("Embedded"),
+        EXTERNAL("External");
+
+        private String value;
+
+        CssStyleSheetTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CssStyleSheetTypeEnum fromValue(String text) {
+            for (CssStyleSheetTypeEnum b : CssStyleSheetTypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< CssStyleSheetTypeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CssStyleSheetTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CssStyleSheetTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return CssStyleSheetTypeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
      * Gets or sets the version of HTML standard, that should be used when saving the document to HTML or MHTML.
      * Default value is Aspose.Words.Saving.HtmlVersion.Xhtml.
      */
@@ -201,7 +248,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     protected String cssStyleSheetFileName;
 
     @SerializedName("CssStyleSheetType")
-    protected String cssStyleSheetType;
+    protected CssStyleSheetTypeEnum cssStyleSheetType;
 
     @SerializedName("DocumentSplitCriteria")
     protected String documentSplitCriteria;
@@ -371,16 +418,16 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     * @return cssStyleSheetType
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls how the CSS styles are exported.")
-    public String getCssStyleSheetType() {
+    public CssStyleSheetTypeEnum getCssStyleSheetType() {
         return cssStyleSheetType;
     }
 
-    public HtmlSaveOptionsData cssStyleSheetType(String cssStyleSheetType) {
+    public HtmlSaveOptionsData cssStyleSheetType(CssStyleSheetTypeEnum cssStyleSheetType) {
         this.cssStyleSheetType = cssStyleSheetType;
         return this;
     }
 
-    public void setCssStyleSheetType(String cssStyleSheetType) {
+    public void setCssStyleSheetType(CssStyleSheetTypeEnum cssStyleSheetType) {
         this.cssStyleSheetType = cssStyleSheetType;
     }
 

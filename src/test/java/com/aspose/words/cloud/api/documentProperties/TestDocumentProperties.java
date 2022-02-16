@@ -34,11 +34,10 @@ import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
-import java.io.File;
 import java.io.IOException;
 import javax.mail.MessagingException;
 import java.nio.file.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /*
  * Example of how to get document properties.
@@ -201,7 +200,7 @@ public class TestDocumentProperties  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.deleteDocumentPropertyOnline(request);
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteDocumentPropertyOnline(request);
         assertNotNull(result);
     }
 
