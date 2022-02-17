@@ -22508,8 +22508,7 @@ public class WordsApi {
 
         com.squareup.okhttp.Request req = apiClient.buildBatchRequest(requests, displayIntermediateResults);
         com.squareup.okhttp.Call call = apiClient.buildCall(req);
-        RequestIfc internalRequest = new RequestIfc()
-        {
+        RequestIfc internalRequest = new RequestIfc() {
             @Override
             public com.squareup.okhttp.Request buildHttpRequest(ApiClient apiClient, ProgressResponseBody.ProgressListener progressListener, ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
                 throw new ApiException();
@@ -22541,7 +22540,7 @@ public class WordsApi {
             }
         };
 
-        return (Object[])apiClient.execute(call, internalRequest).getData();
+        return (Object[])(apiClient.execute(call, internalRequest).getData());
     }
 
     private void checkRsaKey() throws ApiException, MessagingException, IOException, InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, NoSuchPaddingException {

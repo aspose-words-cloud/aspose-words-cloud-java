@@ -734,7 +734,8 @@ public class ApiClient {
             Response response = call.execute();
             T data = handleResponse(request, response);
             return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             throw new ApiException(e);
         }
     }
@@ -784,7 +785,8 @@ public class ApiClient {
         if (response.isSuccessful()) {
             try {
                 return (T) request.deserializeResponse(this, response);
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 throw new ApiException(e);
             }
         } 
@@ -1165,18 +1167,15 @@ public class ApiClient {
      */
     public Map<String, byte[]> parseFilesCollection(String filename, String dataType, byte[] data) throws IOException, MessagingException {
         Map<String, byte[]> result = new HashMap<>();
-        if (dataType.startsWith("multipart/mixed"))
-        {
+        if (dataType.startsWith("multipart/mixed")) {
             ByteArrayDataSource dataSource = new ByteArrayDataSource(data, "multipart/mixed");
             MimeMultipart multipart = new MimeMultipart(dataSource);
-            for (int i = 0; i < multipart.getCount(); i++)
-            {
+            for (int i = 0; i < multipart.getCount(); i++) {
                 BodyPart part = multipart.getBodyPart(i);
                 result.put(part.getFileName(), bodyPartToArray(part).toByteArray());
             }
         }
-        else
-        {
+        else {
             result.put(filename, data);
         }
 
@@ -1261,19 +1260,15 @@ public class ApiClient {
      * Find part in multipart by name
      */
     public BodyPart findBodyPartInMultipart(String name, MimeMultipart multipart) throws MessagingException {
-        for (int i = 0; i < multipart.getCount(); i++)
-        {
+        for (int i = 0; i < multipart.getCount(); i++) {
             BodyPart part = multipart.getBodyPart(i);
             String[] header = part.getHeader("Content-Disposition");
             header = String.join(";", header).split(";");
-            for (int q = 0; q < header.length; q++)
-            {
+            for (int q = 0; q < header.length; q++) {
                 String headerPart = header[q].trim();
-                if (headerPart.startsWith("name"))
-                {
+                if (headerPart.startsWith("name")) {
                     String partName = headerPart.split("=")[1].trim().replaceAll("\"", "");
-                    if (name.equals(partName))
-                    {
+                    if (name.equals(partName)) {
                         return part;
                     }
                 }
