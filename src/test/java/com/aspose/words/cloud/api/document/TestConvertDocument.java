@@ -34,11 +34,10 @@ import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
-import java.io.File;
 import java.io.IOException;
 import javax.mail.MessagingException;
 import java.nio.file.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /*
  * Example of how to convert document to one of the available formats.
@@ -100,6 +99,33 @@ public class TestConvertDocument  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath());
         PdfSaveOptionsData requestSaveOptionsData = new PdfSaveOptionsData();
         requestSaveOptionsData.setFileName(TestInitializer.RemoteTestOut + "/TestSaveAs.pdf");
+
+        SaveAsOnlineRequest request = new SaveAsOnlineRequest(
+            requestDocument,
+            requestSaveOptionsData,
+            null,
+            null,
+            null,
+            null
+        );
+
+        SaveAsOnlineResponse result = TestInitializer.wordsApi.saveAsOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for converting document online to html with additional files like css and images.
+     */
+    @Test
+    public void testSaveAsOnlineHtmlMultifile() throws ApiException, MessagingException, IOException
+    {
+        String localName = "test_multi_pages.docx";
+
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath());
+        HtmlSaveOptionsData requestSaveOptionsData = new HtmlSaveOptionsData();
+        requestSaveOptionsData.setFileName(TestInitializer.RemoteTestOut + "/TestSaveAsHtml.html");
+        requestSaveOptionsData.setCssStyleSheetType(HtmlSaveOptionsData.CssStyleSheetTypeEnum.EXTERNAL);
+        requestSaveOptionsData.setCssStyleSheetFileName(TestInitializer.RemoteTestOut + "/TestSaveAsHtml.css");
 
         SaveAsOnlineRequest request = new SaveAsOnlineRequest(
             requestDocument,
@@ -257,7 +283,7 @@ public class TestConvertDocument  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.convertDocument(request);
+        byte[] result = TestInitializer.wordsApi.convertDocument(request);
         assertNotNull(result);
     }
 }

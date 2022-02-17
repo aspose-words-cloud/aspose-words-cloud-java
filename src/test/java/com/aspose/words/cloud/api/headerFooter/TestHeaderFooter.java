@@ -34,11 +34,10 @@ import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
-import java.io.File;
 import java.io.IOException;
 import javax.mail.MessagingException;
 import java.nio.file.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /*
  * Example of how to work with headers and footers.
@@ -261,7 +260,7 @@ public class TestHeaderFooter  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.deleteHeaderFooterOnline(request);
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteHeaderFooterOnline(request);
         assertNotNull(result);
     }
 
@@ -314,7 +313,7 @@ public class TestHeaderFooter  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.deleteHeadersFootersOnline(request);
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteHeadersFootersOnline(request);
         assertNotNull(result);
     }
 

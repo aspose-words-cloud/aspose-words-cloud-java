@@ -266,6 +266,7 @@ public class UpdateParagraphFormatOnlineRequest implements RequestIfc {
      * @throws ApiException If fail to serialize the request body object
      * @throws IOException If fail to serialize the request body object
      */
+    @Override
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
         // verify the required parameter 'Document' is set
         if (getDocument() == null) {
@@ -336,23 +337,17 @@ public class UpdateParagraphFormatOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets response type for this request.
-     */
-    public Type getResponseType() {
-        return UpdateParagraphFormatOnlineResponse.class;
-    }
-
-    /*
      * Deserialize response message.
      *
      * @param apiClient ApiClient instance
      * @param response Response instance
      */
+    @Override
     public UpdateParagraphFormatOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new UpdateParagraphFormatOnlineResponse(
-            (ParagraphFormatResponse) apiClient.parseModel(multipart.getBodyPart(0), ParagraphFormatResponse.class),
-            apiClient.parseDocument(multipart.getBodyPart(1))
+            (ParagraphFormatResponse) apiClient.parseModel(apiClient.findBodyPartInMultipart("Model", multipart), ParagraphFormatResponse.class),
+            apiClient.parseFilesCollection(apiClient.findBodyPartInMultipart("Document", multipart))
         );
     }
 }

@@ -34,11 +34,10 @@ import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
-import java.io.File;
 import java.io.IOException;
 import javax.mail.MessagingException;
 import java.nio.file.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /*
  * Example of how to perform mail merge.
@@ -76,7 +75,7 @@ public class TestBuildReport  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.buildReportOnline(request);
+        byte[] result = TestInitializer.wordsApi.buildReportOnline(request);
         assertNotNull(result);
     }
 

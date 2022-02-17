@@ -28,7 +28,7 @@
 package com.aspose.words.cloud.model.responses;
 
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import java.util.Map;
 
 /*
  * Response model for updateTableRowFormatOnline operation.
@@ -42,7 +42,7 @@ public class UpdateTableRowFormatOnlineResponse implements IMultipartResponse {
     /*
      * The document after modification.
      */
-    private byte[] document;
+    private Map<String, byte[]> document;
 
     /*
      * Initializes a new instance of the UpdateTableRowFormatOnlineResponse class.
@@ -55,7 +55,7 @@ public class UpdateTableRowFormatOnlineResponse implements IMultipartResponse {
      /*
      * Initializes a new instance of the UpdateTableRowFormatOnlineResponse class.
      */
-    public UpdateTableRowFormatOnlineResponse(TableRowFormatResponse model, byte[] document) {
+    public UpdateTableRowFormatOnlineResponse(TableRowFormatResponse model, Map<String, byte[]> document) {
         this.model = model;
         this.document = document;
     }
@@ -77,14 +77,14 @@ public class UpdateTableRowFormatOnlineResponse implements IMultipartResponse {
     /*
      * Gets The document after modification.
      */
-    public byte[] getDocument() {
+    public Map<String, byte[]> getDocument() {
         return this.document;
     }
 
     /*
      * Sets The document after modification.
      */
-    public void setDocument(byte[] value) {
+    public void setDocument(Map<String, byte[]> value) {
         this.document = value;
     }
 }

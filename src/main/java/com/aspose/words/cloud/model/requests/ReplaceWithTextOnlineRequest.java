@@ -224,6 +224,7 @@ public class ReplaceWithTextOnlineRequest implements RequestIfc {
      * @throws ApiException If fail to serialize the request body object
      * @throws IOException If fail to serialize the request body object
      */
+    @Override
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
         // verify the required parameter 'Document' is set
         if (getDocument() == null) {
@@ -292,23 +293,17 @@ public class ReplaceWithTextOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets response type for this request.
-     */
-    public Type getResponseType() {
-        return ReplaceWithTextOnlineResponse.class;
-    }
-
-    /*
      * Deserialize response message.
      *
      * @param apiClient ApiClient instance
      * @param response Response instance
      */
+    @Override
     public ReplaceWithTextOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new ReplaceWithTextOnlineResponse(
-            (DocumentResponse) apiClient.parseModel(multipart.getBodyPart(0), DocumentResponse.class),
-            apiClient.parseDocument(multipart.getBodyPart(1))
+            (DocumentResponse) apiClient.parseModel(apiClient.findBodyPartInMultipart("Model", multipart), DocumentResponse.class),
+            apiClient.parseFilesCollection(apiClient.findBodyPartInMultipart("Document", multipart))
         );
     }
 }

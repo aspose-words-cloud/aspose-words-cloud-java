@@ -49,6 +49,7 @@ public class GetPublicKeyRequest implements RequestIfc {
      * @throws ApiException If fail to serialize the request body object
      * @throws IOException If fail to serialize the request body object
      */
+    @Override
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
 
         Object localVarPostBody = null;
@@ -80,18 +81,12 @@ public class GetPublicKeyRequest implements RequestIfc {
     }
 
     /*
-     * Gets response type for this request.
-     */
-    public Type getResponseType() {
-        return PublicKeyResponse.class;
-    }
-
-    /*
      * Deserialize response message.
      *
      * @param apiClient ApiClient instance
      * @param response Response instance
      */
+    @Override
     public PublicKeyResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         return (PublicKeyResponse) apiClient.deserialize(response, PublicKeyResponse.class);
     }

@@ -83,6 +83,6 @@ public class TestExamples extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(documentsDir, fileName).toAbsolutePath());
         AcceptAllRevisionsOnlineRequest request = new AcceptAllRevisionsOnlineRequest(requestDocument, null, null, null, null);
         AcceptAllRevisionsOnlineResponse acceptAllRevisionsOnlineResult = wordsApi.acceptAllRevisionsOnline(request);
-        Files.write(Paths.get("test_result.docx"), acceptAllRevisionsOnlineResult.getDocument());
+        Files.write(Paths.get("test_result.docx"), acceptAllRevisionsOnlineResult.getDocument().values().iterator().next());
     }
 }

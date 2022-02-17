@@ -28,7 +28,7 @@
 package com.aspose.words.cloud.model.responses;
 
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import java.util.Map;
 
 /*
  * Response model for copyStyleOnline operation.
@@ -42,7 +42,7 @@ public class CopyStyleOnlineResponse implements IMultipartResponse {
     /*
      * The document after modification.
      */
-    private byte[] document;
+    private Map<String, byte[]> document;
 
     /*
      * Initializes a new instance of the CopyStyleOnlineResponse class.
@@ -55,7 +55,7 @@ public class CopyStyleOnlineResponse implements IMultipartResponse {
      /*
      * Initializes a new instance of the CopyStyleOnlineResponse class.
      */
-    public CopyStyleOnlineResponse(StyleResponse model, byte[] document) {
+    public CopyStyleOnlineResponse(StyleResponse model, Map<String, byte[]> document) {
         this.model = model;
         this.document = document;
     }
@@ -77,14 +77,14 @@ public class CopyStyleOnlineResponse implements IMultipartResponse {
     /*
      * Gets The document after modification.
      */
-    public byte[] getDocument() {
+    public Map<String, byte[]> getDocument() {
         return this.document;
     }
 
     /*
      * Sets The document after modification.
      */
-    public void setDocument(byte[] value) {
+    public void setDocument(Map<String, byte[]> value) {
         this.document = value;
     }
 }

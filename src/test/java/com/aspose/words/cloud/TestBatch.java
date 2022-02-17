@@ -33,11 +33,11 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.mail.MessagingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.*;
 
 public class TestBatch  extends TestCase {
     private String testFolder = "DocumentElements/Paragraphs";
@@ -104,6 +104,6 @@ public void testBatch() throws ApiException, MessagingException, IOException {
         assertTrue(result[1] instanceof ParagraphResponse); // GetParagraph
         assertTrue(result[2] instanceof ParagraphResponse); // InsertParagraph
         assertNull(result[3]); // DeleteParagraph
-        assertTrue(result[4] instanceof File); // BuildReportOnline
+        assertTrue(result[4] instanceof byte[]); // BuildReportOnline
     }
 }

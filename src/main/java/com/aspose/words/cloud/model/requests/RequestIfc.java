@@ -48,11 +48,6 @@ public interface RequestIfc {
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException;
 
     /*
-     * Gets response type for this request.
-     */
-    public Type getResponseType();
-
-    /*
      * Deserialize response message.
      *
      * @param apiClient ApiClient instance

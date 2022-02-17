@@ -34,11 +34,10 @@ import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
-import java.io.File;
 import java.io.IOException;
 import javax.mail.MessagingException;
 import java.nio.file.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /*
  * Example of how to use custom xml parts in documents.
@@ -340,7 +339,7 @@ public class TestCustomXmlParts  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.deleteCustomXmlPartOnline(request);
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteCustomXmlPartOnline(request);
         assertNotNull(result);
     }
 
@@ -389,7 +388,7 @@ public class TestCustomXmlParts  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.deleteCustomXmlPartsOnline(request);
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteCustomXmlPartsOnline(request);
         assertNotNull(result);
     }
 }

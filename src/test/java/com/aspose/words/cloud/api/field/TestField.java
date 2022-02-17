@@ -34,11 +34,10 @@ import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
-import java.io.File;
 import java.io.IOException;
 import javax.mail.MessagingException;
 import java.nio.file.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /*
  * Example of how to work with field.
@@ -507,7 +506,7 @@ public class TestField  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.deleteFieldOnline(request);
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteFieldOnline(request);
         assertNotNull(result);
     }
 
@@ -742,7 +741,7 @@ public class TestField  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.deleteFieldsOnline(request);
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteFieldsOnline(request);
         assertNotNull(result);
     }
 

@@ -245,6 +245,7 @@ public class InsertTableRowOnlineRequest implements RequestIfc {
      * @throws ApiException If fail to serialize the request body object
      * @throws IOException If fail to serialize the request body object
      */
+    @Override
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
         // verify the required parameter 'Document' is set
         if (getDocument() == null) {
@@ -314,23 +315,17 @@ public class InsertTableRowOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets response type for this request.
-     */
-    public Type getResponseType() {
-        return InsertTableRowOnlineResponse.class;
-    }
-
-    /*
      * Deserialize response message.
      *
      * @param apiClient ApiClient instance
      * @param response Response instance
      */
+    @Override
     public InsertTableRowOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertTableRowOnlineResponse(
-            (TableRowResponse) apiClient.parseModel(multipart.getBodyPart(0), TableRowResponse.class),
-            apiClient.parseDocument(multipart.getBodyPart(1))
+            (TableRowResponse) apiClient.parseModel(apiClient.findBodyPartInMultipart("Model", multipart), TableRowResponse.class),
+            apiClient.parseFilesCollection(apiClient.findBodyPartInMultipart("Document", multipart))
         );
     }
 }
