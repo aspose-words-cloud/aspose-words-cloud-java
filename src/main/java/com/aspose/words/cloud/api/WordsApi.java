@@ -22540,7 +22540,7 @@ public class WordsApi {
             }
         };
 
-        return (Object[])(apiClient.execute(call, internalRequest).getData());
+        return (Object[]) (apiClient.execute(call, internalRequest).getData());
     }
 
     private void checkRsaKey() throws ApiException, MessagingException, IOException, InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, NoSuchPaddingException {
