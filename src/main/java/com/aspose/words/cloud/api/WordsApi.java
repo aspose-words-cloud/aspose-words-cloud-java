@@ -31,19 +31,19 @@ import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
 import com.aspose.words.cloud.model.responses.*;
-import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Response;
 import java.io.IOException;
-import javax.crypto.NoSuchPaddingException;
 import javax.mail.BodyPart;
+import javax.crypto.Cipher;
 import javax.mail.MessagingException;
 import java.lang.reflect.Type;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.*;
+import java.io.File;
 
-public class WordsApi {
+public class WordsApi implements EncryptorFactory {
     private ApiClient apiClient;
 
     public WordsApi(String clientId, String clientSecret, String baseUrl) {
@@ -56,23 +56,7 @@ public class WordsApi {
 
     public WordsApi(ApiClient apiClient) {
         this.apiClient = apiClient;
-        try {
-            this.checkRsaKey();
-        } 
-        catch (ApiException e) {
-        }
-        catch (MessagingException e) {
-        }
-        catch (IOException e) {
-        }
-        catch (InvalidKeySpecException e) {
-        }
-        catch (NoSuchAlgorithmException e) {
-        }
-        catch (NoSuchPaddingException e) {
-        }
-        catch (InvalidKeyException e) {
-        }
+        this.apiClient.setEncryptorProvider(this);
     }
 
     public ApiClient getApiClient() {
@@ -81,23 +65,6 @@ public class WordsApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
-        try {
-            this.checkRsaKey();
-        }
-        catch (ApiException e) {
-        }
-        catch (MessagingException e) {
-        }
-        catch (IOException e) {
-        }
-        catch (InvalidKeySpecException e) {
-        }
-        catch (NoSuchAlgorithmException e) {
-        }
-        catch (NoSuchPaddingException e) {
-        }
-        catch (InvalidKeyException e) {
-        }
     }
 
     @SuppressWarnings("rawtypes")
@@ -22543,8 +22510,15 @@ public class WordsApi {
         return (Object[]) (apiClient.execute(call, internalRequest).getData());
     }
 
-    private void checkRsaKey() throws ApiException, MessagingException, IOException, InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, NoSuchPaddingException {
-        PublicKeyResponse pkResponse = this.getPublicKey(new GetPublicKeyRequest());
-        this.apiClient.setRsaKey(pkResponse.getModulus(), pkResponse.getExponent());
+    @Override
+    public Cipher create() throws ApiException, IOException {
+
+        try {
+            PublicKeyResponse pkResponse = this.getPublicKey(new GetPublicKeyRequest());
+            EncryptorFactory factory = new SimpleEncryptorFactory(pkResponse.getExponent(), pkResponse.getModulus());
+            return factory.create();
+        } catch (MessagingException e) {
+            throw new ApiException(e);
+        }
     }
 }

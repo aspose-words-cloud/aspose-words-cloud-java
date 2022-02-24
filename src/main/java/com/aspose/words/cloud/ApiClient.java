@@ -30,8 +30,6 @@ package com.aspose.words.cloud;
 import com.aspose.words.cloud.model.requests.*;
 import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
-import com.squareup.okhttp.logging.HttpLoggingInterceptor;
-import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
 import okio.BufferedSink;
 import okio.Okio;
 import org.threeten.bp.LocalDate;
@@ -40,23 +38,15 @@ import org.threeten.bp.OffsetDateTime;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.mail.BodyPart;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
 import java.io.*;
 import java.lang.reflect.Type;
-import java.math.BigInteger;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.security.InvalidKeyException;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.RSAPublicKeySpec;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -84,7 +74,8 @@ public class ApiClient {
     private String refreshToken;
     private String ClientSecret;
     private String clientId;
-    private Cipher key;
+    private Cipher encryptor;
+    private EncryptorFactory encryptorProvider;
 
     public ApiClient(String clientId, String clientSecret, String baseUrl) {
         this();
@@ -111,22 +102,23 @@ public class ApiClient {
         setReadTimeout(180);
     }
 
-
     /**
-     * Gets a public key
-     * @return public key
+     * Gets an encryptor provider
+     * 
+     * @return encryptor provider
      */
-    public Cipher getKey() {
-        return key;
+    public EncryptorFactory getEncryptorProvider() {
+        return encryptorProvider;
     }
 
     /**
-     * Sets a public key
-     * @param key
+     * Sets an encryptor provider
+     * 
+     * @param encryptorProvider
      * @return api client
      */
-    public ApiClient setKey(Cipher key) {
-        this.key = key;
+    public ApiClient setEncryptorProvider(EncryptorFactory encryptorProvider) {
+        this.encryptorProvider = encryptorProvider;
         return this;
     }
 
@@ -1046,30 +1038,12 @@ public class ApiClient {
         }
     }
 
-    public void setRsaKey(String modulus, String exponent) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException {
-        byte[] modulusByte = Base64.getDecoder().decode(modulus);
-        BigInteger modulusInt = new BigInteger(1, modulusByte);
-        byte[] exponentByte = Base64.getDecoder().decode(exponent);
-        BigInteger exponentInt = new BigInteger(1, exponentByte);
-        RSAPublicKeySpec spec = new RSAPublicKeySpec(modulusInt, exponentInt);
-        KeyFactory factory = KeyFactory.getInstance("RSA");
-        PublicKey key = factory.generatePublic(spec);
-        this.key = Cipher.getInstance("RSA");
-        this.key.init(Cipher.ENCRYPT_MODE, key);
-    }
-
     /**
     * AddParameterToQuery
     */
-    public void addParameterToQuery(List<Pair> queryParams, String paramName, Object paramValue) {
+    public void addParameterToQuery(List<Pair> queryParams, String paramName, Object paramValue) throws ApiException, IOException {
         if (paramName.equals("password") && paramValue != null && !paramValue.toString().isEmpty()) {
-            try {
-                queryParams.addAll(parameterToPair("encryptedPassword", Base64.getEncoder().encode(this.key.doFinal(paramValue.toString().getBytes(StandardCharsets.UTF_8)))));
-            }
-            catch (IllegalBlockSizeException e) {
-            }
-            catch (BadPaddingException e) {
-            }
+            queryParams.addAll(parameterToPair("encryptedPassword", encrypt((String) paramValue)));
         }
         else {
             queryParams.addAll(parameterToPair(paramName, paramValue));
@@ -1253,6 +1227,30 @@ public class ApiClient {
         }
         catch (Exception e) {
             throw new ApiException(400, "Invalid response format.");
+        }
+    }
+
+    /**
+     * Encrypt string to base64-encoded string
+     */
+    public String encrypt(String data) throws ApiException, IOException {
+        if (data != null && !data.isEmpty()) {
+            return null;
+        }
+
+        if (this.encryptor == null) {
+            if (this.encryptorProvider == null) {
+                throw new ApiException("Encryption error: EncryptorProvider isn't set.");
+            }
+
+            this.encryptor = this.encryptorProvider.create();
+        }
+
+        try {
+            return Base64.getEncoder()
+                    .encodeToString(this.encryptor.doFinal(data.toString().getBytes(StandardCharsets.UTF_8)));
+        } catch (IllegalBlockSizeException | BadPaddingException e) {
+            throw new ApiException(e);
         }
     }
 
