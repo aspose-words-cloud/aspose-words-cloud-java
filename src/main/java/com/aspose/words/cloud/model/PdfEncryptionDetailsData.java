@@ -47,14 +47,60 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for details of encryption.")
 public class PdfEncryptionDetailsData {
+    /**
+     * Gets or sets the encryption algorithm to use.
+     */
+    @JsonAdapter(EncryptionAlgorithmEnum.Adapter.class)
+    public enum EncryptionAlgorithmEnum {
+        RC4_40("RC4_40"),
+        RC4_128("RC4_128");
+
+        private String value;
+
+        EncryptionAlgorithmEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static EncryptionAlgorithmEnum fromValue(String text) {
+            for (EncryptionAlgorithmEnum b : EncryptionAlgorithmEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< EncryptionAlgorithmEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final EncryptionAlgorithmEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public EncryptionAlgorithmEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return EncryptionAlgorithmEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("EncryptionAlgorithm")
-    protected String encryptionAlgorithm;
+    protected EncryptionAlgorithmEnum encryptionAlgorithm;
 
     @SerializedName("OwnerPassword")
     protected String ownerPassword;
 
     @SerializedName("Permissions")
-    protected String permissions;
+    protected List<PdfPermissions> permissions;
 
     @SerializedName("UserPassword")
     protected String userPassword;
@@ -63,16 +109,16 @@ public class PdfEncryptionDetailsData {
     * @return encryptionAlgorithm
     **/
     @ApiModelProperty(value = "Gets or sets the encryption algorithm to use.")
-    public String getEncryptionAlgorithm() {
+    public EncryptionAlgorithmEnum getEncryptionAlgorithm() {
         return encryptionAlgorithm;
     }
 
-    public PdfEncryptionDetailsData encryptionAlgorithm(String encryptionAlgorithm) {
+    public PdfEncryptionDetailsData encryptionAlgorithm(EncryptionAlgorithmEnum encryptionAlgorithm) {
         this.encryptionAlgorithm = encryptionAlgorithm;
         return this;
     }
 
-    public void setEncryptionAlgorithm(String encryptionAlgorithm) {
+    public void setEncryptionAlgorithm(EncryptionAlgorithmEnum encryptionAlgorithm) {
         this.encryptionAlgorithm = encryptionAlgorithm;
     }
 
@@ -101,16 +147,25 @@ public class PdfEncryptionDetailsData {
     * @return permissions
     **/
     @ApiModelProperty(value = "Gets or sets the operations that are allowed to a user on the encrypted PDF document.")
-    public String getPermissions() {
+    public List<PdfPermissions> getPermissions() {
         return permissions;
     }
 
-    public PdfEncryptionDetailsData permissions(String permissions) {
+    public PdfEncryptionDetailsData permissions(List<PdfPermissions> permissions) {
         this.permissions = permissions;
         return this;
     }
 
-    public void setPermissions(String permissions) {
+    public PdfEncryptionDetailsData addPermissionsItem(PdfPermissions permissionsItem) {
+        if (this.permissions == null) {
+            this.permissions = new ArrayList<PdfPermissions>();
+        }
+        this.permissions.add(permissionsItem);
+        return this;
+    }
+
+
+    public void setPermissions(List<PdfPermissions> permissions) {
         this.permissions = permissions;
     }
 

@@ -47,6 +47,108 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container abstract class for image save options.")
 public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
+    /**
+     * Gets or sets the color mode of the image.
+     */
+    @JsonAdapter(ImageColorModeEnum.Adapter.class)
+    public enum ImageColorModeEnum {
+        NONE("None"),
+        GRAYSCALE("Grayscale"),
+        BLACKANDWHITE("BlackAndWhite");
+
+        private String value;
+
+        ImageColorModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ImageColorModeEnum fromValue(String text) {
+            for (ImageColorModeEnum b : ImageColorModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< ImageColorModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ImageColorModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ImageColorModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ImageColorModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the pixel format of the image.
+     */
+    @JsonAdapter(PixelFormatEnum.Adapter.class)
+    public enum PixelFormatEnum {
+        FORMAT16BPPRGB555("Format16BppRgb555"),
+        FORMAT16BPPRGB565("Format16BppRgb565"),
+        FORMAT16BPPARGB1555("Format16BppArgb1555"),
+        FORMAT24BPPRGB("Format24BppRgb"),
+        FORMAT32BPPRGB("Format32BppRgb"),
+        FORMAT32BPPARGB("Format32BppArgb"),
+        FORMAT32BPPPARGB("Format32BppPArgb"),
+        FORMAT48BPPRGB("Format48BppRgb"),
+        FORMAT64BPPARGB("Format64BppArgb"),
+        FORMAT64BPPPARGB("Format64BppPArgb"),
+        FORMAT1BPPINDEXED("Format1bppIndexed");
+
+        private String value;
+
+        PixelFormatEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static PixelFormatEnum fromValue(String text) {
+            for (PixelFormatEnum b : PixelFormatEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< PixelFormatEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final PixelFormatEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public PixelFormatEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return PixelFormatEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("HorizontalResolution")
     protected Double horizontalResolution;
 
@@ -54,7 +156,7 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     protected Double imageBrightness;
 
     @SerializedName("ImageColorMode")
-    protected String imageColorMode;
+    protected ImageColorModeEnum imageColorMode;
 
     @SerializedName("ImageContrast")
     protected Double imageContrast;
@@ -63,7 +165,7 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     protected String paperColor;
 
     @SerializedName("PixelFormat")
-    protected String pixelFormat;
+    protected PixelFormatEnum pixelFormat;
 
     @SerializedName("Resolution")
     protected Double resolution;
@@ -127,16 +229,16 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     * @return imageColorMode
     **/
     @ApiModelProperty(value = "Gets or sets the color mode of the image.")
-    public String getImageColorMode() {
+    public ImageColorModeEnum getImageColorMode() {
         return imageColorMode;
     }
 
-    public ImageSaveOptionsData imageColorMode(String imageColorMode) {
+    public ImageSaveOptionsData imageColorMode(ImageColorModeEnum imageColorMode) {
         this.imageColorMode = imageColorMode;
         return this;
     }
 
-    public void setImageColorMode(String imageColorMode) {
+    public void setImageColorMode(ImageColorModeEnum imageColorMode) {
         this.imageColorMode = imageColorMode;
     }
 
@@ -184,16 +286,16 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     * @return pixelFormat
     **/
     @ApiModelProperty(value = "Gets or sets the pixel format of the image.")
-    public String getPixelFormat() {
+    public PixelFormatEnum getPixelFormat() {
         return pixelFormat;
     }
 
-    public ImageSaveOptionsData pixelFormat(String pixelFormat) {
+    public ImageSaveOptionsData pixelFormat(PixelFormatEnum pixelFormat) {
         this.pixelFormat = pixelFormat;
         return this;
     }
 
-    public void setPixelFormat(String pixelFormat) {
+    public void setPixelFormat(PixelFormatEnum pixelFormat) {
         this.pixelFormat = pixelFormat;
     }
 

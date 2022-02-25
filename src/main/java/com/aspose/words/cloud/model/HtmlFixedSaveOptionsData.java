@@ -47,6 +47,100 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for fixed html save options.")
 public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
+    /**
+     * Gets or sets the export format of fonts.
+     */
+    @JsonAdapter(FontFormatEnum.Adapter.class)
+    public enum FontFormatEnum {
+        WOFF("Woff"),
+        TTF("Ttf");
+
+        private String value;
+
+        FontFormatEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static FontFormatEnum fromValue(String text) {
+            for (FontFormatEnum b : FontFormatEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< FontFormatEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final FontFormatEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public FontFormatEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return FontFormatEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the horizontal alignment of pages in the HTML document.
+     * The default value is HtmlFixedHorizontalPageAlignment.Center.
+     */
+    @JsonAdapter(PageHorizontalAlignmentEnum.Adapter.class)
+    public enum PageHorizontalAlignmentEnum {
+        LEFT("Left"),
+        CENTER("Center"),
+        RIGHT("Right");
+
+        private String value;
+
+        PageHorizontalAlignmentEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static PageHorizontalAlignmentEnum fromValue(String text) {
+            for (PageHorizontalAlignmentEnum b : PageHorizontalAlignmentEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< PageHorizontalAlignmentEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final PageHorizontalAlignmentEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public PageHorizontalAlignmentEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return PageHorizontalAlignmentEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("CssClassNamesPrefix")
     protected String cssClassNamesPrefix;
 
@@ -66,10 +160,10 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     protected Boolean exportFormFields;
 
     @SerializedName("FontFormat")
-    protected String fontFormat;
+    protected FontFormatEnum fontFormat;
 
     @SerializedName("PageHorizontalAlignment")
-    protected String pageHorizontalAlignment;
+    protected PageHorizontalAlignmentEnum pageHorizontalAlignment;
 
     @SerializedName("PageMargins")
     protected Double pageMargins;
@@ -208,16 +302,16 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     * @return fontFormat
     **/
     @ApiModelProperty(value = "Gets or sets the export format of fonts.")
-    public String getFontFormat() {
+    public FontFormatEnum getFontFormat() {
         return fontFormat;
     }
 
-    public HtmlFixedSaveOptionsData fontFormat(String fontFormat) {
+    public HtmlFixedSaveOptionsData fontFormat(FontFormatEnum fontFormat) {
         this.fontFormat = fontFormat;
         return this;
     }
 
-    public void setFontFormat(String fontFormat) {
+    public void setFontFormat(FontFormatEnum fontFormat) {
         this.fontFormat = fontFormat;
     }
 
@@ -228,16 +322,16 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     * @return pageHorizontalAlignment
     **/
     @ApiModelProperty(value = "Gets or sets the horizontal alignment of pages in the HTML document. The default value is HtmlFixedHorizontalPageAlignment.Center.")
-    public String getPageHorizontalAlignment() {
+    public PageHorizontalAlignmentEnum getPageHorizontalAlignment() {
         return pageHorizontalAlignment;
     }
 
-    public HtmlFixedSaveOptionsData pageHorizontalAlignment(String pageHorizontalAlignment) {
+    public HtmlFixedSaveOptionsData pageHorizontalAlignment(PageHorizontalAlignmentEnum pageHorizontalAlignment) {
         this.pageHorizontalAlignment = pageHorizontalAlignment;
         return this;
     }
 
-    public void setPageHorizontalAlignment(String pageHorizontalAlignment) {
+    public void setPageHorizontalAlignment(PageHorizontalAlignmentEnum pageHorizontalAlignment) {
         this.pageHorizontalAlignment = pageHorizontalAlignment;
     }
 

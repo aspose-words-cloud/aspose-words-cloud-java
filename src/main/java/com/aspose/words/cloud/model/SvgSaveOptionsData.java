@@ -47,6 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for svg save options.")
 public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
+    /**
+     * Gets or sets the option that controls how text should be rendered.
+     */
+    @JsonAdapter(TextOutputModeEnum.Adapter.class)
+    public enum TextOutputModeEnum {
+        USESVGFONTS("UseSvgFonts"),
+        USETARGETMACHINEFONTS("UseTargetMachineFonts"),
+        USEPLACEDGLYPHS("UsePlacedGlyphs");
+
+        private String value;
+
+        TextOutputModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TextOutputModeEnum fromValue(String text) {
+            for (TextOutputModeEnum b : TextOutputModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< TextOutputModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TextOutputModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TextOutputModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TextOutputModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("ExportEmbeddedImages")
     protected Boolean exportEmbeddedImages;
 
@@ -63,7 +110,7 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
     protected Boolean showPageBorder;
 
     @SerializedName("TextOutputMode")
-    protected String textOutputMode;
+    protected TextOutputModeEnum textOutputMode;
     /**
      * Gets or sets a value indicating whether images should be embedded into SVG document as base64.
     * @return exportEmbeddedImages
@@ -164,16 +211,16 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
     * @return textOutputMode
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls how text should be rendered.")
-    public String getTextOutputMode() {
+    public TextOutputModeEnum getTextOutputMode() {
         return textOutputMode;
     }
 
-    public SvgSaveOptionsData textOutputMode(String textOutputMode) {
+    public SvgSaveOptionsData textOutputMode(TextOutputModeEnum textOutputMode) {
         this.textOutputMode = textOutputMode;
         return this;
     }
 
-    public void setTextOutputMode(String textOutputMode) {
+    public void setTextOutputMode(TextOutputModeEnum textOutputMode) {
         this.textOutputMode = textOutputMode;
     }
 
