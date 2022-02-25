@@ -45,15 +45,12 @@ public class SimpleEncryptorFactory implements EncryptorFactory {
     private String exponent;
     private String modulus;
 
-    public SimpleEncryptorFactory(String exponent, String modulus)
-    {
-        if(exponent == null || exponent.isEmpty())
-        {
+    public SimpleEncryptorFactory(String exponent, String modulus) {
+        if (exponent == null || exponent.isEmpty()) {
             throw new IllegalArgumentException("Exponent must be non empty base64 encoded string");
         }
 
-        if(modulus == null || modulus.isEmpty())
-        {
+        if (modulus == null || modulus.isEmpty()) {
             throw new IllegalArgumentException("Modulus must be non empty base64 encoded string");
         }
 
@@ -76,7 +73,8 @@ public class SimpleEncryptorFactory implements EncryptorFactory {
             encryptor.init(Cipher.ENCRYPT_MODE, key);
 
             return encryptor;
-        } catch (InvalidKeyException | NoSuchAlgorithmException |InvalidKeySpecException |NoSuchPaddingException e) {
+        } 
+        catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException e) {
             throw new ApiException(e);
         }
     }

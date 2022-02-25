@@ -1249,7 +1249,8 @@ public class ApiClient {
         try {
             return Base64.getEncoder()
                     .encodeToString(this.encryptor.doFinal(data.toString().getBytes(StandardCharsets.UTF_8)));
-        } catch (IllegalBlockSizeException | BadPaddingException e) {
+        } 
+        catch (IllegalBlockSizeException | BadPaddingException e) {
             throw new ApiException(e);
         }
     }

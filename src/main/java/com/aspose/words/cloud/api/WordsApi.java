@@ -22517,7 +22517,8 @@ public class WordsApi implements EncryptorFactory {
             PublicKeyResponse pkResponse = this.getPublicKey(new GetPublicKeyRequest());
             EncryptorFactory factory = new SimpleEncryptorFactory(pkResponse.getExponent(), pkResponse.getModulus());
             return factory.create();
-        } catch (MessagingException e) {
+        } 
+        catch (MessagingException e) {
             throw new ApiException(e);
         }
     }
