@@ -47,14 +47,33 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a document which will be appended to the original resource document.")
 public class DocumentEntry {
+    @SerializedName("EncryptedPassword")
+    protected String encryptedPassword;
+
     @SerializedName("Href")
     protected String href;
 
     @SerializedName("ImportFormatMode")
     protected String importFormatMode;
+    /**
+     * Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+    * @return encryptedPassword
+    **/
+    @ApiModelProperty(value = "Gets or sets document password encrypted on API public key. The default value is null (the document has no password).")
+    public String getEncryptedPassword() {
+        return encryptedPassword;
+    }
 
-    @SerializedName("Password")
-    protected String password;
+    public DocumentEntry encryptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
+        return this;
+    }
+
+    public void setEncryptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
+    }
+
+
     /**
      * Gets or sets the path to document to append at the server.
     * @return href
@@ -93,29 +112,10 @@ public class DocumentEntry {
     }
 
 
-    /**
-     * Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
-    * @return password
-    **/
-    @ApiModelProperty(value = "Gets or sets document password encrypted on API public key. The default value is null (the document has no password).")
-    public String getPassword() {
-        return password;
-    }
-
-    public DocumentEntry password(String password) {
-        this.password = password;
-        return this;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
     public DocumentEntry() {
+        this.encryptedPassword = null;
         this.href = null;
         this.importFormatMode = null;
-        this.password = null;
     }
 
     @Override
@@ -129,23 +129,23 @@ public class DocumentEntry {
 
         DocumentEntry documentEntry = (DocumentEntry) o;
         return
+            Objects.equals(this.encryptedPassword, documentEntry.encryptedPassword) &&
             Objects.equals(this.href, documentEntry.href) &&
-            Objects.equals(this.importFormatMode, documentEntry.importFormatMode) &&
-            Objects.equals(this.password, documentEntry.password);
+            Objects.equals(this.importFormatMode, documentEntry.importFormatMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(href, importFormatMode, password);
+    return Objects.hash(encryptedPassword, href, importFormatMode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentEntry {\n");
+    sb.append("    encryptedPassword: ").append(toIndentedString(getEncryptedPassword())).append("\n");
     sb.append("    href: ").append(toIndentedString(getHref())).append("\n");
     sb.append("    importFormatMode: ").append(toIndentedString(getImportFormatMode())).append("\n");
-    sb.append("    password: ").append(toIndentedString(getPassword())).append("\n");
     sb.append("}");
     return sb.toString();
   }

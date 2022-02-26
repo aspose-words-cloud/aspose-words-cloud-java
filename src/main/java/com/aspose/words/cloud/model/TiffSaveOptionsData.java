@@ -47,14 +47,109 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for tiff save options.")
 public class TiffSaveOptionsData extends ImageSaveOptionsData {
+    /**
+     * Gets or sets the method used while converting images to 1 bpp format.
+     */
+    @JsonAdapter(TiffBinarizationMethodEnum.Adapter.class)
+    public enum TiffBinarizationMethodEnum {
+        THRESHOLD("Threshold"),
+        FLOYDSTEINBERGDITHERING("FloydSteinbergDithering");
+
+        private String value;
+
+        TiffBinarizationMethodEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TiffBinarizationMethodEnum fromValue(String text) {
+            for (TiffBinarizationMethodEnum b : TiffBinarizationMethodEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< TiffBinarizationMethodEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TiffBinarizationMethodEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TiffBinarizationMethodEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TiffBinarizationMethodEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the type of compression.
+     */
+    @JsonAdapter(TiffCompressionEnum.Adapter.class)
+    public enum TiffCompressionEnum {
+        NONE("None"),
+        RLE("Rle"),
+        LZW("Lzw"),
+        CCITT3("Ccitt3"),
+        CCITT4("Ccitt4");
+
+        private String value;
+
+        TiffCompressionEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TiffCompressionEnum fromValue(String text) {
+            for (TiffCompressionEnum b : TiffCompressionEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< TiffCompressionEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TiffCompressionEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TiffCompressionEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TiffCompressionEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("ThresholdForFloydSteinbergDithering")
     protected Integer thresholdForFloydSteinbergDithering;
 
     @SerializedName("TiffBinarizationMethod")
-    protected String tiffBinarizationMethod;
+    protected TiffBinarizationMethodEnum tiffBinarizationMethod;
 
     @SerializedName("TiffCompression")
-    protected String tiffCompression;
+    protected TiffCompressionEnum tiffCompression;
     /**
      * Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering.
      * Default value is 128.
@@ -80,16 +175,16 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
     * @return tiffBinarizationMethod
     **/
     @ApiModelProperty(value = "Gets or sets the method used while converting images to 1 bpp format.")
-    public String getTiffBinarizationMethod() {
+    public TiffBinarizationMethodEnum getTiffBinarizationMethod() {
         return tiffBinarizationMethod;
     }
 
-    public TiffSaveOptionsData tiffBinarizationMethod(String tiffBinarizationMethod) {
+    public TiffSaveOptionsData tiffBinarizationMethod(TiffBinarizationMethodEnum tiffBinarizationMethod) {
         this.tiffBinarizationMethod = tiffBinarizationMethod;
         return this;
     }
 
-    public void setTiffBinarizationMethod(String tiffBinarizationMethod) {
+    public void setTiffBinarizationMethod(TiffBinarizationMethodEnum tiffBinarizationMethod) {
         this.tiffBinarizationMethod = tiffBinarizationMethod;
     }
 
@@ -99,16 +194,16 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
     * @return tiffCompression
     **/
     @ApiModelProperty(value = "Gets or sets the type of compression.")
-    public String getTiffCompression() {
+    public TiffCompressionEnum getTiffCompression() {
         return tiffCompression;
     }
 
-    public TiffSaveOptionsData tiffCompression(String tiffCompression) {
+    public TiffSaveOptionsData tiffCompression(TiffCompressionEnum tiffCompression) {
         this.tiffCompression = tiffCompression;
         return this;
     }
 
-    public void setTiffCompression(String tiffCompression) {
+    public void setTiffCompression(TiffCompressionEnum tiffCompression) {
         this.tiffCompression = tiffCompression;
     }
 

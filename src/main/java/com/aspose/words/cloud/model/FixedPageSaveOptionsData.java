@@ -47,8 +47,104 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).")
 public abstract class FixedPageSaveOptionsData extends SaveOptionsData {
+    /**
+     * Gets or sets the value determining how colors are rendered.
+     * { Normal | Grayscale}.
+     */
+    @JsonAdapter(ColorModeEnum.Adapter.class)
+    public enum ColorModeEnum {
+        NORMAL("Normal"),
+        GRAYSCALE("Grayscale");
+
+        private String value;
+
+        ColorModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ColorModeEnum fromValue(String text) {
+            for (ColorModeEnum b : ColorModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< ColorModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ColorModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ColorModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ColorModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
+     */
+    @JsonAdapter(NumeralFormatEnum.Adapter.class)
+    public enum NumeralFormatEnum {
+        EUROPEAN("European"),
+        ARABICINDIC("ArabicIndic"),
+        EASTERNARABICINDIC("EasternArabicIndic"),
+        CONTEXT("Context"),
+        SYSTEM("System");
+
+        private String value;
+
+        NumeralFormatEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static NumeralFormatEnum fromValue(String text) {
+            for (NumeralFormatEnum b : NumeralFormatEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< NumeralFormatEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final NumeralFormatEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public NumeralFormatEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return NumeralFormatEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("ColorMode")
-    protected String colorMode;
+    protected ColorModeEnum colorMode;
 
     @SerializedName("JpegQuality")
     protected Integer jpegQuality;
@@ -57,7 +153,7 @@ public abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     protected MetafileRenderingOptionsData metafileRenderingOptions;
 
     @SerializedName("NumeralFormat")
-    protected String numeralFormat;
+    protected NumeralFormatEnum numeralFormat;
 
     @SerializedName("OptimizeOutput")
     protected Boolean optimizeOutput;
@@ -73,16 +169,16 @@ public abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     * @return colorMode
     **/
     @ApiModelProperty(value = "Gets or sets the value determining how colors are rendered. { Normal | Grayscale}.")
-    public String getColorMode() {
+    public ColorModeEnum getColorMode() {
         return colorMode;
     }
 
-    public FixedPageSaveOptionsData colorMode(String colorMode) {
+    public FixedPageSaveOptionsData colorMode(ColorModeEnum colorMode) {
         this.colorMode = colorMode;
         return this;
     }
 
-    public void setColorMode(String colorMode) {
+    public void setColorMode(ColorModeEnum colorMode) {
         this.colorMode = colorMode;
     }
 
@@ -130,16 +226,16 @@ public abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     * @return numeralFormat
     **/
     @ApiModelProperty(value = "Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.")
-    public String getNumeralFormat() {
+    public NumeralFormatEnum getNumeralFormat() {
         return numeralFormat;
     }
 
-    public FixedPageSaveOptionsData numeralFormat(String numeralFormat) {
+    public FixedPageSaveOptionsData numeralFormat(NumeralFormatEnum numeralFormat) {
         this.numeralFormat = numeralFormat;
         return this;
     }
 
-    public void setNumeralFormat(String numeralFormat) {
+    public void setNumeralFormat(NumeralFormatEnum numeralFormat) {
         this.numeralFormat = numeralFormat;
     }
 

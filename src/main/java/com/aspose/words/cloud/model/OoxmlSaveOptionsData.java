@@ -48,6 +48,53 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for docx/docm/dotx/dotm/flatopc save options.")
 public abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     /**
+     * Gets or sets the oOXML version for the output document.
+     */
+    @JsonAdapter(ComplianceEnum.Adapter.class)
+    public enum ComplianceEnum {
+        ECMA376_2006("Ecma376_2006"),
+        ISO29500_2008_TRANSITIONAL("Iso29500_2008_Transitional"),
+        ISO29500_2008_STRICT("Iso29500_2008_Strict");
+
+        private String value;
+
+        ComplianceEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ComplianceEnum fromValue(String text) {
+            for (ComplianceEnum b : ComplianceEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< ComplianceEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ComplianceEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ComplianceEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ComplianceEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
      * Gets or sets the compression level.
      */
     @JsonAdapter(CompressionLevelEnum.Adapter.class)
@@ -96,7 +143,7 @@ public abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     }
 
     @SerializedName("Compliance")
-    protected String compliance;
+    protected ComplianceEnum compliance;
 
     @SerializedName("CompressionLevel")
     protected CompressionLevelEnum compressionLevel;
@@ -111,16 +158,16 @@ public abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     * @return compliance
     **/
     @ApiModelProperty(value = "Gets or sets the oOXML version for the output document.")
-    public String getCompliance() {
+    public ComplianceEnum getCompliance() {
         return compliance;
     }
 
-    public OoxmlSaveOptionsData compliance(String compliance) {
+    public OoxmlSaveOptionsData compliance(ComplianceEnum compliance) {
         this.compliance = compliance;
         return this;
     }
 
-    public void setCompliance(String compliance) {
+    public void setCompliance(ComplianceEnum compliance) {
         this.compliance = compliance;
     }
 

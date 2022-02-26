@@ -47,14 +47,108 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for options of metafile rendering.")
 public class MetafileRenderingOptionsData {
+    /**
+     * Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
+     */
+    @JsonAdapter(EmfPlusDualRenderingModeEnum.Adapter.class)
+    public enum EmfPlusDualRenderingModeEnum {
+        EMFPLUSWITHFALLBACK("EmfPlusWithFallback"),
+        EMFPLUS("EmfPlus"),
+        EMF("Emf");
+
+        private String value;
+
+        EmfPlusDualRenderingModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static EmfPlusDualRenderingModeEnum fromValue(String text) {
+            for (EmfPlusDualRenderingModeEnum b : EmfPlusDualRenderingModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< EmfPlusDualRenderingModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final EmfPlusDualRenderingModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public EmfPlusDualRenderingModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return EmfPlusDualRenderingModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the option that controls how metafile images should be rendered.
+     */
+    @JsonAdapter(RenderingModeEnum.Adapter.class)
+    public enum RenderingModeEnum {
+        VECTORWITHFALLBACK("VectorWithFallback"),
+        VECTOR("Vector"),
+        BITMAP("Bitmap");
+
+        private String value;
+
+        RenderingModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static RenderingModeEnum fromValue(String text) {
+            for (RenderingModeEnum b : RenderingModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< RenderingModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final RenderingModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public RenderingModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return RenderingModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("EmfPlusDualRenderingMode")
-    protected String emfPlusDualRenderingMode;
+    protected EmfPlusDualRenderingModeEnum emfPlusDualRenderingMode;
 
     @SerializedName("EmulateRasterOperations")
     protected Boolean emulateRasterOperations;
 
     @SerializedName("RenderingMode")
-    protected String renderingMode;
+    protected RenderingModeEnum renderingMode;
 
     @SerializedName("ScaleWmfFontsToMetafileSize")
     protected Boolean scaleWmfFontsToMetafileSize;
@@ -66,16 +160,16 @@ public class MetafileRenderingOptionsData {
     * @return emfPlusDualRenderingMode
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.")
-    public String getEmfPlusDualRenderingMode() {
+    public EmfPlusDualRenderingModeEnum getEmfPlusDualRenderingMode() {
         return emfPlusDualRenderingMode;
     }
 
-    public MetafileRenderingOptionsData emfPlusDualRenderingMode(String emfPlusDualRenderingMode) {
+    public MetafileRenderingOptionsData emfPlusDualRenderingMode(EmfPlusDualRenderingModeEnum emfPlusDualRenderingMode) {
         this.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
         return this;
     }
 
-    public void setEmfPlusDualRenderingMode(String emfPlusDualRenderingMode) {
+    public void setEmfPlusDualRenderingMode(EmfPlusDualRenderingModeEnum emfPlusDualRenderingMode) {
         this.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
     }
 
@@ -104,16 +198,16 @@ public class MetafileRenderingOptionsData {
     * @return renderingMode
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls how metafile images should be rendered.")
-    public String getRenderingMode() {
+    public RenderingModeEnum getRenderingMode() {
         return renderingMode;
     }
 
-    public MetafileRenderingOptionsData renderingMode(String renderingMode) {
+    public MetafileRenderingOptionsData renderingMode(RenderingModeEnum renderingMode) {
         this.renderingMode = renderingMode;
         return this;
     }
 
-    public void setRenderingMode(String renderingMode) {
+    public void setRenderingMode(RenderingModeEnum renderingMode) {
         this.renderingMode = renderingMode;
     }
 
