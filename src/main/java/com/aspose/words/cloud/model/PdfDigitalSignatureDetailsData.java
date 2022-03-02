@@ -56,7 +56,8 @@ public class PdfDigitalSignatureDetailsData {
         SHA256("Sha256"),
         SHA384("Sha384"),
         SHA512("Sha512"),
-        MD5("Md5");
+        MD5("Md5"),
+        RIPEMD160("RipeMD160");
 
         private String value;
 

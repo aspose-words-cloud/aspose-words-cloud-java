@@ -53,7 +53,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     @JsonAdapter(ComplianceEnum.Adapter.class)
     public enum ComplianceEnum {
         PDF17("Pdf17"),
-        PDF15("Pdf15"),
+        PDF20("Pdf20"),
         PDFA1A("PdfA1a"),
         PDFA1B("PdfA1b"),
         PDFA2A("PdfA2a"),

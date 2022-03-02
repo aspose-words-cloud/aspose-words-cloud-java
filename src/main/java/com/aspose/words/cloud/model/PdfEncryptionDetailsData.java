@@ -47,55 +47,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for details of encryption.")
 public class PdfEncryptionDetailsData {
-    /**
-     * Gets or sets the encryption algorithm to use.
-     */
-    @JsonAdapter(EncryptionAlgorithmEnum.Adapter.class)
-    public enum EncryptionAlgorithmEnum {
-        RC4_40("RC4_40"),
-        RC4_128("RC4_128");
-
-        private String value;
-
-        EncryptionAlgorithmEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static EncryptionAlgorithmEnum fromValue(String text) {
-            for (EncryptionAlgorithmEnum b : EncryptionAlgorithmEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter< EncryptionAlgorithmEnum > {
-            @Override
-            public void write(final JsonWriter jsonWriter, final EncryptionAlgorithmEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public EncryptionAlgorithmEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return EncryptionAlgorithmEnum.fromValue(String.valueOf(value));
-            }
-        }
-    }
-
-    @SerializedName("EncryptionAlgorithm")
-    protected EncryptionAlgorithmEnum encryptionAlgorithm;
-
     @SerializedName("OwnerPassword")
     protected String ownerPassword;
 
@@ -104,25 +55,6 @@ public class PdfEncryptionDetailsData {
 
     @SerializedName("UserPassword")
     protected String userPassword;
-    /**
-     * Gets or sets the encryption algorithm to use.
-    * @return encryptionAlgorithm
-    **/
-    @ApiModelProperty(value = "Gets or sets the encryption algorithm to use.")
-    public EncryptionAlgorithmEnum getEncryptionAlgorithm() {
-        return encryptionAlgorithm;
-    }
-
-    public PdfEncryptionDetailsData encryptionAlgorithm(EncryptionAlgorithmEnum encryptionAlgorithm) {
-        this.encryptionAlgorithm = encryptionAlgorithm;
-        return this;
-    }
-
-    public void setEncryptionAlgorithm(EncryptionAlgorithmEnum encryptionAlgorithm) {
-        this.encryptionAlgorithm = encryptionAlgorithm;
-    }
-
-
     /**
      * Gets or sets the owner password for the encrypted PDF document.
     * @return ownerPassword
@@ -190,7 +122,6 @@ public class PdfEncryptionDetailsData {
 
 
     public PdfEncryptionDetailsData() {
-        this.encryptionAlgorithm = null;
         this.ownerPassword = null;
         this.permissions = null;
         this.userPassword = null;
@@ -207,7 +138,6 @@ public class PdfEncryptionDetailsData {
 
         PdfEncryptionDetailsData pdfEncryptionDetailsData = (PdfEncryptionDetailsData) o;
         return
-            Objects.equals(this.encryptionAlgorithm, pdfEncryptionDetailsData.encryptionAlgorithm) &&
             Objects.equals(this.ownerPassword, pdfEncryptionDetailsData.ownerPassword) &&
             Objects.equals(this.permissions, pdfEncryptionDetailsData.permissions) &&
             Objects.equals(this.userPassword, pdfEncryptionDetailsData.userPassword);
@@ -215,14 +145,13 @@ public class PdfEncryptionDetailsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(encryptionAlgorithm, ownerPassword, permissions, userPassword);
+    return Objects.hash(ownerPassword, permissions, userPassword);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfEncryptionDetailsData {\n");
-    sb.append("    encryptionAlgorithm: ").append(toIndentedString(getEncryptionAlgorithm())).append("\n");
     sb.append("    ownerPassword: ").append(toIndentedString(getOwnerPassword())).append("\n");
     sb.append("    permissions: ").append(toIndentedString(getPermissions())).append("\n");
     sb.append("    userPassword: ").append(toIndentedString(getUserPassword())).append("\n");
