@@ -93,6 +93,146 @@ public abstract class SaveOptionsData {
         }
     }
 
+    /**
+     * Gets or sets the value determining how DrawingML effects are rendered.
+     * { Simplified | None | Fine }.
+     */
+    @JsonAdapter(DmlEffectsRenderingModeEnum.Adapter.class)
+    public enum DmlEffectsRenderingModeEnum {
+        SIMPLIFIED("Simplified"),
+        NONE("None"),
+        FINE("Fine");
+
+        private String value;
+
+        DmlEffectsRenderingModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static DmlEffectsRenderingModeEnum fromValue(String text) {
+            for (DmlEffectsRenderingModeEnum b : DmlEffectsRenderingModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< DmlEffectsRenderingModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final DmlEffectsRenderingModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public DmlEffectsRenderingModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return DmlEffectsRenderingModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the option that controls how DrawingML shapes are rendered.
+     */
+    @JsonAdapter(DmlRenderingModeEnum.Adapter.class)
+    public enum DmlRenderingModeEnum {
+        FALLBACK("Fallback"),
+        DRAWINGML("DrawingML");
+
+        private String value;
+
+        DmlRenderingModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static DmlRenderingModeEnum fromValue(String text) {
+            for (DmlRenderingModeEnum b : DmlRenderingModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< DmlRenderingModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final DmlRenderingModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public DmlRenderingModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return DmlRenderingModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the value determining how ink (InkML) objects are rendered.
+     */
+    @JsonAdapter(ImlRenderingModeEnum.Adapter.class)
+    public enum ImlRenderingModeEnum {
+        FALLBACK("Fallback"),
+        INKML("InkML");
+
+        private String value;
+
+        ImlRenderingModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ImlRenderingModeEnum fromValue(String text) {
+            for (ImlRenderingModeEnum b : ImlRenderingModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< ImlRenderingModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ImlRenderingModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ImlRenderingModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ImlRenderingModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("AllowEmbeddingPostScriptFonts")
     protected Boolean allowEmbeddingPostScriptFonts;
 
@@ -103,10 +243,10 @@ public abstract class SaveOptionsData {
     protected Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode;
 
     @SerializedName("DmlEffectsRenderingMode")
-    protected String dmlEffectsRenderingMode;
+    protected DmlEffectsRenderingModeEnum dmlEffectsRenderingMode;
 
     @SerializedName("DmlRenderingMode")
-    protected String dmlRenderingMode;
+    protected DmlRenderingModeEnum dmlRenderingMode;
 
     @SerializedName("FileName")
     protected String fileName;
@@ -115,7 +255,7 @@ public abstract class SaveOptionsData {
     protected Boolean flatOpcXmlMappingOnly;
 
     @SerializedName("ImlRenderingMode")
-    protected String imlRenderingMode;
+    protected ImlRenderingModeEnum imlRenderingMode;
 
     @SerializedName("SaveFormat")
     protected String saveFormat;
@@ -200,16 +340,16 @@ public abstract class SaveOptionsData {
     * @return dmlEffectsRenderingMode
     **/
     @ApiModelProperty(value = "Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }.")
-    public String getDmlEffectsRenderingMode() {
+    public DmlEffectsRenderingModeEnum getDmlEffectsRenderingMode() {
         return dmlEffectsRenderingMode;
     }
 
-    public SaveOptionsData dmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
+    public SaveOptionsData dmlEffectsRenderingMode(DmlEffectsRenderingModeEnum dmlEffectsRenderingMode) {
         this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
         return this;
     }
 
-    public void setDmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
+    public void setDmlEffectsRenderingMode(DmlEffectsRenderingModeEnum dmlEffectsRenderingMode) {
         this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
     }
 
@@ -219,16 +359,16 @@ public abstract class SaveOptionsData {
     * @return dmlRenderingMode
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls how DrawingML shapes are rendered.")
-    public String getDmlRenderingMode() {
+    public DmlRenderingModeEnum getDmlRenderingMode() {
         return dmlRenderingMode;
     }
 
-    public SaveOptionsData dmlRenderingMode(String dmlRenderingMode) {
+    public SaveOptionsData dmlRenderingMode(DmlRenderingModeEnum dmlRenderingMode) {
         this.dmlRenderingMode = dmlRenderingMode;
         return this;
     }
 
-    public void setDmlRenderingMode(String dmlRenderingMode) {
+    public void setDmlRenderingMode(DmlRenderingModeEnum dmlRenderingMode) {
         this.dmlRenderingMode = dmlRenderingMode;
     }
 
@@ -277,16 +417,16 @@ public abstract class SaveOptionsData {
     * @return imlRenderingMode
     **/
     @ApiModelProperty(value = "Gets or sets the value determining how ink (InkML) objects are rendered.")
-    public String getImlRenderingMode() {
+    public ImlRenderingModeEnum getImlRenderingMode() {
         return imlRenderingMode;
     }
 
-    public SaveOptionsData imlRenderingMode(String imlRenderingMode) {
+    public SaveOptionsData imlRenderingMode(ImlRenderingModeEnum imlRenderingMode) {
         this.imlRenderingMode = imlRenderingMode;
         return this;
     }
 
-    public void setImlRenderingMode(String imlRenderingMode) {
+    public void setImlRenderingMode(ImlRenderingModeEnum imlRenderingMode) {
         this.imlRenderingMode = imlRenderingMode;
     }
 

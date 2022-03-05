@@ -245,6 +245,7 @@ public class InsertFootnoteOnlineRequest implements RequestIfc {
      * @throws ApiException If fail to serialize the request body object
      * @throws IOException If fail to serialize the request body object
      */
+    @Override
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
         // verify the required parameter 'Document' is set
         if (getDocument() == null) {
@@ -309,23 +310,17 @@ public class InsertFootnoteOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets response type for this request.
-     */
-    public Type getResponseType() {
-        return InsertFootnoteOnlineResponse.class;
-    }
-
-    /*
      * Deserialize response message.
      *
      * @param apiClient ApiClient instance
      * @param response Response instance
      */
+    @Override
     public InsertFootnoteOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
         return new InsertFootnoteOnlineResponse(
-            (FootnoteResponse) apiClient.parseModel(multipart.getBodyPart(0), FootnoteResponse.class),
-            apiClient.parseDocument(multipart.getBodyPart(1))
+            (FootnoteResponse) apiClient.parseModel(apiClient.findBodyPartInMultipart("Model", multipart), FootnoteResponse.class),
+            apiClient.parseFilesCollection(apiClient.findBodyPartInMultipart("Document", multipart))
         );
     }
 }

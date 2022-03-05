@@ -48,6 +48,197 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for html save options.")
 public class HtmlSaveOptionsData extends SaveOptionsData {
     /**
+     * Gets or sets the option that controls how the CSS styles are exported.
+     */
+    @JsonAdapter(CssStyleSheetTypeEnum.Adapter.class)
+    public enum CssStyleSheetTypeEnum {
+        INLINE("Inline"),
+        EMBEDDED("Embedded"),
+        EXTERNAL("External");
+
+        private String value;
+
+        CssStyleSheetTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CssStyleSheetTypeEnum fromValue(String text) {
+            for (CssStyleSheetTypeEnum b : CssStyleSheetTypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< CssStyleSheetTypeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CssStyleSheetTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CssStyleSheetTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return CssStyleSheetTypeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the option that controls how the document should be split when saving.
+     */
+    @JsonAdapter(DocumentSplitCriteriaEnum.Adapter.class)
+    public enum DocumentSplitCriteriaEnum {
+        NONE("None"),
+        PAGEBREAK("PageBreak"),
+        COLUMNBREAK("ColumnBreak"),
+        SECTIONBREAK("SectionBreak"),
+        HEADINGPARAGRAPH("HeadingParagraph");
+
+        private String value;
+
+        DocumentSplitCriteriaEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static DocumentSplitCriteriaEnum fromValue(String text) {
+            for (DocumentSplitCriteriaEnum b : DocumentSplitCriteriaEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< DocumentSplitCriteriaEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final DocumentSplitCriteriaEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public DocumentSplitCriteriaEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return DocumentSplitCriteriaEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the option that controls how headers and footers are exported.
+     */
+    @JsonAdapter(ExportHeadersFootersModeEnum.Adapter.class)
+    public enum ExportHeadersFootersModeEnum {
+        NONE("None"),
+        PERSECTION("PerSection"),
+        FIRSTSECTIONHEADERLASTSECTIONFOOTER("FirstSectionHeaderLastSectionFooter"),
+        FIRSTPAGEHEADERFOOTERPERSECTION("FirstPageHeaderFooterPerSection");
+
+        private String value;
+
+        ExportHeadersFootersModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ExportHeadersFootersModeEnum fromValue(String text) {
+            for (ExportHeadersFootersModeEnum b : ExportHeadersFootersModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< ExportHeadersFootersModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ExportHeadersFootersModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ExportHeadersFootersModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ExportHeadersFootersModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the option that controls how list labels are exported.
+     */
+    @JsonAdapter(ExportListLabelsEnum.Adapter.class)
+    public enum ExportListLabelsEnum {
+        AUTO("Auto"),
+        ASINLINETEXT("AsInlineText"),
+        BYHTMLTAGS("ByHtmlTags");
+
+        private String value;
+
+        ExportListLabelsEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ExportListLabelsEnum fromValue(String text) {
+            for (ExportListLabelsEnum b : ExportListLabelsEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< ExportListLabelsEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ExportListLabelsEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ExportListLabelsEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ExportListLabelsEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
      * Gets or sets the version of HTML standard, that should be used when saving the document to HTML or MHTML.
      * Default value is Aspose.Words.Saving.HtmlVersion.Xhtml.
      */
@@ -191,6 +382,53 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         }
     }
 
+    /**
+     * Gets or sets the option that controls how table, row and cell widths are exported.
+     */
+    @JsonAdapter(TableWidthOutputModeEnum.Adapter.class)
+    public enum TableWidthOutputModeEnum {
+        ALL("All"),
+        RELATIVEONLY("RelativeOnly"),
+        NONE("None");
+
+        private String value;
+
+        TableWidthOutputModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TableWidthOutputModeEnum fromValue(String text) {
+            for (TableWidthOutputModeEnum b : TableWidthOutputModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< TableWidthOutputModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TableWidthOutputModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TableWidthOutputModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TableWidthOutputModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("AllowNegativeIndent")
     protected Boolean allowNegativeIndent;
 
@@ -201,10 +439,10 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     protected String cssStyleSheetFileName;
 
     @SerializedName("CssStyleSheetType")
-    protected String cssStyleSheetType;
+    protected CssStyleSheetTypeEnum cssStyleSheetType;
 
     @SerializedName("DocumentSplitCriteria")
-    protected String documentSplitCriteria;
+    protected DocumentSplitCriteriaEnum documentSplitCriteria;
 
     @SerializedName("DocumentSplitHeadingLevel")
     protected Integer documentSplitHeadingLevel;
@@ -225,7 +463,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     protected Boolean exportFontsAsBase64;
 
     @SerializedName("ExportHeadersFootersMode")
-    protected String exportHeadersFootersMode;
+    protected ExportHeadersFootersModeEnum exportHeadersFootersMode;
 
     @SerializedName("ExportImagesAsBase64")
     protected Boolean exportImagesAsBase64;
@@ -234,7 +472,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     protected Boolean exportLanguageInformation;
 
     @SerializedName("ExportListLabels")
-    protected String exportListLabels;
+    protected ExportListLabelsEnum exportListLabels;
 
     @SerializedName("ExportOriginalUrlForLinkedImages")
     protected Boolean exportOriginalUrlForLinkedImages;
@@ -306,7 +544,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     protected Boolean scaleImageToShapeSize;
 
     @SerializedName("TableWidthOutputMode")
-    protected String tableWidthOutputMode;
+    protected TableWidthOutputModeEnum tableWidthOutputMode;
     /**
      * Gets or sets a value indicating whether negative left and right indents of paragraphs are allowed (not normalized).
     * @return allowNegativeIndent
@@ -371,16 +609,16 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     * @return cssStyleSheetType
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls how the CSS styles are exported.")
-    public String getCssStyleSheetType() {
+    public CssStyleSheetTypeEnum getCssStyleSheetType() {
         return cssStyleSheetType;
     }
 
-    public HtmlSaveOptionsData cssStyleSheetType(String cssStyleSheetType) {
+    public HtmlSaveOptionsData cssStyleSheetType(CssStyleSheetTypeEnum cssStyleSheetType) {
         this.cssStyleSheetType = cssStyleSheetType;
         return this;
     }
 
-    public void setCssStyleSheetType(String cssStyleSheetType) {
+    public void setCssStyleSheetType(CssStyleSheetTypeEnum cssStyleSheetType) {
         this.cssStyleSheetType = cssStyleSheetType;
     }
 
@@ -390,16 +628,16 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     * @return documentSplitCriteria
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls how the document should be split when saving.")
-    public String getDocumentSplitCriteria() {
+    public DocumentSplitCriteriaEnum getDocumentSplitCriteria() {
         return documentSplitCriteria;
     }
 
-    public HtmlSaveOptionsData documentSplitCriteria(String documentSplitCriteria) {
+    public HtmlSaveOptionsData documentSplitCriteria(DocumentSplitCriteriaEnum documentSplitCriteria) {
         this.documentSplitCriteria = documentSplitCriteria;
         return this;
     }
 
-    public void setDocumentSplitCriteria(String documentSplitCriteria) {
+    public void setDocumentSplitCriteria(DocumentSplitCriteriaEnum documentSplitCriteria) {
         this.documentSplitCriteria = documentSplitCriteria;
     }
 
@@ -524,16 +762,16 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     * @return exportHeadersFootersMode
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls how headers and footers are exported.")
-    public String getExportHeadersFootersMode() {
+    public ExportHeadersFootersModeEnum getExportHeadersFootersMode() {
         return exportHeadersFootersMode;
     }
 
-    public HtmlSaveOptionsData exportHeadersFootersMode(String exportHeadersFootersMode) {
+    public HtmlSaveOptionsData exportHeadersFootersMode(ExportHeadersFootersModeEnum exportHeadersFootersMode) {
         this.exportHeadersFootersMode = exportHeadersFootersMode;
         return this;
     }
 
-    public void setExportHeadersFootersMode(String exportHeadersFootersMode) {
+    public void setExportHeadersFootersMode(ExportHeadersFootersModeEnum exportHeadersFootersMode) {
         this.exportHeadersFootersMode = exportHeadersFootersMode;
     }
 
@@ -581,16 +819,16 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     * @return exportListLabels
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls how list labels are exported.")
-    public String getExportListLabels() {
+    public ExportListLabelsEnum getExportListLabels() {
         return exportListLabels;
     }
 
-    public HtmlSaveOptionsData exportListLabels(String exportListLabels) {
+    public HtmlSaveOptionsData exportListLabels(ExportListLabelsEnum exportListLabels) {
         this.exportListLabels = exportListLabels;
         return this;
     }
 
-    public void setExportListLabels(String exportListLabels) {
+    public void setExportListLabels(ExportListLabelsEnum exportListLabels) {
         this.exportListLabels = exportListLabels;
     }
 
@@ -1045,16 +1283,16 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     * @return tableWidthOutputMode
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls how table, row and cell widths are exported.")
-    public String getTableWidthOutputMode() {
+    public TableWidthOutputModeEnum getTableWidthOutputMode() {
         return tableWidthOutputMode;
     }
 
-    public HtmlSaveOptionsData tableWidthOutputMode(String tableWidthOutputMode) {
+    public HtmlSaveOptionsData tableWidthOutputMode(TableWidthOutputModeEnum tableWidthOutputMode) {
         this.tableWidthOutputMode = tableWidthOutputMode;
         return this;
     }
 
-    public void setTableWidthOutputMode(String tableWidthOutputMode) {
+    public void setTableWidthOutputMode(TableWidthOutputModeEnum tableWidthOutputMode) {
         this.tableWidthOutputMode = tableWidthOutputMode;
     }
 

@@ -30,8 +30,6 @@ package com.aspose.words.cloud;
 import com.aspose.words.cloud.model.requests.*;
 import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
-import com.squareup.okhttp.logging.HttpLoggingInterceptor;
-import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
 import okio.BufferedSink;
 import okio.Okio;
 import org.threeten.bp.LocalDate;
@@ -40,23 +38,15 @@ import org.threeten.bp.OffsetDateTime;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.mail.BodyPart;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
 import java.io.*;
 import java.lang.reflect.Type;
-import java.math.BigInteger;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.security.InvalidKeyException;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.RSAPublicKeySpec;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -68,7 +58,7 @@ public class ApiClient {
     private String apiVersion = "v4.0";
     private String baseUrl = "https://api.aspose.cloud";
     private String basePath = baseUrl + "/" + apiVersion;
-    private String clientVersion = "22.2";
+    private String clientVersion = "22.3";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -84,7 +74,8 @@ public class ApiClient {
     private String refreshToken;
     private String ClientSecret;
     private String clientId;
-    private Cipher key;
+    private Cipher encryptor;
+    private EncryptorFactory encryptorProvider;
 
     public ApiClient(String clientId, String clientSecret, String baseUrl) {
         this();
@@ -111,22 +102,23 @@ public class ApiClient {
         setReadTimeout(180);
     }
 
-
     /**
-     * Gets a public key
-     * @return public key
+     * Gets an encryptor provider
+     * 
+     * @return encryptor provider
      */
-    public Cipher getKey() {
-        return key;
+    public EncryptorFactory getEncryptorProvider() {
+        return encryptorProvider;
     }
 
     /**
-     * Sets a public key
-     * @param key
+     * Sets an encryptor provider
+     * 
+     * @param encryptorProvider
      * @return api client
      */
-    public ApiClient setKey(Cipher key) {
-        this.key = key;
+    public ApiClient setEncryptorProvider(EncryptorFactory encryptorProvider) {
+        this.encryptorProvider = encryptorProvider;
         return this;
     }
 
@@ -359,29 +351,6 @@ public class ApiClient {
             }
         }
         this.debugging = debugging;
-        return this;
-    }
-
-    /**
-     * The path of temporary folder used to store downloaded files from endpoints
-     * with file response. The default value is <code>null</code>, i.e. using
-     * the system's default tempopary folder.
-     *
-     * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html#createTempFile">createTempFile</a>
-     * @return Temporary folder path
-     */
-    public String getTempFolderPath() {
-        return tempFolderPath;
-    }
-
-    /**
-     * Set the temporary folder path (for downloading files)
-     *
-     * @param tempFolderPath Temporary folder path
-     * @return ApiClient
-     */
-    public ApiClient setTempFolderPath(String tempFolderPath) {
-        this.tempFolderPath = tempFolderPath;
         return this;
     }
 
@@ -659,7 +628,7 @@ public class ApiClient {
         if (returnType.equals(MimeMultipart.class)) {
             try {
                 InputStream in = response.body().byteStream();
-                ByteArrayDataSource dataSource = new ByteArrayDataSource(in, "multipart/form-data");
+                ByteArrayDataSource dataSource = new ByteArrayDataSource(in, "multipart/mixed");
                 return (T) new MimeMultipart(dataSource);
             }
             catch (IOException | MessagingException e) {
@@ -675,10 +644,6 @@ public class ApiClient {
                 throw new ApiException(e);
             }
         } 
-        else if (returnType.equals(File.class)) {
-            // Handle file downloading.
-            return (T) downloadFileFromResponse(response);
-        }
 
         String respBody;
         try {
@@ -730,10 +695,6 @@ public class ApiClient {
             // Binary (byte array) body parameter support.
             return RequestBody.create(MediaType.parse(contentType), (byte[]) obj);
         } 
-        else if (obj instanceof File) {
-            // File body parameter support.
-            return RequestBody.create(MediaType.parse(contentType), (File) obj);
-        } 
         else if (isJsonMime(contentType)) {
             String content;
             if (obj != null) {
@@ -750,126 +711,37 @@ public class ApiClient {
     }
 
     /**
-     * Download file from the given response.
-     *
-     * @param response An instance of the Response object
-     * @throws ApiException If fail to read file content from response and write to disk
-     * @return Downloaded file
-     */
-    public File downloadFileFromResponse(Response response) throws ApiException {
-        try {
-            File file = prepareDownloadFile(response);
-            BufferedSink sink = Okio.buffer(Okio.sink(file));
-            sink.writeAll(response.body().source());
-            sink.close();
-            return file;
-        } 
-        catch (IOException e) {
-            throw new ApiException(e);
-        }
-    }
-
-    /**
-     * Prepare file for download
-     *
-     * @param response An instance of the Response object
-     * @throws IOException If fail to prepare file for download
-     * @return Prepared file for the download
-     */
-    public File prepareDownloadFile(Response response) throws IOException {
-        String filename = null;
-        String contentDisposition = response.header("Content-Disposition");
-        if (contentDisposition != null && !"".equals(contentDisposition)) {
-            // Get filename from the Content-Disposition header.
-            Pattern pattern = Pattern.compile("filename=['\"]?([^'\"\\s]+)['\"]?");
-            Matcher matcher = pattern.matcher(contentDisposition);
-            if (matcher.find()) {
-                filename = sanitizeFilename(matcher.group(1));
-            }
-        }
-
-        String prefix = null;
-        String suffix = null;
-        if (filename == null) {
-            prefix = "download-";
-            suffix = "";
-        } 
-        else {
-            int pos = filename.lastIndexOf(".");
-            if (pos == -1) {
-                prefix = filename + "-";
-            } 
-            else {
-                prefix = filename.substring(0, pos) + "-";
-                suffix = filename.substring(pos);
-            }
-            // File.createTempFile requires the prefix to be at least three characters long
-            if (prefix.length() < 3)
-                prefix = "download-";
-        }
-
-        if (tempFolderPath == null)
-            return File.createTempFile(prefix, suffix);
-        else
-            return File.createTempFile(prefix, suffix, new File(tempFolderPath));
-    }
-
-    /**
-     * {@link #execute(Call, Type)}
-     *
-     * @param <T> Type
-     * @param call An instance of the Call object
-     * @throws ApiException If fail to execute the call
-     * @return ApiResponse&lt;T&gt;
-     */
-    public <T> ApiResponse<T> execute(Call call) throws ApiException {
-        return execute(call, null);
-    }
-
-    /**
      * Execute HTTP call and deserialize the HTTP response body into the given return type.
      *
-     * @param returnType The return type used to deserialize HTTP response body
      * @param <T> The return type corresponding to (same with) returnType
      * @param call Call
+     * @param request Request
      * @return ApiResponse object containing response status, headers and
      *   data, which is a Java object deserialized from response body and would be null
      *   when returnType is null.
      * @throws ApiException If fail to execute the call
      */
-    public <T> ApiResponse<T> execute(Call call, Type returnType) throws ApiException {
+    public <T> ApiResponse<T> execute(Call call, RequestIfc request) throws ApiException {
         try {
             Response response = call.execute();
-            T data = handleResponse(response, returnType);
+            T data = handleResponse(request, response);
             return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
-        } 
+        }
         catch (IOException e) {
             throw new ApiException(e);
         }
     }
 
     /**
-     * {@link #executeAsync(Call, Type, ApiCallback)}
-     *
-     * @param <T> Type
-     * @param call An instance of the Call object
-     * @param callback ApiCallback&lt;T&gt;
-     */
-    public <T> void executeAsync(Call call, ApiCallback<T> callback) {
-        executeAsync(call, null, callback);
-    }
-
-    /**
      * Execute HTTP call asynchronously.
      *
-     * @see #execute(Call, Type)
      * @param <T> Type
+     * @param request Request
      * @param call The callback to be executed when the API call finishes
-     * @param returnType Return type
      * @param callback ApiCallback
      */
     @SuppressWarnings("unchecked")
-    public <T> void executeAsync(Call call, final Type returnType, final ApiCallback<T> callback) {
+    public <T> void executeAsync(Call call, RequestIfc request, final ApiCallback<T> callback) {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
@@ -880,7 +752,7 @@ public class ApiClient {
             public void onResponse(Response response) throws IOException {
                 T result;
                 try {
-                    result = (T) handleResponse(response, returnType);
+                    result = (T) handleResponse(request, response);
                 } 
                 catch (ApiException e) {
                     callback.onFailure(e, response.code(), response.headers().toMultimap());
@@ -895,29 +767,19 @@ public class ApiClient {
      * Handle the given response, return the deserialized object when the response is successful.
      *
      * @param <T> Type
+     * @param request Request
      * @param response Response
-     * @param returnType Return type
      * @throws ApiException If the response has a unsuccessful status code or
      *   fail to deserialize the response body
      * @return Type
      */
-    public <T> T handleResponse(Response response, Type returnType) throws ApiException {
+    public <T> T handleResponse(RequestIfc request, Response response) throws ApiException {
         if (response.isSuccessful()) {
-            if (returnType == null || response.code() == 204) {
-                // returning null if the returnType is not defined,
-                // or the status code is 204 (No Content)
-                if (response.body() != null) {
-                    try {
-                        response.body().close();
-                    } 
-                    catch (IOException e) {
-                        throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
-                    }
-                }
-                return null;
-            } 
-            else {
-                return deserialize(response, returnType);
+            try {
+                return (T) request.deserializeResponse(this, response);
+            }
+            catch (Exception e) {
+                throw new ApiException(e);
             }
         } 
         else {
@@ -1176,30 +1038,12 @@ public class ApiClient {
         }
     }
 
-    public void setRsaKey(String modulus, String exponent) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException {
-        byte[] modulusByte = Base64.getDecoder().decode(modulus);
-        BigInteger modulusInt = new BigInteger(1, modulusByte);
-        byte[] exponentByte = Base64.getDecoder().decode(exponent);
-        BigInteger exponentInt = new BigInteger(1, exponentByte);
-        RSAPublicKeySpec spec = new RSAPublicKeySpec(modulusInt, exponentInt);
-        KeyFactory factory = KeyFactory.getInstance("RSA");
-        PublicKey key = factory.generatePublic(spec);
-        this.key = Cipher.getInstance("RSA");
-        this.key.init(Cipher.ENCRYPT_MODE, key);
-    }
-
     /**
     * AddParameterToQuery
     */
-    public void addParameterToQuery(List<Pair> queryParams, String paramName, Object paramValue) {
+    public void addParameterToQuery(List<Pair> queryParams, String paramName, Object paramValue) throws ApiException, IOException {
         if (paramName.equals("password") && paramValue != null && !paramValue.toString().isEmpty()) {
-            try {
-                queryParams.addAll(parameterToPair("encryptedPassword", Base64.getEncoder().encode(this.key.doFinal(paramValue.toString().getBytes(StandardCharsets.UTF_8)))));
-            }
-            catch (IllegalBlockSizeException e) {
-            }
-            catch (BadPaddingException e) {
-            }
+            queryParams.addAll(parameterToPair("encryptedPassword", encrypt((String) paramValue)));
         }
         else {
             queryParams.addAll(parameterToPair(paramName, paramValue));
@@ -1269,7 +1113,7 @@ public class ApiClient {
     }
 
     /**
-     * Parse document from online response.
+     * Parse document from response.
      */
     public byte[] parseDocument(BodyPart bodyPart) throws IOException, MessagingException {
         InputStream is = bodyPart.getInputStream();
@@ -1286,12 +1130,39 @@ public class ApiClient {
     }
 
     /**
+     * Parse files collection from response.
+     */
+    public Map<String, byte[]> parseFilesCollection(BodyPart part) throws IOException, MessagingException {
+        return parseFilesCollection(part.getFileName(), part.getContentType(), bodyPartToArray(part).toByteArray());
+    }
+
+    /**
+     * Parse files collection from response.
+     */
+    public Map<String, byte[]> parseFilesCollection(String filename, String dataType, byte[] data) throws IOException, MessagingException {
+        Map<String, byte[]> result = new HashMap<>();
+        if (dataType.startsWith("multipart/mixed")) {
+            ByteArrayDataSource dataSource = new ByteArrayDataSource(data, "multipart/mixed");
+            MimeMultipart multipart = new MimeMultipart(dataSource);
+            for (int i = 0; i < multipart.getCount(); i++) {
+                BodyPart part = multipart.getBodyPart(i);
+                result.put(part.getFileName(), bodyPartToArray(part).toByteArray());
+            }
+        }
+        else {
+            result.put(filename, data);
+        }
+
+        return result;
+    }
+
+    /**
      * Get multipart from response.
      */
     public MimeMultipart getMultipartFromResponse(Response response) throws ApiException {
         try {
             InputStream in = response.body().byteStream();
-            ByteArrayDataSource dataSource = new ByteArrayDataSource(in, "multipart/form-data");
+            ByteArrayDataSource dataSource = new ByteArrayDataSource(in, "multipart/mixed");
             return new MimeMultipart(dataSource);
         }
         catch (IOException | MessagingException e) {
@@ -1300,9 +1171,9 @@ public class ApiClient {
     }
 
     /**
-     * Parse batch part
+     * Convert body part to byte array
      */
-    public Object parseBatchPart(Request masterRequest, BodyPart bodyPart, Type returnType) throws IOException, MessagingException, ApiException {
+    public ByteArrayOutputStream bodyPartToArray(BodyPart bodyPart) throws MessagingException, IOException {
         InputStream is = bodyPart.getInputStream();
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 
@@ -1313,7 +1184,15 @@ public class ApiClient {
             buffer.write(data, 0, nRead);
         }
 
+        return buffer;
+    }
+
+    /**
+     * Parse batch part
+     */
+    public Object parseBatchPart(RequestIfc apiRequest, Request sysRequest, BodyPart bodyPart) throws IOException, MessagingException, ApiException {
         try {
+            ByteArrayOutputStream buffer = bodyPartToArray(bodyPart);
             String stringData = buffer.toString("UTF-8");
             int lastSplitIndex = stringData.indexOf("\r\n");
             Integer responseCode = Integer.parseInt(stringData.substring(0, lastSplitIndex).split("\\s+")[0]);
@@ -1343,15 +1222,62 @@ public class ApiClient {
                 responseBody = ResponseBody.create(MediaType.parse(headers.get("Content-Type")), responseBytes);
             }
 
-            Response response = new Response.Builder().request(masterRequest).protocol(Protocol.HTTP_1_1).code(responseCode).headers(headers).body(responseBody).build();
-            return deserialize(response, returnType);
+            Response response = new Response.Builder().request(sysRequest).protocol(Protocol.HTTP_1_1).code(responseCode).headers(headers).body(responseBody).build();
+            return apiRequest.deserializeResponse(this, response);
         }
         catch (Exception e) {
             throw new ApiException(400, "Invalid response format.");
         }
     }
 
-     /**
+    /**
+     * Encrypt string to base64-encoded string
+     */
+    public String encrypt(String data) throws ApiException, IOException {
+        if (data != null && !data.isEmpty()) {
+            return null;
+        }
+
+        if (this.encryptor == null) {
+            if (this.encryptorProvider == null) {
+                throw new ApiException("Encryption error: EncryptorProvider isn't set.");
+            }
+
+            this.encryptor = this.encryptorProvider.create();
+        }
+
+        try {
+            return Base64.getEncoder()
+                    .encodeToString(this.encryptor.doFinal(data.toString().getBytes(StandardCharsets.UTF_8)));
+        } 
+        catch (IllegalBlockSizeException | BadPaddingException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    /**
+     * Find part in multipart by name
+     */
+    public BodyPart findBodyPartInMultipart(String name, MimeMultipart multipart) throws MessagingException {
+        for (int i = 0; i < multipart.getCount(); i++) {
+            BodyPart part = multipart.getBodyPart(i);
+            String[] header = part.getHeader("Content-Disposition");
+            header = String.join(";", header).split(";");
+            for (int q = 0; q < header.length; q++) {
+                String headerPart = header[q].trim();
+                if (headerPart.startsWith("name")) {
+                    String partName = headerPart.split("=")[1].trim().replaceAll("\"", "");
+                    if (name.equals(partName)) {
+                        return part;
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Add OAuth2 header
      *
      * @param headerParams Map of request headers

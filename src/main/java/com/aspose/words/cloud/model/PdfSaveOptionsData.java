@@ -48,6 +48,152 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for pdf save options.")
 public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     /**
+     * Gets or sets the PDF standards compliance level for output documents.
+     */
+    @JsonAdapter(ComplianceEnum.Adapter.class)
+    public enum ComplianceEnum {
+        PDF17("Pdf17"),
+        PDF20("Pdf20"),
+        PDFA1A("PdfA1a"),
+        PDFA1B("PdfA1b"),
+        PDFA2A("PdfA2a"),
+        PDFA2U("PdfA2u"),
+        PDFUA1("PdfUa1");
+
+        private String value;
+
+        ComplianceEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ComplianceEnum fromValue(String text) {
+            for (ComplianceEnum b : ComplianceEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< ComplianceEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ComplianceEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ComplianceEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ComplianceEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file.
+     * The default value is None.
+     */
+    @JsonAdapter(CustomPropertiesExportEnum.Adapter.class)
+    public enum CustomPropertiesExportEnum {
+        NONE("None"),
+        STANDARD("Standard"),
+        METADATA("Metadata");
+
+        private String value;
+
+        CustomPropertiesExportEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CustomPropertiesExportEnum fromValue(String text) {
+            for (CustomPropertiesExportEnum b : CustomPropertiesExportEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< CustomPropertiesExportEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CustomPropertiesExportEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CustomPropertiesExportEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return CustomPropertiesExportEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the font embedding mode.
+     */
+    @JsonAdapter(FontEmbeddingModeEnum.Adapter.class)
+    public enum FontEmbeddingModeEnum {
+        EMBEDALL("EmbedAll"),
+        EMBEDNONSTANDARD("EmbedNonstandard"),
+        EMBEDNONE("EmbedNone");
+
+        private String value;
+
+        FontEmbeddingModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static FontEmbeddingModeEnum fromValue(String text) {
+            for (FontEmbeddingModeEnum b : FontEmbeddingModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< FontEmbeddingModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final FontEmbeddingModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public FontEmbeddingModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return FontEmbeddingModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
      * Gets or sets the option that controls how bookmarks in headers/footers are exported.
      * The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
      */
@@ -95,14 +241,206 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         }
     }
 
+    /**
+     * Gets or sets the option that controls how the color space will be selected for the images in PDF document.
+     */
+    @JsonAdapter(ImageColorSpaceExportModeEnum.Adapter.class)
+    public enum ImageColorSpaceExportModeEnum {
+        AUTO("Auto"),
+        SIMPLECMYK("SimpleCmyk");
+
+        private String value;
+
+        ImageColorSpaceExportModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ImageColorSpaceExportModeEnum fromValue(String text) {
+            for (ImageColorSpaceExportModeEnum b : ImageColorSpaceExportModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< ImageColorSpaceExportModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ImageColorSpaceExportModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ImageColorSpaceExportModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ImageColorSpaceExportModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the option that controls how the PDF document should be displayed when opened in the PDF reader.
+     */
+    @JsonAdapter(PageModeEnum.Adapter.class)
+    public enum PageModeEnum {
+        USENONE("UseNone"),
+        USEOUTLINES("UseOutlines"),
+        USETHUMBS("UseThumbs"),
+        FULLSCREEN("FullScreen"),
+        USEOC("UseOC"),
+        USEATTACHMENTS("UseAttachments");
+
+        private String value;
+
+        PageModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static PageModeEnum fromValue(String text) {
+            for (PageModeEnum b : PageModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< PageModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final PageModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public PageModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return PageModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the compression type to be used for all textual content in the document.
+     */
+    @JsonAdapter(TextCompressionEnum.Adapter.class)
+    public enum TextCompressionEnum {
+        NONE("None"),
+        FLATE("Flate");
+
+        private String value;
+
+        TextCompressionEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TextCompressionEnum fromValue(String text) {
+            for (TextCompressionEnum b : TextCompressionEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< TextCompressionEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TextCompressionEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TextCompressionEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TextCompressionEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.
+     */
+    @JsonAdapter(ZoomBehaviorEnum.Adapter.class)
+    public enum ZoomBehaviorEnum {
+        NONE("None"),
+        ZOOMFACTOR("ZoomFactor"),
+        FITPAGE("FitPage"),
+        FITWIDTH("FitWidth"),
+        FITHEIGHT("FitHeight"),
+        FITBOX("FitBox");
+
+        private String value;
+
+        ZoomBehaviorEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ZoomBehaviorEnum fromValue(String text) {
+            for (ZoomBehaviorEnum b : ZoomBehaviorEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< ZoomBehaviorEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ZoomBehaviorEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ZoomBehaviorEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ZoomBehaviorEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("Compliance")
-    protected String compliance;
+    protected ComplianceEnum compliance;
 
     @SerializedName("CreateNoteHyperlinks")
     protected Boolean createNoteHyperlinks;
 
     @SerializedName("CustomPropertiesExport")
-    protected String customPropertiesExport;
+    protected CustomPropertiesExportEnum customPropertiesExport;
 
     @SerializedName("DigitalSignatureDetails")
     protected PdfDigitalSignatureDetailsData digitalSignatureDetails;
@@ -126,13 +464,13 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     protected Boolean exportLanguageToSpanTag;
 
     @SerializedName("FontEmbeddingMode")
-    protected String fontEmbeddingMode;
+    protected FontEmbeddingModeEnum fontEmbeddingMode;
 
     @SerializedName("HeaderFooterBookmarksExportMode")
     protected HeaderFooterBookmarksExportModeEnum headerFooterBookmarksExportMode;
 
     @SerializedName("ImageColorSpaceExportMode")
-    protected String imageColorSpaceExportMode;
+    protected ImageColorSpaceExportModeEnum imageColorSpaceExportMode;
 
     @SerializedName("ImageCompression")
     protected String imageCompression;
@@ -147,7 +485,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     protected OutlineOptionsData outlineOptions;
 
     @SerializedName("PageMode")
-    protected String pageMode;
+    protected PageModeEnum pageMode;
 
     @SerializedName("PreblendImages")
     protected Boolean preblendImages;
@@ -156,7 +494,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     protected Boolean preserveFormFields;
 
     @SerializedName("TextCompression")
-    protected String textCompression;
+    protected TextCompressionEnum textCompression;
 
     @SerializedName("UseBookFoldPrintingSettings")
     protected Boolean useBookFoldPrintingSettings;
@@ -165,7 +503,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     protected Boolean useCoreFonts;
 
     @SerializedName("ZoomBehavior")
-    protected String zoomBehavior;
+    protected ZoomBehaviorEnum zoomBehavior;
 
     @SerializedName("ZoomFactor")
     protected Integer zoomFactor;
@@ -174,16 +512,16 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     * @return compliance
     **/
     @ApiModelProperty(value = "Gets or sets the PDF standards compliance level for output documents.")
-    public String getCompliance() {
+    public ComplianceEnum getCompliance() {
         return compliance;
     }
 
-    public PdfSaveOptionsData compliance(String compliance) {
+    public PdfSaveOptionsData compliance(ComplianceEnum compliance) {
         this.compliance = compliance;
         return this;
     }
 
-    public void setCompliance(String compliance) {
+    public void setCompliance(ComplianceEnum compliance) {
         this.compliance = compliance;
     }
 
@@ -215,16 +553,16 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     * @return customPropertiesExport
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file. The default value is None.")
-    public String getCustomPropertiesExport() {
+    public CustomPropertiesExportEnum getCustomPropertiesExport() {
         return customPropertiesExport;
     }
 
-    public PdfSaveOptionsData customPropertiesExport(String customPropertiesExport) {
+    public PdfSaveOptionsData customPropertiesExport(CustomPropertiesExportEnum customPropertiesExport) {
         this.customPropertiesExport = customPropertiesExport;
         return this;
     }
 
-    public void setCustomPropertiesExport(String customPropertiesExport) {
+    public void setCustomPropertiesExport(CustomPropertiesExportEnum customPropertiesExport) {
         this.customPropertiesExport = customPropertiesExport;
     }
 
@@ -367,16 +705,16 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     * @return fontEmbeddingMode
     **/
     @ApiModelProperty(value = "Gets or sets the font embedding mode.")
-    public String getFontEmbeddingMode() {
+    public FontEmbeddingModeEnum getFontEmbeddingMode() {
         return fontEmbeddingMode;
     }
 
-    public PdfSaveOptionsData fontEmbeddingMode(String fontEmbeddingMode) {
+    public PdfSaveOptionsData fontEmbeddingMode(FontEmbeddingModeEnum fontEmbeddingMode) {
         this.fontEmbeddingMode = fontEmbeddingMode;
         return this;
     }
 
-    public void setFontEmbeddingMode(String fontEmbeddingMode) {
+    public void setFontEmbeddingMode(FontEmbeddingModeEnum fontEmbeddingMode) {
         this.fontEmbeddingMode = fontEmbeddingMode;
     }
 
@@ -406,16 +744,16 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     * @return imageColorSpaceExportMode
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls how the color space will be selected for the images in PDF document.")
-    public String getImageColorSpaceExportMode() {
+    public ImageColorSpaceExportModeEnum getImageColorSpaceExportMode() {
         return imageColorSpaceExportMode;
     }
 
-    public PdfSaveOptionsData imageColorSpaceExportMode(String imageColorSpaceExportMode) {
+    public PdfSaveOptionsData imageColorSpaceExportMode(ImageColorSpaceExportModeEnum imageColorSpaceExportMode) {
         this.imageColorSpaceExportMode = imageColorSpaceExportMode;
         return this;
     }
 
-    public void setImageColorSpaceExportMode(String imageColorSpaceExportMode) {
+    public void setImageColorSpaceExportMode(ImageColorSpaceExportModeEnum imageColorSpaceExportMode) {
         this.imageColorSpaceExportMode = imageColorSpaceExportMode;
     }
 
@@ -501,16 +839,16 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     * @return pageMode
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls how the PDF document should be displayed when opened in the PDF reader.")
-    public String getPageMode() {
+    public PageModeEnum getPageMode() {
         return pageMode;
     }
 
-    public PdfSaveOptionsData pageMode(String pageMode) {
+    public PdfSaveOptionsData pageMode(PageModeEnum pageMode) {
         this.pageMode = pageMode;
         return this;
     }
 
-    public void setPageMode(String pageMode) {
+    public void setPageMode(PageModeEnum pageMode) {
         this.pageMode = pageMode;
     }
 
@@ -558,16 +896,16 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     * @return textCompression
     **/
     @ApiModelProperty(value = "Gets or sets the compression type to be used for all textual content in the document.")
-    public String getTextCompression() {
+    public TextCompressionEnum getTextCompression() {
         return textCompression;
     }
 
-    public PdfSaveOptionsData textCompression(String textCompression) {
+    public PdfSaveOptionsData textCompression(TextCompressionEnum textCompression) {
         this.textCompression = textCompression;
         return this;
     }
 
-    public void setTextCompression(String textCompression) {
+    public void setTextCompression(TextCompressionEnum textCompression) {
         this.textCompression = textCompression;
     }
 
@@ -615,16 +953,16 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     * @return zoomBehavior
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.")
-    public String getZoomBehavior() {
+    public ZoomBehaviorEnum getZoomBehavior() {
         return zoomBehavior;
     }
 
-    public PdfSaveOptionsData zoomBehavior(String zoomBehavior) {
+    public PdfSaveOptionsData zoomBehavior(ZoomBehaviorEnum zoomBehavior) {
         this.zoomBehavior = zoomBehavior;
         return this;
     }
 
-    public void setZoomBehavior(String zoomBehavior) {
+    public void setZoomBehavior(ZoomBehaviorEnum zoomBehavior) {
         this.zoomBehavior = zoomBehavior;
     }
 

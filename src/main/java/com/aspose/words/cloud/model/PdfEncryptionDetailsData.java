@@ -47,36 +47,14 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for details of encryption.")
 public class PdfEncryptionDetailsData {
-    @SerializedName("EncryptionAlgorithm")
-    protected String encryptionAlgorithm;
-
     @SerializedName("OwnerPassword")
     protected String ownerPassword;
 
     @SerializedName("Permissions")
-    protected String permissions;
+    protected List<PdfPermissions> permissions;
 
     @SerializedName("UserPassword")
     protected String userPassword;
-    /**
-     * Gets or sets the encryption algorithm to use.
-    * @return encryptionAlgorithm
-    **/
-    @ApiModelProperty(value = "Gets or sets the encryption algorithm to use.")
-    public String getEncryptionAlgorithm() {
-        return encryptionAlgorithm;
-    }
-
-    public PdfEncryptionDetailsData encryptionAlgorithm(String encryptionAlgorithm) {
-        this.encryptionAlgorithm = encryptionAlgorithm;
-        return this;
-    }
-
-    public void setEncryptionAlgorithm(String encryptionAlgorithm) {
-        this.encryptionAlgorithm = encryptionAlgorithm;
-    }
-
-
     /**
      * Gets or sets the owner password for the encrypted PDF document.
     * @return ownerPassword
@@ -101,16 +79,25 @@ public class PdfEncryptionDetailsData {
     * @return permissions
     **/
     @ApiModelProperty(value = "Gets or sets the operations that are allowed to a user on the encrypted PDF document.")
-    public String getPermissions() {
+    public List<PdfPermissions> getPermissions() {
         return permissions;
     }
 
-    public PdfEncryptionDetailsData permissions(String permissions) {
+    public PdfEncryptionDetailsData permissions(List<PdfPermissions> permissions) {
         this.permissions = permissions;
         return this;
     }
 
-    public void setPermissions(String permissions) {
+    public PdfEncryptionDetailsData addPermissionsItem(PdfPermissions permissionsItem) {
+        if (this.permissions == null) {
+            this.permissions = new ArrayList<PdfPermissions>();
+        }
+        this.permissions.add(permissionsItem);
+        return this;
+    }
+
+
+    public void setPermissions(List<PdfPermissions> permissions) {
         this.permissions = permissions;
     }
 
@@ -135,7 +122,6 @@ public class PdfEncryptionDetailsData {
 
 
     public PdfEncryptionDetailsData() {
-        this.encryptionAlgorithm = null;
         this.ownerPassword = null;
         this.permissions = null;
         this.userPassword = null;
@@ -152,7 +138,6 @@ public class PdfEncryptionDetailsData {
 
         PdfEncryptionDetailsData pdfEncryptionDetailsData = (PdfEncryptionDetailsData) o;
         return
-            Objects.equals(this.encryptionAlgorithm, pdfEncryptionDetailsData.encryptionAlgorithm) &&
             Objects.equals(this.ownerPassword, pdfEncryptionDetailsData.ownerPassword) &&
             Objects.equals(this.permissions, pdfEncryptionDetailsData.permissions) &&
             Objects.equals(this.userPassword, pdfEncryptionDetailsData.userPassword);
@@ -160,14 +145,13 @@ public class PdfEncryptionDetailsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(encryptionAlgorithm, ownerPassword, permissions, userPassword);
+    return Objects.hash(ownerPassword, permissions, userPassword);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfEncryptionDetailsData {\n");
-    sb.append("    encryptionAlgorithm: ").append(toIndentedString(getEncryptionAlgorithm())).append("\n");
     sb.append("    ownerPassword: ").append(toIndentedString(getOwnerPassword())).append("\n");
     sb.append("    permissions: ").append(toIndentedString(getPermissions())).append("\n");
     sb.append("    userPassword: ").append(toIndentedString(getUserPassword())).append("\n");

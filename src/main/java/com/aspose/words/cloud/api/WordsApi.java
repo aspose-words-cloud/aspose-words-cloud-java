@@ -31,20 +31,19 @@ import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
 import com.aspose.words.cloud.model.responses.*;
-import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Response;
 import java.io.IOException;
-import javax.crypto.NoSuchPaddingException;
 import javax.mail.BodyPart;
+import javax.crypto.Cipher;
 import javax.mail.MessagingException;
-import java.io.File;
 import java.lang.reflect.Type;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.*;
+import java.io.File;
 
-public class WordsApi {
+public class WordsApi implements EncryptorFactory {
     private ApiClient apiClient;
 
     public WordsApi(String clientId, String clientSecret, String baseUrl) {
@@ -57,23 +56,7 @@ public class WordsApi {
 
     public WordsApi(ApiClient apiClient) {
         this.apiClient = apiClient;
-        try {
-            this.checkRsaKey();
-        } 
-        catch (ApiException e) {
-        }
-        catch (MessagingException e) {
-        }
-        catch (IOException e) {
-        }
-        catch (InvalidKeySpecException e) {
-        }
-        catch (NoSuchAlgorithmException e) {
-        }
-        catch (NoSuchPaddingException e) {
-        }
-        catch (InvalidKeyException e) {
-        }
+        this.apiClient.setEncryptorProvider(this);
     }
 
     public ApiClient getApiClient() {
@@ -82,23 +65,6 @@ public class WordsApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
-        try {
-            this.checkRsaKey();
-        }
-        catch (ApiException e) {
-        }
-        catch (MessagingException e) {
-        }
-        catch (IOException e) {
-        }
-        catch (InvalidKeySpecException e) {
-        }
-        catch (NoSuchAlgorithmException e) {
-        }
-        catch (NoSuchPaddingException e) {
-        }
-        catch (InvalidKeyException e) {
-        }
     }
 
     @SuppressWarnings("rawtypes")
@@ -137,9 +103,7 @@ public class WordsApi {
      */
     private ApiResponse< RevisionsModificationResponse > acceptAllRevisionsWithHttpInfo(AcceptAllRevisionsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = acceptAllRevisionsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        RevisionsModificationResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< RevisionsModificationResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -172,7 +136,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = acceptAllRevisionsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -212,9 +176,7 @@ public class WordsApi {
      */
     private ApiResponse< AcceptAllRevisionsOnlineResponse > acceptAllRevisionsOnlineWithHttpInfo(AcceptAllRevisionsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = acceptAllRevisionsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        AcceptAllRevisionsOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< AcceptAllRevisionsOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -247,7 +209,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = acceptAllRevisionsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -287,9 +249,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > appendDocumentWithHttpInfo(AppendDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = appendDocumentValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -322,7 +282,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = appendDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -362,9 +322,7 @@ public class WordsApi {
      */
     private ApiResponse< AppendDocumentOnlineResponse > appendDocumentOnlineWithHttpInfo(AppendDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = appendDocumentOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        AppendDocumentOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< AppendDocumentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -397,7 +355,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = appendDocumentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -437,9 +395,7 @@ public class WordsApi {
      */
     private ApiResponse< WordsResponse > applyStyleToDocumentElementWithHttpInfo(ApplyStyleToDocumentElementRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = applyStyleToDocumentElementValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        WordsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< WordsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -472,7 +428,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = applyStyleToDocumentElementValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -512,9 +468,7 @@ public class WordsApi {
      */
     private ApiResponse< ApplyStyleToDocumentElementOnlineResponse > applyStyleToDocumentElementOnlineWithHttpInfo(ApplyStyleToDocumentElementOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = applyStyleToDocumentElementOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ApplyStyleToDocumentElementOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ApplyStyleToDocumentElementOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -547,7 +501,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = applyStyleToDocumentElementOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -587,9 +541,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > buildReportWithHttpInfo(BuildReportRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = buildReportValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -622,7 +574,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = buildReportValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -634,19 +586,19 @@ public class WordsApi {
     /**
      * Executes the report generation process online using the specified document template and the external data source in XML, JSON or CSV format.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File buildReportOnline(BuildReportOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] buildReportOnline(BuildReportOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = buildReportOnlineWithHttpInfo(request);
+            ApiResponse< byte[] > resp = buildReportOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = buildReportOnlineWithHttpInfo(request);
+                ApiResponse< byte[] > resp = buildReportOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -656,15 +608,13 @@ public class WordsApi {
     /**
      * Executes the report generation process online using the specified document template and the external data source in XML, JSON or CSV format.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > buildReportOnlineWithHttpInfo(BuildReportOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > buildReportOnlineWithHttpInfo(BuildReportOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = buildReportOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -675,7 +625,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call buildReportOnlineAsync(BuildReportOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call buildReportOnlineAsync(BuildReportOnlineRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -697,7 +647,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = buildReportOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -737,9 +687,7 @@ public class WordsApi {
      */
     private ApiResponse< ClassificationResponse > classifyWithHttpInfo(ClassifyRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = classifyValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ClassificationResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ClassificationResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -772,7 +720,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = classifyValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -812,9 +760,7 @@ public class WordsApi {
      */
     private ApiResponse< ClassificationResponse > classifyDocumentWithHttpInfo(ClassifyDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = classifyDocumentValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ClassificationResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ClassificationResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -847,7 +793,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = classifyDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -887,9 +833,7 @@ public class WordsApi {
      */
     private ApiResponse< ClassificationResponse > classifyDocumentOnlineWithHttpInfo(ClassifyDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = classifyDocumentOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ClassificationResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ClassificationResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -922,7 +866,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = classifyDocumentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -962,9 +906,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > compareDocumentWithHttpInfo(CompareDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = compareDocumentValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -997,7 +939,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = compareDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1037,9 +979,7 @@ public class WordsApi {
      */
     private ApiResponse< CompareDocumentOnlineResponse > compareDocumentOnlineWithHttpInfo(CompareDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = compareDocumentOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CompareDocumentOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CompareDocumentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -1072,7 +1012,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = compareDocumentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1084,19 +1024,19 @@ public class WordsApi {
     /**
      * Converts a document on a local drive to the specified format.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File convertDocument(ConvertDocumentRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] convertDocument(ConvertDocumentRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = convertDocumentWithHttpInfo(request);
+            ApiResponse< byte[] > resp = convertDocumentWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = convertDocumentWithHttpInfo(request);
+                ApiResponse< byte[] > resp = convertDocumentWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -1106,15 +1046,13 @@ public class WordsApi {
     /**
      * Converts a document on a local drive to the specified format.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > convertDocumentWithHttpInfo(ConvertDocumentRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > convertDocumentWithHttpInfo(ConvertDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = convertDocumentValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -1125,7 +1063,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentAsync(ConvertDocumentRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call convertDocumentAsync(ConvertDocumentRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1147,7 +1085,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = convertDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1184,7 +1122,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > copyFileWithHttpInfo(CopyFileRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = copyFileValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -1217,7 +1155,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = copyFileValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1254,7 +1192,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > copyFolderWithHttpInfo(CopyFolderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = copyFolderValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -1287,7 +1225,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = copyFolderValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1327,9 +1265,7 @@ public class WordsApi {
      */
     private ApiResponse< StyleResponse > copyStyleWithHttpInfo(CopyStyleRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = copyStyleValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        StyleResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -1362,7 +1298,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = copyStyleValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1402,9 +1338,7 @@ public class WordsApi {
      */
     private ApiResponse< CopyStyleOnlineResponse > copyStyleOnlineWithHttpInfo(CopyStyleOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = copyStyleOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CopyStyleOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CopyStyleOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -1437,7 +1371,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = copyStyleOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1477,9 +1411,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > createDocumentWithHttpInfo(CreateDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = createDocumentValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -1512,7 +1444,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = createDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1549,7 +1481,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > createFolderWithHttpInfo(CreateFolderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = createFolderValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -1582,7 +1514,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = createFolderValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1622,9 +1554,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentPropertyResponse > createOrUpdateDocumentPropertyWithHttpInfo(CreateOrUpdateDocumentPropertyRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = createOrUpdateDocumentPropertyValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentPropertyResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentPropertyResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -1657,7 +1587,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = createOrUpdateDocumentPropertyValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1697,9 +1627,7 @@ public class WordsApi {
      */
     private ApiResponse< CreateOrUpdateDocumentPropertyOnlineResponse > createOrUpdateDocumentPropertyOnlineWithHttpInfo(CreateOrUpdateDocumentPropertyOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = createOrUpdateDocumentPropertyOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CreateOrUpdateDocumentPropertyOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CreateOrUpdateDocumentPropertyOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -1732,7 +1660,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = createOrUpdateDocumentPropertyOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1772,9 +1700,7 @@ public class WordsApi {
      */
     private ApiResponse< TabStopsResponse > deleteAllParagraphTabStopsWithHttpInfo(DeleteAllParagraphTabStopsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteAllParagraphTabStopsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TabStopsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TabStopsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -1807,7 +1733,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteAllParagraphTabStopsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1847,9 +1773,7 @@ public class WordsApi {
      */
     private ApiResponse< DeleteAllParagraphTabStopsOnlineResponse > deleteAllParagraphTabStopsOnlineWithHttpInfo(DeleteAllParagraphTabStopsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteAllParagraphTabStopsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DeleteAllParagraphTabStopsOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DeleteAllParagraphTabStopsOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -1882,7 +1806,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteAllParagraphTabStopsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1922,9 +1846,7 @@ public class WordsApi {
      */
     private ApiResponse< BorderResponse > deleteBorderWithHttpInfo(DeleteBorderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteBorderValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        BorderResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< BorderResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -1957,7 +1879,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteBorderValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -1997,9 +1919,7 @@ public class WordsApi {
      */
     private ApiResponse< DeleteBorderOnlineResponse > deleteBorderOnlineWithHttpInfo(DeleteBorderOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteBorderOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DeleteBorderOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DeleteBorderOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2032,7 +1952,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteBorderOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2072,9 +1992,7 @@ public class WordsApi {
      */
     private ApiResponse< BordersResponse > deleteBordersWithHttpInfo(DeleteBordersRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteBordersValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        BordersResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< BordersResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2107,7 +2025,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteBordersValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2147,9 +2065,7 @@ public class WordsApi {
      */
     private ApiResponse< DeleteBordersOnlineResponse > deleteBordersOnlineWithHttpInfo(DeleteBordersOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteBordersOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DeleteBordersOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DeleteBordersOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2182,7 +2098,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteBordersOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2219,7 +2135,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteCommentWithHttpInfo(DeleteCommentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteCommentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2252,7 +2168,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteCommentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2264,19 +2180,19 @@ public class WordsApi {
     /**
      * Removes a comment from the document.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteCommentOnline(DeleteCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteCommentOnline(DeleteCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteCommentOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteCommentOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteCommentOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteCommentOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -2286,15 +2202,13 @@ public class WordsApi {
     /**
      * Removes a comment from the document.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteCommentOnlineWithHttpInfo(DeleteCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteCommentOnlineWithHttpInfo(DeleteCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteCommentOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2305,7 +2219,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCommentOnlineAsync(DeleteCommentOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteCommentOnlineAsync(DeleteCommentOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2327,7 +2241,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteCommentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2364,7 +2278,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteCommentsWithHttpInfo(DeleteCommentsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteCommentsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2397,7 +2311,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteCommentsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2409,19 +2323,19 @@ public class WordsApi {
     /**
      * Removes all comments from the document.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteCommentsOnline(DeleteCommentsOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteCommentsOnline(DeleteCommentsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteCommentsOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteCommentsOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteCommentsOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteCommentsOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -2431,15 +2345,13 @@ public class WordsApi {
     /**
      * Removes all comments from the document.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteCommentsOnlineWithHttpInfo(DeleteCommentsOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteCommentsOnlineWithHttpInfo(DeleteCommentsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteCommentsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2450,7 +2362,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCommentsOnlineAsync(DeleteCommentsOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteCommentsOnlineAsync(DeleteCommentsOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2472,7 +2384,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteCommentsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2509,7 +2421,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteCustomXmlPartWithHttpInfo(DeleteCustomXmlPartRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteCustomXmlPartValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2542,7 +2454,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteCustomXmlPartValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2554,19 +2466,19 @@ public class WordsApi {
     /**
      * Removes the custom xml part from the document.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteCustomXmlPartOnline(DeleteCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteCustomXmlPartOnline(DeleteCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteCustomXmlPartOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteCustomXmlPartOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteCustomXmlPartOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteCustomXmlPartOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -2576,15 +2488,13 @@ public class WordsApi {
     /**
      * Removes the custom xml part from the document.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteCustomXmlPartOnlineWithHttpInfo(DeleteCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteCustomXmlPartOnlineWithHttpInfo(DeleteCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteCustomXmlPartOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2595,7 +2505,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCustomXmlPartOnlineAsync(DeleteCustomXmlPartOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteCustomXmlPartOnlineAsync(DeleteCustomXmlPartOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2617,7 +2527,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteCustomXmlPartOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2654,7 +2564,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteCustomXmlPartsWithHttpInfo(DeleteCustomXmlPartsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteCustomXmlPartsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2687,7 +2597,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteCustomXmlPartsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2699,19 +2609,19 @@ public class WordsApi {
     /**
      * Removes all custom xml parts from the document.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteCustomXmlPartsOnline(DeleteCustomXmlPartsOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteCustomXmlPartsOnline(DeleteCustomXmlPartsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteCustomXmlPartsOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteCustomXmlPartsOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteCustomXmlPartsOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteCustomXmlPartsOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -2721,15 +2631,13 @@ public class WordsApi {
     /**
      * Removes all custom xml parts from the document.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteCustomXmlPartsOnlineWithHttpInfo(DeleteCustomXmlPartsOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteCustomXmlPartsOnlineWithHttpInfo(DeleteCustomXmlPartsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteCustomXmlPartsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2740,7 +2648,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCustomXmlPartsOnlineAsync(DeleteCustomXmlPartsOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteCustomXmlPartsOnlineAsync(DeleteCustomXmlPartsOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2762,7 +2670,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteCustomXmlPartsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2799,7 +2707,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteDocumentPropertyWithHttpInfo(DeleteDocumentPropertyRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteDocumentPropertyValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2832,7 +2740,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteDocumentPropertyValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2844,19 +2752,19 @@ public class WordsApi {
     /**
      * Removes a document property.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteDocumentPropertyOnline(DeleteDocumentPropertyOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteDocumentPropertyOnline(DeleteDocumentPropertyOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteDocumentPropertyOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteDocumentPropertyOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteDocumentPropertyOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteDocumentPropertyOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -2866,15 +2774,13 @@ public class WordsApi {
     /**
      * Removes a document property.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteDocumentPropertyOnlineWithHttpInfo(DeleteDocumentPropertyOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteDocumentPropertyOnlineWithHttpInfo(DeleteDocumentPropertyOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteDocumentPropertyOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2885,7 +2791,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteDocumentPropertyOnlineAsync(DeleteDocumentPropertyOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteDocumentPropertyOnlineAsync(DeleteDocumentPropertyOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2907,7 +2813,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteDocumentPropertyOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2944,7 +2850,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteDrawingObjectWithHttpInfo(DeleteDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteDrawingObjectValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -2977,7 +2883,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteDrawingObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -2989,19 +2895,19 @@ public class WordsApi {
     /**
      * Removes a DrawingObject from the document node.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteDrawingObjectOnline(DeleteDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteDrawingObjectOnline(DeleteDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteDrawingObjectOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteDrawingObjectOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteDrawingObjectOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteDrawingObjectOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -3011,15 +2917,13 @@ public class WordsApi {
     /**
      * Removes a DrawingObject from the document node.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteDrawingObjectOnlineWithHttpInfo(DeleteDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteDrawingObjectOnlineWithHttpInfo(DeleteDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteDrawingObjectOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3030,7 +2934,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteDrawingObjectOnlineAsync(DeleteDrawingObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteDrawingObjectOnlineAsync(DeleteDrawingObjectOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3052,7 +2956,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteDrawingObjectOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3089,7 +2993,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteFieldWithHttpInfo(DeleteFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFieldValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3122,7 +3026,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3134,19 +3038,19 @@ public class WordsApi {
     /**
      * Removes a field from the document node.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteFieldOnline(DeleteFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteFieldOnline(DeleteFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteFieldOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteFieldOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteFieldOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteFieldOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -3156,15 +3060,13 @@ public class WordsApi {
     /**
      * Removes a field from the document node.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteFieldOnlineWithHttpInfo(DeleteFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteFieldOnlineWithHttpInfo(DeleteFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFieldOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3175,7 +3077,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFieldOnlineAsync(DeleteFieldOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteFieldOnlineAsync(DeleteFieldOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3197,7 +3099,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFieldOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3234,7 +3136,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteFieldsWithHttpInfo(DeleteFieldsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFieldsValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3267,7 +3169,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFieldsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3279,19 +3181,19 @@ public class WordsApi {
     /**
      * Removes fields from the document node.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteFieldsOnline(DeleteFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteFieldsOnline(DeleteFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteFieldsOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteFieldsOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteFieldsOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteFieldsOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -3301,15 +3203,13 @@ public class WordsApi {
     /**
      * Removes fields from the document node.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteFieldsOnlineWithHttpInfo(DeleteFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteFieldsOnlineWithHttpInfo(DeleteFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFieldsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3320,7 +3220,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFieldsOnlineAsync(DeleteFieldsOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteFieldsOnlineAsync(DeleteFieldsOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3342,7 +3242,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFieldsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3379,7 +3279,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteFileWithHttpInfo(DeleteFileRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFileValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3412,7 +3312,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFileValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3449,7 +3349,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteFolderWithHttpInfo(DeleteFolderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFolderValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3482,7 +3382,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFolderValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3519,7 +3419,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteFootnoteWithHttpInfo(DeleteFootnoteRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFootnoteValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3552,7 +3452,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFootnoteValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3564,19 +3464,19 @@ public class WordsApi {
     /**
      * Removes a footnote from the document node.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteFootnoteOnline(DeleteFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteFootnoteOnline(DeleteFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteFootnoteOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteFootnoteOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteFootnoteOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteFootnoteOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -3586,15 +3486,13 @@ public class WordsApi {
     /**
      * Removes a footnote from the document node.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteFootnoteOnlineWithHttpInfo(DeleteFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteFootnoteOnlineWithHttpInfo(DeleteFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFootnoteOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3605,7 +3503,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFootnoteOnlineAsync(DeleteFootnoteOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteFootnoteOnlineAsync(DeleteFootnoteOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3627,7 +3525,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFootnoteOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3664,7 +3562,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteFormFieldWithHttpInfo(DeleteFormFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFormFieldValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3697,7 +3595,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFormFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3709,19 +3607,19 @@ public class WordsApi {
     /**
      * Removes a form field from the document node.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteFormFieldOnline(DeleteFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteFormFieldOnline(DeleteFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteFormFieldOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteFormFieldOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteFormFieldOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteFormFieldOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -3731,15 +3629,13 @@ public class WordsApi {
     /**
      * Removes a form field from the document node.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteFormFieldOnlineWithHttpInfo(DeleteFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteFormFieldOnlineWithHttpInfo(DeleteFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteFormFieldOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3750,7 +3646,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFormFieldOnlineAsync(DeleteFormFieldOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteFormFieldOnlineAsync(DeleteFormFieldOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3772,7 +3668,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFormFieldOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3809,7 +3705,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteHeaderFooterWithHttpInfo(DeleteHeaderFooterRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteHeaderFooterValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3842,7 +3738,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteHeaderFooterValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3854,19 +3750,19 @@ public class WordsApi {
     /**
      * Removes a HeaderFooter object from the document section.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteHeaderFooterOnline(DeleteHeaderFooterOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteHeaderFooterOnline(DeleteHeaderFooterOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteHeaderFooterOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteHeaderFooterOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteHeaderFooterOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteHeaderFooterOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -3876,15 +3772,13 @@ public class WordsApi {
     /**
      * Removes a HeaderFooter object from the document section.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteHeaderFooterOnlineWithHttpInfo(DeleteHeaderFooterOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteHeaderFooterOnlineWithHttpInfo(DeleteHeaderFooterOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteHeaderFooterOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3895,7 +3789,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteHeaderFooterOnlineAsync(DeleteHeaderFooterOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteHeaderFooterOnlineAsync(DeleteHeaderFooterOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3917,7 +3811,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteHeaderFooterOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3954,7 +3848,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteHeadersFootersWithHttpInfo(DeleteHeadersFootersRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteHeadersFootersValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -3987,7 +3881,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteHeadersFootersValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -3999,19 +3893,19 @@ public class WordsApi {
     /**
      * Removes HeaderFooter objects from the document section.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteHeadersFootersOnline(DeleteHeadersFootersOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteHeadersFootersOnline(DeleteHeadersFootersOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteHeadersFootersOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteHeadersFootersOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteHeadersFootersOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteHeadersFootersOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -4021,15 +3915,13 @@ public class WordsApi {
     /**
      * Removes HeaderFooter objects from the document section.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteHeadersFootersOnlineWithHttpInfo(DeleteHeadersFootersOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteHeadersFootersOnlineWithHttpInfo(DeleteHeadersFootersOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteHeadersFootersOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -4040,7 +3932,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteHeadersFootersOnlineAsync(DeleteHeadersFootersOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteHeadersFootersOnlineAsync(DeleteHeadersFootersOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4062,7 +3954,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteHeadersFootersOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -4099,7 +3991,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteMacrosWithHttpInfo(DeleteMacrosRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteMacrosValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -4132,7 +4024,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteMacrosValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -4144,19 +4036,19 @@ public class WordsApi {
     /**
      * Removes macros from the document.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteMacrosOnline(DeleteMacrosOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteMacrosOnline(DeleteMacrosOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteMacrosOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteMacrosOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteMacrosOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteMacrosOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -4166,15 +4058,13 @@ public class WordsApi {
     /**
      * Removes macros from the document.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteMacrosOnlineWithHttpInfo(DeleteMacrosOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteMacrosOnlineWithHttpInfo(DeleteMacrosOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteMacrosOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -4185,7 +4075,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteMacrosOnlineAsync(DeleteMacrosOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteMacrosOnlineAsync(DeleteMacrosOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4207,7 +4097,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteMacrosOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -4244,7 +4134,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteOfficeMathObjectWithHttpInfo(DeleteOfficeMathObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteOfficeMathObjectValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -4277,7 +4167,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteOfficeMathObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -4289,19 +4179,19 @@ public class WordsApi {
     /**
      * Removes an OfficeMath object from the document node.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteOfficeMathObjectOnline(DeleteOfficeMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteOfficeMathObjectOnline(DeleteOfficeMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteOfficeMathObjectOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteOfficeMathObjectOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteOfficeMathObjectOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteOfficeMathObjectOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -4311,15 +4201,13 @@ public class WordsApi {
     /**
      * Removes an OfficeMath object from the document node.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteOfficeMathObjectOnlineWithHttpInfo(DeleteOfficeMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteOfficeMathObjectOnlineWithHttpInfo(DeleteOfficeMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteOfficeMathObjectOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -4330,7 +4218,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteOfficeMathObjectOnlineAsync(DeleteOfficeMathObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteOfficeMathObjectOnlineAsync(DeleteOfficeMathObjectOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4352,7 +4240,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteOfficeMathObjectOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -4389,7 +4277,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteParagraphWithHttpInfo(DeleteParagraphRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -4422,7 +4310,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -4462,9 +4350,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphListFormatResponse > deleteParagraphListFormatWithHttpInfo(DeleteParagraphListFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphListFormatValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ParagraphListFormatResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ParagraphListFormatResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -4497,7 +4383,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteParagraphListFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -4537,9 +4423,7 @@ public class WordsApi {
      */
     private ApiResponse< DeleteParagraphListFormatOnlineResponse > deleteParagraphListFormatOnlineWithHttpInfo(DeleteParagraphListFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphListFormatOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DeleteParagraphListFormatOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DeleteParagraphListFormatOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -4572,7 +4456,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteParagraphListFormatOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -4584,19 +4468,19 @@ public class WordsApi {
     /**
      * Removes a paragraph from the document node.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteParagraphOnline(DeleteParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteParagraphOnline(DeleteParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteParagraphOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteParagraphOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteParagraphOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteParagraphOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -4606,15 +4490,13 @@ public class WordsApi {
     /**
      * Removes a paragraph from the document node.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteParagraphOnlineWithHttpInfo(DeleteParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteParagraphOnlineWithHttpInfo(DeleteParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -4625,7 +4507,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteParagraphOnlineAsync(DeleteParagraphOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteParagraphOnlineAsync(DeleteParagraphOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4647,7 +4529,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteParagraphOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -4687,9 +4569,7 @@ public class WordsApi {
      */
     private ApiResponse< TabStopsResponse > deleteParagraphTabStopWithHttpInfo(DeleteParagraphTabStopRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphTabStopValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TabStopsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TabStopsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -4722,7 +4602,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteParagraphTabStopValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -4762,9 +4642,7 @@ public class WordsApi {
      */
     private ApiResponse< DeleteParagraphTabStopOnlineResponse > deleteParagraphTabStopOnlineWithHttpInfo(DeleteParagraphTabStopOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphTabStopOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DeleteParagraphTabStopOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DeleteParagraphTabStopOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -4797,7 +4675,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteParagraphTabStopOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -4834,7 +4712,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteRunWithHttpInfo(DeleteRunRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteRunValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -4867,7 +4745,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteRunValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -4879,19 +4757,19 @@ public class WordsApi {
     /**
      * Removes a Run object from the paragraph.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteRunOnline(DeleteRunOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteRunOnline(DeleteRunOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteRunOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteRunOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteRunOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteRunOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -4901,15 +4779,13 @@ public class WordsApi {
     /**
      * Removes a Run object from the paragraph.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteRunOnlineWithHttpInfo(DeleteRunOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteRunOnlineWithHttpInfo(DeleteRunOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteRunOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -4920,7 +4796,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteRunOnlineAsync(DeleteRunOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteRunOnlineAsync(DeleteRunOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4942,7 +4818,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteRunOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -4979,7 +4855,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteSectionWithHttpInfo(DeleteSectionRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteSectionValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5012,7 +4888,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteSectionValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -5024,19 +4900,19 @@ public class WordsApi {
     /**
      * Removes a section from the document.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteSectionOnline(DeleteSectionOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteSectionOnline(DeleteSectionOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteSectionOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteSectionOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteSectionOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteSectionOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -5046,15 +4922,13 @@ public class WordsApi {
     /**
      * Removes a section from the document.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteSectionOnlineWithHttpInfo(DeleteSectionOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteSectionOnlineWithHttpInfo(DeleteSectionOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteSectionOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5065,7 +4939,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteSectionOnlineAsync(DeleteSectionOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteSectionOnlineAsync(DeleteSectionOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5087,7 +4961,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteSectionOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -5124,7 +4998,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteTableWithHttpInfo(DeleteTableRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteTableValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5157,7 +5031,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteTableValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -5194,7 +5068,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteTableCellWithHttpInfo(DeleteTableCellRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteTableCellValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5227,7 +5101,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteTableCellValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -5239,19 +5113,19 @@ public class WordsApi {
     /**
      * Removes a cell from the table row.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteTableCellOnline(DeleteTableCellOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteTableCellOnline(DeleteTableCellOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteTableCellOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteTableCellOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteTableCellOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteTableCellOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -5261,15 +5135,13 @@ public class WordsApi {
     /**
      * Removes a cell from the table row.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteTableCellOnlineWithHttpInfo(DeleteTableCellOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteTableCellOnlineWithHttpInfo(DeleteTableCellOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteTableCellOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5280,7 +5152,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteTableCellOnlineAsync(DeleteTableCellOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteTableCellOnlineAsync(DeleteTableCellOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5302,7 +5174,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteTableCellOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -5314,19 +5186,19 @@ public class WordsApi {
     /**
      * Removes a table from the document node.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteTableOnline(DeleteTableOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteTableOnline(DeleteTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteTableOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteTableOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteTableOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteTableOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -5336,15 +5208,13 @@ public class WordsApi {
     /**
      * Removes a table from the document node.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteTableOnlineWithHttpInfo(DeleteTableOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteTableOnlineWithHttpInfo(DeleteTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteTableOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5355,7 +5225,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteTableOnlineAsync(DeleteTableOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteTableOnlineAsync(DeleteTableOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5377,7 +5247,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteTableOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -5414,7 +5284,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > deleteTableRowWithHttpInfo(DeleteTableRowRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteTableRowValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5447,7 +5317,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteTableRowValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -5459,19 +5329,19 @@ public class WordsApi {
     /**
      * Removes a row from the table.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File deleteTableRowOnline(DeleteTableRowOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> deleteTableRowOnline(DeleteTableRowOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = deleteTableRowOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = deleteTableRowOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = deleteTableRowOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = deleteTableRowOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -5481,15 +5351,13 @@ public class WordsApi {
     /**
      * Removes a row from the table.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > deleteTableRowOnlineWithHttpInfo(DeleteTableRowOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > deleteTableRowOnlineWithHttpInfo(DeleteTableRowOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteTableRowOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5500,7 +5368,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteTableRowOnlineAsync(DeleteTableRowOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call deleteTableRowOnlineAsync(DeleteTableRowOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5522,7 +5390,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteTableRowOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -5562,9 +5430,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > deleteWatermarkWithHttpInfo(DeleteWatermarkRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteWatermarkValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5597,7 +5463,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteWatermarkValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -5637,9 +5503,7 @@ public class WordsApi {
      */
     private ApiResponse< DeleteWatermarkOnlineResponse > deleteWatermarkOnlineWithHttpInfo(DeleteWatermarkOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = deleteWatermarkOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DeleteWatermarkOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DeleteWatermarkOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5672,7 +5536,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteWatermarkOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -5684,19 +5548,19 @@ public class WordsApi {
     /**
      * Download file.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File downloadFile(DownloadFileRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] downloadFile(DownloadFileRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = downloadFileWithHttpInfo(request);
+            ApiResponse< byte[] > resp = downloadFileWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = downloadFileWithHttpInfo(request);
+                ApiResponse< byte[] > resp = downloadFileWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -5706,15 +5570,13 @@ public class WordsApi {
     /**
      * Download file.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > downloadFileWithHttpInfo(DownloadFileRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > downloadFileWithHttpInfo(DownloadFileRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = downloadFileValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5725,7 +5587,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call downloadFileAsync(DownloadFileRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call downloadFileAsync(DownloadFileRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5747,7 +5609,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = downloadFileValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -5787,9 +5649,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > executeMailMergeWithHttpInfo(ExecuteMailMergeRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = executeMailMergeValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5822,7 +5682,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = executeMailMergeValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -5834,19 +5694,19 @@ public class WordsApi {
     /**
      * Executes a Mail Merge operation online.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File executeMailMergeOnline(ExecuteMailMergeOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] executeMailMergeOnline(ExecuteMailMergeOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = executeMailMergeOnlineWithHttpInfo(request);
+            ApiResponse< byte[] > resp = executeMailMergeOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = executeMailMergeOnlineWithHttpInfo(request);
+                ApiResponse< byte[] > resp = executeMailMergeOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -5856,15 +5716,13 @@ public class WordsApi {
     /**
      * Executes a Mail Merge operation online.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > executeMailMergeOnlineWithHttpInfo(ExecuteMailMergeOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > executeMailMergeOnlineWithHttpInfo(ExecuteMailMergeOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = executeMailMergeOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5875,7 +5733,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call executeMailMergeOnlineAsync(ExecuteMailMergeOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call executeMailMergeOnlineAsync(ExecuteMailMergeOnlineRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5897,7 +5755,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = executeMailMergeOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -5937,9 +5795,7 @@ public class WordsApi {
      */
     private ApiResponse< AvailableFontsResponse > getAvailableFontsWithHttpInfo(GetAvailableFontsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getAvailableFontsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        AvailableFontsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< AvailableFontsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -5972,7 +5828,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getAvailableFontsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6012,9 +5868,7 @@ public class WordsApi {
      */
     private ApiResponse< BookmarkResponse > getBookmarkByNameWithHttpInfo(GetBookmarkByNameRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBookmarkByNameValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        BookmarkResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< BookmarkResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -6047,7 +5901,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getBookmarkByNameValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6087,9 +5941,7 @@ public class WordsApi {
      */
     private ApiResponse< BookmarkResponse > getBookmarkByNameOnlineWithHttpInfo(GetBookmarkByNameOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBookmarkByNameOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        BookmarkResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< BookmarkResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -6122,7 +5974,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getBookmarkByNameOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6162,9 +6014,7 @@ public class WordsApi {
      */
     private ApiResponse< BookmarksResponse > getBookmarksWithHttpInfo(GetBookmarksRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBookmarksValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        BookmarksResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< BookmarksResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -6197,7 +6047,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getBookmarksValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6237,9 +6087,7 @@ public class WordsApi {
      */
     private ApiResponse< BookmarksResponse > getBookmarksOnlineWithHttpInfo(GetBookmarksOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBookmarksOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        BookmarksResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< BookmarksResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -6272,7 +6120,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getBookmarksOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6312,9 +6160,7 @@ public class WordsApi {
      */
     private ApiResponse< BorderResponse > getBorderWithHttpInfo(GetBorderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBorderValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        BorderResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< BorderResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -6347,7 +6193,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getBorderValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6387,9 +6233,7 @@ public class WordsApi {
      */
     private ApiResponse< BorderResponse > getBorderOnlineWithHttpInfo(GetBorderOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBorderOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        BorderResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< BorderResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -6422,7 +6266,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getBorderOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6462,9 +6306,7 @@ public class WordsApi {
      */
     private ApiResponse< BordersResponse > getBordersWithHttpInfo(GetBordersRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBordersValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        BordersResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< BordersResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -6497,7 +6339,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getBordersValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6537,9 +6379,7 @@ public class WordsApi {
      */
     private ApiResponse< BordersResponse > getBordersOnlineWithHttpInfo(GetBordersOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getBordersOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        BordersResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< BordersResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -6572,7 +6412,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getBordersOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6612,9 +6452,7 @@ public class WordsApi {
      */
     private ApiResponse< CommentResponse > getCommentWithHttpInfo(GetCommentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getCommentValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CommentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CommentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -6647,7 +6485,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getCommentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6687,9 +6525,7 @@ public class WordsApi {
      */
     private ApiResponse< CommentResponse > getCommentOnlineWithHttpInfo(GetCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getCommentOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CommentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CommentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -6722,7 +6558,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getCommentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6762,9 +6598,7 @@ public class WordsApi {
      */
     private ApiResponse< CommentsResponse > getCommentsWithHttpInfo(GetCommentsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getCommentsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CommentsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CommentsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -6797,7 +6631,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getCommentsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6837,9 +6671,7 @@ public class WordsApi {
      */
     private ApiResponse< CommentsResponse > getCommentsOnlineWithHttpInfo(GetCommentsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getCommentsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CommentsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CommentsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -6872,7 +6704,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getCommentsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6912,9 +6744,7 @@ public class WordsApi {
      */
     private ApiResponse< CustomXmlPartResponse > getCustomXmlPartWithHttpInfo(GetCustomXmlPartRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getCustomXmlPartValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CustomXmlPartResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CustomXmlPartResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -6947,7 +6777,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getCustomXmlPartValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -6987,9 +6817,7 @@ public class WordsApi {
      */
     private ApiResponse< CustomXmlPartResponse > getCustomXmlPartOnlineWithHttpInfo(GetCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getCustomXmlPartOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CustomXmlPartResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CustomXmlPartResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7022,7 +6850,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getCustomXmlPartOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -7062,9 +6890,7 @@ public class WordsApi {
      */
     private ApiResponse< CustomXmlPartsResponse > getCustomXmlPartsWithHttpInfo(GetCustomXmlPartsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getCustomXmlPartsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CustomXmlPartsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CustomXmlPartsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7097,7 +6923,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getCustomXmlPartsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -7137,9 +6963,7 @@ public class WordsApi {
      */
     private ApiResponse< CustomXmlPartsResponse > getCustomXmlPartsOnlineWithHttpInfo(GetCustomXmlPartsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getCustomXmlPartsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CustomXmlPartsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CustomXmlPartsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7172,7 +6996,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getCustomXmlPartsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -7212,9 +7036,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > getDocumentWithHttpInfo(GetDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7247,7 +7069,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -7287,9 +7109,7 @@ public class WordsApi {
      */
     private ApiResponse< DrawingObjectResponse > getDocumentDrawingObjectByIndexWithHttpInfo(GetDocumentDrawingObjectByIndexRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DrawingObjectResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DrawingObjectResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7322,7 +7142,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -7362,9 +7182,7 @@ public class WordsApi {
      */
     private ApiResponse< DrawingObjectResponse > getDocumentDrawingObjectByIndexOnlineWithHttpInfo(GetDocumentDrawingObjectByIndexOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DrawingObjectResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DrawingObjectResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7397,7 +7215,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -7409,19 +7227,19 @@ public class WordsApi {
     /**
      * Reads image data of a DrawingObject from the document node.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File getDocumentDrawingObjectImageData(GetDocumentDrawingObjectImageDataRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] getDocumentDrawingObjectImageData(GetDocumentDrawingObjectImageDataRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = getDocumentDrawingObjectImageDataWithHttpInfo(request);
+            ApiResponse< byte[] > resp = getDocumentDrawingObjectImageDataWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = getDocumentDrawingObjectImageDataWithHttpInfo(request);
+                ApiResponse< byte[] > resp = getDocumentDrawingObjectImageDataWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -7431,15 +7249,13 @@ public class WordsApi {
     /**
      * Reads image data of a DrawingObject from the document node.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > getDocumentDrawingObjectImageDataWithHttpInfo(GetDocumentDrawingObjectImageDataRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > getDocumentDrawingObjectImageDataWithHttpInfo(GetDocumentDrawingObjectImageDataRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7450,7 +7266,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataAsync(GetDocumentDrawingObjectImageDataRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataAsync(GetDocumentDrawingObjectImageDataRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7472,7 +7288,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -7484,19 +7300,19 @@ public class WordsApi {
     /**
      * Reads image data of a DrawingObject from the document node.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File getDocumentDrawingObjectImageDataOnline(GetDocumentDrawingObjectImageDataOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] getDocumentDrawingObjectImageDataOnline(GetDocumentDrawingObjectImageDataOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = getDocumentDrawingObjectImageDataOnlineWithHttpInfo(request);
+            ApiResponse< byte[] > resp = getDocumentDrawingObjectImageDataOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = getDocumentDrawingObjectImageDataOnlineWithHttpInfo(request);
+                ApiResponse< byte[] > resp = getDocumentDrawingObjectImageDataOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -7506,15 +7322,13 @@ public class WordsApi {
     /**
      * Reads image data of a DrawingObject from the document node.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > getDocumentDrawingObjectImageDataOnlineWithHttpInfo(GetDocumentDrawingObjectImageDataOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > getDocumentDrawingObjectImageDataOnlineWithHttpInfo(GetDocumentDrawingObjectImageDataOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7525,7 +7339,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataOnlineAsync(GetDocumentDrawingObjectImageDataOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataOnlineAsync(GetDocumentDrawingObjectImageDataOnlineRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7547,7 +7361,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -7559,19 +7373,19 @@ public class WordsApi {
     /**
      * Reads OLE data of a DrawingObject from the document node.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File getDocumentDrawingObjectOleData(GetDocumentDrawingObjectOleDataRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] getDocumentDrawingObjectOleData(GetDocumentDrawingObjectOleDataRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = getDocumentDrawingObjectOleDataWithHttpInfo(request);
+            ApiResponse< byte[] > resp = getDocumentDrawingObjectOleDataWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = getDocumentDrawingObjectOleDataWithHttpInfo(request);
+                ApiResponse< byte[] > resp = getDocumentDrawingObjectOleDataWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -7581,15 +7395,13 @@ public class WordsApi {
     /**
      * Reads OLE data of a DrawingObject from the document node.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > getDocumentDrawingObjectOleDataWithHttpInfo(GetDocumentDrawingObjectOleDataRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > getDocumentDrawingObjectOleDataWithHttpInfo(GetDocumentDrawingObjectOleDataRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7600,7 +7412,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataAsync(GetDocumentDrawingObjectOleDataRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataAsync(GetDocumentDrawingObjectOleDataRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7622,7 +7434,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -7634,19 +7446,19 @@ public class WordsApi {
     /**
      * Reads OLE data of a DrawingObject from the document node.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File getDocumentDrawingObjectOleDataOnline(GetDocumentDrawingObjectOleDataOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] getDocumentDrawingObjectOleDataOnline(GetDocumentDrawingObjectOleDataOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = getDocumentDrawingObjectOleDataOnlineWithHttpInfo(request);
+            ApiResponse< byte[] > resp = getDocumentDrawingObjectOleDataOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = getDocumentDrawingObjectOleDataOnlineWithHttpInfo(request);
+                ApiResponse< byte[] > resp = getDocumentDrawingObjectOleDataOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -7656,15 +7468,13 @@ public class WordsApi {
     /**
      * Reads OLE data of a DrawingObject from the document node.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > getDocumentDrawingObjectOleDataOnlineWithHttpInfo(GetDocumentDrawingObjectOleDataOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > getDocumentDrawingObjectOleDataOnlineWithHttpInfo(GetDocumentDrawingObjectOleDataOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7675,7 +7485,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataOnlineAsync(GetDocumentDrawingObjectOleDataOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataOnlineAsync(GetDocumentDrawingObjectOleDataOnlineRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7697,7 +7507,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -7737,9 +7547,7 @@ public class WordsApi {
      */
     private ApiResponse< DrawingObjectsResponse > getDocumentDrawingObjectsWithHttpInfo(GetDocumentDrawingObjectsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DrawingObjectsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DrawingObjectsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7772,7 +7580,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -7812,9 +7620,7 @@ public class WordsApi {
      */
     private ApiResponse< DrawingObjectsResponse > getDocumentDrawingObjectsOnlineWithHttpInfo(GetDocumentDrawingObjectsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DrawingObjectsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DrawingObjectsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7847,7 +7653,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -7887,9 +7693,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldNamesResponse > getDocumentFieldNamesWithHttpInfo(GetDocumentFieldNamesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentFieldNamesValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FieldNamesResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FieldNamesResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7922,7 +7726,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentFieldNamesValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -7962,9 +7766,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldNamesResponse > getDocumentFieldNamesOnlineWithHttpInfo(GetDocumentFieldNamesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FieldNamesResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FieldNamesResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -7997,7 +7799,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -8037,9 +7839,7 @@ public class WordsApi {
      */
     private ApiResponse< HyperlinkResponse > getDocumentHyperlinkByIndexWithHttpInfo(GetDocumentHyperlinkByIndexRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinkByIndexValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        HyperlinkResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< HyperlinkResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -8072,7 +7872,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentHyperlinkByIndexValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -8112,9 +7912,7 @@ public class WordsApi {
      */
     private ApiResponse< HyperlinkResponse > getDocumentHyperlinkByIndexOnlineWithHttpInfo(GetDocumentHyperlinkByIndexOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinkByIndexOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        HyperlinkResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< HyperlinkResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -8147,7 +7945,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentHyperlinkByIndexOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -8187,9 +7985,7 @@ public class WordsApi {
      */
     private ApiResponse< HyperlinksResponse > getDocumentHyperlinksWithHttpInfo(GetDocumentHyperlinksRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinksValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        HyperlinksResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< HyperlinksResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -8222,7 +8018,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentHyperlinksValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -8262,9 +8058,7 @@ public class WordsApi {
      */
     private ApiResponse< HyperlinksResponse > getDocumentHyperlinksOnlineWithHttpInfo(GetDocumentHyperlinksOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinksOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        HyperlinksResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< HyperlinksResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -8297,7 +8091,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentHyperlinksOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -8337,9 +8131,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentPropertiesResponse > getDocumentPropertiesWithHttpInfo(GetDocumentPropertiesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertiesValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentPropertiesResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentPropertiesResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -8372,7 +8164,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentPropertiesValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -8412,9 +8204,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentPropertiesResponse > getDocumentPropertiesOnlineWithHttpInfo(GetDocumentPropertiesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertiesOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentPropertiesResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentPropertiesResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -8447,7 +8237,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentPropertiesOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -8487,9 +8277,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentPropertyResponse > getDocumentPropertyWithHttpInfo(GetDocumentPropertyRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertyValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentPropertyResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentPropertyResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -8522,7 +8310,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentPropertyValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -8562,9 +8350,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentPropertyResponse > getDocumentPropertyOnlineWithHttpInfo(GetDocumentPropertyOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertyOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentPropertyResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentPropertyResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -8597,7 +8383,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentPropertyOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -8637,9 +8423,7 @@ public class WordsApi {
      */
     private ApiResponse< ProtectionDataResponse > getDocumentProtectionWithHttpInfo(GetDocumentProtectionRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentProtectionValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ProtectionDataResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ProtectionDataResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -8672,7 +8456,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentProtectionValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -8712,9 +8496,7 @@ public class WordsApi {
      */
     private ApiResponse< ProtectionDataResponse > getDocumentProtectionOnlineWithHttpInfo(GetDocumentProtectionOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentProtectionOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ProtectionDataResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ProtectionDataResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -8747,7 +8529,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentProtectionOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -8787,9 +8569,7 @@ public class WordsApi {
      */
     private ApiResponse< StatDataResponse > getDocumentStatisticsWithHttpInfo(GetDocumentStatisticsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentStatisticsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        StatDataResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< StatDataResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -8822,7 +8602,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentStatisticsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -8862,9 +8642,7 @@ public class WordsApi {
      */
     private ApiResponse< StatDataResponse > getDocumentStatisticsOnlineWithHttpInfo(GetDocumentStatisticsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentStatisticsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        StatDataResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< StatDataResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -8897,7 +8675,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentStatisticsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -8909,19 +8687,19 @@ public class WordsApi {
     /**
      * Converts a document in cloud storage to the specified format.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File getDocumentWithFormat(GetDocumentWithFormatRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] getDocumentWithFormat(GetDocumentWithFormatRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = getDocumentWithFormatWithHttpInfo(request);
+            ApiResponse< byte[] > resp = getDocumentWithFormatWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = getDocumentWithFormatWithHttpInfo(request);
+                ApiResponse< byte[] > resp = getDocumentWithFormatWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -8931,15 +8709,13 @@ public class WordsApi {
     /**
      * Converts a document in cloud storage to the specified format.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > getDocumentWithFormatWithHttpInfo(GetDocumentWithFormatRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > getDocumentWithFormatWithHttpInfo(GetDocumentWithFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getDocumentWithFormatValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -8950,7 +8726,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentWithFormatAsync(GetDocumentWithFormatRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call getDocumentWithFormatAsync(GetDocumentWithFormatRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8972,7 +8748,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentWithFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9012,9 +8788,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldResponse > getFieldWithHttpInfo(GetFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFieldValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FieldResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FieldResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -9047,7 +8821,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9087,9 +8861,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldResponse > getFieldOnlineWithHttpInfo(GetFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFieldOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FieldResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FieldResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -9122,7 +8894,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFieldOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9162,9 +8934,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldsResponse > getFieldsWithHttpInfo(GetFieldsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFieldsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FieldsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FieldsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -9197,7 +8967,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFieldsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9237,9 +9007,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldsResponse > getFieldsOnlineWithHttpInfo(GetFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFieldsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FieldsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FieldsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -9272,7 +9040,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFieldsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9312,9 +9080,7 @@ public class WordsApi {
      */
     private ApiResponse< FilesList > getFilesListWithHttpInfo(GetFilesListRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFilesListValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FilesList data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FilesList >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -9347,7 +9113,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFilesListValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9387,9 +9153,7 @@ public class WordsApi {
      */
     private ApiResponse< FootnoteResponse > getFootnoteWithHttpInfo(GetFootnoteRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFootnoteValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FootnoteResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FootnoteResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -9422,7 +9186,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFootnoteValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9462,9 +9226,7 @@ public class WordsApi {
      */
     private ApiResponse< FootnoteResponse > getFootnoteOnlineWithHttpInfo(GetFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFootnoteOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FootnoteResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FootnoteResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -9497,7 +9259,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFootnoteOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9537,9 +9299,7 @@ public class WordsApi {
      */
     private ApiResponse< FootnotesResponse > getFootnotesWithHttpInfo(GetFootnotesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFootnotesValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FootnotesResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FootnotesResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -9572,7 +9332,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFootnotesValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9612,9 +9372,7 @@ public class WordsApi {
      */
     private ApiResponse< FootnotesResponse > getFootnotesOnlineWithHttpInfo(GetFootnotesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFootnotesOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FootnotesResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FootnotesResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -9647,7 +9405,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFootnotesOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9687,9 +9445,7 @@ public class WordsApi {
      */
     private ApiResponse< FormFieldResponse > getFormFieldWithHttpInfo(GetFormFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFormFieldValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FormFieldResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FormFieldResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -9722,7 +9478,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFormFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9762,9 +9518,7 @@ public class WordsApi {
      */
     private ApiResponse< FormFieldResponse > getFormFieldOnlineWithHttpInfo(GetFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFormFieldOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FormFieldResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FormFieldResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -9797,7 +9551,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFormFieldOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9837,9 +9591,7 @@ public class WordsApi {
      */
     private ApiResponse< FormFieldsResponse > getFormFieldsWithHttpInfo(GetFormFieldsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFormFieldsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FormFieldsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FormFieldsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -9872,7 +9624,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFormFieldsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9912,9 +9664,7 @@ public class WordsApi {
      */
     private ApiResponse< FormFieldsResponse > getFormFieldsOnlineWithHttpInfo(GetFormFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getFormFieldsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FormFieldsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FormFieldsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -9947,7 +9697,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFormFieldsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -9987,9 +9737,7 @@ public class WordsApi {
      */
     private ApiResponse< HeaderFooterResponse > getHeaderFooterWithHttpInfo(GetHeaderFooterRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        HeaderFooterResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< HeaderFooterResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10022,7 +9770,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getHeaderFooterValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -10062,9 +9810,7 @@ public class WordsApi {
      */
     private ApiResponse< HeaderFooterResponse > getHeaderFooterOfSectionWithHttpInfo(GetHeaderFooterOfSectionRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterOfSectionValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        HeaderFooterResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< HeaderFooterResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10097,7 +9843,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getHeaderFooterOfSectionValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -10137,9 +9883,7 @@ public class WordsApi {
      */
     private ApiResponse< HeaderFooterResponse > getHeaderFooterOfSectionOnlineWithHttpInfo(GetHeaderFooterOfSectionOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterOfSectionOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        HeaderFooterResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< HeaderFooterResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10172,7 +9916,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getHeaderFooterOfSectionOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -10212,9 +9956,7 @@ public class WordsApi {
      */
     private ApiResponse< HeaderFooterResponse > getHeaderFooterOnlineWithHttpInfo(GetHeaderFooterOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        HeaderFooterResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< HeaderFooterResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10247,7 +9989,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getHeaderFooterOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -10287,9 +10029,7 @@ public class WordsApi {
      */
     private ApiResponse< HeaderFootersResponse > getHeaderFootersWithHttpInfo(GetHeaderFootersRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getHeaderFootersValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        HeaderFootersResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< HeaderFootersResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10322,7 +10062,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getHeaderFootersValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -10362,9 +10102,7 @@ public class WordsApi {
      */
     private ApiResponse< HeaderFootersResponse > getHeaderFootersOnlineWithHttpInfo(GetHeaderFootersOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getHeaderFootersOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        HeaderFootersResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< HeaderFootersResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10397,7 +10135,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getHeaderFootersOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -10437,9 +10175,7 @@ public class WordsApi {
      */
     private ApiResponse< InfoResponse > getInfoWithHttpInfo(GetInfoRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getInfoValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InfoResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InfoResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10472,7 +10208,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getInfoValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -10512,9 +10248,7 @@ public class WordsApi {
      */
     private ApiResponse< ListResponse > getListWithHttpInfo(GetListRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getListValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ListResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ListResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10547,7 +10281,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getListValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -10587,9 +10321,7 @@ public class WordsApi {
      */
     private ApiResponse< ListResponse > getListOnlineWithHttpInfo(GetListOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getListOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ListResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ListResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10622,7 +10354,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getListOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -10662,9 +10394,7 @@ public class WordsApi {
      */
     private ApiResponse< ListsResponse > getListsWithHttpInfo(GetListsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getListsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ListsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ListsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10697,7 +10427,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getListsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -10737,9 +10467,7 @@ public class WordsApi {
      */
     private ApiResponse< ListsResponse > getListsOnlineWithHttpInfo(GetListsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getListsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ListsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ListsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10772,7 +10500,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getListsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -10812,9 +10540,7 @@ public class WordsApi {
      */
     private ApiResponse< OfficeMathObjectResponse > getOfficeMathObjectWithHttpInfo(GetOfficeMathObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        OfficeMathObjectResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< OfficeMathObjectResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10847,7 +10573,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getOfficeMathObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -10887,9 +10613,7 @@ public class WordsApi {
      */
     private ApiResponse< OfficeMathObjectResponse > getOfficeMathObjectOnlineWithHttpInfo(GetOfficeMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        OfficeMathObjectResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< OfficeMathObjectResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10922,7 +10646,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getOfficeMathObjectOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -10962,9 +10686,7 @@ public class WordsApi {
      */
     private ApiResponse< OfficeMathObjectsResponse > getOfficeMathObjectsWithHttpInfo(GetOfficeMathObjectsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        OfficeMathObjectsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< OfficeMathObjectsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -10997,7 +10719,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getOfficeMathObjectsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -11037,9 +10759,7 @@ public class WordsApi {
      */
     private ApiResponse< OfficeMathObjectsResponse > getOfficeMathObjectsOnlineWithHttpInfo(GetOfficeMathObjectsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        OfficeMathObjectsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< OfficeMathObjectsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -11072,7 +10792,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getOfficeMathObjectsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -11112,9 +10832,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphResponse > getParagraphWithHttpInfo(GetParagraphRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ParagraphResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ParagraphResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -11147,7 +10865,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -11187,9 +10905,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphFormatResponse > getParagraphFormatWithHttpInfo(GetParagraphFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphFormatValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ParagraphFormatResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ParagraphFormatResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -11222,7 +10938,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -11262,9 +10978,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphFormatResponse > getParagraphFormatOnlineWithHttpInfo(GetParagraphFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphFormatOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ParagraphFormatResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ParagraphFormatResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -11297,7 +11011,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphFormatOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -11337,9 +11051,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphListFormatResponse > getParagraphListFormatWithHttpInfo(GetParagraphListFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphListFormatValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ParagraphListFormatResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ParagraphListFormatResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -11372,7 +11084,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphListFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -11412,9 +11124,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphListFormatResponse > getParagraphListFormatOnlineWithHttpInfo(GetParagraphListFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphListFormatOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ParagraphListFormatResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ParagraphListFormatResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -11447,7 +11157,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphListFormatOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -11487,9 +11197,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphResponse > getParagraphOnlineWithHttpInfo(GetParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ParagraphResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ParagraphResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -11522,7 +11230,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -11562,9 +11270,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphLinkCollectionResponse > getParagraphsWithHttpInfo(GetParagraphsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ParagraphLinkCollectionResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ParagraphLinkCollectionResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -11597,7 +11303,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -11637,9 +11343,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphLinkCollectionResponse > getParagraphsOnlineWithHttpInfo(GetParagraphsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ParagraphLinkCollectionResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ParagraphLinkCollectionResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -11672,7 +11376,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -11712,9 +11416,7 @@ public class WordsApi {
      */
     private ApiResponse< TabStopsResponse > getParagraphTabStopsWithHttpInfo(GetParagraphTabStopsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphTabStopsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TabStopsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TabStopsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -11747,7 +11449,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphTabStopsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -11787,9 +11489,7 @@ public class WordsApi {
      */
     private ApiResponse< TabStopsResponse > getParagraphTabStopsOnlineWithHttpInfo(GetParagraphTabStopsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getParagraphTabStopsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TabStopsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TabStopsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -11822,7 +11522,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphTabStopsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -11862,9 +11562,7 @@ public class WordsApi {
      */
     private ApiResponse< PublicKeyResponse > getPublicKeyWithHttpInfo(GetPublicKeyRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getPublicKeyValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        PublicKeyResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< PublicKeyResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -11897,7 +11595,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getPublicKeyValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -11937,9 +11635,7 @@ public class WordsApi {
      */
     private ApiResponse< RangeTextResponse > getRangeTextWithHttpInfo(GetRangeTextRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRangeTextValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        RangeTextResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< RangeTextResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -11972,7 +11668,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getRangeTextValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12012,9 +11708,7 @@ public class WordsApi {
      */
     private ApiResponse< RangeTextResponse > getRangeTextOnlineWithHttpInfo(GetRangeTextOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRangeTextOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        RangeTextResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< RangeTextResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -12047,7 +11741,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getRangeTextOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12087,9 +11781,7 @@ public class WordsApi {
      */
     private ApiResponse< RunResponse > getRunWithHttpInfo(GetRunRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRunValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        RunResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< RunResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -12122,7 +11814,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getRunValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12162,9 +11854,7 @@ public class WordsApi {
      */
     private ApiResponse< FontResponse > getRunFontWithHttpInfo(GetRunFontRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRunFontValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FontResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FontResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -12197,7 +11887,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getRunFontValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12237,9 +11927,7 @@ public class WordsApi {
      */
     private ApiResponse< FontResponse > getRunFontOnlineWithHttpInfo(GetRunFontOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRunFontOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FontResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FontResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -12272,7 +11960,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getRunFontOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12312,9 +12000,7 @@ public class WordsApi {
      */
     private ApiResponse< RunResponse > getRunOnlineWithHttpInfo(GetRunOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRunOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        RunResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< RunResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -12347,7 +12033,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getRunOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12387,9 +12073,7 @@ public class WordsApi {
      */
     private ApiResponse< RunsResponse > getRunsWithHttpInfo(GetRunsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRunsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        RunsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< RunsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -12422,7 +12106,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getRunsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12462,9 +12146,7 @@ public class WordsApi {
      */
     private ApiResponse< RunsResponse > getRunsOnlineWithHttpInfo(GetRunsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getRunsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        RunsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< RunsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -12497,7 +12179,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getRunsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12537,9 +12219,7 @@ public class WordsApi {
      */
     private ApiResponse< SectionResponse > getSectionWithHttpInfo(GetSectionRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getSectionValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SectionResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SectionResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -12572,7 +12252,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getSectionValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12612,9 +12292,7 @@ public class WordsApi {
      */
     private ApiResponse< SectionResponse > getSectionOnlineWithHttpInfo(GetSectionOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getSectionOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SectionResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SectionResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -12647,7 +12325,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getSectionOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12687,9 +12365,7 @@ public class WordsApi {
      */
     private ApiResponse< SectionPageSetupResponse > getSectionPageSetupWithHttpInfo(GetSectionPageSetupRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getSectionPageSetupValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SectionPageSetupResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SectionPageSetupResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -12722,7 +12398,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getSectionPageSetupValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12762,9 +12438,7 @@ public class WordsApi {
      */
     private ApiResponse< SectionPageSetupResponse > getSectionPageSetupOnlineWithHttpInfo(GetSectionPageSetupOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getSectionPageSetupOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SectionPageSetupResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SectionPageSetupResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -12797,7 +12471,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getSectionPageSetupOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12837,9 +12511,7 @@ public class WordsApi {
      */
     private ApiResponse< SectionLinkCollectionResponse > getSectionsWithHttpInfo(GetSectionsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getSectionsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SectionLinkCollectionResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SectionLinkCollectionResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -12872,7 +12544,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getSectionsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12912,9 +12584,7 @@ public class WordsApi {
      */
     private ApiResponse< SectionLinkCollectionResponse > getSectionsOnlineWithHttpInfo(GetSectionsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getSectionsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SectionLinkCollectionResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SectionLinkCollectionResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -12947,7 +12617,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getSectionsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -12987,9 +12657,7 @@ public class WordsApi {
      */
     private ApiResponse< StyleResponse > getStyleWithHttpInfo(GetStyleRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getStyleValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        StyleResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13022,7 +12690,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getStyleValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -13062,9 +12730,7 @@ public class WordsApi {
      */
     private ApiResponse< StyleResponse > getStyleFromDocumentElementWithHttpInfo(GetStyleFromDocumentElementRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getStyleFromDocumentElementValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        StyleResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13097,7 +12763,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getStyleFromDocumentElementValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -13137,9 +12803,7 @@ public class WordsApi {
      */
     private ApiResponse< StyleResponse > getStyleFromDocumentElementOnlineWithHttpInfo(GetStyleFromDocumentElementOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getStyleFromDocumentElementOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        StyleResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13172,7 +12836,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getStyleFromDocumentElementOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -13212,9 +12876,7 @@ public class WordsApi {
      */
     private ApiResponse< StyleResponse > getStyleOnlineWithHttpInfo(GetStyleOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getStyleOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        StyleResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13247,7 +12909,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getStyleOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -13287,9 +12949,7 @@ public class WordsApi {
      */
     private ApiResponse< StylesResponse > getStylesWithHttpInfo(GetStylesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getStylesValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        StylesResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< StylesResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13322,7 +12982,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getStylesValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -13362,9 +13022,7 @@ public class WordsApi {
      */
     private ApiResponse< StylesResponse > getStylesOnlineWithHttpInfo(GetStylesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getStylesOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        StylesResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< StylesResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13397,7 +13055,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getStylesOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -13437,9 +13095,7 @@ public class WordsApi {
      */
     private ApiResponse< TableResponse > getTableWithHttpInfo(GetTableRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13472,7 +13128,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -13512,9 +13168,7 @@ public class WordsApi {
      */
     private ApiResponse< TableCellResponse > getTableCellWithHttpInfo(GetTableCellRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableCellValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableCellResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableCellResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13547,7 +13201,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableCellValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -13587,9 +13241,7 @@ public class WordsApi {
      */
     private ApiResponse< TableCellFormatResponse > getTableCellFormatWithHttpInfo(GetTableCellFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableCellFormatValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableCellFormatResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableCellFormatResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13622,7 +13274,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableCellFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -13662,9 +13314,7 @@ public class WordsApi {
      */
     private ApiResponse< TableCellFormatResponse > getTableCellFormatOnlineWithHttpInfo(GetTableCellFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableCellFormatOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableCellFormatResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableCellFormatResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13697,7 +13347,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableCellFormatOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -13737,9 +13387,7 @@ public class WordsApi {
      */
     private ApiResponse< TableCellResponse > getTableCellOnlineWithHttpInfo(GetTableCellOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableCellOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableCellResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableCellResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13772,7 +13420,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableCellOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -13812,9 +13460,7 @@ public class WordsApi {
      */
     private ApiResponse< TableResponse > getTableOnlineWithHttpInfo(GetTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13847,7 +13493,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -13887,9 +13533,7 @@ public class WordsApi {
      */
     private ApiResponse< TablePropertiesResponse > getTablePropertiesWithHttpInfo(GetTablePropertiesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTablePropertiesValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TablePropertiesResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TablePropertiesResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13922,7 +13566,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTablePropertiesValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -13962,9 +13606,7 @@ public class WordsApi {
      */
     private ApiResponse< TablePropertiesResponse > getTablePropertiesOnlineWithHttpInfo(GetTablePropertiesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTablePropertiesOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TablePropertiesResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TablePropertiesResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -13997,7 +13639,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTablePropertiesOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -14037,9 +13679,7 @@ public class WordsApi {
      */
     private ApiResponse< TableRowResponse > getTableRowWithHttpInfo(GetTableRowRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableRowValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableRowResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableRowResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -14072,7 +13712,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableRowValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -14112,9 +13752,7 @@ public class WordsApi {
      */
     private ApiResponse< TableRowFormatResponse > getTableRowFormatWithHttpInfo(GetTableRowFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableRowFormatValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableRowFormatResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableRowFormatResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -14147,7 +13785,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableRowFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -14187,9 +13825,7 @@ public class WordsApi {
      */
     private ApiResponse< TableRowFormatResponse > getTableRowFormatOnlineWithHttpInfo(GetTableRowFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableRowFormatOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableRowFormatResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableRowFormatResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -14222,7 +13858,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableRowFormatOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -14262,9 +13898,7 @@ public class WordsApi {
      */
     private ApiResponse< TableRowResponse > getTableRowOnlineWithHttpInfo(GetTableRowOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTableRowOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableRowResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableRowResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -14297,7 +13931,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableRowOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -14337,9 +13971,7 @@ public class WordsApi {
      */
     private ApiResponse< TableLinkCollectionResponse > getTablesWithHttpInfo(GetTablesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTablesValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableLinkCollectionResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableLinkCollectionResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -14372,7 +14004,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTablesValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -14412,9 +14044,7 @@ public class WordsApi {
      */
     private ApiResponse< TableLinkCollectionResponse > getTablesOnlineWithHttpInfo(GetTablesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = getTablesOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableLinkCollectionResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableLinkCollectionResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -14447,7 +14077,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTablesOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -14487,9 +14117,7 @@ public class WordsApi {
      */
     private ApiResponse< CommentResponse > insertCommentWithHttpInfo(InsertCommentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertCommentValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CommentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CommentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -14522,7 +14150,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertCommentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -14562,9 +14190,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertCommentOnlineResponse > insertCommentOnlineWithHttpInfo(InsertCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertCommentOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertCommentOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertCommentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -14597,7 +14223,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertCommentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -14637,9 +14263,7 @@ public class WordsApi {
      */
     private ApiResponse< CustomXmlPartResponse > insertCustomXmlPartWithHttpInfo(InsertCustomXmlPartRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertCustomXmlPartValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CustomXmlPartResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CustomXmlPartResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -14672,7 +14296,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertCustomXmlPartValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -14712,9 +14336,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertCustomXmlPartOnlineResponse > insertCustomXmlPartOnlineWithHttpInfo(InsertCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertCustomXmlPartOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertCustomXmlPartOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertCustomXmlPartOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -14747,7 +14369,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertCustomXmlPartOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -14787,9 +14409,7 @@ public class WordsApi {
      */
     private ApiResponse< DrawingObjectResponse > insertDrawingObjectWithHttpInfo(InsertDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertDrawingObjectValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DrawingObjectResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DrawingObjectResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -14822,7 +14442,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertDrawingObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -14862,9 +14482,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertDrawingObjectOnlineResponse > insertDrawingObjectOnlineWithHttpInfo(InsertDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertDrawingObjectOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertDrawingObjectOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertDrawingObjectOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -14897,7 +14515,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertDrawingObjectOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -14937,9 +14555,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldResponse > insertFieldWithHttpInfo(InsertFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertFieldValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FieldResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FieldResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -14972,7 +14588,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15012,9 +14628,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertFieldOnlineResponse > insertFieldOnlineWithHttpInfo(InsertFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertFieldOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertFieldOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertFieldOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -15047,7 +14661,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertFieldOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15087,9 +14701,7 @@ public class WordsApi {
      */
     private ApiResponse< FootnoteResponse > insertFootnoteWithHttpInfo(InsertFootnoteRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertFootnoteValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FootnoteResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FootnoteResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -15122,7 +14734,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertFootnoteValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15162,9 +14774,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertFootnoteOnlineResponse > insertFootnoteOnlineWithHttpInfo(InsertFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertFootnoteOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertFootnoteOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertFootnoteOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -15197,7 +14807,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertFootnoteOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15237,9 +14847,7 @@ public class WordsApi {
      */
     private ApiResponse< FormFieldResponse > insertFormFieldWithHttpInfo(InsertFormFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertFormFieldValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FormFieldResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FormFieldResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -15272,7 +14880,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertFormFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15312,9 +14920,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertFormFieldOnlineResponse > insertFormFieldOnlineWithHttpInfo(InsertFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertFormFieldOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertFormFieldOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertFormFieldOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -15347,7 +14953,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertFormFieldOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15387,9 +14993,7 @@ public class WordsApi {
      */
     private ApiResponse< HeaderFooterResponse > insertHeaderFooterWithHttpInfo(InsertHeaderFooterRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertHeaderFooterValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        HeaderFooterResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< HeaderFooterResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -15422,7 +15026,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertHeaderFooterValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15462,9 +15066,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertHeaderFooterOnlineResponse > insertHeaderFooterOnlineWithHttpInfo(InsertHeaderFooterOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertHeaderFooterOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertHeaderFooterOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertHeaderFooterOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -15497,7 +15099,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertHeaderFooterOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15537,9 +15139,7 @@ public class WordsApi {
      */
     private ApiResponse< ListResponse > insertListWithHttpInfo(InsertListRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertListValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ListResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ListResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -15572,7 +15172,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertListValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15612,9 +15212,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertListOnlineResponse > insertListOnlineWithHttpInfo(InsertListOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertListOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertListOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertListOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -15647,7 +15245,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertListOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15687,9 +15285,7 @@ public class WordsApi {
      */
     private ApiResponse< TabStopsResponse > insertOrUpdateParagraphTabStopWithHttpInfo(InsertOrUpdateParagraphTabStopRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TabStopsResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TabStopsResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -15722,7 +15318,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15762,9 +15358,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertOrUpdateParagraphTabStopOnlineResponse > insertOrUpdateParagraphTabStopOnlineWithHttpInfo(InsertOrUpdateParagraphTabStopOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertOrUpdateParagraphTabStopOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertOrUpdateParagraphTabStopOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -15797,7 +15391,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15837,9 +15431,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > insertPageNumbersWithHttpInfo(InsertPageNumbersRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertPageNumbersValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -15872,7 +15464,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertPageNumbersValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15912,9 +15504,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertPageNumbersOnlineResponse > insertPageNumbersOnlineWithHttpInfo(InsertPageNumbersOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertPageNumbersOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertPageNumbersOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertPageNumbersOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -15947,7 +15537,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertPageNumbersOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -15987,9 +15577,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphResponse > insertParagraphWithHttpInfo(InsertParagraphRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertParagraphValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ParagraphResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ParagraphResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16022,7 +15610,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -16062,9 +15650,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertParagraphOnlineResponse > insertParagraphOnlineWithHttpInfo(InsertParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertParagraphOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertParagraphOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertParagraphOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16097,7 +15683,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertParagraphOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -16137,9 +15723,7 @@ public class WordsApi {
      */
     private ApiResponse< RunResponse > insertRunWithHttpInfo(InsertRunRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertRunValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        RunResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< RunResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16172,7 +15756,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertRunValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -16212,9 +15796,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertRunOnlineResponse > insertRunOnlineWithHttpInfo(InsertRunOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertRunOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertRunOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertRunOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16247,7 +15829,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertRunOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -16287,9 +15869,7 @@ public class WordsApi {
      */
     private ApiResponse< StyleResponse > insertStyleWithHttpInfo(InsertStyleRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertStyleValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        StyleResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16322,7 +15902,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertStyleValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -16362,9 +15942,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertStyleOnlineResponse > insertStyleOnlineWithHttpInfo(InsertStyleOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertStyleOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertStyleOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertStyleOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16397,7 +15975,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertStyleOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -16437,9 +16015,7 @@ public class WordsApi {
      */
     private ApiResponse< TableResponse > insertTableWithHttpInfo(InsertTableRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertTableValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16472,7 +16048,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertTableValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -16512,9 +16088,7 @@ public class WordsApi {
      */
     private ApiResponse< TableCellResponse > insertTableCellWithHttpInfo(InsertTableCellRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertTableCellValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableCellResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableCellResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16547,7 +16121,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertTableCellValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -16587,9 +16161,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertTableCellOnlineResponse > insertTableCellOnlineWithHttpInfo(InsertTableCellOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertTableCellOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertTableCellOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertTableCellOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16622,7 +16194,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertTableCellOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -16662,9 +16234,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertTableOnlineResponse > insertTableOnlineWithHttpInfo(InsertTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertTableOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertTableOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertTableOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16697,7 +16267,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertTableOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -16737,9 +16307,7 @@ public class WordsApi {
      */
     private ApiResponse< TableRowResponse > insertTableRowWithHttpInfo(InsertTableRowRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertTableRowValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableRowResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableRowResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16772,7 +16340,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertTableRowValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -16812,9 +16380,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertTableRowOnlineResponse > insertTableRowOnlineWithHttpInfo(InsertTableRowOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertTableRowOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertTableRowOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertTableRowOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16847,7 +16413,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertTableRowOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -16887,9 +16453,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > insertWatermarkImageWithHttpInfo(InsertWatermarkImageRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkImageValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16922,7 +16486,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertWatermarkImageValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -16962,9 +16526,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertWatermarkImageOnlineResponse > insertWatermarkImageOnlineWithHttpInfo(InsertWatermarkImageOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkImageOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertWatermarkImageOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertWatermarkImageOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -16997,7 +16559,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertWatermarkImageOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17037,9 +16599,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > insertWatermarkTextWithHttpInfo(InsertWatermarkTextRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkTextValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -17072,7 +16632,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertWatermarkTextValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17112,9 +16672,7 @@ public class WordsApi {
      */
     private ApiResponse< InsertWatermarkTextOnlineResponse > insertWatermarkTextOnlineWithHttpInfo(InsertWatermarkTextOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkTextOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        InsertWatermarkTextOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< InsertWatermarkTextOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -17147,7 +16705,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertWatermarkTextOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17187,9 +16745,7 @@ public class WordsApi {
      */
     private ApiResponse< SaveResponse > loadWebDocumentWithHttpInfo(LoadWebDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = loadWebDocumentValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SaveResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SaveResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -17222,7 +16778,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = loadWebDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17259,7 +16815,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > moveFileWithHttpInfo(MoveFileRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = moveFileValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -17292,7 +16848,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = moveFileValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17329,7 +16885,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > moveFolderWithHttpInfo(MoveFolderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = moveFolderValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -17362,7 +16918,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = moveFolderValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17399,7 +16955,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > optimizeDocumentWithHttpInfo(OptimizeDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = optimizeDocumentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -17432,7 +16988,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = optimizeDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17444,19 +17000,19 @@ public class WordsApi {
     /**
      * Applies document content optimization options, specific to a particular versions of Microsoft Word.
      * @param request Request object
-     * @return File
+     * @return Map<String, byte[]>
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File optimizeDocumentOnline(OptimizeDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public Map<String, byte[]> optimizeDocumentOnline(OptimizeDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = optimizeDocumentOnlineWithHttpInfo(request);
+            ApiResponse< Map<String, byte[]> > resp = optimizeDocumentOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = optimizeDocumentOnlineWithHttpInfo(request);
+                ApiResponse< Map<String, byte[]> > resp = optimizeDocumentOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -17466,15 +17022,13 @@ public class WordsApi {
     /**
      * Applies document content optimization options, specific to a particular versions of Microsoft Word.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< Map<String, byte[]> >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > optimizeDocumentOnlineWithHttpInfo(OptimizeDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< Map<String, byte[]> > optimizeDocumentOnlineWithHttpInfo(OptimizeDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = optimizeDocumentOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -17485,7 +17039,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call optimizeDocumentOnlineAsync(OptimizeDocumentOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call optimizeDocumentOnlineAsync(OptimizeDocumentOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17507,7 +17061,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = optimizeDocumentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17547,9 +17101,7 @@ public class WordsApi {
      */
     private ApiResponse< ProtectionDataResponse > protectDocumentWithHttpInfo(ProtectDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = protectDocumentValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ProtectionDataResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ProtectionDataResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -17582,7 +17134,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = protectDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17622,9 +17174,7 @@ public class WordsApi {
      */
     private ApiResponse< ProtectDocumentOnlineResponse > protectDocumentOnlineWithHttpInfo(ProtectDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = protectDocumentOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ProtectDocumentOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ProtectDocumentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -17657,7 +17207,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = protectDocumentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17697,9 +17247,7 @@ public class WordsApi {
      */
     private ApiResponse< RevisionsModificationResponse > rejectAllRevisionsWithHttpInfo(RejectAllRevisionsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = rejectAllRevisionsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        RevisionsModificationResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< RevisionsModificationResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -17732,7 +17280,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = rejectAllRevisionsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17772,9 +17320,7 @@ public class WordsApi {
      */
     private ApiResponse< RejectAllRevisionsOnlineResponse > rejectAllRevisionsOnlineWithHttpInfo(RejectAllRevisionsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = rejectAllRevisionsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        RejectAllRevisionsOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< RejectAllRevisionsOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -17807,7 +17353,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = rejectAllRevisionsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17847,9 +17393,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > removeRangeWithHttpInfo(RemoveRangeRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = removeRangeValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -17882,7 +17426,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = removeRangeValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17922,9 +17466,7 @@ public class WordsApi {
      */
     private ApiResponse< RemoveRangeOnlineResponse > removeRangeOnlineWithHttpInfo(RemoveRangeOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = removeRangeOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        RemoveRangeOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< RemoveRangeOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -17957,7 +17499,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = removeRangeOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -17969,19 +17511,19 @@ public class WordsApi {
     /**
      * Renders a DrawingObject to the specified format.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderDrawingObject(RenderDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] renderDrawingObject(RenderDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = renderDrawingObjectWithHttpInfo(request);
+            ApiResponse< byte[] > resp = renderDrawingObjectWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = renderDrawingObjectWithHttpInfo(request);
+                ApiResponse< byte[] > resp = renderDrawingObjectWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -17991,15 +17533,13 @@ public class WordsApi {
     /**
      * Renders a DrawingObject to the specified format.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderDrawingObjectWithHttpInfo(RenderDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > renderDrawingObjectWithHttpInfo(RenderDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderDrawingObjectValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -18010,7 +17550,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderDrawingObjectAsync(RenderDrawingObjectRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call renderDrawingObjectAsync(RenderDrawingObjectRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18032,7 +17572,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderDrawingObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -18044,19 +17584,19 @@ public class WordsApi {
     /**
      * Renders a DrawingObject to the specified format.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderDrawingObjectOnline(RenderDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] renderDrawingObjectOnline(RenderDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = renderDrawingObjectOnlineWithHttpInfo(request);
+            ApiResponse< byte[] > resp = renderDrawingObjectOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = renderDrawingObjectOnlineWithHttpInfo(request);
+                ApiResponse< byte[] > resp = renderDrawingObjectOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -18066,15 +17606,13 @@ public class WordsApi {
     /**
      * Renders a DrawingObject to the specified format.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderDrawingObjectOnlineWithHttpInfo(RenderDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > renderDrawingObjectOnlineWithHttpInfo(RenderDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderDrawingObjectOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -18085,7 +17623,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderDrawingObjectOnlineAsync(RenderDrawingObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call renderDrawingObjectOnlineAsync(RenderDrawingObjectOnlineRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18107,7 +17645,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderDrawingObjectOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -18119,19 +17657,19 @@ public class WordsApi {
     /**
      * Renders an OfficeMath object to the specified format.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderMathObject(RenderMathObjectRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] renderMathObject(RenderMathObjectRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = renderMathObjectWithHttpInfo(request);
+            ApiResponse< byte[] > resp = renderMathObjectWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = renderMathObjectWithHttpInfo(request);
+                ApiResponse< byte[] > resp = renderMathObjectWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -18141,15 +17679,13 @@ public class WordsApi {
     /**
      * Renders an OfficeMath object to the specified format.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderMathObjectWithHttpInfo(RenderMathObjectRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > renderMathObjectWithHttpInfo(RenderMathObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderMathObjectValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -18160,7 +17696,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderMathObjectAsync(RenderMathObjectRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call renderMathObjectAsync(RenderMathObjectRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18182,7 +17718,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderMathObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -18194,19 +17730,19 @@ public class WordsApi {
     /**
      * Renders an OfficeMath object to the specified format.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderMathObjectOnline(RenderMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] renderMathObjectOnline(RenderMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = renderMathObjectOnlineWithHttpInfo(request);
+            ApiResponse< byte[] > resp = renderMathObjectOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = renderMathObjectOnlineWithHttpInfo(request);
+                ApiResponse< byte[] > resp = renderMathObjectOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -18216,15 +17752,13 @@ public class WordsApi {
     /**
      * Renders an OfficeMath object to the specified format.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderMathObjectOnlineWithHttpInfo(RenderMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > renderMathObjectOnlineWithHttpInfo(RenderMathObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderMathObjectOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -18235,7 +17769,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderMathObjectOnlineAsync(RenderMathObjectOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call renderMathObjectOnlineAsync(RenderMathObjectOnlineRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18257,7 +17791,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderMathObjectOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -18269,19 +17803,19 @@ public class WordsApi {
     /**
      * Renders a page to the specified format.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderPage(RenderPageRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] renderPage(RenderPageRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = renderPageWithHttpInfo(request);
+            ApiResponse< byte[] > resp = renderPageWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = renderPageWithHttpInfo(request);
+                ApiResponse< byte[] > resp = renderPageWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -18291,15 +17825,13 @@ public class WordsApi {
     /**
      * Renders a page to the specified format.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderPageWithHttpInfo(RenderPageRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > renderPageWithHttpInfo(RenderPageRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderPageValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -18310,7 +17842,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderPageAsync(RenderPageRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call renderPageAsync(RenderPageRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18332,7 +17864,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderPageValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -18344,19 +17876,19 @@ public class WordsApi {
     /**
      * Renders a page to the specified format.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderPageOnline(RenderPageOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] renderPageOnline(RenderPageOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = renderPageOnlineWithHttpInfo(request);
+            ApiResponse< byte[] > resp = renderPageOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = renderPageOnlineWithHttpInfo(request);
+                ApiResponse< byte[] > resp = renderPageOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -18366,15 +17898,13 @@ public class WordsApi {
     /**
      * Renders a page to the specified format.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderPageOnlineWithHttpInfo(RenderPageOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > renderPageOnlineWithHttpInfo(RenderPageOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderPageOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -18385,7 +17915,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderPageOnlineAsync(RenderPageOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call renderPageOnlineAsync(RenderPageOnlineRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18407,7 +17937,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderPageOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -18419,19 +17949,19 @@ public class WordsApi {
     /**
      * Renders a paragraph to the specified format.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderParagraph(RenderParagraphRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] renderParagraph(RenderParagraphRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = renderParagraphWithHttpInfo(request);
+            ApiResponse< byte[] > resp = renderParagraphWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = renderParagraphWithHttpInfo(request);
+                ApiResponse< byte[] > resp = renderParagraphWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -18441,15 +17971,13 @@ public class WordsApi {
     /**
      * Renders a paragraph to the specified format.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderParagraphWithHttpInfo(RenderParagraphRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > renderParagraphWithHttpInfo(RenderParagraphRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderParagraphValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -18460,7 +17988,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderParagraphAsync(RenderParagraphRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call renderParagraphAsync(RenderParagraphRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18482,7 +18010,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -18494,19 +18022,19 @@ public class WordsApi {
     /**
      * Renders a paragraph to the specified format.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderParagraphOnline(RenderParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] renderParagraphOnline(RenderParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = renderParagraphOnlineWithHttpInfo(request);
+            ApiResponse< byte[] > resp = renderParagraphOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = renderParagraphOnlineWithHttpInfo(request);
+                ApiResponse< byte[] > resp = renderParagraphOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -18516,15 +18044,13 @@ public class WordsApi {
     /**
      * Renders a paragraph to the specified format.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderParagraphOnlineWithHttpInfo(RenderParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > renderParagraphOnlineWithHttpInfo(RenderParagraphOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderParagraphOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -18535,7 +18061,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderParagraphOnlineAsync(RenderParagraphOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call renderParagraphOnlineAsync(RenderParagraphOnlineRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18557,7 +18083,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderParagraphOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -18569,19 +18095,19 @@ public class WordsApi {
     /**
      * Renders a table to the specified format.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderTable(RenderTableRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] renderTable(RenderTableRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = renderTableWithHttpInfo(request);
+            ApiResponse< byte[] > resp = renderTableWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = renderTableWithHttpInfo(request);
+                ApiResponse< byte[] > resp = renderTableWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -18591,15 +18117,13 @@ public class WordsApi {
     /**
      * Renders a table to the specified format.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderTableWithHttpInfo(RenderTableRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > renderTableWithHttpInfo(RenderTableRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderTableValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -18610,7 +18134,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderTableAsync(RenderTableRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call renderTableAsync(RenderTableRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18632,7 +18156,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderTableValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -18644,19 +18168,19 @@ public class WordsApi {
     /**
      * Renders a table to the specified format.
      * @param request Request object
-     * @return File
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public File renderTableOnline(RenderTableOnlineRequest request) throws ApiException, MessagingException, IOException {
+    public byte[] renderTableOnline(RenderTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
-            ApiResponse< File > resp = renderTableOnlineWithHttpInfo(request);
+            ApiResponse< byte[] > resp = renderTableOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
-                ApiResponse< File > resp = renderTableOnlineWithHttpInfo(request);
+                ApiResponse< byte[] > resp = renderTableOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -18666,15 +18190,13 @@ public class WordsApi {
     /**
      * Renders a table to the specified format.
      * @param request Request object
-     * @return ApiResponse< File >;
+     * @return ApiResponse< byte[] >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< File > renderTableOnlineWithHttpInfo(RenderTableOnlineRequest request) throws ApiException, MessagingException, IOException {
+    private ApiResponse< byte[] > renderTableOnlineWithHttpInfo(RenderTableOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = renderTableOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        File data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< File >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -18685,7 +18207,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderTableOnlineAsync(RenderTableOnlineRequest request, final ApiCallback< File > callback) throws ApiException, MessagingException, IOException {
+    public com.squareup.okhttp.Call renderTableOnlineAsync(RenderTableOnlineRequest request, final ApiCallback< byte[] > callback) throws ApiException, MessagingException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18707,7 +18229,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderTableOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -18747,9 +18269,7 @@ public class WordsApi {
      */
     private ApiResponse< ReplaceTextResponse > replaceTextWithHttpInfo(ReplaceTextRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = replaceTextValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ReplaceTextResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ReplaceTextResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -18782,7 +18302,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = replaceTextValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -18822,9 +18342,7 @@ public class WordsApi {
      */
     private ApiResponse< ReplaceTextOnlineResponse > replaceTextOnlineWithHttpInfo(ReplaceTextOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = replaceTextOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ReplaceTextOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ReplaceTextOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -18857,7 +18375,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = replaceTextOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -18897,9 +18415,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > replaceWithTextWithHttpInfo(ReplaceWithTextRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = replaceWithTextValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -18932,7 +18448,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = replaceWithTextValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -18972,9 +18488,7 @@ public class WordsApi {
      */
     private ApiResponse< ReplaceWithTextOnlineResponse > replaceWithTextOnlineWithHttpInfo(ReplaceWithTextOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = replaceWithTextOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ReplaceWithTextOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ReplaceWithTextOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19007,7 +18521,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = replaceWithTextOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -19044,7 +18558,7 @@ public class WordsApi {
      */
     private ApiResponse< Void > resetCacheWithHttpInfo(ResetCacheRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = resetCacheValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19077,7 +18591,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = resetCacheValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -19117,9 +18631,7 @@ public class WordsApi {
      */
     private ApiResponse< SaveResponse > saveAsWithHttpInfo(SaveAsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = saveAsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SaveResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SaveResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19152,7 +18664,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = saveAsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -19192,9 +18704,7 @@ public class WordsApi {
      */
     private ApiResponse< SaveAsOnlineResponse > saveAsOnlineWithHttpInfo(SaveAsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = saveAsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SaveAsOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SaveAsOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19227,7 +18737,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = saveAsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -19267,9 +18777,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > saveAsRangeWithHttpInfo(SaveAsRangeRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = saveAsRangeValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19302,7 +18810,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = saveAsRangeValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -19342,9 +18850,7 @@ public class WordsApi {
      */
     private ApiResponse< SaveAsRangeOnlineResponse > saveAsRangeOnlineWithHttpInfo(SaveAsRangeOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = saveAsRangeOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SaveAsRangeOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SaveAsRangeOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19377,7 +18883,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = saveAsRangeOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -19417,9 +18923,7 @@ public class WordsApi {
      */
     private ApiResponse< SaveResponse > saveAsTiffWithHttpInfo(SaveAsTiffRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = saveAsTiffValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SaveResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SaveResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19452,7 +18956,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = saveAsTiffValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -19492,9 +18996,7 @@ public class WordsApi {
      */
     private ApiResponse< SaveAsTiffOnlineResponse > saveAsTiffOnlineWithHttpInfo(SaveAsTiffOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = saveAsTiffOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SaveAsTiffOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SaveAsTiffOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19527,7 +19029,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = saveAsTiffOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -19567,9 +19069,7 @@ public class WordsApi {
      */
     private ApiResponse< SearchResponse > searchWithHttpInfo(SearchRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = searchValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SearchResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SearchResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19602,7 +19102,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = searchValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -19642,9 +19142,7 @@ public class WordsApi {
      */
     private ApiResponse< SearchResponse > searchOnlineWithHttpInfo(SearchOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = searchOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SearchResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SearchResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19677,7 +19175,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = searchOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -19717,9 +19215,7 @@ public class WordsApi {
      */
     private ApiResponse< SplitDocumentResponse > splitDocumentWithHttpInfo(SplitDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = splitDocumentValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SplitDocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SplitDocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19752,7 +19248,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = splitDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -19792,9 +19288,7 @@ public class WordsApi {
      */
     private ApiResponse< SplitDocumentOnlineResponse > splitDocumentOnlineWithHttpInfo(SplitDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = splitDocumentOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SplitDocumentOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SplitDocumentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19827,7 +19321,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = splitDocumentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -19867,9 +19361,7 @@ public class WordsApi {
      */
     private ApiResponse< ProtectionDataResponse > unprotectDocumentWithHttpInfo(UnprotectDocumentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = unprotectDocumentValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ProtectionDataResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ProtectionDataResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19902,7 +19394,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = unprotectDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -19942,9 +19434,7 @@ public class WordsApi {
      */
     private ApiResponse< UnprotectDocumentOnlineResponse > unprotectDocumentOnlineWithHttpInfo(UnprotectDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = unprotectDocumentOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UnprotectDocumentOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UnprotectDocumentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -19977,7 +19467,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = unprotectDocumentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20017,9 +19507,7 @@ public class WordsApi {
      */
     private ApiResponse< BookmarkResponse > updateBookmarkWithHttpInfo(UpdateBookmarkRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateBookmarkValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        BookmarkResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< BookmarkResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -20052,7 +19540,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateBookmarkValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20092,9 +19580,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateBookmarkOnlineResponse > updateBookmarkOnlineWithHttpInfo(UpdateBookmarkOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateBookmarkOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateBookmarkOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateBookmarkOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -20127,7 +19613,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateBookmarkOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20167,9 +19653,7 @@ public class WordsApi {
      */
     private ApiResponse< BorderResponse > updateBorderWithHttpInfo(UpdateBorderRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateBorderValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        BorderResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< BorderResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -20202,7 +19686,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateBorderValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20242,9 +19726,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateBorderOnlineResponse > updateBorderOnlineWithHttpInfo(UpdateBorderOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateBorderOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateBorderOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateBorderOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -20277,7 +19759,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateBorderOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20317,9 +19799,7 @@ public class WordsApi {
      */
     private ApiResponse< CommentResponse > updateCommentWithHttpInfo(UpdateCommentRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateCommentValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CommentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CommentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -20352,7 +19832,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateCommentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20392,9 +19872,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateCommentOnlineResponse > updateCommentOnlineWithHttpInfo(UpdateCommentOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateCommentOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateCommentOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateCommentOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -20427,7 +19905,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateCommentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20467,9 +19945,7 @@ public class WordsApi {
      */
     private ApiResponse< CustomXmlPartResponse > updateCustomXmlPartWithHttpInfo(UpdateCustomXmlPartRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateCustomXmlPartValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        CustomXmlPartResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< CustomXmlPartResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -20502,7 +19978,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateCustomXmlPartValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20542,9 +20018,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateCustomXmlPartOnlineResponse > updateCustomXmlPartOnlineWithHttpInfo(UpdateCustomXmlPartOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateCustomXmlPartOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateCustomXmlPartOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateCustomXmlPartOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -20577,7 +20051,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateCustomXmlPartOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20617,9 +20091,7 @@ public class WordsApi {
      */
     private ApiResponse< DrawingObjectResponse > updateDrawingObjectWithHttpInfo(UpdateDrawingObjectRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateDrawingObjectValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DrawingObjectResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DrawingObjectResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -20652,7 +20124,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateDrawingObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20692,9 +20164,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateDrawingObjectOnlineResponse > updateDrawingObjectOnlineWithHttpInfo(UpdateDrawingObjectOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateDrawingObjectOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateDrawingObjectOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateDrawingObjectOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -20727,7 +20197,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateDrawingObjectOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20767,9 +20237,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldResponse > updateFieldWithHttpInfo(UpdateFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFieldValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FieldResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FieldResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -20802,7 +20270,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20842,9 +20310,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateFieldOnlineResponse > updateFieldOnlineWithHttpInfo(UpdateFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFieldOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateFieldOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateFieldOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -20877,7 +20343,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateFieldOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20917,9 +20383,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > updateFieldsWithHttpInfo(UpdateFieldsRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFieldsValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        DocumentResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< DocumentResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -20952,7 +20416,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateFieldsValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -20992,9 +20456,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateFieldsOnlineResponse > updateFieldsOnlineWithHttpInfo(UpdateFieldsOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFieldsOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateFieldsOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateFieldsOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -21027,7 +20489,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateFieldsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -21067,9 +20529,7 @@ public class WordsApi {
      */
     private ApiResponse< FootnoteResponse > updateFootnoteWithHttpInfo(UpdateFootnoteRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFootnoteValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FootnoteResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FootnoteResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -21102,7 +20562,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateFootnoteValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -21142,9 +20602,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateFootnoteOnlineResponse > updateFootnoteOnlineWithHttpInfo(UpdateFootnoteOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFootnoteOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateFootnoteOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateFootnoteOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -21177,7 +20635,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateFootnoteOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -21217,9 +20675,7 @@ public class WordsApi {
      */
     private ApiResponse< FormFieldResponse > updateFormFieldWithHttpInfo(UpdateFormFieldRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFormFieldValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FormFieldResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FormFieldResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -21252,7 +20708,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateFormFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -21292,9 +20748,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateFormFieldOnlineResponse > updateFormFieldOnlineWithHttpInfo(UpdateFormFieldOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateFormFieldOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateFormFieldOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateFormFieldOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -21327,7 +20781,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateFormFieldOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -21367,9 +20821,7 @@ public class WordsApi {
      */
     private ApiResponse< ListResponse > updateListWithHttpInfo(UpdateListRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateListValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ListResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ListResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -21402,7 +20854,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateListValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -21442,9 +20894,7 @@ public class WordsApi {
      */
     private ApiResponse< ListResponse > updateListLevelWithHttpInfo(UpdateListLevelRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateListLevelValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ListResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ListResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -21477,7 +20927,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateListLevelValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -21517,9 +20967,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateListLevelOnlineResponse > updateListLevelOnlineWithHttpInfo(UpdateListLevelOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateListLevelOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateListLevelOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateListLevelOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -21552,7 +21000,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateListLevelOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -21592,9 +21040,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateListOnlineResponse > updateListOnlineWithHttpInfo(UpdateListOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateListOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateListOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateListOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -21627,7 +21073,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateListOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -21667,9 +21113,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphFormatResponse > updateParagraphFormatWithHttpInfo(UpdateParagraphFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateParagraphFormatValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ParagraphFormatResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ParagraphFormatResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -21702,7 +21146,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateParagraphFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -21742,9 +21186,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateParagraphFormatOnlineResponse > updateParagraphFormatOnlineWithHttpInfo(UpdateParagraphFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateParagraphFormatOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateParagraphFormatOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateParagraphFormatOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -21777,7 +21219,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateParagraphFormatOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -21817,9 +21259,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphListFormatResponse > updateParagraphListFormatWithHttpInfo(UpdateParagraphListFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateParagraphListFormatValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        ParagraphListFormatResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< ParagraphListFormatResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -21852,7 +21292,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateParagraphListFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -21892,9 +21332,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateParagraphListFormatOnlineResponse > updateParagraphListFormatOnlineWithHttpInfo(UpdateParagraphListFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateParagraphListFormatOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateParagraphListFormatOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateParagraphListFormatOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -21927,7 +21365,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateParagraphListFormatOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -21967,9 +21405,7 @@ public class WordsApi {
      */
     private ApiResponse< RunResponse > updateRunWithHttpInfo(UpdateRunRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateRunValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        RunResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< RunResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22002,7 +21438,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateRunValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -22042,9 +21478,7 @@ public class WordsApi {
      */
     private ApiResponse< FontResponse > updateRunFontWithHttpInfo(UpdateRunFontRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateRunFontValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FontResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FontResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22077,7 +21511,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateRunFontValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -22117,9 +21551,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateRunFontOnlineResponse > updateRunFontOnlineWithHttpInfo(UpdateRunFontOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateRunFontOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateRunFontOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateRunFontOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22152,7 +21584,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateRunFontOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -22192,9 +21624,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateRunOnlineResponse > updateRunOnlineWithHttpInfo(UpdateRunOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateRunOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateRunOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateRunOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22227,7 +21657,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateRunOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -22267,9 +21697,7 @@ public class WordsApi {
      */
     private ApiResponse< SectionPageSetupResponse > updateSectionPageSetupWithHttpInfo(UpdateSectionPageSetupRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateSectionPageSetupValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        SectionPageSetupResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< SectionPageSetupResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22302,7 +21730,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateSectionPageSetupValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -22342,9 +21770,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateSectionPageSetupOnlineResponse > updateSectionPageSetupOnlineWithHttpInfo(UpdateSectionPageSetupOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateSectionPageSetupOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateSectionPageSetupOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateSectionPageSetupOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22377,7 +21803,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateSectionPageSetupOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -22417,9 +21843,7 @@ public class WordsApi {
      */
     private ApiResponse< StyleResponse > updateStyleWithHttpInfo(UpdateStyleRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateStyleValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        StyleResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< StyleResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22452,7 +21876,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateStyleValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -22492,9 +21916,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateStyleOnlineResponse > updateStyleOnlineWithHttpInfo(UpdateStyleOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateStyleOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateStyleOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateStyleOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22527,7 +21949,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateStyleOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -22567,9 +21989,7 @@ public class WordsApi {
      */
     private ApiResponse< TableCellFormatResponse > updateTableCellFormatWithHttpInfo(UpdateTableCellFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateTableCellFormatValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableCellFormatResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableCellFormatResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22602,7 +22022,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateTableCellFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -22642,9 +22062,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateTableCellFormatOnlineResponse > updateTableCellFormatOnlineWithHttpInfo(UpdateTableCellFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateTableCellFormatOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateTableCellFormatOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateTableCellFormatOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22677,7 +22095,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateTableCellFormatOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -22717,9 +22135,7 @@ public class WordsApi {
      */
     private ApiResponse< TablePropertiesResponse > updateTablePropertiesWithHttpInfo(UpdateTablePropertiesRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateTablePropertiesValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TablePropertiesResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TablePropertiesResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22752,7 +22168,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateTablePropertiesValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -22792,9 +22208,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateTablePropertiesOnlineResponse > updateTablePropertiesOnlineWithHttpInfo(UpdateTablePropertiesOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateTablePropertiesOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateTablePropertiesOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateTablePropertiesOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22827,7 +22241,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateTablePropertiesOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -22867,9 +22281,7 @@ public class WordsApi {
      */
     private ApiResponse< TableRowFormatResponse > updateTableRowFormatWithHttpInfo(UpdateTableRowFormatRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateTableRowFormatValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        TableRowFormatResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< TableRowFormatResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22902,7 +22314,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateTableRowFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -22942,9 +22354,7 @@ public class WordsApi {
      */
     private ApiResponse< UpdateTableRowFormatOnlineResponse > updateTableRowFormatOnlineWithHttpInfo(UpdateTableRowFormatOnlineRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = updateTableRowFormatOnlineValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        UpdateTableRowFormatOnlineResponse data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< UpdateTableRowFormatOnlineResponse >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -22977,7 +22387,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateTableRowFormatOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -23017,9 +22427,7 @@ public class WordsApi {
      */
     private ApiResponse< FilesUploadResult > uploadFileWithHttpInfo(UploadFileRequest request) throws ApiException, MessagingException, IOException {
         com.squareup.okhttp.Call call = uploadFileValidateBeforeCall(request, null, null);
-        Response response = call.execute();
-        FilesUploadResult data = request.deserializeResponse(apiClient, response);
-        return new ApiResponse< FilesUploadResult >(response.code(), response.headers().toMultimap(), data);
+        return apiClient.execute(call, request);
     }
 
     /**
@@ -23052,7 +22460,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = uploadFileValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, request.getResponseType(), callback);
+        apiClient.executeAsync(call, request, callback);
         return call;
     }
 
@@ -23065,34 +22473,53 @@ public class WordsApi {
              return null;
         }
 
-        com.squareup.okhttp.Request masterRequest = apiClient.buildBatchRequest(requests, displayIntermediateResults);
-        com.squareup.okhttp.Call call = apiClient.buildCall(masterRequest);
-        ApiResponse<javax.mail.internet.MimeMultipart> response = apiClient.execute(call, javax.mail.internet.MimeMultipart.class);
-
-        try {
-            Object[] result = new Object[response.getData().getCount()];
-            for (int i = 0; i < result.length; i++) {
-                BodyPart part = response.getData().getBodyPart(i);
-                String[] requestId = part.getHeader("RequestId");
-                if (requestId != null && requestId.length == 1) {
-                    for (BatchPartRequest batchPartRequest : requests) {
-                        if (batchPartRequest.getRequestId().equals(requestId[0])) {
-                            result[i] = apiClient.parseBatchPart(masterRequest, part, batchPartRequest.getRequest().getResponseType());
-                            break;
-                        }
-                    }
-                }
+        com.squareup.okhttp.Request req = apiClient.buildBatchRequest(requests, displayIntermediateResults);
+        com.squareup.okhttp.Call call = apiClient.buildCall(req);
+        RequestIfc internalRequest = new RequestIfc() {
+            @Override
+            public com.squareup.okhttp.Request buildHttpRequest(ApiClient apiClient, ProgressResponseBody.ProgressListener progressListener, ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+                throw new ApiException();
             }
 
-            return result;
-        }
-        catch (javax.mail.MessagingException e) {
-            throw new ApiException(e);
-        }
+            @Override
+            public Object deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+                try {
+                    javax.mail.internet.MimeMultipart multipart = apiClient.deserialize(response, javax.mail.internet.MimeMultipart.class);
+                    Object[] result = new Object[multipart.getCount()];
+                    for (int i = 0; i < result.length; i++) {
+                        BodyPart part = multipart.getBodyPart(i);
+                        String[] requestId = part.getHeader("RequestId");
+                        if (requestId != null && requestId.length == 1) {
+                            for (BatchPartRequest batchPartRequest : requests) {
+                                if (batchPartRequest.getRequestId().equals(requestId[0])) {
+                                    result[i] = apiClient.parseBatchPart(batchPartRequest.getRequest(), req, part);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    return result;
+                }
+                catch (javax.mail.MessagingException e) {
+                    throw new ApiException(e);
+                }
+            }
+        };
+
+        return (Object[]) (apiClient.execute(call, internalRequest).getData());
     }
 
-    private void checkRsaKey() throws ApiException, MessagingException, IOException, InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, NoSuchPaddingException {
-        PublicKeyResponse pkResponse = this.getPublicKey(new GetPublicKeyRequest());
-        this.apiClient.setRsaKey(pkResponse.getModulus(), pkResponse.getExponent());
+    @Override
+    public Cipher create() throws ApiException, IOException {
+
+        try {
+            PublicKeyResponse pkResponse = this.getPublicKey(new GetPublicKeyRequest());
+            EncryptorFactory factory = new SimpleEncryptorFactory(pkResponse.getExponent(), pkResponse.getModulus());
+            return factory.create();
+        } 
+        catch (MessagingException e) {
+            throw new ApiException(e);
+        }
     }
 }

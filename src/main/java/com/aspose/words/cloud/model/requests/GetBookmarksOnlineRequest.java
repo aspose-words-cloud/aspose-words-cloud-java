@@ -140,6 +140,7 @@ public class GetBookmarksOnlineRequest implements RequestIfc {
      * @throws ApiException If fail to serialize the request body object
      * @throws IOException If fail to serialize the request body object
      */
+    @Override
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
         // verify the required parameter 'Document' is set
         if (getDocument() == null) {
@@ -192,18 +193,12 @@ public class GetBookmarksOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets response type for this request.
-     */
-    public Type getResponseType() {
-        return BookmarksResponse.class;
-    }
-
-    /*
      * Deserialize response message.
      *
      * @param apiClient ApiClient instance
      * @param response Response instance
      */
+    @Override
     public BookmarksResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         return (BookmarksResponse) apiClient.deserialize(response, BookmarksResponse.class);
     }

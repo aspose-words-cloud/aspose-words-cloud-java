@@ -34,11 +34,10 @@ import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
-import java.io.File;
 import java.io.IOException;
 import javax.mail.MessagingException;
 import java.nio.file.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /*
  * Example of how to get drawing objects.
@@ -232,7 +231,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderDrawingObject(request);
+        byte[] result = TestInitializer.wordsApi.renderDrawingObject(request);
         assertNotNull(result);
     }
 
@@ -255,7 +254,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderDrawingObjectOnline(request);
+        byte[] result = TestInitializer.wordsApi.renderDrawingObjectOnline(request);
         assertNotNull(result);
     }
 
@@ -286,7 +285,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderDrawingObject(request);
+        byte[] result = TestInitializer.wordsApi.renderDrawingObject(request);
         assertNotNull(result);
     }
 
@@ -314,7 +313,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.getDocumentDrawingObjectImageData(request);
+        byte[] result = TestInitializer.wordsApi.getDocumentDrawingObjectImageData(request);
         assertNotNull(result);
     }
 
@@ -334,7 +333,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.getDocumentDrawingObjectImageDataOnline(request);
+        byte[] result = TestInitializer.wordsApi.getDocumentDrawingObjectImageDataOnline(request);
         assertNotNull(result);
     }
 
@@ -362,7 +361,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.getDocumentDrawingObjectImageData(request);
+        byte[] result = TestInitializer.wordsApi.getDocumentDrawingObjectImageData(request);
         assertNotNull(result);
     }
 
@@ -390,7 +389,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.getDocumentDrawingObjectOleData(request);
+        byte[] result = TestInitializer.wordsApi.getDocumentDrawingObjectOleData(request);
         assertNotNull(result);
     }
 
@@ -410,7 +409,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.getDocumentDrawingObjectOleDataOnline(request);
+        byte[] result = TestInitializer.wordsApi.getDocumentDrawingObjectOleDataOnline(request);
         assertNotNull(result);
     }
 
@@ -438,7 +437,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.getDocumentDrawingObjectOleData(request);
+        byte[] result = TestInitializer.wordsApi.getDocumentDrawingObjectOleData(request);
         assertNotNull(result);
     }
 
@@ -609,7 +608,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.deleteDrawingObjectOnline(request);
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteDrawingObjectOnline(request);
         assertNotNull(result);
     }
 

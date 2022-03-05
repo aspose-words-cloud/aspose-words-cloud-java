@@ -34,11 +34,10 @@ import com.aspose.words.cloud.model.responses.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
-import java.io.File;
 import java.io.IOException;
 import javax.mail.MessagingException;
 import java.nio.file.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /*
  * Example of how to work with paragraph.
@@ -560,7 +559,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderParagraph(request);
+        byte[] result = TestInitializer.wordsApi.renderParagraph(request);
         assertNotNull(result);
     }
 
@@ -583,7 +582,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderParagraphOnline(request);
+        byte[] result = TestInitializer.wordsApi.renderParagraphOnline(request);
         assertNotNull(result);
     }
 
@@ -614,7 +613,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderParagraph(request);
+        byte[] result = TestInitializer.wordsApi.renderParagraph(request);
         assertNotNull(result);
     }
 
@@ -811,7 +810,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.deleteParagraphOnline(request);
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteParagraphOnline(request);
         assertNotNull(result);
     }
 

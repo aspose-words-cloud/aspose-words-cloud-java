@@ -47,11 +47,61 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for details of digital signature.")
 public class PdfDigitalSignatureDetailsData {
+    /**
+     * Gets or sets the hash algorithm.
+     */
+    @JsonAdapter(HashAlgorithmEnum.Adapter.class)
+    public enum HashAlgorithmEnum {
+        SHA1("Sha1"),
+        SHA256("Sha256"),
+        SHA384("Sha384"),
+        SHA512("Sha512"),
+        MD5("Md5"),
+        RIPEMD160("RipeMD160");
+
+        private String value;
+
+        HashAlgorithmEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static HashAlgorithmEnum fromValue(String text) {
+            for (HashAlgorithmEnum b : HashAlgorithmEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< HashAlgorithmEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final HashAlgorithmEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public HashAlgorithmEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return HashAlgorithmEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("CertificateFilename")
     protected String certificateFilename;
 
     @SerializedName("HashAlgorithm")
-    protected String hashAlgorithm;
+    protected HashAlgorithmEnum hashAlgorithm;
 
     @SerializedName("Location")
     protected String location;
@@ -85,16 +135,16 @@ public class PdfDigitalSignatureDetailsData {
     * @return hashAlgorithm
     **/
     @ApiModelProperty(value = "Gets or sets the hash algorithm.")
-    public String getHashAlgorithm() {
+    public HashAlgorithmEnum getHashAlgorithm() {
         return hashAlgorithm;
     }
 
-    public PdfDigitalSignatureDetailsData hashAlgorithm(String hashAlgorithm) {
+    public PdfDigitalSignatureDetailsData hashAlgorithm(HashAlgorithmEnum hashAlgorithm) {
         this.hashAlgorithm = hashAlgorithm;
         return this;
     }
 
-    public void setHashAlgorithm(String hashAlgorithm) {
+    public void setHashAlgorithm(HashAlgorithmEnum hashAlgorithm) {
         this.hashAlgorithm = hashAlgorithm;
     }
 
