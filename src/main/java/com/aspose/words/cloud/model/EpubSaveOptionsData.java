@@ -132,6 +132,7 @@ public class EpubSaveOptionsData extends HtmlSaveOptionsData {
     sb.append("    exportPageSetup: ").append(toIndentedString(getExportPageSetup())).append("\n");
     sb.append("    exportRelativeFontSize: ").append(toIndentedString(getExportRelativeFontSize())).append("\n");
     sb.append("    exportRoundtripInformation: ").append(toIndentedString(getExportRoundtripInformation())).append("\n");
+    sb.append("    exportShapesAsSvg: ").append(toIndentedString(getExportShapesAsSvg())).append("\n");
     sb.append("    exportTextBoxAsSvg: ").append(toIndentedString(getExportTextBoxAsSvg())).append("\n");
     sb.append("    exportTextInputFormFieldAsText: ").append(toIndentedString(getExportTextInputFormFieldAsText())).append("\n");
     sb.append("    exportTocPageNumbers: ").append(toIndentedString(getExportTocPageNumbers())).append("\n");
