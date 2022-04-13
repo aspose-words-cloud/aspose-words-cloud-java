@@ -440,4 +440,40 @@ public class TestStyles  extends TestCase
         ApplyStyleToDocumentElementOnlineResponse result = TestInitializer.wordsApi.applyStyleToDocumentElementOnline(request);
         assertNotNull(result);
     }
+
+    /*
+     * Test for copying styles from a template.
+     */
+    @Test
+    public void testCopyStylesFromTemplate() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestCopyStylesFromTemplate.docx";
+        String templateFolder = "DocumentElements/Styles";
+        String templateName = "StyleTemplate.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, templateFolder + "/" + templateName),
+            remoteDataFolder + "/" + templateName
+        );
+
+        CopyStylesFromTemplateRequest request = new CopyStylesFromTemplateRequest(
+            remoteFileName,
+            templateName,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        WordsResponse result = TestInitializer.wordsApi.copyStylesFromTemplate(request);
+        assertNotNull(result);
+    }
 }
