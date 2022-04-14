@@ -13,12 +13,19 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 22.4
+
+- Added ExportShapesAsSvg to HtmlSaveOption.
+- Added new endpoint '~/styles/copy_from'.
+
+
 ## Enhancements in Version 22.3
 
 - Online methods returns the dictionary of files with included original filename as key instead of single file content in responses.
 - Parameters contained sensitive data should be passed in encrypted form. Names of the parameters have 'encrypted' prefix.
 - Added Encrypt method to encrypt data on the API public key. Use it to prepare values for parameters required encrypted data.
 - GetPublicKey method is not billable.
+- Changed type of enumerations for members of SaveOptionsData and other inherited classes from string to enum.
 
 
 ## Enhancements in Version 22.2
@@ -205,7 +212,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>22.3.0</version>
+        <version>22.4.0</version>
     </dependency>
 </dependencies>
 ```

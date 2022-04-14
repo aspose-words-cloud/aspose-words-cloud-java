@@ -58,6 +58,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         PDFA1B("PdfA1b"),
         PDFA2A("PdfA2a"),
         PDFA2U("PdfA2u"),
+        PDFA4("PdfA4"),
         PDFUA1("PdfUa1");
 
         private String value;
