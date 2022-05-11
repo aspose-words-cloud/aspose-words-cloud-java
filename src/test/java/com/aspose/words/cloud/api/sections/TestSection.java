@@ -202,4 +202,27 @@ public class TestSection  extends TestCase
         Map<String, byte[]> result = TestInitializer.wordsApi.deleteSectionOnline(request);
         assertNotNull(result);
     }
+
+    /*
+     * Test for linking headers and footers to previous section.
+     */
+    @Test
+    public void testLinkHeaderFootersToPrevious() throws ApiException, MessagingException, IOException
+    {
+        LinkHeaderFootersToPreviousRequest request = new LinkHeaderFootersToPreviousRequest(
+            "DocumentElements/Sections/Source.docx",
+            1,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        TestInitializer.wordsApi.linkHeaderFootersToPrevious(request);
+    }
 }
