@@ -60,7 +60,8 @@ public class ParagraphFormatBase extends LinkElement {
         ARABICMEDIUMKASHIDA("ArabicMediumKashida"),
         ARABICHIGHKASHIDA("ArabicHighKashida"),
         ARABICLOWKASHIDA("ArabicLowKashida"),
-        THAIDISTRIBUTED("ThaiDistributed");
+        THAIDISTRIBUTED("ThaiDistributed"),
+        MATHELEMENTCENTERASGROUP("MathElementCenterAsGroup");
 
         private String value;
 
