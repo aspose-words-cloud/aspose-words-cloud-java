@@ -209,10 +209,17 @@ public class TestSection  extends TestCase
     @Test
     public void testLinkHeaderFootersToPrevious() throws ApiException, MessagingException, IOException
     {
+        String remoteFileName = "TestLinkHeaderFootersToPrevious.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, "DocumentElements/Sections/Source.docx"),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
         LinkHeaderFootersToPreviousRequest request = new LinkHeaderFootersToPreviousRequest(
-            "DocumentElements/Sections/Source.docx",
+            remoteFileName,
             1,
-            null,
+            remoteDataFolder,
             null,
             null,
             null,
