@@ -489,12 +489,6 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     @SerializedName("ExportRoundtripInformation")
     protected Boolean exportRoundtripInformation;
 
-    @SerializedName("ExportShapesAsSvg")
-    protected Boolean exportShapesAsSvg;
-
-    @SerializedName("ExportTextBoxAsSvg")
-    protected Boolean exportTextBoxAsSvg;
-
     @SerializedName("ExportTextInputFormFieldAsText")
     protected Boolean exportTextInputFormFieldAsText;
 
@@ -934,45 +928,6 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
 
 
     /**
-     * Gets or sets the flag, that controls whether Aspose.Words.Drawing.Shape nodes are converted to SVG images when saving to HTML, MHTML or EPUB. Default value is false.
-    * @return exportShapesAsSvg
-    **/
-    @ApiModelProperty(value = "Gets or sets the flag, that controls whether Aspose.Words.Drawing.Shape nodes are converted to SVG images when saving to HTML, MHTML or EPUB. Default value is false.")
-    public Boolean getExportShapesAsSvg() {
-        return exportShapesAsSvg;
-    }
-
-    public HtmlSaveOptionsData exportShapesAsSvg(Boolean exportShapesAsSvg) {
-        this.exportShapesAsSvg = exportShapesAsSvg;
-        return this;
-    }
-
-    public void setExportShapesAsSvg(Boolean exportShapesAsSvg) {
-        this.exportShapesAsSvg = exportShapesAsSvg;
-    }
-
-
-    /**
-     * Gets or sets the flag, that controls how textboxes represented by Aspose.Words.Drawing.Shape are saved to HTML, MHTML or EPUB. The default value is false.
-     * When set to true, exports textboxes as inline "svg" elements. When false, exports as "image" elements.
-    * @return exportTextBoxAsSvg
-    **/
-    @ApiModelProperty(value = "Gets or sets the flag, that controls how textboxes represented by Aspose.Words.Drawing.Shape are saved to HTML, MHTML or EPUB. The default value is false. When set to true, exports textboxes as inline \"svg\" elements. When false, exports as \"image\" elements.")
-    public Boolean getExportTextBoxAsSvg() {
-        return exportTextBoxAsSvg;
-    }
-
-    public HtmlSaveOptionsData exportTextBoxAsSvg(Boolean exportTextBoxAsSvg) {
-        this.exportTextBoxAsSvg = exportTextBoxAsSvg;
-        return this;
-    }
-
-    public void setExportTextBoxAsSvg(Boolean exportTextBoxAsSvg) {
-        this.exportTextBoxAsSvg = exportTextBoxAsSvg;
-    }
-
-
-    /**
      * Gets or sets the flag, that controls how text input form fields are saved.
     * @return exportTextInputFormFieldAsText
     **/
@@ -1341,8 +1296,6 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         this.exportPageSetup = null;
         this.exportRelativeFontSize = null;
         this.exportRoundtripInformation = null;
-        this.exportShapesAsSvg = null;
-        this.exportTextBoxAsSvg = null;
         this.exportTextInputFormFieldAsText = null;
         this.exportTocPageNumbers = null;
         this.exportXhtmlTransitional = null;
@@ -1395,8 +1348,6 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
             Objects.equals(this.exportPageSetup, htmlSaveOptionsData.exportPageSetup) &&
             Objects.equals(this.exportRelativeFontSize, htmlSaveOptionsData.exportRelativeFontSize) &&
             Objects.equals(this.exportRoundtripInformation, htmlSaveOptionsData.exportRoundtripInformation) &&
-            Objects.equals(this.exportShapesAsSvg, htmlSaveOptionsData.exportShapesAsSvg) &&
-            Objects.equals(this.exportTextBoxAsSvg, htmlSaveOptionsData.exportTextBoxAsSvg) &&
             Objects.equals(this.exportTextInputFormFieldAsText, htmlSaveOptionsData.exportTextInputFormFieldAsText) &&
             Objects.equals(this.exportTocPageNumbers, htmlSaveOptionsData.exportTocPageNumbers) &&
             Objects.equals(this.exportXhtmlTransitional, htmlSaveOptionsData.exportXhtmlTransitional) &&
@@ -1420,7 +1371,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowNegativeIndent, cssClassNamePrefix, cssStyleSheetFileName, cssStyleSheetType, documentSplitCriteria, documentSplitHeadingLevel, encoding, exportDocumentProperties, exportDropDownFormFieldAsText, exportFontResources, exportFontsAsBase64, exportHeadersFootersMode, exportImagesAsBase64, exportLanguageInformation, exportListLabels, exportOriginalUrlForLinkedImages, exportPageMargins, exportPageSetup, exportRelativeFontSize, exportRoundtripInformation, exportShapesAsSvg, exportTextBoxAsSvg, exportTextInputFormFieldAsText, exportTocPageNumbers, exportXhtmlTransitional, fontResourcesSubsettingSizeThreshold, fontsFolder, fontsFolderAlias, htmlVersion, imageResolution, imagesFolder, imagesFolderAlias, metafileFormat, officeMathOutputMode, prettyFormat, resolveFontNames, resourceFolder, resourceFolderAlias, scaleImageToShapeSize, tableWidthOutputMode, super.hashCode());
+    return Objects.hash(allowNegativeIndent, cssClassNamePrefix, cssStyleSheetFileName, cssStyleSheetType, documentSplitCriteria, documentSplitHeadingLevel, encoding, exportDocumentProperties, exportDropDownFormFieldAsText, exportFontResources, exportFontsAsBase64, exportHeadersFootersMode, exportImagesAsBase64, exportLanguageInformation, exportListLabels, exportOriginalUrlForLinkedImages, exportPageMargins, exportPageSetup, exportRelativeFontSize, exportRoundtripInformation, exportTextInputFormFieldAsText, exportTocPageNumbers, exportXhtmlTransitional, fontResourcesSubsettingSizeThreshold, fontsFolder, fontsFolderAlias, htmlVersion, imageResolution, imagesFolder, imagesFolderAlias, metafileFormat, officeMathOutputMode, prettyFormat, resolveFontNames, resourceFolder, resourceFolderAlias, scaleImageToShapeSize, tableWidthOutputMode, super.hashCode());
   }
 
   @Override
@@ -1461,8 +1412,6 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     sb.append("    exportPageSetup: ").append(toIndentedString(getExportPageSetup())).append("\n");
     sb.append("    exportRelativeFontSize: ").append(toIndentedString(getExportRelativeFontSize())).append("\n");
     sb.append("    exportRoundtripInformation: ").append(toIndentedString(getExportRoundtripInformation())).append("\n");
-    sb.append("    exportShapesAsSvg: ").append(toIndentedString(getExportShapesAsSvg())).append("\n");
-    sb.append("    exportTextBoxAsSvg: ").append(toIndentedString(getExportTextBoxAsSvg())).append("\n");
     sb.append("    exportTextInputFormFieldAsText: ").append(toIndentedString(getExportTextInputFormFieldAsText())).append("\n");
     sb.append("    exportTocPageNumbers: ").append(toIndentedString(getExportTocPageNumbers())).append("\n");
     sb.append("    exportXhtmlTransitional: ").append(toIndentedString(getExportXhtmlTransitional())).append("\n");
