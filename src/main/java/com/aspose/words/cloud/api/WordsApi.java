@@ -1884,6 +1884,292 @@ public class WordsApi implements EncryptorFactory {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteBookmarkValidateBeforeCall(DeleteBookmarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes a bookmark from the document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteBookmark(DeleteBookmarkRequest request) throws ApiException, MessagingException, IOException {
+        try {
+    deleteBookmarkWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+    deleteBookmarkWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes a bookmark from the document.
+     * @param request Request object
+     * @return ApiResponse< void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteBookmarkWithHttpInfo(DeleteBookmarkRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteBookmarkValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Removes a bookmark from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteBookmarkAsync(DeleteBookmarkRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteBookmarkValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteBookmarkOnlineValidateBeforeCall(DeleteBookmarkOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes a bookmark from the document.
+     * @param request Request object
+     * @return Map<String, byte[]>
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Map<String, byte[]> deleteBookmarkOnline(DeleteBookmarkOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< Map<String, byte[]> > resp = deleteBookmarkOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< Map<String, byte[]> > resp = deleteBookmarkOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes a bookmark from the document.
+     * @param request Request object
+     * @return ApiResponse< Map<String, byte[]> >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Map<String, byte[]> > deleteBookmarkOnlineWithHttpInfo(DeleteBookmarkOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteBookmarkOnlineValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Removes a bookmark from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteBookmarkOnlineAsync(DeleteBookmarkOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteBookmarkOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteBookmarksValidateBeforeCall(DeleteBookmarksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes all bookmarks from the document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteBookmarks(DeleteBookmarksRequest request) throws ApiException, MessagingException, IOException {
+        try {
+    deleteBookmarksWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+    deleteBookmarksWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes all bookmarks from the document.
+     * @param request Request object
+     * @return ApiResponse< void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteBookmarksWithHttpInfo(DeleteBookmarksRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteBookmarksValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Removes all bookmarks from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteBookmarksAsync(DeleteBookmarksRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteBookmarksValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteBookmarksOnlineValidateBeforeCall(DeleteBookmarksOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes all bookmarks from the document.
+     * @param request Request object
+     * @return Map<String, byte[]>
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Map<String, byte[]> deleteBookmarksOnline(DeleteBookmarksOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< Map<String, byte[]> > resp = deleteBookmarksOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< Map<String, byte[]> > resp = deleteBookmarksOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes all bookmarks from the document.
+     * @param request Request object
+     * @return ApiResponse< Map<String, byte[]> >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Map<String, byte[]> > deleteBookmarksOnlineWithHttpInfo(DeleteBookmarksOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteBookmarksOnlineValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Removes all bookmarks from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteBookmarksOnlineAsync(DeleteBookmarksOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteBookmarksOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteBorderValidateBeforeCall(DeleteBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
@@ -14150,6 +14436,152 @@ public class WordsApi implements EncryptorFactory {
         }
 
         com.squareup.okhttp.Call call = getTablesOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertBookmarkValidateBeforeCall(InsertBookmarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Inserts a new bookmark to the document.
+     * @param request Request object
+     * @return BookmarkResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public BookmarkResponse insertBookmark(InsertBookmarkRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< BookmarkResponse > resp = insertBookmarkWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< BookmarkResponse > resp = insertBookmarkWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Inserts a new bookmark to the document.
+     * @param request Request object
+     * @return ApiResponse< BookmarkResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< BookmarkResponse > insertBookmarkWithHttpInfo(InsertBookmarkRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = insertBookmarkValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Inserts a new bookmark to the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertBookmarkAsync(InsertBookmarkRequest request, final ApiCallback< BookmarkResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertBookmarkValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertBookmarkOnlineValidateBeforeCall(InsertBookmarkOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Inserts a new bookmark to the document.
+     * @param request Request object
+     * @return InsertBookmarkOnlineResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public InsertBookmarkOnlineResponse insertBookmarkOnline(InsertBookmarkOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< InsertBookmarkOnlineResponse > resp = insertBookmarkOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< InsertBookmarkOnlineResponse > resp = insertBookmarkOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Inserts a new bookmark to the document.
+     * @param request Request object
+     * @return ApiResponse< InsertBookmarkOnlineResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< InsertBookmarkOnlineResponse > insertBookmarkOnlineWithHttpInfo(InsertBookmarkOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = insertBookmarkOnlineValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Inserts a new bookmark to the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertBookmarkOnlineAsync(InsertBookmarkOnlineRequest request, final ApiCallback< InsertBookmarkOnlineResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertBookmarkOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
         apiClient.executeAsync(call, request, callback);
         return call;
     }
