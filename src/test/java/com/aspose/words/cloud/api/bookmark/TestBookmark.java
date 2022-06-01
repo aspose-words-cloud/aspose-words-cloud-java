@@ -209,4 +209,192 @@ public class TestBookmark  extends TestCase
         UpdateBookmarkOnlineResponse result = TestInitializer.wordsApi.updateBookmarkOnline(request);
         assertNotNull(result);
     }
+
+    /*
+     * Test for deleting bookmark by specified name.
+     */
+    @Test
+    public void testDeleteBookmark() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestDeleteBookmark.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        DeleteBookmarkRequest request = new DeleteBookmarkRequest(
+            remoteFileName,
+            bookmarkName,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        TestInitializer.wordsApi.deleteBookmark(request);
+    }
+
+    /*
+     * Test for deleting bookmark by specified name online.
+     */
+    @Test
+    public void testDeleteBookmarkOnline() throws ApiException, MessagingException, IOException
+    {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        DeleteBookmarkOnlineRequest request = new DeleteBookmarkOnlineRequest(
+            requestDocument,
+            bookmarkName,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteBookmarkOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for deleting all bookmarks from document.
+     */
+    @Test
+    public void testDeleteBookmarks() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestDeleteBookmarks.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        DeleteBookmarksRequest request = new DeleteBookmarksRequest(
+            remoteFileName,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        TestInitializer.wordsApi.deleteBookmarks(request);
+    }
+
+    /*
+     * Test for deleting all bookmarks from document online.
+     */
+    @Test
+    public void testDeleteBookmarksOnline() throws ApiException, MessagingException, IOException
+    {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        DeleteBookmarksOnlineRequest request = new DeleteBookmarksOnlineRequest(
+            requestDocument,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteBookmarksOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for inserting new bookmark.
+     */
+    @Test
+    public void testInsertBookmark() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestInsertBookmark.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        NodeLink requestBookmarkStartRangeNode = new NodeLink();
+        requestBookmarkStartRangeNode.setNodeId("0.0.0.0");
+
+        DocumentPosition requestBookmarkStartRange = new DocumentPosition();
+        requestBookmarkStartRange.setNode(requestBookmarkStartRangeNode);
+
+        NodeLink requestBookmarkEndRangeNode = new NodeLink();
+        requestBookmarkEndRangeNode.setNodeId("0.0.0.0");
+
+        DocumentPosition requestBookmarkEndRange = new DocumentPosition();
+        requestBookmarkEndRange.setNode(requestBookmarkEndRangeNode);
+
+        BookmarkInsert requestBookmark = new BookmarkInsert();
+        requestBookmark.setStartRange(requestBookmarkStartRange);
+        requestBookmark.setEndRange(requestBookmarkEndRange);
+        requestBookmark.setName("new_bookmark");
+        requestBookmark.setText("Some text");
+
+        InsertBookmarkRequest request = new InsertBookmarkRequest(
+            remoteFileName,
+            requestBookmark,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        BookmarkResponse result = TestInitializer.wordsApi.insertBookmark(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for inserting new bookmark online.
+     */
+    @Test
+    public void testInsertBookmarkOnline() throws ApiException, MessagingException, IOException
+    {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        NodeLink requestBookmarkStartRangeNode = new NodeLink();
+        requestBookmarkStartRangeNode.setNodeId("0.0.0.0");
+
+        DocumentPosition requestBookmarkStartRange = new DocumentPosition();
+        requestBookmarkStartRange.setNode(requestBookmarkStartRangeNode);
+
+        NodeLink requestBookmarkEndRangeNode = new NodeLink();
+        requestBookmarkEndRangeNode.setNodeId("0.0.0.0");
+
+        DocumentPosition requestBookmarkEndRange = new DocumentPosition();
+        requestBookmarkEndRange.setNode(requestBookmarkEndRangeNode);
+
+        BookmarkInsert requestBookmark = new BookmarkInsert();
+        requestBookmark.setStartRange(requestBookmarkStartRange);
+        requestBookmark.setEndRange(requestBookmarkEndRange);
+        requestBookmark.setName("new_bookmark");
+        requestBookmark.setText("Some text");
+
+        InsertBookmarkOnlineRequest request = new InsertBookmarkOnlineRequest(
+            requestDocument,
+            requestBookmark,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertBookmarkOnlineResponse result = TestInitializer.wordsApi.insertBookmarkOnline(request);
+        assertNotNull(result);
+    }
 }
