@@ -1454,7 +1454,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
+     * Supported all save format extensions.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1476,7 +1476,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
+     * Supported all save format extensions.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1488,7 +1488,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf". (asynchronously)
+     * Supported all save format extensions. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

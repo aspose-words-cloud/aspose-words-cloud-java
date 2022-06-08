@@ -18,6 +18,7 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 - Added 'DeleteBookmark' and 'DeleteBookmarkOnline' API methods for delete bookmarks by name from the document.
 - Added 'DeleteBookmarks' and 'DeleteBookmarksOnline' API methods for delete all bookmarks from the document.
 - Added 'InsertBookmark' and 'InsertBookmarkOnline' API methods for create new bookmarks in the document.
+- Support all save formats for 'CreateDocument' operation.
 
 
 ## Enhancements in Version 22.5
@@ -224,7 +225,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>22.4.0</version>
+        <version>22.6.0</version>
     </dependency>
 </dependencies>
 ```
