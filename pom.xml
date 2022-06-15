@@ -14,13 +14,6 @@
       <tag>HEAD</tag>
   </scm>
 
-    <distributionManagement>
-        <repository>
-            <id>aspose</id>
-            <url>https://repository.aspose.cloud/internal</url>
-        </repository>        
-    </distributionManagement>
-
     <licenses>
         <license>
             <name>MIT License</name>
@@ -39,6 +32,13 @@
     </developers>
 
     <build>
+		<extensions>
+			<extension>
+				<groupId>com.github.seahen</groupId>
+				<artifactId>maven-s3-wagon</artifactId>
+				<version>1.3.3</version>
+			</extension>
+		</extensions>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -215,6 +215,37 @@
     </build>
 
     <profiles>
+	<profile>
+            <id>stage-repository</id>
+            <activation>
+                <property>
+                    <name>useStageRepo</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>aspose-cloud-s3-repo-ci-qa</id>
+                    <url>s3://data-qa.repository.aspose.cloud/repo</url>
+                </repository>
+            </distributionManagement>
+       </profile>
+
+        <profile>
+            <id>production-repository</id>
+            <activation>
+                <property>
+                    <name>useStageRepo</name>
+					<value>false</value>
+                </property>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>aspose-cloud-s3-repo-ci</id>
+                    <url>s3://data.repository.aspose.cloud/repo</url>
+                </repository>
+            </distributionManagement>
+        </profile>
         <profile>
             <id>sign-artifacts</id>
             <build>
