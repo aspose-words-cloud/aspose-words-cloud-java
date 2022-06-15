@@ -14,17 +14,6 @@
       <tag>HEAD</tag>
   </scm>
 
-    <distributionManagement>
-        <repository>
-            <id>aspose-cloud-s3-repo-ci-qa</id>
-            <url>s3://data-qa.repository.aspose.cloud/repo</url>
-        </repository>
-		<repository>
-            <id>aspose-cloud-s3-repo-ci</id>
-            <url>s3://data.repository.aspose.cloud/repo</url>
-        </repository>         
-    </distributionManagement>
-
     <licenses>
         <license>
             <name>MIT License</name>
@@ -226,6 +215,37 @@
     </build>
 
     <profiles>
+	<profile>
+            <id>stage-repository</id>
+            <activation>
+                <property>
+                    <name>useStageRepo</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>aspose-cloud-s3-repo-ci-qa</id>
+                    <url>s3://data-qa.repository.aspose.cloud/repo</url>
+                </repository>
+            </distributionManagement>
+       </profile>
+
+        <profile>
+            <id>production-repository</id>
+            <activation>
+                <property>
+                    <name>useStageRepo</name>
+					<value>false</value>
+                </property>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>aspose-cloud-s3-repo-ci</id>
+                    <url>s3://data.repository.aspose.cloud/repo</url>
+                </repository>
+            </distributionManagement>
+        </profile>
         <profile>
             <id>sign-artifacts</id>
             <build>
