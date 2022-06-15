@@ -4,7 +4,7 @@ parameters {
 		string(name: 'testServerUrl', defaultValue: 'https://api-qa.aspose.cloud', description: 'server url')
 		string(name: 'credentialsId', defaultValue: '6839cbe8-39fa-40c0-86ce-90706f0bae5d', description: 'credentials id')
 		string(name: 'releaseCredentialsId', defaultValue: 'f0c4f9b6-8ffe-4ea8-8981-e99263fdb788', description: 'release credentials id')
-		string(name: 'serverToDeploy', defaultValue: 'aspose-cloud-s3-repo-ci', description: 'where to deploy')
+		string(name: 'serverToDeploy', defaultValue: '-DuseStageRepo=true', description: 'possible values are -DuseStageRepo=true or false')
 }
 node('words-linux') {         
     try {
@@ -49,7 +49,7 @@ node('words-linux') {
 								sh 'echo "{\\"ClientId\\": \\"$ClientId\\",\\"ClientSecret\\": \\"$ClientSecret\\", \\"BaseUrl\\": \\"$testServerUrl\\"}" > Settings/servercreds.json'
 							}
 							sh 'cat wordsSettings.xml'
-							sh "mvn --settings wordsSettings.xml deploy -Dmaven.javadoc.skip=true -DcheckModificationExcludeList=wordsSettings.xml,Settings/servercreds.json"
+							sh "mvn --settings wordsSettings.xml deploy -Dmaven.javadoc.skip=true -DcheckModificationExcludeList=wordsSettings.xml,Settings/servercreds.json -DuseStageRepo=true"
 						}
 					}
 				}
