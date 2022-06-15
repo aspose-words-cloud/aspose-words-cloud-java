@@ -49,7 +49,7 @@ node('words-linux') {
 								sh 'echo "{\\"ClientId\\": \\"$ClientId\\",\\"ClientSecret\\": \\"$ClientSecret\\", \\"BaseUrl\\": \\"$testServerUrl\\"}" > Settings/servercreds.json'
 							}
 							sh 'cat wordsSettings.xml'
-							sh "mvn --settings wordsSettings.xml deploy -Dmaven.javadoc.skip=true -DcheckModificationExcludeList=wordsSettings.xml,Settings/servercreds.json -DuseStageRepo=true"
+							sh "mvn --settings wordsSettings.xml deploy -Dmaven.javadoc.skip=true -DcheckModificationExcludeList=wordsSettings.xml,Settings/servercreds.json params.serverToDeploy"
 						}
 					}
 				}
