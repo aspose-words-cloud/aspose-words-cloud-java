@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a list of documents which will be appended to the original resource document.
  */
 @ApiModel(description = "Represents a list of documents which will be appended to the original resource document.")
-public class DocumentEntryList {
+public class DocumentEntryList extends BaseEntryList {
     @SerializedName("ApplyBaseDocumentHeadersAndFootersToAppendingDocuments")
     protected Boolean applyBaseDocumentHeadersAndFootersToAppendingDocuments;
 
@@ -100,6 +100,7 @@ public class DocumentEntryList {
 
 
     public DocumentEntryList() {
+        super();
         this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = null;
         this.documentEntries = null;
     }
@@ -116,12 +117,13 @@ public class DocumentEntryList {
         DocumentEntryList documentEntryList = (DocumentEntryList) o;
         return
             Objects.equals(this.applyBaseDocumentHeadersAndFootersToAppendingDocuments, documentEntryList.applyBaseDocumentHeadersAndFootersToAppendingDocuments) &&
-            Objects.equals(this.documentEntries, documentEntryList.documentEntries);
+            Objects.equals(this.documentEntries, documentEntryList.documentEntries) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applyBaseDocumentHeadersAndFootersToAppendingDocuments, documentEntries);
+    return Objects.hash(applyBaseDocumentHeadersAndFootersToAppendingDocuments, documentEntries, super.hashCode());
   }
 
   @Override

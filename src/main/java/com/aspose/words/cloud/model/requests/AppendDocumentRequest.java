@@ -47,9 +47,9 @@ public class AppendDocumentRequest implements RequestIfc {
     private String name;
 
     /*
-     * <see cref="DocumentEntryList"/> with a list of documents to append.
+     * <see cref="BaseEntryList"/> with a list of entries to append.
      */
-    private DocumentEntryList documentList;
+    private BaseEntryList documentList;
 
     /*
      * Original document folder.
@@ -95,7 +95,7 @@ public class AppendDocumentRequest implements RequestIfc {
      * Initializes a new instance of the AppendDocumentRequest class.
      *
      * @param String name The filename of the input document.
-     * @param DocumentEntryList documentList <see cref="DocumentEntryList"/> with a list of documents to append.
+     * @param BaseEntryList documentList <see cref="BaseEntryList"/> with a list of entries to append.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -105,7 +105,7 @@ public class AppendDocumentRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public AppendDocumentRequest(String name, DocumentEntryList documentList, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public AppendDocumentRequest(String name, BaseEntryList documentList, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
         this.documentList = documentList;
         this.folder = folder;
@@ -133,16 +133,16 @@ public class AppendDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets <see cref="DocumentEntryList"/> with a list of documents to append.
+     * Gets <see cref="BaseEntryList"/> with a list of entries to append.
      */
-    public DocumentEntryList getDocumentList() {
+    public BaseEntryList getDocumentList() {
         return this.documentList;
     }
 
     /*
-     * Sets <see cref="DocumentEntryList"/> with a list of documents to append.
+     * Sets <see cref="BaseEntryList"/> with a list of entries to append.
      */
-    public void setDocumentList(DocumentEntryList value) {
+    public void setDocumentList(BaseEntryList value) {
         this.documentList = value;
     }
 

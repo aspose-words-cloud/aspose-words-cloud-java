@@ -47,9 +47,9 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
     private byte[] document;
 
     /*
-     * <see cref="DocumentEntryList"/> with a list of documents to append.
+     * <see cref="BaseEntryList"/> with a list of entries to append.
      */
-    private DocumentEntryList documentList;
+    private BaseEntryList documentList;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -85,7 +85,7 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
      * Initializes a new instance of the AppendDocumentOnlineRequest class.
      *
      * @param byte[] document Original document.
-     * @param DocumentEntryList documentList <see cref="DocumentEntryList"/> with a list of documents to append.
+     * @param BaseEntryList documentList <see cref="BaseEntryList"/> with a list of entries to append.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
@@ -93,7 +93,7 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public AppendDocumentOnlineRequest(byte[] document, DocumentEntryList documentList, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public AppendDocumentOnlineRequest(byte[] document, BaseEntryList documentList, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.document = document;
         this.documentList = documentList;
         this.loadEncoding = loadEncoding;
@@ -119,16 +119,16 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets <see cref="DocumentEntryList"/> with a list of documents to append.
+     * Gets <see cref="BaseEntryList"/> with a list of entries to append.
      */
-    public DocumentEntryList getDocumentList() {
+    public BaseEntryList getDocumentList() {
         return this.documentList;
     }
 
     /*
-     * Sets <see cref="DocumentEntryList"/> with a list of documents to append.
+     * Sets <see cref="BaseEntryList"/> with a list of entries to append.
      */
-    public void setDocumentList(DocumentEntryList value) {
+    public void setDocumentList(BaseEntryList value) {
         this.documentList = value;
     }
 
