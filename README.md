@@ -16,6 +16,7 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 ## Enhancements in Version 22.7
 
 - Expand 'AppendDocument' API method to support 'ImageEntryList' for directly appending images to documents and another images.
+- Added 'CompressDocument' API method to support compression and resizing images inside the document for reduce the size of the document.
 
 
 ## Enhancements in Version 22.6
