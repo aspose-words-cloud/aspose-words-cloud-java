@@ -1017,6 +1017,152 @@ public class WordsApi implements EncryptorFactory {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call compressDocumentValidateBeforeCall(CompressDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * The default settings allows to reduce the size of the document without any visible degradation of images quality.
+     * @param request Request object
+     * @return CompressResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public CompressResponse compressDocument(CompressDocumentRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< CompressResponse > resp = compressDocumentWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< CompressResponse > resp = compressDocumentWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * The default settings allows to reduce the size of the document without any visible degradation of images quality.
+     * @param request Request object
+     * @return ApiResponse< CompressResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< CompressResponse > compressDocumentWithHttpInfo(CompressDocumentRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = compressDocumentValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * The default settings allows to reduce the size of the document without any visible degradation of images quality. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call compressDocumentAsync(CompressDocumentRequest request, final ApiCallback< CompressResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = compressDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call compressDocumentOnlineValidateBeforeCall(CompressDocumentOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Compress and resize images inside the document.
+     * @param request Request object
+     * @return CompressDocumentOnlineResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public CompressDocumentOnlineResponse compressDocumentOnline(CompressDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< CompressDocumentOnlineResponse > resp = compressDocumentOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< CompressDocumentOnlineResponse > resp = compressDocumentOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Compress and resize images inside the document.
+     * @param request Request object
+     * @return ApiResponse< CompressDocumentOnlineResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< CompressDocumentOnlineResponse > compressDocumentOnlineWithHttpInfo(CompressDocumentOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = compressDocumentOnlineValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Compress and resize images inside the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call compressDocumentOnlineAsync(CompressDocumentOnlineRequest request, final ApiCallback< CompressDocumentOnlineResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = compressDocumentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call convertDocumentValidateBeforeCall(ConvertDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }

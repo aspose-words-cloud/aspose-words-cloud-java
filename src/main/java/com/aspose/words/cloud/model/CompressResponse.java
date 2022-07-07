@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ReportBuildOptions.java">
+ * <copyright company="Aspose" file="CompressResponse.java">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -43,52 +43,74 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Specifies options controlling behavior of ReportingEngine while building a report.
+ * The REST response of compressed document.
  */
-@JsonAdapter(ReportBuildOptions.Adapter.class)
-public enum ReportBuildOptions {
-    NONE("None"),
-    ALLOWMISSINGMEMBERS("AllowMissingMembers"),
-    REMOVEEMPTYPARAGRAPHS("RemoveEmptyParagraphs"),
-    INLINEERRORMESSAGES("InlineErrorMessages"),
-    USELEGACYHEADERFOOTERVISITING("UseLegacyHeaderFooterVisiting"),
-    RESPECTJPEGEXIFORIENTATION("RespectJpegExifOrientation");
-
-    private String value;
-
-    ReportBuildOptions(String value) {
-        this.value = value;
+@ApiModel(description = "The REST response of compressed document.")
+public class CompressResponse extends WordsResponse {
+    @SerializedName("Document")
+    protected Document document;
+    /**
+     * Gets or sets the destination document info.
+    * @return document
+    **/
+    @ApiModelProperty(value = "Gets or sets the destination document info.")
+    public Document getDocument() {
+        return document;
     }
 
-    public String getValue() {
-        return value;
+    public CompressResponse document(Document document) {
+        this.document = document;
+        return this;
+    }
+
+    public void setDocument(Document document) {
+        this.document = document;
+    }
+
+
+    public CompressResponse() {
+        super();
+        this.document = null;
     }
 
     @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    public static ReportBuildOptions fromValue(String text) {
-        for (ReportBuildOptions b : ReportBuildOptions.values()) {
-            if (String.valueOf(b.value).equals(text)) {
-                return b;
-            }
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter< ReportBuildOptions > {
-        @Override
-        public void write(final JsonWriter jsonWriter, final ReportBuildOptions enumeration) throws IOException {
-            jsonWriter.value(enumeration.getValue());
+        if (o == null || getClass() != o.getClass()) {
+            return false;
         }
 
-        @Override
-        public ReportBuildOptions read(final JsonReader jsonReader) throws IOException {
-            String value = jsonReader.nextString();
-            return ReportBuildOptions.fromValue(String.valueOf(value));
-        }
+        CompressResponse compressResponse = (CompressResponse) o;
+        return
+            Objects.equals(this.document, compressResponse.document) &&
+            super.equals(o);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(document, super.hashCode());
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CompressResponse {\n");
+    sb.append("    requestId: ").append(toIndentedString(getRequestId())).append("\n");
+    sb.append("    document: ").append(toIndentedString(getDocument())).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
-
