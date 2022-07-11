@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="AppendDocumentOnlineRequest.java">
+ * <copyright company="Aspose" file="CompressDocumentOnlineRequest.java">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -38,18 +38,18 @@ import java.lang.reflect.Type;
 import java.util.*;
 
 /*
- * Request model for appendDocumentOnline operation.
+ * Request model for compressDocumentOnline operation.
  */
-public class AppendDocumentOnlineRequest implements RequestIfc {
+public class CompressDocumentOnlineRequest implements RequestIfc {
     /*
-     * Original document.
+     * The document.
      */
     private byte[] document;
 
     /*
-     * <see cref="BaseEntryList"/> with a list of entries to append.
+     * Options for compress the document.
      */
-    private BaseEntryList documentList;
+    private CompressOptions compressOptions;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -72,64 +72,50 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
     private String destFileName;
 
     /*
-     * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     */
-    private String revisionAuthor;
-
-    /*
-     * The date and time to use for revisions.
-     */
-    private String revisionDateTime;
-
-    /*
-     * Initializes a new instance of the AppendDocumentOnlineRequest class.
+     * Initializes a new instance of the CompressDocumentOnlineRequest class.
      *
-     * @param byte[] document Original document.
-     * @param BaseEntryList documentList <see cref="BaseEntryList"/> with a list of entries to append.
+     * @param byte[] document The document.
+     * @param CompressOptions compressOptions Options for compress the document.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     * @param String revisionDateTime The date and time to use for revisions.
      */
-    public AppendDocumentOnlineRequest(byte[] document, BaseEntryList documentList, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public CompressDocumentOnlineRequest(byte[] document, CompressOptions compressOptions, String loadEncoding, String password, String encryptedPassword, String destFileName) {
         this.document = document;
-        this.documentList = documentList;
+        this.compressOptions = compressOptions;
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
         this.destFileName = destFileName;
-        this.revisionAuthor = revisionAuthor;
-        this.revisionDateTime = revisionDateTime;
     }
 
     /*
-     * Gets Original document.
+     * Gets The document.
      */
     public byte[] getDocument() {
         return this.document;
     }
 
     /*
-     * Sets Original document.
+     * Sets The document.
      */
     public void setDocument(byte[] value) {
         this.document = value;
     }
 
     /*
-     * Gets <see cref="BaseEntryList"/> with a list of entries to append.
+     * Gets Options for compress the document.
      */
-    public BaseEntryList getDocumentList() {
-        return this.documentList;
+    public CompressOptions getCompressOptions() {
+        return this.compressOptions;
     }
 
     /*
-     * Sets <see cref="BaseEntryList"/> with a list of entries to append.
+     * Sets Options for compress the document.
      */
-    public void setDocumentList(BaseEntryList value) {
-        this.documentList = value;
+    public void setCompressOptions(CompressOptions value) {
+        this.compressOptions = value;
     }
 
     /*
@@ -188,34 +174,6 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
         this.destFileName = value;
     }
 
-    /*
-     * Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     */
-    public String getRevisionAuthor() {
-        return this.revisionAuthor;
-    }
-
-    /*
-     * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     */
-    public void setRevisionAuthor(String value) {
-        this.revisionAuthor = value;
-    }
-
-    /*
-     * Gets The date and time to use for revisions.
-     */
-    public String getRevisionDateTime() {
-        return this.revisionDateTime;
-    }
-
-    /*
-     * Sets The date and time to use for revisions.
-     */
-    public void setRevisionDateTime(String value) {
-        this.revisionDateTime = value;
-    }
-
 
     /*
      * Creates the http request based on this request model.
@@ -228,18 +186,18 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
         // verify the required parameter 'Document' is set
         if (getDocument() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling appendDocumentOnline");
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling compressDocumentOnline");
         }
 
-        // verify the required parameter 'DocumentList' is set
-        if (getDocumentList() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DocumentList' when calling appendDocumentOnline");
+        // verify the required parameter 'CompressOptions' is set
+        if (getCompressOptions() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CompressOptions' when calling compressDocumentOnline");
         }
 
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/online/put/appendDocument";
+        String localVarPath = "/words/online/put/compress";
         localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -248,8 +206,6 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
-        apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
-        apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -257,8 +213,8 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
         if (getDocument() != null)
             localVarFormParams.put("Document", getDocument());
 
-        if (getDocumentList() != null)
-            localVarFormParams.put("DocumentList", getDocumentList());
+        if (getCompressOptions() != null)
+            localVarFormParams.put("CompressOptions", getCompressOptions());
 
         final String[] localVarAccepts = {
             "application/xml", "application/json"
@@ -294,10 +250,10 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     @Override
-    public AppendDocumentOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+    public CompressDocumentOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
-        return new AppendDocumentOnlineResponse(
-            (DocumentResponse) apiClient.parseModel(apiClient.findBodyPartInMultipart("Model", multipart), DocumentResponse.class),
+        return new CompressDocumentOnlineResponse(
+            (CompressResponse) apiClient.parseModel(apiClient.findBodyPartInMultipart("Model", multipart), CompressResponse.class),
             apiClient.parseFilesCollection(apiClient.findBodyPartInMultipart("Document", multipart))
         );
     }

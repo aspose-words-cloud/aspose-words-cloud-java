@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ReportBuildOptions.java">
+ * <copyright company="Aspose" file="BaseEntry.java">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -43,52 +43,71 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Specifies options controlling behavior of ReportingEngine while building a report.
+ * Represents a entry which will be appended to the original resource document.
  */
-@JsonAdapter(ReportBuildOptions.Adapter.class)
-public enum ReportBuildOptions {
-    NONE("None"),
-    ALLOWMISSINGMEMBERS("AllowMissingMembers"),
-    REMOVEEMPTYPARAGRAPHS("RemoveEmptyParagraphs"),
-    INLINEERRORMESSAGES("InlineErrorMessages"),
-    USELEGACYHEADERFOOTERVISITING("UseLegacyHeaderFooterVisiting"),
-    RESPECTJPEGEXIFORIENTATION("RespectJpegExifOrientation");
-
-    private String value;
-
-    ReportBuildOptions(String value) {
-        this.value = value;
+@ApiModel(description = "Represents a entry which will be appended to the original resource document.")
+public class BaseEntry {
+    @SerializedName("Href")
+    protected String href;
+    /**
+     * Gets or sets the path to entry to append at the server.
+    * @return href
+    **/
+    @ApiModelProperty(value = "Gets or sets the path to entry to append at the server.")
+    public String getHref() {
+        return href;
     }
 
-    public String getValue() {
-        return value;
+    public BaseEntry href(String href) {
+        this.href = href;
+        return this;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
+
+
+    public BaseEntry() {
+        this.href = null;
     }
 
     @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    public static ReportBuildOptions fromValue(String text) {
-        for (ReportBuildOptions b : ReportBuildOptions.values()) {
-            if (String.valueOf(b.value).equals(text)) {
-                return b;
-            }
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter< ReportBuildOptions > {
-        @Override
-        public void write(final JsonWriter jsonWriter, final ReportBuildOptions enumeration) throws IOException {
-            jsonWriter.value(enumeration.getValue());
+        if (o == null || getClass() != o.getClass()) {
+            return false;
         }
 
-        @Override
-        public ReportBuildOptions read(final JsonReader jsonReader) throws IOException {
-            String value = jsonReader.nextString();
-            return ReportBuildOptions.fromValue(String.valueOf(value));
-        }
+        BaseEntry baseEntry = (BaseEntry) o;
+        return
+            Objects.equals(this.href, baseEntry.href);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(href);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class BaseEntry {\n");
+    sb.append("    href: ").append(toIndentedString(getHref())).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
-

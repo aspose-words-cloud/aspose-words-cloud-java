@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ReportBuildOptions.java">
+ * <copyright company="Aspose" file="BaseEntryList.java">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -43,52 +43,47 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Specifies options controlling behavior of ReportingEngine while building a report.
+ * Represents a list of entries which will be appended to the original resource entry.
  */
-@JsonAdapter(ReportBuildOptions.Adapter.class)
-public enum ReportBuildOptions {
-    NONE("None"),
-    ALLOWMISSINGMEMBERS("AllowMissingMembers"),
-    REMOVEEMPTYPARAGRAPHS("RemoveEmptyParagraphs"),
-    INLINEERRORMESSAGES("InlineErrorMessages"),
-    USELEGACYHEADERFOOTERVISITING("UseLegacyHeaderFooterVisiting"),
-    RESPECTJPEGEXIFORIENTATION("RespectJpegExifOrientation");
+@ApiModel(description = "Represents a list of entries which will be appended to the original resource entry.")
+public abstract class BaseEntryList {
 
-    private String value;
-
-    ReportBuildOptions(String value) {
-        this.value = value;
-    }
-
-    public String getValue() {
-        return value;
+    public BaseEntryList() {
     }
 
     @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    public static ReportBuildOptions fromValue(String text) {
-        for (ReportBuildOptions b : ReportBuildOptions.values()) {
-            if (String.valueOf(b.value).equals(text)) {
-                return b;
-            }
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter< ReportBuildOptions > {
-        @Override
-        public void write(final JsonWriter jsonWriter, final ReportBuildOptions enumeration) throws IOException {
-            jsonWriter.value(enumeration.getValue());
+        if (o == null || getClass() != o.getClass()) {
+            return false;
         }
 
-        @Override
-        public ReportBuildOptions read(final JsonReader jsonReader) throws IOException {
-            String value = jsonReader.nextString();
-            return ReportBuildOptions.fromValue(String.valueOf(value));
-        }
+        return true;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash();
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class BaseEntryList {\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
-

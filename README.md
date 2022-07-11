@@ -13,6 +13,12 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 22.7
+
+- Expand 'AppendDocument' API method to support 'ImageEntryList' for directly appending images to documents and another images.
+- Added 'CompressDocument' API method to support compression and resizing images inside the document for reduce the size of the document.
+
+
 ## Enhancements in Version 22.6
 
 - Added 'DeleteBookmark' and 'DeleteBookmarkOnline' API methods for delete bookmarks by name from the document.
@@ -225,7 +231,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>22.6.0</version>
+        <version>22.7.0</version>
     </dependency>
 </dependencies>
 ```
