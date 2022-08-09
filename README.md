@@ -231,7 +231,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>22.7.0</version>
+        <version>22.8.0</version>
     </dependency>
 </dependencies>
 ```
