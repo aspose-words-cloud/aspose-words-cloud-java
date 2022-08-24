@@ -67,6 +67,21 @@ public class ConvertDocumentRequest implements RequestIfc {
     private String storage;
 
     /*
+     * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     */
+    private String loadEncoding;
+
+    /*
+     * Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
+     */
+    private String password;
+
+    /*
+     * Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     */
+    private String encryptedPassword;
+
+    /*
      * Folder in filestorage with custom fonts.
      */
     private String fontsLocation;
@@ -79,14 +94,20 @@ public class ConvertDocumentRequest implements RequestIfc {
      * @param String outPath The path to the output document on a local storage.
      * @param String fileNameFieldValue The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "sourceFilename" will be used instead.
      * @param String storage Original document storage.
+     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
+     * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public ConvertDocumentRequest(byte[] document, String format, String outPath, String fileNameFieldValue, String storage, String fontsLocation) {
+    public ConvertDocumentRequest(byte[] document, String format, String outPath, String fileNameFieldValue, String storage, String loadEncoding, String password, String encryptedPassword, String fontsLocation) {
         this.document = document;
         this.format = format;
         this.outPath = outPath;
         this.fileNameFieldValue = fileNameFieldValue;
         this.storage = storage;
+        this.loadEncoding = loadEncoding;
+        this.password = password;
+        this.encryptedPassword = encryptedPassword;
         this.fontsLocation = fontsLocation;
     }
 
@@ -161,6 +182,48 @@ public class ConvertDocumentRequest implements RequestIfc {
     }
 
     /*
+     * Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     */
+    public String getLoadEncoding() {
+        return this.loadEncoding;
+    }
+
+    /*
+     * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     */
+    public void setLoadEncoding(String value) {
+        this.loadEncoding = value;
+    }
+
+    /*
+     * Gets Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
+     */
+    public String getPassword() {
+        return this.password;
+    }
+
+    /*
+     * Sets Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
+     */
+    public void setPassword(String value) {
+        this.password = value;
+    }
+
+    /*
+     * Gets Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     */
+    public String getEncryptedPassword() {
+        return this.encryptedPassword;
+    }
+
+    /*
+     * Sets Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     */
+    public void setEncryptedPassword(String value) {
+        this.encryptedPassword = value;
+    }
+
+    /*
      * Gets Folder in filestorage with custom fonts.
      */
     public String getFontsLocation() {
@@ -198,14 +261,17 @@ public class ConvertDocumentRequest implements RequestIfc {
 
         // create path and map variables
         String localVarPath = "/words/convert";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "outPath", getOutPath());
         localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         apiClient.addParameterToQuery(localVarQueryParams, "format", getFormat());
-        apiClient.addParameterToQuery(localVarQueryParams, "outPath", getOutPath());
         apiClient.addParameterToQuery(localVarQueryParams, "fileNameFieldValue", getFileNameFieldValue());
         apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "fontsLocation", getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
