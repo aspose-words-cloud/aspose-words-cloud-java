@@ -261,12 +261,12 @@ public class ConvertDocumentRequest implements RequestIfc {
 
         // create path and map variables
         String localVarPath = "/words/convert";
-        localVarPath = apiClient.addParameterToPath(localVarPath, "outPath", getOutPath());
         localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         apiClient.addParameterToQuery(localVarQueryParams, "format", getFormat());
+        apiClient.addParameterToQuery(localVarQueryParams, "outPath", getOutPath());
         apiClient.addParameterToQuery(localVarQueryParams, "fileNameFieldValue", getFileNameFieldValue());
         apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
