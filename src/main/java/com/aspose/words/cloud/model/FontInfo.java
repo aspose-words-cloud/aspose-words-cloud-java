@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO container with font info.
  */
 @ApiModel(description = "DTO container with font info.")
-public class FontInfo {
+public class FontInfo implements ModelIfc {
     @SerializedName("FilePath")
     protected String filePath;
 
@@ -139,6 +139,16 @@ public class FontInfo {
         this.fontFamilyName = null;
         this.fullFontName = null;
         this.version = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

@@ -73,6 +73,22 @@ public class HyperlinkResponse extends WordsResponse {
         this.hyperlink = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.hyperlink != null)
+        {
+            this.hyperlink.getFilesContent(resultFilesContent);
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

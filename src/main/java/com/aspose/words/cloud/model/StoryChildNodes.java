@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Child nodes of Story or InlineStory.
  */
 @ApiModel(description = "Child nodes of Story or InlineStory.")
-public class StoryChildNodes {
+public class StoryChildNodes implements ModelIfc {
     @SerializedName("ChildNodes")
     protected List<NodeLink> childNodes;
     /**
@@ -79,6 +79,24 @@ public class StoryChildNodes {
 
     public StoryChildNodes() {
         this.childNodes = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        if (this.childNodes != null)
+        {
+            for (ModelIfc element : this.childNodes)
+            {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
     }
 
     @Override

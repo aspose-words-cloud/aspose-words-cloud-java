@@ -73,6 +73,22 @@ public class ParagraphLinkCollectionResponse extends WordsResponse {
         this.paragraphs = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.paragraphs != null)
+        {
+            this.paragraphs.getFilesContent(resultFilesContent);
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

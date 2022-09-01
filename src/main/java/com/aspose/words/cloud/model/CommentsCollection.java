@@ -82,6 +82,25 @@ public class CommentsCollection extends LinkElement {
         this.commentList = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.commentList != null)
+        {
+            for (ModelIfc element : this.commentList)
+            {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

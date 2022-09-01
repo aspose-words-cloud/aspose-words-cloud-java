@@ -73,6 +73,22 @@ public class SaveResponse extends WordsResponse {
         this.saveResult = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.saveResult != null)
+        {
+            this.saveResult.getFilesContent(resultFilesContent);
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

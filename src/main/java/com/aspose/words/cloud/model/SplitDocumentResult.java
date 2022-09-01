@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Result of splitting document.
  */
 @ApiModel(description = "Result of splitting document.")
-public class SplitDocumentResult {
+public class SplitDocumentResult implements ModelIfc {
     @SerializedName("Pages")
     protected List<FileLink> pages;
 
@@ -125,6 +125,34 @@ public class SplitDocumentResult {
         this.pages = null;
         this.sourceDocument = null;
         this.zippedPages = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        if (this.pages != null)
+        {
+            for (ModelIfc element : this.pages)
+            {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
+        if (this.sourceDocument != null)
+        {
+            this.sourceDocument.getFilesContent(resultFilesContent);
+        }
+
+        if (this.zippedPages != null)
+        {
+            this.zippedPages.getFilesContent(resultFilesContent);
+        }
+
     }
 
     @Override

@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Contains data for load web document.
  */
 @ApiModel(description = "Contains data for load web document.")
-public class LoadWebDocumentData {
+public class LoadWebDocumentData implements ModelIfc {
     @SerializedName("LoadingDocumentUrl")
     protected String loadingDocumentUrl;
 
@@ -93,6 +93,21 @@ public class LoadWebDocumentData {
     public LoadWebDocumentData() {
         this.loadingDocumentUrl = null;
         this.saveOptions = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        if (this.saveOptions != null)
+        {
+            this.saveOptions.getFilesContent(resultFilesContent);
+        }
+
     }
 
     @Override

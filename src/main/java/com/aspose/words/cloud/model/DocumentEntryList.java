@@ -46,31 +46,9 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a list of documents which will be appended to the original resource document.
  */
 @ApiModel(description = "Represents a list of documents which will be appended to the original resource document.")
-public class DocumentEntryList extends BaseEntryList {
-    @SerializedName("ApplyBaseDocumentHeadersAndFootersToAppendingDocuments")
-    protected Boolean applyBaseDocumentHeadersAndFootersToAppendingDocuments;
-
+public class DocumentEntryList extends BaseDocumentEntryList {
     @SerializedName("DocumentEntries")
     protected List<DocumentEntry> documentEntries;
-    /**
-     * Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
-    * @return applyBaseDocumentHeadersAndFootersToAppendingDocuments
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.")
-    public Boolean getApplyBaseDocumentHeadersAndFootersToAppendingDocuments() {
-        return applyBaseDocumentHeadersAndFootersToAppendingDocuments;
-    }
-
-    public DocumentEntryList applyBaseDocumentHeadersAndFootersToAppendingDocuments(Boolean applyBaseDocumentHeadersAndFootersToAppendingDocuments) {
-        this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
-        return this;
-    }
-
-    public void setApplyBaseDocumentHeadersAndFootersToAppendingDocuments(Boolean applyBaseDocumentHeadersAndFootersToAppendingDocuments) {
-        this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
-    }
-
-
     /**
      * Gets or sets the list of documents.
     * @return documentEntries
@@ -101,8 +79,26 @@ public class DocumentEntryList extends BaseEntryList {
 
     public DocumentEntryList() {
         super();
-        this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = null;
         this.documentEntries = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.documentEntries != null)
+        {
+            for (ModelIfc element : this.documentEntries)
+            {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
     }
 
     @Override
@@ -116,14 +112,13 @@ public class DocumentEntryList extends BaseEntryList {
 
         DocumentEntryList documentEntryList = (DocumentEntryList) o;
         return
-            Objects.equals(this.applyBaseDocumentHeadersAndFootersToAppendingDocuments, documentEntryList.applyBaseDocumentHeadersAndFootersToAppendingDocuments) &&
             Objects.equals(this.documentEntries, documentEntryList.documentEntries) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applyBaseDocumentHeadersAndFootersToAppendingDocuments, documentEntries, super.hashCode());
+    return Objects.hash(documentEntries, super.hashCode());
   }
 
   @Override

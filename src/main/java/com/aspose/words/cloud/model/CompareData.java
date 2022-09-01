@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for compare documents.
  */
 @ApiModel(description = "Container class for compare documents.")
-public class CompareData {
+public class CompareData implements ModelIfc {
     @SerializedName("Author")
     protected String author;
 
@@ -162,6 +162,24 @@ public class CompareData {
         this.comparingWithDocument = null;
         this.dateTime = null;
         this.resultDocumentFormat = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        if (this.compareOptions != null)
+        {
+            this.compareOptions.getFilesContent(resultFilesContent);
+        }
+
+
+
+
     }
 
     @Override

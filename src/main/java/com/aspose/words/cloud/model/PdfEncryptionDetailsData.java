@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for details of encryption.
  */
 @ApiModel(description = "Container class for details of encryption.")
-public class PdfEncryptionDetailsData {
+public class PdfEncryptionDetailsData implements ModelIfc {
     @SerializedName("OwnerPassword")
     protected String ownerPassword;
 
@@ -125,6 +125,16 @@ public class PdfEncryptionDetailsData {
         this.ownerPassword = null;
         this.permissions = null;
         this.userPassword = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

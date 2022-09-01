@@ -73,6 +73,22 @@ public class ParagraphFormatResponse extends WordsResponse {
         this.paragraphFormat = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.paragraphFormat != null)
+        {
+            this.paragraphFormat.getFilesContent(resultFilesContent);
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

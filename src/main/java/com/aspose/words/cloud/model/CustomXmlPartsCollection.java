@@ -82,6 +82,25 @@ public class CustomXmlPartsCollection extends LinkElement {
         this.customXmlPartsList = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.customXmlPartsList != null)
+        {
+            for (ModelIfc element : this.customXmlPartsList)
+            {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

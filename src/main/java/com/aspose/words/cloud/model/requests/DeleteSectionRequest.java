@@ -278,8 +278,6 @@ public class DeleteSectionRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionIndex' when calling deleteSection");
         }
 
-        Object localVarPostBody = null;
-
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
@@ -299,7 +297,9 @@ public class DeleteSectionRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+        List<FileContent> localFilesContentParams = new ArrayList<FileContent>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        ;
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
@@ -313,7 +313,7 @@ public class DeleteSectionRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarHeaderParams, localVarFormParams, localFilesContentParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

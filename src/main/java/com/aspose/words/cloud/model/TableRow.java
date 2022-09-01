@@ -105,6 +105,30 @@ public class TableRow extends NodeLink {
         this.tableCellList = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.rowFormat != null)
+        {
+            this.rowFormat.getFilesContent(resultFilesContent);
+        }
+
+        if (this.tableCellList != null)
+        {
+            for (ModelIfc element : this.tableCellList)
+            {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

@@ -82,6 +82,25 @@ public class Bookmarks extends LinkElement {
         this.bookmarkList = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.bookmarkList != null)
+        {
+            for (ModelIfc element : this.bookmarkList)
+            {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

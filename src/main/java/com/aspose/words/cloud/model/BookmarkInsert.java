@@ -96,6 +96,27 @@ public class BookmarkInsert extends BookmarkData {
         this.startRange = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.endRange != null)
+        {
+            this.endRange.getFilesContent(resultFilesContent);
+        }
+
+        if (this.startRange != null)
+        {
+            this.startRange.getFilesContent(resultFilesContent);
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

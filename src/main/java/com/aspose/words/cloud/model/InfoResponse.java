@@ -128,6 +128,27 @@ public class InfoResponse extends WordsResponse {
         this.version = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.additionalInfo != null)
+        {
+            for (ModelIfc element : this.additionalInfo)
+            {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
+
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

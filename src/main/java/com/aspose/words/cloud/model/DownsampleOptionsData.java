@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for Downsample options.
  */
 @ApiModel(description = "Container class for Downsample options.")
-public class DownsampleOptionsData {
+public class DownsampleOptionsData implements ModelIfc {
     @SerializedName("DownsampleImages")
     protected Boolean downsampleImages;
 
@@ -116,6 +116,16 @@ public class DownsampleOptionsData {
         this.downsampleImages = null;
         this.resolution = null;
         this.resolutionThreshold = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

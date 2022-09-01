@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents options for parsing CSV data.
  */
 @ApiModel(description = "Represents options for parsing CSV data.")
-public class CsvDataLoadOptions {
+public class CsvDataLoadOptions implements ModelIfc {
     @SerializedName("CommentChar")
     protected String commentChar;
 
@@ -139,6 +139,16 @@ public class CsvDataLoadOptions {
         this.delimiter = null;
         this.hasHeaders = null;
         this.quoteChar = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

@@ -312,6 +312,25 @@ public class OfficeMathObject extends OfficeMathLink {
         this.mathObjectType = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.content != null)
+        {
+            this.content.getFilesContent(resultFilesContent);
+        }
+
+
+
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

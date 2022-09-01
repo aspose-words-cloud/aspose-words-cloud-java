@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Base class for paragraph format tab stop DTO.
  */
 @ApiModel(description = "Base class for paragraph format tab stop DTO.")
-public class TabStopBase {
+public class TabStopBase implements ModelIfc {
     /**
      * Gets or sets the alignment of text at this tab stop.
      */
@@ -217,6 +217,16 @@ public class TabStopBase {
         this.alignment = null;
         this.leader = null;
         this.position = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

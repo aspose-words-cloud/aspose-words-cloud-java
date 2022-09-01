@@ -82,6 +82,25 @@ public class TableCell extends NodeLink {
         this.childNodes = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.childNodes != null)
+        {
+            for (ModelIfc element : this.childNodes)
+            {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

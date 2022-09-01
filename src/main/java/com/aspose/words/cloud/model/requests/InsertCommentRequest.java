@@ -278,8 +278,6 @@ public class InsertCommentRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Comment' when calling insertComment");
         }
 
-        Object localVarPostBody = getComment();
-
         // create path and map variables
         String localVarPath = "/words/{name}/comments";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
@@ -298,19 +296,13 @@ public class InsertCommentRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+        List<FileContent> localFilesContentParams = new ArrayList<FileContent>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
+        if (getComment() != null)
+        {
+            getComment().getFilesContent(localFilesContentParams);
+            localVarFormParams.put("Comment", getComment());
         };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
@@ -324,7 +316,7 @@ public class InsertCommentRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarHeaderParams, localVarFormParams, localFilesContentParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

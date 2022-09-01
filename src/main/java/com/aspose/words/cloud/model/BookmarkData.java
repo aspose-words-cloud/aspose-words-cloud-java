@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO for bookmark updating.
  */
 @ApiModel(description = "DTO for bookmark updating.")
-public class BookmarkData {
+public class BookmarkData implements ModelIfc {
     @SerializedName("Name")
     protected String name;
 
@@ -93,6 +93,16 @@ public class BookmarkData {
     public BookmarkData() {
         this.name = null;
         this.text = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

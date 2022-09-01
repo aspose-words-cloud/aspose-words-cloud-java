@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * The error details.
  */
 @ApiModel(description = "The error details.")
-public class ErrorDetails {
+public class ErrorDetails implements ModelIfc {
     @SerializedName("ErrorDateTime")
     protected OffsetDateTime errorDateTime;
 
@@ -93,6 +93,16 @@ public class ErrorDetails {
     public ErrorDetails() {
         this.errorDateTime = null;
         this.requestId = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

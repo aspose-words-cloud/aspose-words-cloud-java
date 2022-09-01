@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * result of the operation which modifies the original document and saves the result.
  */
 @ApiModel(description = "result of the operation which modifies the original document and saves the result.")
-public class ModificationOperationResult {
+public class ModificationOperationResult implements ModelIfc {
     @SerializedName("Dest")
     protected FileLink dest;
 
@@ -93,6 +93,26 @@ public class ModificationOperationResult {
     public ModificationOperationResult() {
         this.dest = null;
         this.source = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        if (this.dest != null)
+        {
+            this.dest.getFilesContent(resultFilesContent);
+        }
+
+        if (this.source != null)
+        {
+            this.source.getFilesContent(resultFilesContent);
+        }
+
     }
 
     @Override

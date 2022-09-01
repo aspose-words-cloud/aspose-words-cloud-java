@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="BaseEntry.java">
+ * <copyright company="Aspose" file="BaseImageEntryList.java">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -43,33 +43,45 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents a entry which will be appended to the original resource document.
+ * Represents a list of images which will be appended to the original resource document or image.
  */
-@ApiModel(description = "Represents a entry which will be appended to the original resource document.")
-public class BaseEntry {
-    @SerializedName("Href")
-    protected String href;
+@ApiModel(description = "Represents a list of images which will be appended to the original resource document or image.")
+public class BaseImageEntryList extends BaseEntryList {
+    @SerializedName("AppendEachImageOnNewPage")
+    protected Boolean appendEachImageOnNewPage;
     /**
-     * Gets or sets the path to entry to append at the server.
-    * @return href
+     * Gets or sets a value indicating whether each image should be added to a new page in the document.
+    * @return appendEachImageOnNewPage
     **/
-    @ApiModelProperty(value = "Gets or sets the path to entry to append at the server.")
-    public String getHref() {
-        return href;
+    @ApiModelProperty(value = "Gets or sets a value indicating whether each image should be added to a new page in the document.")
+    public Boolean getAppendEachImageOnNewPage() {
+        return appendEachImageOnNewPage;
     }
 
-    public BaseEntry href(String href) {
-        this.href = href;
+    public BaseImageEntryList appendEachImageOnNewPage(Boolean appendEachImageOnNewPage) {
+        this.appendEachImageOnNewPage = appendEachImageOnNewPage;
         return this;
     }
 
-    public void setHref(String href) {
-        this.href = href;
+    public void setAppendEachImageOnNewPage(Boolean appendEachImageOnNewPage) {
+        this.appendEachImageOnNewPage = appendEachImageOnNewPage;
     }
 
 
-    public BaseEntry() {
-        this.href = null;
+    public BaseImageEntryList() {
+        super();
+        this.appendEachImageOnNewPage = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
     }
 
     @Override
@@ -81,21 +93,22 @@ public class BaseEntry {
             return false;
         }
 
-        BaseEntry baseEntry = (BaseEntry) o;
+        BaseImageEntryList baseImageEntryList = (BaseImageEntryList) o;
         return
-            Objects.equals(this.href, baseEntry.href);
+            Objects.equals(this.appendEachImageOnNewPage, baseImageEntryList.appendEachImageOnNewPage) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(href);
+    return Objects.hash(appendEachImageOnNewPage, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BaseEntry {\n");
-    sb.append("    href: ").append(toIndentedString(getHref())).append("\n");
+    sb.append("class BaseImageEntryList {\n");
+    sb.append("    appendEachImageOnNewPage: ").append(toIndentedString(getAppendEachImageOnNewPage())).append("\n");
     sb.append("}");
     return sb.toString();
   }

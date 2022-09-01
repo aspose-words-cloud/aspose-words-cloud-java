@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO container with a Range element.
  */
 @ApiModel(description = "DTO container with a Range element.")
-public class RangeDocumentDto {
+public class RangeDocumentDto implements ModelIfc {
     @SerializedName("DocumentName")
     protected String documentName;
     /**
@@ -70,6 +70,16 @@ public class RangeDocumentDto {
 
     public RangeDocumentDto() {
         this.documentName = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

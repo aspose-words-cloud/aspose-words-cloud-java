@@ -262,8 +262,6 @@ public class UpdateCommentOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Comment' when calling updateCommentOnline");
         }
 
-        Object localVarPostBody = null;
-
         // create path and map variables
         String localVarPath = "/words/online/put/comments/{commentIndex}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "commentIndex", getCommentIndex());
@@ -280,24 +278,19 @@ public class UpdateCommentOnlineRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+        List<FileContent> localFilesContentParams = new ArrayList<FileContent>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        ;
         if (getDocument() != null)
+        {
             localVarFormParams.put("Document", getDocument());
+        }
 
         if (getComment() != null)
+        {
+            getComment().getFilesContent(localFilesContentParams);
             localVarFormParams.put("Comment", getComment());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
@@ -311,7 +304,7 @@ public class UpdateCommentOnlineRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarHeaderParams, localVarFormParams, localFilesContentParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO container with a table row element.
  */
 @ApiModel(description = "DTO container with a table row element.")
-public class TableRowInsertDto {
+public class TableRowInsertDto implements ModelIfc {
     @SerializedName("ColumnsCount")
     protected Integer columnsCount;
 
@@ -93,6 +93,16 @@ public class TableRowInsertDto {
     public TableRowInsertDto() {
         this.columnsCount = null;
         this.insertAfter = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

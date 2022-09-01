@@ -174,6 +174,45 @@ public class Section extends LinkElement {
         this.tables = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.childNodes != null)
+        {
+            for (ModelIfc element : this.childNodes)
+            {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
+        if (this.headerFooters != null)
+        {
+            this.headerFooters.getFilesContent(resultFilesContent);
+        }
+
+        if (this.pageSetup != null)
+        {
+            this.pageSetup.getFilesContent(resultFilesContent);
+        }
+
+        if (this.paragraphs != null)
+        {
+            this.paragraphs.getFilesContent(resultFilesContent);
+        }
+
+        if (this.tables != null)
+        {
+            this.tables.getFilesContent(resultFilesContent);
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

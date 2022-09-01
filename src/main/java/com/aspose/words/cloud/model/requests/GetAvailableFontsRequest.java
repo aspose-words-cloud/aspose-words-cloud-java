@@ -80,8 +80,6 @@ public class GetAvailableFontsRequest implements RequestIfc {
     @Override
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
 
-        Object localVarPostBody = null;
-
         // create path and map variables
         String localVarPath = "/words/fonts/available";
         localVarPath = localVarPath.replaceAll("//", "/");
@@ -92,7 +90,9 @@ public class GetAvailableFontsRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+        List<FileContent> localFilesContentParams = new ArrayList<FileContent>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        ;
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
@@ -106,7 +106,7 @@ public class GetAvailableFontsRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarHeaderParams, localVarFormParams, localFilesContentParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

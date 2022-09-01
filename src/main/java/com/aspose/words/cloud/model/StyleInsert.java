@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a single document style to insert.
  */
 @ApiModel(description = "Represents a single document style to insert.")
-public class StyleInsert {
+public class StyleInsert implements ModelIfc {
     /**
      * Gets or sets the StyleType value that specifies the type of the style to create.
      */
@@ -141,6 +141,16 @@ public class StyleInsert {
     public StyleInsert() {
         this.styleName = null;
         this.styleType = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

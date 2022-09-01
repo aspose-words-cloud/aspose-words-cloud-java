@@ -102,23 +102,18 @@ public class TestAppendDocument  extends TestCase
     @Test
     public void testAppendDocumentOnline() throws ApiException, MessagingException, IOException
     {
-        String remoteFileName = "TestAppendDocument.docx";
-
-        TestInitializer.UploadFile(
-            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
-            remoteDataFolder + "/" + remoteFileName
-        );
-
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
-        DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
-        requestDocumentListDocumentEntries0.setHref(remoteDataFolder + "/" + remoteFileName);
-        requestDocumentListDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
+        byte[] requestDocumentListOnlineDocumentEntries0FileStream = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        FileContent requestDocumentListOnlineDocumentEntries0File = new FileContent(localFile, requestDocumentListOnlineDocumentEntries0FileStream);
+        OnlineDocumentEntry requestDocumentListOnlineDocumentEntries0 = new OnlineDocumentEntry();
+        requestDocumentListOnlineDocumentEntries0.setFile(requestDocumentListOnlineDocumentEntries0File);
+        requestDocumentListOnlineDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
 
-        ArrayList<DocumentEntry> requestDocumentListDocumentEntries = new ArrayList<DocumentEntry>();
-        requestDocumentListDocumentEntries.add(requestDocumentListDocumentEntries0);
+        ArrayList<OnlineDocumentEntry> requestDocumentListOnlineDocumentEntries = new ArrayList<OnlineDocumentEntry>();
+        requestDocumentListOnlineDocumentEntries.add(requestDocumentListOnlineDocumentEntries0);
 
-        DocumentEntryList requestDocumentList = new DocumentEntryList();
-        requestDocumentList.setDocumentEntries(requestDocumentListDocumentEntries);
+        OnlineDocumentEntryList requestDocumentList = new OnlineDocumentEntryList();
+        requestDocumentList.setOnlineDocumentEntries(requestDocumentListOnlineDocumentEntries);
 
         AppendDocumentOnlineRequest request = new AppendDocumentOnlineRequest(
             requestDocument,

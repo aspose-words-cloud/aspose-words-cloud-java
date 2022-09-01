@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents options for parsing JSON data.
  */
 @ApiModel(description = "Represents options for parsing JSON data.")
-public class JsonDataLoadOptions {
+public class JsonDataLoadOptions implements ModelIfc {
     /**
      * Gets or sets a mode for parsing JSON simple values (null, boolean, number, integer,
      * and string) while loading JSON. Such a mode does not affect parsing of date-time
@@ -178,6 +178,16 @@ public class JsonDataLoadOptions {
         this.alwaysGenerateRootObject = null;
         this.exactDateTimeParseFormats = null;
         this.simpleValueParseMode = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

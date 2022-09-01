@@ -45,9 +45,19 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  */
 @ApiModel(description = "")
-public class TablePropertiesDto {
+public class TablePropertiesDto implements ModelIfc {
 
     public TablePropertiesDto() {
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

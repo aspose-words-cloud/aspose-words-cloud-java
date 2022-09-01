@@ -257,8 +257,6 @@ public class DeleteAllParagraphTabStopsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling deleteAllParagraphTabStops");
         }
 
-        Object localVarPostBody = null;
-
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
@@ -277,7 +275,9 @@ public class DeleteAllParagraphTabStopsRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+        List<FileContent> localFilesContentParams = new ArrayList<FileContent>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        ;
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
@@ -291,7 +291,7 @@ public class DeleteAllParagraphTabStopsRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarHeaderParams, localVarFormParams, localFilesContentParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

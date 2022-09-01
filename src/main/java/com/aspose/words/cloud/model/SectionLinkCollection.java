@@ -82,6 +82,25 @@ public class SectionLinkCollection extends LinkElement {
         this.sectionLinkList = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.sectionLinkList != null)
+        {
+            for (ModelIfc element : this.sectionLinkList)
+            {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

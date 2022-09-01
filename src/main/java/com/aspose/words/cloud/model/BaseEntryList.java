@@ -46,9 +46,19 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a list of entries which will be appended to the original resource entry.
  */
 @ApiModel(description = "Represents a list of entries which will be appended to the original resource entry.")
-public abstract class BaseEntryList {
+public abstract class BaseEntryList implements ModelIfc {
 
     public BaseEntryList() {
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

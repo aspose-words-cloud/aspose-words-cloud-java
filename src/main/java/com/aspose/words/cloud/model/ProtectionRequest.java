@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request on changing of protection.
  */
 @ApiModel(description = "Request on changing of protection.")
-public class ProtectionRequest {
+public class ProtectionRequest implements ModelIfc {
     @SerializedName("NewPassword")
     protected String newPassword;
 
@@ -116,6 +116,16 @@ public class ProtectionRequest {
         this.newPassword = null;
         this.password = null;
         this.protectionType = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

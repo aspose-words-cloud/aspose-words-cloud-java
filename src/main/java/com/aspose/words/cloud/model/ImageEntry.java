@@ -46,10 +46,40 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a image which will be appended to the original resource image or document.
  */
 @ApiModel(description = "Represents a image which will be appended to the original resource image or document.")
-public class ImageEntry extends BaseEntry {
+public class ImageEntry implements ModelIfc {
+    @SerializedName("Href")
+    protected String href;
+    /**
+     * Gets or sets the path to entry to append at the server.
+    * @return href
+    **/
+    @ApiModelProperty(value = "Gets or sets the path to entry to append at the server.")
+    public String getHref() {
+        return href;
+    }
+
+    public ImageEntry href(String href) {
+        this.href = href;
+        return this;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
+
 
     public ImageEntry() {
-        super();
+        this.href = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override
@@ -61,12 +91,14 @@ public class ImageEntry extends BaseEntry {
             return false;
         }
 
-        return super.equals(o);
+        ImageEntry imageEntry = (ImageEntry) o;
+        return
+            Objects.equals(this.href, imageEntry.href);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return Objects.hash(href);
   }
 
   @Override

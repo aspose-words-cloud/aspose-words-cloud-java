@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents options for XML data loading.
  */
 @ApiModel(description = "Represents options for XML data loading.")
-public class XmlDataLoadOptions {
+public class XmlDataLoadOptions implements ModelIfc {
     @SerializedName("AlwaysGenerateRootObject")
     protected Boolean alwaysGenerateRootObject;
     /**
@@ -72,6 +72,16 @@ public class XmlDataLoadOptions {
 
     public XmlDataLoadOptions() {
         this.alwaysGenerateRootObject = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

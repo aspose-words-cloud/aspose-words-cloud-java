@@ -1017,6 +1017,56 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         this.zoomFactor = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.digitalSignatureDetails != null)
+        {
+            this.digitalSignatureDetails.getFilesContent(resultFilesContent);
+        }
+
+
+        if (this.downsampleOptions != null)
+        {
+            this.downsampleOptions.getFilesContent(resultFilesContent);
+        }
+
+
+        if (this.encryptionDetails != null)
+        {
+            this.encryptionDetails.getFilesContent(resultFilesContent);
+        }
+
+
+
+
+
+
+
+
+
+        if (this.outlineOptions != null)
+        {
+            this.outlineOptions.getFilesContent(resultFilesContent);
+        }
+
+
+
+
+
+
+
+
+
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

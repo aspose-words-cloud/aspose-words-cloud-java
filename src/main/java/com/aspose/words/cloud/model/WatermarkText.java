@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Class for insert watermark text request building.
  */
 @ApiModel(description = "Class for insert watermark text request building.")
-public class WatermarkText {
+public class WatermarkText implements ModelIfc {
     @SerializedName("RotationAngle")
     protected Double rotationAngle;
 
@@ -93,6 +93,16 @@ public class WatermarkText {
     public WatermarkText() {
         this.rotationAngle = null;
         this.text = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

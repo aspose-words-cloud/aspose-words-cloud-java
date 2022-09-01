@@ -526,6 +526,36 @@ public class ListLevel extends LinkElement {
         this.trailingCharacter = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.font != null)
+        {
+            this.font.getFilesContent(resultFilesContent);
+        }
+
+
+        if (this.linkedStyle != null)
+        {
+            this.linkedStyle.getFilesContent(resultFilesContent);
+        }
+
+
+
+
+
+
+
+
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO container with compare documents options.
  */
 @ApiModel(description = "DTO container with compare documents options.")
-public class CompareOptions {
+public class CompareOptions implements ModelIfc {
     /**
      * Gets or sets the option that controls which document shall be used as a target during comparison.
      */
@@ -323,6 +323,16 @@ public class CompareOptions {
         this.ignoreTables = null;
         this.ignoreTextboxes = null;
         this.target = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

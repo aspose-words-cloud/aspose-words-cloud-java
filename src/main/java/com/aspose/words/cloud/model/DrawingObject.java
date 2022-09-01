@@ -446,6 +446,41 @@ public class DrawingObject extends DrawingObjectLink {
         this.wrapType = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.imageDataLink != null)
+        {
+            this.imageDataLink.getFilesContent(resultFilesContent);
+        }
+
+
+        if (this.oleDataLink != null)
+        {
+            this.oleDataLink.getFilesContent(resultFilesContent);
+        }
+
+
+
+        if (this.renderLinks != null)
+        {
+            for (ModelIfc element : this.renderLinks)
+            {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
+
+
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

@@ -312,6 +312,26 @@ public class Border extends LinkElement {
         this.shadow = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.color != null)
+        {
+            this.color.getFilesContent(resultFilesContent);
+        }
+
+
+
+
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

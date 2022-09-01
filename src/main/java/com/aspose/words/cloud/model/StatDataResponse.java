@@ -96,6 +96,27 @@ public class StatDataResponse extends WordsResponse {
         this.statData = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.documentLink != null)
+        {
+            this.documentLink.getFilesContent(resultFilesContent);
+        }
+
+        if (this.statData != null)
+        {
+            this.statData.getFilesContent(resultFilesContent);
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Utility class for Color serialization.
  */
 @ApiModel(description = "Utility class for Color serialization.")
-public class XmlColor {
+public class XmlColor implements ModelIfc {
     @SerializedName("Alpha")
     protected Integer alpha;
 
@@ -93,6 +93,16 @@ public class XmlColor {
     public XmlColor() {
         this.alpha = null;
         this.web = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

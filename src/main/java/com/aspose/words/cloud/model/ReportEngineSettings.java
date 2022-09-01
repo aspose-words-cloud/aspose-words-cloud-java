@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Report engine settings.
  */
 @ApiModel(description = "Report engine settings.")
-public class ReportEngineSettings {
+public class ReportEngineSettings implements ModelIfc {
     /**
      * Gets or sets type of datasource.
      */
@@ -241,6 +241,34 @@ public class ReportEngineSettings {
         this.jsonDataLoadOptions = null;
         this.reportBuildOptions = null;
         this.xmlDataLoadOptions = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        if (this.csvDataLoadOptions != null)
+        {
+            this.csvDataLoadOptions.getFilesContent(resultFilesContent);
+        }
+
+
+
+        if (this.jsonDataLoadOptions != null)
+        {
+            this.jsonDataLoadOptions.getFilesContent(resultFilesContent);
+        }
+
+
+        if (this.xmlDataLoadOptions != null)
+        {
+            this.xmlDataLoadOptions.getFilesContent(resultFilesContent);
+        }
+
     }
 
     @Override

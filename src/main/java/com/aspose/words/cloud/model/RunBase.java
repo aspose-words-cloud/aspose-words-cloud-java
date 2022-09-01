@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Run element.
  */
 @ApiModel(description = "Run element.")
-public abstract class RunBase {
+public abstract class RunBase implements ModelIfc {
     @SerializedName("Text")
     protected String text;
     /**
@@ -70,6 +70,16 @@ public abstract class RunBase {
 
     public RunBase() {
         this.text = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

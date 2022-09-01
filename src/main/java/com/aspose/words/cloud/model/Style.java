@@ -782,6 +782,29 @@ public class Style extends LinkElement {
         this.type = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.font != null)
+        {
+            this.font.getFilesContent(resultFilesContent);
+        }
+
+
+
+
+
+
+
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

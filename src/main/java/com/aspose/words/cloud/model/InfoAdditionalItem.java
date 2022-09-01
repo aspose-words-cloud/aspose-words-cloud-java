@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Info additional item.
  */
 @ApiModel(description = "Info additional item.")
-public class InfoAdditionalItem {
+public class InfoAdditionalItem implements ModelIfc {
     @SerializedName("Key")
     protected String key;
 
@@ -93,6 +93,16 @@ public class InfoAdditionalItem {
     public InfoAdditionalItem() {
         this.key = null;
         this.value = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

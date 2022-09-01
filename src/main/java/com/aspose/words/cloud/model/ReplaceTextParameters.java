@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Class for document replace text request building.
  */
 @ApiModel(description = "Class for document replace text request building.")
-public class ReplaceTextParameters {
+public class ReplaceTextParameters implements ModelIfc {
     @SerializedName("IsMatchCase")
     protected Boolean isMatchCase;
 
@@ -162,6 +162,16 @@ public class ReplaceTextParameters {
         this.isOldValueRegex = null;
         this.newValue = null;
         this.oldValue = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

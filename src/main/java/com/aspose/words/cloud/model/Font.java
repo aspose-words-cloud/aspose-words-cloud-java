@@ -1506,6 +1506,69 @@ public class Font extends LinkElement {
         this.underlineColor = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.border != null)
+        {
+            this.border.getFilesContent(resultFilesContent);
+        }
+
+        if (this.color != null)
+        {
+            this.color.getFilesContent(resultFilesContent);
+        }
+
+
+
+
+
+
+        if (this.highlightColor != null)
+        {
+            this.highlightColor.getFilesContent(resultFilesContent);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (this.underlineColor != null)
+        {
+            this.underlineColor.getFilesContent(resultFilesContent);
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

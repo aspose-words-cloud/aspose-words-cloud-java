@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * File or folder information.
  */
 @ApiModel(description = "File or folder information.")
-public class StorageFile {
+public class StorageFile implements ModelIfc {
     @SerializedName("IsFolder")
     protected Boolean isFolder;
 
@@ -162,6 +162,16 @@ public class StorageFile {
         this.name = null;
         this.path = null;
         this.size = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

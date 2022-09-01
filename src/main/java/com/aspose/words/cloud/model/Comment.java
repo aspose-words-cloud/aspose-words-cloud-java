@@ -211,6 +211,35 @@ public class Comment extends CommentLink {
         this.text = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.content != null)
+        {
+            this.content.getFilesContent(resultFilesContent);
+        }
+
+
+
+        if (this.rangeEnd != null)
+        {
+            this.rangeEnd.getFilesContent(resultFilesContent);
+        }
+
+        if (this.rangeStart != null)
+        {
+            this.rangeStart.getFilesContent(resultFilesContent);
+        }
+
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

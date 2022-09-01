@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Options of document compress.
  */
 @ApiModel(description = "Options of document compress.")
-public class CompressOptions {
+public class CompressOptions implements ModelIfc {
     @SerializedName("ImagesQuality")
     protected Integer imagesQuality;
 
@@ -95,6 +95,16 @@ public class CompressOptions {
     public CompressOptions() {
         this.imagesQuality = null;
         this.imagesReduceSizeFactor = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

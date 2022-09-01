@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference to a document.
  */
 @ApiModel(description = "Reference to a document.")
-public class LinkElement {
+public class LinkElement implements ModelIfc {
     @SerializedName("Link")
     protected WordsApiLink link;
     /**
@@ -70,6 +70,21 @@ public class LinkElement {
 
     public LinkElement() {
         this.link = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        if (this.link != null)
+        {
+            this.link.getFilesContent(resultFilesContent);
+        }
+
     }
 
     @Override

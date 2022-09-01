@@ -212,6 +212,30 @@ public class Footnote extends FootnoteLink {
         this.text = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.content != null)
+        {
+            this.content.getFilesContent(resultFilesContent);
+        }
+
+
+        if (this.position != null)
+        {
+            this.position.getFilesContent(resultFilesContent);
+        }
+
+
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

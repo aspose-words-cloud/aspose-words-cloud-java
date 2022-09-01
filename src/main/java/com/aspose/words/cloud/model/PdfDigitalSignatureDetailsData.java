@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for details of digital signature.
  */
 @ApiModel(description = "Container class for details of digital signature.")
-public class PdfDigitalSignatureDetailsData {
+public class PdfDigitalSignatureDetailsData implements ModelIfc {
     /**
      * Gets or sets the hash algorithm.
      */
@@ -210,6 +210,16 @@ public class PdfDigitalSignatureDetailsData {
         this.location = null;
         this.reason = null;
         this.signatureDate = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

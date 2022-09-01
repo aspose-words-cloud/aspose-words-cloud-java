@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO for field options.
  */
 @ApiModel(description = "DTO for field options.")
-public class FieldOptions {
+public class FieldOptions implements ModelIfc {
     /**
      * Gets or sets Field Index Format.
      */
@@ -454,6 +454,32 @@ public class FieldOptions {
         this.preProcessCultureName = null;
         this.templateName = null;
         this.useInvariantCultureNumberFormat = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        if (this.currentUser != null)
+        {
+            this.currentUser.getFilesContent(resultFilesContent);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     @Override

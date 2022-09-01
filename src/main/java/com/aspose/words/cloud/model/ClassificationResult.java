@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a single classification result.
  */
 @ApiModel(description = "Represents a single classification result.")
-public class ClassificationResult {
+public class ClassificationResult implements ModelIfc {
     @SerializedName("ClassName")
     protected String className;
 
@@ -93,6 +93,16 @@ public class ClassificationResult {
     public ClassificationResult() {
         this.className = null;
         this.classProbability = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

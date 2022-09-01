@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * base container class for save options data.
  */
 @ApiModel(description = "base container class for save options data.")
-public abstract class SaveOptionsData {
+public abstract class SaveOptionsData implements ModelIfc {
     /**
      * Gets or sets the value determining how 3D effects are rendered.
      */
@@ -574,6 +574,34 @@ public abstract class SaveOptionsData {
         this.updateLastSavedTimeProperty = null;
         this.updateSdtContent = null;
         this.zipOutput = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        if (this.customTimeZoneInfoData != null)
+        {
+            this.customTimeZoneInfoData.getFilesContent(resultFilesContent);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     @Override

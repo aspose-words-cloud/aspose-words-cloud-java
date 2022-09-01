@@ -96,6 +96,17 @@ public class CustomXmlPart extends CustomXmlPartLink {
         this.id = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

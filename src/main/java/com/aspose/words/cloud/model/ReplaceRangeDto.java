@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO container with a range element.
  */
 @ApiModel(description = "DTO container with a range element.")
-public class ReplaceRangeDto {
+public class ReplaceRangeDto implements ModelIfc {
     /**
      * Gets or sets the range's text type.
      */
@@ -139,6 +139,16 @@ public class ReplaceRangeDto {
     public ReplaceRangeDto() {
         this.text = null;
         this.textType = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for the document optimization options.
  */
 @ApiModel(description = "Container class for the document optimization options.")
-public class OptimizationOptions {
+public class OptimizationOptions implements ModelIfc {
     /**
      * Gets or sets the specific MSWord version.
      */
@@ -122,6 +122,16 @@ public class OptimizationOptions {
 
     public OptimizationOptions() {
         this.msWordVersion = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

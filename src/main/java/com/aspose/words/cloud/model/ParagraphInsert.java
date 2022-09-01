@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO container with a paragraph's text.
  */
 @ApiModel(description = "DTO container with a paragraph's text.")
-public class ParagraphInsert {
+public class ParagraphInsert implements ModelIfc {
     @SerializedName("Text")
     protected String text;
     /**
@@ -70,6 +70,16 @@ public class ParagraphInsert {
 
     public ParagraphInsert() {
         this.text = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

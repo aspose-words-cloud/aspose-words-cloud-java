@@ -320,8 +320,6 @@ public class InsertParagraphRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Paragraph' when calling insertParagraph");
         }
 
-        Object localVarPostBody = getParagraph();
-
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
@@ -342,19 +340,13 @@ public class InsertParagraphRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+        List<FileContent> localFilesContentParams = new ArrayList<FileContent>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
+        if (getParagraph() != null)
+        {
+            getParagraph().getFilesContent(localFilesContentParams);
+            localVarFormParams.put("Paragraph", getParagraph());
         };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
@@ -368,7 +360,7 @@ public class InsertParagraphRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarHeaderParams, localVarFormParams, localFilesContentParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

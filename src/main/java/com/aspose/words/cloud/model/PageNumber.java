@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Class is used for insert page number request building.
  */
 @ApiModel(description = "Class is used for insert page number request building.")
-public class PageNumber {
+public class PageNumber implements ModelIfc {
     @SerializedName("Alignment")
     protected String alignment;
 
@@ -139,6 +139,16 @@ public class PageNumber {
         this.format = null;
         this.isTop = null;
         this.setPageNumberOnFirstPage = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

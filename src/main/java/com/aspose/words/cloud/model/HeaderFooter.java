@@ -128,6 +128,35 @@ public class HeaderFooter extends HeaderFooterLink {
         this.paragraphs = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        super.getFilesContent(resultFilesContent);
+        if (this.childNodes != null)
+        {
+            for (ModelIfc element : this.childNodes)
+            {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
+        if (this.drawingObjects != null)
+        {
+            this.drawingObjects.getFilesContent(resultFilesContent);
+        }
+
+        if (this.paragraphs != null)
+        {
+            this.paragraphs.getFilesContent(resultFilesContent);
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

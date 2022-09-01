@@ -45,9 +45,19 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  */
 @ApiModel(description = "")
-public class TableRowFormatDto {
+public class TableRowFormatDto implements ModelIfc {
 
     public TableRowFormatDto() {
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override

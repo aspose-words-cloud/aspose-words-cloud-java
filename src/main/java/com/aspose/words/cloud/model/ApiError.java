@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Api error.
  */
 @ApiModel(description = "Api error.")
-public class ApiError {
+public class ApiError implements ModelIfc {
     @SerializedName("Code")
     protected String code;
 
@@ -162,6 +162,22 @@ public class ApiError {
         this.description = null;
         this.innerError = null;
         this.message = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
+        if (this.innerError != null)
+        {
+            this.innerError.getFilesContent(resultFilesContent);
+        }
+
+
     }
 
     @Override

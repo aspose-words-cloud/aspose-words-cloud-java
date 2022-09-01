@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Drawing object element for update.
  */
 @ApiModel(description = "Drawing object element for update.")
-public class DrawingObjectUpdate {
+public class DrawingObjectUpdate implements ModelIfc {
     /**
      * Gets or sets the relative horizontal position, from which the distance to the image is measured.
      */
@@ -365,6 +365,16 @@ public class DrawingObjectUpdate {
         this.top = null;
         this.width = null;
         this.wrapType = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileContent> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileContent> resultFilesContent)
+    {
     }
 
     @Override
