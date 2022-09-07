@@ -280,6 +280,9 @@ public class TestConvertDocument  extends TestCase
             null,
             null,
             null,
+            null,
+            null,
+            null,
             null
         );
 
