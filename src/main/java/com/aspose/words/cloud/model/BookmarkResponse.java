@@ -76,17 +76,10 @@ public class BookmarkResponse extends WordsResponse {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        super.getFilesContent(resultFilesContent);
-        if (this.bookmark != null)
-        {
-            this.bookmark.getFilesContent(resultFilesContent);
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

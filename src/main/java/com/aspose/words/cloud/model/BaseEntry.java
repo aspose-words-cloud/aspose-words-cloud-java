@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="BaseImageEntryList.java">
+ * <copyright company="Aspose" file="BaseEntry.java">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -43,45 +43,46 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents a list of images which will be appended to the original resource document or image.
+ * Represents a base class for document which will be appended to the original resource document.
  */
-@ApiModel(description = "Represents a list of images which will be appended to the original resource document or image.")
-public class BaseImageEntryList extends BaseEntryList {
-    @SerializedName("AppendEachImageOnNewPage")
-    protected Boolean appendEachImageOnNewPage;
+@ApiModel(description = "Represents a base class for document which will be appended to the original resource document.")
+public abstract class BaseEntry implements ModelIfc {
+    @SerializedName("FileReference")
+    protected FileReference fileReference;
     /**
-     * Gets or sets a value indicating whether each image should be added to a new page in the document.
-    * @return appendEachImageOnNewPage
+     * Gets or sets the file reference.
+    * @return fileReference
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether each image should be added to a new page in the document.")
-    public Boolean getAppendEachImageOnNewPage() {
-        return appendEachImageOnNewPage;
+    @ApiModelProperty(value = "Gets or sets the file reference.")
+    public FileReference getFileReference() {
+        return fileReference;
     }
 
-    public BaseImageEntryList appendEachImageOnNewPage(Boolean appendEachImageOnNewPage) {
-        this.appendEachImageOnNewPage = appendEachImageOnNewPage;
+    public BaseEntry fileReference(FileReference fileReference) {
+        this.fileReference = fileReference;
         return this;
     }
 
-    public void setAppendEachImageOnNewPage(Boolean appendEachImageOnNewPage) {
-        this.appendEachImageOnNewPage = appendEachImageOnNewPage;
+    public void setFileReference(FileReference fileReference) {
+        this.fileReference = fileReference;
     }
 
 
-    public BaseImageEntryList() {
-        super();
-        this.appendEachImageOnNewPage = null;
+    public BaseEntry() {
+        this.fileReference = null;
     }
 
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        super.getFilesContent(resultFilesContent);
+    public void getFilesContent(List<FileReference> resultFilesContent) {
+        if (this.fileReference != null) {
+            this.fileReference.getFilesContent(resultFilesContent);
+        }
+
     }
 
     @Override
@@ -93,22 +94,21 @@ public class BaseImageEntryList extends BaseEntryList {
             return false;
         }
 
-        BaseImageEntryList baseImageEntryList = (BaseImageEntryList) o;
+        BaseEntry baseEntry = (BaseEntry) o;
         return
-            Objects.equals(this.appendEachImageOnNewPage, baseImageEntryList.appendEachImageOnNewPage) &&
-            super.equals(o);
+            Objects.equals(this.fileReference, baseEntry.fileReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appendEachImageOnNewPage, super.hashCode());
+    return Objects.hash(fileReference);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BaseImageEntryList {\n");
-    sb.append("    appendEachImageOnNewPage: ").append(toIndentedString(getAppendEachImageOnNewPage())).append("\n");
+    sb.append("class BaseEntry {\n");
+    sb.append("    fileReference: ").append(toIndentedString(getFileReference())).append("\n");
     sb.append("}");
     return sb.toString();
   }

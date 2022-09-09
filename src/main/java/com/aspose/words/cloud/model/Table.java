@@ -108,25 +108,10 @@ public class Table extends NodeLink {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        super.getFilesContent(resultFilesContent);
-        if (this.tableProperties != null)
-        {
-            this.tableProperties.getFilesContent(resultFilesContent);
-        }
-
-        if (this.tableRowList != null)
-        {
-            for (ModelIfc element : this.tableRowList)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

@@ -264,28 +264,10 @@ public class Document implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.documentProperties != null)
-        {
-            this.documentProperties.getFilesContent(resultFilesContent);
-        }
-
-
-
-
-        if (this.links != null)
-        {
-            for (ModelIfc element : this.links)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

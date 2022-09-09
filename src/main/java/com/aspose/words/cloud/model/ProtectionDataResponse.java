@@ -99,22 +99,10 @@ public class ProtectionDataResponse extends WordsResponse {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        super.getFilesContent(resultFilesContent);
-        if (this.documentLink != null)
-        {
-            this.documentLink.getFilesContent(resultFilesContent);
-        }
-
-        if (this.protectionData != null)
-        {
-            this.protectionData.getFilesContent(resultFilesContent);
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

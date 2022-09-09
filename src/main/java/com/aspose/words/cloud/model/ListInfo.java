@@ -214,22 +214,10 @@ public class ListInfo extends LinkElement {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        super.getFilesContent(resultFilesContent);
-        if (this.listLevels != null)
-        {
-            this.listLevels.getFilesContent(resultFilesContent);
-        }
-
-        if (this.style != null)
-        {
-            this.style.getFilesContent(resultFilesContent);
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

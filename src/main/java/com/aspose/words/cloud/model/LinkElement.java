@@ -75,16 +75,10 @@ public class LinkElement implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.link != null)
-        {
-            this.link.getFilesContent(resultFilesContent);
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

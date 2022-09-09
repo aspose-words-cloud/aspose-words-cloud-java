@@ -296,11 +296,10 @@ public class InsertBookmarkRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-        List<FileContent> localFilesContentParams = new ArrayList<FileContent>();
+        List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getBookmark() != null)
         {
-            getBookmark().getFilesContent(localFilesContentParams);
             localVarFormParams.put("Bookmark", getBookmark());
         };
 

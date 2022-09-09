@@ -84,19 +84,10 @@ public class FilesList implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.value != null)
-        {
-            for (ModelIfc element : this.value)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

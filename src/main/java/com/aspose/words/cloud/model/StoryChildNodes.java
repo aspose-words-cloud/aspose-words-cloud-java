@@ -84,19 +84,10 @@ public class StoryChildNodes implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.childNodes != null)
-        {
-            for (ModelIfc element : this.childNodes)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

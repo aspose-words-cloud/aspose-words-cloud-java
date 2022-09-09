@@ -37,7 +37,7 @@ public interface ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
-    public void getFilesContent(List<FileContent> resultFilesContent);
+    public void getFilesContent(List<FileReference> resultFilesContent);
 }

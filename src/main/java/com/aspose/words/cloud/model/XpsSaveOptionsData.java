@@ -146,19 +146,10 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        super.getFilesContent(resultFilesContent);
-        if (this.outlineOptions != null)
-        {
-            this.outlineOptions.getFilesContent(resultFilesContent);
-        }
-
-
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

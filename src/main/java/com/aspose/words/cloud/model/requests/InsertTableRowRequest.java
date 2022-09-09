@@ -323,11 +323,10 @@ public class InsertTableRowRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-        List<FileContent> localFilesContentParams = new ArrayList<FileContent>();
+        List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getRow() != null)
         {
-            getRow().getFilesContent(localFilesContentParams);
             localVarFormParams.put("Row", getRow());
         };
 

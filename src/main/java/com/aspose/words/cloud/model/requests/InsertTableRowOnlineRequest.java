@@ -278,7 +278,7 @@ public class InsertTableRowOnlineRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-        List<FileContent> localFilesContentParams = new ArrayList<FileContent>();
+        List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
         if (getDocument() != null)
@@ -288,7 +288,6 @@ public class InsertTableRowOnlineRequest implements RequestIfc {
 
         if (getRow() != null)
         {
-            getRow().getFilesContent(localFilesContentParams);
             localVarFormParams.put("Row", getRow());
         }
 

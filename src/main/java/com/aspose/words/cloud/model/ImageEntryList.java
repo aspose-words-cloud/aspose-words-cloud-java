@@ -46,9 +46,31 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a list of images which will be appended to the original resource document or image.
  */
 @ApiModel(description = "Represents a list of images which will be appended to the original resource document or image.")
-public class ImageEntryList extends BaseImageEntryList {
+public class ImageEntryList extends BaseEntryList {
+    @SerializedName("AppendEachImageOnNewPage")
+    protected Boolean appendEachImageOnNewPage;
+
     @SerializedName("ImageEntries")
     protected List<ImageEntry> imageEntries;
+    /**
+     * Gets or sets a value indicating whether each image should be added to a new page in the document.
+    * @return appendEachImageOnNewPage
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether each image should be added to a new page in the document.")
+    public Boolean getAppendEachImageOnNewPage() {
+        return appendEachImageOnNewPage;
+    }
+
+    public ImageEntryList appendEachImageOnNewPage(Boolean appendEachImageOnNewPage) {
+        this.appendEachImageOnNewPage = appendEachImageOnNewPage;
+        return this;
+    }
+
+    public void setAppendEachImageOnNewPage(Boolean appendEachImageOnNewPage) {
+        this.appendEachImageOnNewPage = appendEachImageOnNewPage;
+    }
+
+
     /**
      * Gets or sets the list of images.
     * @return imageEntries
@@ -79,22 +101,20 @@ public class ImageEntryList extends BaseImageEntryList {
 
     public ImageEntryList() {
         super();
+        this.appendEachImageOnNewPage = null;
         this.imageEntries = null;
     }
 
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
+    public void getFilesContent(List<FileReference> resultFilesContent) {
         super.getFilesContent(resultFilesContent);
-        if (this.imageEntries != null)
-        {
-            for (ModelIfc element : this.imageEntries)
-            {
+        if (this.imageEntries != null) {
+            for (ModelIfc element : this.imageEntries) {
                 element.getFilesContent(resultFilesContent);
             }
         }
@@ -112,13 +132,14 @@ public class ImageEntryList extends BaseImageEntryList {
 
         ImageEntryList imageEntryList = (ImageEntryList) o;
         return
+            Objects.equals(this.appendEachImageOnNewPage, imageEntryList.appendEachImageOnNewPage) &&
             Objects.equals(this.imageEntries, imageEntryList.imageEntries) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageEntries, super.hashCode());
+    return Objects.hash(appendEachImageOnNewPage, imageEntries, super.hashCode());
   }
 
   @Override

@@ -67,8 +67,9 @@ public class TestAppendDocument  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        FileReference requestDocumentListDocumentEntries0FileReference = new FileReference(remoteDataFolder + "/" + remoteFileName);
         DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
-        requestDocumentListDocumentEntries0.setHref(remoteDataFolder + "/" + remoteFileName);
+        requestDocumentListDocumentEntries0.setFileReference(requestDocumentListDocumentEntries0FileReference);
         requestDocumentListDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
 
         ArrayList<DocumentEntry> requestDocumentListDocumentEntries = new ArrayList<DocumentEntry>();
@@ -103,17 +104,17 @@ public class TestAppendDocument  extends TestCase
     public void testAppendDocumentOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
-        byte[] requestDocumentListOnlineDocumentEntries0FileStream = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
-        FileContent requestDocumentListOnlineDocumentEntries0File = new FileContent(localFile, requestDocumentListOnlineDocumentEntries0FileStream);
-        OnlineDocumentEntry requestDocumentListOnlineDocumentEntries0 = new OnlineDocumentEntry();
-        requestDocumentListOnlineDocumentEntries0.setFile(requestDocumentListOnlineDocumentEntries0File);
-        requestDocumentListOnlineDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
+        byte[] requestDocumentListDocumentEntries0FileReferenceStream = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        FileReference requestDocumentListDocumentEntries0FileReference = new FileReference(requestDocumentListDocumentEntries0FileReferenceStream);
+        DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
+        requestDocumentListDocumentEntries0.setFileReference(requestDocumentListDocumentEntries0FileReference);
+        requestDocumentListDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
 
-        ArrayList<OnlineDocumentEntry> requestDocumentListOnlineDocumentEntries = new ArrayList<OnlineDocumentEntry>();
-        requestDocumentListOnlineDocumentEntries.add(requestDocumentListOnlineDocumentEntries0);
+        ArrayList<DocumentEntry> requestDocumentListDocumentEntries = new ArrayList<DocumentEntry>();
+        requestDocumentListDocumentEntries.add(requestDocumentListDocumentEntries0);
 
-        OnlineDocumentEntryList requestDocumentList = new OnlineDocumentEntryList();
-        requestDocumentList.setOnlineDocumentEntries(requestDocumentListOnlineDocumentEntries);
+        DocumentEntryList requestDocumentList = new DocumentEntryList();
+        requestDocumentList.setDocumentEntries(requestDocumentListDocumentEntries);
 
         AppendDocumentOnlineRequest request = new AppendDocumentOnlineRequest(
             requestDocument,

@@ -149,36 +149,10 @@ public class AvailableFontsResponse extends WordsResponse {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        super.getFilesContent(resultFilesContent);
-        if (this.additionalFonts != null)
-        {
-            for (ModelIfc element : this.additionalFonts)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
-        if (this.customFonts != null)
-        {
-            for (ModelIfc element : this.customFonts)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
-        if (this.systemFonts != null)
-        {
-            for (ModelIfc element : this.systemFonts)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

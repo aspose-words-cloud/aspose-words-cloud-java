@@ -59,7 +59,7 @@ public class ApiClient {
     private String apiVersion = "v4.0";
     private String baseUrl = "https://api.aspose.cloud";
     private String basePath = baseUrl + "/" + apiVersion;
-    private String clientVersion = "22.8";
+    private String clientVersion = "22.9";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -692,7 +692,7 @@ public class ApiClient {
      */
     public RequestBody serialize(Object obj) throws ApiException {
         if (obj instanceof RequestBody) {
-            return (RequestBody)obj;
+            return (RequestBody) obj;
         }
         else if (obj instanceof byte[]) {
             return RequestBody.create(MediaType.parse("application/octet-stream"), (byte[]) obj);
@@ -701,7 +701,7 @@ public class ApiClient {
             return RequestBody.create(MediaType.parse("application/json"), json.serialize(obj));
         }
         else if (obj instanceof String) {
-            return RequestBody.create(MediaType.parse("text/plain"), (String)obj);
+            return RequestBody.create(MediaType.parse("text/plain"), (String) obj);
         }
         else {
             throw new ApiException("Unsupported object type to serialize.");
@@ -819,7 +819,7 @@ public class ApiClient {
      * @throws ApiException If fail to serialize the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Map<String, String> headerParams, Map<String, Object> formParams, List<FileContent> filesContentParams, Boolean addAuthHeaders, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+    public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Map<String, String> headerParams, Map<String, Object> formParams, List<FileReference> filesContentParams, Boolean addAuthHeaders, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         if (addAuthHeaders) {
             addOAuthAuthentication(headerParams);
         }
@@ -831,28 +831,23 @@ public class ApiClient {
             if ("application/x-www-form-urlencoded".equals(contentType)) {
                 reqBody = buildRequestBodyFormEncoding(formParams);
             }
-            else if (partsCount == 0)
-            {
+            else if (partsCount == 0) {
                 if (!"DELETE".equals(method)) {
                     reqBody = RequestBody.create(MediaType.parse("none"), "");
                 }
             }
-            else if (partsCount == 1)
-            {
+            else if (partsCount == 1) {
                 Object part = formParams.values().toArray()[0];
-                if (part != null)
-                {
+                if (part != null) {
                     reqBody = serialize(part);
                 }
             }
-            else if (partsCount > 1)
-            {
+            else if (partsCount > 1) {
                 String boundary = UUID.randomUUID().toString();
                 reqBody = buildRequestBodyMultipart(formParams, filesContentParams, boundary);
             }
 
-            if (reqBody != null && reqBody.contentType() != null && !headerParams.containsKey("Content-Type"))
-            {
+            if (reqBody != null && reqBody.contentType() != null && !headerParams.containsKey("Content-Type")) {
                 headerParams.put("Content-Type", reqBody.contentType().toString());
             }
         }
@@ -968,7 +963,7 @@ public class ApiClient {
      * @throws ApiException If fail to serialize the request body object
      * @return RequestBody
      */
-    public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams, List<FileContent> fileParams, String boundary) throws IOException, ApiException {
+    public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams, List<FileReference> fileParams, String boundary) throws IOException, ApiException {
         MultipartBuilder mpBuilder = new MultipartBuilder(boundary).type(MultipartBuilder.FORM);
         if (formParams.isEmpty()) {
             Headers partHeaders = Headers.of("Content-Disposition", "form-data");
@@ -979,8 +974,8 @@ public class ApiClient {
                 Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
                 mpBuilder.addPart(partHeaders, serialize(param.getValue()));
             }
-            for (FileContent param : fileParams) {
-                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getId() + "\"; filename=\"" + param.getFilename() + "\"");
+            for (FileReference param : fileParams) {
+                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getReference() + "\"");
                 mpBuilder.addPart(partHeaders, RequestBody.create(MediaType.parse("application/octet-stream"), param.getContent()));
             }
         }

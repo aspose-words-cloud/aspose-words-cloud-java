@@ -130,29 +130,10 @@ public class SaveResult implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.additionalItems != null)
-        {
-            for (ModelIfc element : this.additionalItems)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
-        if (this.destDocument != null)
-        {
-            this.destDocument.getFilesContent(resultFilesContent);
-        }
-
-        if (this.sourceDocument != null)
-        {
-            this.sourceDocument.getFilesContent(resultFilesContent);
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

@@ -279,7 +279,7 @@ public class RenderTableOnlineRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-        List<FileContent> localFilesContentParams = new ArrayList<FileContent>();
+        List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
         if (getDocument() != null)

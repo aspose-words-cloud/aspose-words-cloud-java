@@ -199,24 +199,10 @@ public class OutlineOptionsData implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.bookmarksOutlineLevels != null)
-        {
-            for (ModelIfc element : this.bookmarksOutlineLevels)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
-
-
-
-
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

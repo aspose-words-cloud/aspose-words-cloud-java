@@ -98,21 +98,10 @@ public class ModificationOperationResult implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.dest != null)
-        {
-            this.dest.getFilesContent(resultFilesContent);
-        }
-
-        if (this.source != null)
-        {
-            this.source.getFilesContent(resultFilesContent);
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

@@ -130,29 +130,10 @@ public class SplitDocumentResult implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.pages != null)
-        {
-            for (ModelIfc element : this.pages)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
-        if (this.sourceDocument != null)
-        {
-            this.sourceDocument.getFilesContent(resultFilesContent);
-        }
-
-        if (this.zippedPages != null)
-        {
-            this.zippedPages.getFilesContent(resultFilesContent);
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

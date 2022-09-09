@@ -246,29 +246,10 @@ public class ReportEngineSettings implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.csvDataLoadOptions != null)
-        {
-            this.csvDataLoadOptions.getFilesContent(resultFilesContent);
-        }
-
-
-
-        if (this.jsonDataLoadOptions != null)
-        {
-            this.jsonDataLoadOptions.getFilesContent(resultFilesContent);
-        }
-
-
-        if (this.xmlDataLoadOptions != null)
-        {
-            this.xmlDataLoadOptions.getFilesContent(resultFilesContent);
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

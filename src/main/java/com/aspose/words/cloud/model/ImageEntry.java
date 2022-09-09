@@ -46,40 +46,20 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a image which will be appended to the original resource image or document.
  */
 @ApiModel(description = "Represents a image which will be appended to the original resource image or document.")
-public class ImageEntry implements ModelIfc {
-    @SerializedName("Href")
-    protected String href;
-    /**
-     * Gets or sets the path to entry to append at the server.
-    * @return href
-    **/
-    @ApiModelProperty(value = "Gets or sets the path to entry to append at the server.")
-    public String getHref() {
-        return href;
-    }
-
-    public ImageEntry href(String href) {
-        this.href = href;
-        return this;
-    }
-
-    public void setHref(String href) {
-        this.href = href;
-    }
-
+public class ImageEntry extends BaseEntry {
 
     public ImageEntry() {
-        this.href = null;
+        super();
     }
 
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
+    public void getFilesContent(List<FileReference> resultFilesContent) {
+        super.getFilesContent(resultFilesContent);
     }
 
     @Override
@@ -91,21 +71,19 @@ public class ImageEntry implements ModelIfc {
             return false;
         }
 
-        ImageEntry imageEntry = (ImageEntry) o;
-        return
-            Objects.equals(this.href, imageEntry.href);
+        return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(href);
+    return Objects.hash(super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImageEntry {\n");
-    sb.append("    href: ").append(toIndentedString(getHref())).append("\n");
+    sb.append("    fileReference: ").append(toIndentedString(getFileReference())).append("\n");
     sb.append("}");
     return sb.toString();
   }

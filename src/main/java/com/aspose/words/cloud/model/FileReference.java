@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="FileContent.java">
+ * <copyright company="Aspose" file="FileReference.java">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -36,31 +36,31 @@ import java.util.List;
  * File content special model.
  */
 @ApiModel(description = "File content special model.")
-public class FileContent implements ModelIfc {
-    @SerializedName("Id")
-    private String id;
+public class FileReference implements ModelIfc {
+    @SerializedName("Source")
+    private String source;
 
-    @SerializedName("Filename")
-    private String filename;
+    @SerializedName("Reference")
+    private String reference;
 
     private byte[] content;
 
     /**
-     * Gets file id for multipart request.
+     * Gets file source.
     * @return String
     **/
-    @ApiModelProperty(value = "Gets file id for multipart request.")
-    public String getId() {
-        return id;
+    @ApiModelProperty(value = "Gets file source.")
+    public String getSource() {
+        return source;
     }
 
     /**
-     * Gets filename for multipart request.
+     * Gets file reference.
     * @return String
     **/
-    @ApiModelProperty(value = "Gets filename for multipart request.")
-    public String getFilename() {
-        return filename;
+    @ApiModelProperty(value = "Gets file reference.")
+    public String getReference() {
+        return reference;
     }
 
     /**
@@ -71,20 +71,28 @@ public class FileContent implements ModelIfc {
         return content;
     }
 
-    public FileContent(String filename, byte[] content) {
-        this.id = java.util.UUID.randomUUID().toString();
-        this.filename = filename;
-        this.content = content;
+    public FileReference(String remoteFilePath) {
+        this.source = "Storage";
+        this.reference = remoteFilePath;
+        this.content = null;
+    }
+
+    public FileReference(byte[] localFileContent) {
+        this.source = "Request";
+        this.reference = java.util.UUID.randomUUID().toString();
+        this.content = localFileContent;
     }
 
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
+    public void getFilesContent(List<FileReference> resultFilesContent)
     {
-        resultFilesContent.add(this);
+        if (this.source == "Request") {
+            resultFilesContent.add(this);
+        }
     }
 }

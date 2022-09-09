@@ -579,29 +579,10 @@ public abstract class SaveOptionsData implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.customTimeZoneInfoData != null)
-        {
-            this.customTimeZoneInfoData.getFilesContent(resultFilesContent);
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

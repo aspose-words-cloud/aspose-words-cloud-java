@@ -85,20 +85,10 @@ public class Paragraph extends NodeLink {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        super.getFilesContent(resultFilesContent);
-        if (this.childNodes != null)
-        {
-            for (ModelIfc element : this.childNodes)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

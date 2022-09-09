@@ -1509,64 +1509,10 @@ public class Font extends LinkElement {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        super.getFilesContent(resultFilesContent);
-        if (this.border != null)
-        {
-            this.border.getFilesContent(resultFilesContent);
-        }
-
-        if (this.color != null)
-        {
-            this.color.getFilesContent(resultFilesContent);
-        }
-
-
-
-
-
-
-        if (this.highlightColor != null)
-        {
-            this.highlightColor.getFilesContent(resultFilesContent);
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        if (this.underlineColor != null)
-        {
-            this.underlineColor.getFilesContent(resultFilesContent);
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

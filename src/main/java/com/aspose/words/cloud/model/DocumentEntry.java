@@ -46,41 +46,63 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a document which will be appended to the original resource document.
  */
 @ApiModel(description = "Represents a document which will be appended to the original resource document.")
-public class DocumentEntry extends BaseDocumentEntry {
-    @SerializedName("Href")
-    protected String href;
+public class DocumentEntry extends BaseEntry {
+    @SerializedName("EncryptedPassword")
+    protected String encryptedPassword;
+
+    @SerializedName("ImportFormatMode")
+    protected String importFormatMode;
     /**
-     * Gets or sets the path to document to append at the server.
-    * @return href
+     * Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+    * @return encryptedPassword
     **/
-    @ApiModelProperty(value = "Gets or sets the path to document to append at the server.")
-    public String getHref() {
-        return href;
+    @ApiModelProperty(value = "Gets or sets document password encrypted on API public key. The default value is null (the document has no password).")
+    public String getEncryptedPassword() {
+        return encryptedPassword;
     }
 
-    public DocumentEntry href(String href) {
-        this.href = href;
+    public DocumentEntry encryptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
         return this;
     }
 
-    public void setHref(String href) {
-        this.href = href;
+    public void setEncryptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
+    }
+
+
+    /**
+     * Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
+    * @return importFormatMode
+    **/
+    @ApiModelProperty(value = "Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.")
+    public String getImportFormatMode() {
+        return importFormatMode;
+    }
+
+    public DocumentEntry importFormatMode(String importFormatMode) {
+        this.importFormatMode = importFormatMode;
+        return this;
+    }
+
+    public void setImportFormatMode(String importFormatMode) {
+        this.importFormatMode = importFormatMode;
     }
 
 
     public DocumentEntry() {
         super();
-        this.href = null;
+        this.encryptedPassword = null;
+        this.importFormatMode = null;
     }
 
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
+    public void getFilesContent(List<FileReference> resultFilesContent) {
         super.getFilesContent(resultFilesContent);
     }
 
@@ -95,22 +117,23 @@ public class DocumentEntry extends BaseDocumentEntry {
 
         DocumentEntry documentEntry = (DocumentEntry) o;
         return
-            Objects.equals(this.href, documentEntry.href) &&
+            Objects.equals(this.encryptedPassword, documentEntry.encryptedPassword) &&
+            Objects.equals(this.importFormatMode, documentEntry.importFormatMode) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(href, super.hashCode());
+    return Objects.hash(encryptedPassword, importFormatMode, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentEntry {\n");
+    sb.append("    fileReference: ").append(toIndentedString(getFileReference())).append("\n");
     sb.append("    encryptedPassword: ").append(toIndentedString(getEncryptedPassword())).append("\n");
     sb.append("    importFormatMode: ").append(toIndentedString(getImportFormatMode())).append("\n");
-    sb.append("    href: ").append(toIndentedString(getHref())).append("\n");
     sb.append("}");
     return sb.toString();
   }

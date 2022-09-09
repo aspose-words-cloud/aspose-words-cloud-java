@@ -219,22 +219,10 @@ public class Shading implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.backgroundPatternColor != null)
-        {
-            this.backgroundPatternColor.getFilesContent(resultFilesContent);
-        }
-
-        if (this.foregroundPatternColor != null)
-        {
-            this.foregroundPatternColor.getFilesContent(resultFilesContent);
-        }
-
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

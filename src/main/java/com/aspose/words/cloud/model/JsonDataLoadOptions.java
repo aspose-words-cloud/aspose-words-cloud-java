@@ -183,11 +183,10 @@ public class JsonDataLoadOptions implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

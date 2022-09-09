@@ -190,22 +190,10 @@ public abstract class CommentBase implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.rangeEnd != null)
-        {
-            this.rangeEnd.getFilesContent(resultFilesContent);
-        }
-
-        if (this.rangeStart != null)
-        {
-            this.rangeStart.getFilesContent(resultFilesContent);
-        }
-
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

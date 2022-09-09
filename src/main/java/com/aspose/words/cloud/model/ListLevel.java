@@ -529,31 +529,10 @@ public class ListLevel extends LinkElement {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        super.getFilesContent(resultFilesContent);
-        if (this.font != null)
-        {
-            this.font.getFilesContent(resultFilesContent);
-        }
-
-
-        if (this.linkedStyle != null)
-        {
-            this.linkedStyle.getFilesContent(resultFilesContent);
-        }
-
-
-
-
-
-
-
-
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

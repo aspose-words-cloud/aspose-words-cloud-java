@@ -177,40 +177,10 @@ public class Section extends LinkElement {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        super.getFilesContent(resultFilesContent);
-        if (this.childNodes != null)
-        {
-            for (ModelIfc element : this.childNodes)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
-        if (this.headerFooters != null)
-        {
-            this.headerFooters.getFilesContent(resultFilesContent);
-        }
-
-        if (this.pageSetup != null)
-        {
-            this.pageSetup.getFilesContent(resultFilesContent);
-        }
-
-        if (this.paragraphs != null)
-        {
-            this.paragraphs.getFilesContent(resultFilesContent);
-        }
-
-        if (this.tables != null)
-        {
-            this.tables.getFilesContent(resultFilesContent);
-        }
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

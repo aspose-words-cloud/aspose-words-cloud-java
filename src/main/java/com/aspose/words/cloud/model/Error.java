@@ -144,17 +144,10 @@ public class Error implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.innerError != null)
-        {
-            this.innerError.getFilesContent(resultFilesContent);
-        }
-
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

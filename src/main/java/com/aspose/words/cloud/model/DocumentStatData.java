@@ -176,27 +176,10 @@ public class DocumentStatData implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.footnotesStatData != null)
-        {
-            this.footnotesStatData.getFilesContent(resultFilesContent);
-        }
-
-
-        if (this.pageStatData != null)
-        {
-            for (ModelIfc element : this.pageStatData)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
-
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

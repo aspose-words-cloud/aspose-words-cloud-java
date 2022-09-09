@@ -116,20 +116,10 @@ public class FilesUploadResult implements ModelIfc {
     /*
      * Gets files content.
      *
-     * @param resultFilesContent List<FileContent> instance.
+     * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileContent> resultFilesContent)
-    {
-        if (this.errors != null)
-        {
-            for (ModelIfc element : this.errors)
-            {
-                element.getFilesContent(resultFilesContent);
-            }
-        }
-
-
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override
