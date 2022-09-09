@@ -283,7 +283,7 @@ public class SaveAsRangeRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getDocumentParameters() != null) {
             localVarFormParams.put("DocumentParameters", getDocumentParameters());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

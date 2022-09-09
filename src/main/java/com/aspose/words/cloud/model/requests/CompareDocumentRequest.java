@@ -278,7 +278,7 @@ public class CompareDocumentRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getCompareData() != null) {
             localVarFormParams.put("CompareData", getCompareData());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

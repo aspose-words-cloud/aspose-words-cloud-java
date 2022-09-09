@@ -280,7 +280,6 @@ public class BuildReportRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        ;
         if (getData() != null) {
             localVarFormParams.put("Data", getData());
         }

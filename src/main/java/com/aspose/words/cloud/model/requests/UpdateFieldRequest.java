@@ -349,7 +349,7 @@ public class UpdateFieldRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getField() != null) {
             localVarFormParams.put("Field", getField());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

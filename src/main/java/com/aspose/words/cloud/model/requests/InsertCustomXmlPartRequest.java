@@ -300,7 +300,7 @@ public class InsertCustomXmlPartRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getCustomXmlPart() != null) {
             localVarFormParams.put("CustomXmlPart", getCustomXmlPart());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

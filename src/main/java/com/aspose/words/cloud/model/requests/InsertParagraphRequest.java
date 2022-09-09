@@ -344,7 +344,7 @@ public class InsertParagraphRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getParagraph() != null) {
             localVarFormParams.put("Paragraph", getParagraph());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

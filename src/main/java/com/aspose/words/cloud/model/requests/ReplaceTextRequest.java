@@ -300,7 +300,7 @@ public class ReplaceTextRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getReplaceText() != null) {
             localVarFormParams.put("ReplaceText", getReplaceText());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

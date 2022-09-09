@@ -300,7 +300,7 @@ public class InsertStyleRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getStyleInsert() != null) {
             localVarFormParams.put("StyleInsert", getStyleInsert());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

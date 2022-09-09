@@ -349,7 +349,7 @@ public class UpdateBorderRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getBorderProperties() != null) {
             localVarFormParams.put("BorderProperties", getBorderProperties());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

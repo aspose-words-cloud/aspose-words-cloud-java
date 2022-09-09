@@ -208,7 +208,6 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        ;
         if (getTemplate() != null) {
             localVarFormParams.put("Template", getTemplate());
         }

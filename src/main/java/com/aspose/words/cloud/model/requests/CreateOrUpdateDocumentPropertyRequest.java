@@ -327,7 +327,7 @@ public class CreateOrUpdateDocumentPropertyRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getProperty() != null) {
             localVarFormParams.put("Property", getProperty());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

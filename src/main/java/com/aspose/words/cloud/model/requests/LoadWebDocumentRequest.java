@@ -119,7 +119,7 @@ public class LoadWebDocumentRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getData() != null) {
             localVarFormParams.put("Data", getData());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

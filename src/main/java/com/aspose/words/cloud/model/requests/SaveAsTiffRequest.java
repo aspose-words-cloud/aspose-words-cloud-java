@@ -630,7 +630,7 @@ public class SaveAsTiffRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getSaveOptions() != null) {
             localVarFormParams.put("SaveOptions", getSaveOptions());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

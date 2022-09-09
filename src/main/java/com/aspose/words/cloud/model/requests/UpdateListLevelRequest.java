@@ -354,7 +354,7 @@ public class UpdateListLevelRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getListUpdate() != null) {
             localVarFormParams.put("ListUpdate", getListUpdate());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

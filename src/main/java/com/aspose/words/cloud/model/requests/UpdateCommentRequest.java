@@ -327,7 +327,7 @@ public class UpdateCommentRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getComment() != null) {
             localVarFormParams.put("Comment", getComment());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

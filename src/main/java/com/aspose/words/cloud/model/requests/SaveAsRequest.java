@@ -256,7 +256,7 @@ public class SaveAsRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getSaveOptionsData() != null) {
             localVarFormParams.put("SaveOptionsData", getSaveOptionsData());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

@@ -146,7 +146,6 @@ public class UploadFileRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        ;
         if (getFileContent() != null) {
             localVarFormParams.put("FileContent", getFileContent());
         }

@@ -256,7 +256,7 @@ public class ProtectDocumentRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getProtectionRequest() != null) {
             localVarFormParams.put("ProtectionRequest", getProtectionRequest());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

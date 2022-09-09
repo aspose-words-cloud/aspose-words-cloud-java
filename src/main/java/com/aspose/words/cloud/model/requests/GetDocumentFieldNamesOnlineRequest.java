@@ -183,7 +183,6 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        ;
         if (getTemplate() != null) {
             localVarFormParams.put("Template", getTemplate());
         }

@@ -300,7 +300,7 @@ public class CopyStyleRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getStyleCopy() != null) {
             localVarFormParams.put("StyleCopy", getStyleCopy());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

@@ -354,7 +354,7 @@ public class UpdateRunFontRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getFontDto() != null) {
             localVarFormParams.put("FontDto", getFontDto());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

@@ -327,7 +327,7 @@ public class UpdateBookmarkRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getBookmarkData() != null) {
             localVarFormParams.put("BookmarkData", getBookmarkData());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

@@ -354,7 +354,7 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getFormat() != null) {
             localVarFormParams.put("Format", getFormat());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

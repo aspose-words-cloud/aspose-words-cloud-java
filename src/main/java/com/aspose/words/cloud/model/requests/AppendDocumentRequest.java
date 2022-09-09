@@ -301,7 +301,7 @@ public class AppendDocumentRequest implements RequestIfc {
         if (getDocumentList() != null) {
             getDocumentList().getFilesContent(localFilesContentParams);
             localVarFormParams.put("DocumentList", getDocumentList());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

@@ -327,7 +327,7 @@ public class ApplyStyleToDocumentElementRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getStyleApply() != null) {
             localVarFormParams.put("StyleApply", getStyleApply());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

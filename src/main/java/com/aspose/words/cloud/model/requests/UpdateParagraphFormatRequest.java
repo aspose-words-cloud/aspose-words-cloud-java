@@ -349,7 +349,7 @@ public class UpdateParagraphFormatRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getParagraphFormatDto() != null) {
             localVarFormParams.put("ParagraphFormatDto", getParagraphFormatDto());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

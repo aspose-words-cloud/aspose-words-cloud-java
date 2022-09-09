@@ -327,7 +327,7 @@ public class UpdateSectionPageSetupRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getPageSetup() != null) {
             localVarFormParams.put("PageSetup", getPageSetup());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

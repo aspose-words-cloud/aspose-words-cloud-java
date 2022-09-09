@@ -327,7 +327,7 @@ public class InsertTableCellRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getCell() != null) {
             localVarFormParams.put("Cell", getCell());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

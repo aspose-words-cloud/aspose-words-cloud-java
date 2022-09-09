@@ -161,7 +161,6 @@ public class GetListsOnlineRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        ;
         if (getDocument() != null) {
             localVarFormParams.put("Document", getDocument());
         }

@@ -349,7 +349,7 @@ public class UpdateTablePropertiesRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getProperties() != null) {
             localVarFormParams.put("Properties", getProperties());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

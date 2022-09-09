@@ -305,7 +305,7 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getTabStopInsertDto() != null) {
             localVarFormParams.put("TabStopInsertDto", getTabStopInsertDto());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

@@ -327,7 +327,7 @@ public class InsertHeaderFooterRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getHeaderFooterType() != null) {
             localVarFormParams.put("HeaderFooterType", getHeaderFooterType());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

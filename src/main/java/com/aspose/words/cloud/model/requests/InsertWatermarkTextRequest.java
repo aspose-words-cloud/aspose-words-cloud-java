@@ -300,7 +300,7 @@ public class InsertWatermarkTextRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getWatermarkText() != null) {
             localVarFormParams.put("WatermarkText", getWatermarkText());
-        };
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
