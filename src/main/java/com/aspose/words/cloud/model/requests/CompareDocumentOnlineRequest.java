@@ -253,18 +253,15 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
-        if (getDocument() != null)
-        {
+        if (getDocument() != null) {
             localVarFormParams.put("Document", getDocument());
         }
 
-        if (getCompareData() != null)
-        {
+        if (getCompareData() != null) {
             localVarFormParams.put("CompareData", getCompareData());
         }
 
-        if (getComparingDocument() != null)
-        {
+        if (getComparingDocument() != null) {
             localVarFormParams.put("ComparingDocument", getComparingDocument());
         }
 

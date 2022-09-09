@@ -347,8 +347,7 @@ public class UpdateParagraphFormatRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getParagraphFormatDto() != null)
-        {
+        if (getParagraphFormatDto() != null) {
             localVarFormParams.put("ParagraphFormatDto", getParagraphFormatDto());
         };
 

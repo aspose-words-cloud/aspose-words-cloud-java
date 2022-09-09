@@ -170,18 +170,15 @@ public class BuildReportOnlineRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
-        if (getTemplate() != null)
-        {
+        if (getTemplate() != null) {
             localVarFormParams.put("Template", getTemplate());
         }
 
-        if (getData() != null)
-        {
+        if (getData() != null) {
             localVarFormParams.put("Data", getData());
         }
 
-        if (getReportEngineSettings() != null)
-        {
+        if (getReportEngineSettings() != null) {
             localVarFormParams.put("ReportEngineSettings", getReportEngineSettings());
         }
 

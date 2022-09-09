@@ -281,13 +281,11 @@ public class BuildReportRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
-        if (getData() != null)
-        {
+        if (getData() != null) {
             localVarFormParams.put("Data", getData());
         }
 
-        if (getReportEngineSettings() != null)
-        {
+        if (getReportEngineSettings() != null) {
             localVarFormParams.put("ReportEngineSettings", getReportEngineSettings());
         }
 

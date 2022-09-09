@@ -325,8 +325,7 @@ public class UpdateSectionPageSetupRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getPageSetup() != null)
-        {
+        if (getPageSetup() != null) {
             localVarFormParams.put("PageSetup", getPageSetup());
         };
 

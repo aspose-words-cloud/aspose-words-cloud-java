@@ -216,8 +216,7 @@ public class GetTableRowFormatOnlineRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
-        if (getDocument() != null)
-        {
+        if (getDocument() != null) {
             localVarFormParams.put("Document", getDocument());
         }
 

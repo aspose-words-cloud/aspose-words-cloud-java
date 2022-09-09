@@ -281,13 +281,11 @@ public class InsertTableCellOnlineRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
-        if (getDocument() != null)
-        {
+        if (getDocument() != null) {
             localVarFormParams.put("Document", getDocument());
         }
 
-        if (getCell() != null)
-        {
+        if (getCell() != null) {
             localVarFormParams.put("Cell", getCell());
         }
 

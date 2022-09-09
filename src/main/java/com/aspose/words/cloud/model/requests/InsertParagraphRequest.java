@@ -342,8 +342,7 @@ public class InsertParagraphRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getParagraph() != null)
-        {
+        if (getParagraph() != null) {
             localVarFormParams.put("Paragraph", getParagraph());
         };
 

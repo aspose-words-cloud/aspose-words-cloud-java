@@ -325,8 +325,7 @@ public class UpdateStyleRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getStyleUpdate() != null)
-        {
+        if (getStyleUpdate() != null) {
             localVarFormParams.put("StyleUpdate", getStyleUpdate());
         };
 

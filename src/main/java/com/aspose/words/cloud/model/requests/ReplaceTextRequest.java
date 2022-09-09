@@ -298,8 +298,7 @@ public class ReplaceTextRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getReplaceText() != null)
-        {
+        if (getReplaceText() != null) {
             localVarFormParams.put("ReplaceText", getReplaceText());
         };
 

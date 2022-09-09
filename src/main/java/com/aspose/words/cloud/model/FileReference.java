@@ -89,9 +89,8 @@ public class FileReference implements ModelIfc {
      * @param resultFilesContent List<FileReference> instance.
      */
     @Override
-    public void getFilesContent(List<FileReference> resultFilesContent)
-    {
-        if (this.source == "Request") {
+    public void getFilesContent(List<FileReference> resultFilesContent) {
+        if ("Request".equals(this.source)) {
             resultFilesContent.add(this);
         }
     }

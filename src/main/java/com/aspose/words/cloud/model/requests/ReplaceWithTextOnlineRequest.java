@@ -259,13 +259,11 @@ public class ReplaceWithTextOnlineRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
-        if (getDocument() != null)
-        {
+        if (getDocument() != null) {
             localVarFormParams.put("Document", getDocument());
         }
 
-        if (getRangeText() != null)
-        {
+        if (getRangeText() != null) {
             localVarFormParams.put("RangeText", getRangeText());
         }
 

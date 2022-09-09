@@ -325,8 +325,7 @@ public class InsertTableCellRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getCell() != null)
-        {
+        if (getCell() != null) {
             localVarFormParams.put("Cell", getCell());
         };
 

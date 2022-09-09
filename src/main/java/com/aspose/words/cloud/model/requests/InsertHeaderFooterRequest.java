@@ -325,8 +325,7 @@ public class InsertHeaderFooterRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getHeaderFooterType() != null)
-        {
+        if (getHeaderFooterType() != null) {
             localVarFormParams.put("HeaderFooterType", getHeaderFooterType());
         };
 

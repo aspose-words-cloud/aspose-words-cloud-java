@@ -325,8 +325,7 @@ public class UpdateBookmarkRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getBookmarkData() != null)
-        {
+        if (getBookmarkData() != null) {
             localVarFormParams.put("BookmarkData", getBookmarkData());
         };
 

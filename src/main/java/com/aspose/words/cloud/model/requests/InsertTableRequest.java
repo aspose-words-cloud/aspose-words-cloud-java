@@ -320,8 +320,7 @@ public class InsertTableRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getTable() != null)
-        {
+        if (getTable() != null) {
             localVarFormParams.put("Table", getTable());
         };
 

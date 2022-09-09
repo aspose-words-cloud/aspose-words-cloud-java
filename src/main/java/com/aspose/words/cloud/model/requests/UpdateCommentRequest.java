@@ -325,8 +325,7 @@ public class UpdateCommentRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getComment() != null)
-        {
+        if (getComment() != null) {
             localVarFormParams.put("Comment", getComment());
         };
 

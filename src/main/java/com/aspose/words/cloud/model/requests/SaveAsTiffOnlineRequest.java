@@ -584,13 +584,11 @@ public class SaveAsTiffOnlineRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
-        if (getDocument() != null)
-        {
+        if (getDocument() != null) {
             localVarFormParams.put("Document", getDocument());
         }
 
-        if (getSaveOptions() != null)
-        {
+        if (getSaveOptions() != null) {
             localVarFormParams.put("SaveOptions", getSaveOptions());
         }
 

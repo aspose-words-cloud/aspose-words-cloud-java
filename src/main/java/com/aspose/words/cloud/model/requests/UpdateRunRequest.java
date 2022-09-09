@@ -352,8 +352,7 @@ public class UpdateRunRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getRun() != null)
-        {
+        if (getRun() != null) {
             localVarFormParams.put("Run", getRun());
         };
 

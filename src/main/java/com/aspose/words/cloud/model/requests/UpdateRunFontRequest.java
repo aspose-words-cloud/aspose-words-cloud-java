@@ -352,8 +352,7 @@ public class UpdateRunFontRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getFontDto() != null)
-        {
+        if (getFontDto() != null) {
             localVarFormParams.put("FontDto", getFontDto());
         };
 

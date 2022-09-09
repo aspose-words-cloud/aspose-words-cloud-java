@@ -254,13 +254,11 @@ public class InsertBookmarkOnlineRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
-        if (getDocument() != null)
-        {
+        if (getDocument() != null) {
             localVarFormParams.put("Document", getDocument());
         }
 
-        if (getBookmark() != null)
-        {
+        if (getBookmark() != null) {
             localVarFormParams.put("Bookmark", getBookmark());
         }
 

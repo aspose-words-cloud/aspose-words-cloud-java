@@ -281,8 +281,7 @@ public class SaveAsRangeRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getDocumentParameters() != null)
-        {
+        if (getDocumentParameters() != null) {
             localVarFormParams.put("DocumentParameters", getDocumentParameters());
         };
 

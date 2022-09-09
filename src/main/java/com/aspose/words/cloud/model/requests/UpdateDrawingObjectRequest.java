@@ -374,13 +374,11 @@ public class UpdateDrawingObjectRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
-        if (getDrawingObject() != null)
-        {
+        if (getDrawingObject() != null) {
             localVarFormParams.put("DrawingObject", getDrawingObject());
         }
 
-        if (getImageFile() != null)
-        {
+        if (getImageFile() != null) {
             localVarFormParams.put("ImageFile", getImageFile());
         }
 

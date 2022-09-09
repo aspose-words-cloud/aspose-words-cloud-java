@@ -347,8 +347,7 @@ public class UpdateBorderRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getBorderProperties() != null)
-        {
+        if (getBorderProperties() != null) {
             localVarFormParams.put("BorderProperties", getBorderProperties());
         };
 

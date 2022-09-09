@@ -298,8 +298,7 @@ public class OptimizeDocumentRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getOptions() != null)
-        {
+        if (getOptions() != null) {
             localVarFormParams.put("Options", getOptions());
         };
 

@@ -254,13 +254,11 @@ public class InsertPageNumbersOnlineRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
-        if (getDocument() != null)
-        {
+        if (getDocument() != null) {
             localVarFormParams.put("Document", getDocument());
         }
 
-        if (getPageNumber() != null)
-        {
+        if (getPageNumber() != null) {
             localVarFormParams.put("PageNumber", getPageNumber());
         }
 

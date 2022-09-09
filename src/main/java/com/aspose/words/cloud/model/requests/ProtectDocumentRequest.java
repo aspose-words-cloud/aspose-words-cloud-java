@@ -254,8 +254,7 @@ public class ProtectDocumentRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getProtectionRequest() != null)
-        {
+        if (getProtectionRequest() != null) {
             localVarFormParams.put("ProtectionRequest", getProtectionRequest());
         };
 

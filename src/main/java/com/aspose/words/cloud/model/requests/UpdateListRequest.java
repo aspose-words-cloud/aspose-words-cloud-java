@@ -325,8 +325,7 @@ public class UpdateListRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getListUpdate() != null)
-        {
+        if (getListUpdate() != null) {
             localVarFormParams.put("ListUpdate", getListUpdate());
         };
 

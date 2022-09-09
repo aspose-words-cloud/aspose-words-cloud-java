@@ -352,8 +352,7 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getFormat() != null)
-        {
+        if (getFormat() != null) {
             localVarFormParams.put("Format", getFormat());
         };
 

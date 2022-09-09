@@ -298,13 +298,11 @@ public class InsertFormFieldOnlineRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
-        if (getDocument() != null)
-        {
+        if (getDocument() != null) {
             localVarFormParams.put("Document", getDocument());
         }
 
-        if (getFormField() != null)
-        {
+        if (getFormField() != null) {
             localVarFormParams.put("FormField", getFormField());
         }
 

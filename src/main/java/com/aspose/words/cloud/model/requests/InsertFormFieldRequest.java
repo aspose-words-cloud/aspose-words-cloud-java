@@ -342,8 +342,7 @@ public class InsertFormFieldRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getFormField() != null)
-        {
+        if (getFormField() != null) {
             localVarFormParams.put("FormField", getFormField());
         };
 

@@ -254,8 +254,7 @@ public class SaveAsRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getSaveOptionsData() != null)
-        {
+        if (getSaveOptionsData() != null) {
             localVarFormParams.put("SaveOptionsData", getSaveOptionsData());
         };
 

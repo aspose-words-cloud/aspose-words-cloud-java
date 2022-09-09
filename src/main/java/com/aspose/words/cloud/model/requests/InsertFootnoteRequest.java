@@ -320,8 +320,7 @@ public class InsertFootnoteRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getFootnoteDto() != null)
-        {
+        if (getFootnoteDto() != null) {
             localVarFormParams.put("FootnoteDto", getFootnoteDto());
         };
 

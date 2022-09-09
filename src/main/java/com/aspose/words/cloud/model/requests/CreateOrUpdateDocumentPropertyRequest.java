@@ -325,8 +325,7 @@ public class CreateOrUpdateDocumentPropertyRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getProperty() != null)
-        {
+        if (getProperty() != null) {
             localVarFormParams.put("Property", getProperty());
         };
 

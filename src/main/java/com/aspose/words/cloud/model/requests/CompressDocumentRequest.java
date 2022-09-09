@@ -254,8 +254,7 @@ public class CompressDocumentRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getCompressOptions() != null)
-        {
+        if (getCompressOptions() != null) {
             localVarFormParams.put("CompressOptions", getCompressOptions());
         };
 

@@ -298,8 +298,7 @@ public class InsertStyleRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getStyleInsert() != null)
-        {
+        if (getStyleInsert() != null) {
             localVarFormParams.put("StyleInsert", getStyleInsert());
         };
 

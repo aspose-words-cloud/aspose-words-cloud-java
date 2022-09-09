@@ -303,8 +303,7 @@ public class ReplaceWithTextRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getRangeText() != null)
-        {
+        if (getRangeText() != null) {
             localVarFormParams.put("RangeText", getRangeText());
         };
 

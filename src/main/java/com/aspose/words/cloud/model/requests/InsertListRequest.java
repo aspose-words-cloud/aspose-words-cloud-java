@@ -298,8 +298,7 @@ public class InsertListRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getListInsert() != null)
-        {
+        if (getListInsert() != null) {
             localVarFormParams.put("ListInsert", getListInsert());
         };
 

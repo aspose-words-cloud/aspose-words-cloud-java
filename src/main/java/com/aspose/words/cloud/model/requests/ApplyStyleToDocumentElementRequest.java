@@ -325,8 +325,7 @@ public class ApplyStyleToDocumentElementRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getStyleApply() != null)
-        {
+        if (getStyleApply() != null) {
             localVarFormParams.put("StyleApply", getStyleApply());
         };
 

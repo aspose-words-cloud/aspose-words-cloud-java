@@ -298,8 +298,7 @@ public class CopyStyleRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getStyleCopy() != null)
-        {
+        if (getStyleCopy() != null) {
             localVarFormParams.put("StyleCopy", getStyleCopy());
         };
 

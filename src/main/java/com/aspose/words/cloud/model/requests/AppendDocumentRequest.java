@@ -298,8 +298,7 @@ public class AppendDocumentRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getDocumentList() != null)
-        {
+        if (getDocumentList() != null) {
             getDocumentList().getFilesContent(localFilesContentParams);
             localVarFormParams.put("DocumentList", getDocumentList());
         };

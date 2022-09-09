@@ -117,8 +117,7 @@ public class LoadWebDocumentRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getData() != null)
-        {
+        if (getData() != null) {
             localVarFormParams.put("Data", getData());
         };
 

@@ -298,8 +298,7 @@ public class InsertWatermarkTextRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getWatermarkText() != null)
-        {
+        if (getWatermarkText() != null) {
             localVarFormParams.put("WatermarkText", getWatermarkText());
         };
 

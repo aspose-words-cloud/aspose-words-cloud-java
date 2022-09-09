@@ -338,8 +338,7 @@ public class InsertWatermarkImageRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         ;
-        if (getImageFile() != null)
-        {
+        if (getImageFile() != null) {
             localVarFormParams.put("ImageFile", getImageFile());
         }
 

@@ -303,8 +303,7 @@ public class InsertOrUpdateParagraphTabStopRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getTabStopInsertDto() != null)
-        {
+        if (getTabStopInsertDto() != null) {
             localVarFormParams.put("TabStopInsertDto", getTabStopInsertDto());
         };
 
