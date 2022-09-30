@@ -53,6 +53,15 @@ public class FlatOpcTemplateSaveOptionsData extends OoxmlSaveOptionsData {
         this.saveFormat = "fopc_template";
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

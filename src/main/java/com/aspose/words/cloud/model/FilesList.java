@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Files list.
  */
 @ApiModel(description = "Files list.")
-public class FilesList {
+public class FilesList implements ModelIfc {
     @SerializedName("Value")
     protected List<StorageFile> value;
     /**
@@ -79,6 +79,15 @@ public class FilesList {
 
     public FilesList() {
         this.value = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

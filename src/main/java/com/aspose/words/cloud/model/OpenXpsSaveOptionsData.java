@@ -53,6 +53,15 @@ public class OpenXpsSaveOptionsData extends XpsSaveOptionsData {
         this.saveFormat = "openxps";
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

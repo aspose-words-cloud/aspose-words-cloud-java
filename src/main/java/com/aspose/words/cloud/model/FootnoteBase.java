@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Footnote base class.
  */
 @ApiModel(description = "Footnote base class.")
-public abstract class FootnoteBase {
+public abstract class FootnoteBase implements ModelIfc {
     /**
      * Gets or sets the option, that specifies whether this is a footnote or endnote.
      */
@@ -186,6 +186,15 @@ public abstract class FootnoteBase {
         this.position = null;
         this.referenceMark = null;
         this.text = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

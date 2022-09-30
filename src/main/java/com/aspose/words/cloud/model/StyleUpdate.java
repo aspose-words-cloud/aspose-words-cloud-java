@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a single document style properties to update.
  */
 @ApiModel(description = "Represents a single document style properties to update.")
-public class StyleUpdate {
+public class StyleUpdate implements ModelIfc {
     @SerializedName("BaseStyleName")
     protected String baseStyleName;
 
@@ -139,6 +139,15 @@ public class StyleUpdate {
         this.isQuickStyle = null;
         this.name = null;
         this.nextParagraphStyleName = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

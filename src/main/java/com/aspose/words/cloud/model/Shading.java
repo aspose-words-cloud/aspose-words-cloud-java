@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO container with a paragraph format shading element.
  */
 @ApiModel(description = "DTO container with a paragraph format shading element.")
-public class Shading {
+public class Shading implements ModelIfc {
     /**
      * Gets or sets the shading texture.
      */
@@ -214,6 +214,15 @@ public class Shading {
         this.backgroundPatternColor = null;
         this.foregroundPatternColor = null;
         this.texture = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

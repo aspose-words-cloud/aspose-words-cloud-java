@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Result of saving.
  */
 @ApiModel(description = "Result of saving.")
-public class SaveResult {
+public class SaveResult implements ModelIfc {
     @SerializedName("AdditionalItems")
     protected List<FileLink> additionalItems;
 
@@ -125,6 +125,15 @@ public class SaveResult {
         this.additionalItems = null;
         this.destDocument = null;
         this.sourceDocument = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

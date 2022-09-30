@@ -67,8 +67,9 @@ public class TestAppendDocument  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
+        FileReference requestDocumentListDocumentEntries0FileReference = new FileReference(remoteDataFolder + "/" + remoteFileName);
         DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
-        requestDocumentListDocumentEntries0.setHref(remoteDataFolder + "/" + remoteFileName);
+        requestDocumentListDocumentEntries0.setFileReference(requestDocumentListDocumentEntries0FileReference);
         requestDocumentListDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
 
         ArrayList<DocumentEntry> requestDocumentListDocumentEntries = new ArrayList<DocumentEntry>();
@@ -102,16 +103,11 @@ public class TestAppendDocument  extends TestCase
     @Test
     public void testAppendDocumentOnline() throws ApiException, MessagingException, IOException
     {
-        String remoteFileName = "TestAppendDocument.docx";
-
-        TestInitializer.UploadFile(
-            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
-            remoteDataFolder + "/" + remoteFileName
-        );
-
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        byte[] requestDocumentListDocumentEntries0FileReferenceStream = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        FileReference requestDocumentListDocumentEntries0FileReference = new FileReference(requestDocumentListDocumentEntries0FileReferenceStream);
         DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
-        requestDocumentListDocumentEntries0.setHref(remoteDataFolder + "/" + remoteFileName);
+        requestDocumentListDocumentEntries0.setFileReference(requestDocumentListDocumentEntries0FileReference);
         requestDocumentListDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
 
         ArrayList<DocumentEntry> requestDocumentListDocumentEntries = new ArrayList<DocumentEntry>();

@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Class is used for insert page number request building.
  */
 @ApiModel(description = "Class is used for insert page number request building.")
-public class PageNumber {
+public class PageNumber implements ModelIfc {
     @SerializedName("Alignment")
     protected String alignment;
 
@@ -55,6 +55,9 @@ public class PageNumber {
 
     @SerializedName("IsTop")
     protected Boolean isTop;
+
+    @SerializedName("PageStartingNumber")
+    protected Integer pageStartingNumber;
 
     @SerializedName("SetPageNumberOnFirstPage")
     protected Boolean setPageNumberOnFirstPage;
@@ -116,6 +119,25 @@ public class PageNumber {
 
 
     /**
+     * Gets or sets the starting page number of the document.
+    * @return pageStartingNumber
+    **/
+    @ApiModelProperty(value = "Gets or sets the starting page number of the document.")
+    public Integer getPageStartingNumber() {
+        return pageStartingNumber;
+    }
+
+    public PageNumber pageStartingNumber(Integer pageStartingNumber) {
+        this.pageStartingNumber = pageStartingNumber;
+        return this;
+    }
+
+    public void setPageStartingNumber(Integer pageStartingNumber) {
+        this.pageStartingNumber = pageStartingNumber;
+    }
+
+
+    /**
      * Gets or sets a value indicating whether if true the page number is added on first page too.
     * @return setPageNumberOnFirstPage
     **/
@@ -138,7 +160,17 @@ public class PageNumber {
         this.alignment = null;
         this.format = null;
         this.isTop = null;
+        this.pageStartingNumber = null;
         this.setPageNumberOnFirstPage = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override
@@ -155,12 +187,13 @@ public class PageNumber {
             Objects.equals(this.alignment, pageNumber.alignment) &&
             Objects.equals(this.format, pageNumber.format) &&
             Objects.equals(this.isTop, pageNumber.isTop) &&
+            Objects.equals(this.pageStartingNumber, pageNumber.pageStartingNumber) &&
             Objects.equals(this.setPageNumberOnFirstPage, pageNumber.setPageNumberOnFirstPage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alignment, format, isTop, setPageNumberOnFirstPage);
+    return Objects.hash(alignment, format, isTop, pageStartingNumber, setPageNumberOnFirstPage);
   }
 
   @Override
@@ -170,6 +203,7 @@ public class PageNumber {
     sb.append("    alignment: ").append(toIndentedString(getAlignment())).append("\n");
     sb.append("    format: ").append(toIndentedString(getFormat())).append("\n");
     sb.append("    isTop: ").append(toIndentedString(getIsTop())).append("\n");
+    sb.append("    pageStartingNumber: ").append(toIndentedString(getPageStartingNumber())).append("\n");
     sb.append("    setPageNumberOnFirstPage: ").append(toIndentedString(getSetPageNumberOnFirstPage())).append("\n");
     sb.append("}");
     return sb.toString();

@@ -47,7 +47,7 @@ import io.swagger.annotations.ApiModelProperty;
  * This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
  */
 @ApiModel(description = "Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.")
-public class Link {
+public class Link implements ModelIfc {
     @SerializedName("Href")
     protected String href;
 
@@ -140,6 +140,15 @@ public class Link {
         this.rel = null;
         this.title = null;
         this.type = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

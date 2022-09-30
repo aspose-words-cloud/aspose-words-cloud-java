@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for individual bookmarks outline level.
  */
 @ApiModel(description = "Container class for individual bookmarks outline level.")
-public class BookmarksOutlineLevelData {
+public class BookmarksOutlineLevelData implements ModelIfc {
     @SerializedName("BookmarksOutlineLevel")
     protected Integer bookmarksOutlineLevel;
 
@@ -93,6 +93,15 @@ public class BookmarksOutlineLevelData {
     public BookmarksOutlineLevelData() {
         this.bookmarksOutlineLevel = null;
         this.name = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

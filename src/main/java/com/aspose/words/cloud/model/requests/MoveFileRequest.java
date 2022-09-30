@@ -173,8 +173,6 @@ public class MoveFileRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SrcPath' when calling moveFile");
         }
 
-        Object localVarPostBody = null;
-
         // create path and map variables
         String localVarPath = "/words/storage/file/move/{srcPath}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "srcPath", getSrcPath());
@@ -189,6 +187,7 @@ public class MoveFileRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+        List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
 
         if (progressListener != null) {
@@ -203,7 +202,7 @@ public class MoveFileRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarHeaderParams, localVarFormParams, localFilesContentParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

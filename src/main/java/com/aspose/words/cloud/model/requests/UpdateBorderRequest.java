@@ -325,8 +325,6 @@ public class UpdateBorderRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BorderProperties' when calling updateBorder");
         }
 
-        Object localVarPostBody = getBorderProperties();
-
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
@@ -347,19 +345,11 @@ public class UpdateBorderRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+        List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (getBorderProperties() != null) {
+            localVarFormParams.put("BorderProperties", getBorderProperties());
+        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
@@ -373,7 +363,7 @@ public class UpdateBorderRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarHeaderParams, localVarFormParams, localFilesContentParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

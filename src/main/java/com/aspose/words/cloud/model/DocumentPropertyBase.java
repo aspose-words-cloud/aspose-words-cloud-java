@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Words document property DTO base class.
  */
 @ApiModel(description = "Words document property DTO base class.")
-public abstract class DocumentPropertyBase {
+public abstract class DocumentPropertyBase implements ModelIfc {
     @SerializedName("Value")
     protected String value;
     /**
@@ -70,6 +70,15 @@ public abstract class DocumentPropertyBase {
 
     public DocumentPropertyBase() {
         this.value = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

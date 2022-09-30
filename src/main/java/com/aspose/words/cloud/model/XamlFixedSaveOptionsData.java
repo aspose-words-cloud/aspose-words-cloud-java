@@ -98,6 +98,15 @@ public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         this.saveFormat = "xamlfixed";
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

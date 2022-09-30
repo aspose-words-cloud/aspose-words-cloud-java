@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Field.
  */
 @ApiModel(description = "Field.")
-public abstract class FieldBase {
+public abstract class FieldBase implements ModelIfc {
     @SerializedName("FieldCode")
     protected String fieldCode;
 
@@ -93,6 +93,15 @@ public abstract class FieldBase {
     public FieldBase() {
         this.fieldCode = null;
         this.localeId = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

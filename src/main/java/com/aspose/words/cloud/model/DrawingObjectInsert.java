@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Drawing object element for insert.
  */
 @ApiModel(description = "Drawing object element for insert.")
-public class DrawingObjectInsert {
+public class DrawingObjectInsert implements ModelIfc {
     /**
      * Gets or sets the relative horizontal position, from which the distance to the image is measured.
      */
@@ -388,6 +388,15 @@ public class DrawingObjectInsert {
         this.top = null;
         this.width = null;
         this.wrapType = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

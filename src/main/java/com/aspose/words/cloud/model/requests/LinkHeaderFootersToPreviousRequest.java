@@ -299,8 +299,6 @@ public class LinkHeaderFootersToPreviousRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionIndex' when calling linkHeaderFootersToPrevious");
         }
 
-        Object localVarPostBody = null;
-
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}/link";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
@@ -321,6 +319,7 @@ public class LinkHeaderFootersToPreviousRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+        List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
 
         if (progressListener != null) {
@@ -335,7 +334,7 @@ public class LinkHeaderFootersToPreviousRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarHeaderParams, localVarFormParams, localFilesContentParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

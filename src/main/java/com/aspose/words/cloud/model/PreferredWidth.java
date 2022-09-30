@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO container with a preferred width value.
  */
 @ApiModel(description = "DTO container with a preferred width value.")
-public class PreferredWidth {
+public class PreferredWidth implements ModelIfc {
     /**
      * Gets or sets the unit of measure used for this preferred width value.
      */
@@ -140,6 +140,15 @@ public class PreferredWidth {
     public PreferredWidth() {
         this.type = null;
         this.value = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

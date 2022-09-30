@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO for user information.
  */
 @ApiModel(description = "DTO for user information.")
-public class UserInformation {
+public class UserInformation implements ModelIfc {
     @SerializedName("Address")
     protected String address;
 
@@ -116,6 +116,15 @@ public class UserInformation {
         this.address = null;
         this.initials = null;
         this.name = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override
