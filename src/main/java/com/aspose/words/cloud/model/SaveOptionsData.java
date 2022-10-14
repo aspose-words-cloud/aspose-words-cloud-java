@@ -251,9 +251,6 @@ public abstract class SaveOptionsData implements ModelIfc {
     @SerializedName("FileName")
     protected String fileName;
 
-    @SerializedName("FlatOpcXmlMappingOnly")
-    protected Boolean flatOpcXmlMappingOnly;
-
     @SerializedName("ImlRenderingMode")
     protected ImlRenderingModeEnum imlRenderingMode;
 
@@ -389,26 +386,6 @@ public abstract class SaveOptionsData implements ModelIfc {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
-    }
-
-
-    /**
-     * Gets or sets value determining which document formats are allowed to be mapped by Aspose.Words.Markup.StructuredDocumentTag.XmlMapping.
-     * By default only Aspose.Words.LoadFormat.FlatOpc document format is allowed to be mapped.
-    * @return flatOpcXmlMappingOnly
-    **/
-    @ApiModelProperty(value = "Gets or sets value determining which document formats are allowed to be mapped by Aspose.Words.Markup.StructuredDocumentTag.XmlMapping. By default only Aspose.Words.LoadFormat.FlatOpc document format is allowed to be mapped.")
-    public Boolean getFlatOpcXmlMappingOnly() {
-        return flatOpcXmlMappingOnly;
-    }
-
-    public SaveOptionsData flatOpcXmlMappingOnly(Boolean flatOpcXmlMappingOnly) {
-        this.flatOpcXmlMappingOnly = flatOpcXmlMappingOnly;
-        return this;
-    }
-
-    public void setFlatOpcXmlMappingOnly(Boolean flatOpcXmlMappingOnly) {
-        this.flatOpcXmlMappingOnly = flatOpcXmlMappingOnly;
     }
 
 
@@ -565,7 +542,6 @@ public abstract class SaveOptionsData implements ModelIfc {
         this.dmlEffectsRenderingMode = null;
         this.dmlRenderingMode = null;
         this.fileName = null;
-        this.flatOpcXmlMappingOnly = null;
         this.imlRenderingMode = null;
         this.saveFormat = null;
         this.updateCreatedTimeProperty = null;
@@ -602,7 +578,6 @@ public abstract class SaveOptionsData implements ModelIfc {
             Objects.equals(this.dmlEffectsRenderingMode, saveOptionsData.dmlEffectsRenderingMode) &&
             Objects.equals(this.dmlRenderingMode, saveOptionsData.dmlRenderingMode) &&
             Objects.equals(this.fileName, saveOptionsData.fileName) &&
-            Objects.equals(this.flatOpcXmlMappingOnly, saveOptionsData.flatOpcXmlMappingOnly) &&
             Objects.equals(this.imlRenderingMode, saveOptionsData.imlRenderingMode) &&
             Objects.equals(this.saveFormat, saveOptionsData.saveFormat) &&
             Objects.equals(this.updateCreatedTimeProperty, saveOptionsData.updateCreatedTimeProperty) &&
@@ -615,7 +590,7 @@ public abstract class SaveOptionsData implements ModelIfc {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowEmbeddingPostScriptFonts, customTimeZoneInfoData, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, flatOpcXmlMappingOnly, imlRenderingMode, saveFormat, updateCreatedTimeProperty, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, updateSdtContent, zipOutput);
+    return Objects.hash(allowEmbeddingPostScriptFonts, customTimeZoneInfoData, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, imlRenderingMode, saveFormat, updateCreatedTimeProperty, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, updateSdtContent, zipOutput);
   }
 
   @Override
@@ -628,7 +603,6 @@ public abstract class SaveOptionsData implements ModelIfc {
     sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
     sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
     sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
-    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
     sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");

@@ -434,6 +434,9 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         }
     }
 
+    @SerializedName("CacheHeaderFooterShapes")
+    protected Boolean cacheHeaderFooterShapes;
+
     @SerializedName("Compliance")
     protected ComplianceEnum compliance;
 
@@ -508,6 +511,25 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     @SerializedName("ZoomFactor")
     protected Integer zoomFactor;
+    /**
+     * Gets or sets a value indicating whether or not to cache shapes placed in header and footer of document.
+    * @return cacheHeaderFooterShapes
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether or not to cache shapes placed in header and footer of document.")
+    public Boolean getCacheHeaderFooterShapes() {
+        return cacheHeaderFooterShapes;
+    }
+
+    public PdfSaveOptionsData cacheHeaderFooterShapes(Boolean cacheHeaderFooterShapes) {
+        this.cacheHeaderFooterShapes = cacheHeaderFooterShapes;
+        return this;
+    }
+
+    public void setCacheHeaderFooterShapes(Boolean cacheHeaderFooterShapes) {
+        this.cacheHeaderFooterShapes = cacheHeaderFooterShapes;
+    }
+
+
     /**
      * Gets or sets the PDF standards compliance level for output documents.
     * @return compliance
@@ -989,6 +1011,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     public PdfSaveOptionsData() {
         super();
+        this.cacheHeaderFooterShapes = null;
         this.compliance = null;
         this.createNoteHyperlinks = null;
         this.customPropertiesExport = null;
@@ -1037,6 +1060,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
         PdfSaveOptionsData pdfSaveOptionsData = (PdfSaveOptionsData) o;
         return
+            Objects.equals(this.cacheHeaderFooterShapes, pdfSaveOptionsData.cacheHeaderFooterShapes) &&
             Objects.equals(this.compliance, pdfSaveOptionsData.compliance) &&
             Objects.equals(this.createNoteHyperlinks, pdfSaveOptionsData.createNoteHyperlinks) &&
             Objects.equals(this.customPropertiesExport, pdfSaveOptionsData.customPropertiesExport) &&
@@ -1067,7 +1091,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor, super.hashCode());
+    return Objects.hash(cacheHeaderFooterShapes, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor, super.hashCode());
   }
 
   @Override
@@ -1080,7 +1104,6 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
     sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
     sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
-    sb.append("    flatOpcXmlMappingOnly: ").append(toIndentedString(getFlatOpcXmlMappingOnly())).append("\n");
     sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
     sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
@@ -1095,6 +1118,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
     sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
     sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
+    sb.append("    cacheHeaderFooterShapes: ").append(toIndentedString(getCacheHeaderFooterShapes())).append("\n");
     sb.append("    compliance: ").append(toIndentedString(getCompliance())).append("\n");
     sb.append("    createNoteHyperlinks: ").append(toIndentedString(getCreateNoteHyperlinks())).append("\n");
     sb.append("    customPropertiesExport: ").append(toIndentedString(getCustomPropertiesExport())).append("\n");
