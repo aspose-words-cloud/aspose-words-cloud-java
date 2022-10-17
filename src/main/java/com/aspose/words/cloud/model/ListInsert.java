@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Insert document to document list.
  */
 @ApiModel(description = "Insert document to document list.")
-public class ListInsert {
+public class ListInsert implements ModelIfc {
     /**
      * Gets or sets the option that controls how list should be restarted at each section.
      */
@@ -136,6 +136,15 @@ public class ListInsert {
 
     public ListInsert() {
         this.template = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

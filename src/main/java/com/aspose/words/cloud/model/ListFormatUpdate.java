@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Paragraph list format element for update.
  */
 @ApiModel(description = "Paragraph list format element for update.")
-public class ListFormatUpdate {
+public class ListFormatUpdate implements ModelIfc {
     @SerializedName("ListId")
     protected Integer listId;
 
@@ -93,6 +93,15 @@ public class ListFormatUpdate {
     public ListFormatUpdate() {
         this.listId = null;
         this.listLevelNumber = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

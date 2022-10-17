@@ -105,6 +105,22 @@ public class ImageEntryList extends BaseEntryList {
         this.imageEntries = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
+        super.getFilesContent(resultFilesContent);
+        if (this.imageEntries != null) {
+            for (ModelIfc element : this.imageEntries) {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

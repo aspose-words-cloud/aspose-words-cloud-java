@@ -43,33 +43,46 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents a entry which will be appended to the original resource document.
+ * Represents a base class for document which will be appended to the original resource document.
  */
-@ApiModel(description = "Represents a entry which will be appended to the original resource document.")
-public class BaseEntry {
-    @SerializedName("Href")
-    protected String href;
+@ApiModel(description = "Represents a base class for document which will be appended to the original resource document.")
+public abstract class BaseEntry implements ModelIfc {
+    @SerializedName("FileReference")
+    protected FileReference fileReference;
     /**
-     * Gets or sets the path to entry to append at the server.
-    * @return href
+     * Gets or sets the file reference.
+    * @return fileReference
     **/
-    @ApiModelProperty(value = "Gets or sets the path to entry to append at the server.")
-    public String getHref() {
-        return href;
+    @ApiModelProperty(value = "Gets or sets the file reference.")
+    public FileReference getFileReference() {
+        return fileReference;
     }
 
-    public BaseEntry href(String href) {
-        this.href = href;
+    public BaseEntry fileReference(FileReference fileReference) {
+        this.fileReference = fileReference;
         return this;
     }
 
-    public void setHref(String href) {
-        this.href = href;
+    public void setFileReference(FileReference fileReference) {
+        this.fileReference = fileReference;
     }
 
 
     public BaseEntry() {
-        this.href = null;
+        this.fileReference = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
+        if (this.fileReference != null) {
+            this.fileReference.getFilesContent(resultFilesContent);
+        }
+
     }
 
     @Override
@@ -83,19 +96,19 @@ public class BaseEntry {
 
         BaseEntry baseEntry = (BaseEntry) o;
         return
-            Objects.equals(this.href, baseEntry.href);
+            Objects.equals(this.fileReference, baseEntry.fileReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(href);
+    return Objects.hash(fileReference);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BaseEntry {\n");
-    sb.append("    href: ").append(toIndentedString(getHref())).append("\n");
+    sb.append("    fileReference: ").append(toIndentedString(getFileReference())).append("\n");
     sb.append("}");
     return sb.toString();
   }

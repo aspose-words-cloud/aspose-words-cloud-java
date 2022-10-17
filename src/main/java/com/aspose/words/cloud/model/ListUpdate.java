@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Update document properties if document list.
  */
 @ApiModel(description = "Update document properties if document list.")
-public class ListUpdate {
+public class ListUpdate implements ModelIfc {
     @SerializedName("IsRestartAtEachSection")
     protected Boolean isRestartAtEachSection;
     /**
@@ -70,6 +70,15 @@ public class ListUpdate {
 
     public ListUpdate() {
         this.isRestartAtEachSection = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

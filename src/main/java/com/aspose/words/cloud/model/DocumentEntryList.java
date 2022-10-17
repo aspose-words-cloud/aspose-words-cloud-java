@@ -105,6 +105,22 @@ public class DocumentEntryList extends BaseEntryList {
         this.documentEntries = null;
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
+        super.getFilesContent(resultFilesContent);
+        if (this.documentEntries != null) {
+            for (ModelIfc element : this.documentEntries) {
+                element.getFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

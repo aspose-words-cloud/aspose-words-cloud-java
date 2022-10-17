@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Result of search operation.
  */
 @ApiModel(description = "Result of search operation.")
-public class SearchResult {
+public class SearchResult implements ModelIfc {
     @SerializedName("RangeEnd")
     protected DocumentPosition rangeEnd;
 
@@ -93,6 +93,15 @@ public class SearchResult {
     public SearchResult() {
         this.rangeEnd = null;
         this.rangeStart = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

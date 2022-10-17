@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * File upload result.
  */
 @ApiModel(description = "File upload result.")
-public class FilesUploadResult {
+public class FilesUploadResult implements ModelIfc {
     @SerializedName("Errors")
     protected List<Error> errors;
 
@@ -111,6 +111,15 @@ public class FilesUploadResult {
     public FilesUploadResult() {
         this.errors = null;
         this.uploaded = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

@@ -126,8 +126,6 @@ public class DeleteFolderRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Path' when calling deleteFolder");
         }
 
-        Object localVarPostBody = null;
-
         // create path and map variables
         String localVarPath = "/words/storage/folder/{path}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "path", getPath());
@@ -140,6 +138,7 @@ public class DeleteFolderRequest implements RequestIfc {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+        List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
 
         if (progressListener != null) {
@@ -154,7 +153,7 @@ public class DeleteFolderRequest implements RequestIfc {
             });
         }
 
-        return apiClient.buildRequest(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+        return apiClient.buildRequest(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarHeaderParams, localVarFormParams, localFilesContentParams, addAuthHeaders, progressRequestListener);
     }
 
     /*

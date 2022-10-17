@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO container with a position in the document tree.
  */
 @ApiModel(description = "DTO container with a position in the document tree.")
-public class DocumentPosition {
+public class DocumentPosition implements ModelIfc {
     @SerializedName("Node")
     protected NodeLink node;
 
@@ -93,6 +93,15 @@ public class DocumentPosition {
     public DocumentPosition() {
         this.node = null;
         this.offset = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

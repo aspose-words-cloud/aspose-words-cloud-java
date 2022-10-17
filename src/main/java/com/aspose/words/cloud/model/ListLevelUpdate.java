@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a document list levels.
  */
 @ApiModel(description = "Represents a document list levels.")
-public class ListLevelUpdate {
+public class ListLevelUpdate implements ModelIfc {
     /**
      * Gets or sets the justification of the actual number of the list item.
      */
@@ -477,6 +477,15 @@ public class ListLevelUpdate {
         this.tabPosition = null;
         this.textPosition = null;
         this.trailingCharacter = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

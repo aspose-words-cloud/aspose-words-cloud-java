@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Comment.
  */
 @ApiModel(description = "Comment.")
-public abstract class CommentBase {
+public abstract class CommentBase implements ModelIfc {
     @SerializedName("Author")
     protected String author;
 
@@ -185,6 +185,15 @@ public abstract class CommentBase {
         this.rangeEnd = null;
         this.rangeStart = null;
         this.text = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

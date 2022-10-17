@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO container with a table cell.
  */
 @ApiModel(description = "DTO container with a table cell.")
-public class TableCellInsert {
+public class TableCellInsert implements ModelIfc {
     @SerializedName("InsertAfter")
     protected Integer insertAfter;
     /**
@@ -70,6 +70,15 @@ public class TableCellInsert {
 
     public TableCellInsert() {
         this.insertAfter = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

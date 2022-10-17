@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container for the data about protection of the document.
  */
 @ApiModel(description = "Container for the data about protection of the document.")
-public class ProtectionData {
+public class ProtectionData implements ModelIfc {
     @SerializedName("ProtectionType")
     protected String protectionType;
     /**
@@ -70,6 +70,15 @@ public class ProtectionData {
 
     public ProtectionData() {
         this.protectionType = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

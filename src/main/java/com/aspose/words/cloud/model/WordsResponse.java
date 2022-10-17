@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * The base class for all responses.
  */
 @ApiModel(description = "The base class for all responses.")
-public class WordsResponse {
+public class WordsResponse implements ModelIfc {
     @SerializedName("RequestId")
     protected String requestId;
     /**
@@ -70,6 +70,15 @@ public class WordsResponse {
 
     public WordsResponse() {
         this.requestId = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Class to specify TimeZoneInfo parameters.
  */
 @ApiModel(description = "Class to specify TimeZoneInfo parameters.")
-public class TimeZoneInfoData {
+public class TimeZoneInfoData implements ModelIfc {
     @SerializedName("BaseUtcOffset")
     protected String baseUtcOffset;
 
@@ -139,6 +139,15 @@ public class TimeZoneInfoData {
         this.displayName = null;
         this.id = null;
         this.standardDisplayName = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

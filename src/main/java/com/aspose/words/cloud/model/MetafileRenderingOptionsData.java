@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for options of metafile rendering.
  */
 @ApiModel(description = "Container class for options of metafile rendering.")
-public class MetafileRenderingOptionsData {
+public class MetafileRenderingOptionsData implements ModelIfc {
     /**
      * Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
      */
@@ -257,6 +257,15 @@ public class MetafileRenderingOptionsData {
         this.renderingMode = null;
         this.scaleWmfFontsToMetafileSize = null;
         this.useEmfEmbeddedToWmf = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

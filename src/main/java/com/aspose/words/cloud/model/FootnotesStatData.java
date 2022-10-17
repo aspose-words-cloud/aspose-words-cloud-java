@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container for the footnotes statistical data.
  */
 @ApiModel(description = "Container for the footnotes statistical data.")
-public class FootnotesStatData {
+public class FootnotesStatData implements ModelIfc {
     @SerializedName("ParagraphCount")
     protected Integer paragraphCount;
 
@@ -93,6 +93,15 @@ public class FootnotesStatData {
     public FootnotesStatData() {
         this.paragraphCount = null;
         this.wordCount = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override

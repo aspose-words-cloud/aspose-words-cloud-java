@@ -52,6 +52,16 @@ public class ImageEntry extends BaseEntry {
         super();
     }
 
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
+        super.getFilesContent(resultFilesContent);
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -73,7 +83,7 @@ public class ImageEntry extends BaseEntry {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImageEntry {\n");
-    sb.append("    href: ").append(toIndentedString(getHref())).append("\n");
+    sb.append("    fileReference: ").append(toIndentedString(getFileReference())).append("\n");
     sb.append("}");
     return sb.toString();
   }

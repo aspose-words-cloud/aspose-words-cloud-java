@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents Words document DTO.
  */
 @ApiModel(description = "Represents Words document DTO.")
-public class Document {
+public class Document implements ModelIfc {
     /**
      * Gets or sets the original format of the document.
      */
@@ -259,6 +259,15 @@ public class Document {
         this.isSigned = null;
         this.links = null;
         this.sourceFormat = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
     @Override
