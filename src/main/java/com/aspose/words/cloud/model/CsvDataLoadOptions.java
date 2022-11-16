@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Represents options for parsing CSV data.
+ * To learn more, visit the LINQ Reporting Engine documentation article.
  */
-@ApiModel(description = "Represents options for parsing CSV data.")
+@ApiModel(description = "Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article.")
 public class CsvDataLoadOptions implements ModelIfc {
     @SerializedName("CommentChar")
     protected String commentChar;

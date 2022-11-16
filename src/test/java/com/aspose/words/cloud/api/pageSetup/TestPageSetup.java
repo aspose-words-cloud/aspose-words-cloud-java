@@ -189,7 +189,7 @@ public class TestPageSetup  extends TestCase
         RenderPageRequest request = new RenderPageRequest(
             remoteFileName,
             1,
-            "bmp",
+            "jpg",
             remoteDataFolder,
             null,
             null,
@@ -212,7 +212,7 @@ public class TestPageSetup  extends TestCase
         RenderPageOnlineRequest request = new RenderPageOnlineRequest(
             requestDocument,
             1,
-            "bmp",
+            "jpg",
             null,
             null,
             null,

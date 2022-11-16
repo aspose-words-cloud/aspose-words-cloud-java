@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Represents options for XML data loading.
+ * To learn more, visit the LINQ Reporting Engine documentation article.
  */
-@ApiModel(description = "Represents options for XML data loading.")
+@ApiModel(description = "Represents options for XML data loading. To learn more, visit the LINQ Reporting Engine documentation article.")
 public class XmlDataLoadOptions implements ModelIfc {
     @SerializedName("AlwaysGenerateRootObject")
     protected Boolean alwaysGenerateRootObject;
