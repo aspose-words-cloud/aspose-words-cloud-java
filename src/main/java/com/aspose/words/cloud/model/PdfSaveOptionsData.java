@@ -434,8 +434,8 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         }
     }
 
-    @SerializedName("CacheHeaderFooterShapes")
-    protected Boolean cacheHeaderFooterShapes;
+    @SerializedName("CacheBackgroundGraphics")
+    protected Boolean cacheBackgroundGraphics;
 
     @SerializedName("Compliance")
     protected ComplianceEnum compliance;
@@ -454,6 +454,9 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     @SerializedName("DownsampleOptions")
     protected DownsampleOptionsData downsampleOptions;
+
+    @SerializedName("EmbedAttachments")
+    protected Boolean embedAttachments;
 
     @SerializedName("EmbedFullFonts")
     protected Boolean embedFullFonts;
@@ -512,21 +515,21 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("ZoomFactor")
     protected Integer zoomFactor;
     /**
-     * Gets or sets a value indicating whether or not to cache shapes placed in header and footer of document.
-    * @return cacheHeaderFooterShapes
+     * Gets or sets a value determining whether or not to cache graphics placed in document's background.
+    * @return cacheBackgroundGraphics
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether or not to cache shapes placed in header and footer of document.")
-    public Boolean getCacheHeaderFooterShapes() {
-        return cacheHeaderFooterShapes;
+    @ApiModelProperty(value = "Gets or sets a value determining whether or not to cache graphics placed in document's background.")
+    public Boolean getCacheBackgroundGraphics() {
+        return cacheBackgroundGraphics;
     }
 
-    public PdfSaveOptionsData cacheHeaderFooterShapes(Boolean cacheHeaderFooterShapes) {
-        this.cacheHeaderFooterShapes = cacheHeaderFooterShapes;
+    public PdfSaveOptionsData cacheBackgroundGraphics(Boolean cacheBackgroundGraphics) {
+        this.cacheBackgroundGraphics = cacheBackgroundGraphics;
         return this;
     }
 
-    public void setCacheHeaderFooterShapes(Boolean cacheHeaderFooterShapes) {
-        this.cacheHeaderFooterShapes = cacheHeaderFooterShapes;
+    public void setCacheBackgroundGraphics(Boolean cacheBackgroundGraphics) {
+        this.cacheBackgroundGraphics = cacheBackgroundGraphics;
     }
 
 
@@ -644,6 +647,25 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     public void setDownsampleOptions(DownsampleOptionsData downsampleOptions) {
         this.downsampleOptions = downsampleOptions;
+    }
+
+
+    /**
+     * Gets or sets a value determining whether or not to embed attachments to the PDF document.
+    * @return embedAttachments
+    **/
+    @ApiModelProperty(value = "Gets or sets a value determining whether or not to embed attachments to the PDF document.")
+    public Boolean getEmbedAttachments() {
+        return embedAttachments;
+    }
+
+    public PdfSaveOptionsData embedAttachments(Boolean embedAttachments) {
+        this.embedAttachments = embedAttachments;
+        return this;
+    }
+
+    public void setEmbedAttachments(Boolean embedAttachments) {
+        this.embedAttachments = embedAttachments;
     }
 
 
@@ -1011,13 +1033,14 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     public PdfSaveOptionsData() {
         super();
-        this.cacheHeaderFooterShapes = null;
+        this.cacheBackgroundGraphics = null;
         this.compliance = null;
         this.createNoteHyperlinks = null;
         this.customPropertiesExport = null;
         this.digitalSignatureDetails = null;
         this.displayDocTitle = null;
         this.downsampleOptions = null;
+        this.embedAttachments = null;
         this.embedFullFonts = null;
         this.encryptionDetails = null;
         this.exportDocumentStructure = null;
@@ -1060,13 +1083,14 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
         PdfSaveOptionsData pdfSaveOptionsData = (PdfSaveOptionsData) o;
         return
-            Objects.equals(this.cacheHeaderFooterShapes, pdfSaveOptionsData.cacheHeaderFooterShapes) &&
+            Objects.equals(this.cacheBackgroundGraphics, pdfSaveOptionsData.cacheBackgroundGraphics) &&
             Objects.equals(this.compliance, pdfSaveOptionsData.compliance) &&
             Objects.equals(this.createNoteHyperlinks, pdfSaveOptionsData.createNoteHyperlinks) &&
             Objects.equals(this.customPropertiesExport, pdfSaveOptionsData.customPropertiesExport) &&
             Objects.equals(this.digitalSignatureDetails, pdfSaveOptionsData.digitalSignatureDetails) &&
             Objects.equals(this.displayDocTitle, pdfSaveOptionsData.displayDocTitle) &&
             Objects.equals(this.downsampleOptions, pdfSaveOptionsData.downsampleOptions) &&
+            Objects.equals(this.embedAttachments, pdfSaveOptionsData.embedAttachments) &&
             Objects.equals(this.embedFullFonts, pdfSaveOptionsData.embedFullFonts) &&
             Objects.equals(this.encryptionDetails, pdfSaveOptionsData.encryptionDetails) &&
             Objects.equals(this.exportDocumentStructure, pdfSaveOptionsData.exportDocumentStructure) &&
@@ -1091,7 +1115,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cacheHeaderFooterShapes, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor, super.hashCode());
+    return Objects.hash(cacheBackgroundGraphics, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedAttachments, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor, super.hashCode());
   }
 
   @Override
@@ -1118,13 +1142,14 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
     sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
     sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
-    sb.append("    cacheHeaderFooterShapes: ").append(toIndentedString(getCacheHeaderFooterShapes())).append("\n");
+    sb.append("    cacheBackgroundGraphics: ").append(toIndentedString(getCacheBackgroundGraphics())).append("\n");
     sb.append("    compliance: ").append(toIndentedString(getCompliance())).append("\n");
     sb.append("    createNoteHyperlinks: ").append(toIndentedString(getCreateNoteHyperlinks())).append("\n");
     sb.append("    customPropertiesExport: ").append(toIndentedString(getCustomPropertiesExport())).append("\n");
     sb.append("    digitalSignatureDetails: ").append(toIndentedString(getDigitalSignatureDetails())).append("\n");
     sb.append("    displayDocTitle: ").append(toIndentedString(getDisplayDocTitle())).append("\n");
     sb.append("    downsampleOptions: ").append(toIndentedString(getDownsampleOptions())).append("\n");
+    sb.append("    embedAttachments: ").append(toIndentedString(getEmbedAttachments())).append("\n");
     sb.append("    embedFullFonts: ").append(toIndentedString(getEmbedFullFonts())).append("\n");
     sb.append("    encryptionDetails: ").append(toIndentedString(getEncryptionDetails())).append("\n");
     sb.append("    exportDocumentStructure: ").append(toIndentedString(getExportDocumentStructure())).append("\n");
