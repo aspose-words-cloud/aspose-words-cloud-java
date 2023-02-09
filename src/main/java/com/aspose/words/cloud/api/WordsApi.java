@@ -5471,6 +5471,149 @@ public class WordsApi implements EncryptorFactory {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteStructuredDocumentTagValidateBeforeCall(DeleteStructuredDocumentTagRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes a StructuredDocumentTag (SDT) from the document node.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteStructuredDocumentTag(DeleteStructuredDocumentTagRequest request) throws ApiException, MessagingException, IOException {
+        try {
+    deleteStructuredDocumentTagWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+    deleteStructuredDocumentTagWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes a StructuredDocumentTag (SDT) from the document node.
+     * @param request Request object
+     * @return ApiResponse< void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteStructuredDocumentTagWithHttpInfo(DeleteStructuredDocumentTagRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteStructuredDocumentTagValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Removes a StructuredDocumentTag (SDT) from the document node. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteStructuredDocumentTagAsync(DeleteStructuredDocumentTagRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteStructuredDocumentTagValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteStructuredDocumentTagOnlineValidateBeforeCall(DeleteStructuredDocumentTagOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes a StructuredDocumentTag (SDT) from the document node.
+     * @param request Request object
+     * @return Map<String, byte[]>
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Map<String, byte[]> deleteStructuredDocumentTagOnline(DeleteStructuredDocumentTagOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< Map<String, byte[]> > resp = deleteStructuredDocumentTagOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< Map<String, byte[]> > resp = deleteStructuredDocumentTagOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes a StructuredDocumentTag (SDT) from the document node.
+     * @param request Request object
+     * @return ApiResponse< Map<String, byte[]> >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Map<String, byte[]> > deleteStructuredDocumentTagOnlineWithHttpInfo(DeleteStructuredDocumentTagOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteStructuredDocumentTagOnlineValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Removes a StructuredDocumentTag (SDT) from the document node. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteStructuredDocumentTagOnlineAsync(DeleteStructuredDocumentTagOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteStructuredDocumentTagOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteTableValidateBeforeCall(DeleteTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
@@ -13127,6 +13270,298 @@ public class WordsApi implements EncryptorFactory {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getStructuredDocumentTagValidateBeforeCall(GetStructuredDocumentTagRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Reads a StructuredDocumentTag (SDT) from the document node.
+     * @param request Request object
+     * @return StructuredDocumentTagResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public StructuredDocumentTagResponse getStructuredDocumentTag(GetStructuredDocumentTagRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< StructuredDocumentTagResponse > resp = getStructuredDocumentTagWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< StructuredDocumentTagResponse > resp = getStructuredDocumentTagWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads a StructuredDocumentTag (SDT) from the document node.
+     * @param request Request object
+     * @return ApiResponse< StructuredDocumentTagResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< StructuredDocumentTagResponse > getStructuredDocumentTagWithHttpInfo(GetStructuredDocumentTagRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = getStructuredDocumentTagValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Reads a StructuredDocumentTag (SDT) from the document node. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getStructuredDocumentTagAsync(GetStructuredDocumentTagRequest request, final ApiCallback< StructuredDocumentTagResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getStructuredDocumentTagValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getStructuredDocumentTagOnlineValidateBeforeCall(GetStructuredDocumentTagOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Reads a StructuredDocumentTag (SDT) from the document node.
+     * @param request Request object
+     * @return StructuredDocumentTagResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public StructuredDocumentTagResponse getStructuredDocumentTagOnline(GetStructuredDocumentTagOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< StructuredDocumentTagResponse > resp = getStructuredDocumentTagOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< StructuredDocumentTagResponse > resp = getStructuredDocumentTagOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads a StructuredDocumentTag (SDT) from the document node.
+     * @param request Request object
+     * @return ApiResponse< StructuredDocumentTagResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< StructuredDocumentTagResponse > getStructuredDocumentTagOnlineWithHttpInfo(GetStructuredDocumentTagOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = getStructuredDocumentTagOnlineValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Reads a StructuredDocumentTag (SDT) from the document node. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getStructuredDocumentTagOnlineAsync(GetStructuredDocumentTagOnlineRequest request, final ApiCallback< StructuredDocumentTagResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getStructuredDocumentTagOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getStructuredDocumentTagsValidateBeforeCall(GetStructuredDocumentTagsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Reads StructuredDocumentTags (SDT) from the document node.
+     * @param request Request object
+     * @return StructuredDocumentTagsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public StructuredDocumentTagsResponse getStructuredDocumentTags(GetStructuredDocumentTagsRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< StructuredDocumentTagsResponse > resp = getStructuredDocumentTagsWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< StructuredDocumentTagsResponse > resp = getStructuredDocumentTagsWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads StructuredDocumentTags (SDT) from the document node.
+     * @param request Request object
+     * @return ApiResponse< StructuredDocumentTagsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< StructuredDocumentTagsResponse > getStructuredDocumentTagsWithHttpInfo(GetStructuredDocumentTagsRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = getStructuredDocumentTagsValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Reads StructuredDocumentTags (SDT) from the document node. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getStructuredDocumentTagsAsync(GetStructuredDocumentTagsRequest request, final ApiCallback< StructuredDocumentTagsResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getStructuredDocumentTagsValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getStructuredDocumentTagsOnlineValidateBeforeCall(GetStructuredDocumentTagsOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Reads StructuredDocumentTags (SDT) from the document node.
+     * @param request Request object
+     * @return StructuredDocumentTagsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public StructuredDocumentTagsResponse getStructuredDocumentTagsOnline(GetStructuredDocumentTagsOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< StructuredDocumentTagsResponse > resp = getStructuredDocumentTagsOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< StructuredDocumentTagsResponse > resp = getStructuredDocumentTagsOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads StructuredDocumentTags (SDT) from the document node.
+     * @param request Request object
+     * @return ApiResponse< StructuredDocumentTagsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< StructuredDocumentTagsResponse > getStructuredDocumentTagsOnlineWithHttpInfo(GetStructuredDocumentTagsOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = getStructuredDocumentTagsOnlineValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Reads StructuredDocumentTags (SDT) from the document node. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getStructuredDocumentTagsOnlineAsync(GetStructuredDocumentTagsOnlineRequest request, final ApiCallback< StructuredDocumentTagsResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getStructuredDocumentTagsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getStyleValidateBeforeCall(GetStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
@@ -16480,6 +16915,152 @@ public class WordsApi implements EncryptorFactory {
         }
 
         com.squareup.okhttp.Call call = insertRunOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertStructuredDocumentTagValidateBeforeCall(InsertStructuredDocumentTagRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Inserts a new StructuredDocumentTag (SDT) to the document node.
+     * @param request Request object
+     * @return StructuredDocumentTagResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public StructuredDocumentTagResponse insertStructuredDocumentTag(InsertStructuredDocumentTagRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< StructuredDocumentTagResponse > resp = insertStructuredDocumentTagWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< StructuredDocumentTagResponse > resp = insertStructuredDocumentTagWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Inserts a new StructuredDocumentTag (SDT) to the document node.
+     * @param request Request object
+     * @return ApiResponse< StructuredDocumentTagResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< StructuredDocumentTagResponse > insertStructuredDocumentTagWithHttpInfo(InsertStructuredDocumentTagRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = insertStructuredDocumentTagValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Inserts a new StructuredDocumentTag (SDT) to the document node. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertStructuredDocumentTagAsync(InsertStructuredDocumentTagRequest request, final ApiCallback< StructuredDocumentTagResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertStructuredDocumentTagValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertStructuredDocumentTagOnlineValidateBeforeCall(InsertStructuredDocumentTagOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Inserts a new StructuredDocumentTag (SDT) to the document node.
+     * @param request Request object
+     * @return InsertStructuredDocumentTagOnlineResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public InsertStructuredDocumentTagOnlineResponse insertStructuredDocumentTagOnline(InsertStructuredDocumentTagOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< InsertStructuredDocumentTagOnlineResponse > resp = insertStructuredDocumentTagOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< InsertStructuredDocumentTagOnlineResponse > resp = insertStructuredDocumentTagOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Inserts a new StructuredDocumentTag (SDT) to the document node.
+     * @param request Request object
+     * @return ApiResponse< InsertStructuredDocumentTagOnlineResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< InsertStructuredDocumentTagOnlineResponse > insertStructuredDocumentTagOnlineWithHttpInfo(InsertStructuredDocumentTagOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = insertStructuredDocumentTagOnlineValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Inserts a new StructuredDocumentTag (SDT) to the document node. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertStructuredDocumentTagOnlineAsync(InsertStructuredDocumentTagOnlineRequest request, final ApiCallback< InsertStructuredDocumentTagOnlineResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertStructuredDocumentTagOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
         apiClient.executeAsync(call, request, callback);
         return call;
     }
@@ -22524,6 +23105,152 @@ public class WordsApi implements EncryptorFactory {
         }
 
         com.squareup.okhttp.Call call = updateSectionPageSetupOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateStructuredDocumentTagValidateBeforeCall(UpdateStructuredDocumentTagRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Updates a StructuredDocumentTag (SDT) in the document node.
+     * @param request Request object
+     * @return StructuredDocumentTagResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public StructuredDocumentTagResponse updateStructuredDocumentTag(UpdateStructuredDocumentTagRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< StructuredDocumentTagResponse > resp = updateStructuredDocumentTagWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< StructuredDocumentTagResponse > resp = updateStructuredDocumentTagWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates a StructuredDocumentTag (SDT) in the document node.
+     * @param request Request object
+     * @return ApiResponse< StructuredDocumentTagResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< StructuredDocumentTagResponse > updateStructuredDocumentTagWithHttpInfo(UpdateStructuredDocumentTagRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = updateStructuredDocumentTagValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Updates a StructuredDocumentTag (SDT) in the document node. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateStructuredDocumentTagAsync(UpdateStructuredDocumentTagRequest request, final ApiCallback< StructuredDocumentTagResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateStructuredDocumentTagValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateStructuredDocumentTagOnlineValidateBeforeCall(UpdateStructuredDocumentTagOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Updates a StructuredDocumentTag (SDT) in the document node.
+     * @param request Request object
+     * @return UpdateStructuredDocumentTagOnlineResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public UpdateStructuredDocumentTagOnlineResponse updateStructuredDocumentTagOnline(UpdateStructuredDocumentTagOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< UpdateStructuredDocumentTagOnlineResponse > resp = updateStructuredDocumentTagOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< UpdateStructuredDocumentTagOnlineResponse > resp = updateStructuredDocumentTagOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates a StructuredDocumentTag (SDT) in the document node.
+     * @param request Request object
+     * @return ApiResponse< UpdateStructuredDocumentTagOnlineResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< UpdateStructuredDocumentTagOnlineResponse > updateStructuredDocumentTagOnlineWithHttpInfo(UpdateStructuredDocumentTagOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = updateStructuredDocumentTagOnlineValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Updates a StructuredDocumentTag (SDT) in the document node. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateStructuredDocumentTagOnlineAsync(UpdateStructuredDocumentTagOnlineRequest request, final ApiCallback< UpdateStructuredDocumentTagOnlineResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateStructuredDocumentTagOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
         apiClient.executeAsync(call, request, callback);
         return call;
     }
