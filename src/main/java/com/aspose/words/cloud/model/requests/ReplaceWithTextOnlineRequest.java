@@ -47,7 +47,7 @@ public class ReplaceWithTextOnlineRequest implements RequestIfc {
     private byte[] document;
 
     /*
-     * The range start identifier.
+     * The range start identifier. Identifier examples: id0.0.0, page0.
      */
     private String rangeStartIdentifier;
 
@@ -57,7 +57,7 @@ public class ReplaceWithTextOnlineRequest implements RequestIfc {
     private ReplaceRange rangeText;
 
     /*
-     * The range end identifier.
+     * The range end identifier. Identifier examples: id1.0.0, id0.0.0:end, page1, page1:end, document:end.
      */
     private String rangeEndIdentifier;
 
@@ -85,9 +85,9 @@ public class ReplaceWithTextOnlineRequest implements RequestIfc {
      * Initializes a new instance of the ReplaceWithTextOnlineRequest class.
      *
      * @param byte[] document The document.
-     * @param String rangeStartIdentifier The range start identifier.
+     * @param String rangeStartIdentifier The range start identifier. Identifier examples: id0.0.0, page0.
      * @param ReplaceRange rangeText Model with text for replacement.
-     * @param String rangeEndIdentifier The range end identifier.
+     * @param String rangeEndIdentifier The range end identifier. Identifier examples: id1.0.0, id0.0.0:end, page1, page1:end, document:end.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
@@ -119,14 +119,14 @@ public class ReplaceWithTextOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets The range start identifier.
+     * Gets The range start identifier. Identifier examples: id0.0.0, page0.
      */
     public String getRangeStartIdentifier() {
         return this.rangeStartIdentifier;
     }
 
     /*
-     * Sets The range start identifier.
+     * Sets The range start identifier. Identifier examples: id0.0.0, page0.
      */
     public void setRangeStartIdentifier(String value) {
         this.rangeStartIdentifier = value;
@@ -147,14 +147,14 @@ public class ReplaceWithTextOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets The range end identifier.
+     * Gets The range end identifier. Identifier examples: id1.0.0, id0.0.0:end, page1, page1:end, document:end.
      */
     public String getRangeEndIdentifier() {
         return this.rangeEndIdentifier;
     }
 
     /*
-     * Sets The range end identifier.
+     * Sets The range end identifier. Identifier examples: id1.0.0, id0.0.0:end, page1, page1:end, document:end.
      */
     public void setRangeEndIdentifier(String value) {
         this.rangeEndIdentifier = value;
