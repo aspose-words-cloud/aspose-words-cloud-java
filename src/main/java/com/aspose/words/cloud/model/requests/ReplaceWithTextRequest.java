@@ -47,7 +47,7 @@ public class ReplaceWithTextRequest implements RequestIfc {
     private String name;
 
     /*
-     * The range start identifier.
+     * The range start identifier. Identifier examples: id0.0.0, page0.
      */
     private String rangeStartIdentifier;
 
@@ -57,7 +57,7 @@ public class ReplaceWithTextRequest implements RequestIfc {
     private ReplaceRange rangeText;
 
     /*
-     * The range end identifier.
+     * The range end identifier. Identifier examples: id1.0.0, id0.0.0:end, page1, page1:end, document:end.
      */
     private String rangeEndIdentifier;
 
@@ -95,9 +95,9 @@ public class ReplaceWithTextRequest implements RequestIfc {
      * Initializes a new instance of the ReplaceWithTextRequest class.
      *
      * @param String name The filename of the input document.
-     * @param String rangeStartIdentifier The range start identifier.
+     * @param String rangeStartIdentifier The range start identifier. Identifier examples: id0.0.0, page0.
      * @param ReplaceRange rangeText Model with text for replacement.
-     * @param String rangeEndIdentifier The range end identifier.
+     * @param String rangeEndIdentifier The range end identifier. Identifier examples: id1.0.0, id0.0.0:end, page1, page1:end, document:end.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -133,14 +133,14 @@ public class ReplaceWithTextRequest implements RequestIfc {
     }
 
     /*
-     * Gets The range start identifier.
+     * Gets The range start identifier. Identifier examples: id0.0.0, page0.
      */
     public String getRangeStartIdentifier() {
         return this.rangeStartIdentifier;
     }
 
     /*
-     * Sets The range start identifier.
+     * Sets The range start identifier. Identifier examples: id0.0.0, page0.
      */
     public void setRangeStartIdentifier(String value) {
         this.rangeStartIdentifier = value;
@@ -161,14 +161,14 @@ public class ReplaceWithTextRequest implements RequestIfc {
     }
 
     /*
-     * Gets The range end identifier.
+     * Gets The range end identifier. Identifier examples: id1.0.0, id0.0.0:end, page1, page1:end, document:end.
      */
     public String getRangeEndIdentifier() {
         return this.rangeEndIdentifier;
     }
 
     /*
-     * Sets The range end identifier.
+     * Sets The range end identifier. Identifier examples: id1.0.0, id0.0.0:end, page1, page1:end, document:end.
      */
     public void setRangeEndIdentifier(String value) {
         this.rangeEndIdentifier = value;
