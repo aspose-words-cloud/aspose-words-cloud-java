@@ -57,10 +57,10 @@ public abstract class CommentBase implements ModelIfc {
     protected String initial;
 
     @SerializedName("RangeEnd")
-    protected DocumentPosition rangeEnd;
+    protected NewDocumentPosition rangeEnd;
 
     @SerializedName("RangeStart")
-    protected DocumentPosition rangeStart;
+    protected NewDocumentPosition rangeStart;
 
     @SerializedName("Text")
     protected String text;
@@ -126,16 +126,16 @@ public abstract class CommentBase implements ModelIfc {
     * @return rangeEnd
     **/
     @ApiModelProperty(value = "Gets or sets the link to comment range end node.")
-    public DocumentPosition getRangeEnd() {
+    public NewDocumentPosition getRangeEnd() {
         return rangeEnd;
     }
 
-    public CommentBase rangeEnd(DocumentPosition rangeEnd) {
+    public CommentBase rangeEnd(NewDocumentPosition rangeEnd) {
         this.rangeEnd = rangeEnd;
         return this;
     }
 
-    public void setRangeEnd(DocumentPosition rangeEnd) {
+    public void setRangeEnd(NewDocumentPosition rangeEnd) {
         this.rangeEnd = rangeEnd;
     }
 
@@ -145,16 +145,16 @@ public abstract class CommentBase implements ModelIfc {
     * @return rangeStart
     **/
     @ApiModelProperty(value = "Gets or sets the link to comment range start node.")
-    public DocumentPosition getRangeStart() {
+    public NewDocumentPosition getRangeStart() {
         return rangeStart;
     }
 
-    public CommentBase rangeStart(DocumentPosition rangeStart) {
+    public CommentBase rangeStart(NewDocumentPosition rangeStart) {
         this.rangeStart = rangeStart;
         return this;
     }
 
-    public void setRangeStart(DocumentPosition rangeStart) {
+    public void setRangeStart(NewDocumentPosition rangeStart) {
         this.rangeStart = rangeStart;
     }
 

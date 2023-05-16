@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="TableInsert.java">
+ * <copyright company="Aspose" file="NewDocumentPosition.java">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -43,79 +43,56 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * DTO container with a table element.
+ * DTO container with a new position in the document tree.
  */
-@ApiModel(description = "DTO container with a table element.")
-public class TableInsert implements ModelIfc {
-    @SerializedName("ColumnsCount")
-    protected Integer columnsCount;
+@ApiModel(description = "DTO container with a new position in the document tree.")
+public class NewDocumentPosition implements ModelIfc {
+    @SerializedName("NodeId")
+    protected String nodeId;
 
-    @SerializedName("Position")
-    protected NewDocumentPosition position;
-
-    @SerializedName("RowsCount")
-    protected Integer rowsCount;
+    @SerializedName("Offset")
+    protected Integer offset;
     /**
-     * Gets or sets the number of columns. The default value is 2.
-    * @return columnsCount
+     * Gets or sets the node id.
+    * @return nodeId
     **/
-    @ApiModelProperty(value = "Gets or sets the number of columns. The default value is 2.")
-    public Integer getColumnsCount() {
-        return columnsCount;
+    @ApiModelProperty(value = "Gets or sets the node id.")
+    public String getNodeId() {
+        return nodeId;
     }
 
-    public TableInsert columnsCount(Integer columnsCount) {
-        this.columnsCount = columnsCount;
+    public NewDocumentPosition nodeId(String nodeId) {
+        this.nodeId = nodeId;
         return this;
     }
 
-    public void setColumnsCount(Integer columnsCount) {
-        this.columnsCount = columnsCount;
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
     }
 
 
     /**
-     * Gets or sets the position to insert the table. The table will be inserted before the specified position.
-    * @return position
+     * Gets or sets the offset in the node.
+    * @return offset
     **/
-    @ApiModelProperty(value = "Gets or sets the position to insert the table. The table will be inserted before the specified position.")
-    public NewDocumentPosition getPosition() {
-        return position;
+    @ApiModelProperty(value = "Gets or sets the offset in the node.")
+    public Integer getOffset() {
+        return offset;
     }
 
-    public TableInsert position(NewDocumentPosition position) {
-        this.position = position;
+    public NewDocumentPosition offset(Integer offset) {
+        this.offset = offset;
         return this;
     }
 
-    public void setPosition(NewDocumentPosition position) {
-        this.position = position;
+    public void setOffset(Integer offset) {
+        this.offset = offset;
     }
 
 
-    /**
-     * Gets or sets the number of rows. The default value is 2.
-    * @return rowsCount
-    **/
-    @ApiModelProperty(value = "Gets or sets the number of rows. The default value is 2.")
-    public Integer getRowsCount() {
-        return rowsCount;
-    }
-
-    public TableInsert rowsCount(Integer rowsCount) {
-        this.rowsCount = rowsCount;
-        return this;
-    }
-
-    public void setRowsCount(Integer rowsCount) {
-        this.rowsCount = rowsCount;
-    }
-
-
-    public TableInsert() {
-        this.columnsCount = null;
-        this.position = null;
-        this.rowsCount = null;
+    public NewDocumentPosition() {
+        this.nodeId = null;
+        this.offset = null;
     }
 
     /*
@@ -136,25 +113,23 @@ public class TableInsert implements ModelIfc {
             return false;
         }
 
-        TableInsert tableInsert = (TableInsert) o;
+        NewDocumentPosition newDocumentPosition = (NewDocumentPosition) o;
         return
-            Objects.equals(this.columnsCount, tableInsert.columnsCount) &&
-            Objects.equals(this.position, tableInsert.position) &&
-            Objects.equals(this.rowsCount, tableInsert.rowsCount);
+            Objects.equals(this.nodeId, newDocumentPosition.nodeId) &&
+            Objects.equals(this.offset, newDocumentPosition.offset);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(columnsCount, position, rowsCount);
+    return Objects.hash(nodeId, offset);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TableInsert {\n");
-    sb.append("    columnsCount: ").append(toIndentedString(getColumnsCount())).append("\n");
-    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
-    sb.append("    rowsCount: ").append(toIndentedString(getRowsCount())).append("\n");
+    sb.append("class NewDocumentPosition {\n");
+    sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
+    sb.append("    offset: ").append(toIndentedString(getOffset())).append("\n");
     sb.append("}");
     return sb.toString();
   }

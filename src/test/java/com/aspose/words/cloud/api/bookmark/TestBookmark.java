@@ -323,17 +323,13 @@ public class TestBookmark  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        NodeLink requestBookmarkStartRangeNode = new NodeLink();
-        requestBookmarkStartRangeNode.setNodeId("0.0.0.0");
+        NewDocumentPosition requestBookmarkStartRange = new NewDocumentPosition();
+        requestBookmarkStartRange.setNodeId("0.0.0.0");
+        requestBookmarkStartRange.setOffset(0);
 
-        DocumentPosition requestBookmarkStartRange = new DocumentPosition();
-        requestBookmarkStartRange.setNode(requestBookmarkStartRangeNode);
-
-        NodeLink requestBookmarkEndRangeNode = new NodeLink();
-        requestBookmarkEndRangeNode.setNodeId("0.0.0.0");
-
-        DocumentPosition requestBookmarkEndRange = new DocumentPosition();
-        requestBookmarkEndRange.setNode(requestBookmarkEndRangeNode);
+        NewDocumentPosition requestBookmarkEndRange = new NewDocumentPosition();
+        requestBookmarkEndRange.setNodeId("0.0.0.0");
+        requestBookmarkEndRange.setOffset(0);
 
         BookmarkInsert requestBookmark = new BookmarkInsert();
         requestBookmark.setStartRange(requestBookmarkStartRange);
@@ -365,17 +361,13 @@ public class TestBookmark  extends TestCase
     public void testInsertBookmarkOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
-        NodeLink requestBookmarkStartRangeNode = new NodeLink();
-        requestBookmarkStartRangeNode.setNodeId("0.0.0.0");
+        NewDocumentPosition requestBookmarkStartRange = new NewDocumentPosition();
+        requestBookmarkStartRange.setNodeId("0.0.0.0");
+        requestBookmarkStartRange.setOffset(0);
 
-        DocumentPosition requestBookmarkStartRange = new DocumentPosition();
-        requestBookmarkStartRange.setNode(requestBookmarkStartRangeNode);
-
-        NodeLink requestBookmarkEndRangeNode = new NodeLink();
-        requestBookmarkEndRangeNode.setNodeId("0.0.0.0");
-
-        DocumentPosition requestBookmarkEndRange = new DocumentPosition();
-        requestBookmarkEndRange.setNode(requestBookmarkEndRangeNode);
+        NewDocumentPosition requestBookmarkEndRange = new NewDocumentPosition();
+        requestBookmarkEndRange.setNodeId("0.0.0.0");
+        requestBookmarkEndRange.setOffset(0);
 
         BookmarkInsert requestBookmark = new BookmarkInsert();
         requestBookmark.setStartRange(requestBookmarkStartRange);

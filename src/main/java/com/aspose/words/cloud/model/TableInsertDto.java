@@ -51,7 +51,7 @@ public class TableInsertDto implements ModelIfc {
     protected Integer columnsCount;
 
     @SerializedName("Position")
-    protected DocumentPosition position;
+    protected NewDocumentPosition position;
 
     @SerializedName("RowsCount")
     protected Integer rowsCount;
@@ -79,16 +79,16 @@ public class TableInsertDto implements ModelIfc {
     * @return position
     **/
     @ApiModelProperty(value = "Gets or sets the position to insert the table. The table will be inserted before the specified position.")
-    public DocumentPosition getPosition() {
+    public NewDocumentPosition getPosition() {
         return position;
     }
 
-    public TableInsertDto position(DocumentPosition position) {
+    public TableInsertDto position(NewDocumentPosition position) {
         this.position = position;
         return this;
     }
 
-    public void setPosition(DocumentPosition position) {
+    public void setPosition(NewDocumentPosition position) {
         this.position = position;
     }
 

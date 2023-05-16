@@ -163,18 +163,12 @@ public class TestComment  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        NodeLink requestCommentRangeStartNode = new NodeLink();
-        requestCommentRangeStartNode.setNodeId("0.3.0.3");
-
-        DocumentPosition requestCommentRangeStart = new DocumentPosition();
-        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
+        NewDocumentPosition requestCommentRangeStart = new NewDocumentPosition();
+        requestCommentRangeStart.setNodeId("0.3.0.3");
         requestCommentRangeStart.setOffset(0);
 
-        NodeLink requestCommentRangeEndNode = new NodeLink();
-        requestCommentRangeEndNode.setNodeId("0.3.0.3");
-
-        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
-        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
+        NewDocumentPosition requestCommentRangeEnd = new NewDocumentPosition();
+        requestCommentRangeEnd.setNodeId("0.3.0.3");
         requestCommentRangeEnd.setOffset(0);
 
         CommentInsert requestComment = new CommentInsert();
@@ -213,18 +207,12 @@ public class TestComment  extends TestCase
     public void testInsertCommentOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
-        NodeLink requestCommentRangeStartNode = new NodeLink();
-        requestCommentRangeStartNode.setNodeId("0.3.0.3");
-
-        DocumentPosition requestCommentRangeStart = new DocumentPosition();
-        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
+        NewDocumentPosition requestCommentRangeStart = new NewDocumentPosition();
+        requestCommentRangeStart.setNodeId("0.3.0.3");
         requestCommentRangeStart.setOffset(0);
 
-        NodeLink requestCommentRangeEndNode = new NodeLink();
-        requestCommentRangeEndNode.setNodeId("0.3.0.3");
-
-        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
-        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
+        NewDocumentPosition requestCommentRangeEnd = new NewDocumentPosition();
+        requestCommentRangeEnd.setNodeId("0.3.0.3");
         requestCommentRangeEnd.setOffset(0);
 
         CommentInsert requestComment = new CommentInsert();
@@ -262,18 +250,12 @@ public class TestComment  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        NodeLink requestCommentRangeStartNode = new NodeLink();
-        requestCommentRangeStartNode.setNodeId("0.3.0");
-
-        DocumentPosition requestCommentRangeStart = new DocumentPosition();
-        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
+        NewDocumentPosition requestCommentRangeStart = new NewDocumentPosition();
+        requestCommentRangeStart.setNodeId("0.3.0");
         requestCommentRangeStart.setOffset(0);
 
-        NodeLink requestCommentRangeEndNode = new NodeLink();
-        requestCommentRangeEndNode.setNodeId("0.3.0");
-
-        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
-        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
+        NewDocumentPosition requestCommentRangeEnd = new NewDocumentPosition();
+        requestCommentRangeEnd.setNodeId("0.3.0");
         requestCommentRangeEnd.setOffset(0);
 
         CommentUpdate requestComment = new CommentUpdate();
@@ -313,18 +295,12 @@ public class TestComment  extends TestCase
     public void testUpdateCommentOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
-        NodeLink requestCommentRangeStartNode = new NodeLink();
-        requestCommentRangeStartNode.setNodeId("0.3.0");
-
-        DocumentPosition requestCommentRangeStart = new DocumentPosition();
-        requestCommentRangeStart.setNode(requestCommentRangeStartNode);
+        NewDocumentPosition requestCommentRangeStart = new NewDocumentPosition();
+        requestCommentRangeStart.setNodeId("0.3.0");
         requestCommentRangeStart.setOffset(0);
 
-        NodeLink requestCommentRangeEndNode = new NodeLink();
-        requestCommentRangeEndNode.setNodeId("0.3.0");
-
-        DocumentPosition requestCommentRangeEnd = new DocumentPosition();
-        requestCommentRangeEnd.setNode(requestCommentRangeEndNode);
+        NewDocumentPosition requestCommentRangeEnd = new NewDocumentPosition();
+        requestCommentRangeEnd.setNodeId("0.3.0");
         requestCommentRangeEnd.setOffset(0);
 
         CommentUpdate requestComment = new CommentUpdate();

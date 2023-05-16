@@ -48,25 +48,25 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents a bookmark to insert.")
 public class BookmarkInsert extends BookmarkData {
     @SerializedName("EndRange")
-    protected DocumentPosition endRange;
+    protected NewDocumentPosition endRange;
 
     @SerializedName("StartRange")
-    protected DocumentPosition startRange;
+    protected NewDocumentPosition startRange;
     /**
      * Gets or sets the link to end bookmark node.
     * @return endRange
     **/
     @ApiModelProperty(value = "Gets or sets the link to end bookmark node.")
-    public DocumentPosition getEndRange() {
+    public NewDocumentPosition getEndRange() {
         return endRange;
     }
 
-    public BookmarkInsert endRange(DocumentPosition endRange) {
+    public BookmarkInsert endRange(NewDocumentPosition endRange) {
         this.endRange = endRange;
         return this;
     }
 
-    public void setEndRange(DocumentPosition endRange) {
+    public void setEndRange(NewDocumentPosition endRange) {
         this.endRange = endRange;
     }
 
@@ -76,16 +76,16 @@ public class BookmarkInsert extends BookmarkData {
     * @return startRange
     **/
     @ApiModelProperty(value = "Gets or sets the link to start bookmark node.")
-    public DocumentPosition getStartRange() {
+    public NewDocumentPosition getStartRange() {
         return startRange;
     }
 
-    public BookmarkInsert startRange(DocumentPosition startRange) {
+    public BookmarkInsert startRange(NewDocumentPosition startRange) {
         this.startRange = startRange;
         return this;
     }
 
-    public void setStartRange(DocumentPosition startRange) {
+    public void setStartRange(NewDocumentPosition startRange) {
         this.startRange = startRange;
     }
 
