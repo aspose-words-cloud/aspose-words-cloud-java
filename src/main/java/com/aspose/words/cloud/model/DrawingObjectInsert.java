@@ -211,7 +211,7 @@ public class DrawingObjectInsert implements ModelIfc {
     protected Double left;
 
     @SerializedName("Position")
-    protected DocumentPosition position;
+    protected NewDocumentPosition position;
 
     @SerializedName("RelativeHorizontalPosition")
     protected RelativeHorizontalPositionEnum relativeHorizontalPosition;
@@ -270,16 +270,16 @@ public class DrawingObjectInsert implements ModelIfc {
     * @return position
     **/
     @ApiModelProperty(value = "Gets or sets the position, before which the DrawingObject will be inserted.")
-    public DocumentPosition getPosition() {
+    public NewDocumentPosition getPosition() {
         return position;
     }
 
-    public DrawingObjectInsert position(DocumentPosition position) {
+    public DrawingObjectInsert position(NewDocumentPosition position) {
         this.position = position;
         return this;
     }
 
-    public void setPosition(DocumentPosition position) {
+    public void setPosition(NewDocumentPosition position) {
         this.position = position;
     }
 

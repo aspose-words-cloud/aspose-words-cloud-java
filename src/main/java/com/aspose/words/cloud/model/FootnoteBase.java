@@ -97,7 +97,7 @@ public abstract class FootnoteBase implements ModelIfc {
     protected FootnoteTypeEnum footnoteType;
 
     @SerializedName("Position")
-    protected DocumentPosition position;
+    protected NewDocumentPosition position;
 
     @SerializedName("ReferenceMark")
     protected String referenceMark;
@@ -128,16 +128,16 @@ public abstract class FootnoteBase implements ModelIfc {
     * @return position
     **/
     @ApiModelProperty(value = "Gets or sets the link to comment range start node.")
-    public DocumentPosition getPosition() {
+    public NewDocumentPosition getPosition() {
         return position;
     }
 
-    public FootnoteBase position(DocumentPosition position) {
+    public FootnoteBase position(NewDocumentPosition position) {
         this.position = position;
         return this;
     }
 
-    public void setPosition(DocumentPosition position) {
+    public void setPosition(NewDocumentPosition position) {
         this.position = position;
     }
 
