@@ -204,6 +204,57 @@ public class TestSection  extends TestCase
     }
 
     /*
+     * Test for insertion a section.
+     */
+    @Test
+    public void testInsertSection() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestInsertSection.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        InsertSectionRequest request = new InsertSectionRequest(
+            remoteFileName,
+            0,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        TestInitializer.wordsApi.insertSection(request);
+    }
+
+    /*
+     * Test for insertion a section online.
+     */
+    @Test
+    public void testInsertSectionOnline() throws ApiException, MessagingException, IOException
+    {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        InsertSectionOnlineRequest request = new InsertSectionOnlineRequest(
+            requestDocument,
+            0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        Map<String, byte[]> result = TestInitializer.wordsApi.insertSectionOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for linking headers and footers to previous section.
      */
     @Test

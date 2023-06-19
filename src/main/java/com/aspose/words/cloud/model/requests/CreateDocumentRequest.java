@@ -121,6 +121,10 @@ public class CreateDocumentRequest implements RequestIfc {
      */
     @Override
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
+        // verify the required parameter 'FileName' is set
+        if (getFileName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FileName' when calling createDocument");
+        }
 
         // create path and map variables
         String localVarPath = "/words/create";
