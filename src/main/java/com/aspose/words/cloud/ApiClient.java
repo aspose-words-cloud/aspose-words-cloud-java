@@ -1011,7 +1011,7 @@ public class ApiClient {
                     .addEncoded("client_secret", getClientSecret())
                     .build();
 
-            String url = baseUrl + "/connect/token";
+            String url = baseUrl + "/v4.0/words/connect/token";
             Request request = new Request.Builder()
                     .url(url)
                     .post(requestBody)
