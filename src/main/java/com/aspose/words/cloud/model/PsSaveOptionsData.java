@@ -70,8 +70,8 @@ public class PsSaveOptionsData extends FixedPageSaveOptionsData {
 
     public PsSaveOptionsData() {
         super();
-        this.saveFormat = "ps";
         this.useBookFoldPrintingSettings = null;
+        this.saveFormat = "ps";
     }
 
     /*
@@ -127,8 +127,8 @@ public class PsSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
     sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
     sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    useBookFoldPrintingSettings: ").append(toIndentedString(getUseBookFoldPrintingSettings())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

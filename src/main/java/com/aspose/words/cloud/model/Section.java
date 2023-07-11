@@ -50,14 +50,14 @@ public class Section extends LinkElement {
     @SerializedName("ChildNodes")
     protected List<NodeLink> childNodes;
 
-    @SerializedName("HeaderFooters")
-    protected LinkElement headerFooters;
+    @SerializedName("Paragraphs")
+    protected LinkElement paragraphs;
 
     @SerializedName("PageSetup")
     protected LinkElement pageSetup;
 
-    @SerializedName("Paragraphs")
-    protected LinkElement paragraphs;
+    @SerializedName("HeaderFooters")
+    protected LinkElement headerFooters;
 
     @SerializedName("Tables")
     protected LinkElement tables;
@@ -90,21 +90,21 @@ public class Section extends LinkElement {
 
 
     /**
-     * Gets or sets the link to HeaderFooters resource.
-    * @return headerFooters
+     * Gets or sets the link to Paragraphs resource.
+    * @return paragraphs
     **/
-    @ApiModelProperty(value = "Gets or sets the link to HeaderFooters resource.")
-    public LinkElement getHeaderFooters() {
-        return headerFooters;
+    @ApiModelProperty(value = "Gets or sets the link to Paragraphs resource.")
+    public LinkElement getParagraphs() {
+        return paragraphs;
     }
 
-    public Section headerFooters(LinkElement headerFooters) {
-        this.headerFooters = headerFooters;
+    public Section paragraphs(LinkElement paragraphs) {
+        this.paragraphs = paragraphs;
         return this;
     }
 
-    public void setHeaderFooters(LinkElement headerFooters) {
-        this.headerFooters = headerFooters;
+    public void setParagraphs(LinkElement paragraphs) {
+        this.paragraphs = paragraphs;
     }
 
 
@@ -128,21 +128,21 @@ public class Section extends LinkElement {
 
 
     /**
-     * Gets or sets the link to Paragraphs resource.
-    * @return paragraphs
+     * Gets or sets the link to HeaderFooters resource.
+    * @return headerFooters
     **/
-    @ApiModelProperty(value = "Gets or sets the link to Paragraphs resource.")
-    public LinkElement getParagraphs() {
-        return paragraphs;
+    @ApiModelProperty(value = "Gets or sets the link to HeaderFooters resource.")
+    public LinkElement getHeaderFooters() {
+        return headerFooters;
     }
 
-    public Section paragraphs(LinkElement paragraphs) {
-        this.paragraphs = paragraphs;
+    public Section headerFooters(LinkElement headerFooters) {
+        this.headerFooters = headerFooters;
         return this;
     }
 
-    public void setParagraphs(LinkElement paragraphs) {
-        this.paragraphs = paragraphs;
+    public void setHeaderFooters(LinkElement headerFooters) {
+        this.headerFooters = headerFooters;
     }
 
 
@@ -168,9 +168,9 @@ public class Section extends LinkElement {
     public Section() {
         super();
         this.childNodes = null;
-        this.headerFooters = null;
-        this.pageSetup = null;
         this.paragraphs = null;
+        this.pageSetup = null;
+        this.headerFooters = null;
         this.tables = null;
     }
 
@@ -195,16 +195,16 @@ public class Section extends LinkElement {
         Section section = (Section) o;
         return
             Objects.equals(this.childNodes, section.childNodes) &&
-            Objects.equals(this.headerFooters, section.headerFooters) &&
-            Objects.equals(this.pageSetup, section.pageSetup) &&
             Objects.equals(this.paragraphs, section.paragraphs) &&
+            Objects.equals(this.pageSetup, section.pageSetup) &&
+            Objects.equals(this.headerFooters, section.headerFooters) &&
             Objects.equals(this.tables, section.tables) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(childNodes, headerFooters, pageSetup, paragraphs, tables, super.hashCode());
+    return Objects.hash(childNodes, paragraphs, pageSetup, headerFooters, tables, super.hashCode());
   }
 
   @Override
@@ -213,9 +213,9 @@ public class Section extends LinkElement {
     sb.append("class Section {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
     sb.append("    childNodes: ").append(toIndentedString(getChildNodes())).append("\n");
-    sb.append("    headerFooters: ").append(toIndentedString(getHeaderFooters())).append("\n");
-    sb.append("    pageSetup: ").append(toIndentedString(getPageSetup())).append("\n");
     sb.append("    paragraphs: ").append(toIndentedString(getParagraphs())).append("\n");
+    sb.append("    pageSetup: ").append(toIndentedString(getPageSetup())).append("\n");
+    sb.append("    headerFooters: ").append(toIndentedString(getHeaderFooters())).append("\n");
     sb.append("    tables: ").append(toIndentedString(getTables())).append("\n");
     sb.append("}");
     return sb.toString();

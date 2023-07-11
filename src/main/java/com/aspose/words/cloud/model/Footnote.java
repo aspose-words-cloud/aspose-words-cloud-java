@@ -93,36 +93,36 @@ public class Footnote extends FootnoteLink {
         }
     }
 
-    @SerializedName("Content")
-    protected StoryChildNodes content;
+    @SerializedName("Position")
+    protected DocumentPosition position;
 
     @SerializedName("FootnoteType")
     protected FootnoteTypeEnum footnoteType;
-
-    @SerializedName("Position")
-    protected DocumentPosition position;
 
     @SerializedName("ReferenceMark")
     protected String referenceMark;
 
     @SerializedName("Text")
     protected String text;
+
+    @SerializedName("Content")
+    protected StoryChildNodes content;
     /**
-     * Gets or sets the content of the footnote.
-    * @return content
+     * Gets or sets the link to comment range start node.
+    * @return position
     **/
-    @ApiModelProperty(value = "Gets or sets the content of the footnote.")
-    public StoryChildNodes getContent() {
-        return content;
+    @ApiModelProperty(value = "Gets or sets the link to comment range start node.")
+    public DocumentPosition getPosition() {
+        return position;
     }
 
-    public Footnote content(StoryChildNodes content) {
-        this.content = content;
+    public Footnote position(DocumentPosition position) {
+        this.position = position;
         return this;
     }
 
-    public void setContent(StoryChildNodes content) {
-        this.content = content;
+    public void setPosition(DocumentPosition position) {
+        this.position = position;
     }
 
 
@@ -142,25 +142,6 @@ public class Footnote extends FootnoteLink {
 
     public void setFootnoteType(FootnoteTypeEnum footnoteType) {
         this.footnoteType = footnoteType;
-    }
-
-
-    /**
-     * Gets or sets the link to comment range start node.
-    * @return position
-    **/
-    @ApiModelProperty(value = "Gets or sets the link to comment range start node.")
-    public DocumentPosition getPosition() {
-        return position;
-    }
-
-    public Footnote position(DocumentPosition position) {
-        this.position = position;
-        return this;
-    }
-
-    public void setPosition(DocumentPosition position) {
-        this.position = position;
     }
 
 
@@ -203,13 +184,32 @@ public class Footnote extends FootnoteLink {
     }
 
 
+    /**
+     * Gets or sets the content of the footnote.
+    * @return content
+    **/
+    @ApiModelProperty(value = "Gets or sets the content of the footnote.")
+    public StoryChildNodes getContent() {
+        return content;
+    }
+
+    public Footnote content(StoryChildNodes content) {
+        this.content = content;
+        return this;
+    }
+
+    public void setContent(StoryChildNodes content) {
+        this.content = content;
+    }
+
+
     public Footnote() {
         super();
-        this.content = null;
-        this.footnoteType = null;
         this.position = null;
+        this.footnoteType = null;
         this.referenceMark = null;
         this.text = null;
+        this.content = null;
     }
 
     /*
@@ -232,17 +232,17 @@ public class Footnote extends FootnoteLink {
 
         Footnote footnote = (Footnote) o;
         return
-            Objects.equals(this.content, footnote.content) &&
-            Objects.equals(this.footnoteType, footnote.footnoteType) &&
             Objects.equals(this.position, footnote.position) &&
+            Objects.equals(this.footnoteType, footnote.footnoteType) &&
             Objects.equals(this.referenceMark, footnote.referenceMark) &&
             Objects.equals(this.text, footnote.text) &&
+            Objects.equals(this.content, footnote.content) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, footnoteType, position, referenceMark, text, super.hashCode());
+    return Objects.hash(position, footnoteType, referenceMark, text, content, super.hashCode());
   }
 
   @Override
@@ -251,11 +251,11 @@ public class Footnote extends FootnoteLink {
     sb.append("class Footnote {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
-    sb.append("    content: ").append(toIndentedString(getContent())).append("\n");
-    sb.append("    footnoteType: ").append(toIndentedString(getFootnoteType())).append("\n");
     sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
+    sb.append("    footnoteType: ").append(toIndentedString(getFootnoteType())).append("\n");
     sb.append("    referenceMark: ").append(toIndentedString(getReferenceMark())).append("\n");
     sb.append("    text: ").append(toIndentedString(getText())).append("\n");
+    sb.append("    content: ").append(toIndentedString(getContent())).append("\n");
     sb.append("}");
     return sb.toString();
   }

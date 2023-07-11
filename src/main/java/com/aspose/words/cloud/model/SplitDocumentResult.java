@@ -47,42 +47,14 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Result of splitting document.")
 public class SplitDocumentResult implements ModelIfc {
-    @SerializedName("Pages")
-    protected List<FileLink> pages;
-
     @SerializedName("SourceDocument")
     protected FileLink sourceDocument;
 
     @SerializedName("ZippedPages")
     protected FileLink zippedPages;
-    /**
-     * Gets or sets the list of pages.
-    * @return pages
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of pages.")
-    public List<FileLink> getPages() {
-        return pages;
-    }
 
-    public SplitDocumentResult pages(List<FileLink> pages) {
-        this.pages = pages;
-        return this;
-    }
-
-    public SplitDocumentResult addPagesItem(FileLink pagesItem) {
-        if (this.pages == null) {
-            this.pages = new ArrayList<FileLink>();
-        }
-        this.pages.add(pagesItem);
-        return this;
-    }
-
-
-    public void setPages(List<FileLink> pages) {
-        this.pages = pages;
-    }
-
-
+    @SerializedName("Pages")
+    protected List<FileLink> pages;
     /**
      * Gets or sets the link to the source document.
     * @return sourceDocument
@@ -121,10 +93,38 @@ public class SplitDocumentResult implements ModelIfc {
     }
 
 
+    /**
+     * Gets or sets the list of pages.
+    * @return pages
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of pages.")
+    public List<FileLink> getPages() {
+        return pages;
+    }
+
+    public SplitDocumentResult pages(List<FileLink> pages) {
+        this.pages = pages;
+        return this;
+    }
+
+    public SplitDocumentResult addPagesItem(FileLink pagesItem) {
+        if (this.pages == null) {
+            this.pages = new ArrayList<FileLink>();
+        }
+        this.pages.add(pagesItem);
+        return this;
+    }
+
+
+    public void setPages(List<FileLink> pages) {
+        this.pages = pages;
+    }
+
+
     public SplitDocumentResult() {
-        this.pages = null;
         this.sourceDocument = null;
         this.zippedPages = null;
+        this.pages = null;
     }
 
     /*
@@ -147,23 +147,23 @@ public class SplitDocumentResult implements ModelIfc {
 
         SplitDocumentResult splitDocumentResult = (SplitDocumentResult) o;
         return
-            Objects.equals(this.pages, splitDocumentResult.pages) &&
             Objects.equals(this.sourceDocument, splitDocumentResult.sourceDocument) &&
-            Objects.equals(this.zippedPages, splitDocumentResult.zippedPages);
+            Objects.equals(this.zippedPages, splitDocumentResult.zippedPages) &&
+            Objects.equals(this.pages, splitDocumentResult.pages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pages, sourceDocument, zippedPages);
+    return Objects.hash(sourceDocument, zippedPages, pages);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SplitDocumentResult {\n");
-    sb.append("    pages: ").append(toIndentedString(getPages())).append("\n");
     sb.append("    sourceDocument: ").append(toIndentedString(getSourceDocument())).append("\n");
     sb.append("    zippedPages: ").append(toIndentedString(getZippedPages())).append("\n");
+    sb.append("    pages: ").append(toIndentedString(getPages())).append("\n");
     sb.append("}");
     return sb.toString();
   }

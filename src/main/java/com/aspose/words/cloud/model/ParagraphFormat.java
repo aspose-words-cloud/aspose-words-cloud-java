@@ -47,30 +47,11 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Paragraph format element.")
 public class ParagraphFormat extends ParagraphFormatBase {
-    @SerializedName("IsHeading")
-    protected Boolean isHeading;
-
     @SerializedName("IsListItem")
     protected Boolean isListItem;
-    /**
-     * Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
-    * @return isHeading
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.")
-    public Boolean getIsHeading() {
-        return isHeading;
-    }
 
-    public ParagraphFormat isHeading(Boolean isHeading) {
-        this.isHeading = isHeading;
-        return this;
-    }
-
-    public void setIsHeading(Boolean isHeading) {
-        this.isHeading = isHeading;
-    }
-
-
+    @SerializedName("IsHeading")
+    protected Boolean isHeading;
     /**
      * Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.
     * @return isListItem
@@ -90,10 +71,29 @@ public class ParagraphFormat extends ParagraphFormatBase {
     }
 
 
+    /**
+     * Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
+    * @return isHeading
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.")
+    public Boolean getIsHeading() {
+        return isHeading;
+    }
+
+    public ParagraphFormat isHeading(Boolean isHeading) {
+        this.isHeading = isHeading;
+        return this;
+    }
+
+    public void setIsHeading(Boolean isHeading) {
+        this.isHeading = isHeading;
+    }
+
+
     public ParagraphFormat() {
         super();
-        this.isHeading = null;
         this.isListItem = null;
+        this.isHeading = null;
     }
 
     /*
@@ -116,14 +116,14 @@ public class ParagraphFormat extends ParagraphFormatBase {
 
         ParagraphFormat paragraphFormat = (ParagraphFormat) o;
         return
-            Objects.equals(this.isHeading, paragraphFormat.isHeading) &&
             Objects.equals(this.isListItem, paragraphFormat.isListItem) &&
+            Objects.equals(this.isHeading, paragraphFormat.isHeading) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isHeading, isListItem, super.hashCode());
+    return Objects.hash(isListItem, isHeading, super.hashCode());
   }
 
   @Override
@@ -147,7 +147,6 @@ public class ParagraphFormat extends ParagraphFormatBase {
     sb.append("    outlineLevel: ").append(toIndentedString(getOutlineLevel())).append("\n");
     sb.append("    pageBreakBefore: ").append(toIndentedString(getPageBreakBefore())).append("\n");
     sb.append("    rightIndent: ").append(toIndentedString(getRightIndent())).append("\n");
-    sb.append("    shading: ").append(toIndentedString(getShading())).append("\n");
     sb.append("    spaceAfter: ").append(toIndentedString(getSpaceAfter())).append("\n");
     sb.append("    spaceAfterAuto: ").append(toIndentedString(getSpaceAfterAuto())).append("\n");
     sb.append("    spaceBefore: ").append(toIndentedString(getSpaceBefore())).append("\n");
@@ -157,8 +156,9 @@ public class ParagraphFormat extends ParagraphFormatBase {
     sb.append("    suppressAutoHyphens: ").append(toIndentedString(getSuppressAutoHyphens())).append("\n");
     sb.append("    suppressLineNumbers: ").append(toIndentedString(getSuppressLineNumbers())).append("\n");
     sb.append("    widowControl: ").append(toIndentedString(getWidowControl())).append("\n");
-    sb.append("    isHeading: ").append(toIndentedString(getIsHeading())).append("\n");
+    sb.append("    shading: ").append(toIndentedString(getShading())).append("\n");
     sb.append("    isListItem: ").append(toIndentedString(getIsListItem())).append("\n");
+    sb.append("    isHeading: ").append(toIndentedString(getIsHeading())).append("\n");
     sb.append("}");
     return sb.toString();
   }

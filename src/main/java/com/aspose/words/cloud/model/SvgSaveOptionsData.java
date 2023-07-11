@@ -231,9 +231,9 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
         this.fitToViewPort = null;
         this.resourcesFolder = null;
         this.resourcesFolderAlias = null;
-        this.saveFormat = "svg";
         this.showPageBorder = null;
         this.textOutputMode = null;
+        this.saveFormat = "svg";
     }
 
     /*
@@ -298,9 +298,9 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    fitToViewPort: ").append(toIndentedString(getFitToViewPort())).append("\n");
     sb.append("    resourcesFolder: ").append(toIndentedString(getResourcesFolder())).append("\n");
     sb.append("    resourcesFolderAlias: ").append(toIndentedString(getResourcesFolderAlias())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    showPageBorder: ").append(toIndentedString(getShowPageBorder())).append("\n");
     sb.append("    textOutputMode: ").append(toIndentedString(getTextOutputMode())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

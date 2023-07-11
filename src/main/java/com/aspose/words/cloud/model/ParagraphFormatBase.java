@@ -719,9 +719,6 @@ public class ParagraphFormatBase extends LinkElement {
     @SerializedName("RightIndent")
     protected Double rightIndent;
 
-    @SerializedName("Shading")
-    protected Shading shading;
-
     @SerializedName("SpaceAfter")
     protected Double spaceAfter;
 
@@ -748,6 +745,9 @@ public class ParagraphFormatBase extends LinkElement {
 
     @SerializedName("WidowControl")
     protected Boolean widowControl;
+
+    @SerializedName("Shading")
+    protected Shading shading;
     /**
      * Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.
     * @return addSpaceBetweenFarEastAndAlpha
@@ -1054,25 +1054,6 @@ public class ParagraphFormatBase extends LinkElement {
 
 
     /**
-     * Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
-    * @return shading
-    **/
-    @ApiModelProperty(value = "Gets or sets the Shading object, that refers to the shading formatting for the paragraph.")
-    public Shading getShading() {
-        return shading;
-    }
-
-    public ParagraphFormatBase shading(Shading shading) {
-        this.shading = shading;
-        return this;
-    }
-
-    public void setShading(Shading shading) {
-        this.shading = shading;
-    }
-
-
-    /**
      * Gets or sets the amount of spacing (in points) after the paragraph.
     * @return spaceAfter
     **/
@@ -1243,6 +1224,25 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
 
+    /**
+     * Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
+    * @return shading
+    **/
+    @ApiModelProperty(value = "Gets or sets the Shading object, that refers to the shading formatting for the paragraph.")
+    public Shading getShading() {
+        return shading;
+    }
+
+    public ParagraphFormatBase shading(Shading shading) {
+        this.shading = shading;
+        return this;
+    }
+
+    public void setShading(Shading shading) {
+        this.shading = shading;
+    }
+
+
     public ParagraphFormatBase() {
         super();
         this.addSpaceBetweenFarEastAndAlpha = null;
@@ -1261,7 +1261,6 @@ public class ParagraphFormatBase extends LinkElement {
         this.outlineLevel = null;
         this.pageBreakBefore = null;
         this.rightIndent = null;
-        this.shading = null;
         this.spaceAfter = null;
         this.spaceAfterAuto = null;
         this.spaceBefore = null;
@@ -1271,6 +1270,7 @@ public class ParagraphFormatBase extends LinkElement {
         this.suppressAutoHyphens = null;
         this.suppressLineNumbers = null;
         this.widowControl = null;
+        this.shading = null;
     }
 
     /*
@@ -1309,7 +1309,6 @@ public class ParagraphFormatBase extends LinkElement {
             Objects.equals(this.outlineLevel, paragraphFormatBase.outlineLevel) &&
             Objects.equals(this.pageBreakBefore, paragraphFormatBase.pageBreakBefore) &&
             Objects.equals(this.rightIndent, paragraphFormatBase.rightIndent) &&
-            Objects.equals(this.shading, paragraphFormatBase.shading) &&
             Objects.equals(this.spaceAfter, paragraphFormatBase.spaceAfter) &&
             Objects.equals(this.spaceAfterAuto, paragraphFormatBase.spaceAfterAuto) &&
             Objects.equals(this.spaceBefore, paragraphFormatBase.spaceBefore) &&
@@ -1319,12 +1318,13 @@ public class ParagraphFormatBase extends LinkElement {
             Objects.equals(this.suppressAutoHyphens, paragraphFormatBase.suppressAutoHyphens) &&
             Objects.equals(this.suppressLineNumbers, paragraphFormatBase.suppressLineNumbers) &&
             Objects.equals(this.widowControl, paragraphFormatBase.widowControl) &&
+            Objects.equals(this.shading, paragraphFormatBase.shading) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addSpaceBetweenFarEastAndAlpha, addSpaceBetweenFarEastAndDigit, alignment, bidi, dropCapPosition, firstLineIndent, keepTogether, keepWithNext, leftIndent, lineSpacing, lineSpacingRule, linesToDrop, noSpaceBetweenParagraphsOfSameStyle, outlineLevel, pageBreakBefore, rightIndent, shading, spaceAfter, spaceAfterAuto, spaceBefore, spaceBeforeAuto, styleIdentifier, styleName, suppressAutoHyphens, suppressLineNumbers, widowControl, super.hashCode());
+    return Objects.hash(addSpaceBetweenFarEastAndAlpha, addSpaceBetweenFarEastAndDigit, alignment, bidi, dropCapPosition, firstLineIndent, keepTogether, keepWithNext, leftIndent, lineSpacing, lineSpacingRule, linesToDrop, noSpaceBetweenParagraphsOfSameStyle, outlineLevel, pageBreakBefore, rightIndent, spaceAfter, spaceAfterAuto, spaceBefore, spaceBeforeAuto, styleIdentifier, styleName, suppressAutoHyphens, suppressLineNumbers, widowControl, shading, super.hashCode());
   }
 
   @Override
@@ -1348,7 +1348,6 @@ public class ParagraphFormatBase extends LinkElement {
     sb.append("    outlineLevel: ").append(toIndentedString(getOutlineLevel())).append("\n");
     sb.append("    pageBreakBefore: ").append(toIndentedString(getPageBreakBefore())).append("\n");
     sb.append("    rightIndent: ").append(toIndentedString(getRightIndent())).append("\n");
-    sb.append("    shading: ").append(toIndentedString(getShading())).append("\n");
     sb.append("    spaceAfter: ").append(toIndentedString(getSpaceAfter())).append("\n");
     sb.append("    spaceAfterAuto: ").append(toIndentedString(getSpaceAfterAuto())).append("\n");
     sb.append("    spaceBefore: ").append(toIndentedString(getSpaceBefore())).append("\n");
@@ -1358,6 +1357,7 @@ public class ParagraphFormatBase extends LinkElement {
     sb.append("    suppressAutoHyphens: ").append(toIndentedString(getSuppressAutoHyphens())).append("\n");
     sb.append("    suppressLineNumbers: ").append(toIndentedString(getSuppressLineNumbers())).append("\n");
     sb.append("    widowControl: ").append(toIndentedString(getWidowControl())).append("\n");
+    sb.append("    shading: ").append(toIndentedString(getShading())).append("\n");
     sb.append("}");
     return sb.toString();
   }

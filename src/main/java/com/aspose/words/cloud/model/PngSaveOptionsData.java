@@ -112,9 +112,9 @@ public class PngSaveOptionsData extends ImageSaveOptionsData {
     sb.append("    resolution: ").append(toIndentedString(getResolution())).append("\n");
     sb.append("    scale: ").append(toIndentedString(getScale())).append("\n");
     sb.append("    useAntiAliasing: ").append(toIndentedString(getUseAntiAliasing())).append("\n");
-    sb.append("    useGdiEmfRenderer: ").append(toIndentedString(getUseGdiEmfRenderer())).append("\n");
     sb.append("    useHighQualityRendering: ").append(toIndentedString(getUseHighQualityRendering())).append("\n");
     sb.append("    verticalResolution: ").append(toIndentedString(getVerticalResolution())).append("\n");
+    sb.append("    useGdiEmfRenderer: ").append(toIndentedString(getUseGdiEmfRenderer())).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();

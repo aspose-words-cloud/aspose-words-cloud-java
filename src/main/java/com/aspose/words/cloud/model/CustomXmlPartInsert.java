@@ -83,8 +83,8 @@ public class CustomXmlPartInsert extends CustomXmlPart {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomXmlPartInsert {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
-    sb.append("    data: ").append(toIndentedString(getData())).append("\n");
     sb.append("    id: ").append(toIndentedString(getId())).append("\n");
+    sb.append("    data: ").append(toIndentedString(getData())).append("\n");
     sb.append("}");
     return sb.toString();
   }

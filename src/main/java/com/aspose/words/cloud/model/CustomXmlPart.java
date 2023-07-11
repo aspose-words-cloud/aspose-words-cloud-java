@@ -47,30 +47,11 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "DTO container with a CustomXmlPart.")
 public class CustomXmlPart extends CustomXmlPartLink {
-    @SerializedName("Data")
-    protected String data;
-
     @SerializedName("Id")
     protected String id;
-    /**
-     * Gets or sets the custom xml part data.
-    * @return data
-    **/
-    @ApiModelProperty(value = "Gets or sets the custom xml part data.")
-    public String getData() {
-        return data;
-    }
 
-    public CustomXmlPart data(String data) {
-        this.data = data;
-        return this;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-
+    @SerializedName("Data")
+    protected String data;
     /**
      * Gets or sets the custom xml part id.
     * @return id
@@ -90,10 +71,29 @@ public class CustomXmlPart extends CustomXmlPartLink {
     }
 
 
+    /**
+     * Gets or sets the custom xml part data.
+    * @return data
+    **/
+    @ApiModelProperty(value = "Gets or sets the custom xml part data.")
+    public String getData() {
+        return data;
+    }
+
+    public CustomXmlPart data(String data) {
+        this.data = data;
+        return this;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+
     public CustomXmlPart() {
         super();
-        this.data = null;
         this.id = null;
+        this.data = null;
     }
 
     /*
@@ -116,14 +116,14 @@ public class CustomXmlPart extends CustomXmlPartLink {
 
         CustomXmlPart customXmlPart = (CustomXmlPart) o;
         return
-            Objects.equals(this.data, customXmlPart.data) &&
             Objects.equals(this.id, customXmlPart.id) &&
+            Objects.equals(this.data, customXmlPart.data) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, id, super.hashCode());
+    return Objects.hash(id, data, super.hashCode());
   }
 
   @Override
@@ -131,8 +131,8 @@ public class CustomXmlPart extends CustomXmlPartLink {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomXmlPart {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
-    sb.append("    data: ").append(toIndentedString(getData())).append("\n");
     sb.append("    id: ").append(toIndentedString(getId())).append("\n");
+    sb.append("    data: ").append(toIndentedString(getData())).append("\n");
     sb.append("}");
     return sb.toString();
   }

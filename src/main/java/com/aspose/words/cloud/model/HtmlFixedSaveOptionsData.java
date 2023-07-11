@@ -466,9 +466,9 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         this.resourcesFolder = null;
         this.resourcesFolderAlias = null;
         this.saveFontFaceCssSeparately = null;
-        this.saveFormat = "htmlfixed";
         this.showPageBorder = null;
         this.useTargetMachineFonts = null;
+        this.saveFormat = "htmlfixed";
     }
 
     /*
@@ -549,9 +549,9 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    resourcesFolder: ").append(toIndentedString(getResourcesFolder())).append("\n");
     sb.append("    resourcesFolderAlias: ").append(toIndentedString(getResourcesFolderAlias())).append("\n");
     sb.append("    saveFontFaceCssSeparately: ").append(toIndentedString(getSaveFontFaceCssSeparately())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    showPageBorder: ").append(toIndentedString(getShowPageBorder())).append("\n");
     sb.append("    useTargetMachineFonts: ").append(toIndentedString(getUseTargetMachineFonts())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

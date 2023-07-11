@@ -47,6 +47,12 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Comment.")
 public abstract class CommentBase implements ModelIfc {
+    @SerializedName("RangeStart")
+    protected NewDocumentPosition rangeStart;
+
+    @SerializedName("RangeEnd")
+    protected NewDocumentPosition rangeEnd;
+
     @SerializedName("Author")
     protected String author;
 
@@ -56,14 +62,46 @@ public abstract class CommentBase implements ModelIfc {
     @SerializedName("Initial")
     protected String initial;
 
-    @SerializedName("RangeEnd")
-    protected NewDocumentPosition rangeEnd;
-
-    @SerializedName("RangeStart")
-    protected NewDocumentPosition rangeStart;
-
     @SerializedName("Text")
     protected String text;
+    /**
+     * Gets or sets the link to comment range start node.
+    * @return rangeStart
+    **/
+    @ApiModelProperty(value = "Gets or sets the link to comment range start node.")
+    public NewDocumentPosition getRangeStart() {
+        return rangeStart;
+    }
+
+    public CommentBase rangeStart(NewDocumentPosition rangeStart) {
+        this.rangeStart = rangeStart;
+        return this;
+    }
+
+    public void setRangeStart(NewDocumentPosition rangeStart) {
+        this.rangeStart = rangeStart;
+    }
+
+
+    /**
+     * Gets or sets the link to comment range end node.
+    * @return rangeEnd
+    **/
+    @ApiModelProperty(value = "Gets or sets the link to comment range end node.")
+    public NewDocumentPosition getRangeEnd() {
+        return rangeEnd;
+    }
+
+    public CommentBase rangeEnd(NewDocumentPosition rangeEnd) {
+        this.rangeEnd = rangeEnd;
+        return this;
+    }
+
+    public void setRangeEnd(NewDocumentPosition rangeEnd) {
+        this.rangeEnd = rangeEnd;
+    }
+
+
     /**
      * Gets or sets the author name for a comment.
     * @return author
@@ -122,44 +160,6 @@ public abstract class CommentBase implements ModelIfc {
 
 
     /**
-     * Gets or sets the link to comment range end node.
-    * @return rangeEnd
-    **/
-    @ApiModelProperty(value = "Gets or sets the link to comment range end node.")
-    public NewDocumentPosition getRangeEnd() {
-        return rangeEnd;
-    }
-
-    public CommentBase rangeEnd(NewDocumentPosition rangeEnd) {
-        this.rangeEnd = rangeEnd;
-        return this;
-    }
-
-    public void setRangeEnd(NewDocumentPosition rangeEnd) {
-        this.rangeEnd = rangeEnd;
-    }
-
-
-    /**
-     * Gets or sets the link to comment range start node.
-    * @return rangeStart
-    **/
-    @ApiModelProperty(value = "Gets or sets the link to comment range start node.")
-    public NewDocumentPosition getRangeStart() {
-        return rangeStart;
-    }
-
-    public CommentBase rangeStart(NewDocumentPosition rangeStart) {
-        this.rangeStart = rangeStart;
-        return this;
-    }
-
-    public void setRangeStart(NewDocumentPosition rangeStart) {
-        this.rangeStart = rangeStart;
-    }
-
-
-    /**
      * Gets or sets text of the comment.
     * @return text
     **/
@@ -179,11 +179,11 @@ public abstract class CommentBase implements ModelIfc {
 
 
     public CommentBase() {
+        this.rangeStart = null;
+        this.rangeEnd = null;
         this.author = null;
         this.dateTime = null;
         this.initial = null;
-        this.rangeEnd = null;
-        this.rangeStart = null;
         this.text = null;
     }
 
@@ -207,28 +207,28 @@ public abstract class CommentBase implements ModelIfc {
 
         CommentBase commentBase = (CommentBase) o;
         return
+            Objects.equals(this.rangeStart, commentBase.rangeStart) &&
+            Objects.equals(this.rangeEnd, commentBase.rangeEnd) &&
             Objects.equals(this.author, commentBase.author) &&
             Objects.equals(this.dateTime, commentBase.dateTime) &&
             Objects.equals(this.initial, commentBase.initial) &&
-            Objects.equals(this.rangeEnd, commentBase.rangeEnd) &&
-            Objects.equals(this.rangeStart, commentBase.rangeStart) &&
             Objects.equals(this.text, commentBase.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, dateTime, initial, rangeEnd, rangeStart, text);
+    return Objects.hash(rangeStart, rangeEnd, author, dateTime, initial, text);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommentBase {\n");
+    sb.append("    rangeStart: ").append(toIndentedString(getRangeStart())).append("\n");
+    sb.append("    rangeEnd: ").append(toIndentedString(getRangeEnd())).append("\n");
     sb.append("    author: ").append(toIndentedString(getAuthor())).append("\n");
     sb.append("    dateTime: ").append(toIndentedString(getDateTime())).append("\n");
     sb.append("    initial: ").append(toIndentedString(getInitial())).append("\n");
-    sb.append("    rangeEnd: ").append(toIndentedString(getRangeEnd())).append("\n");
-    sb.append("    rangeStart: ").append(toIndentedString(getRangeStart())).append("\n");
     sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();

@@ -47,30 +47,11 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Contains data for load web document.")
 public class LoadWebDocumentData implements ModelIfc {
-    @SerializedName("LoadingDocumentUrl")
-    protected String loadingDocumentUrl;
-
     @SerializedName("SaveOptions")
     protected SaveOptionsData saveOptions;
-    /**
-     * Gets or sets the web document URL.
-    * @return loadingDocumentUrl
-    **/
-    @ApiModelProperty(value = "Gets or sets the web document URL.")
-    public String getLoadingDocumentUrl() {
-        return loadingDocumentUrl;
-    }
 
-    public LoadWebDocumentData loadingDocumentUrl(String loadingDocumentUrl) {
-        this.loadingDocumentUrl = loadingDocumentUrl;
-        return this;
-    }
-
-    public void setLoadingDocumentUrl(String loadingDocumentUrl) {
-        this.loadingDocumentUrl = loadingDocumentUrl;
-    }
-
-
+    @SerializedName("LoadingDocumentUrl")
+    protected String loadingDocumentUrl;
     /**
      * Gets or sets the save options.
     * @return saveOptions
@@ -90,9 +71,28 @@ public class LoadWebDocumentData implements ModelIfc {
     }
 
 
+    /**
+     * Gets or sets the web document URL.
+    * @return loadingDocumentUrl
+    **/
+    @ApiModelProperty(value = "Gets or sets the web document URL.")
+    public String getLoadingDocumentUrl() {
+        return loadingDocumentUrl;
+    }
+
+    public LoadWebDocumentData loadingDocumentUrl(String loadingDocumentUrl) {
+        this.loadingDocumentUrl = loadingDocumentUrl;
+        return this;
+    }
+
+    public void setLoadingDocumentUrl(String loadingDocumentUrl) {
+        this.loadingDocumentUrl = loadingDocumentUrl;
+    }
+
+
     public LoadWebDocumentData() {
-        this.loadingDocumentUrl = null;
         this.saveOptions = null;
+        this.loadingDocumentUrl = null;
     }
 
     /*
@@ -115,21 +115,21 @@ public class LoadWebDocumentData implements ModelIfc {
 
         LoadWebDocumentData loadWebDocumentData = (LoadWebDocumentData) o;
         return
-            Objects.equals(this.loadingDocumentUrl, loadWebDocumentData.loadingDocumentUrl) &&
-            Objects.equals(this.saveOptions, loadWebDocumentData.saveOptions);
+            Objects.equals(this.saveOptions, loadWebDocumentData.saveOptions) &&
+            Objects.equals(this.loadingDocumentUrl, loadWebDocumentData.loadingDocumentUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadingDocumentUrl, saveOptions);
+    return Objects.hash(saveOptions, loadingDocumentUrl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LoadWebDocumentData {\n");
-    sb.append("    loadingDocumentUrl: ").append(toIndentedString(getLoadingDocumentUrl())).append("\n");
     sb.append("    saveOptions: ").append(toIndentedString(getSaveOptions())).append("\n");
+    sb.append("    loadingDocumentUrl: ").append(toIndentedString(getLoadingDocumentUrl())).append("\n");
     sb.append("}");
     return sb.toString();
   }

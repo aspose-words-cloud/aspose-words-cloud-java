@@ -70,7 +70,7 @@ public class TestAppendDocument  extends TestCase
         FileReference requestDocumentListDocumentEntries0FileReference = new FileReference(remoteDataFolder + "/" + remoteFileName);
         DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
         requestDocumentListDocumentEntries0.setFileReference(requestDocumentListDocumentEntries0FileReference);
-        requestDocumentListDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
+        requestDocumentListDocumentEntries0.setImportFormatMode(DocumentEntry.ImportFormatModeEnum.KEEPSOURCEFORMATTING);
 
         ArrayList<DocumentEntry> requestDocumentListDocumentEntries = new ArrayList<DocumentEntry>();
         requestDocumentListDocumentEntries.add(requestDocumentListDocumentEntries0);
@@ -108,7 +108,7 @@ public class TestAppendDocument  extends TestCase
         FileReference requestDocumentListDocumentEntries0FileReference = new FileReference(requestDocumentListDocumentEntries0FileReferenceStream);
         DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
         requestDocumentListDocumentEntries0.setFileReference(requestDocumentListDocumentEntries0FileReference);
-        requestDocumentListDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
+        requestDocumentListDocumentEntries0.setImportFormatMode(DocumentEntry.ImportFormatModeEnum.KEEPSOURCEFORMATTING);
 
         ArrayList<DocumentEntry> requestDocumentListDocumentEntries = new ArrayList<DocumentEntry>();
         requestDocumentListDocumentEntries.add(requestDocumentListDocumentEntries0);

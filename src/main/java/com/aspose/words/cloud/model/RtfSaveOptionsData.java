@@ -139,8 +139,8 @@ public class RtfSaveOptionsData extends SaveOptionsData {
         this.exportCompactSize = null;
         this.exportImagesForOldReaders = null;
         this.prettyFormat = null;
-        this.saveFormat = "rtf";
         this.saveImagesAsWmf = null;
+        this.saveFormat = "rtf";
     }
 
     /*
@@ -195,8 +195,8 @@ public class RtfSaveOptionsData extends SaveOptionsData {
     sb.append("    exportCompactSize: ").append(toIndentedString(getExportCompactSize())).append("\n");
     sb.append("    exportImagesForOldReaders: ").append(toIndentedString(getExportImagesForOldReaders())).append("\n");
     sb.append("    prettyFormat: ").append(toIndentedString(getPrettyFormat())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    saveImagesAsWmf: ").append(toIndentedString(getSaveImagesAsWmf())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

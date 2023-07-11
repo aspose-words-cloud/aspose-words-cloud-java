@@ -176,14 +176,14 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("UseAntiAliasing")
     protected Boolean useAntiAliasing;
 
-    @SerializedName("UseGdiEmfRenderer")
-    protected Boolean useGdiEmfRenderer;
-
     @SerializedName("UseHighQualityRendering")
     protected Boolean useHighQualityRendering;
 
     @SerializedName("VerticalResolution")
     protected Double verticalResolution;
+
+    @SerializedName("UseGdiEmfRenderer")
+    protected Boolean useGdiEmfRenderer;
     /**
      * Gets or sets the horizontal resolution in dots per inch for the generated images.
      * This property has effect only when saving to raster image formats.
@@ -360,25 +360,6 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
 
 
     /**
-     * Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
-    * @return useGdiEmfRenderer
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.")
-    public Boolean getUseGdiEmfRenderer() {
-        return useGdiEmfRenderer;
-    }
-
-    public ImageSaveOptionsData useGdiEmfRenderer(Boolean useGdiEmfRenderer) {
-        this.useGdiEmfRenderer = useGdiEmfRenderer;
-        return this;
-    }
-
-    public void setUseGdiEmfRenderer(Boolean useGdiEmfRenderer) {
-        this.useGdiEmfRenderer = useGdiEmfRenderer;
-    }
-
-
-    /**
      * Gets or sets a value indicating whether to use high quality (i.e. slow) rendering algorithms.
     * @return useHighQualityRendering
     **/
@@ -418,6 +399,25 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
 
+    /**
+     * Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
+    * @return useGdiEmfRenderer
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.")
+    public Boolean getUseGdiEmfRenderer() {
+        return useGdiEmfRenderer;
+    }
+
+    public ImageSaveOptionsData useGdiEmfRenderer(Boolean useGdiEmfRenderer) {
+        this.useGdiEmfRenderer = useGdiEmfRenderer;
+        return this;
+    }
+
+    public void setUseGdiEmfRenderer(Boolean useGdiEmfRenderer) {
+        this.useGdiEmfRenderer = useGdiEmfRenderer;
+    }
+
+
     public ImageSaveOptionsData() {
         super();
         this.horizontalResolution = null;
@@ -429,9 +429,9 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         this.resolution = null;
         this.scale = null;
         this.useAntiAliasing = null;
-        this.useGdiEmfRenderer = null;
         this.useHighQualityRendering = null;
         this.verticalResolution = null;
+        this.useGdiEmfRenderer = null;
     }
 
     /*
@@ -463,15 +463,15 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
             Objects.equals(this.resolution, imageSaveOptionsData.resolution) &&
             Objects.equals(this.scale, imageSaveOptionsData.scale) &&
             Objects.equals(this.useAntiAliasing, imageSaveOptionsData.useAntiAliasing) &&
-            Objects.equals(this.useGdiEmfRenderer, imageSaveOptionsData.useGdiEmfRenderer) &&
             Objects.equals(this.useHighQualityRendering, imageSaveOptionsData.useHighQualityRendering) &&
             Objects.equals(this.verticalResolution, imageSaveOptionsData.verticalResolution) &&
+            Objects.equals(this.useGdiEmfRenderer, imageSaveOptionsData.useGdiEmfRenderer) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(horizontalResolution, imageBrightness, imageColorMode, imageContrast, paperColor, pixelFormat, resolution, scale, useAntiAliasing, useGdiEmfRenderer, useHighQualityRendering, verticalResolution, super.hashCode());
+    return Objects.hash(horizontalResolution, imageBrightness, imageColorMode, imageContrast, paperColor, pixelFormat, resolution, scale, useAntiAliasing, useHighQualityRendering, verticalResolution, useGdiEmfRenderer, super.hashCode());
   }
 
   @Override
@@ -485,13 +485,13 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
     sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
     sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
     sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
     sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
     sb.append("    metafileRenderingOptions: ").append(toIndentedString(getMetafileRenderingOptions())).append("\n");
@@ -508,9 +508,9 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    resolution: ").append(toIndentedString(getResolution())).append("\n");
     sb.append("    scale: ").append(toIndentedString(getScale())).append("\n");
     sb.append("    useAntiAliasing: ").append(toIndentedString(getUseAntiAliasing())).append("\n");
-    sb.append("    useGdiEmfRenderer: ").append(toIndentedString(getUseGdiEmfRenderer())).append("\n");
     sb.append("    useHighQualityRendering: ").append(toIndentedString(getUseHighQualityRendering())).append("\n");
     sb.append("    verticalResolution: ").append(toIndentedString(getVerticalResolution())).append("\n");
+    sb.append("    useGdiEmfRenderer: ").append(toIndentedString(getUseGdiEmfRenderer())).append("\n");
     sb.append("}");
     return sb.toString();
   }

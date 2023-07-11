@@ -210,10 +210,10 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
 
     public TiffSaveOptionsData() {
         super();
-        this.saveFormat = "tiff";
         this.thresholdForFloydSteinbergDithering = null;
         this.tiffBinarizationMethod = null;
         this.tiffCompression = null;
+        this.saveFormat = "tiff";
     }
 
     /*
@@ -280,13 +280,13 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
     sb.append("    resolution: ").append(toIndentedString(getResolution())).append("\n");
     sb.append("    scale: ").append(toIndentedString(getScale())).append("\n");
     sb.append("    useAntiAliasing: ").append(toIndentedString(getUseAntiAliasing())).append("\n");
-    sb.append("    useGdiEmfRenderer: ").append(toIndentedString(getUseGdiEmfRenderer())).append("\n");
     sb.append("    useHighQualityRendering: ").append(toIndentedString(getUseHighQualityRendering())).append("\n");
     sb.append("    verticalResolution: ").append(toIndentedString(getVerticalResolution())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("    useGdiEmfRenderer: ").append(toIndentedString(getUseGdiEmfRenderer())).append("\n");
     sb.append("    thresholdForFloydSteinbergDithering: ").append(toIndentedString(getThresholdForFloydSteinbergDithering())).append("\n");
     sb.append("    tiffBinarizationMethod: ").append(toIndentedString(getTiffBinarizationMethod())).append("\n");
     sb.append("    tiffCompression: ").append(toIndentedString(getTiffCompression())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

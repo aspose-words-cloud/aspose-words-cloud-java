@@ -120,8 +120,8 @@ public class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
 
     public MarkdownSaveOptionsData() {
         super();
-        this.saveFormat = "md";
         this.tableContentAlignment = null;
+        this.saveFormat = "md";
     }
 
     /*
@@ -174,8 +174,8 @@ public class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
     sb.append("    exportHeadersFootersMode: ").append(toIndentedString(getExportHeadersFootersMode())).append("\n");
     sb.append("    forcePageBreaks: ").append(toIndentedString(getForcePageBreaks())).append("\n");
     sb.append("    paragraphBreak: ").append(toIndentedString(getParagraphBreak())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    tableContentAlignment: ").append(toIndentedString(getTableContentAlignment())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

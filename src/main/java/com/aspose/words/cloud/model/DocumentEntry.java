@@ -47,11 +47,58 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a document which will be appended to the original resource document.")
 public class DocumentEntry extends BaseEntry {
+    /**
+     * Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
+     */
+    @JsonAdapter(ImportFormatModeEnum.Adapter.class)
+    public enum ImportFormatModeEnum {
+        USEDESTINATIONSTYLES("UseDestinationStyles"),
+        KEEPSOURCEFORMATTING("KeepSourceFormatting"),
+        KEEPDIFFERENTSTYLES("KeepDifferentStyles");
+
+        private String value;
+
+        ImportFormatModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ImportFormatModeEnum fromValue(String text) {
+            for (ImportFormatModeEnum b : ImportFormatModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< ImportFormatModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ImportFormatModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ImportFormatModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ImportFormatModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("EncryptedPassword")
     protected String encryptedPassword;
 
     @SerializedName("ImportFormatMode")
-    protected String importFormatMode;
+    protected ImportFormatModeEnum importFormatMode;
     /**
      * Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
     * @return encryptedPassword
@@ -76,16 +123,16 @@ public class DocumentEntry extends BaseEntry {
     * @return importFormatMode
     **/
     @ApiModelProperty(value = "Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.")
-    public String getImportFormatMode() {
+    public ImportFormatModeEnum getImportFormatMode() {
         return importFormatMode;
     }
 
-    public DocumentEntry importFormatMode(String importFormatMode) {
+    public DocumentEntry importFormatMode(ImportFormatModeEnum importFormatMode) {
         this.importFormatMode = importFormatMode;
         return this;
     }
 
-    public void setImportFormatMode(String importFormatMode) {
+    public void setImportFormatMode(ImportFormatModeEnum importFormatMode) {
         this.importFormatMode = importFormatMode;
     }
 

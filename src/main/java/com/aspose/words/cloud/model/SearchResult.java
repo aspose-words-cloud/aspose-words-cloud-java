@@ -47,30 +47,11 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Result of search operation.")
 public class SearchResult implements ModelIfc {
-    @SerializedName("RangeEnd")
-    protected DocumentPosition rangeEnd;
-
     @SerializedName("RangeStart")
     protected DocumentPosition rangeStart;
-    /**
-     * Gets or sets the link to result range end node.
-    * @return rangeEnd
-    **/
-    @ApiModelProperty(value = "Gets or sets the link to result range end node.")
-    public DocumentPosition getRangeEnd() {
-        return rangeEnd;
-    }
 
-    public SearchResult rangeEnd(DocumentPosition rangeEnd) {
-        this.rangeEnd = rangeEnd;
-        return this;
-    }
-
-    public void setRangeEnd(DocumentPosition rangeEnd) {
-        this.rangeEnd = rangeEnd;
-    }
-
-
+    @SerializedName("RangeEnd")
+    protected DocumentPosition rangeEnd;
     /**
      * Gets or sets the link to result range start node.
     * @return rangeStart
@@ -90,9 +71,28 @@ public class SearchResult implements ModelIfc {
     }
 
 
+    /**
+     * Gets or sets the link to result range end node.
+    * @return rangeEnd
+    **/
+    @ApiModelProperty(value = "Gets or sets the link to result range end node.")
+    public DocumentPosition getRangeEnd() {
+        return rangeEnd;
+    }
+
+    public SearchResult rangeEnd(DocumentPosition rangeEnd) {
+        this.rangeEnd = rangeEnd;
+        return this;
+    }
+
+    public void setRangeEnd(DocumentPosition rangeEnd) {
+        this.rangeEnd = rangeEnd;
+    }
+
+
     public SearchResult() {
-        this.rangeEnd = null;
         this.rangeStart = null;
+        this.rangeEnd = null;
     }
 
     /*
@@ -115,21 +115,21 @@ public class SearchResult implements ModelIfc {
 
         SearchResult searchResult = (SearchResult) o;
         return
-            Objects.equals(this.rangeEnd, searchResult.rangeEnd) &&
-            Objects.equals(this.rangeStart, searchResult.rangeStart);
+            Objects.equals(this.rangeStart, searchResult.rangeStart) &&
+            Objects.equals(this.rangeEnd, searchResult.rangeEnd);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rangeEnd, rangeStart);
+    return Objects.hash(rangeStart, rangeEnd);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResult {\n");
-    sb.append("    rangeEnd: ").append(toIndentedString(getRangeEnd())).append("\n");
     sb.append("    rangeStart: ").append(toIndentedString(getRangeStart())).append("\n");
+    sb.append("    rangeEnd: ").append(toIndentedString(getRangeEnd())).append("\n");
     sb.append("}");
     return sb.toString();
   }

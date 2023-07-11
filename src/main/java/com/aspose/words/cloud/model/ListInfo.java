@@ -47,11 +47,8 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "DTO container with a single document list.")
 public class ListInfo extends LinkElement {
-    @SerializedName("IsListStyleDefinition")
-    protected Boolean isListStyleDefinition;
-
-    @SerializedName("IsListStyleReference")
-    protected Boolean isListStyleReference;
+    @SerializedName("ListId")
+    protected Integer listId;
 
     @SerializedName("IsMultiLevel")
     protected Boolean isMultiLevel;
@@ -59,49 +56,33 @@ public class ListInfo extends LinkElement {
     @SerializedName("IsRestartAtEachSection")
     protected Boolean isRestartAtEachSection;
 
-    @SerializedName("ListId")
-    protected Integer listId;
+    @SerializedName("IsListStyleDefinition")
+    protected Boolean isListStyleDefinition;
 
-    @SerializedName("ListLevels")
-    protected ListLevels listLevels;
+    @SerializedName("IsListStyleReference")
+    protected Boolean isListStyleReference;
 
     @SerializedName("Style")
     protected Style style;
+
+    @SerializedName("ListLevels")
+    protected ListLevels listLevels;
     /**
-     * Gets or sets a value indicating whether this list is a definition of a list style.
-    * @return isListStyleDefinition
+     * Gets or sets the unique identifier of the list.
+    * @return listId
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether this list is a definition of a list style.")
-    public Boolean getIsListStyleDefinition() {
-        return isListStyleDefinition;
+    @ApiModelProperty(value = "Gets or sets the unique identifier of the list.")
+    public Integer getListId() {
+        return listId;
     }
 
-    public ListInfo isListStyleDefinition(Boolean isListStyleDefinition) {
-        this.isListStyleDefinition = isListStyleDefinition;
+    public ListInfo listId(Integer listId) {
+        this.listId = listId;
         return this;
     }
 
-    public void setIsListStyleDefinition(Boolean isListStyleDefinition) {
-        this.isListStyleDefinition = isListStyleDefinition;
-    }
-
-
-    /**
-     * Gets or sets a value indicating whether this list is a reference to a list style.
-    * @return isListStyleReference
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether this list is a reference to a list style.")
-    public Boolean getIsListStyleReference() {
-        return isListStyleReference;
-    }
-
-    public ListInfo isListStyleReference(Boolean isListStyleReference) {
-        this.isListStyleReference = isListStyleReference;
-        return this;
-    }
-
-    public void setIsListStyleReference(Boolean isListStyleReference) {
-        this.isListStyleReference = isListStyleReference;
+    public void setListId(Integer listId) {
+        this.listId = listId;
     }
 
 
@@ -144,40 +125,40 @@ public class ListInfo extends LinkElement {
 
 
     /**
-     * Gets or sets the unique identifier of the list.
-    * @return listId
+     * Gets or sets a value indicating whether this list is a definition of a list style.
+    * @return isListStyleDefinition
     **/
-    @ApiModelProperty(value = "Gets or sets the unique identifier of the list.")
-    public Integer getListId() {
-        return listId;
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this list is a definition of a list style.")
+    public Boolean getIsListStyleDefinition() {
+        return isListStyleDefinition;
     }
 
-    public ListInfo listId(Integer listId) {
-        this.listId = listId;
+    public ListInfo isListStyleDefinition(Boolean isListStyleDefinition) {
+        this.isListStyleDefinition = isListStyleDefinition;
         return this;
     }
 
-    public void setListId(Integer listId) {
-        this.listId = listId;
+    public void setIsListStyleDefinition(Boolean isListStyleDefinition) {
+        this.isListStyleDefinition = isListStyleDefinition;
     }
 
 
     /**
-     * Gets or sets the collection of list levels for this list.
-    * @return listLevels
+     * Gets or sets a value indicating whether this list is a reference to a list style.
+    * @return isListStyleReference
     **/
-    @ApiModelProperty(value = "Gets or sets the collection of list levels for this list.")
-    public ListLevels getListLevels() {
-        return listLevels;
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this list is a reference to a list style.")
+    public Boolean getIsListStyleReference() {
+        return isListStyleReference;
     }
 
-    public ListInfo listLevels(ListLevels listLevels) {
-        this.listLevels = listLevels;
+    public ListInfo isListStyleReference(Boolean isListStyleReference) {
+        this.isListStyleReference = isListStyleReference;
         return this;
     }
 
-    public void setListLevels(ListLevels listLevels) {
-        this.listLevels = listLevels;
+    public void setIsListStyleReference(Boolean isListStyleReference) {
+        this.isListStyleReference = isListStyleReference;
     }
 
 
@@ -200,15 +181,34 @@ public class ListInfo extends LinkElement {
     }
 
 
+    /**
+     * Gets or sets the collection of list levels for this list.
+    * @return listLevels
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of list levels for this list.")
+    public ListLevels getListLevels() {
+        return listLevels;
+    }
+
+    public ListInfo listLevels(ListLevels listLevels) {
+        this.listLevels = listLevels;
+        return this;
+    }
+
+    public void setListLevels(ListLevels listLevels) {
+        this.listLevels = listLevels;
+    }
+
+
     public ListInfo() {
         super();
-        this.isListStyleDefinition = null;
-        this.isListStyleReference = null;
+        this.listId = null;
         this.isMultiLevel = null;
         this.isRestartAtEachSection = null;
-        this.listId = null;
-        this.listLevels = null;
+        this.isListStyleDefinition = null;
+        this.isListStyleReference = null;
         this.style = null;
+        this.listLevels = null;
     }
 
     /*
@@ -231,19 +231,19 @@ public class ListInfo extends LinkElement {
 
         ListInfo listInfo = (ListInfo) o;
         return
-            Objects.equals(this.isListStyleDefinition, listInfo.isListStyleDefinition) &&
-            Objects.equals(this.isListStyleReference, listInfo.isListStyleReference) &&
+            Objects.equals(this.listId, listInfo.listId) &&
             Objects.equals(this.isMultiLevel, listInfo.isMultiLevel) &&
             Objects.equals(this.isRestartAtEachSection, listInfo.isRestartAtEachSection) &&
-            Objects.equals(this.listId, listInfo.listId) &&
-            Objects.equals(this.listLevels, listInfo.listLevels) &&
+            Objects.equals(this.isListStyleDefinition, listInfo.isListStyleDefinition) &&
+            Objects.equals(this.isListStyleReference, listInfo.isListStyleReference) &&
             Objects.equals(this.style, listInfo.style) &&
+            Objects.equals(this.listLevels, listInfo.listLevels) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isListStyleDefinition, isListStyleReference, isMultiLevel, isRestartAtEachSection, listId, listLevels, style, super.hashCode());
+    return Objects.hash(listId, isMultiLevel, isRestartAtEachSection, isListStyleDefinition, isListStyleReference, style, listLevels, super.hashCode());
   }
 
   @Override
@@ -251,13 +251,13 @@ public class ListInfo extends LinkElement {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListInfo {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
-    sb.append("    isListStyleDefinition: ").append(toIndentedString(getIsListStyleDefinition())).append("\n");
-    sb.append("    isListStyleReference: ").append(toIndentedString(getIsListStyleReference())).append("\n");
+    sb.append("    listId: ").append(toIndentedString(getListId())).append("\n");
     sb.append("    isMultiLevel: ").append(toIndentedString(getIsMultiLevel())).append("\n");
     sb.append("    isRestartAtEachSection: ").append(toIndentedString(getIsRestartAtEachSection())).append("\n");
-    sb.append("    listId: ").append(toIndentedString(getListId())).append("\n");
-    sb.append("    listLevels: ").append(toIndentedString(getListLevels())).append("\n");
+    sb.append("    isListStyleDefinition: ").append(toIndentedString(getIsListStyleDefinition())).append("\n");
+    sb.append("    isListStyleReference: ").append(toIndentedString(getIsListStyleReference())).append("\n");
     sb.append("    style: ").append(toIndentedString(getStyle())).append("\n");
+    sb.append("    listLevels: ").append(toIndentedString(getListLevels())).append("\n");
     sb.append("}");
     return sb.toString();
   }

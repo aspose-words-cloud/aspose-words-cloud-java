@@ -1312,9 +1312,9 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         this.resolveFontNames = null;
         this.resourceFolder = null;
         this.resourceFolderAlias = null;
-        this.saveFormat = "html";
         this.scaleImageToShapeSize = null;
         this.tableWidthOutputMode = null;
+        this.saveFormat = "html";
     }
 
     /*
@@ -1436,9 +1436,9 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     sb.append("    resolveFontNames: ").append(toIndentedString(getResolveFontNames())).append("\n");
     sb.append("    resourceFolder: ").append(toIndentedString(getResourceFolder())).append("\n");
     sb.append("    resourceFolderAlias: ").append(toIndentedString(getResourceFolderAlias())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    scaleImageToShapeSize: ").append(toIndentedString(getScaleImageToShapeSize())).append("\n");
     sb.append("    tableWidthOutputMode: ").append(toIndentedString(getTableWidthOutputMode())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }
