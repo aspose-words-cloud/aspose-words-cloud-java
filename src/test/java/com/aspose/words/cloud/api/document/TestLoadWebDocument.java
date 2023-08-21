@@ -61,7 +61,6 @@ public class TestLoadWebDocument  extends TestCase
         requestDataSaveOptions.setFileName("google.doc");
         requestDataSaveOptions.setDmlEffectsRenderingMode(DocSaveOptionsData.DmlEffectsRenderingModeEnum.NONE);
         requestDataSaveOptions.setDmlRenderingMode(DocSaveOptionsData.DmlRenderingModeEnum.DRAWINGML);
-        requestDataSaveOptions.setUpdateSdtContent(false);
         requestDataSaveOptions.setZipOutput(false);
 
         LoadWebDocumentData requestData = new LoadWebDocumentData();

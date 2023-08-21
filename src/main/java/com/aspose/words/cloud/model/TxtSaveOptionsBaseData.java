@@ -239,7 +239,6 @@ public abstract class TxtSaveOptionsBaseData extends SaveOptionsData {
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    encoding: ").append(toIndentedString(getEncoding())).append("\n");

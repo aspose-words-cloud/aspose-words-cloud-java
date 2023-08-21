@@ -168,7 +168,6 @@ public class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
     sb.append("    encoding: ").append(toIndentedString(getEncoding())).append("\n");
     sb.append("    exportHeadersFootersMode: ").append(toIndentedString(getExportHeadersFootersMode())).append("\n");

@@ -143,7 +143,6 @@ public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
     sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
     sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");

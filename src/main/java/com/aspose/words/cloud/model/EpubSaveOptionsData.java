@@ -47,30 +47,30 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for epub save options.")
 public class EpubSaveOptionsData extends HtmlSaveOptionsData {
-    @SerializedName("EpubNavigationMapLevel")
-    protected Integer epubNavigationMapLevel;
+    @SerializedName("NavigationMapLevel")
+    protected Integer navigationMapLevel;
     /**
      * Gets or sets the maximum level of headings populated to the navigation map when exporting.
-    * @return epubNavigationMapLevel
+    * @return navigationMapLevel
     **/
     @ApiModelProperty(value = "Gets or sets the maximum level of headings populated to the navigation map when exporting.")
-    public Integer getEpubNavigationMapLevel() {
-        return epubNavigationMapLevel;
+    public Integer getNavigationMapLevel() {
+        return navigationMapLevel;
     }
 
-    public EpubSaveOptionsData epubNavigationMapLevel(Integer epubNavigationMapLevel) {
-        this.epubNavigationMapLevel = epubNavigationMapLevel;
+    public EpubSaveOptionsData navigationMapLevel(Integer navigationMapLevel) {
+        this.navigationMapLevel = navigationMapLevel;
         return this;
     }
 
-    public void setEpubNavigationMapLevel(Integer epubNavigationMapLevel) {
-        this.epubNavigationMapLevel = epubNavigationMapLevel;
+    public void setNavigationMapLevel(Integer navigationMapLevel) {
+        this.navigationMapLevel = navigationMapLevel;
     }
 
 
     public EpubSaveOptionsData() {
         super();
-        this.epubNavigationMapLevel = null;
+        this.navigationMapLevel = null;
         this.saveFormat = "epub";
     }
 
@@ -94,13 +94,13 @@ public class EpubSaveOptionsData extends HtmlSaveOptionsData {
 
         EpubSaveOptionsData epubSaveOptionsData = (EpubSaveOptionsData) o;
         return
-            Objects.equals(this.epubNavigationMapLevel, epubSaveOptionsData.epubNavigationMapLevel) &&
+            Objects.equals(this.navigationMapLevel, epubSaveOptionsData.navigationMapLevel) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(epubNavigationMapLevel, super.hashCode());
+    return Objects.hash(navigationMapLevel, super.hashCode());
   }
 
   @Override
@@ -118,7 +118,6 @@ public class EpubSaveOptionsData extends HtmlSaveOptionsData {
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
     sb.append("    allowNegativeIndent: ").append(toIndentedString(getAllowNegativeIndent())).append("\n");
     sb.append("    cssClassNamePrefix: ").append(toIndentedString(getCssClassNamePrefix())).append("\n");
@@ -158,7 +157,7 @@ public class EpubSaveOptionsData extends HtmlSaveOptionsData {
     sb.append("    resourceFolderAlias: ").append(toIndentedString(getResourceFolderAlias())).append("\n");
     sb.append("    scaleImageToShapeSize: ").append(toIndentedString(getScaleImageToShapeSize())).append("\n");
     sb.append("    tableWidthOutputMode: ").append(toIndentedString(getTableWidthOutputMode())).append("\n");
-    sb.append("    epubNavigationMapLevel: ").append(toIndentedString(getEpubNavigationMapLevel())).append("\n");
+    sb.append("    navigationMapLevel: ").append(toIndentedString(getNavigationMapLevel())).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
