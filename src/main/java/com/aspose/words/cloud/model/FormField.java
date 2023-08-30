@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * FromField.
  */
 @ApiModel(description = "FromField.")
-public class FormField extends NodeLink {
+public abstract class FormField extends NodeLink {
     @SerializedName("Name")
     protected String name;
 

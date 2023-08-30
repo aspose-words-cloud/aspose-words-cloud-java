@@ -505,7 +505,6 @@ public class JSON {
             put("FootnotesResponse, _", com.aspose.words.cloud.model.FootnotesResponse.class);
             put("FootnotesStatData, _", com.aspose.words.cloud.model.FootnotesStatData.class);
             put("FootnoteUpdate, _", com.aspose.words.cloud.model.FootnoteUpdate.class);
-            put("FormField, _", com.aspose.words.cloud.model.FormField.class);
             put("FormFieldCheckbox, _", com.aspose.words.cloud.model.FormFieldCheckbox.class);
             put("FormFieldCollection, _", com.aspose.words.cloud.model.FormFieldCollection.class);
             put("FormFieldDropDown, _", com.aspose.words.cloud.model.FormFieldDropDown.class);
@@ -565,7 +564,6 @@ public class JSON {
             put("PageStatData, _", com.aspose.words.cloud.model.PageStatData.class);
             put("Paragraph, _", com.aspose.words.cloud.model.Paragraph.class);
             put("ParagraphFormat, _", com.aspose.words.cloud.model.ParagraphFormat.class);
-            put("ParagraphFormatBase, _", com.aspose.words.cloud.model.ParagraphFormatBase.class);
             put("ParagraphFormatResponse, _", com.aspose.words.cloud.model.ParagraphFormatResponse.class);
             put("ParagraphFormatUpdate, _", com.aspose.words.cloud.model.ParagraphFormatUpdate.class);
             put("ParagraphInsert, _", com.aspose.words.cloud.model.ParagraphInsert.class);
@@ -659,7 +657,6 @@ public class JSON {
             put("TableRowInsertDto, _", com.aspose.words.cloud.model.TableRowInsertDto.class);
             put("TableRowResponse, _", com.aspose.words.cloud.model.TableRowResponse.class);
             put("TabStop, _", com.aspose.words.cloud.model.TabStop.class);
-            put("TabStopBase, _", com.aspose.words.cloud.model.TabStopBase.class);
             put("TabStopInsert, _", com.aspose.words.cloud.model.TabStopInsert.class);
             put("TabStopsResponse, _", com.aspose.words.cloud.model.TabStopsResponse.class);
             put("TextSaveOptionsData, _", com.aspose.words.cloud.model.TextSaveOptionsData.class);
