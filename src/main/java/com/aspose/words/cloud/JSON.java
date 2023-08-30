@@ -411,7 +411,7 @@ public class JSON {
 
     public static class ModelAdapterFactory implements TypeAdapterFactory {
         private final String typeFieldName = "$type";
-        private final static Map< String, Class<?> > TypesMap = new HashMap< String, Class<?> >() {
+        private final static Map< String, Class<?> > TYPESMAP = new HashMap< String, Class<?> >() {
             {
                 put("ApiError, _", com.aspose.words.cloud.model.ApiError.class);
                 put("AvailableFontsResponse, _", com.aspose.words.cloud.model.AvailableFontsResponse.class);
@@ -694,7 +694,7 @@ public class JSON {
             final TypeAdapter<JsonElement> jsonElementAdapter = gson.getAdapter(JsonElement.class);
             final Map< String, TypeAdapter<?> > labelToDelegate = new LinkedHashMap<>();
             final Map< Class<?>, TypeAdapter<?> > subtypeToDelegate = new LinkedHashMap<>();
-            for (Map.Entry< String, Class<?> > entry : TypesMap.entrySet()) {
+            for (Map.Entry< String, Class<?> > entry : TYPESMAP.entrySet()) {
                 TypeAdapter<?> delegate = gson.getDelegateAdapter(this, TypeToken.get(entry.getValue()));
                 labelToDelegate.put(entry.getKey(), delegate);
                 subtypeToDelegate.put(entry.getValue(), delegate);
