@@ -47,34 +47,14 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Words document property DTO.")
 public class DocumentProperty extends LinkElement {
-    @SerializedName("BuiltIn")
-    protected Boolean builtIn;
-
     @SerializedName("Name")
     protected String name;
 
     @SerializedName("Value")
     protected String value;
-    /**
-     * Gets or sets a value indicating whether the property is built-in or not.
-     * If true the property is built-in, if false the property is custom.
-    * @return builtIn
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether the property is built-in or not. If true the property is built-in, if false the property is custom.")
-    public Boolean getBuiltIn() {
-        return builtIn;
-    }
 
-    public DocumentProperty builtIn(Boolean builtIn) {
-        this.builtIn = builtIn;
-        return this;
-    }
-
-    public void setBuiltIn(Boolean builtIn) {
-        this.builtIn = builtIn;
-    }
-
-
+    @SerializedName("BuiltIn")
+    protected Boolean builtIn;
     /**
      * Gets or sets the name of the document property.
     * @return name
@@ -113,11 +93,31 @@ public class DocumentProperty extends LinkElement {
     }
 
 
+    /**
+     * Gets or sets a value indicating whether the property is built-in or not.
+     * If true the property is built-in, if false the property is custom.
+    * @return builtIn
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the property is built-in or not. If true the property is built-in, if false the property is custom.")
+    public Boolean getBuiltIn() {
+        return builtIn;
+    }
+
+    public DocumentProperty builtIn(Boolean builtIn) {
+        this.builtIn = builtIn;
+        return this;
+    }
+
+    public void setBuiltIn(Boolean builtIn) {
+        this.builtIn = builtIn;
+    }
+
+
     public DocumentProperty() {
         super();
-        this.builtIn = null;
         this.name = null;
         this.value = null;
+        this.builtIn = null;
     }
 
     /*
@@ -140,15 +140,15 @@ public class DocumentProperty extends LinkElement {
 
         DocumentProperty documentProperty = (DocumentProperty) o;
         return
-            Objects.equals(this.builtIn, documentProperty.builtIn) &&
             Objects.equals(this.name, documentProperty.name) &&
             Objects.equals(this.value, documentProperty.value) &&
+            Objects.equals(this.builtIn, documentProperty.builtIn) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(builtIn, name, value, super.hashCode());
+    return Objects.hash(name, value, builtIn, super.hashCode());
   }
 
   @Override
@@ -156,9 +156,9 @@ public class DocumentProperty extends LinkElement {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentProperty {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
-    sb.append("    builtIn: ").append(toIndentedString(getBuiltIn())).append("\n");
     sb.append("    name: ").append(toIndentedString(getName())).append("\n");
     sb.append("    value: ").append(toIndentedString(getValue())).append("\n");
+    sb.append("    builtIn: ").append(toIndentedString(getBuiltIn())).append("\n");
     sb.append("}");
     return sb.toString();
   }

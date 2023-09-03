@@ -97,55 +97,17 @@ public class FormFieldTextInput extends FormField {
         }
     }
 
-    @SerializedName("MaxLength")
-    protected Integer maxLength;
-
-    @SerializedName("TextInputDefault")
-    protected String textInputDefault;
-
     @SerializedName("TextInputFormat")
     protected String textInputFormat;
 
     @SerializedName("TextInputType")
     protected TextInputTypeEnum textInputType;
-    /**
-     * Gets or sets the maximum length for the text field. Zero when the length is not limited.
-    * @return maxLength
-    **/
-    @ApiModelProperty(value = "Gets or sets the maximum length for the text field. Zero when the length is not limited.")
-    public Integer getMaxLength() {
-        return maxLength;
-    }
 
-    public FormFieldTextInput maxLength(Integer maxLength) {
-        this.maxLength = maxLength;
-        return this;
-    }
+    @SerializedName("TextInputDefault")
+    protected String textInputDefault;
 
-    public void setMaxLength(Integer maxLength) {
-        this.maxLength = maxLength;
-    }
-
-
-    /**
-     * Gets or sets the default string or a calculation expression of the text form field.
-    * @return textInputDefault
-    **/
-    @ApiModelProperty(value = "Gets or sets the default string or a calculation expression of the text form field.")
-    public String getTextInputDefault() {
-        return textInputDefault;
-    }
-
-    public FormFieldTextInput textInputDefault(String textInputDefault) {
-        this.textInputDefault = textInputDefault;
-        return this;
-    }
-
-    public void setTextInputDefault(String textInputDefault) {
-        this.textInputDefault = textInputDefault;
-    }
-
-
+    @SerializedName("MaxLength")
+    protected Integer maxLength;
     /**
      * Gets or sets text formatting for the text form field.
     * @return textInputFormat
@@ -184,12 +146,50 @@ public class FormFieldTextInput extends FormField {
     }
 
 
+    /**
+     * Gets or sets the default string or a calculation expression of the text form field.
+    * @return textInputDefault
+    **/
+    @ApiModelProperty(value = "Gets or sets the default string or a calculation expression of the text form field.")
+    public String getTextInputDefault() {
+        return textInputDefault;
+    }
+
+    public FormFieldTextInput textInputDefault(String textInputDefault) {
+        this.textInputDefault = textInputDefault;
+        return this;
+    }
+
+    public void setTextInputDefault(String textInputDefault) {
+        this.textInputDefault = textInputDefault;
+    }
+
+
+    /**
+     * Gets or sets the maximum length for the text field. Zero when the length is not limited.
+    * @return maxLength
+    **/
+    @ApiModelProperty(value = "Gets or sets the maximum length for the text field. Zero when the length is not limited.")
+    public Integer getMaxLength() {
+        return maxLength;
+    }
+
+    public FormFieldTextInput maxLength(Integer maxLength) {
+        this.maxLength = maxLength;
+        return this;
+    }
+
+    public void setMaxLength(Integer maxLength) {
+        this.maxLength = maxLength;
+    }
+
+
     public FormFieldTextInput() {
         super();
-        this.maxLength = null;
-        this.textInputDefault = null;
         this.textInputFormat = null;
         this.textInputType = null;
+        this.textInputDefault = null;
+        this.maxLength = null;
     }
 
     /*
@@ -212,16 +212,16 @@ public class FormFieldTextInput extends FormField {
 
         FormFieldTextInput formFieldTextInput = (FormFieldTextInput) o;
         return
-            Objects.equals(this.maxLength, formFieldTextInput.maxLength) &&
-            Objects.equals(this.textInputDefault, formFieldTextInput.textInputDefault) &&
             Objects.equals(this.textInputFormat, formFieldTextInput.textInputFormat) &&
             Objects.equals(this.textInputType, formFieldTextInput.textInputType) &&
+            Objects.equals(this.textInputDefault, formFieldTextInput.textInputDefault) &&
+            Objects.equals(this.maxLength, formFieldTextInput.maxLength) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxLength, textInputDefault, textInputFormat, textInputType, super.hashCode());
+    return Objects.hash(textInputFormat, textInputType, textInputDefault, maxLength, super.hashCode());
   }
 
   @Override
@@ -230,19 +230,19 @@ public class FormFieldTextInput extends FormField {
     sb.append("class FormFieldTextInput {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
-    sb.append("    calculateOnExit: ").append(toIndentedString(getCalculateOnExit())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
     sb.append("    enabled: ").append(toIndentedString(getEnabled())).append("\n");
+    sb.append("    statusText: ").append(toIndentedString(getStatusText())).append("\n");
+    sb.append("    ownStatus: ").append(toIndentedString(getOwnStatus())).append("\n");
+    sb.append("    helpText: ").append(toIndentedString(getHelpText())).append("\n");
+    sb.append("    ownHelp: ").append(toIndentedString(getOwnHelp())).append("\n");
+    sb.append("    calculateOnExit: ").append(toIndentedString(getCalculateOnExit())).append("\n");
     sb.append("    entryMacro: ").append(toIndentedString(getEntryMacro())).append("\n");
     sb.append("    exitMacro: ").append(toIndentedString(getExitMacro())).append("\n");
-    sb.append("    helpText: ").append(toIndentedString(getHelpText())).append("\n");
-    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
-    sb.append("    ownHelp: ").append(toIndentedString(getOwnHelp())).append("\n");
-    sb.append("    ownStatus: ").append(toIndentedString(getOwnStatus())).append("\n");
-    sb.append("    statusText: ").append(toIndentedString(getStatusText())).append("\n");
-    sb.append("    maxLength: ").append(toIndentedString(getMaxLength())).append("\n");
-    sb.append("    textInputDefault: ").append(toIndentedString(getTextInputDefault())).append("\n");
     sb.append("    textInputFormat: ").append(toIndentedString(getTextInputFormat())).append("\n");
     sb.append("    textInputType: ").append(toIndentedString(getTextInputType())).append("\n");
+    sb.append("    textInputDefault: ").append(toIndentedString(getTextInputDefault())).append("\n");
+    sb.append("    maxLength: ").append(toIndentedString(getMaxLength())).append("\n");
     sb.append("}");
     return sb.toString();
   }

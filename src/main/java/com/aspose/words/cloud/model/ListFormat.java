@@ -47,30 +47,30 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "DTO container with a paragraph list format element.")
 public class ListFormat extends LinkElement {
-    @SerializedName("IsListItem")
-    protected Boolean isListItem;
+    @SerializedName("ListLevelNumber")
+    protected Integer listLevelNumber;
 
     @SerializedName("ListId")
     protected Integer listId;
 
-    @SerializedName("ListLevelNumber")
-    protected Integer listLevelNumber;
+    @SerializedName("IsListItem")
+    protected Boolean isListItem;
     /**
-     * Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
-    * @return isListItem
+     * Gets or sets the list level number (0 to 8) for the paragraph.
+    * @return listLevelNumber
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.")
-    public Boolean getIsListItem() {
-        return isListItem;
+    @ApiModelProperty(value = "Gets or sets the list level number (0 to 8) for the paragraph.")
+    public Integer getListLevelNumber() {
+        return listLevelNumber;
     }
 
-    public ListFormat isListItem(Boolean isListItem) {
-        this.isListItem = isListItem;
+    public ListFormat listLevelNumber(Integer listLevelNumber) {
+        this.listLevelNumber = listLevelNumber;
         return this;
     }
 
-    public void setIsListItem(Boolean isListItem) {
-        this.isListItem = isListItem;
+    public void setListLevelNumber(Integer listLevelNumber) {
+        this.listLevelNumber = listLevelNumber;
     }
 
 
@@ -94,29 +94,29 @@ public class ListFormat extends LinkElement {
 
 
     /**
-     * Gets or sets the list level number (0 to 8) for the paragraph.
-    * @return listLevelNumber
+     * Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
+    * @return isListItem
     **/
-    @ApiModelProperty(value = "Gets or sets the list level number (0 to 8) for the paragraph.")
-    public Integer getListLevelNumber() {
-        return listLevelNumber;
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.")
+    public Boolean getIsListItem() {
+        return isListItem;
     }
 
-    public ListFormat listLevelNumber(Integer listLevelNumber) {
-        this.listLevelNumber = listLevelNumber;
+    public ListFormat isListItem(Boolean isListItem) {
+        this.isListItem = isListItem;
         return this;
     }
 
-    public void setListLevelNumber(Integer listLevelNumber) {
-        this.listLevelNumber = listLevelNumber;
+    public void setIsListItem(Boolean isListItem) {
+        this.isListItem = isListItem;
     }
 
 
     public ListFormat() {
         super();
-        this.isListItem = null;
-        this.listId = null;
         this.listLevelNumber = null;
+        this.listId = null;
+        this.isListItem = null;
     }
 
     /*
@@ -139,15 +139,15 @@ public class ListFormat extends LinkElement {
 
         ListFormat listFormat = (ListFormat) o;
         return
-            Objects.equals(this.isListItem, listFormat.isListItem) &&
-            Objects.equals(this.listId, listFormat.listId) &&
             Objects.equals(this.listLevelNumber, listFormat.listLevelNumber) &&
+            Objects.equals(this.listId, listFormat.listId) &&
+            Objects.equals(this.isListItem, listFormat.isListItem) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isListItem, listId, listLevelNumber, super.hashCode());
+    return Objects.hash(listLevelNumber, listId, isListItem, super.hashCode());
   }
 
   @Override
@@ -155,9 +155,9 @@ public class ListFormat extends LinkElement {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListFormat {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
-    sb.append("    isListItem: ").append(toIndentedString(getIsListItem())).append("\n");
-    sb.append("    listId: ").append(toIndentedString(getListId())).append("\n");
     sb.append("    listLevelNumber: ").append(toIndentedString(getListLevelNumber())).append("\n");
+    sb.append("    listId: ").append(toIndentedString(getListId())).append("\n");
+    sb.append("    isListItem: ").append(toIndentedString(getIsListItem())).append("\n");
     sb.append("}");
     return sb.toString();
   }

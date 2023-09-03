@@ -140,9 +140,9 @@ public class DocSaveOptionsData extends SaveOptionsData {
         super();
         this.alwaysCompressMetafiles = null;
         this.password = null;
-        this.saveFormat = "doc";
         this.savePictureBullet = null;
         this.saveRoutingSlip = null;
+        this.saveFormat = "doc";
     }
 
     /*
@@ -192,13 +192,12 @@ public class DocSaveOptionsData extends SaveOptionsData {
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
     sb.append("    alwaysCompressMetafiles: ").append(toIndentedString(getAlwaysCompressMetafiles())).append("\n");
     sb.append("    password: ").append(toIndentedString(getPassword())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    savePictureBullet: ").append(toIndentedString(getSavePictureBullet())).append("\n");
     sb.append("    saveRoutingSlip: ").append(toIndentedString(getSaveRoutingSlip())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

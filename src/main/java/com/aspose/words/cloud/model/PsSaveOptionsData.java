@@ -70,8 +70,8 @@ public class PsSaveOptionsData extends FixedPageSaveOptionsData {
 
     public PsSaveOptionsData() {
         super();
-        this.saveFormat = "ps";
         this.useBookFoldPrintingSettings = null;
+        this.saveFormat = "ps";
     }
 
     /*
@@ -118,7 +118,6 @@ public class PsSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
     sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
     sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
@@ -127,8 +126,8 @@ public class PsSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
     sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
     sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    useBookFoldPrintingSettings: ").append(toIndentedString(getUseBookFoldPrintingSettings())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

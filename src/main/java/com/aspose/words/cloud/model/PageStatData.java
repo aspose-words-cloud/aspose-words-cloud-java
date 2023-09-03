@@ -50,14 +50,14 @@ public class PageStatData implements ModelIfc {
     @SerializedName("FootnotesStatData")
     protected FootnotesStatData footnotesStatData;
 
-    @SerializedName("PageNumber")
-    protected Integer pageNumber;
-
     @SerializedName("ParagraphCount")
     protected Integer paragraphCount;
 
     @SerializedName("WordCount")
     protected Integer wordCount;
+
+    @SerializedName("PageNumber")
+    protected Integer pageNumber;
     /**
      * Gets or sets the detailed statistics on the footnotes.
     * @return footnotesStatData
@@ -74,25 +74,6 @@ public class PageStatData implements ModelIfc {
 
     public void setFootnotesStatData(FootnotesStatData footnotesStatData) {
         this.footnotesStatData = footnotesStatData;
-    }
-
-
-    /**
-     * Gets or sets the page number.
-    * @return pageNumber
-    **/
-    @ApiModelProperty(value = "Gets or sets the page number.")
-    public Integer getPageNumber() {
-        return pageNumber;
-    }
-
-    public PageStatData pageNumber(Integer pageNumber) {
-        this.pageNumber = pageNumber;
-        return this;
-    }
-
-    public void setPageNumber(Integer pageNumber) {
-        this.pageNumber = pageNumber;
     }
 
 
@@ -134,11 +115,30 @@ public class PageStatData implements ModelIfc {
     }
 
 
+    /**
+     * Gets or sets the page number.
+    * @return pageNumber
+    **/
+    @ApiModelProperty(value = "Gets or sets the page number.")
+    public Integer getPageNumber() {
+        return pageNumber;
+    }
+
+    public PageStatData pageNumber(Integer pageNumber) {
+        this.pageNumber = pageNumber;
+        return this;
+    }
+
+    public void setPageNumber(Integer pageNumber) {
+        this.pageNumber = pageNumber;
+    }
+
+
     public PageStatData() {
         this.footnotesStatData = null;
-        this.pageNumber = null;
         this.paragraphCount = null;
         this.wordCount = null;
+        this.pageNumber = null;
     }
 
     /*
@@ -162,14 +162,14 @@ public class PageStatData implements ModelIfc {
         PageStatData pageStatData = (PageStatData) o;
         return
             Objects.equals(this.footnotesStatData, pageStatData.footnotesStatData) &&
-            Objects.equals(this.pageNumber, pageStatData.pageNumber) &&
             Objects.equals(this.paragraphCount, pageStatData.paragraphCount) &&
-            Objects.equals(this.wordCount, pageStatData.wordCount);
+            Objects.equals(this.wordCount, pageStatData.wordCount) &&
+            Objects.equals(this.pageNumber, pageStatData.pageNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(footnotesStatData, pageNumber, paragraphCount, wordCount);
+    return Objects.hash(footnotesStatData, paragraphCount, wordCount, pageNumber);
   }
 
   @Override
@@ -177,9 +177,9 @@ public class PageStatData implements ModelIfc {
     StringBuilder sb = new StringBuilder();
     sb.append("class PageStatData {\n");
     sb.append("    footnotesStatData: ").append(toIndentedString(getFootnotesStatData())).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(getPageNumber())).append("\n");
     sb.append("    paragraphCount: ").append(toIndentedString(getParagraphCount())).append("\n");
     sb.append("    wordCount: ").append(toIndentedString(getWordCount())).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(getPageNumber())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -82,11 +82,11 @@ public class CommentInsert extends CommentBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommentInsert {\n");
+    sb.append("    rangeStart: ").append(toIndentedString(getRangeStart())).append("\n");
+    sb.append("    rangeEnd: ").append(toIndentedString(getRangeEnd())).append("\n");
     sb.append("    author: ").append(toIndentedString(getAuthor())).append("\n");
     sb.append("    dateTime: ").append(toIndentedString(getDateTime())).append("\n");
     sb.append("    initial: ").append(toIndentedString(getInitial())).append("\n");
-    sb.append("    rangeEnd: ").append(toIndentedString(getRangeEnd())).append("\n");
-    sb.append("    rangeStart: ").append(toIndentedString(getRangeStart())).append("\n");
     sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();

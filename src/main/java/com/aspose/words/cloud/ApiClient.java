@@ -59,7 +59,7 @@ public class ApiClient {
     private String apiVersion = "v4.0";
     private String baseUrl = "https://api.aspose.cloud";
     private String basePath = baseUrl + "/" + apiVersion;
-    private String clientVersion = "23.5";
+    private String clientVersion = "23.8";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -1011,7 +1011,7 @@ public class ApiClient {
                     .addEncoded("client_secret", getClientSecret())
                     .build();
 
-            String url = baseUrl + "/connect/token";
+            String url = baseUrl + "/v4.0/words/connect/token";
             Request request = new Request.Builder()
                     .url(url)
                     .post(requestBody)

@@ -47,42 +47,14 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Result of saving.")
 public class SaveResult implements ModelIfc {
-    @SerializedName("AdditionalItems")
-    protected List<FileLink> additionalItems;
-
     @SerializedName("DestDocument")
     protected FileLink destDocument;
 
     @SerializedName("SourceDocument")
     protected FileLink sourceDocument;
-    /**
-     * Gets or sets the list of links to additional items (css, images etc).
-    * @return additionalItems
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of links to additional items (css, images etc).")
-    public List<FileLink> getAdditionalItems() {
-        return additionalItems;
-    }
 
-    public SaveResult additionalItems(List<FileLink> additionalItems) {
-        this.additionalItems = additionalItems;
-        return this;
-    }
-
-    public SaveResult addAdditionalItemsItem(FileLink additionalItemsItem) {
-        if (this.additionalItems == null) {
-            this.additionalItems = new ArrayList<FileLink>();
-        }
-        this.additionalItems.add(additionalItemsItem);
-        return this;
-    }
-
-
-    public void setAdditionalItems(List<FileLink> additionalItems) {
-        this.additionalItems = additionalItems;
-    }
-
-
+    @SerializedName("AdditionalItems")
+    protected List<FileLink> additionalItems;
     /**
      * Gets or sets the link to destination document.
     * @return destDocument
@@ -121,10 +93,38 @@ public class SaveResult implements ModelIfc {
     }
 
 
+    /**
+     * Gets or sets the list of links to additional items (css, images etc).
+    * @return additionalItems
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of links to additional items (css, images etc).")
+    public List<FileLink> getAdditionalItems() {
+        return additionalItems;
+    }
+
+    public SaveResult additionalItems(List<FileLink> additionalItems) {
+        this.additionalItems = additionalItems;
+        return this;
+    }
+
+    public SaveResult addAdditionalItemsItem(FileLink additionalItemsItem) {
+        if (this.additionalItems == null) {
+            this.additionalItems = new ArrayList<FileLink>();
+        }
+        this.additionalItems.add(additionalItemsItem);
+        return this;
+    }
+
+
+    public void setAdditionalItems(List<FileLink> additionalItems) {
+        this.additionalItems = additionalItems;
+    }
+
+
     public SaveResult() {
-        this.additionalItems = null;
         this.destDocument = null;
         this.sourceDocument = null;
+        this.additionalItems = null;
     }
 
     /*
@@ -147,23 +147,23 @@ public class SaveResult implements ModelIfc {
 
         SaveResult saveResult = (SaveResult) o;
         return
-            Objects.equals(this.additionalItems, saveResult.additionalItems) &&
             Objects.equals(this.destDocument, saveResult.destDocument) &&
-            Objects.equals(this.sourceDocument, saveResult.sourceDocument);
+            Objects.equals(this.sourceDocument, saveResult.sourceDocument) &&
+            Objects.equals(this.additionalItems, saveResult.additionalItems);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalItems, destDocument, sourceDocument);
+    return Objects.hash(destDocument, sourceDocument, additionalItems);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SaveResult {\n");
-    sb.append("    additionalItems: ").append(toIndentedString(getAdditionalItems())).append("\n");
     sb.append("    destDocument: ").append(toIndentedString(getDestDocument())).append("\n");
     sb.append("    sourceDocument: ").append(toIndentedString(getSourceDocument())).append("\n");
+    sb.append("    additionalItems: ").append(toIndentedString(getAdditionalItems())).append("\n");
     sb.append("}");
     return sb.toString();
   }

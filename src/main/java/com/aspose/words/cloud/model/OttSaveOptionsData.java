@@ -94,7 +94,6 @@ public class OttSaveOptionsData extends OdtSaveOptionsData {
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
     sb.append("    isStrictSchema11: ").append(toIndentedString(getIsStrictSchema11())).append("\n");
     sb.append("    measureUnit: ").append(toIndentedString(getMeasureUnit())).append("\n");

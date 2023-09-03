@@ -1055,12 +1055,12 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         this.pageMode = null;
         this.preblendImages = null;
         this.preserveFormFields = null;
-        this.saveFormat = "pdf";
         this.textCompression = null;
         this.useBookFoldPrintingSettings = null;
         this.useCoreFonts = null;
         this.zoomBehavior = null;
         this.zoomFactor = null;
+        this.saveFormat = "pdf";
     }
 
     /*
@@ -1133,7 +1133,6 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
     sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
     sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
@@ -1164,12 +1163,12 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    pageMode: ").append(toIndentedString(getPageMode())).append("\n");
     sb.append("    preblendImages: ").append(toIndentedString(getPreblendImages())).append("\n");
     sb.append("    preserveFormFields: ").append(toIndentedString(getPreserveFormFields())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    textCompression: ").append(toIndentedString(getTextCompression())).append("\n");
     sb.append("    useBookFoldPrintingSettings: ").append(toIndentedString(getUseBookFoldPrintingSettings())).append("\n");
     sb.append("    useCoreFonts: ").append(toIndentedString(getUseCoreFonts())).append("\n");
     sb.append("    zoomBehavior: ").append(toIndentedString(getZoomBehavior())).append("\n");
     sb.append("    zoomFactor: ").append(toIndentedString(getZoomFactor())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

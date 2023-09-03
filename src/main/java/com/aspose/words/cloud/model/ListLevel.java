@@ -48,53 +48,6 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with a document list level.")
 public class ListLevel extends LinkElement {
     /**
-     * Gets or sets the justification of the actual number of the list item.
-     */
-    @JsonAdapter(AlignmentEnum.Adapter.class)
-    public enum AlignmentEnum {
-        LEFT("Left"),
-        CENTER("Center"),
-        RIGHT("Right");
-
-        private String value;
-
-        AlignmentEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static AlignmentEnum fromValue(String text) {
-            for (AlignmentEnum b : AlignmentEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter< AlignmentEnum > {
-            @Override
-            public void write(final JsonWriter jsonWriter, final AlignmentEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public AlignmentEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return AlignmentEnum.fromValue(String.valueOf(value));
-            }
-        }
-    }
-
-    /**
      * Gets or sets the number style for this list level.
      */
     @JsonAdapter(NumberStyleEnum.Adapter.class)
@@ -201,6 +154,53 @@ public class ListLevel extends LinkElement {
     }
 
     /**
+     * Gets or sets the justification of the actual number of the list item.
+     */
+    @JsonAdapter(AlignmentEnum.Adapter.class)
+    public enum AlignmentEnum {
+        LEFT("Left"),
+        CENTER("Center"),
+        RIGHT("Right");
+
+        private String value;
+
+        AlignmentEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static AlignmentEnum fromValue(String text) {
+            for (AlignmentEnum b : AlignmentEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< AlignmentEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final AlignmentEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public AlignmentEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return AlignmentEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
      * Gets or sets the character inserted after the number for the list level.
      */
     @JsonAdapter(TrailingCharacterEnum.Adapter.class)
@@ -247,152 +247,57 @@ public class ListLevel extends LinkElement {
         }
     }
 
-    @SerializedName("Alignment")
-    protected AlignmentEnum alignment;
-
-    @SerializedName("Font")
-    protected Font font;
-
-    @SerializedName("IsLegal")
-    protected Boolean isLegal;
-
-    @SerializedName("LinkedStyle")
-    protected Style linkedStyle;
-
-    @SerializedName("NumberFormat")
-    protected String numberFormat;
-
-    @SerializedName("NumberPosition")
-    protected Double numberPosition;
+    @SerializedName("StartAt")
+    protected Integer startAt;
 
     @SerializedName("NumberStyle")
     protected NumberStyleEnum numberStyle;
 
+    @SerializedName("NumberFormat")
+    protected String numberFormat;
+
+    @SerializedName("Alignment")
+    protected AlignmentEnum alignment;
+
+    @SerializedName("IsLegal")
+    protected Boolean isLegal;
+
     @SerializedName("RestartAfterLevel")
     protected Integer restartAfterLevel;
 
-    @SerializedName("StartAt")
-    protected Integer startAt;
+    @SerializedName("TrailingCharacter")
+    protected TrailingCharacterEnum trailingCharacter;
+
+    @SerializedName("Font")
+    protected Font font;
 
     @SerializedName("TabPosition")
     protected Double tabPosition;
 
+    @SerializedName("NumberPosition")
+    protected Double numberPosition;
+
     @SerializedName("TextPosition")
     protected Double textPosition;
 
-    @SerializedName("TrailingCharacter")
-    protected TrailingCharacterEnum trailingCharacter;
+    @SerializedName("LinkedStyle")
+    protected Style linkedStyle;
     /**
-     * Gets or sets the justification of the actual number of the list item.
-    * @return alignment
+     * Gets or sets the starting number for this list level.
+    * @return startAt
     **/
-    @ApiModelProperty(value = "Gets or sets the justification of the actual number of the list item.")
-    public AlignmentEnum getAlignment() {
-        return alignment;
+    @ApiModelProperty(value = "Gets or sets the starting number for this list level.")
+    public Integer getStartAt() {
+        return startAt;
     }
 
-    public ListLevel alignment(AlignmentEnum alignment) {
-        this.alignment = alignment;
+    public ListLevel startAt(Integer startAt) {
+        this.startAt = startAt;
         return this;
     }
 
-    public void setAlignment(AlignmentEnum alignment) {
-        this.alignment = alignment;
-    }
-
-
-    /**
-     * Gets or sets character formatting used for the list label.
-    * @return font
-    **/
-    @ApiModelProperty(value = "Gets or sets character formatting used for the list label.")
-    public Font getFont() {
-        return font;
-    }
-
-    public ListLevel font(Font font) {
-        this.font = font;
-        return this;
-    }
-
-    public void setFont(Font font) {
-        this.font = font;
-    }
-
-
-    /**
-     * Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.
-    * @return isLegal
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.")
-    public Boolean getIsLegal() {
-        return isLegal;
-    }
-
-    public ListLevel isLegal(Boolean isLegal) {
-        this.isLegal = isLegal;
-        return this;
-    }
-
-    public void setIsLegal(Boolean isLegal) {
-        this.isLegal = isLegal;
-    }
-
-
-    /**
-     * Gets or sets the paragraph style that is linked to this list level.
-    * @return linkedStyle
-    **/
-    @ApiModelProperty(value = "Gets or sets the paragraph style that is linked to this list level.")
-    public Style getLinkedStyle() {
-        return linkedStyle;
-    }
-
-    public ListLevel linkedStyle(Style linkedStyle) {
-        this.linkedStyle = linkedStyle;
-        return this;
-    }
-
-    public void setLinkedStyle(Style linkedStyle) {
-        this.linkedStyle = linkedStyle;
-    }
-
-
-    /**
-     * Gets or sets the number format for the list level.
-    * @return numberFormat
-    **/
-    @ApiModelProperty(value = "Gets or sets the number format for the list level.")
-    public String getNumberFormat() {
-        return numberFormat;
-    }
-
-    public ListLevel numberFormat(String numberFormat) {
-        this.numberFormat = numberFormat;
-        return this;
-    }
-
-    public void setNumberFormat(String numberFormat) {
-        this.numberFormat = numberFormat;
-    }
-
-
-    /**
-     * Gets or sets the position (in points) of the number or bullet for the list level.
-    * @return numberPosition
-    **/
-    @ApiModelProperty(value = "Gets or sets the position (in points) of the number or bullet for the list level.")
-    public Double getNumberPosition() {
-        return numberPosition;
-    }
-
-    public ListLevel numberPosition(Double numberPosition) {
-        this.numberPosition = numberPosition;
-        return this;
-    }
-
-    public void setNumberPosition(Double numberPosition) {
-        this.numberPosition = numberPosition;
+    public void setStartAt(Integer startAt) {
+        this.startAt = startAt;
     }
 
 
@@ -416,6 +321,63 @@ public class ListLevel extends LinkElement {
 
 
     /**
+     * Gets or sets the number format for the list level.
+    * @return numberFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets the number format for the list level.")
+    public String getNumberFormat() {
+        return numberFormat;
+    }
+
+    public ListLevel numberFormat(String numberFormat) {
+        this.numberFormat = numberFormat;
+        return this;
+    }
+
+    public void setNumberFormat(String numberFormat) {
+        this.numberFormat = numberFormat;
+    }
+
+
+    /**
+     * Gets or sets the justification of the actual number of the list item.
+    * @return alignment
+    **/
+    @ApiModelProperty(value = "Gets or sets the justification of the actual number of the list item.")
+    public AlignmentEnum getAlignment() {
+        return alignment;
+    }
+
+    public ListLevel alignment(AlignmentEnum alignment) {
+        this.alignment = alignment;
+        return this;
+    }
+
+    public void setAlignment(AlignmentEnum alignment) {
+        this.alignment = alignment;
+    }
+
+
+    /**
+     * Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.
+    * @return isLegal
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.")
+    public Boolean getIsLegal() {
+        return isLegal;
+    }
+
+    public ListLevel isLegal(Boolean isLegal) {
+        this.isLegal = isLegal;
+        return this;
+    }
+
+    public void setIsLegal(Boolean isLegal) {
+        this.isLegal = isLegal;
+    }
+
+
+    /**
      * Gets or sets the list level, that must appear before the specified list level restarts numbering.
     * @return restartAfterLevel
     **/
@@ -435,21 +397,40 @@ public class ListLevel extends LinkElement {
 
 
     /**
-     * Gets or sets the starting number for this list level.
-    * @return startAt
+     * Gets or sets the character inserted after the number for the list level.
+    * @return trailingCharacter
     **/
-    @ApiModelProperty(value = "Gets or sets the starting number for this list level.")
-    public Integer getStartAt() {
-        return startAt;
+    @ApiModelProperty(value = "Gets or sets the character inserted after the number for the list level.")
+    public TrailingCharacterEnum getTrailingCharacter() {
+        return trailingCharacter;
     }
 
-    public ListLevel startAt(Integer startAt) {
-        this.startAt = startAt;
+    public ListLevel trailingCharacter(TrailingCharacterEnum trailingCharacter) {
+        this.trailingCharacter = trailingCharacter;
         return this;
     }
 
-    public void setStartAt(Integer startAt) {
-        this.startAt = startAt;
+    public void setTrailingCharacter(TrailingCharacterEnum trailingCharacter) {
+        this.trailingCharacter = trailingCharacter;
+    }
+
+
+    /**
+     * Gets or sets character formatting used for the list label.
+    * @return font
+    **/
+    @ApiModelProperty(value = "Gets or sets character formatting used for the list label.")
+    public Font getFont() {
+        return font;
+    }
+
+    public ListLevel font(Font font) {
+        this.font = font;
+        return this;
+    }
+
+    public void setFont(Font font) {
+        this.font = font;
     }
 
 
@@ -473,6 +454,25 @@ public class ListLevel extends LinkElement {
 
 
     /**
+     * Gets or sets the position (in points) of the number or bullet for the list level.
+    * @return numberPosition
+    **/
+    @ApiModelProperty(value = "Gets or sets the position (in points) of the number or bullet for the list level.")
+    public Double getNumberPosition() {
+        return numberPosition;
+    }
+
+    public ListLevel numberPosition(Double numberPosition) {
+        this.numberPosition = numberPosition;
+        return this;
+    }
+
+    public void setNumberPosition(Double numberPosition) {
+        this.numberPosition = numberPosition;
+    }
+
+
+    /**
      * Gets or sets the position (in points) for the second line of wrapping text for the list level.
     * @return textPosition
     **/
@@ -492,38 +492,38 @@ public class ListLevel extends LinkElement {
 
 
     /**
-     * Gets or sets the character inserted after the number for the list level.
-    * @return trailingCharacter
+     * Gets or sets the paragraph style that is linked to this list level.
+    * @return linkedStyle
     **/
-    @ApiModelProperty(value = "Gets or sets the character inserted after the number for the list level.")
-    public TrailingCharacterEnum getTrailingCharacter() {
-        return trailingCharacter;
+    @ApiModelProperty(value = "Gets or sets the paragraph style that is linked to this list level.")
+    public Style getLinkedStyle() {
+        return linkedStyle;
     }
 
-    public ListLevel trailingCharacter(TrailingCharacterEnum trailingCharacter) {
-        this.trailingCharacter = trailingCharacter;
+    public ListLevel linkedStyle(Style linkedStyle) {
+        this.linkedStyle = linkedStyle;
         return this;
     }
 
-    public void setTrailingCharacter(TrailingCharacterEnum trailingCharacter) {
-        this.trailingCharacter = trailingCharacter;
+    public void setLinkedStyle(Style linkedStyle) {
+        this.linkedStyle = linkedStyle;
     }
 
 
     public ListLevel() {
         super();
-        this.alignment = null;
-        this.font = null;
-        this.isLegal = null;
-        this.linkedStyle = null;
-        this.numberFormat = null;
-        this.numberPosition = null;
-        this.numberStyle = null;
-        this.restartAfterLevel = null;
         this.startAt = null;
-        this.tabPosition = null;
-        this.textPosition = null;
+        this.numberStyle = null;
+        this.numberFormat = null;
+        this.alignment = null;
+        this.isLegal = null;
+        this.restartAfterLevel = null;
         this.trailingCharacter = null;
+        this.font = null;
+        this.tabPosition = null;
+        this.numberPosition = null;
+        this.textPosition = null;
+        this.linkedStyle = null;
     }
 
     /*
@@ -546,24 +546,24 @@ public class ListLevel extends LinkElement {
 
         ListLevel listLevel = (ListLevel) o;
         return
-            Objects.equals(this.alignment, listLevel.alignment) &&
-            Objects.equals(this.font, listLevel.font) &&
-            Objects.equals(this.isLegal, listLevel.isLegal) &&
-            Objects.equals(this.linkedStyle, listLevel.linkedStyle) &&
-            Objects.equals(this.numberFormat, listLevel.numberFormat) &&
-            Objects.equals(this.numberPosition, listLevel.numberPosition) &&
-            Objects.equals(this.numberStyle, listLevel.numberStyle) &&
-            Objects.equals(this.restartAfterLevel, listLevel.restartAfterLevel) &&
             Objects.equals(this.startAt, listLevel.startAt) &&
-            Objects.equals(this.tabPosition, listLevel.tabPosition) &&
-            Objects.equals(this.textPosition, listLevel.textPosition) &&
+            Objects.equals(this.numberStyle, listLevel.numberStyle) &&
+            Objects.equals(this.numberFormat, listLevel.numberFormat) &&
+            Objects.equals(this.alignment, listLevel.alignment) &&
+            Objects.equals(this.isLegal, listLevel.isLegal) &&
+            Objects.equals(this.restartAfterLevel, listLevel.restartAfterLevel) &&
             Objects.equals(this.trailingCharacter, listLevel.trailingCharacter) &&
+            Objects.equals(this.font, listLevel.font) &&
+            Objects.equals(this.tabPosition, listLevel.tabPosition) &&
+            Objects.equals(this.numberPosition, listLevel.numberPosition) &&
+            Objects.equals(this.textPosition, listLevel.textPosition) &&
+            Objects.equals(this.linkedStyle, listLevel.linkedStyle) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alignment, font, isLegal, linkedStyle, numberFormat, numberPosition, numberStyle, restartAfterLevel, startAt, tabPosition, textPosition, trailingCharacter, super.hashCode());
+    return Objects.hash(startAt, numberStyle, numberFormat, alignment, isLegal, restartAfterLevel, trailingCharacter, font, tabPosition, numberPosition, textPosition, linkedStyle, super.hashCode());
   }
 
   @Override
@@ -571,18 +571,18 @@ public class ListLevel extends LinkElement {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListLevel {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
-    sb.append("    alignment: ").append(toIndentedString(getAlignment())).append("\n");
-    sb.append("    font: ").append(toIndentedString(getFont())).append("\n");
-    sb.append("    isLegal: ").append(toIndentedString(getIsLegal())).append("\n");
-    sb.append("    linkedStyle: ").append(toIndentedString(getLinkedStyle())).append("\n");
-    sb.append("    numberFormat: ").append(toIndentedString(getNumberFormat())).append("\n");
-    sb.append("    numberPosition: ").append(toIndentedString(getNumberPosition())).append("\n");
-    sb.append("    numberStyle: ").append(toIndentedString(getNumberStyle())).append("\n");
-    sb.append("    restartAfterLevel: ").append(toIndentedString(getRestartAfterLevel())).append("\n");
     sb.append("    startAt: ").append(toIndentedString(getStartAt())).append("\n");
-    sb.append("    tabPosition: ").append(toIndentedString(getTabPosition())).append("\n");
-    sb.append("    textPosition: ").append(toIndentedString(getTextPosition())).append("\n");
+    sb.append("    numberStyle: ").append(toIndentedString(getNumberStyle())).append("\n");
+    sb.append("    numberFormat: ").append(toIndentedString(getNumberFormat())).append("\n");
+    sb.append("    alignment: ").append(toIndentedString(getAlignment())).append("\n");
+    sb.append("    isLegal: ").append(toIndentedString(getIsLegal())).append("\n");
+    sb.append("    restartAfterLevel: ").append(toIndentedString(getRestartAfterLevel())).append("\n");
     sb.append("    trailingCharacter: ").append(toIndentedString(getTrailingCharacter())).append("\n");
+    sb.append("    font: ").append(toIndentedString(getFont())).append("\n");
+    sb.append("    tabPosition: ").append(toIndentedString(getTabPosition())).append("\n");
+    sb.append("    numberPosition: ").append(toIndentedString(getNumberPosition())).append("\n");
+    sb.append("    textPosition: ").append(toIndentedString(getTextPosition())).append("\n");
+    sb.append("    linkedStyle: ").append(toIndentedString(getLinkedStyle())).append("\n");
     sb.append("}");
     return sb.toString();
   }

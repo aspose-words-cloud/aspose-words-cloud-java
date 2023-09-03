@@ -47,30 +47,11 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "DTO container with a table element.")
 public class Table extends NodeLink {
-    @SerializedName("TableProperties")
-    protected TableProperties tableProperties;
-
     @SerializedName("TableRowList")
     protected List<TableRow> tableRowList;
-    /**
-     * Gets or sets table properties.
-    * @return tableProperties
-    **/
-    @ApiModelProperty(value = "Gets or sets table properties.")
-    public TableProperties getTableProperties() {
-        return tableProperties;
-    }
 
-    public Table tableProperties(TableProperties tableProperties) {
-        this.tableProperties = tableProperties;
-        return this;
-    }
-
-    public void setTableProperties(TableProperties tableProperties) {
-        this.tableProperties = tableProperties;
-    }
-
-
+    @SerializedName("TableProperties")
+    protected TableProperties tableProperties;
     /**
      * Gets or sets the collection of table's rows.
     * @return tableRowList
@@ -99,10 +80,29 @@ public class Table extends NodeLink {
     }
 
 
+    /**
+     * Gets or sets table properties.
+    * @return tableProperties
+    **/
+    @ApiModelProperty(value = "Gets or sets table properties.")
+    public TableProperties getTableProperties() {
+        return tableProperties;
+    }
+
+    public Table tableProperties(TableProperties tableProperties) {
+        this.tableProperties = tableProperties;
+        return this;
+    }
+
+    public void setTableProperties(TableProperties tableProperties) {
+        this.tableProperties = tableProperties;
+    }
+
+
     public Table() {
         super();
-        this.tableProperties = null;
         this.tableRowList = null;
+        this.tableProperties = null;
     }
 
     /*
@@ -125,14 +125,14 @@ public class Table extends NodeLink {
 
         Table table = (Table) o;
         return
-            Objects.equals(this.tableProperties, table.tableProperties) &&
             Objects.equals(this.tableRowList, table.tableRowList) &&
+            Objects.equals(this.tableProperties, table.tableProperties) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tableProperties, tableRowList, super.hashCode());
+    return Objects.hash(tableRowList, tableProperties, super.hashCode());
   }
 
   @Override
@@ -141,8 +141,8 @@ public class Table extends NodeLink {
     sb.append("class Table {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
-    sb.append("    tableProperties: ").append(toIndentedString(getTableProperties())).append("\n");
     sb.append("    tableRowList: ").append(toIndentedString(getTableRowList())).append("\n");
+    sb.append("    tableProperties: ").append(toIndentedString(getTableProperties())).append("\n");
     sb.append("}");
     return sb.toString();
   }

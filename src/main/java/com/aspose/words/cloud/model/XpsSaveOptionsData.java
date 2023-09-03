@@ -139,8 +139,8 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
         this.bookmarksOutlineLevel = null;
         this.headingsOutlineLevels = null;
         this.outlineOptions = null;
-        this.saveFormat = "xps";
         this.useBookFoldPrintingSettings = null;
+        this.saveFormat = "xps";
     }
 
     /*
@@ -190,7 +190,6 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
     sb.append("    colorMode: ").append(toIndentedString(getColorMode())).append("\n");
     sb.append("    jpegQuality: ").append(toIndentedString(getJpegQuality())).append("\n");
@@ -202,8 +201,8 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    bookmarksOutlineLevel: ").append(toIndentedString(getBookmarksOutlineLevel())).append("\n");
     sb.append("    headingsOutlineLevels: ").append(toIndentedString(getHeadingsOutlineLevels())).append("\n");
     sb.append("    outlineOptions: ").append(toIndentedString(getOutlineOptions())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    useBookFoldPrintingSettings: ").append(toIndentedString(getUseBookFoldPrintingSettings())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

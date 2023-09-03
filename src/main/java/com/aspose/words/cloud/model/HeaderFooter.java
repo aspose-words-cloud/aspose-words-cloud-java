@@ -50,11 +50,11 @@ public class HeaderFooter extends HeaderFooterLink {
     @SerializedName("ChildNodes")
     protected List<NodeLink> childNodes;
 
-    @SerializedName("DrawingObjects")
-    protected LinkElement drawingObjects;
-
     @SerializedName("Paragraphs")
     protected LinkElement paragraphs;
+
+    @SerializedName("DrawingObjects")
+    protected LinkElement drawingObjects;
     /**
      * Gets or sets the child nodes.
     * @return childNodes
@@ -84,25 +84,6 @@ public class HeaderFooter extends HeaderFooterLink {
 
 
     /**
-     * Gets or sets the link to DrawingObjects resource.
-    * @return drawingObjects
-    **/
-    @ApiModelProperty(value = "Gets or sets the link to DrawingObjects resource.")
-    public LinkElement getDrawingObjects() {
-        return drawingObjects;
-    }
-
-    public HeaderFooter drawingObjects(LinkElement drawingObjects) {
-        this.drawingObjects = drawingObjects;
-        return this;
-    }
-
-    public void setDrawingObjects(LinkElement drawingObjects) {
-        this.drawingObjects = drawingObjects;
-    }
-
-
-    /**
      * Gets or sets the link to Paragraphs resource.
     * @return paragraphs
     **/
@@ -121,11 +102,30 @@ public class HeaderFooter extends HeaderFooterLink {
     }
 
 
+    /**
+     * Gets or sets the link to DrawingObjects resource.
+    * @return drawingObjects
+    **/
+    @ApiModelProperty(value = "Gets or sets the link to DrawingObjects resource.")
+    public LinkElement getDrawingObjects() {
+        return drawingObjects;
+    }
+
+    public HeaderFooter drawingObjects(LinkElement drawingObjects) {
+        this.drawingObjects = drawingObjects;
+        return this;
+    }
+
+    public void setDrawingObjects(LinkElement drawingObjects) {
+        this.drawingObjects = drawingObjects;
+    }
+
+
     public HeaderFooter() {
         super();
         this.childNodes = null;
-        this.drawingObjects = null;
         this.paragraphs = null;
+        this.drawingObjects = null;
     }
 
     /*
@@ -149,14 +149,14 @@ public class HeaderFooter extends HeaderFooterLink {
         HeaderFooter headerFooter = (HeaderFooter) o;
         return
             Objects.equals(this.childNodes, headerFooter.childNodes) &&
-            Objects.equals(this.drawingObjects, headerFooter.drawingObjects) &&
             Objects.equals(this.paragraphs, headerFooter.paragraphs) &&
+            Objects.equals(this.drawingObjects, headerFooter.drawingObjects) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(childNodes, drawingObjects, paragraphs, super.hashCode());
+    return Objects.hash(childNodes, paragraphs, drawingObjects, super.hashCode());
   }
 
   @Override
@@ -166,8 +166,8 @@ public class HeaderFooter extends HeaderFooterLink {
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
     sb.append("    type: ").append(toIndentedString(getType())).append("\n");
     sb.append("    childNodes: ").append(toIndentedString(getChildNodes())).append("\n");
-    sb.append("    drawingObjects: ").append(toIndentedString(getDrawingObjects())).append("\n");
     sb.append("    paragraphs: ").append(toIndentedString(getParagraphs())).append("\n");
+    sb.append("    drawingObjects: ").append(toIndentedString(getDrawingObjects())).append("\n");
     sb.append("}");
     return sb.toString();
   }

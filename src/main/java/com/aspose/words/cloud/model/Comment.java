@@ -47,99 +47,42 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "DTO container with a comment.")
 public class Comment extends CommentLink {
-    @SerializedName("Author")
-    protected String author;
-
-    @SerializedName("Content")
-    protected StoryChildNodes content;
-
-    @SerializedName("DateTime")
-    protected OffsetDateTime dateTime;
-
-    @SerializedName("Initial")
-    protected String initial;
+    @SerializedName("RangeStart")
+    protected DocumentPosition rangeStart;
 
     @SerializedName("RangeEnd")
     protected DocumentPosition rangeEnd;
 
-    @SerializedName("RangeStart")
-    protected DocumentPosition rangeStart;
+    @SerializedName("Author")
+    protected String author;
+
+    @SerializedName("Initial")
+    protected String initial;
+
+    @SerializedName("DateTime")
+    protected OffsetDateTime dateTime;
 
     @SerializedName("Text")
     protected String text;
+
+    @SerializedName("Content")
+    protected StoryChildNodes content;
     /**
-     * Gets or sets the author name for a comment.
-    * @return author
+     * Gets or sets the link to comment range start node.
+    * @return rangeStart
     **/
-    @ApiModelProperty(value = "Gets or sets the author name for a comment.")
-    public String getAuthor() {
-        return author;
+    @ApiModelProperty(value = "Gets or sets the link to comment range start node.")
+    public DocumentPosition getRangeStart() {
+        return rangeStart;
     }
 
-    public Comment author(String author) {
-        this.author = author;
+    public Comment rangeStart(DocumentPosition rangeStart) {
+        this.rangeStart = rangeStart;
         return this;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-
-    /**
-     * Gets or sets the content of the comment.
-    * @return content
-    **/
-    @ApiModelProperty(value = "Gets or sets the content of the comment.")
-    public StoryChildNodes getContent() {
-        return content;
-    }
-
-    public Comment content(StoryChildNodes content) {
-        this.content = content;
-        return this;
-    }
-
-    public void setContent(StoryChildNodes content) {
-        this.content = content;
-    }
-
-
-    /**
-     * Gets or sets the date and time that the comment was made.
-    * @return dateTime
-    **/
-    @ApiModelProperty(value = "Gets or sets the date and time that the comment was made.")
-    public OffsetDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public Comment dateTime(OffsetDateTime dateTime) {
-        this.dateTime = dateTime;
-        return this;
-    }
-
-    public void setDateTime(OffsetDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
-
-
-    /**
-     * Gets or sets the initials of the user associated with a specific comment.
-    * @return initial
-    **/
-    @ApiModelProperty(value = "Gets or sets the initials of the user associated with a specific comment.")
-    public String getInitial() {
-        return initial;
-    }
-
-    public Comment initial(String initial) {
-        this.initial = initial;
-        return this;
-    }
-
-    public void setInitial(String initial) {
-        this.initial = initial;
+    public void setRangeStart(DocumentPosition rangeStart) {
+        this.rangeStart = rangeStart;
     }
 
 
@@ -163,21 +106,59 @@ public class Comment extends CommentLink {
 
 
     /**
-     * Gets or sets the link to comment range start node.
-    * @return rangeStart
+     * Gets or sets the author name for a comment.
+    * @return author
     **/
-    @ApiModelProperty(value = "Gets or sets the link to comment range start node.")
-    public DocumentPosition getRangeStart() {
-        return rangeStart;
+    @ApiModelProperty(value = "Gets or sets the author name for a comment.")
+    public String getAuthor() {
+        return author;
     }
 
-    public Comment rangeStart(DocumentPosition rangeStart) {
-        this.rangeStart = rangeStart;
+    public Comment author(String author) {
+        this.author = author;
         return this;
     }
 
-    public void setRangeStart(DocumentPosition rangeStart) {
-        this.rangeStart = rangeStart;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+
+    /**
+     * Gets or sets the initials of the user associated with a specific comment.
+    * @return initial
+    **/
+    @ApiModelProperty(value = "Gets or sets the initials of the user associated with a specific comment.")
+    public String getInitial() {
+        return initial;
+    }
+
+    public Comment initial(String initial) {
+        this.initial = initial;
+        return this;
+    }
+
+    public void setInitial(String initial) {
+        this.initial = initial;
+    }
+
+
+    /**
+     * Gets or sets the date and time that the comment was made.
+    * @return dateTime
+    **/
+    @ApiModelProperty(value = "Gets or sets the date and time that the comment was made.")
+    public OffsetDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public Comment dateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+        return this;
+    }
+
+    public void setDateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
 
@@ -200,15 +181,34 @@ public class Comment extends CommentLink {
     }
 
 
+    /**
+     * Gets or sets the content of the comment.
+    * @return content
+    **/
+    @ApiModelProperty(value = "Gets or sets the content of the comment.")
+    public StoryChildNodes getContent() {
+        return content;
+    }
+
+    public Comment content(StoryChildNodes content) {
+        this.content = content;
+        return this;
+    }
+
+    public void setContent(StoryChildNodes content) {
+        this.content = content;
+    }
+
+
     public Comment() {
         super();
-        this.author = null;
-        this.content = null;
-        this.dateTime = null;
-        this.initial = null;
-        this.rangeEnd = null;
         this.rangeStart = null;
+        this.rangeEnd = null;
+        this.author = null;
+        this.initial = null;
+        this.dateTime = null;
         this.text = null;
+        this.content = null;
     }
 
     /*
@@ -231,19 +231,19 @@ public class Comment extends CommentLink {
 
         Comment comment = (Comment) o;
         return
-            Objects.equals(this.author, comment.author) &&
-            Objects.equals(this.content, comment.content) &&
-            Objects.equals(this.dateTime, comment.dateTime) &&
-            Objects.equals(this.initial, comment.initial) &&
-            Objects.equals(this.rangeEnd, comment.rangeEnd) &&
             Objects.equals(this.rangeStart, comment.rangeStart) &&
+            Objects.equals(this.rangeEnd, comment.rangeEnd) &&
+            Objects.equals(this.author, comment.author) &&
+            Objects.equals(this.initial, comment.initial) &&
+            Objects.equals(this.dateTime, comment.dateTime) &&
             Objects.equals(this.text, comment.text) &&
+            Objects.equals(this.content, comment.content) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, content, dateTime, initial, rangeEnd, rangeStart, text, super.hashCode());
+    return Objects.hash(rangeStart, rangeEnd, author, initial, dateTime, text, content, super.hashCode());
   }
 
   @Override
@@ -251,13 +251,13 @@ public class Comment extends CommentLink {
     StringBuilder sb = new StringBuilder();
     sb.append("class Comment {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
-    sb.append("    author: ").append(toIndentedString(getAuthor())).append("\n");
-    sb.append("    content: ").append(toIndentedString(getContent())).append("\n");
-    sb.append("    dateTime: ").append(toIndentedString(getDateTime())).append("\n");
-    sb.append("    initial: ").append(toIndentedString(getInitial())).append("\n");
-    sb.append("    rangeEnd: ").append(toIndentedString(getRangeEnd())).append("\n");
     sb.append("    rangeStart: ").append(toIndentedString(getRangeStart())).append("\n");
+    sb.append("    rangeEnd: ").append(toIndentedString(getRangeEnd())).append("\n");
+    sb.append("    author: ").append(toIndentedString(getAuthor())).append("\n");
+    sb.append("    initial: ").append(toIndentedString(getInitial())).append("\n");
+    sb.append("    dateTime: ").append(toIndentedString(getDateTime())).append("\n");
     sb.append("    text: ").append(toIndentedString(getText())).append("\n");
+    sb.append("    content: ").append(toIndentedString(getContent())).append("\n");
     sb.append("}");
     return sb.toString();
   }

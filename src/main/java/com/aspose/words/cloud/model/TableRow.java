@@ -47,30 +47,11 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "DTO container with a table row element.")
 public class TableRow extends NodeLink {
-    @SerializedName("RowFormat")
-    protected TableRowFormat rowFormat;
-
     @SerializedName("TableCellList")
     protected List<TableCell> tableCellList;
-    /**
-     * Gets or sets the formatting properties of a row.
-    * @return rowFormat
-    **/
-    @ApiModelProperty(value = "Gets or sets the formatting properties of a row.")
-    public TableRowFormat getRowFormat() {
-        return rowFormat;
-    }
 
-    public TableRow rowFormat(TableRowFormat rowFormat) {
-        this.rowFormat = rowFormat;
-        return this;
-    }
-
-    public void setRowFormat(TableRowFormat rowFormat) {
-        this.rowFormat = rowFormat;
-    }
-
-
+    @SerializedName("RowFormat")
+    protected TableRowFormat rowFormat;
     /**
      * Gets or sets the collection of rows.
     * @return tableCellList
@@ -99,10 +80,29 @@ public class TableRow extends NodeLink {
     }
 
 
+    /**
+     * Gets or sets the formatting properties of a row.
+    * @return rowFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets the formatting properties of a row.")
+    public TableRowFormat getRowFormat() {
+        return rowFormat;
+    }
+
+    public TableRow rowFormat(TableRowFormat rowFormat) {
+        this.rowFormat = rowFormat;
+        return this;
+    }
+
+    public void setRowFormat(TableRowFormat rowFormat) {
+        this.rowFormat = rowFormat;
+    }
+
+
     public TableRow() {
         super();
-        this.rowFormat = null;
         this.tableCellList = null;
+        this.rowFormat = null;
     }
 
     /*
@@ -125,14 +125,14 @@ public class TableRow extends NodeLink {
 
         TableRow tableRow = (TableRow) o;
         return
-            Objects.equals(this.rowFormat, tableRow.rowFormat) &&
             Objects.equals(this.tableCellList, tableRow.tableCellList) &&
+            Objects.equals(this.rowFormat, tableRow.rowFormat) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rowFormat, tableCellList, super.hashCode());
+    return Objects.hash(tableCellList, rowFormat, super.hashCode());
   }
 
   @Override
@@ -141,8 +141,8 @@ public class TableRow extends NodeLink {
     sb.append("class TableRow {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
-    sb.append("    rowFormat: ").append(toIndentedString(getRowFormat())).append("\n");
     sb.append("    tableCellList: ").append(toIndentedString(getTableCellList())).append("\n");
+    sb.append("    rowFormat: ").append(toIndentedString(getRowFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

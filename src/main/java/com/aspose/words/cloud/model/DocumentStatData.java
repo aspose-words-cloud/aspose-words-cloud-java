@@ -53,14 +53,14 @@ public class DocumentStatData implements ModelIfc {
     @SerializedName("PageCount")
     protected Integer pageCount;
 
-    @SerializedName("PageStatData")
-    protected List<PageStatData> pageStatData;
-
     @SerializedName("ParagraphCount")
     protected Integer paragraphCount;
 
     @SerializedName("WordCount")
     protected Integer wordCount;
+
+    @SerializedName("PageStatData")
+    protected List<PageStatData> pageStatData;
     /**
      * Gets or sets the detailed statistics on footnotes.
     * @return footnotesStatData
@@ -96,34 +96,6 @@ public class DocumentStatData implements ModelIfc {
 
     public void setPageCount(Integer pageCount) {
         this.pageCount = pageCount;
-    }
-
-
-    /**
-     * Gets or sets the detailed statistics on all pages.
-    * @return pageStatData
-    **/
-    @ApiModelProperty(value = "Gets or sets the detailed statistics on all pages.")
-    public List<PageStatData> getPageStatData() {
-        return pageStatData;
-    }
-
-    public DocumentStatData pageStatData(List<PageStatData> pageStatData) {
-        this.pageStatData = pageStatData;
-        return this;
-    }
-
-    public DocumentStatData addPageStatDataItem(PageStatData pageStatDataItem) {
-        if (this.pageStatData == null) {
-            this.pageStatData = new ArrayList<PageStatData>();
-        }
-        this.pageStatData.add(pageStatDataItem);
-        return this;
-    }
-
-
-    public void setPageStatData(List<PageStatData> pageStatData) {
-        this.pageStatData = pageStatData;
     }
 
 
@@ -165,12 +137,40 @@ public class DocumentStatData implements ModelIfc {
     }
 
 
+    /**
+     * Gets or sets the detailed statistics on all pages.
+    * @return pageStatData
+    **/
+    @ApiModelProperty(value = "Gets or sets the detailed statistics on all pages.")
+    public List<PageStatData> getPageStatData() {
+        return pageStatData;
+    }
+
+    public DocumentStatData pageStatData(List<PageStatData> pageStatData) {
+        this.pageStatData = pageStatData;
+        return this;
+    }
+
+    public DocumentStatData addPageStatDataItem(PageStatData pageStatDataItem) {
+        if (this.pageStatData == null) {
+            this.pageStatData = new ArrayList<PageStatData>();
+        }
+        this.pageStatData.add(pageStatDataItem);
+        return this;
+    }
+
+
+    public void setPageStatData(List<PageStatData> pageStatData) {
+        this.pageStatData = pageStatData;
+    }
+
+
     public DocumentStatData() {
         this.footnotesStatData = null;
         this.pageCount = null;
-        this.pageStatData = null;
         this.paragraphCount = null;
         this.wordCount = null;
+        this.pageStatData = null;
     }
 
     /*
@@ -195,14 +195,14 @@ public class DocumentStatData implements ModelIfc {
         return
             Objects.equals(this.footnotesStatData, documentStatData.footnotesStatData) &&
             Objects.equals(this.pageCount, documentStatData.pageCount) &&
-            Objects.equals(this.pageStatData, documentStatData.pageStatData) &&
             Objects.equals(this.paragraphCount, documentStatData.paragraphCount) &&
-            Objects.equals(this.wordCount, documentStatData.wordCount);
+            Objects.equals(this.wordCount, documentStatData.wordCount) &&
+            Objects.equals(this.pageStatData, documentStatData.pageStatData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(footnotesStatData, pageCount, pageStatData, paragraphCount, wordCount);
+    return Objects.hash(footnotesStatData, pageCount, paragraphCount, wordCount, pageStatData);
   }
 
   @Override
@@ -211,9 +211,9 @@ public class DocumentStatData implements ModelIfc {
     sb.append("class DocumentStatData {\n");
     sb.append("    footnotesStatData: ").append(toIndentedString(getFootnotesStatData())).append("\n");
     sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
-    sb.append("    pageStatData: ").append(toIndentedString(getPageStatData())).append("\n");
     sb.append("    paragraphCount: ").append(toIndentedString(getParagraphCount())).append("\n");
     sb.append("    wordCount: ").append(toIndentedString(getWordCount())).append("\n");
+    sb.append("    pageStatData: ").append(toIndentedString(getPageStatData())).append("\n");
     sb.append("}");
     return sb.toString();
   }

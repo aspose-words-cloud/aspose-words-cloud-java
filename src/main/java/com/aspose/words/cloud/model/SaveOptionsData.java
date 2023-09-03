@@ -254,9 +254,6 @@ public abstract class SaveOptionsData implements ModelIfc {
     @SerializedName("ImlRenderingMode")
     protected ImlRenderingModeEnum imlRenderingMode;
 
-    @SerializedName("SaveFormat")
-    protected String saveFormat;
-
     @SerializedName("UpdateCreatedTimeProperty")
     protected Boolean updateCreatedTimeProperty;
 
@@ -269,11 +266,11 @@ public abstract class SaveOptionsData implements ModelIfc {
     @SerializedName("UpdateLastSavedTimeProperty")
     protected Boolean updateLastSavedTimeProperty;
 
-    @SerializedName("UpdateSdtContent")
-    protected Boolean updateSdtContent;
-
     @SerializedName("ZipOutput")
     protected Boolean zipOutput;
+
+    @SerializedName("SaveFormat")
+    protected String saveFormat;
     /**
      * Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
     * @return allowEmbeddingPostScriptFonts
@@ -409,17 +406,6 @@ public abstract class SaveOptionsData implements ModelIfc {
 
 
     /**
-     * Gets the format of save.
-    * @return saveFormat
-    **/
-    @ApiModelProperty(value = "Gets the format of save.")
-    public String getSaveFormat() {
-        return saveFormat;
-    }
-
-
-
-    /**
      * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving.
      * Default value is false.
     * @return updateCreatedTimeProperty
@@ -497,25 +483,6 @@ public abstract class SaveOptionsData implements ModelIfc {
 
 
     /**
-     * Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.
-    * @return updateSdtContent
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.")
-    public Boolean getUpdateSdtContent() {
-        return updateSdtContent;
-    }
-
-    public SaveOptionsData updateSdtContent(Boolean updateSdtContent) {
-        this.updateSdtContent = updateSdtContent;
-        return this;
-    }
-
-    public void setUpdateSdtContent(Boolean updateSdtContent) {
-        this.updateSdtContent = updateSdtContent;
-    }
-
-
-    /**
      * Gets or sets a value indicating whether to zip output or not.
      * The default value is false.
     * @return zipOutput
@@ -535,6 +502,17 @@ public abstract class SaveOptionsData implements ModelIfc {
     }
 
 
+    /**
+     * Gets the format of save.
+    * @return saveFormat
+    **/
+    @ApiModelProperty(value = "Gets the format of save.")
+    public String getSaveFormat() {
+        return saveFormat;
+    }
+
+
+
     public SaveOptionsData() {
         this.allowEmbeddingPostScriptFonts = null;
         this.customTimeZoneInfoData = null;
@@ -543,13 +521,12 @@ public abstract class SaveOptionsData implements ModelIfc {
         this.dmlRenderingMode = null;
         this.fileName = null;
         this.imlRenderingMode = null;
-        this.saveFormat = null;
         this.updateCreatedTimeProperty = null;
         this.updateFields = null;
         this.updateLastPrintedProperty = null;
         this.updateLastSavedTimeProperty = null;
-        this.updateSdtContent = null;
         this.zipOutput = null;
+        this.saveFormat = null;
     }
 
     /*
@@ -579,18 +556,17 @@ public abstract class SaveOptionsData implements ModelIfc {
             Objects.equals(this.dmlRenderingMode, saveOptionsData.dmlRenderingMode) &&
             Objects.equals(this.fileName, saveOptionsData.fileName) &&
             Objects.equals(this.imlRenderingMode, saveOptionsData.imlRenderingMode) &&
-            Objects.equals(this.saveFormat, saveOptionsData.saveFormat) &&
             Objects.equals(this.updateCreatedTimeProperty, saveOptionsData.updateCreatedTimeProperty) &&
             Objects.equals(this.updateFields, saveOptionsData.updateFields) &&
             Objects.equals(this.updateLastPrintedProperty, saveOptionsData.updateLastPrintedProperty) &&
             Objects.equals(this.updateLastSavedTimeProperty, saveOptionsData.updateLastSavedTimeProperty) &&
-            Objects.equals(this.updateSdtContent, saveOptionsData.updateSdtContent) &&
-            Objects.equals(this.zipOutput, saveOptionsData.zipOutput);
+            Objects.equals(this.zipOutput, saveOptionsData.zipOutput) &&
+            Objects.equals(this.saveFormat, saveOptionsData.saveFormat);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowEmbeddingPostScriptFonts, customTimeZoneInfoData, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, imlRenderingMode, saveFormat, updateCreatedTimeProperty, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, updateSdtContent, zipOutput);
+    return Objects.hash(allowEmbeddingPostScriptFonts, customTimeZoneInfoData, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, imlRenderingMode, updateCreatedTimeProperty, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, zipOutput, saveFormat);
   }
 
   @Override
@@ -604,13 +580,12 @@ public abstract class SaveOptionsData implements ModelIfc {
     sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
     sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
     sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

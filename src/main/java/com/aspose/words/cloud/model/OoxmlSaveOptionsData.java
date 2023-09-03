@@ -280,13 +280,12 @@ public abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
     sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
     sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    compliance: ").append(toIndentedString(getCompliance())).append("\n");
     sb.append("    compressionLevel: ").append(toIndentedString(getCompressionLevel())).append("\n");
     sb.append("    password: ").append(toIndentedString(getPassword())).append("\n");

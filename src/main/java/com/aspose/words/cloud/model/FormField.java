@@ -46,49 +46,49 @@ import io.swagger.annotations.ApiModelProperty;
  * FromField.
  */
 @ApiModel(description = "FromField.")
-public class FormField extends NodeLink {
-    @SerializedName("CalculateOnExit")
-    protected Boolean calculateOnExit;
+public abstract class FormField extends NodeLink {
+    @SerializedName("Name")
+    protected String name;
 
     @SerializedName("Enabled")
     protected Boolean enabled;
+
+    @SerializedName("StatusText")
+    protected String statusText;
+
+    @SerializedName("OwnStatus")
+    protected Boolean ownStatus;
+
+    @SerializedName("HelpText")
+    protected String helpText;
+
+    @SerializedName("OwnHelp")
+    protected Boolean ownHelp;
+
+    @SerializedName("CalculateOnExit")
+    protected Boolean calculateOnExit;
 
     @SerializedName("EntryMacro")
     protected String entryMacro;
 
     @SerializedName("ExitMacro")
     protected String exitMacro;
-
-    @SerializedName("HelpText")
-    protected String helpText;
-
-    @SerializedName("Name")
-    protected String name;
-
-    @SerializedName("OwnHelp")
-    protected Boolean ownHelp;
-
-    @SerializedName("OwnStatus")
-    protected Boolean ownStatus;
-
-    @SerializedName("StatusText")
-    protected String statusText;
     /**
-     * Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
-    * @return calculateOnExit
+     * Gets or sets the form field name.
+    * @return name
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.")
-    public Boolean getCalculateOnExit() {
-        return calculateOnExit;
+    @ApiModelProperty(value = "Gets or sets the form field name.")
+    public String getName() {
+        return name;
     }
 
-    public FormField calculateOnExit(Boolean calculateOnExit) {
-        this.calculateOnExit = calculateOnExit;
+    public FormField name(String name) {
+        this.name = name;
         return this;
     }
 
-    public void setCalculateOnExit(Boolean calculateOnExit) {
-        this.calculateOnExit = calculateOnExit;
+    public void setName(String name) {
+        this.name = name;
     }
 
 
@@ -108,6 +108,101 @@ public class FormField extends NodeLink {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+
+    /**
+     * Gets or sets text, displayed in the status bar when a form field has the focus.
+    * @return statusText
+    **/
+    @ApiModelProperty(value = "Gets or sets text, displayed in the status bar when a form field has the focus.")
+    public String getStatusText() {
+        return statusText;
+    }
+
+    public FormField statusText(String statusText) {
+        this.statusText = statusText;
+        return this;
+    }
+
+    public void setStatusText(String statusText) {
+        this.statusText = statusText;
+    }
+
+
+    /**
+     * Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
+    * @return ownStatus
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.")
+    public Boolean getOwnStatus() {
+        return ownStatus;
+    }
+
+    public FormField ownStatus(Boolean ownStatus) {
+        this.ownStatus = ownStatus;
+        return this;
+    }
+
+    public void setOwnStatus(Boolean ownStatus) {
+        this.ownStatus = ownStatus;
+    }
+
+
+    /**
+     * Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
+    * @return helpText
+    **/
+    @ApiModelProperty(value = "Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.")
+    public String getHelpText() {
+        return helpText;
+    }
+
+    public FormField helpText(String helpText) {
+        this.helpText = helpText;
+        return this;
+    }
+
+    public void setHelpText(String helpText) {
+        this.helpText = helpText;
+    }
+
+
+    /**
+     * Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
+    * @return ownHelp
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.")
+    public Boolean getOwnHelp() {
+        return ownHelp;
+    }
+
+    public FormField ownHelp(Boolean ownHelp) {
+        this.ownHelp = ownHelp;
+        return this;
+    }
+
+    public void setOwnHelp(Boolean ownHelp) {
+        this.ownHelp = ownHelp;
+    }
+
+
+    /**
+     * Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
+    * @return calculateOnExit
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.")
+    public Boolean getCalculateOnExit() {
+        return calculateOnExit;
+    }
+
+    public FormField calculateOnExit(Boolean calculateOnExit) {
+        this.calculateOnExit = calculateOnExit;
+        return this;
+    }
+
+    public void setCalculateOnExit(Boolean calculateOnExit) {
+        this.calculateOnExit = calculateOnExit;
     }
 
 
@@ -149,112 +244,17 @@ public class FormField extends NodeLink {
     }
 
 
-    /**
-     * Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
-    * @return helpText
-    **/
-    @ApiModelProperty(value = "Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.")
-    public String getHelpText() {
-        return helpText;
-    }
-
-    public FormField helpText(String helpText) {
-        this.helpText = helpText;
-        return this;
-    }
-
-    public void setHelpText(String helpText) {
-        this.helpText = helpText;
-    }
-
-
-    /**
-     * Gets or sets the form field name.
-    * @return name
-    **/
-    @ApiModelProperty(value = "Gets or sets the form field name.")
-    public String getName() {
-        return name;
-    }
-
-    public FormField name(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    /**
-     * Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
-    * @return ownHelp
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.")
-    public Boolean getOwnHelp() {
-        return ownHelp;
-    }
-
-    public FormField ownHelp(Boolean ownHelp) {
-        this.ownHelp = ownHelp;
-        return this;
-    }
-
-    public void setOwnHelp(Boolean ownHelp) {
-        this.ownHelp = ownHelp;
-    }
-
-
-    /**
-     * Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
-    * @return ownStatus
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.")
-    public Boolean getOwnStatus() {
-        return ownStatus;
-    }
-
-    public FormField ownStatus(Boolean ownStatus) {
-        this.ownStatus = ownStatus;
-        return this;
-    }
-
-    public void setOwnStatus(Boolean ownStatus) {
-        this.ownStatus = ownStatus;
-    }
-
-
-    /**
-     * Gets or sets text, displayed in the status bar when a form field has the focus.
-    * @return statusText
-    **/
-    @ApiModelProperty(value = "Gets or sets text, displayed in the status bar when a form field has the focus.")
-    public String getStatusText() {
-        return statusText;
-    }
-
-    public FormField statusText(String statusText) {
-        this.statusText = statusText;
-        return this;
-    }
-
-    public void setStatusText(String statusText) {
-        this.statusText = statusText;
-    }
-
-
     public FormField() {
         super();
-        this.calculateOnExit = null;
+        this.name = null;
         this.enabled = null;
+        this.statusText = null;
+        this.ownStatus = null;
+        this.helpText = null;
+        this.ownHelp = null;
+        this.calculateOnExit = null;
         this.entryMacro = null;
         this.exitMacro = null;
-        this.helpText = null;
-        this.name = null;
-        this.ownHelp = null;
-        this.ownStatus = null;
-        this.statusText = null;
     }
 
     /*
@@ -277,21 +277,21 @@ public class FormField extends NodeLink {
 
         FormField formField = (FormField) o;
         return
-            Objects.equals(this.calculateOnExit, formField.calculateOnExit) &&
+            Objects.equals(this.name, formField.name) &&
             Objects.equals(this.enabled, formField.enabled) &&
+            Objects.equals(this.statusText, formField.statusText) &&
+            Objects.equals(this.ownStatus, formField.ownStatus) &&
+            Objects.equals(this.helpText, formField.helpText) &&
+            Objects.equals(this.ownHelp, formField.ownHelp) &&
+            Objects.equals(this.calculateOnExit, formField.calculateOnExit) &&
             Objects.equals(this.entryMacro, formField.entryMacro) &&
             Objects.equals(this.exitMacro, formField.exitMacro) &&
-            Objects.equals(this.helpText, formField.helpText) &&
-            Objects.equals(this.name, formField.name) &&
-            Objects.equals(this.ownHelp, formField.ownHelp) &&
-            Objects.equals(this.ownStatus, formField.ownStatus) &&
-            Objects.equals(this.statusText, formField.statusText) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(calculateOnExit, enabled, entryMacro, exitMacro, helpText, name, ownHelp, ownStatus, statusText, super.hashCode());
+    return Objects.hash(name, enabled, statusText, ownStatus, helpText, ownHelp, calculateOnExit, entryMacro, exitMacro, super.hashCode());
   }
 
   @Override
@@ -300,15 +300,15 @@ public class FormField extends NodeLink {
     sb.append("class FormField {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
-    sb.append("    calculateOnExit: ").append(toIndentedString(getCalculateOnExit())).append("\n");
+    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
     sb.append("    enabled: ").append(toIndentedString(getEnabled())).append("\n");
+    sb.append("    statusText: ").append(toIndentedString(getStatusText())).append("\n");
+    sb.append("    ownStatus: ").append(toIndentedString(getOwnStatus())).append("\n");
+    sb.append("    helpText: ").append(toIndentedString(getHelpText())).append("\n");
+    sb.append("    ownHelp: ").append(toIndentedString(getOwnHelp())).append("\n");
+    sb.append("    calculateOnExit: ").append(toIndentedString(getCalculateOnExit())).append("\n");
     sb.append("    entryMacro: ").append(toIndentedString(getEntryMacro())).append("\n");
     sb.append("    exitMacro: ").append(toIndentedString(getExitMacro())).append("\n");
-    sb.append("    helpText: ").append(toIndentedString(getHelpText())).append("\n");
-    sb.append("    name: ").append(toIndentedString(getName())).append("\n");
-    sb.append("    ownHelp: ").append(toIndentedString(getOwnHelp())).append("\n");
-    sb.append("    ownStatus: ").append(toIndentedString(getOwnStatus())).append("\n");
-    sb.append("    statusText: ").append(toIndentedString(getStatusText())).append("\n");
     sb.append("}");
     return sb.toString();
   }

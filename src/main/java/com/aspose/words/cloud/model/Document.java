@@ -112,6 +112,9 @@ public class Document implements ModelIfc {
         }
     }
 
+    @SerializedName("Links")
+    protected List<Link> links;
+
     @SerializedName("DocumentProperties")
     protected DocumentProperties documentProperties;
 
@@ -124,11 +127,36 @@ public class Document implements ModelIfc {
     @SerializedName("IsSigned")
     protected Boolean isSigned;
 
-    @SerializedName("Links")
-    protected List<Link> links;
-
     @SerializedName("SourceFormat")
     protected SourceFormatEnum sourceFormat;
+    /**
+     * Gets or sets the list of links that originate from this document.
+    * @return links
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of links that originate from this document.")
+    public List<Link> getLinks() {
+        return links;
+    }
+
+    public Document links(List<Link> links) {
+        this.links = links;
+        return this;
+    }
+
+    public Document addLinksItem(Link linksItem) {
+        if (this.links == null) {
+            this.links = new ArrayList<Link>();
+        }
+        this.links.add(linksItem);
+        return this;
+    }
+
+
+    public void setLinks(List<Link> links) {
+        this.links = links;
+    }
+
+
     /**
      * Gets or sets the document properties.
     * @return documentProperties
@@ -206,34 +234,6 @@ public class Document implements ModelIfc {
 
 
     /**
-     * Gets or sets the list of links that originate from this document.
-    * @return links
-    **/
-    @ApiModelProperty(value = "Gets or sets the list of links that originate from this document.")
-    public List<Link> getLinks() {
-        return links;
-    }
-
-    public Document links(List<Link> links) {
-        this.links = links;
-        return this;
-    }
-
-    public Document addLinksItem(Link linksItem) {
-        if (this.links == null) {
-            this.links = new ArrayList<Link>();
-        }
-        this.links.add(linksItem);
-        return this;
-    }
-
-
-    public void setLinks(List<Link> links) {
-        this.links = links;
-    }
-
-
-    /**
      * Gets or sets the original format of the document.
     * @return sourceFormat
     **/
@@ -253,11 +253,11 @@ public class Document implements ModelIfc {
 
 
     public Document() {
+        this.links = null;
         this.documentProperties = null;
         this.fileName = null;
         this.isEncrypted = null;
         this.isSigned = null;
-        this.links = null;
         this.sourceFormat = null;
     }
 
@@ -281,28 +281,28 @@ public class Document implements ModelIfc {
 
         Document document = (Document) o;
         return
+            Objects.equals(this.links, document.links) &&
             Objects.equals(this.documentProperties, document.documentProperties) &&
             Objects.equals(this.fileName, document.fileName) &&
             Objects.equals(this.isEncrypted, document.isEncrypted) &&
             Objects.equals(this.isSigned, document.isSigned) &&
-            Objects.equals(this.links, document.links) &&
             Objects.equals(this.sourceFormat, document.sourceFormat);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentProperties, fileName, isEncrypted, isSigned, links, sourceFormat);
+    return Objects.hash(links, documentProperties, fileName, isEncrypted, isSigned, sourceFormat);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Document {\n");
+    sb.append("    links: ").append(toIndentedString(getLinks())).append("\n");
     sb.append("    documentProperties: ").append(toIndentedString(getDocumentProperties())).append("\n");
     sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
     sb.append("    isEncrypted: ").append(toIndentedString(getIsEncrypted())).append("\n");
     sb.append("    isSigned: ").append(toIndentedString(getIsSigned())).append("\n");
-    sb.append("    links: ").append(toIndentedString(getLinks())).append("\n");
     sb.append("    sourceFormat: ").append(toIndentedString(getSourceFormat())).append("\n");
     sb.append("}");
     return sb.toString();

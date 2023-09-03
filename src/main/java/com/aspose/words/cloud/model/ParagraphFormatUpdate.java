@@ -99,7 +99,6 @@ public class ParagraphFormatUpdate extends ParagraphFormatBase {
     sb.append("    outlineLevel: ").append(toIndentedString(getOutlineLevel())).append("\n");
     sb.append("    pageBreakBefore: ").append(toIndentedString(getPageBreakBefore())).append("\n");
     sb.append("    rightIndent: ").append(toIndentedString(getRightIndent())).append("\n");
-    sb.append("    shading: ").append(toIndentedString(getShading())).append("\n");
     sb.append("    spaceAfter: ").append(toIndentedString(getSpaceAfter())).append("\n");
     sb.append("    spaceAfterAuto: ").append(toIndentedString(getSpaceAfterAuto())).append("\n");
     sb.append("    spaceBefore: ").append(toIndentedString(getSpaceBefore())).append("\n");
@@ -109,6 +108,7 @@ public class ParagraphFormatUpdate extends ParagraphFormatBase {
     sb.append("    suppressAutoHyphens: ").append(toIndentedString(getSuppressAutoHyphens())).append("\n");
     sb.append("    suppressLineNumbers: ").append(toIndentedString(getSuppressLineNumbers())).append("\n");
     sb.append("    widowControl: ").append(toIndentedString(getWidowControl())).append("\n");
+    sb.append("    shading: ").append(toIndentedString(getShading())).append("\n");
     sb.append("}");
     return sb.toString();
   }

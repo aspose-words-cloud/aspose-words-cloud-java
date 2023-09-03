@@ -94,55 +94,17 @@ public class TableRowFormat extends LinkElement {
         }
     }
 
-    @SerializedName("AllowBreakAcrossPages")
-    protected Boolean allowBreakAcrossPages;
-
-    @SerializedName("HeadingFormat")
-    protected Boolean headingFormat;
-
     @SerializedName("Height")
     protected Double height;
 
     @SerializedName("HeightRule")
     protected HeightRuleEnum heightRule;
-    /**
-     * Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.
-    * @return allowBreakAcrossPages
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.")
-    public Boolean getAllowBreakAcrossPages() {
-        return allowBreakAcrossPages;
-    }
 
-    public TableRowFormat allowBreakAcrossPages(Boolean allowBreakAcrossPages) {
-        this.allowBreakAcrossPages = allowBreakAcrossPages;
-        return this;
-    }
+    @SerializedName("AllowBreakAcrossPages")
+    protected Boolean allowBreakAcrossPages;
 
-    public void setAllowBreakAcrossPages(Boolean allowBreakAcrossPages) {
-        this.allowBreakAcrossPages = allowBreakAcrossPages;
-    }
-
-
-    /**
-     * Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
-    * @return headingFormat
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.")
-    public Boolean getHeadingFormat() {
-        return headingFormat;
-    }
-
-    public TableRowFormat headingFormat(Boolean headingFormat) {
-        this.headingFormat = headingFormat;
-        return this;
-    }
-
-    public void setHeadingFormat(Boolean headingFormat) {
-        this.headingFormat = headingFormat;
-    }
-
-
+    @SerializedName("HeadingFormat")
+    protected Boolean headingFormat;
     /**
      * Gets or sets the height of the table row in points.
     * @return height
@@ -181,12 +143,50 @@ public class TableRowFormat extends LinkElement {
     }
 
 
+    /**
+     * Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.
+    * @return allowBreakAcrossPages
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.")
+    public Boolean getAllowBreakAcrossPages() {
+        return allowBreakAcrossPages;
+    }
+
+    public TableRowFormat allowBreakAcrossPages(Boolean allowBreakAcrossPages) {
+        this.allowBreakAcrossPages = allowBreakAcrossPages;
+        return this;
+    }
+
+    public void setAllowBreakAcrossPages(Boolean allowBreakAcrossPages) {
+        this.allowBreakAcrossPages = allowBreakAcrossPages;
+    }
+
+
+    /**
+     * Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
+    * @return headingFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.")
+    public Boolean getHeadingFormat() {
+        return headingFormat;
+    }
+
+    public TableRowFormat headingFormat(Boolean headingFormat) {
+        this.headingFormat = headingFormat;
+        return this;
+    }
+
+    public void setHeadingFormat(Boolean headingFormat) {
+        this.headingFormat = headingFormat;
+    }
+
+
     public TableRowFormat() {
         super();
-        this.allowBreakAcrossPages = null;
-        this.headingFormat = null;
         this.height = null;
         this.heightRule = null;
+        this.allowBreakAcrossPages = null;
+        this.headingFormat = null;
     }
 
     /*
@@ -209,16 +209,16 @@ public class TableRowFormat extends LinkElement {
 
         TableRowFormat tableRowFormat = (TableRowFormat) o;
         return
-            Objects.equals(this.allowBreakAcrossPages, tableRowFormat.allowBreakAcrossPages) &&
-            Objects.equals(this.headingFormat, tableRowFormat.headingFormat) &&
             Objects.equals(this.height, tableRowFormat.height) &&
             Objects.equals(this.heightRule, tableRowFormat.heightRule) &&
+            Objects.equals(this.allowBreakAcrossPages, tableRowFormat.allowBreakAcrossPages) &&
+            Objects.equals(this.headingFormat, tableRowFormat.headingFormat) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowBreakAcrossPages, headingFormat, height, heightRule, super.hashCode());
+    return Objects.hash(height, heightRule, allowBreakAcrossPages, headingFormat, super.hashCode());
   }
 
   @Override
@@ -226,10 +226,10 @@ public class TableRowFormat extends LinkElement {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableRowFormat {\n");
     sb.append("    link: ").append(toIndentedString(getLink())).append("\n");
-    sb.append("    allowBreakAcrossPages: ").append(toIndentedString(getAllowBreakAcrossPages())).append("\n");
-    sb.append("    headingFormat: ").append(toIndentedString(getHeadingFormat())).append("\n");
     sb.append("    height: ").append(toIndentedString(getHeight())).append("\n");
     sb.append("    heightRule: ").append(toIndentedString(getHeightRule())).append("\n");
+    sb.append("    allowBreakAcrossPages: ").append(toIndentedString(getAllowBreakAcrossPages())).append("\n");
+    sb.append("    headingFormat: ").append(toIndentedString(getHeadingFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }

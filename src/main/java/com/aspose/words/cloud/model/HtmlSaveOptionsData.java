@@ -1312,9 +1312,9 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         this.resolveFontNames = null;
         this.resourceFolder = null;
         this.resourceFolderAlias = null;
-        this.saveFormat = "html";
         this.scaleImageToShapeSize = null;
         this.tableWidthOutputMode = null;
+        this.saveFormat = "html";
     }
 
     /*
@@ -1398,7 +1398,6 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(getUpdateSdtContent())).append("\n");
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
     sb.append("    allowNegativeIndent: ").append(toIndentedString(getAllowNegativeIndent())).append("\n");
     sb.append("    cssClassNamePrefix: ").append(toIndentedString(getCssClassNamePrefix())).append("\n");
@@ -1436,9 +1435,9 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     sb.append("    resolveFontNames: ").append(toIndentedString(getResolveFontNames())).append("\n");
     sb.append("    resourceFolder: ").append(toIndentedString(getResourceFolder())).append("\n");
     sb.append("    resourceFolderAlias: ").append(toIndentedString(getResourceFolderAlias())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("    scaleImageToShapeSize: ").append(toIndentedString(getScaleImageToShapeSize())).append("\n");
     sb.append("    tableWidthOutputMode: ").append(toIndentedString(getTableWidthOutputMode())).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
   }
