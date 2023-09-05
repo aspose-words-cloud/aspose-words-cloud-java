@@ -147,11 +147,11 @@ public class MetafileRenderingOptionsData implements ModelIfc {
     @SerializedName("EmulateRasterOperations")
     protected Boolean emulateRasterOperations;
 
+    @SerializedName("EmulateRenderingToSizeOnPage")
+    protected Boolean emulateRenderingToSizeOnPage;
+
     @SerializedName("RenderingMode")
     protected RenderingModeEnum renderingMode;
-
-    @SerializedName("ScaleWmfFontsToMetafileSize")
-    protected Boolean scaleWmfFontsToMetafileSize;
 
     @SerializedName("UseEmfEmbeddedToWmf")
     protected Boolean useEmfEmbeddedToWmf;
@@ -194,6 +194,26 @@ public class MetafileRenderingOptionsData implements ModelIfc {
 
 
     /**
+     * Gets or sets a value determining whether metafile rendering emulates the display of the metafile according to the size on page
+     * or the display of the metafile in its default size.
+    * @return emulateRenderingToSizeOnPage
+    **/
+    @ApiModelProperty(value = "Gets or sets a value determining whether metafile rendering emulates the display of the metafile according to the size on page or the display of the metafile in its default size.")
+    public Boolean getEmulateRenderingToSizeOnPage() {
+        return emulateRenderingToSizeOnPage;
+    }
+
+    public MetafileRenderingOptionsData emulateRenderingToSizeOnPage(Boolean emulateRenderingToSizeOnPage) {
+        this.emulateRenderingToSizeOnPage = emulateRenderingToSizeOnPage;
+        return this;
+    }
+
+    public void setEmulateRenderingToSizeOnPage(Boolean emulateRenderingToSizeOnPage) {
+        this.emulateRenderingToSizeOnPage = emulateRenderingToSizeOnPage;
+    }
+
+
+    /**
      * Gets or sets the option that controls how metafile images should be rendered.
     * @return renderingMode
     **/
@@ -209,26 +229,6 @@ public class MetafileRenderingOptionsData implements ModelIfc {
 
     public void setRenderingMode(RenderingModeEnum renderingMode) {
         this.renderingMode = renderingMode;
-    }
-
-
-    /**
-     * Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page.
-     * The default value is true.
-    * @return scaleWmfFontsToMetafileSize
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page. The default value is true.")
-    public Boolean getScaleWmfFontsToMetafileSize() {
-        return scaleWmfFontsToMetafileSize;
-    }
-
-    public MetafileRenderingOptionsData scaleWmfFontsToMetafileSize(Boolean scaleWmfFontsToMetafileSize) {
-        this.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
-        return this;
-    }
-
-    public void setScaleWmfFontsToMetafileSize(Boolean scaleWmfFontsToMetafileSize) {
-        this.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
     }
 
 
@@ -254,8 +254,8 @@ public class MetafileRenderingOptionsData implements ModelIfc {
     public MetafileRenderingOptionsData() {
         this.emfPlusDualRenderingMode = null;
         this.emulateRasterOperations = null;
+        this.emulateRenderingToSizeOnPage = null;
         this.renderingMode = null;
-        this.scaleWmfFontsToMetafileSize = null;
         this.useEmfEmbeddedToWmf = null;
     }
 
@@ -281,14 +281,14 @@ public class MetafileRenderingOptionsData implements ModelIfc {
         return
             Objects.equals(this.emfPlusDualRenderingMode, metafileRenderingOptionsData.emfPlusDualRenderingMode) &&
             Objects.equals(this.emulateRasterOperations, metafileRenderingOptionsData.emulateRasterOperations) &&
+            Objects.equals(this.emulateRenderingToSizeOnPage, metafileRenderingOptionsData.emulateRenderingToSizeOnPage) &&
             Objects.equals(this.renderingMode, metafileRenderingOptionsData.renderingMode) &&
-            Objects.equals(this.scaleWmfFontsToMetafileSize, metafileRenderingOptionsData.scaleWmfFontsToMetafileSize) &&
             Objects.equals(this.useEmfEmbeddedToWmf, metafileRenderingOptionsData.useEmfEmbeddedToWmf);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emfPlusDualRenderingMode, emulateRasterOperations, renderingMode, scaleWmfFontsToMetafileSize, useEmfEmbeddedToWmf);
+    return Objects.hash(emfPlusDualRenderingMode, emulateRasterOperations, emulateRenderingToSizeOnPage, renderingMode, useEmfEmbeddedToWmf);
   }
 
   @Override
@@ -297,8 +297,8 @@ public class MetafileRenderingOptionsData implements ModelIfc {
     sb.append("class MetafileRenderingOptionsData {\n");
     sb.append("    emfPlusDualRenderingMode: ").append(toIndentedString(getEmfPlusDualRenderingMode())).append("\n");
     sb.append("    emulateRasterOperations: ").append(toIndentedString(getEmulateRasterOperations())).append("\n");
+    sb.append("    emulateRenderingToSizeOnPage: ").append(toIndentedString(getEmulateRenderingToSizeOnPage())).append("\n");
     sb.append("    renderingMode: ").append(toIndentedString(getRenderingMode())).append("\n");
-    sb.append("    scaleWmfFontsToMetafileSize: ").append(toIndentedString(getScaleWmfFontsToMetafileSize())).append("\n");
     sb.append("    useEmfEmbeddedToWmf: ").append(toIndentedString(getUseEmfEmbeddedToWmf())).append("\n");
     sb.append("}");
     return sb.toString();
