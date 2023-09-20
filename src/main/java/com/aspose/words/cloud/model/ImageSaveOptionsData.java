@@ -182,6 +182,12 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("VerticalResolution")
     protected Double verticalResolution;
 
+    @SerializedName("ImageHeight")
+    protected Integer imageHeight;
+
+    @SerializedName("ImageWidth")
+    protected Integer imageWidth;
+
     @SerializedName("UseGdiEmfRenderer")
     protected Boolean useGdiEmfRenderer;
     /**
@@ -400,6 +406,44 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
 
 
     /**
+     * Gets or sets the height of a generated image in pixels.
+    * @return imageHeight
+    **/
+    @ApiModelProperty(value = "Gets or sets the height of a generated image in pixels.")
+    public Integer getImageHeight() {
+        return imageHeight;
+    }
+
+    public ImageSaveOptionsData imageHeight(Integer imageHeight) {
+        this.imageHeight = imageHeight;
+        return this;
+    }
+
+    public void setImageHeight(Integer imageHeight) {
+        this.imageHeight = imageHeight;
+    }
+
+
+    /**
+     * Gets or sets the width of a generated image in pixels.
+    * @return imageWidth
+    **/
+    @ApiModelProperty(value = "Gets or sets the width of a generated image in pixels.")
+    public Integer getImageWidth() {
+        return imageWidth;
+    }
+
+    public ImageSaveOptionsData imageWidth(Integer imageWidth) {
+        this.imageWidth = imageWidth;
+        return this;
+    }
+
+    public void setImageWidth(Integer imageWidth) {
+        this.imageWidth = imageWidth;
+    }
+
+
+    /**
      * Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
     * @return useGdiEmfRenderer
     **/
@@ -431,6 +475,8 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         this.useAntiAliasing = null;
         this.useHighQualityRendering = null;
         this.verticalResolution = null;
+        this.imageHeight = null;
+        this.imageWidth = null;
         this.useGdiEmfRenderer = null;
     }
 
@@ -465,13 +511,15 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
             Objects.equals(this.useAntiAliasing, imageSaveOptionsData.useAntiAliasing) &&
             Objects.equals(this.useHighQualityRendering, imageSaveOptionsData.useHighQualityRendering) &&
             Objects.equals(this.verticalResolution, imageSaveOptionsData.verticalResolution) &&
+            Objects.equals(this.imageHeight, imageSaveOptionsData.imageHeight) &&
+            Objects.equals(this.imageWidth, imageSaveOptionsData.imageWidth) &&
             Objects.equals(this.useGdiEmfRenderer, imageSaveOptionsData.useGdiEmfRenderer) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(horizontalResolution, imageBrightness, imageColorMode, imageContrast, paperColor, pixelFormat, resolution, scale, useAntiAliasing, useHighQualityRendering, verticalResolution, useGdiEmfRenderer, super.hashCode());
+    return Objects.hash(horizontalResolution, imageBrightness, imageColorMode, imageContrast, paperColor, pixelFormat, resolution, scale, useAntiAliasing, useHighQualityRendering, verticalResolution, imageHeight, imageWidth, useGdiEmfRenderer, super.hashCode());
   }
 
   @Override
@@ -509,6 +557,8 @@ public abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    useAntiAliasing: ").append(toIndentedString(getUseAntiAliasing())).append("\n");
     sb.append("    useHighQualityRendering: ").append(toIndentedString(getUseHighQualityRendering())).append("\n");
     sb.append("    verticalResolution: ").append(toIndentedString(getVerticalResolution())).append("\n");
+    sb.append("    imageHeight: ").append(toIndentedString(getImageHeight())).append("\n");
+    sb.append("    imageWidth: ").append(toIndentedString(getImageWidth())).append("\n");
     sb.append("    useGdiEmfRenderer: ").append(toIndentedString(getUseGdiEmfRenderer())).append("\n");
     sb.append("}");
     return sb.toString();

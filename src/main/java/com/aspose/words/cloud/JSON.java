@@ -474,6 +474,7 @@ public class JSON {
                 put("DrawingObjectsResponse, _", com.aspose.words.cloud.model.DrawingObjectsResponse.class);
                 put("DrawingObjectUpdate, _", com.aspose.words.cloud.model.DrawingObjectUpdate.class);
                 put("EmfSaveOptionsData, _", com.aspose.words.cloud.model.EmfSaveOptionsData.class);
+                put("EpsSaveOptionsData, _", com.aspose.words.cloud.model.EpsSaveOptionsData.class);
                 put("EpubSaveOptionsData, _", com.aspose.words.cloud.model.EpubSaveOptionsData.class);
                 put("Error, _", com.aspose.words.cloud.model.Error.class);
                 put("ErrorDetails, _", com.aspose.words.cloud.model.ErrorDetails.class);

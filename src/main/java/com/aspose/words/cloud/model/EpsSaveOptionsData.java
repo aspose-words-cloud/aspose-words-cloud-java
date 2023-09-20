@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="GifSaveOptionsData.java">
+ * <copyright company="Aspose" file="EpsSaveOptionsData.java">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -43,14 +43,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Container class for gif save options.
+ * Container class for eps save options.
  */
-@ApiModel(description = "Container class for gif save options.")
-public class GifSaveOptionsData extends ImageSaveOptionsData {
+@ApiModel(description = "Container class for eps save options.")
+public class EpsSaveOptionsData extends ImageSaveOptionsData {
 
-    public GifSaveOptionsData() {
+    public EpsSaveOptionsData() {
         super();
-        this.saveFormat = "gif";
+        this.saveFormat = "eps";
     }
 
     /*
@@ -82,7 +82,7 @@ public class GifSaveOptionsData extends ImageSaveOptionsData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GifSaveOptionsData {\n");
+    sb.append("class EpsSaveOptionsData {\n");
     sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
     sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
     sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
