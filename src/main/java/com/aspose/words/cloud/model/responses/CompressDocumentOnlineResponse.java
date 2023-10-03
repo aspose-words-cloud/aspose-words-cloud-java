@@ -35,7 +35,7 @@ import java.util.Map;
  */
 public class CompressDocumentOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response of compressed document.
      */
     private CompressResponse model;
 
@@ -61,14 +61,14 @@ public class CompressDocumentOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response of compressed document.
      */
     public CompressResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response of compressed document.
      */
     public void setModel(CompressResponse value) {
         this.model = value;

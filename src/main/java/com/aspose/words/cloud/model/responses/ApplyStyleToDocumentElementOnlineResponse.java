@@ -35,7 +35,7 @@ import java.util.Map;
  */
 public class ApplyStyleToDocumentElementOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The base class for all responses.
      */
     private WordsResponse model;
 
@@ -61,14 +61,14 @@ public class ApplyStyleToDocumentElementOnlineResponse implements IMultipartResp
     }
 
     /*
-     * Gets The response model.
+     * Gets The base class for all responses.
      */
     public WordsResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The base class for all responses.
      */
     public void setModel(WordsResponse value) {
         this.model = value;

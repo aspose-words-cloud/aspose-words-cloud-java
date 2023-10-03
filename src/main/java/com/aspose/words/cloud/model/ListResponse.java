@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a list information.
+ * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/lists/{n}" REST API requests.
  */
-@ApiModel(description = "The REST response with a list information.")
+@ApiModel(description = "The REST response with a list information. This response is returned by the Service when handling \"GET https://api.aspose.cloud/v4.0/words/Test.doc/lists/{n}\" REST API requests.")
 public class ListResponse extends WordsResponse {
     @SerializedName("List")
     protected ListInfo list;

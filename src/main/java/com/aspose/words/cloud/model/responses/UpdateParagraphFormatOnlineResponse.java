@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class UpdateParagraphFormatOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with the formatting properties of a paragraph.
+     * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/format" REST API requests.
      */
     private ParagraphFormatResponse model;
 
@@ -61,14 +62,14 @@ public class UpdateParagraphFormatOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with the formatting properties of a paragraph. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/format" REST API requests.
      */
     public ParagraphFormatResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with the formatting properties of a paragraph. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/format" REST API requests.
      */
     public void setModel(ParagraphFormatResponse value) {
         this.model = value;

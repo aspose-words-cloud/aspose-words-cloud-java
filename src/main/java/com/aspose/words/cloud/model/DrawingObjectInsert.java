@@ -204,17 +204,14 @@ public class DrawingObjectInsert implements ModelIfc {
         }
     }
 
-    @SerializedName("Height")
-    protected Double height;
-
-    @SerializedName("Left")
-    protected Double left;
-
     @SerializedName("Position")
     protected NewDocumentPosition position;
 
     @SerializedName("RelativeHorizontalPosition")
     protected RelativeHorizontalPositionEnum relativeHorizontalPosition;
+
+    @SerializedName("Left")
+    protected Double left;
 
     @SerializedName("RelativeVerticalPosition")
     protected RelativeVerticalPositionEnum relativeVerticalPosition;
@@ -225,46 +222,11 @@ public class DrawingObjectInsert implements ModelIfc {
     @SerializedName("Width")
     protected Double width;
 
+    @SerializedName("Height")
+    protected Double height;
+
     @SerializedName("WrapType")
     protected WrapTypeEnum wrapType;
-    /**
-     * Gets or sets the height of the DrawingObject in points.
-    * @return height
-    **/
-    @ApiModelProperty(value = "Gets or sets the height of the DrawingObject in points.")
-    public Double getHeight() {
-        return height;
-    }
-
-    public DrawingObjectInsert height(Double height) {
-        this.height = height;
-        return this;
-    }
-
-    public void setHeight(Double height) {
-        this.height = height;
-    }
-
-
-    /**
-     * Gets or sets the distance in points from the origin to the left side of the image.
-    * @return left
-    **/
-    @ApiModelProperty(value = "Gets or sets the distance in points from the origin to the left side of the image.")
-    public Double getLeft() {
-        return left;
-    }
-
-    public DrawingObjectInsert left(Double left) {
-        this.left = left;
-        return this;
-    }
-
-    public void setLeft(Double left) {
-        this.left = left;
-    }
-
-
     /**
      * Gets or sets the position, before which the DrawingObject will be inserted.
     * @return position
@@ -300,6 +262,25 @@ public class DrawingObjectInsert implements ModelIfc {
 
     public void setRelativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
         this.relativeHorizontalPosition = relativeHorizontalPosition;
+    }
+
+
+    /**
+     * Gets or sets the distance in points from the origin to the left side of the image.
+    * @return left
+    **/
+    @ApiModelProperty(value = "Gets or sets the distance in points from the origin to the left side of the image.")
+    public Double getLeft() {
+        return left;
+    }
+
+    public DrawingObjectInsert left(Double left) {
+        this.left = left;
+        return this;
+    }
+
+    public void setLeft(Double left) {
+        this.left = left;
     }
 
 
@@ -361,6 +342,25 @@ public class DrawingObjectInsert implements ModelIfc {
 
 
     /**
+     * Gets or sets the height of the DrawingObject in points.
+    * @return height
+    **/
+    @ApiModelProperty(value = "Gets or sets the height of the DrawingObject in points.")
+    public Double getHeight() {
+        return height;
+    }
+
+    public DrawingObjectInsert height(Double height) {
+        this.height = height;
+        return this;
+    }
+
+    public void setHeight(Double height) {
+        this.height = height;
+    }
+
+
+    /**
      * Gets or sets the option indicating how to wrap text around the image.
     * @return wrapType
     **/
@@ -380,13 +380,13 @@ public class DrawingObjectInsert implements ModelIfc {
 
 
     public DrawingObjectInsert() {
-        this.height = null;
-        this.left = null;
         this.position = null;
         this.relativeHorizontalPosition = null;
+        this.left = null;
         this.relativeVerticalPosition = null;
         this.top = null;
         this.width = null;
+        this.height = null;
         this.wrapType = null;
     }
 
@@ -410,32 +410,32 @@ public class DrawingObjectInsert implements ModelIfc {
 
         DrawingObjectInsert drawingObjectInsert = (DrawingObjectInsert) o;
         return
-            Objects.equals(this.height, drawingObjectInsert.height) &&
-            Objects.equals(this.left, drawingObjectInsert.left) &&
             Objects.equals(this.position, drawingObjectInsert.position) &&
             Objects.equals(this.relativeHorizontalPosition, drawingObjectInsert.relativeHorizontalPosition) &&
+            Objects.equals(this.left, drawingObjectInsert.left) &&
             Objects.equals(this.relativeVerticalPosition, drawingObjectInsert.relativeVerticalPosition) &&
             Objects.equals(this.top, drawingObjectInsert.top) &&
             Objects.equals(this.width, drawingObjectInsert.width) &&
+            Objects.equals(this.height, drawingObjectInsert.height) &&
             Objects.equals(this.wrapType, drawingObjectInsert.wrapType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(height, left, position, relativeHorizontalPosition, relativeVerticalPosition, top, width, wrapType);
+    return Objects.hash(position, relativeHorizontalPosition, left, relativeVerticalPosition, top, width, height, wrapType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObjectInsert {\n");
-    sb.append("    height: ").append(toIndentedString(getHeight())).append("\n");
-    sb.append("    left: ").append(toIndentedString(getLeft())).append("\n");
     sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
     sb.append("    relativeHorizontalPosition: ").append(toIndentedString(getRelativeHorizontalPosition())).append("\n");
+    sb.append("    left: ").append(toIndentedString(getLeft())).append("\n");
     sb.append("    relativeVerticalPosition: ").append(toIndentedString(getRelativeVerticalPosition())).append("\n");
     sb.append("    top: ").append(toIndentedString(getTop())).append("\n");
     sb.append("    width: ").append(toIndentedString(getWidth())).append("\n");
+    sb.append("    height: ").append(toIndentedString(getHeight())).append("\n");
     sb.append("    wrapType: ").append(toIndentedString(getWrapType())).append("\n");
     sb.append("}");
     return sb.toString();

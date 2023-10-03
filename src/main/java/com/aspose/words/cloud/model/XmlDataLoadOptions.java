@@ -45,8 +45,9 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Represents options for XML data loading.
  * To learn more, visit the LINQ Reporting Engine documentation article.
+ * An instance of this class can be passed into constructors of XmlDataSource.
  */
-@ApiModel(description = "Represents options for XML data loading. To learn more, visit the LINQ Reporting Engine documentation article.")
+@ApiModel(description = "Represents options for XML data loading. To learn more, visit the LINQ Reporting Engine documentation article. An instance of this class can be passed into constructors of XmlDataSource.")
 public class XmlDataLoadOptions implements ModelIfc {
     @SerializedName("AlwaysGenerateRootObject")
     protected Boolean alwaysGenerateRootObject;
@@ -54,9 +55,10 @@ public class XmlDataLoadOptions implements ModelIfc {
      * Gets or sets a flag indicating whether a generated data source will always contain an object for an XML root
      * element. If an XML root element has no attributes and all its child elements have same names, such an object
      * is not created by default.
+     * The default value is false.
     * @return alwaysGenerateRootObject
     **/
-    @ApiModelProperty(value = "Gets or sets a flag indicating whether a generated data source will always contain an object for an XML root element. If an XML root element has no attributes and all its child elements have same names, such an object is not created by default.")
+    @ApiModelProperty(value = "Gets or sets a flag indicating whether a generated data source will always contain an object for an XML root element. If an XML root element has no attributes and all its child elements have same names, such an object is not created by default. The default value is false.")
     public Boolean getAlwaysGenerateRootObject() {
         return alwaysGenerateRootObject;
     }

@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class UpdateCommentOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a comment.
+     * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/comments/0" REST API requests.
      */
     private CommentResponse model;
 
@@ -61,14 +62,14 @@ public class UpdateCommentOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a comment. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/comments/0" REST API requests.
      */
     public CommentResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a comment. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/comments/0" REST API requests.
      */
     public void setModel(CommentResponse value) {
         this.model = value;

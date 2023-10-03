@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a result of document splitting.
+ * This response should be returned by the service when handling: POST /{name}/split.
  */
-@ApiModel(description = "The REST response with a result of document splitting.")
+@ApiModel(description = "The REST response with a result of document splitting. This response should be returned by the service when handling: POST /{name}/split.")
 public class SplitDocumentResponse extends WordsResponse {
     @SerializedName("SplitResult")
     protected SplitDocumentResult splitResult;

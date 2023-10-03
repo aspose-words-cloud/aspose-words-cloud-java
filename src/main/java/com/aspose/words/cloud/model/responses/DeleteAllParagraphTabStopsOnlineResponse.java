@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class DeleteAllParagraphTabStopsOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with an array of tab stops.
+     * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops" REST API requests.
      */
     private TabStopsResponse model;
 
@@ -61,14 +62,14 @@ public class DeleteAllParagraphTabStopsOnlineResponse implements IMultipartRespo
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with an array of tab stops. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops" REST API requests.
      */
     public TabStopsResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with an array of tab stops. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops" REST API requests.
      */
     public void setModel(TabStopsResponse value) {
         this.model = value;

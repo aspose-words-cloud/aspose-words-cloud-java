@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a table cell.
+ * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}" REST API requests.
  */
-@ApiModel(description = "The REST response with a table cell.")
+@ApiModel(description = "The REST response with a table cell. This response is returned by the Service when handling \"GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}\" REST API requests.")
 public class TableCellResponse extends WordsResponse {
     @SerializedName("Cell")
     protected TableCell cell;

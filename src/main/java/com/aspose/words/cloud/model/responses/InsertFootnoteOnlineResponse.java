@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class InsertFootnoteOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a footnote.
+     * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/footnote/0" REST API requests.
      */
     private FootnoteResponse model;
 
@@ -61,14 +62,14 @@ public class InsertFootnoteOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a footnote. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/footnote/0" REST API requests.
      */
     public FootnoteResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a footnote. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/footnote/0" REST API requests.
      */
     public void setModel(FootnoteResponse value) {
         this.model = value;

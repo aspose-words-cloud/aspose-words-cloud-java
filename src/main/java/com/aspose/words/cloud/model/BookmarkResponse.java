@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a bookmark.
+ * This response should be returned by the service when handling: GET bookmarks/{bookmarkName}.
  */
-@ApiModel(description = "The REST response with a bookmark.")
+@ApiModel(description = "The REST response with a bookmark. This response should be returned by the service when handling: GET bookmarks/{bookmarkName}.")
 public class BookmarkResponse extends WordsResponse {
     @SerializedName("Bookmark")
     protected Bookmark bookmark;

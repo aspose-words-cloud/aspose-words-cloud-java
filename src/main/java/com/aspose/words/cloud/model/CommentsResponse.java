@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a collection of comments.
+ * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/comments" REST API requests.
  */
-@ApiModel(description = "The REST response with a collection of comments.")
+@ApiModel(description = "The REST response with a collection of comments. This response is returned by the Service when handling \"GET https://api.aspose.cloud/v4.0/words/Test.doc/comments\" REST API requests.")
 public class CommentsResponse extends WordsResponse {
     @SerializedName("Comments")
     protected CommentsCollection comments;

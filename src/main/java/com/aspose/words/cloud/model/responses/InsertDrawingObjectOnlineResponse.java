@@ -35,7 +35,7 @@ import java.util.Map;
  */
 public class InsertDrawingObjectOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a DrawingObject.
      */
     private DrawingObjectResponse model;
 
@@ -61,14 +61,14 @@ public class InsertDrawingObjectOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a DrawingObject.
      */
     public DrawingObjectResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a DrawingObject.
      */
     public void setModel(DrawingObjectResponse value) {
         this.model = value;

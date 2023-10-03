@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a border.
+ * This response is returned by the Service when handling "GET {nodeWithBorders}/borders" REST API requests.
  */
-@ApiModel(description = "The REST response with a border.")
+@ApiModel(description = "The REST response with a border. This response is returned by the Service when handling \"GET {nodeWithBorders}/borders\" REST API requests.")
 public class BorderResponse extends WordsResponse {
     @SerializedName("Border")
     protected Border border;

@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a collection of OfficeMath objects.
+ * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/OfficeMathObjects" REST API requests.
  */
-@ApiModel(description = "The REST response with a collection of OfficeMath objects.")
+@ApiModel(description = "The REST response with a collection of OfficeMath objects. This response is returned by the Service when handling \"GET https://api.aspose.cloud/v4.0/words/Test.doc/OfficeMathObjects\" REST API requests.")
 public class OfficeMathObjectsResponse extends WordsResponse {
     @SerializedName("OfficeMathObjects")
     protected OfficeMathObjectsCollection officeMathObjects;

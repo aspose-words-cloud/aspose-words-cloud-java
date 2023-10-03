@@ -273,11 +273,6 @@ public class InsertWatermarkImageOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertWatermarkImageOnline");
         }
 
-        // verify the required parameter 'ImageFile' is set
-        if (getImageFile() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ImageFile' when calling insertWatermarkImageOnline");
-        }
-
         // create path and map variables
         String localVarPath = "/words/online/post/watermarks/images";
         localVarPath = localVarPath.replaceAll("//", "/");

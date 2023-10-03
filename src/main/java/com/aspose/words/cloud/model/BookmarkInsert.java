@@ -47,30 +47,11 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a bookmark to insert.")
 public class BookmarkInsert extends BookmarkData {
-    @SerializedName("EndRange")
-    protected NewDocumentPosition endRange;
-
     @SerializedName("StartRange")
     protected NewDocumentPosition startRange;
-    /**
-     * Gets or sets the link to end bookmark node.
-    * @return endRange
-    **/
-    @ApiModelProperty(value = "Gets or sets the link to end bookmark node.")
-    public NewDocumentPosition getEndRange() {
-        return endRange;
-    }
 
-    public BookmarkInsert endRange(NewDocumentPosition endRange) {
-        this.endRange = endRange;
-        return this;
-    }
-
-    public void setEndRange(NewDocumentPosition endRange) {
-        this.endRange = endRange;
-    }
-
-
+    @SerializedName("EndRange")
+    protected NewDocumentPosition endRange;
     /**
      * Gets or sets the link to start bookmark node.
     * @return startRange
@@ -90,10 +71,29 @@ public class BookmarkInsert extends BookmarkData {
     }
 
 
+    /**
+     * Gets or sets the link to end bookmark node.
+    * @return endRange
+    **/
+    @ApiModelProperty(value = "Gets or sets the link to end bookmark node.")
+    public NewDocumentPosition getEndRange() {
+        return endRange;
+    }
+
+    public BookmarkInsert endRange(NewDocumentPosition endRange) {
+        this.endRange = endRange;
+        return this;
+    }
+
+    public void setEndRange(NewDocumentPosition endRange) {
+        this.endRange = endRange;
+    }
+
+
     public BookmarkInsert() {
         super();
-        this.endRange = null;
         this.startRange = null;
+        this.endRange = null;
     }
 
     /*
@@ -116,14 +116,14 @@ public class BookmarkInsert extends BookmarkData {
 
         BookmarkInsert bookmarkInsert = (BookmarkInsert) o;
         return
-            Objects.equals(this.endRange, bookmarkInsert.endRange) &&
             Objects.equals(this.startRange, bookmarkInsert.startRange) &&
+            Objects.equals(this.endRange, bookmarkInsert.endRange) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endRange, startRange, super.hashCode());
+    return Objects.hash(startRange, endRange, super.hashCode());
   }
 
   @Override
@@ -132,8 +132,8 @@ public class BookmarkInsert extends BookmarkData {
     sb.append("class BookmarkInsert {\n");
     sb.append("    name: ").append(toIndentedString(getName())).append("\n");
     sb.append("    text: ").append(toIndentedString(getText())).append("\n");
-    sb.append("    endRange: ").append(toIndentedString(getEndRange())).append("\n");
     sb.append("    startRange: ").append(toIndentedString(getStartRange())).append("\n");
+    sb.append("    endRange: ").append(toIndentedString(getEndRange())).append("\n");
     sb.append("}");
     return sb.toString();
   }

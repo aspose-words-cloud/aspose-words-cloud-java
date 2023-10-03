@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class InsertParagraphOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a paragraph.
+     * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}" REST API requests.
      */
     private ParagraphResponse model;
 
@@ -61,14 +62,14 @@ public class InsertParagraphOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a paragraph. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}" REST API requests.
      */
     public ParagraphResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a paragraph. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}" REST API requests.
      */
     public void setModel(ParagraphResponse value) {
         this.model = value;

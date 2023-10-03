@@ -56,10 +56,10 @@ public class InfoResponse extends WordsResponse {
     @SerializedName("Version")
     protected String version;
     /**
-     * Gets or sets additional info.
+     * Gets or sets AdditionalInfo.
     * @return additionalInfo
     **/
-    @ApiModelProperty(value = "Gets or sets additional info.")
+    @ApiModelProperty(value = "Gets or sets AdditionalInfo.")
     public List<InfoAdditionalItem> getAdditionalInfo() {
         return additionalInfo;
     }
@@ -84,10 +84,10 @@ public class InfoResponse extends WordsResponse {
 
 
     /**
-     * Gets or sets application name.
+     * Gets or sets Name.
     * @return name
     **/
-    @ApiModelProperty(value = "Gets or sets application name.")
+    @ApiModelProperty(value = "Gets or sets Name.")
     public String getName() {
         return name;
     }
@@ -103,10 +103,10 @@ public class InfoResponse extends WordsResponse {
 
 
     /**
-     * Gets or sets version.
+     * Gets or sets Version.
     * @return version
     **/
-    @ApiModelProperty(value = "Gets or sets version.")
+    @ApiModelProperty(value = "Gets or sets Version.")
     public String getVersion() {
         return version;
     }

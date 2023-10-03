@@ -35,7 +35,7 @@ import java.util.Map;
  */
 public class UpdateStructuredDocumentTagOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a StructuredDocumentTag.
      */
     private StructuredDocumentTagResponse model;
 
@@ -61,14 +61,14 @@ public class UpdateStructuredDocumentTagOnlineResponse implements IMultipartResp
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a StructuredDocumentTag.
      */
     public StructuredDocumentTagResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a StructuredDocumentTag.
      */
     public void setModel(StructuredDocumentTagResponse value) {
         this.model = value;

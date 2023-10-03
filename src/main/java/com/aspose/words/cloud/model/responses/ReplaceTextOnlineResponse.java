@@ -35,7 +35,7 @@ import java.util.Map;
  */
 public class ReplaceTextOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a number of occurrences of the captured text in the document.
      */
     private ReplaceTextResponse model;
 
@@ -61,14 +61,14 @@ public class ReplaceTextOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a number of occurrences of the captured text in the document.
      */
     public ReplaceTextResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a number of occurrences of the captured text in the document.
      */
     public void setModel(ReplaceTextResponse value) {
         this.model = value;

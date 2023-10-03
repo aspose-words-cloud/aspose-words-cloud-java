@@ -45,8 +45,9 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Represents options for parsing CSV data.
  * To learn more, visit the LINQ Reporting Engine documentation article.
+ * An instance of this class can be passed into constructors of CsvDataSource.
  */
-@ApiModel(description = "Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article.")
+@ApiModel(description = "Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article. An instance of this class can be passed into constructors of CsvDataSource.")
 public class CsvDataLoadOptions implements ModelIfc {
     @SerializedName("CommentChar")
     protected String commentChar;
@@ -61,9 +62,10 @@ public class CsvDataLoadOptions implements ModelIfc {
     protected String quoteChar;
     /**
      * Gets or sets the character that is used to comment lines of CSV data.
+     * The default value is '#' (number sign).
     * @return commentChar
     **/
-    @ApiModelProperty(value = "Gets or sets the character that is used to comment lines of CSV data.")
+    @ApiModelProperty(value = "Gets or sets the character that is used to comment lines of CSV data. The default value is '#' (number sign).")
     public String getCommentChar() {
         return commentChar;
     }
@@ -80,9 +82,10 @@ public class CsvDataLoadOptions implements ModelIfc {
 
     /**
      * Gets or sets the character to be used as a column delimiter.
+     * The default value is ',' (comma).
     * @return delimiter
     **/
-    @ApiModelProperty(value = "Gets or sets the character to be used as a column delimiter.")
+    @ApiModelProperty(value = "Gets or sets the character to be used as a column delimiter. The default value is ',' (comma).")
     public String getDelimiter() {
         return delimiter;
     }
@@ -99,9 +102,10 @@ public class CsvDataLoadOptions implements ModelIfc {
 
     /**
      * Gets or sets a value indicating whether the first record of CSV data contains column names.
+     * The default value is false.
     * @return hasHeaders
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether the first record of CSV data contains column names.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the first record of CSV data contains column names. The default value is false.")
     public Boolean getHasHeaders() {
         return hasHeaders;
     }
@@ -118,9 +122,10 @@ public class CsvDataLoadOptions implements ModelIfc {
 
     /**
      * Gets or sets the character that is used to quote field values.
+     * The default value is '"' (quotation mark).Double the character to place it into quoted text.
     * @return quoteChar
     **/
-    @ApiModelProperty(value = "Gets or sets the character that is used to quote field values.")
+    @ApiModelProperty(value = "Gets or sets the character that is used to quote field values. The default value is '\"' (quotation mark).Double the character to place it into quoted text.")
     public String getQuoteChar() {
         return quoteChar;
     }

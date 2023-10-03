@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class SplitDocumentOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a result of document splitting.
+     * This response should be returned by the service when handling: POST /{name}/split.
      */
     private SplitDocumentResponse model;
 
@@ -61,14 +62,14 @@ public class SplitDocumentOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a result of document splitting. This response should be returned by the service when handling: POST /{name}/split.
      */
     public SplitDocumentResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a result of document splitting. This response should be returned by the service when handling: POST /{name}/split.
      */
     public void setModel(SplitDocumentResponse value) {
         this.model = value;

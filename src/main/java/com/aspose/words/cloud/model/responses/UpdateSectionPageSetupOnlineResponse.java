@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class UpdateSectionPageSetupOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a page setup of a section.
+     * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup" REST API requests.
      */
     private SectionPageSetupResponse model;
 
@@ -61,14 +62,14 @@ public class UpdateSectionPageSetupOnlineResponse implements IMultipartResponse 
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a page setup of a section. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup" REST API requests.
      */
     public SectionPageSetupResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a page setup of a section. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup" REST API requests.
      */
     public void setModel(SectionPageSetupResponse value) {
         this.model = value;

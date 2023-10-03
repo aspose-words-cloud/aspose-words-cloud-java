@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a hyperlink.
+ * This response should be returned by the service when handling: GET /{name}/hyperlinks/{hyperlinkIndex}.
  */
-@ApiModel(description = "The REST response with a hyperlink.")
+@ApiModel(description = "The REST response with a hyperlink. This response should be returned by the service when handling: GET /{name}/hyperlinks/{hyperlinkIndex}.")
 public class HyperlinkResponse extends WordsResponse {
     @SerializedName("Hyperlink")
     protected Hyperlink hyperlink;

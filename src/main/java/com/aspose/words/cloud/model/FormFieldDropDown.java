@@ -54,9 +54,10 @@ public class FormFieldDropDown extends FormField {
     protected Integer dropDownSelectedIndex;
     /**
      * Gets or sets the items array of a dropdown form field.
+     * Microsoft Word allows maximum 25 items in a dropdown form field.
     * @return dropDownItems
     **/
-    @ApiModelProperty(value = "Gets or sets the items array of a dropdown form field.")
+    @ApiModelProperty(value = "Gets or sets the items array of a dropdown form field. Microsoft Word allows maximum 25 items in a dropdown form field.")
     public List<String> getDropDownItems() {
         return dropDownItems;
     }

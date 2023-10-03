@@ -51,9 +51,10 @@ public class ListUpdate implements ModelIfc {
     protected Boolean isRestartAtEachSection;
     /**
      * Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
+     * This option is supported only in RTF, DOC and DOCX document formats. This option will be written to DOCX only if Aspose.Words.Saving.OoxmlCompliance is higher than Aspose.Words.Saving.OoxmlCompliance.Ecma376_2006.
     * @return isRestartAtEachSection
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether list should be restarted at each section. The default value is false.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether list should be restarted at each section. The default value is false. This option is supported only in RTF, DOC and DOCX document formats. This option will be written to DOCX only if Aspose.Words.Saving.OoxmlCompliance is higher than Aspose.Words.Saving.OoxmlCompliance.Ecma376_2006.")
     public Boolean getIsRestartAtEachSection() {
         return isRestartAtEachSection;
     }

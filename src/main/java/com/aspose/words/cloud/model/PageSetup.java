@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Represents the page setup properties of a section.
+ * PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
  */
-@ApiModel(description = "Represents the page setup properties of a section.")
+@ApiModel(description = "Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.")
 public class PageSetup extends LinkElement {
     /**
      * Gets or sets the option that controls which pages the page border is printed on.
@@ -189,6 +190,7 @@ public class PageSetup extends LinkElement {
 
     /**
      * Gets or sets the orientation of the page.
+     * Changing Orientation swaps PageWidth and PageHeight.
      */
     @JsonAdapter(OrientationEnum.Adapter.class)
     public enum OrientationEnum {
@@ -341,6 +343,7 @@ public class PageSetup extends LinkElement {
 
     /**
      * Gets or sets the paper size.
+     * Setting this property updates PageWidth and PageHeight values. Setting this value to Custom does not change existing values.
      */
     @JsonAdapter(PaperSizeEnum.Adapter.class)
     public enum PaperSizeEnum {
@@ -586,9 +589,10 @@ public class PageSetup extends LinkElement {
     protected VerticalAlignmentEnum verticalAlignment;
     /**
      * Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text.
+     * When true, the columns in this section are laid out from right to left.
     * @return bidi
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text. When true, the columns in this section are laid out from right to left.")
     public Boolean getBidi() {
         return bidi;
     }
@@ -815,9 +819,10 @@ public class PageSetup extends LinkElement {
 
     /**
      * Gets or sets the distance between the right edge of line numbers and the left edge of the document.
+     * Set this property to zero for automatic distance between the line numbers and text of the document.
     * @return lineNumberDistanceFromText
     **/
-    @ApiModelProperty(value = "Gets or sets the distance between the right edge of line numbers and the left edge of the document.")
+    @ApiModelProperty(value = "Gets or sets the distance between the right edge of line numbers and the left edge of the document. Set this property to zero for automatic distance between the line numbers and text of the document.")
     public Double getLineNumberDistanceFromText() {
         return lineNumberDistanceFromText;
     }
@@ -872,9 +877,10 @@ public class PageSetup extends LinkElement {
 
     /**
      * Gets or sets the orientation of the page.
+     * Changing Orientation swaps PageWidth and PageHeight.
     * @return orientation
     **/
-    @ApiModelProperty(value = "Gets or sets the orientation of the page.")
+    @ApiModelProperty(value = "Gets or sets the orientation of the page. Changing Orientation swaps PageWidth and PageHeight.")
     public OrientationEnum getOrientation() {
         return orientation;
     }
@@ -949,9 +955,10 @@ public class PageSetup extends LinkElement {
 
     /**
      * Gets or sets the starting page number of the section.
+     * The RestartPageNumbering property, if set to false, will override the PageStartingNumber property so that page numbering can continue from the previous section.
     * @return pageStartingNumber
     **/
-    @ApiModelProperty(value = "Gets or sets the starting page number of the section.")
+    @ApiModelProperty(value = "Gets or sets the starting page number of the section. The RestartPageNumbering property, if set to false, will override the PageStartingNumber property so that page numbering can continue from the previous section.")
     public Integer getPageStartingNumber() {
         return pageStartingNumber;
     }
@@ -987,9 +994,10 @@ public class PageSetup extends LinkElement {
 
     /**
      * Gets or sets the paper size.
+     * Setting this property updates PageWidth and PageHeight values. Setting this value to Custom does not change existing values.
     * @return paperSize
     **/
-    @ApiModelProperty(value = "Gets or sets the paper size.")
+    @ApiModelProperty(value = "Gets or sets the paper size. Setting this property updates PageWidth and PageHeight values. Setting this value to Custom does not change existing values.")
     public PaperSizeEnum getPaperSize() {
         return paperSize;
     }
@@ -1006,9 +1014,10 @@ public class PageSetup extends LinkElement {
 
     /**
      * Gets or sets a value indicating whether page numbering restarts at the beginning of the section.
+     * If set to false, the RestartPageNumbering property will override the PageStartingNumber property so that page numbering can continue from the previous section.
     * @return restartPageNumbering
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether page numbering restarts at the beginning of the section.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether page numbering restarts at the beginning of the section. If set to false, the RestartPageNumbering property will override the PageStartingNumber property so that page numbering can continue from the previous section.")
     public Boolean getRestartPageNumbering() {
         return restartPageNumbering;
     }
