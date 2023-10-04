@@ -35,7 +35,7 @@ import java.util.Map;
  */
 public class SaveAsRangeOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a document description.
      */
     private DocumentResponse model;
 
@@ -61,14 +61,14 @@ public class SaveAsRangeOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a document description.
      */
     public DocumentResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a document description.
      */
     public void setModel(DocumentResponse value) {
         this.model = value;

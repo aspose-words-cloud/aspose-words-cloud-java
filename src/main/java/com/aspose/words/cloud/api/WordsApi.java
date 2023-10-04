@@ -1022,6 +1022,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Compress and resize images inside the document.
      * The default settings allows to reduce the size of the document without any visible degradation of images quality.
      * @param request Request object
      * @return CompressResponse
@@ -1044,6 +1045,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Compress and resize images inside the document.
      * The default settings allows to reduce the size of the document without any visible degradation of images quality.
      * @param request Request object
      * @return ApiResponse< CompressResponse >;
@@ -1056,6 +1058,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Compress and resize images inside the document.
      * The default settings allows to reduce the size of the document without any visible degradation of images quality. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -1096,6 +1099,7 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Compress and resize images inside the document.
+     * The default settings allows to reduce the size of the document without any visible degradation of images quality.
      * @param request Request object
      * @return CompressDocumentOnlineResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1118,6 +1122,7 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Compress and resize images inside the document.
+     * The default settings allows to reduce the size of the document without any visible degradation of images quality.
      * @param request Request object
      * @return ApiResponse< CompressDocumentOnlineResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1129,7 +1134,8 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Compress and resize images inside the document. (asynchronously)
+     * Compress and resize images inside the document.
+     * The default settings allows to reduce the size of the document without any visible degradation of images quality. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1600,6 +1606,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Creates a new document in cloud storage in the format, determined by the file extension.
      * Supported all save format extensions.
      * @param request Request object
      * @return DocumentResponse
@@ -1622,6 +1629,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Creates a new document in cloud storage in the format, determined by the file extension.
      * Supported all save format extensions.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
@@ -1634,6 +1642,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Creates a new document in cloud storage in the format, determined by the file extension.
      * Supported all save format extensions. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -2321,6 +2330,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Removes a border from the document node.
      * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return BorderResponse
@@ -2343,6 +2353,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Removes a border from the document node.
      * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return ApiResponse< BorderResponse >;
@@ -2355,6 +2366,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Removes a border from the document node.
      * The 'nodePath' parameter should refer to a paragraph, a cell or a row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -2395,6 +2407,7 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Removes a border from the document node.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return DeleteBorderOnlineResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2417,6 +2430,7 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Removes a border from the document node.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return ApiResponse< DeleteBorderOnlineResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2428,7 +2442,8 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Removes a border from the document node. (asynchronously)
+     * Removes a border from the document node.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2467,6 +2482,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Removes borders from the document node.
      * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return BordersResponse
@@ -2489,6 +2505,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Removes borders from the document node.
      * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return ApiResponse< BordersResponse >;
@@ -2501,6 +2518,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Removes borders from the document node.
      * The 'nodePath' parameter should refer to a paragraph, a cell or a row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -2541,6 +2559,7 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Removes borders from the document node.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return DeleteBordersOnlineResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2563,6 +2582,7 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Removes borders from the document node.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return ApiResponse< DeleteBordersOnlineResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2574,7 +2594,8 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Removes borders from the document node. (asynchronously)
+     * Removes borders from the document node.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6778,6 +6799,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Reads a border from the document node.
      * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return BorderResponse
@@ -6800,6 +6822,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Reads a border from the document node.
      * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return ApiResponse< BorderResponse >;
@@ -6812,6 +6835,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Reads a border from the document node.
      * The 'nodePath' parameter should refer to a paragraph, a cell or a row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -6852,6 +6876,7 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Reads a border from the document node.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6874,6 +6899,7 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Reads a border from the document node.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return ApiResponse< BorderResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6885,7 +6911,8 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Reads a border from the document node. (asynchronously)
+     * Reads a border from the document node.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -20119,7 +20146,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Converts a document to the specified format.
+     * Converts a document in cloud storage to the specified format.
      * @param request Request object
      * @return SaveAsOnlineResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -20141,7 +20168,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Converts a document to the specified format.
+     * Converts a document in cloud storage to the specified format.
      * @param request Request object
      * @return ApiResponse< SaveAsOnlineResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -20153,7 +20180,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Converts a document to the specified format. (asynchronously)
+     * Converts a document in cloud storage to the specified format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -20411,7 +20438,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Converts a document to TIFF format using detailed conversion settings.
+     * Converts a document in cloud storage to TIFF format using detailed conversion settings.
      * @param request Request object
      * @return SaveAsTiffOnlineResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -20433,7 +20460,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Converts a document to TIFF format using detailed conversion settings.
+     * Converts a document in cloud storage to TIFF format using detailed conversion settings.
      * @param request Request object
      * @return ApiResponse< SaveAsTiffOnlineResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -20445,7 +20472,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Converts a document to TIFF format using detailed conversion settings. (asynchronously)
+     * Converts a document in cloud storage to TIFF format using detailed conversion settings. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -21068,6 +21095,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Updates a border in the document node.
      * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return BorderResponse
@@ -21090,6 +21118,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Updates a border in the document node.
      * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return ApiResponse< BorderResponse >;
@@ -21102,6 +21131,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
+     * Updates a border in the document node.
      * The 'nodePath' parameter should refer to a paragraph, a cell or a row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -21142,6 +21172,7 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Updates a border in the document node.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return UpdateBorderOnlineResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -21164,6 +21195,7 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Updates a border in the document node.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return ApiResponse< UpdateBorderOnlineResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -21175,7 +21207,8 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Updates a border in the document node. (asynchronously)
+     * Updates a border in the document node.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

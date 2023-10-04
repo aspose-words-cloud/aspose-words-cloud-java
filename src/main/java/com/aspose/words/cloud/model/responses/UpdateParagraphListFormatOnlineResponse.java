@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class UpdateParagraphListFormatOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a list format for a paragraph.
+     * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/listFormat" REST API requests.
      */
     private ParagraphListFormatResponse model;
 
@@ -61,14 +62,14 @@ public class UpdateParagraphListFormatOnlineResponse implements IMultipartRespon
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a list format for a paragraph. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/listFormat" REST API requests.
      */
     public ParagraphListFormatResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a list format for a paragraph. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/listFormat" REST API requests.
      */
     public void setModel(ParagraphListFormatResponse value) {
         this.model = value;

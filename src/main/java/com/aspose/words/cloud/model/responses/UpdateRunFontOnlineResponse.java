@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class UpdateRunFontOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a font.
+     * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font" REST API requests.
      */
     private FontResponse model;
 
@@ -61,14 +62,14 @@ public class UpdateRunFontOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a font. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font" REST API requests.
      */
     public FontResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a font. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font" REST API requests.
      */
     public void setModel(FontResponse value) {
         this.model = value;

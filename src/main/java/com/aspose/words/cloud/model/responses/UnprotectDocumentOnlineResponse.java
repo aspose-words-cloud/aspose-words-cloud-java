@@ -35,7 +35,7 @@ import java.util.Map;
  */
 public class UnprotectDocumentOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with data on document's protection.
      */
     private ProtectionDataResponse model;
 
@@ -61,14 +61,14 @@ public class UnprotectDocumentOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with data on document's protection.
      */
     public ProtectionDataResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with data on document's protection.
      */
     public void setModel(ProtectionDataResponse value) {
         this.model = value;

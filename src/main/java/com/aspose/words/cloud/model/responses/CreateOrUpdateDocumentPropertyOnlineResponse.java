@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class CreateOrUpdateDocumentPropertyOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a document property.
+     * This response should be returned by the service when handling: GET documentProperties/{propertyName}.
      */
     private DocumentPropertyResponse model;
 
@@ -61,14 +62,14 @@ public class CreateOrUpdateDocumentPropertyOnlineResponse implements IMultipartR
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a document property. This response should be returned by the service when handling: GET documentProperties/{propertyName}.
      */
     public DocumentPropertyResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a document property. This response should be returned by the service when handling: GET documentProperties/{propertyName}.
      */
     public void setModel(DocumentPropertyResponse value) {
         this.model = value;

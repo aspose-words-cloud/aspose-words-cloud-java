@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class DeleteBorderOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a border.
+     * This response is returned by the Service when handling "GET {nodeWithBorders}/borders" REST API requests.
      */
     private BorderResponse model;
 
@@ -61,14 +62,14 @@ public class DeleteBorderOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a border. This response is returned by the Service when handling "GET {nodeWithBorders}/borders" REST API requests.
      */
     public BorderResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a border. This response is returned by the Service when handling "GET {nodeWithBorders}/borders" REST API requests.
      */
     public void setModel(BorderResponse value) {
         this.model = value;

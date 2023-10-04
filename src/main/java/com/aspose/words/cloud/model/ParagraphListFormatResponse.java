@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a list format for a paragraph.
+ * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/listFormat" REST API requests.
  */
-@ApiModel(description = "The REST response with a list format for a paragraph.")
+@ApiModel(description = "The REST response with a list format for a paragraph. This response is returned by the Service when handling \"GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/listFormat\" REST API requests.")
 public class ParagraphListFormatResponse extends WordsResponse {
     @SerializedName("ListFormat")
     protected ListFormat listFormat;

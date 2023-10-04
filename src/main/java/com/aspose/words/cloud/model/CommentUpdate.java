@@ -85,8 +85,8 @@ public class CommentUpdate extends CommentBase {
     sb.append("    rangeStart: ").append(toIndentedString(getRangeStart())).append("\n");
     sb.append("    rangeEnd: ").append(toIndentedString(getRangeEnd())).append("\n");
     sb.append("    author: ").append(toIndentedString(getAuthor())).append("\n");
-    sb.append("    dateTime: ").append(toIndentedString(getDateTime())).append("\n");
     sb.append("    initial: ").append(toIndentedString(getInitial())).append("\n");
+    sb.append("    dateTime: ").append(toIndentedString(getDateTime())).append("\n");
     sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();

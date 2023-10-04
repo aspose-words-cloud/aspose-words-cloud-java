@@ -59,10 +59,10 @@ public class Error implements ModelIfc {
     @SerializedName("Message")
     protected String message;
     /**
-     * Code.
+     * Gets or sets Code.
     * @return code
     **/
-    @ApiModelProperty(value = "Code.")
+    @ApiModelProperty(value = "Gets or sets Code.")
     public String getCode() {
         return code;
     }
@@ -78,10 +78,10 @@ public class Error implements ModelIfc {
 
 
     /**
-     * Description.
+     * Gets or sets Description.
     * @return description
     **/
-    @ApiModelProperty(value = "Description.")
+    @ApiModelProperty(value = "Gets or sets Description.")
     public String getDescription() {
         return description;
     }
@@ -97,10 +97,10 @@ public class Error implements ModelIfc {
 
 
     /**
-     * Inner Error.
+     * Gets or sets InnerError.
     * @return innerError
     **/
-    @ApiModelProperty(value = "Inner Error.")
+    @ApiModelProperty(value = "Gets or sets InnerError.")
     public ErrorDetails getInnerError() {
         return innerError;
     }
@@ -116,10 +116,10 @@ public class Error implements ModelIfc {
 
 
     /**
-     * Message.
+     * Gets or sets Message.
     * @return message
     **/
-    @ApiModelProperty(value = "Message.")
+    @ApiModelProperty(value = "Gets or sets Message.")
     public String getMessage() {
         return message;
     }

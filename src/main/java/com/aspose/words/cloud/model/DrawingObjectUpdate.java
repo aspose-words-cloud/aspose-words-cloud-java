@@ -204,14 +204,11 @@ public class DrawingObjectUpdate implements ModelIfc {
         }
     }
 
-    @SerializedName("Height")
-    protected Double height;
+    @SerializedName("RelativeHorizontalPosition")
+    protected RelativeHorizontalPositionEnum relativeHorizontalPosition;
 
     @SerializedName("Left")
     protected Double left;
-
-    @SerializedName("RelativeHorizontalPosition")
-    protected RelativeHorizontalPositionEnum relativeHorizontalPosition;
 
     @SerializedName("RelativeVerticalPosition")
     protected RelativeVerticalPositionEnum relativeVerticalPosition;
@@ -222,24 +219,27 @@ public class DrawingObjectUpdate implements ModelIfc {
     @SerializedName("Width")
     protected Double width;
 
+    @SerializedName("Height")
+    protected Double height;
+
     @SerializedName("WrapType")
     protected WrapTypeEnum wrapType;
     /**
-     * Gets or sets the height of the DrawingObject in points.
-    * @return height
+     * Gets or sets the relative horizontal position, from which the distance to the image is measured.
+    * @return relativeHorizontalPosition
     **/
-    @ApiModelProperty(value = "Gets or sets the height of the DrawingObject in points.")
-    public Double getHeight() {
-        return height;
+    @ApiModelProperty(value = "Gets or sets the relative horizontal position, from which the distance to the image is measured.")
+    public RelativeHorizontalPositionEnum getRelativeHorizontalPosition() {
+        return relativeHorizontalPosition;
     }
 
-    public DrawingObjectUpdate height(Double height) {
-        this.height = height;
+    public DrawingObjectUpdate relativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
+        this.relativeHorizontalPosition = relativeHorizontalPosition;
         return this;
     }
 
-    public void setHeight(Double height) {
-        this.height = height;
+    public void setRelativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
+        this.relativeHorizontalPosition = relativeHorizontalPosition;
     }
 
 
@@ -259,25 +259,6 @@ public class DrawingObjectUpdate implements ModelIfc {
 
     public void setLeft(Double left) {
         this.left = left;
-    }
-
-
-    /**
-     * Gets or sets the relative horizontal position, from which the distance to the image is measured.
-    * @return relativeHorizontalPosition
-    **/
-    @ApiModelProperty(value = "Gets or sets the relative horizontal position, from which the distance to the image is measured.")
-    public RelativeHorizontalPositionEnum getRelativeHorizontalPosition() {
-        return relativeHorizontalPosition;
-    }
-
-    public DrawingObjectUpdate relativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
-        this.relativeHorizontalPosition = relativeHorizontalPosition;
-        return this;
-    }
-
-    public void setRelativeHorizontalPosition(RelativeHorizontalPositionEnum relativeHorizontalPosition) {
-        this.relativeHorizontalPosition = relativeHorizontalPosition;
     }
 
 
@@ -339,6 +320,25 @@ public class DrawingObjectUpdate implements ModelIfc {
 
 
     /**
+     * Gets or sets the height of the DrawingObject in points.
+    * @return height
+    **/
+    @ApiModelProperty(value = "Gets or sets the height of the DrawingObject in points.")
+    public Double getHeight() {
+        return height;
+    }
+
+    public DrawingObjectUpdate height(Double height) {
+        this.height = height;
+        return this;
+    }
+
+    public void setHeight(Double height) {
+        this.height = height;
+    }
+
+
+    /**
      * Gets or sets the option that controls how to wrap text around the image.
     * @return wrapType
     **/
@@ -358,12 +358,12 @@ public class DrawingObjectUpdate implements ModelIfc {
 
 
     public DrawingObjectUpdate() {
-        this.height = null;
-        this.left = null;
         this.relativeHorizontalPosition = null;
+        this.left = null;
         this.relativeVerticalPosition = null;
         this.top = null;
         this.width = null;
+        this.height = null;
         this.wrapType = null;
     }
 
@@ -387,30 +387,30 @@ public class DrawingObjectUpdate implements ModelIfc {
 
         DrawingObjectUpdate drawingObjectUpdate = (DrawingObjectUpdate) o;
         return
-            Objects.equals(this.height, drawingObjectUpdate.height) &&
-            Objects.equals(this.left, drawingObjectUpdate.left) &&
             Objects.equals(this.relativeHorizontalPosition, drawingObjectUpdate.relativeHorizontalPosition) &&
+            Objects.equals(this.left, drawingObjectUpdate.left) &&
             Objects.equals(this.relativeVerticalPosition, drawingObjectUpdate.relativeVerticalPosition) &&
             Objects.equals(this.top, drawingObjectUpdate.top) &&
             Objects.equals(this.width, drawingObjectUpdate.width) &&
+            Objects.equals(this.height, drawingObjectUpdate.height) &&
             Objects.equals(this.wrapType, drawingObjectUpdate.wrapType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(height, left, relativeHorizontalPosition, relativeVerticalPosition, top, width, wrapType);
+    return Objects.hash(relativeHorizontalPosition, left, relativeVerticalPosition, top, width, height, wrapType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObjectUpdate {\n");
-    sb.append("    height: ").append(toIndentedString(getHeight())).append("\n");
-    sb.append("    left: ").append(toIndentedString(getLeft())).append("\n");
     sb.append("    relativeHorizontalPosition: ").append(toIndentedString(getRelativeHorizontalPosition())).append("\n");
+    sb.append("    left: ").append(toIndentedString(getLeft())).append("\n");
     sb.append("    relativeVerticalPosition: ").append(toIndentedString(getRelativeVerticalPosition())).append("\n");
     sb.append("    top: ").append(toIndentedString(getTop())).append("\n");
     sb.append("    width: ").append(toIndentedString(getWidth())).append("\n");
+    sb.append("    height: ").append(toIndentedString(getHeight())).append("\n");
     sb.append("    wrapType: ").append(toIndentedString(getWrapType())).append("\n");
     sb.append("}");
     return sb.toString();

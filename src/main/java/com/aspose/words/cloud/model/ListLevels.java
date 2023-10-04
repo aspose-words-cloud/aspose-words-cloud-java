@@ -51,9 +51,10 @@ public class ListLevels extends LinkElement {
     protected List<ListLevel> listLevel;
     /**
      * Gets or sets the collection of list levels for this list.
+     * Use this property to access and modify formatting individual to each level of the list.
     * @return listLevel
     **/
-    @ApiModelProperty(value = "Gets or sets the collection of list levels for this list.")
+    @ApiModelProperty(value = "Gets or sets the collection of list levels for this list. Use this property to access and modify formatting individual to each level of the list.")
     public List<ListLevel> getListLevel() {
         return listLevel;
     }

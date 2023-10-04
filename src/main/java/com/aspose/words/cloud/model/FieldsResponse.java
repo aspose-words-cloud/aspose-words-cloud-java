@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a collection of fields.
+ * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/fields" REST API requests.
  */
-@ApiModel(description = "The REST response with a collection of fields.")
+@ApiModel(description = "The REST response with a collection of fields. This response is returned by the Service when handling \"GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/fields\" REST API requests.")
 public class FieldsResponse extends WordsResponse {
     @SerializedName("Fields")
     protected FieldCollection fields;

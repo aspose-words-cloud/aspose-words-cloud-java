@@ -35,7 +35,7 @@ import java.util.Map;
  */
 public class SaveAsOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a save result.
      */
     private SaveResponse model;
 
@@ -61,14 +61,14 @@ public class SaveAsOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a save result.
      */
     public SaveResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a save result.
      */
     public void setModel(SaveResponse value) {
         this.model = value;

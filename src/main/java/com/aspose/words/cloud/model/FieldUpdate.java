@@ -82,8 +82,8 @@ public class FieldUpdate extends FieldBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldUpdate {\n");
-    sb.append("    fieldCode: ").append(toIndentedString(getFieldCode())).append("\n");
     sb.append("    localeId: ").append(toIndentedString(getLocaleId())).append("\n");
+    sb.append("    fieldCode: ").append(toIndentedString(getFieldCode())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with an array of tab stops.
+ * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops" REST API requests.
  */
-@ApiModel(description = "The REST response with an array of tab stops.")
+@ApiModel(description = "The REST response with an array of tab stops. This response is returned by the Service when handling \"GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops\" REST API requests.")
 public class TabStopsResponse extends WordsResponse {
     @SerializedName("TabStops")
     protected List<TabStop> tabStops;
