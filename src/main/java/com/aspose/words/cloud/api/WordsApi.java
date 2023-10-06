@@ -20366,11 +20366,13 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Converts a document in cloud storage to TIFF format using detailed conversion settings.
+     * @deprecated This operation will be removed in the future.
      * @param request Request object
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
+    @Deprecated
     public SaveResponse saveAsTiff(SaveAsTiffRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SaveResponse > resp = saveAsTiffWithHttpInfo(request);
@@ -20439,11 +20441,13 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Converts a document in cloud storage to TIFF format using detailed conversion settings.
+     * @deprecated This operation will be removed in the future.
      * @param request Request object
      * @return SaveAsTiffOnlineResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
+    @Deprecated
     public SaveAsTiffOnlineResponse saveAsTiffOnline(SaveAsTiffOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< SaveAsTiffOnlineResponse > resp = saveAsTiffOnlineWithHttpInfo(request);
