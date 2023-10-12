@@ -155,6 +155,7 @@ public class ListLevel extends LinkElement {
 
     /**
      * Gets or sets the justification of the actual number of the list item.
+     * The list label is justified relative to the Aspose.Words.Lists.ListLevel.NumberPosition property.
      */
     @JsonAdapter(AlignmentEnum.Adapter.class)
     public enum AlignmentEnum {
@@ -284,9 +285,10 @@ public class ListLevel extends LinkElement {
     protected Style linkedStyle;
     /**
      * Gets or sets the starting number for this list level.
+     * Default value is 1.
     * @return startAt
     **/
-    @ApiModelProperty(value = "Gets or sets the starting number for this list level.")
+    @ApiModelProperty(value = "Gets or sets the starting number for this list level. Default value is 1.")
     public Integer getStartAt() {
         return startAt;
     }
@@ -322,9 +324,10 @@ public class ListLevel extends LinkElement {
 
     /**
      * Gets or sets the number format for the list level.
+     * Among normal text characters, the string can contain placeholder characters \\x0000 to \\x0008 representing the numbers from the corresponding list levels. For example, the string "\\x0000.\\x0001)" will generate a list label that looks something like "1.5)". The number "1" is the current number from the 1st list level, the number "5" is the current number from the 2nd list level. Null is not allowed, but an empty string meaning no number is valid.
     * @return numberFormat
     **/
-    @ApiModelProperty(value = "Gets or sets the number format for the list level.")
+    @ApiModelProperty(value = "Gets or sets the number format for the list level. Among normal text characters, the string can contain placeholder characters \\x0000 to \\x0008 representing the numbers from the corresponding list levels. For example, the string \"\\x0000.\\x0001)\" will generate a list label that looks something like \"1.5)\". The number \"1\" is the current number from the 1st list level, the number \"5\" is the current number from the 2nd list level. Null is not allowed, but an empty string meaning no number is valid.")
     public String getNumberFormat() {
         return numberFormat;
     }
@@ -341,9 +344,10 @@ public class ListLevel extends LinkElement {
 
     /**
      * Gets or sets the justification of the actual number of the list item.
+     * The list label is justified relative to the Aspose.Words.Lists.ListLevel.NumberPosition property.
     * @return alignment
     **/
-    @ApiModelProperty(value = "Gets or sets the justification of the actual number of the list item.")
+    @ApiModelProperty(value = "Gets or sets the justification of the actual number of the list item. The list label is justified relative to the Aspose.Words.Lists.ListLevel.NumberPosition property.")
     public AlignmentEnum getAlignment() {
         return alignment;
     }
@@ -379,9 +383,10 @@ public class ListLevel extends LinkElement {
 
     /**
      * Gets or sets the list level, that must appear before the specified list level restarts numbering.
+     * The value of -1 means the numbering will continue.
     * @return restartAfterLevel
     **/
-    @ApiModelProperty(value = "Gets or sets the list level, that must appear before the specified list level restarts numbering.")
+    @ApiModelProperty(value = "Gets or sets the list level, that must appear before the specified list level restarts numbering. The value of -1 means the numbering will continue.")
     public Integer getRestartAfterLevel() {
         return restartAfterLevel;
     }
@@ -436,9 +441,11 @@ public class ListLevel extends LinkElement {
 
     /**
      * Gets or sets the tab position (in points) for the list level.
+     * Has effect only when Aspose.Words.Lists.ListLevel.TrailingCharacter is a tab.
+     * Aspose.Words.Lists.ListLevel.NumberPosition Aspose.Words.Lists.ListLevel.TextPosition.
     * @return tabPosition
     **/
-    @ApiModelProperty(value = "Gets or sets the tab position (in points) for the list level.")
+    @ApiModelProperty(value = "Gets or sets the tab position (in points) for the list level. Has effect only when Aspose.Words.Lists.ListLevel.TrailingCharacter is a tab. Aspose.Words.Lists.ListLevel.NumberPosition Aspose.Words.Lists.ListLevel.TextPosition.")
     public Double getTabPosition() {
         return tabPosition;
     }
@@ -455,9 +462,10 @@ public class ListLevel extends LinkElement {
 
     /**
      * Gets or sets the position (in points) of the number or bullet for the list level.
+     * Aspose.Words.Lists.ListLevel.NumberPosition corresponds to LeftIndent plus FirstLineIndent of the paragraph. Aspose.Words.Lists.ListLevel.TextPosition Aspose.Words.Lists.ListLevel.TabPosition.
     * @return numberPosition
     **/
-    @ApiModelProperty(value = "Gets or sets the position (in points) of the number or bullet for the list level.")
+    @ApiModelProperty(value = "Gets or sets the position (in points) of the number or bullet for the list level. Aspose.Words.Lists.ListLevel.NumberPosition corresponds to LeftIndent plus FirstLineIndent of the paragraph. Aspose.Words.Lists.ListLevel.TextPosition Aspose.Words.Lists.ListLevel.TabPosition.")
     public Double getNumberPosition() {
         return numberPosition;
     }
@@ -474,9 +482,11 @@ public class ListLevel extends LinkElement {
 
     /**
      * Gets or sets the position (in points) for the second line of wrapping text for the list level.
+     * Aspose.Words.Lists.ListLevel.TextPosition corresponds to LeftIndent of the paragraph.
+     * Aspose.Words.Lists.ListLevel.NumberPosition Aspose.Words.Lists.ListLevel.TabPosition.
     * @return textPosition
     **/
-    @ApiModelProperty(value = "Gets or sets the position (in points) for the second line of wrapping text for the list level.")
+    @ApiModelProperty(value = "Gets or sets the position (in points) for the second line of wrapping text for the list level. Aspose.Words.Lists.ListLevel.TextPosition corresponds to LeftIndent of the paragraph. Aspose.Words.Lists.ListLevel.NumberPosition Aspose.Words.Lists.ListLevel.TabPosition.")
     public Double getTextPosition() {
         return textPosition;
     }
@@ -493,9 +503,11 @@ public class ListLevel extends LinkElement {
 
     /**
      * Gets or sets the paragraph style that is linked to this list level.
+     * This property is null when the list level is not linked to a paragraph style.
+     * This property can be set to null.
     * @return linkedStyle
     **/
-    @ApiModelProperty(value = "Gets or sets the paragraph style that is linked to this list level.")
+    @ApiModelProperty(value = "Gets or sets the paragraph style that is linked to this list level. This property is null when the list level is not linked to a paragraph style. This property can be set to null.")
     public Style getLinkedStyle() {
         return linkedStyle;
     }

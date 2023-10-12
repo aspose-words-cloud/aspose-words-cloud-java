@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a table.
+ * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/properties" REST API requests.
  */
-@ApiModel(description = "The REST response with a table.")
+@ApiModel(description = "The REST response with a table. This response is returned by the Service when handling \"GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/properties\" REST API requests.")
 public class TablePropertiesResponse extends WordsResponse {
     @SerializedName("Properties")
     protected TableProperties properties;

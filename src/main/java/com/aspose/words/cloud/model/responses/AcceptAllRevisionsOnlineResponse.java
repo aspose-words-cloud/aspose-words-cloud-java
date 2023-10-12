@@ -35,7 +35,7 @@ import java.util.Map;
  */
 public class AcceptAllRevisionsOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
      */
     private RevisionsModificationResponse model;
 
@@ -61,14 +61,14 @@ public class AcceptAllRevisionsOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
      */
     public RevisionsModificationResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
      */
     public void setModel(RevisionsModificationResponse value) {
         this.model = value;

@@ -54,9 +54,10 @@ public class CustomXmlPart extends CustomXmlPartLink {
     protected String data;
     /**
      * Gets or sets the custom xml part id.
+     * Cannot be null.
     * @return id
     **/
-    @ApiModelProperty(value = "Gets or sets the custom xml part id.")
+    @ApiModelProperty(value = "Gets or sets the custom xml part id. Cannot be null.")
     public String getId() {
         return id;
     }
@@ -73,9 +74,10 @@ public class CustomXmlPart extends CustomXmlPartLink {
 
     /**
      * Gets or sets the custom xml part data.
+     * Cannot be null.Default is empty string.
     * @return data
     **/
-    @ApiModelProperty(value = "Gets or sets the custom xml part data.")
+    @ApiModelProperty(value = "Gets or sets the custom xml part data. Cannot be null.Default is empty string.")
     public String getData() {
         return data;
     }

@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a collection of tables.
+ * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables" REST API requests.
  */
-@ApiModel(description = "The REST response with a collection of tables.")
+@ApiModel(description = "The REST response with a collection of tables. This response is returned by the Service when handling \"GET https://api.aspose.cloud/v4.0/words/Test.doc/tables\" REST API requests.")
 public class TableLinkCollectionResponse extends WordsResponse {
     @SerializedName("Tables")
     protected TableLinkCollection tables;

@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a custom xml part.
+ * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/customXmlParts/0" REST API requests.
  */
-@ApiModel(description = "The REST response with a custom xml part.")
+@ApiModel(description = "The REST response with a custom xml part. This response is returned by the Service when handling \"GET https://api.aspose.cloud/v4.0/words/Test.doc/customXmlParts/0\" REST API requests.")
 public class CustomXmlPartResponse extends WordsResponse {
     @SerializedName("CustomXmlPart")
     protected CustomXmlPart customXmlPart;

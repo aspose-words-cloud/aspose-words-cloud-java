@@ -53,10 +53,10 @@ public class ErrorDetails implements ModelIfc {
     @SerializedName("RequestId")
     protected String requestId;
     /**
-     * Error datetime.
+     * Gets or sets ErrorDateTime.
     * @return errorDateTime
     **/
-    @ApiModelProperty(value = "Error datetime.")
+    @ApiModelProperty(value = "Gets or sets ErrorDateTime.")
     public OffsetDateTime getErrorDateTime() {
         return errorDateTime;
     }
@@ -72,10 +72,10 @@ public class ErrorDetails implements ModelIfc {
 
 
     /**
-     * The request id.
+     * Gets or sets RequestId.
     * @return requestId
     **/
-    @ApiModelProperty(value = "The request id.")
+    @ApiModelProperty(value = "Gets or sets RequestId.")
     public String getRequestId() {
         return requestId;
     }

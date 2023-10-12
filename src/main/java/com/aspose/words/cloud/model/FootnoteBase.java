@@ -93,36 +93,17 @@ public abstract class FootnoteBase implements ModelIfc {
         }
     }
 
-    @SerializedName("FootnoteType")
-    protected FootnoteTypeEnum footnoteType;
-
     @SerializedName("Position")
     protected NewDocumentPosition position;
+
+    @SerializedName("FootnoteType")
+    protected FootnoteTypeEnum footnoteType;
 
     @SerializedName("ReferenceMark")
     protected String referenceMark;
 
     @SerializedName("Text")
     protected String text;
-    /**
-     * Gets or sets the option, that specifies whether this is a footnote or endnote.
-    * @return footnoteType
-    **/
-    @ApiModelProperty(value = "Gets or sets the option, that specifies whether this is a footnote or endnote.")
-    public FootnoteTypeEnum getFootnoteType() {
-        return footnoteType;
-    }
-
-    public FootnoteBase footnoteType(FootnoteTypeEnum footnoteType) {
-        this.footnoteType = footnoteType;
-        return this;
-    }
-
-    public void setFootnoteType(FootnoteTypeEnum footnoteType) {
-        this.footnoteType = footnoteType;
-    }
-
-
     /**
      * Gets or sets the link to comment range start node.
     * @return position
@@ -143,11 +124,31 @@ public abstract class FootnoteBase implements ModelIfc {
 
 
     /**
+     * Gets or sets the option, that specifies whether this is a footnote or endnote.
+    * @return footnoteType
+    **/
+    @ApiModelProperty(value = "Gets or sets the option, that specifies whether this is a footnote or endnote.")
+    public FootnoteTypeEnum getFootnoteType() {
+        return footnoteType;
+    }
+
+    public FootnoteBase footnoteType(FootnoteTypeEnum footnoteType) {
+        this.footnoteType = footnoteType;
+        return this;
+    }
+
+    public void setFootnoteType(FootnoteTypeEnum footnoteType) {
+        this.footnoteType = footnoteType;
+    }
+
+
+    /**
      * Gets or sets the custom reference mark to be used for this footnote.
      * Default value is Empty, meaning auto-numbered footnotes are used.
+     * RTF-format can only store 1 symbol as custom reference mark, so upon export only the first symbol will be written others will be discard.
     * @return referenceMark
     **/
-    @ApiModelProperty(value = "Gets or sets the custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.")
+    @ApiModelProperty(value = "Gets or sets the custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used. RTF-format can only store 1 symbol as custom reference mark, so upon export only the first symbol will be written others will be discard.")
     public String getReferenceMark() {
         return referenceMark;
     }
@@ -164,9 +165,10 @@ public abstract class FootnoteBase implements ModelIfc {
 
     /**
      * Gets or sets text of the footnote.
+     * This method allows to quickly set text of a footnote from a string. The string can contain paragraph breaks, this will create paragraphs of text in the footnote accordingly.
     * @return text
     **/
-    @ApiModelProperty(value = "Gets or sets text of the footnote.")
+    @ApiModelProperty(value = "Gets or sets text of the footnote. This method allows to quickly set text of a footnote from a string. The string can contain paragraph breaks, this will create paragraphs of text in the footnote accordingly.")
     public String getText() {
         return text;
     }
@@ -182,8 +184,8 @@ public abstract class FootnoteBase implements ModelIfc {
 
 
     public FootnoteBase() {
-        this.footnoteType = null;
         this.position = null;
+        this.footnoteType = null;
         this.referenceMark = null;
         this.text = null;
     }
@@ -208,23 +210,23 @@ public abstract class FootnoteBase implements ModelIfc {
 
         FootnoteBase footnoteBase = (FootnoteBase) o;
         return
-            Objects.equals(this.footnoteType, footnoteBase.footnoteType) &&
             Objects.equals(this.position, footnoteBase.position) &&
+            Objects.equals(this.footnoteType, footnoteBase.footnoteType) &&
             Objects.equals(this.referenceMark, footnoteBase.referenceMark) &&
             Objects.equals(this.text, footnoteBase.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(footnoteType, position, referenceMark, text);
+    return Objects.hash(position, footnoteType, referenceMark, text);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FootnoteBase {\n");
-    sb.append("    footnoteType: ").append(toIndentedString(getFootnoteType())).append("\n");
     sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
+    sb.append("    footnoteType: ").append(toIndentedString(getFootnoteType())).append("\n");
     sb.append("    referenceMark: ").append(toIndentedString(getReferenceMark())).append("\n");
     sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");

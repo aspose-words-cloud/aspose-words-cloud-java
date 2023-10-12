@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a collection of StructuredDocumentTags.
+ * This response should be returned by the service when handling: GET /structuredDocumentTags.
  */
-@ApiModel(description = "The REST response with a collection of StructuredDocumentTags.")
+@ApiModel(description = "The REST response with a collection of StructuredDocumentTags. This response should be returned by the service when handling: GET /structuredDocumentTags.")
 public class StructuredDocumentTagsResponse extends WordsResponse {
     @SerializedName("StructuredDocumentTags")
     protected StructuredDocumentTagCollection structuredDocumentTags;

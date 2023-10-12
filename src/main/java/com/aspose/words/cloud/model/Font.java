@@ -722,9 +722,10 @@ public class Font extends LinkElement {
 
     /**
      * Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics.
+     * This property, when on, shall not be used with strongly left-to-right text. Any behavior under that condition is unspecified. This property, when off, shall not be used with strong right-to-left text. Any behavior under that condition is unspecified.When the contents of this run are displayed, all characters shall be treated as complex script characters for formatting purposes. This means that BoldBi, ItalicBi, SizeBi and a corresponding font name will be used when rendering this run.Also, when the contents of this run are displayed, this property acts as a right-to-left override for characters which are classified as "weak types" and "neutral types".
     * @return bidi
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics. This property, when on, shall not be used with strongly left-to-right text. Any behavior under that condition is unspecified. This property, when off, shall not be used with strong right-to-left text. Any behavior under that condition is unspecified.When the contents of this run are displayed, all characters shall be treated as complex script characters for formatting purposes. This means that BoldBi, ItalicBi, SizeBi and a corresponding font name will be used when rendering this run.Also, when the contents of this run are displayed, this property acts as a right-to-left override for characters which are classified as \"weak types\" and \"neutral types\".")
     public Boolean getBidi() {
         return bidi;
     }
@@ -988,9 +989,10 @@ public class Font extends LinkElement {
 
     /**
      * Gets or sets the locale identifier (language) of the formatted characters.
+     * For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.
     * @return localeId
     **/
-    @ApiModelProperty(value = "Gets or sets the locale identifier (language) of the formatted characters.")
+    @ApiModelProperty(value = "Gets or sets the locale identifier (language) of the formatted characters. For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.")
     public Integer getLocaleId() {
         return localeId;
     }
@@ -1007,9 +1009,10 @@ public class Font extends LinkElement {
 
     /**
      * Gets or sets the locale identifier (language) of the formatted right-to-left characters.
+     * For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.
     * @return localeIdBi
     **/
-    @ApiModelProperty(value = "Gets or sets the locale identifier (language) of the formatted right-to-left characters.")
+    @ApiModelProperty(value = "Gets or sets the locale identifier (language) of the formatted right-to-left characters. For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.")
     public Integer getLocaleIdBi() {
         return localeIdBi;
     }
@@ -1026,9 +1029,10 @@ public class Font extends LinkElement {
 
     /**
      * Gets or sets the locale identifier (language) of the formatted Asian characters.
+     * For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.
     * @return localeIdFarEast
     **/
-    @ApiModelProperty(value = "Gets or sets the locale identifier (language) of the formatted Asian characters.")
+    @ApiModelProperty(value = "Gets or sets the locale identifier (language) of the formatted Asian characters. For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.")
     public Integer getLocaleIdFarEast() {
         return localeIdFarEast;
     }

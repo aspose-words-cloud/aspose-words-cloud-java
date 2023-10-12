@@ -50,6 +50,8 @@ public abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     /**
      * Gets or sets the value determining how colors are rendered.
      * { Normal | Grayscale}.
+     * The default value is Normal.
+     * This property is used when the document is exported to fixed page formats.
      */
     @JsonAdapter(ColorModeEnum.Adapter.class)
     public enum ColorModeEnum {
@@ -166,9 +168,11 @@ public abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     /**
      * Gets or sets the value determining how colors are rendered.
      * { Normal | Grayscale}.
+     * The default value is Normal.
+     * This property is used when the document is exported to fixed page formats.
     * @return colorMode
     **/
-    @ApiModelProperty(value = "Gets or sets the value determining how colors are rendered. { Normal | Grayscale}.")
+    @ApiModelProperty(value = "Gets or sets the value determining how colors are rendered. { Normal | Grayscale}. The default value is Normal. This property is used when the document is exported to fixed page formats.")
     public ColorModeEnum getColorMode() {
         return colorMode;
     }

@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a page setup of a section.
+ * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup" REST API requests.
  */
-@ApiModel(description = "The REST response with a page setup of a section.")
+@ApiModel(description = "The REST response with a page setup of a section. This response is returned by the Service when handling \"GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup\" REST API requests.")
 public class SectionPageSetupResponse extends WordsResponse {
     @SerializedName("PageSetup")
     protected PageSetup pageSetup;

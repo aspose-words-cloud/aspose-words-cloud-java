@@ -54,9 +54,10 @@ public class StructuredDocumentTagListItem implements ModelIfc {
     protected String value;
     /**
      * Gets or sets the text to display in the run content in place of the Aspose.Words.Markup.SdtListItem.Value attribute contents for this list item.
+     * Cannot be null and cannot be an empty string.
     * @return displayText
     **/
-    @ApiModelProperty(value = "Gets or sets the text to display in the run content in place of the Aspose.Words.Markup.SdtListItem.Value attribute contents for this list item.")
+    @ApiModelProperty(value = "Gets or sets the text to display in the run content in place of the Aspose.Words.Markup.SdtListItem.Value attribute contents for this list item. Cannot be null and cannot be an empty string.")
     public String getDisplayText() {
         return displayText;
     }
@@ -73,9 +74,10 @@ public class StructuredDocumentTagListItem implements ModelIfc {
 
     /**
      * Gets or sets the value of this list item.
+     * Cannot be null and cannot be an empty string.
     * @return value
     **/
-    @ApiModelProperty(value = "Gets or sets the value of this list item.")
+    @ApiModelProperty(value = "Gets or sets the value of this list item. Cannot be null and cannot be an empty string.")
     public String getValue() {
         return value;
     }

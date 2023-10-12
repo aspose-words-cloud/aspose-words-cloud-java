@@ -49,6 +49,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class TableProperties extends LinkElement {
     /**
      * Gets or sets the option that controls how an inline table is aligned in the document.
+     * The default value is Left.
      */
     @JsonAdapter(AlignmentEnum.Adapter.class)
     public enum AlignmentEnum {
@@ -659,9 +660,10 @@ public class TableProperties extends LinkElement {
     protected Double topPadding;
     /**
      * Gets or sets the option that controls how an inline table is aligned in the document.
+     * The default value is Left.
     * @return alignment
     **/
-    @ApiModelProperty(value = "Gets or sets the option that controls how an inline table is aligned in the document.")
+    @ApiModelProperty(value = "Gets or sets the option that controls how an inline table is aligned in the document. The default value is Left.")
     public AlignmentEnum getAlignment() {
         return alignment;
     }
@@ -678,9 +680,10 @@ public class TableProperties extends LinkElement {
 
     /**
      * Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.
+     * The default value is true.
     * @return allowAutoFit
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents. The default value is true.")
     public Boolean getAllowAutoFit() {
         return allowAutoFit;
     }
@@ -697,9 +700,10 @@ public class TableProperties extends LinkElement {
 
     /**
      * Gets or sets a value indicating whether this is a right-to-left table.
+     * When true, the cells in this row are laid out right to left.The default value is false.
     * @return bidi
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether this is a right-to-left table.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this is a right-to-left table. When true, the cells in this row are laid out right to left.The default value is false.")
     public Boolean getBidi() {
         return bidi;
     }

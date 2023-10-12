@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Represents a border of an object.
+ * Borders can be applied to various document elements including paragraph, run of text inside a paragraph or a table cell.
  */
-@ApiModel(description = "Represents a border of an object.")
+@ApiModel(description = "Represents a border of an object. Borders can be applied to various document elements including paragraph, run of text inside a paragraph or a table cell.")
 public class Border extends LinkElement {
     /**
      * Gets or sets the border type.
@@ -102,6 +103,7 @@ public class Border extends LinkElement {
 
     /**
      * Gets or sets the border style.
+     * If you set line style to none, then line width is automatically changed to zero.
      */
     @JsonAdapter(LineStyleEnum.Adapter.class)
     public enum LineStyleEnum {
@@ -228,9 +230,10 @@ public class Border extends LinkElement {
 
     /**
      * Gets or sets the distance of the border from text or from the page edge in points.
+     * Has no effect and will be automatically reset to zero for borders of table cells.
     * @return distanceFromText
     **/
-    @ApiModelProperty(value = "Gets or sets the distance of the border from text or from the page edge in points.")
+    @ApiModelProperty(value = "Gets or sets the distance of the border from text or from the page edge in points. Has no effect and will be automatically reset to zero for borders of table cells.")
     public Double getDistanceFromText() {
         return distanceFromText;
     }
@@ -247,9 +250,10 @@ public class Border extends LinkElement {
 
     /**
      * Gets or sets the border style.
+     * If you set line style to none, then line width is automatically changed to zero.
     * @return lineStyle
     **/
-    @ApiModelProperty(value = "Gets or sets the border style.")
+    @ApiModelProperty(value = "Gets or sets the border style. If you set line style to none, then line width is automatically changed to zero.")
     public LineStyleEnum getLineStyle() {
         return lineStyle;
     }
@@ -266,9 +270,10 @@ public class Border extends LinkElement {
 
     /**
      * Gets or sets the border width in points.
+     * If you set line width greater than zero when line style is none, the line style is automatically changed to single line.
     * @return lineWidth
     **/
-    @ApiModelProperty(value = "Gets or sets the border width in points.")
+    @ApiModelProperty(value = "Gets or sets the border width in points. If you set line width greater than zero when line style is none, the line style is automatically changed to single line.")
     public Double getLineWidth() {
         return lineWidth;
     }
@@ -285,9 +290,10 @@ public class Border extends LinkElement {
 
     /**
      * Gets or sets a value indicating whether the border has a shadow.
+     * In Microsoft Word, for a border to have a shadow, the borders on all four sides (left, top, right and bottom) should be of the same type, width, color and all should have the Shadow property set to true.
     * @return shadow
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether the border has a shadow.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the border has a shadow. In Microsoft Word, for a border to have a shadow, the borders on all four sides (left, top, right and bottom) should be of the same type, width, color and all should have the Shadow property set to true.")
     public Boolean getShadow() {
         return shadow;
     }

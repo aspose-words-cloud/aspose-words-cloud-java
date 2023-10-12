@@ -113,6 +113,8 @@ public class BmpSaveOptionsData extends ImageSaveOptionsData {
     sb.append("    useAntiAliasing: ").append(toIndentedString(getUseAntiAliasing())).append("\n");
     sb.append("    useHighQualityRendering: ").append(toIndentedString(getUseHighQualityRendering())).append("\n");
     sb.append("    verticalResolution: ").append(toIndentedString(getVerticalResolution())).append("\n");
+    sb.append("    imageHeight: ").append(toIndentedString(getImageHeight())).append("\n");
+    sb.append("    imageWidth: ").append(toIndentedString(getImageWidth())).append("\n");
     sb.append("    useGdiEmfRenderer: ").append(toIndentedString(getUseGdiEmfRenderer())).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");

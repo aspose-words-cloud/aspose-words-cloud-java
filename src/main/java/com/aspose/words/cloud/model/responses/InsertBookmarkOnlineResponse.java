@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class InsertBookmarkOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a bookmark.
+     * This response should be returned by the service when handling: GET bookmarks/{bookmarkName}.
      */
     private BookmarkResponse model;
 
@@ -61,14 +62,14 @@ public class InsertBookmarkOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a bookmark. This response should be returned by the service when handling: GET bookmarks/{bookmarkName}.
      */
     public BookmarkResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a bookmark. This response should be returned by the service when handling: GET bookmarks/{bookmarkName}.
      */
     public void setModel(BookmarkResponse value) {
         this.model = value;

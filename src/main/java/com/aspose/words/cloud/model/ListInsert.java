@@ -49,6 +49,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class ListInsert implements ModelIfc {
     /**
      * Gets or sets the option that controls how list should be restarted at each section.
+     * This option is supported only in RTF, DOC and DOCX document formats. This option will be written to DOCX only if Aspose.Words.Saving.OoxmlCompliance is higher then Aspose.Words.Saving.OoxmlCompliance.Ecma376_2006.
      */
     @JsonAdapter(TemplateEnum.Adapter.class)
     public enum TemplateEnum {
@@ -117,9 +118,10 @@ public class ListInsert implements ModelIfc {
     protected TemplateEnum template;
     /**
      * Gets or sets the option that controls how list should be restarted at each section.
+     * This option is supported only in RTF, DOC and DOCX document formats. This option will be written to DOCX only if Aspose.Words.Saving.OoxmlCompliance is higher then Aspose.Words.Saving.OoxmlCompliance.Ecma376_2006.
     * @return template
     **/
-    @ApiModelProperty(value = "Gets or sets the option that controls how list should be restarted at each section.")
+    @ApiModelProperty(value = "Gets or sets the option that controls how list should be restarted at each section. This option is supported only in RTF, DOC and DOCX document formats. This option will be written to DOCX only if Aspose.Words.Saving.OoxmlCompliance is higher then Aspose.Words.Saving.OoxmlCompliance.Ecma376_2006.")
     public TemplateEnum getTemplate() {
         return template;
     }

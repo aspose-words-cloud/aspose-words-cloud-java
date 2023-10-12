@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="PclSaveOptionsData.java">
+ * <copyright company="Aspose" file="EpsSaveOptionsData.java">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -43,60 +43,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Container class for pcl save options.
+ * Container class for eps save options.
  */
-@ApiModel(description = "Container class for pcl save options.")
-public class PclSaveOptionsData extends FixedPageSaveOptionsData {
-    @SerializedName("FalllbackFontName")
-    protected String falllbackFontName;
+@ApiModel(description = "Container class for eps save options.")
+public class EpsSaveOptionsData extends ImageSaveOptionsData {
 
-    @SerializedName("RasterizeTransformedElements")
-    protected Boolean rasterizeTransformedElements;
-    /**
-     * Gets or sets the font name, that will be used if no expected font is found in printer and built-in fonts collections.
-     * If no fallback is found, "Arial" font is used.
-    * @return falllbackFontName
-    **/
-    @ApiModelProperty(value = "Gets or sets the font name, that will be used if no expected font is found in printer and built-in fonts collections. If no fallback is found, \"Arial\" font is used.")
-    public String getFalllbackFontName() {
-        return falllbackFontName;
-    }
-
-    public PclSaveOptionsData falllbackFontName(String falllbackFontName) {
-        this.falllbackFontName = falllbackFontName;
-        return this;
-    }
-
-    public void setFalllbackFontName(String falllbackFontName) {
-        this.falllbackFontName = falllbackFontName;
-    }
-
-
-    /**
-     * Gets or sets a value indicating whether complex transformed elements should be rasterized before saving to PCL document.. The default value is true.
-     * PCL doesn't support some kind of transformations that are used by Aspose Words.  E.g. rotated, skewed images and texture brushes. To properly render such elements rasterization process is used, i.e. saving to image and clipping.  This process can take additional time and memory.  If flag is set to false, some content in output may be different as compared with the source document.
-    * @return rasterizeTransformedElements
-    **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether complex transformed elements should be rasterized before saving to PCL document.. The default value is true. PCL doesn't support some kind of transformations that are used by Aspose Words.  E.g. rotated, skewed images and texture brushes. To properly render such elements rasterization process is used, i.e. saving to image and clipping.  This process can take additional time and memory.  If flag is set to false, some content in output may be different as compared with the source document.")
-    public Boolean getRasterizeTransformedElements() {
-        return rasterizeTransformedElements;
-    }
-
-    public PclSaveOptionsData rasterizeTransformedElements(Boolean rasterizeTransformedElements) {
-        this.rasterizeTransformedElements = rasterizeTransformedElements;
-        return this;
-    }
-
-    public void setRasterizeTransformedElements(Boolean rasterizeTransformedElements) {
-        this.rasterizeTransformedElements = rasterizeTransformedElements;
-    }
-
-
-    public PclSaveOptionsData() {
+    public EpsSaveOptionsData() {
         super();
-        this.falllbackFontName = null;
-        this.rasterizeTransformedElements = null;
-        this.saveFormat = "pcl";
+        this.saveFormat = "eps";
     }
 
     /*
@@ -117,22 +71,18 @@ public class PclSaveOptionsData extends FixedPageSaveOptionsData {
             return false;
         }
 
-        PclSaveOptionsData pclSaveOptionsData = (PclSaveOptionsData) o;
-        return
-            Objects.equals(this.falllbackFontName, pclSaveOptionsData.falllbackFontName) &&
-            Objects.equals(this.rasterizeTransformedElements, pclSaveOptionsData.rasterizeTransformedElements) &&
-            super.equals(o);
+        return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(falllbackFontName, rasterizeTransformedElements, super.hashCode());
+    return Objects.hash(super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PclSaveOptionsData {\n");
+    sb.append("class EpsSaveOptionsData {\n");
     sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
     sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
     sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
@@ -152,8 +102,20 @@ public class PclSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
     sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
     sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
-    sb.append("    falllbackFontName: ").append(toIndentedString(getFalllbackFontName())).append("\n");
-    sb.append("    rasterizeTransformedElements: ").append(toIndentedString(getRasterizeTransformedElements())).append("\n");
+    sb.append("    horizontalResolution: ").append(toIndentedString(getHorizontalResolution())).append("\n");
+    sb.append("    imageBrightness: ").append(toIndentedString(getImageBrightness())).append("\n");
+    sb.append("    imageColorMode: ").append(toIndentedString(getImageColorMode())).append("\n");
+    sb.append("    imageContrast: ").append(toIndentedString(getImageContrast())).append("\n");
+    sb.append("    paperColor: ").append(toIndentedString(getPaperColor())).append("\n");
+    sb.append("    pixelFormat: ").append(toIndentedString(getPixelFormat())).append("\n");
+    sb.append("    resolution: ").append(toIndentedString(getResolution())).append("\n");
+    sb.append("    scale: ").append(toIndentedString(getScale())).append("\n");
+    sb.append("    useAntiAliasing: ").append(toIndentedString(getUseAntiAliasing())).append("\n");
+    sb.append("    useHighQualityRendering: ").append(toIndentedString(getUseHighQualityRendering())).append("\n");
+    sb.append("    verticalResolution: ").append(toIndentedString(getVerticalResolution())).append("\n");
+    sb.append("    imageHeight: ").append(toIndentedString(getImageHeight())).append("\n");
+    sb.append("    imageWidth: ").append(toIndentedString(getImageWidth())).append("\n");
+    sb.append("    useGdiEmfRenderer: ").append(toIndentedString(getUseGdiEmfRenderer())).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();

@@ -144,9 +144,6 @@ public class FieldOptions implements ModelIfc {
         }
     }
 
-    @SerializedName("BuiltInTemplatesPaths")
-    protected List<String> builtInTemplatesPaths;
-
     @SerializedName("CurrentUser")
     protected UserInformation currentUser;
 
@@ -182,34 +179,9 @@ public class FieldOptions implements ModelIfc {
 
     @SerializedName("UseInvariantCultureNumberFormat")
     protected Boolean useInvariantCultureNumberFormat;
-    /**
-     * Gets or sets BuiltIn Templates Paths.
-    * @return builtInTemplatesPaths
-    **/
-    @ApiModelProperty(value = "Gets or sets BuiltIn Templates Paths.")
-    public List<String> getBuiltInTemplatesPaths() {
-        return builtInTemplatesPaths;
-    }
 
-    public FieldOptions builtInTemplatesPaths(List<String> builtInTemplatesPaths) {
-        this.builtInTemplatesPaths = builtInTemplatesPaths;
-        return this;
-    }
-
-    public FieldOptions addBuiltInTemplatesPathsItem(String builtInTemplatesPathsItem) {
-        if (this.builtInTemplatesPaths == null) {
-            this.builtInTemplatesPaths = new ArrayList<String>();
-        }
-        this.builtInTemplatesPaths.add(builtInTemplatesPathsItem);
-        return this;
-    }
-
-
-    public void setBuiltInTemplatesPaths(List<String> builtInTemplatesPaths) {
-        this.builtInTemplatesPaths = builtInTemplatesPaths;
-    }
-
-
+    @SerializedName("BuiltInTemplatesPaths")
+    protected List<String> builtInTemplatesPaths;
     /**
      * Gets or sets Curren tUser.
     * @return currentUser
@@ -440,8 +412,35 @@ public class FieldOptions implements ModelIfc {
     }
 
 
+    /**
+     * Gets or sets BuiltIn Templates Paths.
+    * @return builtInTemplatesPaths
+    **/
+    @ApiModelProperty(value = "Gets or sets BuiltIn Templates Paths.")
+    public List<String> getBuiltInTemplatesPaths() {
+        return builtInTemplatesPaths;
+    }
+
+    public FieldOptions builtInTemplatesPaths(List<String> builtInTemplatesPaths) {
+        this.builtInTemplatesPaths = builtInTemplatesPaths;
+        return this;
+    }
+
+    public FieldOptions addBuiltInTemplatesPathsItem(String builtInTemplatesPathsItem) {
+        if (this.builtInTemplatesPaths == null) {
+            this.builtInTemplatesPaths = new ArrayList<String>();
+        }
+        this.builtInTemplatesPaths.add(builtInTemplatesPathsItem);
+        return this;
+    }
+
+
+    public void setBuiltInTemplatesPaths(List<String> builtInTemplatesPaths) {
+        this.builtInTemplatesPaths = builtInTemplatesPaths;
+    }
+
+
     public FieldOptions() {
-        this.builtInTemplatesPaths = null;
         this.currentUser = null;
         this.customTocStyleSeparator = null;
         this.defaultDocumentAuthor = null;
@@ -454,6 +453,7 @@ public class FieldOptions implements ModelIfc {
         this.preProcessCultureName = null;
         this.templateName = null;
         this.useInvariantCultureNumberFormat = null;
+        this.builtInTemplatesPaths = null;
     }
 
     /*
@@ -476,7 +476,6 @@ public class FieldOptions implements ModelIfc {
 
         FieldOptions fieldOptions = (FieldOptions) o;
         return
-            Objects.equals(this.builtInTemplatesPaths, fieldOptions.builtInTemplatesPaths) &&
             Objects.equals(this.currentUser, fieldOptions.currentUser) &&
             Objects.equals(this.customTocStyleSeparator, fieldOptions.customTocStyleSeparator) &&
             Objects.equals(this.defaultDocumentAuthor, fieldOptions.defaultDocumentAuthor) &&
@@ -488,19 +487,19 @@ public class FieldOptions implements ModelIfc {
             Objects.equals(this.legacyNumberFormat, fieldOptions.legacyNumberFormat) &&
             Objects.equals(this.preProcessCultureName, fieldOptions.preProcessCultureName) &&
             Objects.equals(this.templateName, fieldOptions.templateName) &&
-            Objects.equals(this.useInvariantCultureNumberFormat, fieldOptions.useInvariantCultureNumberFormat);
+            Objects.equals(this.useInvariantCultureNumberFormat, fieldOptions.useInvariantCultureNumberFormat) &&
+            Objects.equals(this.builtInTemplatesPaths, fieldOptions.builtInTemplatesPaths);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(builtInTemplatesPaths, currentUser, customTocStyleSeparator, defaultDocumentAuthor, fieldIndexFormat, fieldUpdateCultureName, fieldUpdateCultureSource, fileName, isBidiTextSupportedOnUpdate, legacyNumberFormat, preProcessCultureName, templateName, useInvariantCultureNumberFormat);
+    return Objects.hash(currentUser, customTocStyleSeparator, defaultDocumentAuthor, fieldIndexFormat, fieldUpdateCultureName, fieldUpdateCultureSource, fileName, isBidiTextSupportedOnUpdate, legacyNumberFormat, preProcessCultureName, templateName, useInvariantCultureNumberFormat, builtInTemplatesPaths);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldOptions {\n");
-    sb.append("    builtInTemplatesPaths: ").append(toIndentedString(getBuiltInTemplatesPaths())).append("\n");
     sb.append("    currentUser: ").append(toIndentedString(getCurrentUser())).append("\n");
     sb.append("    customTocStyleSeparator: ").append(toIndentedString(getCustomTocStyleSeparator())).append("\n");
     sb.append("    defaultDocumentAuthor: ").append(toIndentedString(getDefaultDocumentAuthor())).append("\n");
@@ -513,6 +512,7 @@ public class FieldOptions implements ModelIfc {
     sb.append("    preProcessCultureName: ").append(toIndentedString(getPreProcessCultureName())).append("\n");
     sb.append("    templateName: ").append(toIndentedString(getTemplateName())).append("\n");
     sb.append("    useInvariantCultureNumberFormat: ").append(toIndentedString(getUseInvariantCultureNumberFormat())).append("\n");
+    sb.append("    builtInTemplatesPaths: ").append(toIndentedString(getBuiltInTemplatesPaths())).append("\n");
     sb.append("}");
     return sb.toString();
   }

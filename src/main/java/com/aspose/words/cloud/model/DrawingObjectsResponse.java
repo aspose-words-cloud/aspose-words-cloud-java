@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a collection of DrawingObjects.
+ * This response should be returned by the service when handling: GET /drawingObjects.
  */
-@ApiModel(description = "The REST response with a collection of DrawingObjects.")
+@ApiModel(description = "The REST response with a collection of DrawingObjects. This response should be returned by the service when handling: GET /drawingObjects.")
 public class DrawingObjectsResponse extends WordsResponse {
     @SerializedName("DrawingObjects")
     protected DrawingObjectCollection drawingObjects;

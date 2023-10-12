@@ -47,30 +47,11 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Field.")
 public abstract class FieldBase implements ModelIfc {
-    @SerializedName("FieldCode")
-    protected String fieldCode;
-
     @SerializedName("LocaleId")
     protected String localeId;
-    /**
-     * Gets or sets the field code.
-    * @return fieldCode
-    **/
-    @ApiModelProperty(value = "Gets or sets the field code.")
-    public String getFieldCode() {
-        return fieldCode;
-    }
 
-    public FieldBase fieldCode(String fieldCode) {
-        this.fieldCode = fieldCode;
-        return this;
-    }
-
-    public void setFieldCode(String fieldCode) {
-        this.fieldCode = fieldCode;
-    }
-
-
+    @SerializedName("FieldCode")
+    protected String fieldCode;
     /**
      * Gets or sets the LCID of the field.
     * @return localeId
@@ -90,9 +71,28 @@ public abstract class FieldBase implements ModelIfc {
     }
 
 
+    /**
+     * Gets or sets the field code.
+    * @return fieldCode
+    **/
+    @ApiModelProperty(value = "Gets or sets the field code.")
+    public String getFieldCode() {
+        return fieldCode;
+    }
+
+    public FieldBase fieldCode(String fieldCode) {
+        this.fieldCode = fieldCode;
+        return this;
+    }
+
+    public void setFieldCode(String fieldCode) {
+        this.fieldCode = fieldCode;
+    }
+
+
     public FieldBase() {
-        this.fieldCode = null;
         this.localeId = null;
+        this.fieldCode = null;
     }
 
     /*
@@ -115,21 +115,21 @@ public abstract class FieldBase implements ModelIfc {
 
         FieldBase fieldBase = (FieldBase) o;
         return
-            Objects.equals(this.fieldCode, fieldBase.fieldCode) &&
-            Objects.equals(this.localeId, fieldBase.localeId);
+            Objects.equals(this.localeId, fieldBase.localeId) &&
+            Objects.equals(this.fieldCode, fieldBase.fieldCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldCode, localeId);
+    return Objects.hash(localeId, fieldCode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldBase {\n");
-    sb.append("    fieldCode: ").append(toIndentedString(getFieldCode())).append("\n");
     sb.append("    localeId: ").append(toIndentedString(getLocaleId())).append("\n");
+    sb.append("    fieldCode: ").append(toIndentedString(getFieldCode())).append("\n");
     sb.append("}");
     return sb.toString();
   }

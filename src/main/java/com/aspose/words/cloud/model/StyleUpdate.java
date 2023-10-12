@@ -47,6 +47,9 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a single document style properties to update.")
 public class StyleUpdate implements ModelIfc {
+    @SerializedName("NextParagraphStyleName")
+    protected String nextParagraphStyleName;
+
     @SerializedName("BaseStyleName")
     protected String baseStyleName;
 
@@ -55,14 +58,32 @@ public class StyleUpdate implements ModelIfc {
 
     @SerializedName("Name")
     protected String name;
+    /**
+     * Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+     * This property is not used by Aspose.Words. The next paragraph style will only be applied automatically when you edit the document in MS Word.
+    * @return nextParagraphStyleName
+    **/
+    @ApiModelProperty(value = "Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style. This property is not used by Aspose.Words. The next paragraph style will only be applied automatically when you edit the document in MS Word.")
+    public String getNextParagraphStyleName() {
+        return nextParagraphStyleName;
+    }
 
-    @SerializedName("NextParagraphStyleName")
-    protected String nextParagraphStyleName;
+    public StyleUpdate nextParagraphStyleName(String nextParagraphStyleName) {
+        this.nextParagraphStyleName = nextParagraphStyleName;
+        return this;
+    }
+
+    public void setNextParagraphStyleName(String nextParagraphStyleName) {
+        this.nextParagraphStyleName = nextParagraphStyleName;
+    }
+
+
     /**
      * Gets or sets the name of the style this style is based on.
+     * This will be an empty string if the style is not based on any other style and it can be set to an empty string.
     * @return baseStyleName
     **/
-    @ApiModelProperty(value = "Gets or sets the name of the style this style is based on.")
+    @ApiModelProperty(value = "Gets or sets the name of the style this style is based on. This will be an empty string if the style is not based on any other style and it can be set to an empty string.")
     public String getBaseStyleName() {
         return baseStyleName;
     }
@@ -98,9 +119,10 @@ public class StyleUpdate implements ModelIfc {
 
     /**
      * Gets or sets the name of the style.
+     * Can not be empty string. If there already is a style with such name in the collection, than this style will override it. All affected nodes will reference new style.
     * @return name
     **/
-    @ApiModelProperty(value = "Gets or sets the name of the style.")
+    @ApiModelProperty(value = "Gets or sets the name of the style. Can not be empty string. If there already is a style with such name in the collection, than this style will override it. All affected nodes will reference new style.")
     public String getName() {
         return name;
     }
@@ -115,30 +137,11 @@ public class StyleUpdate implements ModelIfc {
     }
 
 
-    /**
-     * Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
-    * @return nextParagraphStyleName
-    **/
-    @ApiModelProperty(value = "Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.")
-    public String getNextParagraphStyleName() {
-        return nextParagraphStyleName;
-    }
-
-    public StyleUpdate nextParagraphStyleName(String nextParagraphStyleName) {
-        this.nextParagraphStyleName = nextParagraphStyleName;
-        return this;
-    }
-
-    public void setNextParagraphStyleName(String nextParagraphStyleName) {
-        this.nextParagraphStyleName = nextParagraphStyleName;
-    }
-
-
     public StyleUpdate() {
+        this.nextParagraphStyleName = null;
         this.baseStyleName = null;
         this.isQuickStyle = null;
         this.name = null;
-        this.nextParagraphStyleName = null;
     }
 
     /*
@@ -161,25 +164,25 @@ public class StyleUpdate implements ModelIfc {
 
         StyleUpdate styleUpdate = (StyleUpdate) o;
         return
+            Objects.equals(this.nextParagraphStyleName, styleUpdate.nextParagraphStyleName) &&
             Objects.equals(this.baseStyleName, styleUpdate.baseStyleName) &&
             Objects.equals(this.isQuickStyle, styleUpdate.isQuickStyle) &&
-            Objects.equals(this.name, styleUpdate.name) &&
-            Objects.equals(this.nextParagraphStyleName, styleUpdate.nextParagraphStyleName);
+            Objects.equals(this.name, styleUpdate.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseStyleName, isQuickStyle, name, nextParagraphStyleName);
+    return Objects.hash(nextParagraphStyleName, baseStyleName, isQuickStyle, name);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StyleUpdate {\n");
+    sb.append("    nextParagraphStyleName: ").append(toIndentedString(getNextParagraphStyleName())).append("\n");
     sb.append("    baseStyleName: ").append(toIndentedString(getBaseStyleName())).append("\n");
     sb.append("    isQuickStyle: ").append(toIndentedString(getIsQuickStyle())).append("\n");
     sb.append("    name: ").append(toIndentedString(getName())).append("\n");
-    sb.append("    nextParagraphStyleName: ").append(toIndentedString(getNextParagraphStyleName())).append("\n");
     sb.append("}");
     return sb.toString();
   }

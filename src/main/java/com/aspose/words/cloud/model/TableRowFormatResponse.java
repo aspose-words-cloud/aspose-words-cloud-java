@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with the formatting properties of a table row.
+ * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat" REST API requests.
  */
-@ApiModel(description = "The REST response with the formatting properties of a table row.")
+@ApiModel(description = "The REST response with the formatting properties of a table row. This response is returned by the Service when handling \"GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat\" REST API requests.")
 public class TableRowFormatResponse extends WordsResponse {
     @SerializedName("RowFormat")
     protected TableRowFormat rowFormat;

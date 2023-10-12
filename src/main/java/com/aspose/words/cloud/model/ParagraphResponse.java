@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with a paragraph.
+ * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}" REST API requests.
  */
-@ApiModel(description = "The REST response with a paragraph.")
+@ApiModel(description = "The REST response with a paragraph. This response is returned by the Service when handling \"GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}\" REST API requests.")
 public class ParagraphResponse extends WordsResponse {
     @SerializedName("Paragraph")
     protected Paragraph paragraph;

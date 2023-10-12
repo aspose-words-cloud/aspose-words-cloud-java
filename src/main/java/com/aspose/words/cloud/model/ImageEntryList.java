@@ -54,9 +54,10 @@ public class ImageEntryList extends BaseEntryList {
     protected List<ImageEntry> imageEntries;
     /**
      * Gets or sets a value indicating whether each image should be added to a new page in the document.
+     * This value only has an effect when adding images to a document that supports pagination.
     * @return appendEachImageOnNewPage
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether each image should be added to a new page in the document.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether each image should be added to a new page in the document. This value only has an effect when adding images to a document that supports pagination.")
     public Boolean getAppendEachImageOnNewPage() {
         return appendEachImageOnNewPage;
     }

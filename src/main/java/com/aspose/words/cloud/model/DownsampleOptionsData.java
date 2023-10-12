@@ -57,9 +57,10 @@ public class DownsampleOptionsData implements ModelIfc {
     protected Integer resolutionThreshold;
     /**
      * Gets or sets a value indicating whether images should be downsampled.
+     * The default value is true.
     * @return downsampleImages
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether images should be downsampled.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether images should be downsampled. The default value is true.")
     public Boolean getDownsampleImages() {
         return downsampleImages;
     }
@@ -76,9 +77,10 @@ public class DownsampleOptionsData implements ModelIfc {
 
     /**
      * Gets or sets the resolution in pixels per inch which the images should be downsampled to.
+     * The default value is 220 ppi.
     * @return resolution
     **/
-    @ApiModelProperty(value = "Gets or sets the resolution in pixels per inch which the images should be downsampled to.")
+    @ApiModelProperty(value = "Gets or sets the resolution in pixels per inch which the images should be downsampled to. The default value is 220 ppi.")
     public Integer getResolution() {
         return resolution;
     }
@@ -95,9 +97,10 @@ public class DownsampleOptionsData implements ModelIfc {
 
     /**
      * Gets or sets the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
+     * The default value is 0.
     * @return resolutionThreshold
     **/
-    @ApiModelProperty(value = "Gets or sets the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.")
+    @ApiModelProperty(value = "Gets or sets the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled. The default value is 0.")
     public Integer getResolutionThreshold() {
         return resolutionThreshold;
     }

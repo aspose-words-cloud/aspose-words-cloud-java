@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class UpdateListOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with a list information.
+     * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/lists/{n}" REST API requests.
      */
     private ListResponse model;
 
@@ -61,14 +62,14 @@ public class UpdateListOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with a list information. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/lists/{n}" REST API requests.
      */
     public ListResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with a list information. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/lists/{n}" REST API requests.
      */
     public void setModel(ListResponse value) {
         this.model = value;

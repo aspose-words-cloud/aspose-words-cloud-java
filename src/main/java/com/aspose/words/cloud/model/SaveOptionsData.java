@@ -49,6 +49,7 @@ import io.swagger.annotations.ApiModelProperty;
 public abstract class SaveOptionsData implements ModelIfc {
     /**
      * Gets or sets the value determining how 3D effects are rendered.
+     * The default value is Aspose.Words.Saving.Dml3DEffectsRenderingMode.Basic.
      */
     @JsonAdapter(Dml3DEffectsRenderingModeEnum.Adapter.class)
     public enum Dml3DEffectsRenderingModeEnum {
@@ -96,6 +97,8 @@ public abstract class SaveOptionsData implements ModelIfc {
     /**
      * Gets or sets the value determining how DrawingML effects are rendered.
      * { Simplified | None | Fine }.
+     * The default value is Simplified.
+     * This property is used when the document is exported to fixed page formats.
      */
     @JsonAdapter(DmlEffectsRenderingModeEnum.Adapter.class)
     public enum DmlEffectsRenderingModeEnum {
@@ -143,6 +146,8 @@ public abstract class SaveOptionsData implements ModelIfc {
 
     /**
      * Gets or sets the option that controls how DrawingML shapes are rendered.
+     * { Fallback | DrawingML }. The default value is Fallback.
+     * This property is used when the document is exported to fixed page formats.
      */
     @JsonAdapter(DmlRenderingModeEnum.Adapter.class)
     public enum DmlRenderingModeEnum {
@@ -189,6 +194,7 @@ public abstract class SaveOptionsData implements ModelIfc {
 
     /**
      * Gets or sets the value determining how ink (InkML) objects are rendered.
+     * The default value is Aspose.Words.Saving.ImlRenderingMode.InkML.
      */
     @JsonAdapter(ImlRenderingModeEnum.Adapter.class)
     public enum ImlRenderingModeEnum {
@@ -273,9 +279,12 @@ public abstract class SaveOptionsData implements ModelIfc {
     protected String saveFormat;
     /**
      * Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
+     * Note, Word does not embed PostScript fonts, but can open documents with embedded fonts of this type.
+     * This option only works when Aspose.Words.Fonts.FontInfoCollection.EmbedTrueTypeFonts of the Aspose.Words.DocumentBase.FontInfos property is set to true.
+     * The default value is false.
     * @return allowEmbeddingPostScriptFonts
     **/
-    @ApiModelProperty(value = "Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..")
+    @ApiModelProperty(value = "Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false.. Note, Word does not embed PostScript fonts, but can open documents with embedded fonts of this type. This option only works when Aspose.Words.Fonts.FontInfoCollection.EmbedTrueTypeFonts of the Aspose.Words.DocumentBase.FontInfos property is set to true. The default value is false.")
     public Boolean getAllowEmbeddingPostScriptFonts() {
         return allowEmbeddingPostScriptFonts;
     }
@@ -311,9 +320,10 @@ public abstract class SaveOptionsData implements ModelIfc {
 
     /**
      * Gets or sets the value determining how 3D effects are rendered.
+     * The default value is Aspose.Words.Saving.Dml3DEffectsRenderingMode.Basic.
     * @return dml3DEffectsRenderingMode
     **/
-    @ApiModelProperty(value = "Gets or sets the value determining how 3D effects are rendered.")
+    @ApiModelProperty(value = "Gets or sets the value determining how 3D effects are rendered. The default value is Aspose.Words.Saving.Dml3DEffectsRenderingMode.Basic.")
     public Dml3DEffectsRenderingModeEnum getDml3DEffectsRenderingMode() {
         return dml3DEffectsRenderingMode;
     }
@@ -331,9 +341,11 @@ public abstract class SaveOptionsData implements ModelIfc {
     /**
      * Gets or sets the value determining how DrawingML effects are rendered.
      * { Simplified | None | Fine }.
+     * The default value is Simplified.
+     * This property is used when the document is exported to fixed page formats.
     * @return dmlEffectsRenderingMode
     **/
-    @ApiModelProperty(value = "Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }.")
+    @ApiModelProperty(value = "Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }. The default value is Simplified. This property is used when the document is exported to fixed page formats.")
     public DmlEffectsRenderingModeEnum getDmlEffectsRenderingMode() {
         return dmlEffectsRenderingMode;
     }
@@ -350,9 +362,11 @@ public abstract class SaveOptionsData implements ModelIfc {
 
     /**
      * Gets or sets the option that controls how DrawingML shapes are rendered.
+     * { Fallback | DrawingML }. The default value is Fallback.
+     * This property is used when the document is exported to fixed page formats.
     * @return dmlRenderingMode
     **/
-    @ApiModelProperty(value = "Gets or sets the option that controls how DrawingML shapes are rendered.")
+    @ApiModelProperty(value = "Gets or sets the option that controls how DrawingML shapes are rendered. { Fallback | DrawingML }. The default value is Fallback. This property is used when the document is exported to fixed page formats.")
     public DmlRenderingModeEnum getDmlRenderingMode() {
         return dmlRenderingMode;
     }
@@ -388,9 +402,10 @@ public abstract class SaveOptionsData implements ModelIfc {
 
     /**
      * Gets or sets the value determining how ink (InkML) objects are rendered.
+     * The default value is Aspose.Words.Saving.ImlRenderingMode.InkML.
     * @return imlRenderingMode
     **/
-    @ApiModelProperty(value = "Gets or sets the value determining how ink (InkML) objects are rendered.")
+    @ApiModelProperty(value = "Gets or sets the value determining how ink (InkML) objects are rendered. The default value is Aspose.Words.Saving.ImlRenderingMode.InkML.")
     public ImlRenderingModeEnum getImlRenderingMode() {
         return imlRenderingMode;
     }
@@ -465,9 +480,10 @@ public abstract class SaveOptionsData implements ModelIfc {
 
     /**
      * Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
+     * The default value is false.
     * @return updateLastSavedTimeProperty
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving. The default value is false.")
     public Boolean getUpdateLastSavedTimeProperty() {
         return updateLastSavedTimeProperty;
     }
@@ -485,9 +501,10 @@ public abstract class SaveOptionsData implements ModelIfc {
     /**
      * Gets or sets a value indicating whether to zip output or not.
      * The default value is false.
+     * When set to true, output files will be zipped.
     * @return zipOutput
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether to zip output or not. The default value is false.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to zip output or not. The default value is false. When set to true, output files will be zipped.")
     public Boolean getZipOutput() {
         return zipOutput;
     }

@@ -35,7 +35,8 @@ import java.util.Map;
  */
 public class UpdateTableRowFormatOnlineResponse implements IMultipartResponse {
     /*
-     * The response model.
+     * The REST response with the formatting properties of a table row.
+     * This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat" REST API requests.
      */
     private TableRowFormatResponse model;
 
@@ -61,14 +62,14 @@ public class UpdateTableRowFormatOnlineResponse implements IMultipartResponse {
     }
 
     /*
-     * Gets The response model.
+     * Gets The REST response with the formatting properties of a table row. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat" REST API requests.
      */
     public TableRowFormatResponse getModel() {
         return this.model;
     }
 
     /*
-     * Sets The response model.
+     * Sets The REST response with the formatting properties of a table row. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat" REST API requests.
      */
     public void setModel(TableRowFormatResponse value) {
         this.model = value;

@@ -56,11 +56,11 @@ public abstract class CommentBase implements ModelIfc {
     @SerializedName("Author")
     protected String author;
 
-    @SerializedName("DateTime")
-    protected OffsetDateTime dateTime;
-
     @SerializedName("Initial")
     protected String initial;
+
+    @SerializedName("DateTime")
+    protected OffsetDateTime dateTime;
 
     @SerializedName("Text")
     protected String text;
@@ -104,9 +104,10 @@ public abstract class CommentBase implements ModelIfc {
 
     /**
      * Gets or sets the author name for a comment.
+     * Cannot be null.Default is empty string.
     * @return author
     **/
-    @ApiModelProperty(value = "Gets or sets the author name for a comment.")
+    @ApiModelProperty(value = "Gets or sets the author name for a comment. Cannot be null.Default is empty string.")
     public String getAuthor() {
         return author;
     }
@@ -122,29 +123,11 @@ public abstract class CommentBase implements ModelIfc {
 
 
     /**
-     * Gets or sets the date and time that the comment was made.
-    * @return dateTime
-    **/
-    @ApiModelProperty(value = "Gets or sets the date and time that the comment was made.")
-    public OffsetDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public CommentBase dateTime(OffsetDateTime dateTime) {
-        this.dateTime = dateTime;
-        return this;
-    }
-
-    public void setDateTime(OffsetDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
-
-
-    /**
      * Gets or sets the initials of the user associated with a specific comment.
+     * Cannot be null.Default is empty string.
     * @return initial
     **/
-    @ApiModelProperty(value = "Gets or sets the initials of the user associated with a specific comment.")
+    @ApiModelProperty(value = "Gets or sets the initials of the user associated with a specific comment. Cannot be null.Default is empty string.")
     public String getInitial() {
         return initial;
     }
@@ -160,10 +143,31 @@ public abstract class CommentBase implements ModelIfc {
 
 
     /**
+     * Gets or sets the date and time that the comment was made.
+     * Default is MinValue03.01.0001.
+    * @return dateTime
+    **/
+    @ApiModelProperty(value = "Gets or sets the date and time that the comment was made. Default is MinValue03.01.0001.")
+    public OffsetDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public CommentBase dateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+        return this;
+    }
+
+    public void setDateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+
+    /**
      * Gets or sets text of the comment.
+     * This method allows to quickly set text of a comment from a string. The string can contain paragraph breaks, this will create paragraphs of text in the comment accordingly.
     * @return text
     **/
-    @ApiModelProperty(value = "Gets or sets text of the comment.")
+    @ApiModelProperty(value = "Gets or sets text of the comment. This method allows to quickly set text of a comment from a string. The string can contain paragraph breaks, this will create paragraphs of text in the comment accordingly.")
     public String getText() {
         return text;
     }
@@ -182,8 +186,8 @@ public abstract class CommentBase implements ModelIfc {
         this.rangeStart = null;
         this.rangeEnd = null;
         this.author = null;
-        this.dateTime = null;
         this.initial = null;
+        this.dateTime = null;
         this.text = null;
     }
 
@@ -210,14 +214,14 @@ public abstract class CommentBase implements ModelIfc {
             Objects.equals(this.rangeStart, commentBase.rangeStart) &&
             Objects.equals(this.rangeEnd, commentBase.rangeEnd) &&
             Objects.equals(this.author, commentBase.author) &&
-            Objects.equals(this.dateTime, commentBase.dateTime) &&
             Objects.equals(this.initial, commentBase.initial) &&
+            Objects.equals(this.dateTime, commentBase.dateTime) &&
             Objects.equals(this.text, commentBase.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rangeStart, rangeEnd, author, dateTime, initial, text);
+    return Objects.hash(rangeStart, rangeEnd, author, initial, dateTime, text);
   }
 
   @Override
@@ -227,8 +231,8 @@ public abstract class CommentBase implements ModelIfc {
     sb.append("    rangeStart: ").append(toIndentedString(getRangeStart())).append("\n");
     sb.append("    rangeEnd: ").append(toIndentedString(getRangeEnd())).append("\n");
     sb.append("    author: ").append(toIndentedString(getAuthor())).append("\n");
-    sb.append("    dateTime: ").append(toIndentedString(getDateTime())).append("\n");
     sb.append("    initial: ").append(toIndentedString(getInitial())).append("\n");
+    sb.append("    dateTime: ").append(toIndentedString(getDateTime())).append("\n");
     sb.append("    text: ").append(toIndentedString(getText())).append("\n");
     sb.append("}");
     return sb.toString();

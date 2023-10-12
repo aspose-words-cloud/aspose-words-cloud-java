@@ -107,9 +107,10 @@ public class Comment extends CommentLink {
 
     /**
      * Gets or sets the author name for a comment.
+     * Cannot be null.Default is empty string.
     * @return author
     **/
-    @ApiModelProperty(value = "Gets or sets the author name for a comment.")
+    @ApiModelProperty(value = "Gets or sets the author name for a comment. Cannot be null.Default is empty string.")
     public String getAuthor() {
         return author;
     }
@@ -126,9 +127,10 @@ public class Comment extends CommentLink {
 
     /**
      * Gets or sets the initials of the user associated with a specific comment.
+     * Cannot be null.Default is empty string.
     * @return initial
     **/
-    @ApiModelProperty(value = "Gets or sets the initials of the user associated with a specific comment.")
+    @ApiModelProperty(value = "Gets or sets the initials of the user associated with a specific comment. Cannot be null.Default is empty string.")
     public String getInitial() {
         return initial;
     }
@@ -164,9 +166,10 @@ public class Comment extends CommentLink {
 
     /**
      * Gets or sets text of the comment.
+     * This method allows to quickly set text of a comment from a string. The string can contain paragraph breaks, this will create paragraphs of text in the comment accordingly.
     * @return text
     **/
-    @ApiModelProperty(value = "Gets or sets text of the comment.")
+    @ApiModelProperty(value = "Gets or sets text of the comment. This method allows to quickly set text of a comment from a string. The string can contain paragraph breaks, this will create paragraphs of text in the comment accordingly.")
     public String getText() {
         return text;
     }

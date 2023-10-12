@@ -44,8 +44,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The REST response with data on multi-class text classification.
+ * This response is returned by the Service when handling "PUT https://api.aspose.cloud/v4.0/words/classify" REST API requests.
  */
-@ApiModel(description = "The REST response with data on multi-class text classification.")
+@ApiModel(description = "The REST response with data on multi-class text classification. This response is returned by the Service when handling \"PUT https://api.aspose.cloud/v4.0/words/classify\" REST API requests.")
 public class ClassificationResponse extends WordsResponse {
     @SerializedName("BestClassName")
     protected String bestClassName;
