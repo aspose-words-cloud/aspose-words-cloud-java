@@ -231,6 +231,7 @@ public class ClassifyDocumentRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling classifyDocument");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/{name}/classify";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

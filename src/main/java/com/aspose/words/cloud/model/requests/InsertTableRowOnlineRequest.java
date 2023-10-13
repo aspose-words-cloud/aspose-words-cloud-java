@@ -252,15 +252,20 @@ public class InsertTableRowOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertTableRowOnline");
         }
 
+
         // verify the required parameter 'TablePath' is set
         if (getTablePath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TablePath' when calling insertTableRowOnline");
         }
 
+
         // verify the required parameter 'Row' is set
         if (getRow() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Row' when calling insertTableRowOnline");
         }
+
+        getRow().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/{tablePath}/rows";

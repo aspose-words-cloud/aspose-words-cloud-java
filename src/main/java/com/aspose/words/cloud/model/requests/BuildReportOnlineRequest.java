@@ -147,15 +147,20 @@ public class BuildReportOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Template' when calling buildReportOnline");
         }
 
+
         // verify the required parameter 'Data' is set
         if (getData() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Data' when calling buildReportOnline");
         }
 
+
         // verify the required parameter 'ReportEngineSettings' is set
         if (getReportEngineSettings() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ReportEngineSettings' when calling buildReportOnline");
         }
+
+        getReportEngineSettings().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/buildReport";

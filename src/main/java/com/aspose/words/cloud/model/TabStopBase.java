@@ -228,6 +228,27 @@ public abstract class TabStopBase implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.alignment == null) {
+            throw new ApiException(400, "Property Alignment in TabStopBase is required.");
+        }
+
+        if (this.leader == null) {
+            throw new ApiException(400, "Property Leader in TabStopBase is required.");
+        }
+
+        if (this.position == null) {
+            throw new ApiException(400, "Property Position in TabStopBase is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

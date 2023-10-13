@@ -81,6 +81,19 @@ public class RangeDocument implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.documentName == null) {
+            throw new ApiException(400, "Property DocumentName in RangeDocument is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

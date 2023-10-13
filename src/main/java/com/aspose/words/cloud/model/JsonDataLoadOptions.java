@@ -204,6 +204,23 @@ public class JsonDataLoadOptions implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.alwaysGenerateRootObject == null) {
+            throw new ApiException(400, "Property AlwaysGenerateRootObject in JsonDataLoadOptions is required.");
+        }
+
+        if (this.simpleValueParseMode == null) {
+            throw new ApiException(400, "Property SimpleValueParseMode in JsonDataLoadOptions is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

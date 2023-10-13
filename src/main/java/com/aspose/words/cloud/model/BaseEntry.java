@@ -85,6 +85,21 @@ public abstract class BaseEntry implements ModelIfc {
 
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.fileReference == null) {
+            throw new ApiException(400, "Property FileReference in BaseEntry is required.");
+        }
+
+        this.fileReference.validate();
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

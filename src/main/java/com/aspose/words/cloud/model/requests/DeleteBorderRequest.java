@@ -294,10 +294,12 @@ public class DeleteBorderRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling deleteBorder");
         }
 
+
         // verify the required parameter 'BorderType' is set
         if (getBorderType() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BorderType' when calling deleteBorder");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}";

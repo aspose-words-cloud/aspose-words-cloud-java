@@ -294,10 +294,14 @@ public class InsertStructuredDocumentTagRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertStructuredDocumentTag");
         }
 
+
         // verify the required parameter 'StructuredDocumentTag' is set
         if (getStructuredDocumentTag() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StructuredDocumentTag' when calling insertStructuredDocumentTag");
         }
+
+        getStructuredDocumentTag().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/sdt";

@@ -210,6 +210,7 @@ public class GetFootnotesRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getFootnotes");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

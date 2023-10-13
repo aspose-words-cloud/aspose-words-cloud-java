@@ -273,10 +273,14 @@ public class InsertFieldOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertFieldOnline");
         }
 
+
         // verify the required parameter 'Field' is set
         if (getField() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Field' when calling insertFieldOnline");
         }
+
+        getField().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/{nodePath}/fields";

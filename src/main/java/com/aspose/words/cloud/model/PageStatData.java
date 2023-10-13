@@ -150,6 +150,27 @@ public class PageStatData implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.paragraphCount == null) {
+            throw new ApiException(400, "Property ParagraphCount in PageStatData is required.");
+        }
+
+        if (this.wordCount == null) {
+            throw new ApiException(400, "Property WordCount in PageStatData is required.");
+        }
+
+        if (this.pageNumber == null) {
+            throw new ApiException(400, "Property PageNumber in PageStatData is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

@@ -252,6 +252,7 @@ public class GetDocumentStatisticsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getDocumentStatistics");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/{name}/statistics";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

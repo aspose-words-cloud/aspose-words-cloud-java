@@ -315,15 +315,20 @@ public class UpdateParagraphListFormatRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateParagraphListFormat");
         }
 
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateParagraphListFormat");
         }
 
+
         // verify the required parameter 'ListFormatDto' is set
         if (getListFormatDto() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListFormatDto' when calling updateParagraphListFormat");
         }
+
+        getListFormatDto().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";

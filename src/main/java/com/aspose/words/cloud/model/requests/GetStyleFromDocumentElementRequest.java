@@ -210,10 +210,12 @@ public class GetStyleFromDocumentElementRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getStyleFromDocumentElement");
         }
 
+
         // verify the required parameter 'StyledNodePath' is set
         if (getStyledNodePath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyledNodePath' when calling getStyleFromDocumentElement");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{styledNodePath}/style";

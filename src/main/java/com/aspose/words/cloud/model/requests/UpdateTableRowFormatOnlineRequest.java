@@ -273,20 +273,26 @@ public class UpdateTableRowFormatOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling updateTableRowFormatOnline");
         }
 
+
         // verify the required parameter 'TablePath' is set
         if (getTablePath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TablePath' when calling updateTableRowFormatOnline");
         }
+
 
         // verify the required parameter 'Format' is set
         if (getFormat() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling updateTableRowFormatOnline");
         }
 
+        getFormat().validate();
+
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateTableRowFormatOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/{tablePath}/rows/{index}/rowformat";

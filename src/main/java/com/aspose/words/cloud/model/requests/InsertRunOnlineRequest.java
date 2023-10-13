@@ -273,15 +273,20 @@ public class InsertRunOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertRunOnline");
         }
 
+
         // verify the required parameter 'ParagraphPath' is set
         if (getParagraphPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphPath' when calling insertRunOnline");
         }
 
+
         // verify the required parameter 'Run' is set
         if (getRun() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Run' when calling insertRunOnline");
         }
+
+        getRun().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/{paragraphPath}/runs";

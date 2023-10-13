@@ -130,6 +130,24 @@ public class ListFormat extends LinkElement {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+        if (this.listLevelNumber == null) {
+            throw new ApiException(400, "Property ListLevelNumber in ListFormat is required.");
+        }
+
+        if (this.isListItem == null) {
+            throw new ApiException(400, "Property IsListItem in ListFormat is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

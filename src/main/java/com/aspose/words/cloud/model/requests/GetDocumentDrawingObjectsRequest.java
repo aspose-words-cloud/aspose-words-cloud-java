@@ -210,6 +210,7 @@ public class GetDocumentDrawingObjectsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getDocumentDrawingObjects");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

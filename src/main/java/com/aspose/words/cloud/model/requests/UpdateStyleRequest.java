@@ -294,15 +294,20 @@ public class UpdateStyleRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateStyle");
         }
 
+
         // verify the required parameter 'StyleName' is set
         if (getStyleName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleName' when calling updateStyle");
         }
 
+
         // verify the required parameter 'StyleUpdate' is set
         if (getStyleUpdate() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleUpdate' when calling updateStyle");
         }
+
+        getStyleUpdate().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/styles/{styleName}/update";

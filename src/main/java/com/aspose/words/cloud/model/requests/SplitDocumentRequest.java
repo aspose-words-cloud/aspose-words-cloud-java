@@ -315,10 +315,12 @@ public class SplitDocumentRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling splitDocument");
         }
 
+
         // verify the required parameter 'Format' is set
         if (getFormat() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling splitDocument");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/split";

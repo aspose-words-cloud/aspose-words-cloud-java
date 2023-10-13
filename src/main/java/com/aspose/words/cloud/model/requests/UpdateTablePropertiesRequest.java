@@ -315,15 +315,20 @@ public class UpdateTablePropertiesRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateTableProperties");
         }
 
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateTableProperties");
         }
 
+
         // verify the required parameter 'Properties' is set
         if (getProperties() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Properties' when calling updateTableProperties");
         }
+
+        getProperties().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties";

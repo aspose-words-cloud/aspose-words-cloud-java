@@ -147,6 +147,7 @@ public class GetSectionsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getSectionsOnline");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/online/get/sections";
         localVarPath = localVarPath.replaceAll("//", "/");

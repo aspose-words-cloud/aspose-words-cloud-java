@@ -189,6 +189,7 @@ public class GetDocumentProtectionRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getDocumentProtection");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/{name}/protection";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

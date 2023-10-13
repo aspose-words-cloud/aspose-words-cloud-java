@@ -104,6 +104,19 @@ public class BookmarksOutlineLevelData implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.bookmarksOutlineLevel == null) {
+            throw new ApiException(400, "Property BookmarksOutlineLevel in BookmarksOutlineLevelData is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

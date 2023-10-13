@@ -147,6 +147,7 @@ public class GetListsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getListsOnline");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/online/get/lists";
         localVarPath = localVarPath.replaceAll("//", "/");

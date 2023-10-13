@@ -168,10 +168,12 @@ public class GetListOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getListOnline");
         }
 
+
         // verify the required parameter 'ListId' is set
         if (getListId() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListId' when calling getListOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/get/lists/{listId}";

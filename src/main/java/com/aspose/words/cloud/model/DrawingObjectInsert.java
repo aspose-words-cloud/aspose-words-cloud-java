@@ -399,6 +399,43 @@ public class DrawingObjectInsert implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.relativeHorizontalPosition == null) {
+            throw new ApiException(400, "Property RelativeHorizontalPosition in DrawingObjectInsert is required.");
+        }
+
+        if (this.left == null) {
+            throw new ApiException(400, "Property Left in DrawingObjectInsert is required.");
+        }
+
+        if (this.relativeVerticalPosition == null) {
+            throw new ApiException(400, "Property RelativeVerticalPosition in DrawingObjectInsert is required.");
+        }
+
+        if (this.top == null) {
+            throw new ApiException(400, "Property Top in DrawingObjectInsert is required.");
+        }
+
+        if (this.width == null) {
+            throw new ApiException(400, "Property Width in DrawingObjectInsert is required.");
+        }
+
+        if (this.height == null) {
+            throw new ApiException(400, "Property Height in DrawingObjectInsert is required.");
+        }
+
+        if (this.wrapType == null) {
+            throw new ApiException(400, "Property WrapType in DrawingObjectInsert is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

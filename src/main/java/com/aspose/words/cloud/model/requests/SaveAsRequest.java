@@ -231,10 +231,14 @@ public class SaveAsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling saveAs");
         }
 
+
         // verify the required parameter 'SaveOptionsData' is set
         if (getSaveOptionsData() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SaveOptionsData' when calling saveAs");
         }
+
+        getSaveOptionsData().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/saveAs";

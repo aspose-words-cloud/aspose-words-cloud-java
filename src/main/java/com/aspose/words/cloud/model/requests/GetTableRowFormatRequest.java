@@ -231,15 +231,18 @@ public class GetTableRowFormatRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getTableRowFormat");
         }
 
+
         // verify the required parameter 'TablePath' is set
         if (getTablePath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TablePath' when calling getTableRowFormat");
         }
 
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getTableRowFormat");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat";

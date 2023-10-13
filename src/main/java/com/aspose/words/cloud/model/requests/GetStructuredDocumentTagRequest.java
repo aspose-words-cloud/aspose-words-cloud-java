@@ -231,10 +231,12 @@ public class GetStructuredDocumentTagRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getStructuredDocumentTag");
         }
 
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getStructuredDocumentTag");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/sdt/{index}";

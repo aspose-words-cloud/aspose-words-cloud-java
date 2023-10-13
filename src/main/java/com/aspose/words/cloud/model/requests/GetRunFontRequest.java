@@ -231,15 +231,18 @@ public class GetRunFontRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getRunFont");
         }
 
+
         // verify the required parameter 'ParagraphPath' is set
         if (getParagraphPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphPath' when calling getRunFont");
         }
 
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getRunFont");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font";

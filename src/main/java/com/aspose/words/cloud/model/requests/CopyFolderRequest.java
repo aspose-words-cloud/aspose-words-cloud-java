@@ -147,10 +147,12 @@ public class CopyFolderRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DestPath' when calling copyFolder");
         }
 
+
         // verify the required parameter 'SrcPath' is set
         if (getSrcPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SrcPath' when calling copyFolder");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/storage/folder/copy/{srcPath}";

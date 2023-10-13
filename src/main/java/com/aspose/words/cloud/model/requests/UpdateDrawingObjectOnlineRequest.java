@@ -294,20 +294,26 @@ public class UpdateDrawingObjectOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling updateDrawingObjectOnline");
         }
 
+
         // verify the required parameter 'DrawingObject' is set
         if (getDrawingObject() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DrawingObject' when calling updateDrawingObjectOnline");
         }
+
+        getDrawingObject().validate();
+
 
         // verify the required parameter 'ImageFile' is set
         if (getImageFile() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ImageFile' when calling updateDrawingObjectOnline");
         }
 
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateDrawingObjectOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/{nodePath}/drawingObjects/{index}";

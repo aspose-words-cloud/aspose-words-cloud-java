@@ -231,10 +231,12 @@ public class InsertSectionOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertSectionOnline");
         }
 
+
         // verify the required parameter 'SectionIndex' is set
         if (getSectionIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionIndex' when calling insertSectionOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/sections/{sectionIndex}";

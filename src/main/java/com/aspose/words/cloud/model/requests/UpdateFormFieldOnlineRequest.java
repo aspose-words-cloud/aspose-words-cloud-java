@@ -273,15 +273,20 @@ public class UpdateFormFieldOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling updateFormFieldOnline");
         }
 
+
         // verify the required parameter 'FormField' is set
         if (getFormField() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FormField' when calling updateFormFieldOnline");
         }
 
+        getFormField().validate();
+
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateFormFieldOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/{nodePath}/formfields/{index}";

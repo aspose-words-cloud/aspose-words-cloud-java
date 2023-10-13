@@ -227,6 +227,36 @@ public class ListInfo extends LinkElement {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+        if (this.listId == null) {
+            throw new ApiException(400, "Property ListId in ListInfo is required.");
+        }
+
+        if (this.isMultiLevel == null) {
+            throw new ApiException(400, "Property IsMultiLevel in ListInfo is required.");
+        }
+
+        if (this.isRestartAtEachSection == null) {
+            throw new ApiException(400, "Property IsRestartAtEachSection in ListInfo is required.");
+        }
+
+        if (this.isListStyleDefinition == null) {
+            throw new ApiException(400, "Property IsListStyleDefinition in ListInfo is required.");
+        }
+
+        if (this.isListStyleReference == null) {
+            throw new ApiException(400, "Property IsListStyleReference in ListInfo is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

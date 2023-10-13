@@ -189,10 +189,12 @@ public class GetFootnoteOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getFootnoteOnline");
         }
 
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getFootnoteOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/get/{nodePath}/footnotes/{index}";

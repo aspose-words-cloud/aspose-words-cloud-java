@@ -252,15 +252,20 @@ public class UpdateCustomXmlPartOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling updateCustomXmlPartOnline");
         }
 
+
         // verify the required parameter 'CustomXmlPartIndex' is set
         if (getCustomXmlPartIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CustomXmlPartIndex' when calling updateCustomXmlPartOnline");
         }
 
+
         // verify the required parameter 'CustomXmlPart' is set
         if (getCustomXmlPart() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CustomXmlPart' when calling updateCustomXmlPartOnline");
         }
+
+        getCustomXmlPart().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/customXmlParts/{customXmlPartIndex}";

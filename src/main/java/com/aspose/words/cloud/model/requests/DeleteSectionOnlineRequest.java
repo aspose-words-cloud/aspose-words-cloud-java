@@ -231,10 +231,12 @@ public class DeleteSectionOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling deleteSectionOnline");
         }
 
+
         // verify the required parameter 'SectionIndex' is set
         if (getSectionIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionIndex' when calling deleteSectionOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/delete/sections/{sectionIndex}";

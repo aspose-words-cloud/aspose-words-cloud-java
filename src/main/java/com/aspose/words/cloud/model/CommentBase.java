@@ -200,6 +200,27 @@ public abstract class CommentBase implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.author == null) {
+            throw new ApiException(400, "Property Author in CommentBase is required.");
+        }
+
+        if (this.initial == null) {
+            throw new ApiException(400, "Property Initial in CommentBase is required.");
+        }
+
+        if (this.text == null) {
+            throw new ApiException(400, "Property Text in CommentBase is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

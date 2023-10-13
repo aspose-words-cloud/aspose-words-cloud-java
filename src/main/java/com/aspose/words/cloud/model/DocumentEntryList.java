@@ -121,6 +121,28 @@ public class DocumentEntryList extends BaseEntryList {
 
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+        if (this.documentEntries == null) {
+            throw new ApiException(400, "Property DocumentEntries in DocumentEntryList is required.");
+        }
+
+        for (ModelIfc elementDocumentEntries in this.documentEntries)
+        {
+            if (elementDocumentEntries != null)
+            {
+                elementDocumentEntries.validate();
+            }
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

@@ -203,6 +203,24 @@ public class FormFieldTextInput extends FormField {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+        if (this.textInputFormat == null) {
+            throw new ApiException(400, "Property TextInputFormat in FormFieldTextInput is required.");
+        }
+
+        if (this.textInputDefault == null) {
+            throw new ApiException(400, "Property TextInputDefault in FormFieldTextInput is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

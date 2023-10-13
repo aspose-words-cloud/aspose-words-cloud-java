@@ -588,10 +588,14 @@ public class SaveAsTiffRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling saveAsTiff");
         }
 
+
         // verify the required parameter 'SaveOptions' is set
         if (getSaveOptions() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SaveOptions' when calling saveAsTiff");
         }
+
+        getSaveOptions().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/saveAs/tiff";

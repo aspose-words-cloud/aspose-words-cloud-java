@@ -189,10 +189,12 @@ public class GetBorderOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getBorderOnline");
         }
 
+
         // verify the required parameter 'BorderType' is set
         if (getBorderType() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BorderType' when calling getBorderOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/get/{nodePath}/borders/{borderType}";

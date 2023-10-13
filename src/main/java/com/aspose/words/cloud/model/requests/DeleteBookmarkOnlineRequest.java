@@ -231,10 +231,12 @@ public class DeleteBookmarkOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling deleteBookmarkOnline");
         }
 
+
         // verify the required parameter 'BookmarkName' is set
         if (getBookmarkName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BookmarkName' when calling deleteBookmarkOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/delete/bookmarks/{bookmarkName}";

@@ -231,10 +231,12 @@ public class GetDocumentDrawingObjectOleDataRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getDocumentDrawingObjectOleData");
         }
 
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getDocumentDrawingObjectOleData");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/oleData";

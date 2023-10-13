@@ -231,10 +231,14 @@ public class InsertWatermarkTextOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertWatermarkTextOnline");
         }
 
+
         // verify the required parameter 'WatermarkText' is set
         if (getWatermarkText() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'WatermarkText' when calling insertWatermarkTextOnline");
         }
+
+        getWatermarkText().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/watermarks/texts";

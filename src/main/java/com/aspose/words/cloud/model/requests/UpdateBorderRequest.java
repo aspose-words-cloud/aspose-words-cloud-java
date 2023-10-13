@@ -315,15 +315,20 @@ public class UpdateBorderRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateBorder");
         }
 
+
         // verify the required parameter 'BorderType' is set
         if (getBorderType() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BorderType' when calling updateBorder");
         }
 
+
         // verify the required parameter 'BorderProperties' is set
         if (getBorderProperties() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BorderProperties' when calling updateBorder");
         }
+
+        getBorderProperties().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}";

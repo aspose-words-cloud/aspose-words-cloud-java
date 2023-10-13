@@ -156,6 +156,31 @@ public class CsvDataLoadOptions implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.commentChar == null) {
+            throw new ApiException(400, "Property CommentChar in CsvDataLoadOptions is required.");
+        }
+
+        if (this.delimiter == null) {
+            throw new ApiException(400, "Property Delimiter in CsvDataLoadOptions is required.");
+        }
+
+        if (this.hasHeaders == null) {
+            throw new ApiException(400, "Property HasHeaders in CsvDataLoadOptions is required.");
+        }
+
+        if (this.quoteChar == null) {
+            throw new ApiException(400, "Property QuoteChar in CsvDataLoadOptions is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

@@ -147,6 +147,7 @@ public class GetCommentsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getCommentsOnline");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/online/get/comments";
         localVarPath = localVarPath.replaceAll("//", "/");

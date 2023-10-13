@@ -189,6 +189,7 @@ public class GetSectionsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getSections");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/{name}/sections";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

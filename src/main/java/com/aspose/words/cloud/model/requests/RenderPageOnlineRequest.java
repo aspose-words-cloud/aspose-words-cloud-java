@@ -210,15 +210,18 @@ public class RenderPageOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling renderPageOnline");
         }
 
+
         // verify the required parameter 'PageIndex' is set
         if (getPageIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'PageIndex' when calling renderPageOnline");
         }
 
+
         // verify the required parameter 'Format' is set
         if (getFormat() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling renderPageOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/get/pages/{pageIndex}/render";

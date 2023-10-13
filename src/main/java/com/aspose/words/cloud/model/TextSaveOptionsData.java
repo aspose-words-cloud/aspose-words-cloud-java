@@ -154,6 +154,20 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+        if (this.maxCharactersPerLine == null) {
+            throw new ApiException(400, "Property MaxCharactersPerLine in TextSaveOptionsData is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

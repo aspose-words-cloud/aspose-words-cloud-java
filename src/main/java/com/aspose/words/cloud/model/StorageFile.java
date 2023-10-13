@@ -173,6 +173,23 @@ public class StorageFile implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.isFolder == null) {
+            throw new ApiException(400, "Property IsFolder in StorageFile is required.");
+        }
+
+        if (this.size == null) {
+            throw new ApiException(400, "Property Size in StorageFile is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

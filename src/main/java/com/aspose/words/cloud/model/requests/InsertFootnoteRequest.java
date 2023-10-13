@@ -294,10 +294,14 @@ public class InsertFootnoteRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertFootnote");
         }
 
+
         // verify the required parameter 'FootnoteDto' is set
         if (getFootnoteDto() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FootnoteDto' when calling insertFootnote");
         }
+
+        getFootnoteDto().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes";

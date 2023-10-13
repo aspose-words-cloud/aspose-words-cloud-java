@@ -210,10 +210,12 @@ public class GetSectionRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getSection");
         }
 
+
         // verify the required parameter 'SectionIndex' is set
         if (getSectionIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionIndex' when calling getSection");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}";

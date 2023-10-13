@@ -273,20 +273,26 @@ public class UpdateRunFontOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling updateRunFontOnline");
         }
 
+
         // verify the required parameter 'ParagraphPath' is set
         if (getParagraphPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphPath' when calling updateRunFontOnline");
         }
+
 
         // verify the required parameter 'FontDto' is set
         if (getFontDto() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FontDto' when calling updateRunFontOnline");
         }
 
+        getFontDto().validate();
+
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateRunFontOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/{paragraphPath}/runs/{index}/font";

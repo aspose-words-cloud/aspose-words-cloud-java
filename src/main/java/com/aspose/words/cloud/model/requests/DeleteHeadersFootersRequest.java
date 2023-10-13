@@ -294,10 +294,12 @@ public class DeleteHeadersFootersRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling deleteHeadersFooters");
         }
 
+
         // verify the required parameter 'SectionPath' is set
         if (getSectionPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionPath' when calling deleteHeadersFooters");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters";

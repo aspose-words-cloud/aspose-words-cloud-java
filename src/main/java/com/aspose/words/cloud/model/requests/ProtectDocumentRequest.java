@@ -231,10 +231,14 @@ public class ProtectDocumentRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling protectDocument");
         }
 
+
         // verify the required parameter 'ProtectionRequest' is set
         if (getProtectionRequest() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ProtectionRequest' when calling protectDocument");
         }
+
+        getProtectionRequest().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/protection";

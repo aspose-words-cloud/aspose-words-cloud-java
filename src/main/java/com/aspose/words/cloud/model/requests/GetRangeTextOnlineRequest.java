@@ -189,10 +189,12 @@ public class GetRangeTextOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getRangeTextOnline");
         }
 
+
         // verify the required parameter 'RangeStartIdentifier' is set
         if (getRangeStartIdentifier() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'RangeStartIdentifier' when calling getRangeTextOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/get/range/{rangeStartIdentifier}/{rangeEndIdentifier}";

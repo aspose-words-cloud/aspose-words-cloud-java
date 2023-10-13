@@ -147,6 +147,7 @@ public class GetBookmarksOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getBookmarksOnline");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/online/get/bookmarks";
         localVarPath = localVarPath.replaceAll("//", "/");

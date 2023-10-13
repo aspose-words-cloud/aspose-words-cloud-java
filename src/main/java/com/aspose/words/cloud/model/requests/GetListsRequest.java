@@ -189,6 +189,7 @@ public class GetListsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getLists");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/{name}/lists";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

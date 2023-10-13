@@ -273,10 +273,12 @@ public class DeleteSectionRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling deleteSection");
         }
 
+
         // verify the required parameter 'SectionIndex' is set
         if (getSectionIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionIndex' when calling deleteSection");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}";

@@ -294,15 +294,20 @@ public class UpdateListRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateList");
         }
 
+
         // verify the required parameter 'ListId' is set
         if (getListId() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListId' when calling updateList");
         }
 
+
         // verify the required parameter 'ListUpdate' is set
         if (getListUpdate() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListUpdate' when calling updateList");
         }
+
+        getListUpdate().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/lists/{listId}";

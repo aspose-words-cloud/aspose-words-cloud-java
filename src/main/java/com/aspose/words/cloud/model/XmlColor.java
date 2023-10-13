@@ -142,6 +142,23 @@ public class XmlColor implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.xmlAlpha == null) {
+            throw new ApiException(400, "Property XmlAlpha in XmlColor is required.");
+        }
+
+        if (this.xmlAlphaSpecified == null) {
+            throw new ApiException(400, "Property XmlAlphaSpecified in XmlColor is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

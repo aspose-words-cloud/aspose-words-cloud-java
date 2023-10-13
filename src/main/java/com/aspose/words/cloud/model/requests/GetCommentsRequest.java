@@ -189,6 +189,7 @@ public class GetCommentsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getComments");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/{name}/comments";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

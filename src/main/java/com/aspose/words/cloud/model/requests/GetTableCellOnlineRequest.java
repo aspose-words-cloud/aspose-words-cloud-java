@@ -189,15 +189,18 @@ public class GetTableCellOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getTableCellOnline");
         }
 
+
         // verify the required parameter 'TableRowPath' is set
         if (getTableRowPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TableRowPath' when calling getTableCellOnline");
         }
 
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getTableCellOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/get/{tableRowPath}/cells/{index}";

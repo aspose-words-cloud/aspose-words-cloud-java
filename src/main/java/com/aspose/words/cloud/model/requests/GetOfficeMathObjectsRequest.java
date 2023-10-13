@@ -210,6 +210,7 @@ public class GetOfficeMathObjectsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getOfficeMathObjects");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

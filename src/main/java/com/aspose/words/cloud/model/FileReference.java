@@ -94,4 +94,13 @@ public class FileReference implements ModelIfc {
             resultFilesContent.add(this);
         }
     }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    public void validate() throws ApiException {
+        // Do nothing
+    }
 }

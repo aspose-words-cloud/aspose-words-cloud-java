@@ -799,6 +799,36 @@ public class Style extends LinkElement {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+        if (this.builtIn == null) {
+            throw new ApiException(400, "Property BuiltIn in Style is required.");
+        }
+
+        if (this.isQuickStyle == null) {
+            throw new ApiException(400, "Property IsQuickStyle in Style is required.");
+        }
+
+        if (this.type == null) {
+            throw new ApiException(400, "Property Type in Style is required.");
+        }
+
+        if (this.isHeading == null) {
+            throw new ApiException(400, "Property IsHeading in Style is required.");
+        }
+
+        if (this.styleIdentifier == null) {
+            throw new ApiException(400, "Property StyleIdentifier in Style is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

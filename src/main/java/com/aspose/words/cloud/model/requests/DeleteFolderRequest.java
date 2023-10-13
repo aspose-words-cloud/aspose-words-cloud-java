@@ -126,6 +126,7 @@ public class DeleteFolderRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Path' when calling deleteFolder");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/storage/folder/{path}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "path", getPath());

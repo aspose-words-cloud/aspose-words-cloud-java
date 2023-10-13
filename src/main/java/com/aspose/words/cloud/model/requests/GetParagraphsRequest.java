@@ -210,6 +210,7 @@ public class GetParagraphsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getParagraphs");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

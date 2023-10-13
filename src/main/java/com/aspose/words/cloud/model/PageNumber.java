@@ -173,6 +173,23 @@ public class PageNumber implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.isTop == null) {
+            throw new ApiException(400, "Property IsTop in PageNumber is required.");
+        }
+
+        if (this.setPageNumberOnFirstPage == null) {
+            throw new ApiException(400, "Property SetPageNumberOnFirstPage in PageNumber is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

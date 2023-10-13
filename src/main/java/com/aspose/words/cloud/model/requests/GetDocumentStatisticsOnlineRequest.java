@@ -210,6 +210,7 @@ public class GetDocumentStatisticsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getDocumentStatisticsOnline");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/online/get/statistics";
         localVarPath = localVarPath.replaceAll("//", "/");

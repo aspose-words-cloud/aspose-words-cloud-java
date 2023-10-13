@@ -273,10 +273,14 @@ public class OptimizeDocumentRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling optimizeDocument");
         }
 
+
         // verify the required parameter 'Options' is set
         if (getOptions() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Options' when calling optimizeDocument");
         }
+
+        getOptions().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/compatibility/optimize";

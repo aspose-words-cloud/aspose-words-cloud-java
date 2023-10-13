@@ -126,6 +126,7 @@ public class DownloadFileRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Path' when calling downloadFile");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/storage/file/{path}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "path", getPath());

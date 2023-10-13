@@ -40,4 +40,11 @@ public interface ModelIfc {
      * @param resultFilesContent List<FileReference> instance.
      */
     public void getFilesContent(List<FileReference> resultFilesContent);
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    public void validate() throws ApiException;
 }

@@ -252,10 +252,12 @@ public class DeleteBorderOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling deleteBorderOnline");
         }
 
+
         // verify the required parameter 'BorderType' is set
         if (getBorderType() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BorderType' when calling deleteBorderOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/delete/{nodePath}/borders/{borderType}";

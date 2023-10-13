@@ -336,6 +336,7 @@ public class ExecuteMailMergeRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling executeMailMerge");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/{name}/MailMerge";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

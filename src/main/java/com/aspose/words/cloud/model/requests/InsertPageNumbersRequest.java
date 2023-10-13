@@ -273,10 +273,14 @@ public class InsertPageNumbersRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertPageNumbers");
         }
 
+
         // verify the required parameter 'PageNumber' is set
         if (getPageNumber() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'PageNumber' when calling insertPageNumbers");
         }
+
+        getPageNumber().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/PageNumbers";

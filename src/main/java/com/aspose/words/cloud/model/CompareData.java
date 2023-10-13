@@ -173,6 +173,23 @@ public class CompareData implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.author == null) {
+            throw new ApiException(400, "Property Author in CompareData is required.");
+        }
+
+        if (this.comparingWithDocument == null) {
+            throw new ApiException(400, "Property ComparingWithDocument in CompareData is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

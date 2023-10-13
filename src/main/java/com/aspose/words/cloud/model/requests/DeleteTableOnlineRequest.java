@@ -252,10 +252,12 @@ public class DeleteTableOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling deleteTableOnline");
         }
 
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling deleteTableOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/delete/{nodePath}/tables/{index}";

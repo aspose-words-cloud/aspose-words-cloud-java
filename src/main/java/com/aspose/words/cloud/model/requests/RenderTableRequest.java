@@ -294,15 +294,18 @@ public class RenderTableRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling renderTable");
         }
 
+
         // verify the required parameter 'Format' is set
         if (getFormat() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling renderTable");
         }
 
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling renderTable");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}/render";

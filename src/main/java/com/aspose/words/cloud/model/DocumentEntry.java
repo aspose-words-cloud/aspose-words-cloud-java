@@ -153,6 +153,20 @@ public class DocumentEntry extends BaseEntry {
         super.getFilesContent(resultFilesContent);
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+        if (this.importFormatMode == null) {
+            throw new ApiException(400, "Property ImportFormatMode in DocumentEntry is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

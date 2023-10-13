@@ -147,6 +147,7 @@ public class GetDocumentHyperlinksOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getDocumentHyperlinksOnline");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/online/get/hyperlinks";
         localVarPath = localVarPath.replaceAll("//", "/");

@@ -147,6 +147,7 @@ public class GetCustomXmlPartsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getCustomXmlPartsOnline");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/online/get/customXmlParts";
         localVarPath = localVarPath.replaceAll("//", "/");

@@ -231,10 +231,12 @@ public class GetFormFieldRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getFormField");
         }
 
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getFormField");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields/{index}";

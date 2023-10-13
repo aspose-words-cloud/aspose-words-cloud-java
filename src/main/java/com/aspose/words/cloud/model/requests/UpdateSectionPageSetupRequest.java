@@ -294,15 +294,20 @@ public class UpdateSectionPageSetupRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateSectionPageSetup");
         }
 
+
         // verify the required parameter 'SectionIndex' is set
         if (getSectionIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionIndex' when calling updateSectionPageSetup");
         }
 
+
         // verify the required parameter 'PageSetup' is set
         if (getPageSetup() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'PageSetup' when calling updateSectionPageSetup");
         }
+
+        getPageSetup().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup";

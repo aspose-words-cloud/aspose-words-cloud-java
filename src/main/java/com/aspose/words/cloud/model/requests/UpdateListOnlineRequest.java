@@ -252,15 +252,20 @@ public class UpdateListOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling updateListOnline");
         }
 
+
         // verify the required parameter 'ListId' is set
         if (getListId() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListId' when calling updateListOnline");
         }
 
+
         // verify the required parameter 'ListUpdate' is set
         if (getListUpdate() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListUpdate' when calling updateListOnline");
         }
+
+        getListUpdate().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/lists/{listId}";

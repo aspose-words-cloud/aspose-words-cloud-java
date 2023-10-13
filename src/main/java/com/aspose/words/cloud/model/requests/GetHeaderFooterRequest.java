@@ -231,10 +231,12 @@ public class GetHeaderFooterRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getHeaderFooter");
         }
 
+
         // verify the required parameter 'HeaderFooterIndex' is set
         if (getHeaderFooterIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'HeaderFooterIndex' when calling getHeaderFooter");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/headersfooters/{headerFooterIndex}";

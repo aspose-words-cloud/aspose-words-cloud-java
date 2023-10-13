@@ -294,10 +294,12 @@ public class DeleteStructuredDocumentTagRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling deleteStructuredDocumentTag");
         }
 
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling deleteStructuredDocumentTag");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/sdt/{index}";

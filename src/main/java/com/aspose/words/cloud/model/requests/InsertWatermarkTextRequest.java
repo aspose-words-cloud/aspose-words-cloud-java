@@ -273,10 +273,14 @@ public class InsertWatermarkTextRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertWatermarkText");
         }
 
+
         // verify the required parameter 'WatermarkText' is set
         if (getWatermarkText() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'WatermarkText' when calling insertWatermarkText");
         }
+
+        getWatermarkText().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/watermarks/texts";

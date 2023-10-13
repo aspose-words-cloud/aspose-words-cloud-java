@@ -294,15 +294,18 @@ public class InsertHeaderFooterRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertHeaderFooter");
         }
 
+
         // verify the required parameter 'SectionPath' is set
         if (getSectionPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionPath' when calling insertHeaderFooter");
         }
 
+
         // verify the required parameter 'HeaderFooterType' is set
         if (getHeaderFooterType() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'HeaderFooterType' when calling insertHeaderFooter");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters";

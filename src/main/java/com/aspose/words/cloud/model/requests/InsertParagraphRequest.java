@@ -315,10 +315,14 @@ public class InsertParagraphRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertParagraph");
         }
 
+
         // verify the required parameter 'Paragraph' is set
         if (getParagraph() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Paragraph' when calling insertParagraph");
         }
+
+        getParagraph().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs";

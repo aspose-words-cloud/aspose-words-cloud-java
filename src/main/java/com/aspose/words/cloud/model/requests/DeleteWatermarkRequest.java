@@ -252,6 +252,7 @@ public class DeleteWatermarkRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling deleteWatermark");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/{name}/watermarks/deleteLast";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

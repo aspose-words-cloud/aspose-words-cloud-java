@@ -173,6 +173,31 @@ public class ReplaceTextParameters implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.isMatchCase == null) {
+            throw new ApiException(400, "Property IsMatchCase in ReplaceTextParameters is required.");
+        }
+
+        if (this.isMatchWholeWord == null) {
+            throw new ApiException(400, "Property IsMatchWholeWord in ReplaceTextParameters is required.");
+        }
+
+        if (this.isOldValueRegex == null) {
+            throw new ApiException(400, "Property IsOldValueRegex in ReplaceTextParameters is required.");
+        }
+
+        if (this.oldValue == null) {
+            throw new ApiException(400, "Property OldValue in ReplaceTextParameters is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

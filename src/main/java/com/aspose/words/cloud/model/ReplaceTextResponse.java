@@ -105,6 +105,20 @@ public class ReplaceTextResponse extends WordsResponse {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+        if (this.matches == null) {
+            throw new ApiException(400, "Property Matches in ReplaceTextResponse is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

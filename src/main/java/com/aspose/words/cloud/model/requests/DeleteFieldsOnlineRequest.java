@@ -231,6 +231,7 @@ public class DeleteFieldsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling deleteFieldsOnline");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/online/delete/{nodePath}/fields";
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());

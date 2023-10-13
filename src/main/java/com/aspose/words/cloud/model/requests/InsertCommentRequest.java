@@ -273,10 +273,14 @@ public class InsertCommentRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertComment");
         }
 
+
         // verify the required parameter 'Comment' is set
         if (getComment() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Comment' when calling insertComment");
         }
+
+        getComment().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/comments";

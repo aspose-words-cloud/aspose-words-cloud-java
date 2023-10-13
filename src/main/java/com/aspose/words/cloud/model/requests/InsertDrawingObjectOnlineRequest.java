@@ -273,15 +273,20 @@ public class InsertDrawingObjectOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertDrawingObjectOnline");
         }
 
+
         // verify the required parameter 'DrawingObject' is set
         if (getDrawingObject() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DrawingObject' when calling insertDrawingObjectOnline");
         }
 
+        getDrawingObject().validate();
+
+
         // verify the required parameter 'ImageFile' is set
         if (getImageFile() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ImageFile' when calling insertDrawingObjectOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/{nodePath}/drawingObjects";

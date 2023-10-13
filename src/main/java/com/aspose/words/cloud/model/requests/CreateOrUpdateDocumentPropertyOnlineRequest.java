@@ -252,15 +252,20 @@ public class CreateOrUpdateDocumentPropertyOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling createOrUpdateDocumentPropertyOnline");
         }
 
+
         // verify the required parameter 'PropertyName' is set
         if (getPropertyName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'PropertyName' when calling createOrUpdateDocumentPropertyOnline");
         }
 
+
         // verify the required parameter 'Property' is set
         if (getProperty() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Property' when calling createOrUpdateDocumentPropertyOnline");
         }
+
+        getProperty().validate();
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/documentProperties/{propertyName}";

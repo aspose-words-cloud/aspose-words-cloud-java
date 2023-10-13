@@ -105,6 +105,7 @@ public class ClassifyRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Text' when calling classify");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/classify";
         localVarPath = localVarPath.replaceAll("//", "/");

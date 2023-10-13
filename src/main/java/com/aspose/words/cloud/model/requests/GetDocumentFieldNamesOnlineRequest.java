@@ -168,6 +168,7 @@ public class GetDocumentFieldNamesOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Template' when calling getDocumentFieldNamesOnline");
         }
 
+
         // create path and map variables
         String localVarPath = "/words/online/get/mailMerge/FieldNames";
         localVarPath = localVarPath.replaceAll("//", "/");

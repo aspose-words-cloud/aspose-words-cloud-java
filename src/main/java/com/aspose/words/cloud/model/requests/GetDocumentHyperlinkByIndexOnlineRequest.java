@@ -168,10 +168,12 @@ public class GetDocumentHyperlinkByIndexOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getDocumentHyperlinkByIndexOnline");
         }
 
+
         // verify the required parameter 'HyperlinkIndex' is set
         if (getHyperlinkIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'HyperlinkIndex' when calling getDocumentHyperlinkByIndexOnline");
         }
+
 
         // create path and map variables
         String localVarPath = "/words/online/get/hyperlinks/{hyperlinkIndex}";

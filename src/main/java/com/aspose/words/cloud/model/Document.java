@@ -270,6 +270,27 @@ public class Document implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.isEncrypted == null) {
+            throw new ApiException(400, "Property IsEncrypted in Document is required.");
+        }
+
+        if (this.isSigned == null) {
+            throw new ApiException(400, "Property IsSigned in Document is required.");
+        }
+
+        if (this.sourceFormat == null) {
+            throw new ApiException(400, "Property SourceFormat in Document is required.");
+        }
+
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
