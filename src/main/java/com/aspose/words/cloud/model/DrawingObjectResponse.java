@@ -90,6 +90,11 @@ public class DrawingObjectResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.drawingObject != null) {
+            this.drawingObject.validate();
+        }
+
     }
 
     @Override

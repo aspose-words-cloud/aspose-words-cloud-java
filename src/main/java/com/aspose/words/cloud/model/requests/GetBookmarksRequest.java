@@ -189,7 +189,6 @@ public class GetBookmarksRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getBookmarks");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/bookmarks";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

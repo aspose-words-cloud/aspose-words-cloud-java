@@ -210,7 +210,6 @@ public class UpdateFieldsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateFields");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/updateFields";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

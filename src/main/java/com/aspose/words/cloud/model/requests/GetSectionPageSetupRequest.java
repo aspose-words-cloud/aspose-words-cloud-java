@@ -210,12 +210,10 @@ public class GetSectionPageSetupRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getSectionPageSetup");
         }
 
-
         // verify the required parameter 'SectionIndex' is set
         if (getSectionIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionIndex' when calling getSectionPageSetup");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup";

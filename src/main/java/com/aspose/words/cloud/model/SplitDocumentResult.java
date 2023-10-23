@@ -143,6 +143,27 @@ public class SplitDocumentResult implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.sourceDocument != null) {
+            this.sourceDocument.validate();
+        }
+
+
+
+        if (this.zippedPages != null) {
+            this.zippedPages.validate();
+        }
+
+
+
+        if (this.pages != null) {
+            for (ModelIfc elementPages in this.pages) {
+                if (elementPages != null) {
+                    elementPages.validate();
+                }
+            }
+        }
+
     }
 
     @Override

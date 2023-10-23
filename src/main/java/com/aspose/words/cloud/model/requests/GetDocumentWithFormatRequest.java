@@ -252,12 +252,10 @@ public class GetDocumentWithFormatRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getDocumentWithFormat");
         }
 
-
         // verify the required parameter 'Format' is set
         if (getFormat() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling getDocumentWithFormat");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}";

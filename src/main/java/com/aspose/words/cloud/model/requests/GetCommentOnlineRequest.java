@@ -168,12 +168,10 @@ public class GetCommentOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getCommentOnline");
         }
 
-
         // verify the required parameter 'CommentIndex' is set
         if (getCommentIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CommentIndex' when calling getCommentOnline");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/online/get/comments/{commentIndex}";

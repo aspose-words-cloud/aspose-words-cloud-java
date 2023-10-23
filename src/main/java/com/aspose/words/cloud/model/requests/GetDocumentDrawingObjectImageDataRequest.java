@@ -231,12 +231,10 @@ public class GetDocumentDrawingObjectImageDataRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getDocumentDrawingObjectImageData");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getDocumentDrawingObjectImageData");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData";

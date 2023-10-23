@@ -210,12 +210,10 @@ public class GetCommentRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getComment");
         }
 
-
         // verify the required parameter 'CommentIndex' is set
         if (getCommentIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CommentIndex' when calling getComment");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/comments/{commentIndex}";

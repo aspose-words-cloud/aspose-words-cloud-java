@@ -231,13 +231,25 @@ public class InsertCommentOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertCommentOnline");
         }
 
-
         // verify the required parameter 'Comment' is set
         if (getComment() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Comment' when calling insertCommentOnline");
         }
+        if (getComment() != null) {
+            getComment().validate();
+        }
 
-        getComment().validate();
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

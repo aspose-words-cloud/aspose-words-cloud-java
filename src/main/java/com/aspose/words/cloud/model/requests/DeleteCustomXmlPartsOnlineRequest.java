@@ -210,7 +210,6 @@ public class DeleteCustomXmlPartsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling deleteCustomXmlPartsOnline");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/online/delete/customXmlParts";
         localVarPath = localVarPath.replaceAll("//", "/");

@@ -210,19 +210,26 @@ public class SaveAsRangeOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling saveAsRangeOnline");
         }
 
-
         // verify the required parameter 'RangeStartIdentifier' is set
         if (getRangeStartIdentifier() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'RangeStartIdentifier' when calling saveAsRangeOnline");
         }
 
-
         // verify the required parameter 'DocumentParameters' is set
         if (getDocumentParameters() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DocumentParameters' when calling saveAsRangeOnline");
         }
+        if (getDocumentParameters() != null) {
+            getDocumentParameters().validate();
+        }
 
-        getDocumentParameters().validate();
+
+
+
+
+
+
+
 
 
         // create path and map variables

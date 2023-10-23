@@ -273,13 +273,29 @@ public class InsertListRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertList");
         }
 
-
         // verify the required parameter 'ListInsert' is set
         if (getListInsert() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListInsert' when calling insertList");
         }
+        if (getListInsert() != null) {
+            getListInsert().validate();
+        }
 
-        getListInsert().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

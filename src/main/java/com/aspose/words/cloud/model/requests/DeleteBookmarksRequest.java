@@ -252,7 +252,6 @@ public class DeleteBookmarksRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling deleteBookmarks");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/bookmarks";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

@@ -99,6 +99,15 @@ public class CustomXmlPartsCollection extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.customXmlPartsList != null) {
+            for (ModelIfc elementCustomXmlPartsList in this.customXmlPartsList) {
+                if (elementCustomXmlPartsList != null) {
+                    elementCustomXmlPartsList.validate();
+                }
+            }
+        }
+
     }
 
     @Override

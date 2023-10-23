@@ -91,6 +91,11 @@ public class StructuredDocumentTagsResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.structuredDocumentTags != null) {
+            this.structuredDocumentTags.validate();
+        }
+
     }
 
     @Override

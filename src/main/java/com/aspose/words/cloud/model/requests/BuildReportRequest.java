@@ -252,19 +252,30 @@ public class BuildReportRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling buildReport");
         }
 
-
         // verify the required parameter 'Data' is set
         if (getData() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Data' when calling buildReport");
         }
 
-
         // verify the required parameter 'ReportEngineSettings' is set
         if (getReportEngineSettings() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ReportEngineSettings' when calling buildReport");
         }
+        if (getReportEngineSettings() != null) {
+            getReportEngineSettings().validate();
+        }
 
-        getReportEngineSettings().validate();
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

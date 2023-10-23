@@ -191,6 +191,39 @@ public class Section extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.childNodes != null) {
+            for (ModelIfc elementChildNodes in this.childNodes) {
+                if (elementChildNodes != null) {
+                    elementChildNodes.validate();
+                }
+            }
+        }
+
+
+
+        if (this.paragraphs != null) {
+            this.paragraphs.validate();
+        }
+
+
+
+        if (this.pageSetup != null) {
+            this.pageSetup.validate();
+        }
+
+
+
+        if (this.headerFooters != null) {
+            this.headerFooters.validate();
+        }
+
+
+
+        if (this.tables != null) {
+            this.tables.validate();
+        }
+
     }
 
     @Override

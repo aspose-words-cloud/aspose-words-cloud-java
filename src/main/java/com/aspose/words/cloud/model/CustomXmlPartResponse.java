@@ -91,6 +91,11 @@ public class CustomXmlPartResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.customXmlPart != null) {
+            this.customXmlPart.validate();
+        }
+
     }
 
     @Override

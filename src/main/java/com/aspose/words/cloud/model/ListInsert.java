@@ -159,7 +159,6 @@ public class ListInsert implements ModelIfc {
         if (this.template == null) {
             throw new ApiException(400, "Property Template in ListInsert is required.");
         }
-
     }
 
     @Override

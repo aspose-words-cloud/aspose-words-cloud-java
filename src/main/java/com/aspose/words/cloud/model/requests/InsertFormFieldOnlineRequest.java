@@ -273,13 +273,29 @@ public class InsertFormFieldOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertFormFieldOnline");
         }
 
-
         // verify the required parameter 'FormField' is set
         if (getFormField() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FormField' when calling insertFormFieldOnline");
         }
+        if (getFormField() != null) {
+            getFormField().validate();
+        }
 
-        getFormField().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

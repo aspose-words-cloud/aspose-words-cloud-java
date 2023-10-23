@@ -143,7 +143,6 @@ public class OptimizationOptions implements ModelIfc {
         if (this.msWordVersion == null) {
             throw new ApiException(400, "Property MsWordVersion in OptimizationOptions is required.");
         }
-
     }
 
     @Override

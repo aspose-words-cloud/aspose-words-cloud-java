@@ -126,7 +126,6 @@ public class FormFieldDropDown extends FormField {
         if (this.dropDownItems == null) {
             throw new ApiException(400, "Property DropDownItems in FormFieldDropDown is required.");
         }
-
     }
 
     @Override

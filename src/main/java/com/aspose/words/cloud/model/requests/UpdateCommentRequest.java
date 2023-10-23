@@ -294,19 +294,34 @@ public class UpdateCommentRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateComment");
         }
 
-
         // verify the required parameter 'CommentIndex' is set
         if (getCommentIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CommentIndex' when calling updateComment");
         }
 
-
         // verify the required parameter 'Comment' is set
         if (getComment() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Comment' when calling updateComment");
         }
+        if (getComment() != null) {
+            getComment().validate();
+        }
 
-        getComment().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

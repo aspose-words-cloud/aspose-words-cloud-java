@@ -210,7 +210,6 @@ public class AcceptAllRevisionsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling acceptAllRevisions");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/revisions/acceptAll";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

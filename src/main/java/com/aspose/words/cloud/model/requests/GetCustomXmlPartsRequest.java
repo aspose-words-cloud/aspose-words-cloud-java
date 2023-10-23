@@ -189,7 +189,6 @@ public class GetCustomXmlPartsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getCustomXmlParts");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/customXmlParts";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

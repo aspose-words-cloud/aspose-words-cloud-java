@@ -168,12 +168,10 @@ public class SearchOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling searchOnline");
         }
 
-
         // verify the required parameter 'Pattern' is set
         if (getPattern() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Pattern' when calling searchOnline");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/online/get/search";

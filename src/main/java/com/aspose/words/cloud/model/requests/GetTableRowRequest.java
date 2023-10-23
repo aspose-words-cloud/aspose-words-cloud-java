@@ -231,18 +231,15 @@ public class GetTableRowRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getTableRow");
         }
 
-
         // verify the required parameter 'TablePath' is set
         if (getTablePath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TablePath' when calling getTableRow");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getTableRow");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows/{index}";

@@ -113,6 +113,17 @@ public class BookmarkInsert extends BookmarkData {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.startRange != null) {
+            this.startRange.validate();
+        }
+
+
+
+        if (this.endRange != null) {
+            this.endRange.validate();
+        }
+
     }
 
     @Override

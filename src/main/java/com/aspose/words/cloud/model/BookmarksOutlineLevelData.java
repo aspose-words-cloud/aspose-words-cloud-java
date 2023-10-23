@@ -114,7 +114,6 @@ public class BookmarksOutlineLevelData implements ModelIfc {
         if (this.bookmarksOutlineLevel == null) {
             throw new ApiException(400, "Property BookmarksOutlineLevel in BookmarksOutlineLevelData is required.");
         }
-
     }
 
     @Override

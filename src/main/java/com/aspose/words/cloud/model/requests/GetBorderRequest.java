@@ -231,12 +231,10 @@ public class GetBorderRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getBorder");
         }
 
-
         // verify the required parameter 'BorderType' is set
         if (getBorderType() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BorderType' when calling getBorder");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}";

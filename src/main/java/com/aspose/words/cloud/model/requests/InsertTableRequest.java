@@ -294,13 +294,31 @@ public class InsertTableRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertTable");
         }
 
-
         // verify the required parameter 'Table' is set
         if (getTable() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Table' when calling insertTable");
         }
+        if (getTable() != null) {
+            getTable().validate();
+        }
 
-        getTable().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

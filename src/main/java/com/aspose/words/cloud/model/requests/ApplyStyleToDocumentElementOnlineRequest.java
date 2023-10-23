@@ -252,19 +252,30 @@ public class ApplyStyleToDocumentElementOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling applyStyleToDocumentElementOnline");
         }
 
-
         // verify the required parameter 'StyledNodePath' is set
         if (getStyledNodePath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyledNodePath' when calling applyStyleToDocumentElementOnline");
         }
 
-
         // verify the required parameter 'StyleApply' is set
         if (getStyleApply() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleApply' when calling applyStyleToDocumentElementOnline");
         }
+        if (getStyleApply() != null) {
+            getStyleApply().validate();
+        }
 
-        getStyleApply().validate();
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

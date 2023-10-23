@@ -168,12 +168,10 @@ public class GetSectionPageSetupOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getSectionPageSetupOnline");
         }
 
-
         // verify the required parameter 'SectionIndex' is set
         if (getSectionIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionIndex' when calling getSectionPageSetupOnline");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/online/get/sections/{sectionIndex}/pageSetup";

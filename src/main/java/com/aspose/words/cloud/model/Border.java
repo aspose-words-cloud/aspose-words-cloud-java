@@ -335,6 +335,15 @@ public class Border extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.color != null) {
+            this.color.validate();
+        }
+
+
+
+
+
     }
 
     @Override

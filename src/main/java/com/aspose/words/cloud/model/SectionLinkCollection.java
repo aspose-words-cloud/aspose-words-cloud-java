@@ -99,6 +99,15 @@ public class SectionLinkCollection extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.sectionLinkList != null) {
+            for (ModelIfc elementSectionLinkList in this.sectionLinkList) {
+                if (elementSectionLinkList != null) {
+                    elementSectionLinkList.validate();
+                }
+            }
+        }
+
     }
 
     @Override

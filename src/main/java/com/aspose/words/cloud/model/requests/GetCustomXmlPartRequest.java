@@ -210,12 +210,10 @@ public class GetCustomXmlPartRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getCustomXmlPart");
         }
 
-
         // verify the required parameter 'CustomXmlPartIndex' is set
         if (getCustomXmlPartIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CustomXmlPartIndex' when calling getCustomXmlPart");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/customXmlParts/{customXmlPartIndex}";

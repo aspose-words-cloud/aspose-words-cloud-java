@@ -99,6 +99,15 @@ public class Lists extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.listInfo != null) {
+            for (ModelIfc elementListInfo in this.listInfo) {
+                if (elementListInfo != null) {
+                    elementListInfo.validate();
+                }
+            }
+        }
+
     }
 
     @Override

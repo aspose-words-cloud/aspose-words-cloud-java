@@ -273,25 +273,37 @@ public class UpdateListLevelOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling updateListLevelOnline");
         }
 
-
         // verify the required parameter 'ListId' is set
         if (getListId() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListId' when calling updateListLevelOnline");
         }
-
 
         // verify the required parameter 'ListUpdate' is set
         if (getListUpdate() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListUpdate' when calling updateListLevelOnline");
         }
 
-        getListUpdate().validate();
-
-
         // verify the required parameter 'ListLevel' is set
         if (getListLevel() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListLevel' when calling updateListLevelOnline");
         }
+        if (getListUpdate() != null) {
+            getListUpdate().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

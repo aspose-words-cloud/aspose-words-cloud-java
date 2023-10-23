@@ -315,19 +315,38 @@ public class InsertDrawingObjectRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertDrawingObject");
         }
 
-
         // verify the required parameter 'DrawingObject' is set
         if (getDrawingObject() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DrawingObject' when calling insertDrawingObject");
         }
 
-        getDrawingObject().validate();
-
-
         // verify the required parameter 'ImageFile' is set
         if (getImageFile() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ImageFile' when calling insertDrawingObject");
         }
+        if (getDrawingObject() != null) {
+            getDrawingObject().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

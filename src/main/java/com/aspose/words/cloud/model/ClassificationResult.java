@@ -114,7 +114,6 @@ public class ClassificationResult implements ModelIfc {
         if (this.classProbability == null) {
             throw new ApiException(400, "Property ClassProbability in ClassificationResult is required.");
         }
-
     }
 
     @Override

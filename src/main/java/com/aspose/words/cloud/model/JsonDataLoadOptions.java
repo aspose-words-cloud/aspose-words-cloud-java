@@ -214,11 +214,9 @@ public class JsonDataLoadOptions implements ModelIfc {
         if (this.alwaysGenerateRootObject == null) {
             throw new ApiException(400, "Property AlwaysGenerateRootObject in JsonDataLoadOptions is required.");
         }
-
         if (this.simpleValueParseMode == null) {
             throw new ApiException(400, "Property SimpleValueParseMode in JsonDataLoadOptions is required.");
         }
-
     }
 
     @Override

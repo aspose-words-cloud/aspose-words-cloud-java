@@ -273,13 +273,29 @@ public class CopyStyleRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling copyStyle");
         }
 
-
         // verify the required parameter 'StyleCopy' is set
         if (getStyleCopy() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleCopy' when calling copyStyle");
         }
+        if (getStyleCopy() != null) {
+            getStyleCopy().validate();
+        }
 
-        getStyleCopy().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

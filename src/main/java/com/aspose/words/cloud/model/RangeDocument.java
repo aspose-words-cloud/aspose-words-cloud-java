@@ -91,7 +91,6 @@ public class RangeDocument implements ModelIfc {
         if (this.documentName == null) {
             throw new ApiException(400, "Property DocumentName in RangeDocument is required.");
         }
-
     }
 
     @Override

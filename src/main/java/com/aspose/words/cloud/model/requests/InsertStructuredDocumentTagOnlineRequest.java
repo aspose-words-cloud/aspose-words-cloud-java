@@ -252,13 +252,27 @@ public class InsertStructuredDocumentTagOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertStructuredDocumentTagOnline");
         }
 
-
         // verify the required parameter 'StructuredDocumentTag' is set
         if (getStructuredDocumentTag() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StructuredDocumentTag' when calling insertStructuredDocumentTagOnline");
         }
+        if (getStructuredDocumentTag() != null) {
+            getStructuredDocumentTag().validate();
+        }
 
-        getStructuredDocumentTag().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

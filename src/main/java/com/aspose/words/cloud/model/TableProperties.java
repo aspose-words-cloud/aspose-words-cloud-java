@@ -963,6 +963,17 @@ public class TableProperties extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.preferredWidth != null) {
+            this.preferredWidth.validate();
+        }
+
+
+
+
+
+
+
     }
 
     @Override

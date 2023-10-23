@@ -315,25 +315,39 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateTableRowFormat");
         }
 
-
         // verify the required parameter 'TablePath' is set
         if (getTablePath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TablePath' when calling updateTableRowFormat");
         }
-
 
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateTableRowFormat");
         }
 
-
         // verify the required parameter 'Format' is set
         if (getFormat() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling updateTableRowFormat");
         }
+        if (getFormat() != null) {
+            getFormat().validate();
+        }
 
-        getFormat().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

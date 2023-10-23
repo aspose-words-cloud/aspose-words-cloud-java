@@ -161,7 +161,6 @@ public class PreferredWidth implements ModelIfc {
         if (this.type == null) {
             throw new ApiException(400, "Property Type in PreferredWidth is required.");
         }
-
     }
 
     @Override

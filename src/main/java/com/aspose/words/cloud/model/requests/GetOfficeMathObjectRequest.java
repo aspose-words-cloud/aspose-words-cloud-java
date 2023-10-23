@@ -231,12 +231,10 @@ public class GetOfficeMathObjectRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getOfficeMathObject");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getOfficeMathObject");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}";

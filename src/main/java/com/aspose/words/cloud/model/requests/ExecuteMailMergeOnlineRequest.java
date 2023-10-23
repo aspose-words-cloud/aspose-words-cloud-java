@@ -189,11 +189,19 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Template' when calling executeMailMergeOnline");
         }
 
-
         // verify the required parameter 'Data' is set
         if (getData() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Data' when calling executeMailMergeOnline");
         }
+        if (getOptions() != null) {
+            getOptions().validate();
+        }
+
+
+
+
+
+
 
 
         // create path and map variables

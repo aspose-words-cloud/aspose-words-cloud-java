@@ -96,7 +96,9 @@ public abstract class BaseEntry implements ModelIfc {
             throw new ApiException(400, "Property FileReference in BaseEntry is required.");
         }
 
-        this.fileReference.validate();
+        if (this.fileReference != null) {
+            this.fileReference.validate();
+        }
 
     }
 

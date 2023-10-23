@@ -99,6 +99,15 @@ public class CommentsCollection extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.commentList != null) {
+            for (ModelIfc elementCommentList in this.commentList) {
+                if (elementCommentList != null) {
+                    elementCommentList.validate();
+                }
+            }
+        }
+
     }
 
     @Override

@@ -252,18 +252,15 @@ public class RenderPageRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling renderPage");
         }
 
-
         // verify the required parameter 'PageIndex' is set
         if (getPageIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'PageIndex' when calling renderPage");
         }
 
-
         // verify the required parameter 'Format' is set
         if (getFormat() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling renderPage");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/pages/{pageIndex}/render";

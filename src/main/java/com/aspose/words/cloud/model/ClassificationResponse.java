@@ -150,6 +150,14 @@ public class ClassificationResponse extends WordsResponse {
             throw new ApiException(400, "Property BestClassProbability in ClassificationResponse is required.");
         }
 
+        if (this.bestResults != null) {
+            for (ModelIfc elementBestResults in this.bestResults) {
+                if (elementBestResults != null) {
+                    elementBestResults.validate();
+                }
+            }
+        }
+
     }
 
     @Override

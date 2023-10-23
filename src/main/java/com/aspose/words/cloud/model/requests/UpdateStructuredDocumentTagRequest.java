@@ -315,19 +315,36 @@ public class UpdateStructuredDocumentTagRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateStructuredDocumentTag");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateStructuredDocumentTag");
         }
 
-
         // verify the required parameter 'StructuredDocumentTag' is set
         if (getStructuredDocumentTag() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StructuredDocumentTag' when calling updateStructuredDocumentTag");
         }
+        if (getStructuredDocumentTag() != null) {
+            getStructuredDocumentTag().validate();
+        }
 
-        getStructuredDocumentTag().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

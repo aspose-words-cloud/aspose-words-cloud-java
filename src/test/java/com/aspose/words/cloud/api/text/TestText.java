@@ -70,6 +70,9 @@ public class TestText  extends TestCase
         ReplaceTextParameters requestReplaceText = new ReplaceTextParameters();
         requestReplaceText.setOldValue("Testing");
         requestReplaceText.setNewValue("Aspose testing");
+        requestReplaceText.setIsMatchCase(true);
+        requestReplaceText.setIsMatchWholeWord(false);
+        requestReplaceText.setIsOldValueRegex(false);
 
         ReplaceTextRequest request = new ReplaceTextRequest(
             remoteFileName,
@@ -101,6 +104,9 @@ public class TestText  extends TestCase
         ReplaceTextParameters requestReplaceText = new ReplaceTextParameters();
         requestReplaceText.setOldValue("aspose");
         requestReplaceText.setNewValue("aspose new");
+        requestReplaceText.setIsMatchCase(true);
+        requestReplaceText.setIsMatchWholeWord(false);
+        requestReplaceText.setIsOldValueRegex(false);
 
         ReplaceTextOnlineRequest request = new ReplaceTextOnlineRequest(
             requestDocument,

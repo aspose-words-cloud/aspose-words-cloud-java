@@ -252,12 +252,10 @@ public class ConvertDocumentRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling convertDocument");
         }
 
-
         // verify the required parameter 'Format' is set
         if (getFormat() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling convertDocument");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/convert";

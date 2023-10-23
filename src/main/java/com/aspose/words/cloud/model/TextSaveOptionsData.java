@@ -165,7 +165,6 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
         if (this.maxCharactersPerLine == null) {
             throw new ApiException(400, "Property MaxCharactersPerLine in TextSaveOptionsData is required.");
         }
-
     }
 
     @Override

@@ -210,7 +210,6 @@ public class DeleteCommentsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling deleteCommentsOnline");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/online/delete/comments";
         localVarPath = localVarPath.replaceAll("//", "/");

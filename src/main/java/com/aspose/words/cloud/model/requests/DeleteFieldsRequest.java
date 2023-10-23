@@ -273,7 +273,6 @@ public class DeleteFieldsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling deleteFields");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

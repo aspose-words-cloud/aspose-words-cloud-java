@@ -315,7 +315,6 @@ public class InsertWatermarkImageRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertWatermarkImage");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/watermarks/images";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

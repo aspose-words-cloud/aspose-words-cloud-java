@@ -111,6 +111,12 @@ public class DocumentPosition implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.node != null) {
+            this.node.validate();
+        }
+
+
     }
 
     @Override

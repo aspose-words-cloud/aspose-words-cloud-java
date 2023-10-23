@@ -74,6 +74,7 @@ public class TestFormField  extends TestCase
         requestFormField.setStatusText("");
         requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
         requestFormField.setTextInputDefault("No name");
+        requestFormField.setTextInputFormat("");
 
         UpdateFormFieldRequest request = new UpdateFormFieldRequest(
             remoteFileName,
@@ -111,6 +112,7 @@ public class TestFormField  extends TestCase
         requestFormField.setStatusText("");
         requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
         requestFormField.setTextInputDefault("No name");
+        requestFormField.setTextInputFormat("");
 
         UpdateFormFieldOnlineRequest request = new UpdateFormFieldOnlineRequest(
             requestDocument,
@@ -149,6 +151,7 @@ public class TestFormField  extends TestCase
         requestFormField.setStatusText("");
         requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
         requestFormField.setTextInputDefault("No name");
+        requestFormField.setTextInputFormat("");
 
         UpdateFormFieldRequest request = new UpdateFormFieldRequest(
             remoteFileName,

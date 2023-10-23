@@ -105,7 +105,6 @@ public class GetFilesListRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Path' when calling getFilesList");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/storage/folder/{path}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "path", getPath());

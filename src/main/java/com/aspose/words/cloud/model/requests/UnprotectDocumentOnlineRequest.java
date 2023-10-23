@@ -189,13 +189,21 @@ public class UnprotectDocumentOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling unprotectDocumentOnline");
         }
 
-
         // verify the required parameter 'ProtectionRequest' is set
         if (getProtectionRequest() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ProtectionRequest' when calling unprotectDocumentOnline");
         }
+        if (getProtectionRequest() != null) {
+            getProtectionRequest().validate();
+        }
 
-        getProtectionRequest().validate();
+
+
+
+
+
+
+
 
 
         // create path and map variables

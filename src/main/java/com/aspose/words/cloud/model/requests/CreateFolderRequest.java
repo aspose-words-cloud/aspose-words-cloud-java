@@ -105,7 +105,6 @@ public class CreateFolderRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Path' when calling createFolder");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/storage/folder/{path}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "path", getPath());

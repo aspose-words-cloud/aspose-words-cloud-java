@@ -210,7 +210,6 @@ public class GetBordersRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getBorders");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

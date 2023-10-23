@@ -145,6 +145,17 @@ public class InfoResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.additionalInfo != null) {
+            for (ModelIfc elementAdditionalInfo in this.additionalInfo) {
+                if (elementAdditionalInfo != null) {
+                    elementAdditionalInfo.validate();
+                }
+            }
+        }
+
+
+
     }
 
     @Override

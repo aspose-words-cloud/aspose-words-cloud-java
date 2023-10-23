@@ -160,6 +160,13 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.outlineOptions != null) {
+            this.outlineOptions.validate();
+        }
+
+
+
     }
 
     @Override

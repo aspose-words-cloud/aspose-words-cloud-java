@@ -231,12 +231,10 @@ public class GetFootnoteRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getFootnote");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getFootnote");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}";

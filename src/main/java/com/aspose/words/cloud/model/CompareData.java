@@ -183,10 +183,16 @@ public class CompareData implements ModelIfc {
         if (this.author == null) {
             throw new ApiException(400, "Property Author in CompareData is required.");
         }
-
         if (this.comparingWithDocument == null) {
             throw new ApiException(400, "Property ComparingWithDocument in CompareData is required.");
         }
+
+        if (this.compareOptions != null) {
+            this.compareOptions.validate();
+        }
+
+
+
 
     }
 

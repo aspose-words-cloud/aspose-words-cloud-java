@@ -252,19 +252,30 @@ public class UpdateBookmarkOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling updateBookmarkOnline");
         }
 
-
         // verify the required parameter 'BookmarkName' is set
         if (getBookmarkName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BookmarkName' when calling updateBookmarkOnline");
         }
 
-
         // verify the required parameter 'BookmarkData' is set
         if (getBookmarkData() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BookmarkData' when calling updateBookmarkOnline");
         }
+        if (getBookmarkData() != null) {
+            getBookmarkData().validate();
+        }
 
-        getBookmarkData().validate();
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

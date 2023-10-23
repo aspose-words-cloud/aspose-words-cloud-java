@@ -52,12 +52,6 @@ public class XmlColor implements ModelIfc {
 
     @SerializedName("Web")
     protected String web;
-
-    @SerializedName("XmlAlpha")
-    protected Integer xmlAlpha;
-
-    @SerializedName("XmlAlphaSpecified")
-    protected Boolean xmlAlphaSpecified;
     /**
      * Gets or sets the Alpha component of color structure.
     * @return alpha
@@ -96,41 +90,9 @@ public class XmlColor implements ModelIfc {
     }
 
 
-    /**
-     * Gets or sets the Alpha wrapper for serialization.
-    * @return xmlAlpha
-    **/
-    @ApiModelProperty(value = "Gets or sets the Alpha wrapper for serialization.")
-    public Integer getXmlAlpha() {
-        return xmlAlpha;
-    }
-
-    public XmlColor xmlAlpha(Integer xmlAlpha) {
-        this.xmlAlpha = xmlAlpha;
-        return this;
-    }
-
-    public void setXmlAlpha(Integer xmlAlpha) {
-        this.xmlAlpha = xmlAlpha;
-    }
-
-
-    /**
-     * Gets a value indicating whether Alpha is specified.
-    * @return xmlAlphaSpecified
-    **/
-    @ApiModelProperty(value = "Gets a value indicating whether Alpha is specified.")
-    public Boolean getXmlAlphaSpecified() {
-        return xmlAlphaSpecified;
-    }
-
-
-
     public XmlColor() {
         this.alpha = null;
         this.web = null;
-        this.xmlAlpha = null;
-        this.xmlAlphaSpecified = null;
     }
 
     /*
@@ -149,14 +111,6 @@ public class XmlColor implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
-        if (this.xmlAlpha == null) {
-            throw new ApiException(400, "Property XmlAlpha in XmlColor is required.");
-        }
-
-        if (this.xmlAlphaSpecified == null) {
-            throw new ApiException(400, "Property XmlAlphaSpecified in XmlColor is required.");
-        }
-
     }
 
     @Override
@@ -171,14 +125,12 @@ public class XmlColor implements ModelIfc {
         XmlColor xmlColor = (XmlColor) o;
         return
             Objects.equals(this.alpha, xmlColor.alpha) &&
-            Objects.equals(this.web, xmlColor.web) &&
-            Objects.equals(this.xmlAlpha, xmlColor.xmlAlpha) &&
-            Objects.equals(this.xmlAlphaSpecified, xmlColor.xmlAlphaSpecified);
+            Objects.equals(this.web, xmlColor.web);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alpha, web, xmlAlpha, xmlAlphaSpecified);
+    return Objects.hash(alpha, web);
   }
 
   @Override
@@ -187,8 +139,6 @@ public class XmlColor implements ModelIfc {
     sb.append("class XmlColor {\n");
     sb.append("    alpha: ").append(toIndentedString(getAlpha())).append("\n");
     sb.append("    web: ").append(toIndentedString(getWeb())).append("\n");
-    sb.append("    xmlAlpha: ").append(toIndentedString(getXmlAlpha())).append("\n");
-    sb.append("    xmlAlphaSpecified: ").append(toIndentedString(getXmlAlphaSpecified())).append("\n");
     sb.append("}");
     return sb.toString();
   }

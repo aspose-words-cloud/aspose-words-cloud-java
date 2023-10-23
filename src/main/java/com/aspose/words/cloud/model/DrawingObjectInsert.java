@@ -409,30 +409,35 @@ public class DrawingObjectInsert implements ModelIfc {
         if (this.relativeHorizontalPosition == null) {
             throw new ApiException(400, "Property RelativeHorizontalPosition in DrawingObjectInsert is required.");
         }
-
         if (this.left == null) {
             throw new ApiException(400, "Property Left in DrawingObjectInsert is required.");
         }
-
         if (this.relativeVerticalPosition == null) {
             throw new ApiException(400, "Property RelativeVerticalPosition in DrawingObjectInsert is required.");
         }
-
         if (this.top == null) {
             throw new ApiException(400, "Property Top in DrawingObjectInsert is required.");
         }
-
         if (this.width == null) {
             throw new ApiException(400, "Property Width in DrawingObjectInsert is required.");
         }
-
         if (this.height == null) {
             throw new ApiException(400, "Property Height in DrawingObjectInsert is required.");
         }
-
         if (this.wrapType == null) {
             throw new ApiException(400, "Property WrapType in DrawingObjectInsert is required.");
         }
+
+        if (this.position != null) {
+            this.position.validate();
+        }
+
+
+
+
+
+
+
 
     }
 

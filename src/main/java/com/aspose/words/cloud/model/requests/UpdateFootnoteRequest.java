@@ -315,19 +315,36 @@ public class UpdateFootnoteRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateFootnote");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateFootnote");
         }
 
-
         // verify the required parameter 'FootnoteDto' is set
         if (getFootnoteDto() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FootnoteDto' when calling updateFootnote");
         }
+        if (getFootnoteDto() != null) {
+            getFootnoteDto().validate();
+        }
 
-        getFootnoteDto().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

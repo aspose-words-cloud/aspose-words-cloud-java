@@ -294,12 +294,10 @@ public class DeleteFormFieldRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling deleteFormField");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling deleteFormField");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields/{index}";

@@ -114,7 +114,6 @@ public abstract class FieldBase implements ModelIfc {
         if (this.fieldCode == null) {
             throw new ApiException(400, "Property FieldCode in FieldBase is required.");
         }
-
     }
 
     @Override

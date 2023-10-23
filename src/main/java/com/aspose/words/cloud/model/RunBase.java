@@ -91,7 +91,6 @@ public abstract class RunBase implements ModelIfc {
         if (this.text == null) {
             throw new ApiException(400, "Property Text in RunBase is required.");
         }
-
     }
 
     @Override

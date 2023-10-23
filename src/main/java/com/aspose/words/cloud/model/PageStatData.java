@@ -160,14 +160,19 @@ public class PageStatData implements ModelIfc {
         if (this.paragraphCount == null) {
             throw new ApiException(400, "Property ParagraphCount in PageStatData is required.");
         }
-
         if (this.wordCount == null) {
             throw new ApiException(400, "Property WordCount in PageStatData is required.");
         }
-
         if (this.pageNumber == null) {
             throw new ApiException(400, "Property PageNumber in PageStatData is required.");
         }
+
+        if (this.footnotesStatData != null) {
+            this.footnotesStatData.validate();
+        }
+
+
+
 
     }
 

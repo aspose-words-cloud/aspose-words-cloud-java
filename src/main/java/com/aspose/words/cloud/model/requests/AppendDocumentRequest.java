@@ -273,13 +273,29 @@ public class AppendDocumentRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling appendDocument");
         }
 
-
         // verify the required parameter 'DocumentList' is set
         if (getDocumentList() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DocumentList' when calling appendDocument");
         }
+        if (getDocumentList() != null) {
+            getDocumentList().validate();
+        }
 
-        getDocumentList().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

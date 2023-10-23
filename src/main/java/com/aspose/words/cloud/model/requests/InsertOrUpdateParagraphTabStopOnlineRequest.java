@@ -231,19 +231,30 @@ public class InsertOrUpdateParagraphTabStopOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertOrUpdateParagraphTabStopOnline");
         }
 
-
         // verify the required parameter 'TabStopInsertDto' is set
         if (getTabStopInsertDto() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TabStopInsertDto' when calling insertOrUpdateParagraphTabStopOnline");
         }
 
-        getTabStopInsertDto().validate();
-
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling insertOrUpdateParagraphTabStopOnline");
         }
+        if (getTabStopInsertDto() != null) {
+            getTabStopInsertDto().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

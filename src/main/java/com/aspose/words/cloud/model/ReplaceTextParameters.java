@@ -183,19 +183,15 @@ public class ReplaceTextParameters implements ModelIfc {
         if (this.isMatchCase == null) {
             throw new ApiException(400, "Property IsMatchCase in ReplaceTextParameters is required.");
         }
-
         if (this.isMatchWholeWord == null) {
             throw new ApiException(400, "Property IsMatchWholeWord in ReplaceTextParameters is required.");
         }
-
         if (this.isOldValueRegex == null) {
             throw new ApiException(400, "Property IsOldValueRegex in ReplaceTextParameters is required.");
         }
-
         if (this.oldValue == null) {
             throw new ApiException(400, "Property OldValue in ReplaceTextParameters is required.");
         }
-
     }
 
     @Override

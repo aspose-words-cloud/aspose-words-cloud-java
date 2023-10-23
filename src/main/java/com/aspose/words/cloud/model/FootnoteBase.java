@@ -206,6 +206,14 @@ public abstract class FootnoteBase implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.position != null) {
+            this.position.validate();
+        }
+
+
+
+
     }
 
     @Override

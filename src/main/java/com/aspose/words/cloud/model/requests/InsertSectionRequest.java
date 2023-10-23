@@ -273,12 +273,10 @@ public class InsertSectionRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertSection");
         }
 
-
         // verify the required parameter 'SectionIndex' is set
         if (getSectionIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionIndex' when calling insertSection");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}";

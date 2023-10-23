@@ -91,6 +91,11 @@ public class FormFieldsResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.formFields != null) {
+            this.formFields.validate();
+        }
+
     }
 
     @Override

@@ -214,11 +214,9 @@ public class FormFieldTextInput extends FormField {
         if (this.textInputFormat == null) {
             throw new ApiException(400, "Property TextInputFormat in FormFieldTextInput is required.");
         }
-
         if (this.textInputDefault == null) {
             throw new ApiException(400, "Property TextInputDefault in FormFieldTextInput is required.");
         }
-
     }
 
     @Override

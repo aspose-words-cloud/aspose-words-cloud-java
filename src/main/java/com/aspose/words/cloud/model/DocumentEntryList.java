@@ -133,11 +133,11 @@ public class DocumentEntryList extends BaseEntryList {
             throw new ApiException(400, "Property DocumentEntries in DocumentEntryList is required.");
         }
 
-        for (ModelIfc elementDocumentEntries in this.documentEntries)
-        {
-            if (elementDocumentEntries != null)
-            {
-                elementDocumentEntries.validate();
+        if (this.documentEntries != null) {
+            for (ModelIfc elementDocumentEntries in this.documentEntries) {
+                if (elementDocumentEntries != null) {
+                    elementDocumentEntries.validate();
+                }
             }
         }
 

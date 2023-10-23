@@ -238,21 +238,27 @@ public class ListInfo extends LinkElement {
         if (this.listId == null) {
             throw new ApiException(400, "Property ListId in ListInfo is required.");
         }
-
         if (this.isMultiLevel == null) {
             throw new ApiException(400, "Property IsMultiLevel in ListInfo is required.");
         }
-
         if (this.isRestartAtEachSection == null) {
             throw new ApiException(400, "Property IsRestartAtEachSection in ListInfo is required.");
         }
-
         if (this.isListStyleDefinition == null) {
             throw new ApiException(400, "Property IsListStyleDefinition in ListInfo is required.");
         }
-
         if (this.isListStyleReference == null) {
             throw new ApiException(400, "Property IsListStyleReference in ListInfo is required.");
+        }
+
+        if (this.style != null) {
+            this.style.validate();
+        }
+
+
+
+        if (this.listLevels != null) {
+            this.listLevels.validate();
         }
 
     }

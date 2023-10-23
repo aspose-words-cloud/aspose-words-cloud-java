@@ -91,6 +91,11 @@ public class DocumentPropertiesResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.documentProperties != null) {
+            this.documentProperties.validate();
+        }
+
     }
 
     @Override

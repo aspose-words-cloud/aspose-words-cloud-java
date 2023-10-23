@@ -273,13 +273,29 @@ public class InsertBookmarkRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertBookmark");
         }
 
-
         // verify the required parameter 'Bookmark' is set
         if (getBookmark() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Bookmark' when calling insertBookmark");
         }
+        if (getBookmark() != null) {
+            getBookmark().validate();
+        }
 
-        getBookmark().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

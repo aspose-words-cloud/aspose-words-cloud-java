@@ -99,6 +99,15 @@ public class Bookmarks extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.bookmarkList != null) {
+            for (ModelIfc elementBookmarkList in this.bookmarkList) {
+                if (elementBookmarkList != null) {
+                    elementBookmarkList.validate();
+                }
+            }
+        }
+
     }
 
     @Override

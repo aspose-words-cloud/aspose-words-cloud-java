@@ -189,7 +189,6 @@ public class GetDocumentPropertiesRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getDocumentProperties");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/documentProperties";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

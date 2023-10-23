@@ -168,7 +168,6 @@ public class GetTablesOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getTablesOnline");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/online/get/{nodePath}/tables";
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());

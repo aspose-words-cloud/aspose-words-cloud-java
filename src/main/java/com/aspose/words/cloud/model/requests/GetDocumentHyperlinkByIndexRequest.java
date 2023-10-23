@@ -210,12 +210,10 @@ public class GetDocumentHyperlinkByIndexRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getDocumentHyperlinkByIndex");
         }
 
-
         // verify the required parameter 'HyperlinkIndex' is set
         if (getHyperlinkIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'HyperlinkIndex' when calling getDocumentHyperlinkByIndex");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/hyperlinks/{hyperlinkIndex}";

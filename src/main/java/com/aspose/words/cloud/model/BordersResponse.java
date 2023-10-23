@@ -91,6 +91,11 @@ public class BordersResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.borders != null) {
+            this.borders.validate();
+        }
+
     }
 
     @Override

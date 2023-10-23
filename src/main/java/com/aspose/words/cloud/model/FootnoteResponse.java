@@ -91,6 +91,11 @@ public class FootnoteResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.footnote != null) {
+            this.footnote.validate();
+        }
+
     }
 
     @Override

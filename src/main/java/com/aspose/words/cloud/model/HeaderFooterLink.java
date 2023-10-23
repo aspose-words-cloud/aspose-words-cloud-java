@@ -143,7 +143,6 @@ public class HeaderFooterLink extends LinkElement {
         if (this.type == null) {
             throw new ApiException(400, "Property Type in HeaderFooterLink is required.");
         }
-
     }
 
     @Override

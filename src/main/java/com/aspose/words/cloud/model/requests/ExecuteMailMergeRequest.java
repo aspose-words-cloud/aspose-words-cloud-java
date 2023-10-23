@@ -335,6 +335,29 @@ public class ExecuteMailMergeRequest implements RequestIfc {
         if (getName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling executeMailMerge");
         }
+        if (getOptions() != null) {
+            getOptions().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

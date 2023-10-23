@@ -111,6 +111,17 @@ public class SearchResult implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.rangeStart != null) {
+            this.rangeStart.validate();
+        }
+
+
+
+        if (this.rangeEnd != null) {
+            this.rangeEnd.validate();
+        }
+
     }
 
     @Override

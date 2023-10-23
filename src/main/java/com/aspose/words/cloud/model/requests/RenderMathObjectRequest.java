@@ -294,18 +294,15 @@ public class RenderMathObjectRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling renderMathObject");
         }
 
-
         // verify the required parameter 'Format' is set
         if (getFormat() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling renderMathObject");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling renderMathObject");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}/render";

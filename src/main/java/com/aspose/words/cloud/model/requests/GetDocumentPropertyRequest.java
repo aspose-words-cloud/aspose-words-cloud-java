@@ -210,12 +210,10 @@ public class GetDocumentPropertyRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getDocumentProperty");
         }
 
-
         // verify the required parameter 'PropertyName' is set
         if (getPropertyName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'PropertyName' when calling getDocumentProperty");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/documentProperties/{propertyName}";

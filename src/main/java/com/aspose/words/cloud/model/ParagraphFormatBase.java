@@ -1297,6 +1297,11 @@ public abstract class ParagraphFormatBase extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.shading != null) {
+            this.shading.validate();
+        }
+
     }
 
     @Override

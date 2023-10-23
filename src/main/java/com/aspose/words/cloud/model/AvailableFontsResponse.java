@@ -163,6 +163,35 @@ public class AvailableFontsResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.additionalFonts != null) {
+            for (ModelIfc elementAdditionalFonts in this.additionalFonts) {
+                if (elementAdditionalFonts != null) {
+                    elementAdditionalFonts.validate();
+                }
+            }
+        }
+
+
+
+        if (this.customFonts != null) {
+            for (ModelIfc elementCustomFonts in this.customFonts) {
+                if (elementCustomFonts != null) {
+                    elementCustomFonts.validate();
+                }
+            }
+        }
+
+
+
+        if (this.systemFonts != null) {
+            for (ModelIfc elementSystemFonts in this.systemFonts) {
+                if (elementSystemFonts != null) {
+                    elementSystemFonts.validate();
+                }
+            }
+        }
+
     }
 
     @Override

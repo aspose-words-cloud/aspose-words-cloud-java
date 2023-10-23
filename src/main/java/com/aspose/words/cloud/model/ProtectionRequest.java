@@ -137,7 +137,6 @@ public class ProtectionRequest implements ModelIfc {
         if (this.password == null) {
             throw new ApiException(400, "Property Password in ProtectionRequest is required.");
         }
-
     }
 
     @Override

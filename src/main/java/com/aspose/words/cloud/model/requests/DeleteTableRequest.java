@@ -294,12 +294,10 @@ public class DeleteTableRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling deleteTable");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling deleteTable");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}";

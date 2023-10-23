@@ -168,7 +168,6 @@ public class GetOfficeMathObjectsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getOfficeMathObjectsOnline");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/online/get/{nodePath}/OfficeMathObjects";
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());

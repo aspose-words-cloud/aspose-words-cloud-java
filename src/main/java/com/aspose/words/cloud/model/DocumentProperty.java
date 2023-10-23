@@ -140,7 +140,6 @@ public class DocumentProperty extends LinkElement {
         if (this.builtIn == null) {
             throw new ApiException(400, "Property BuiltIn in DocumentProperty is required.");
         }
-
     }
 
     @Override

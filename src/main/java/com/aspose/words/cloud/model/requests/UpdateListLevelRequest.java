@@ -315,25 +315,39 @@ public class UpdateListLevelRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateListLevel");
         }
 
-
         // verify the required parameter 'ListId' is set
         if (getListId() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListId' when calling updateListLevel");
         }
-
 
         // verify the required parameter 'ListLevel' is set
         if (getListLevel() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListLevel' when calling updateListLevel");
         }
 
-
         // verify the required parameter 'ListUpdate' is set
         if (getListUpdate() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListUpdate' when calling updateListLevel");
         }
+        if (getListUpdate() != null) {
+            getListUpdate().validate();
+        }
 
-        getListUpdate().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

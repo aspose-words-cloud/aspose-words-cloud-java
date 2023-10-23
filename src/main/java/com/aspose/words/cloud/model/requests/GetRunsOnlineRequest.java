@@ -168,12 +168,10 @@ public class GetRunsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getRunsOnline");
         }
 
-
         // verify the required parameter 'ParagraphPath' is set
         if (getParagraphPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphPath' when calling getRunsOnline");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/online/get/{paragraphPath}/runs";

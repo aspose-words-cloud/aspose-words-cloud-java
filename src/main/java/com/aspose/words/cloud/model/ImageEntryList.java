@@ -130,6 +130,15 @@ public class ImageEntryList extends BaseEntryList {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.imageEntries != null) {
+            for (ModelIfc elementImageEntries in this.imageEntries) {
+                if (elementImageEntries != null) {
+                    elementImageEntries.validate();
+                }
+            }
+        }
+
     }
 
     @Override

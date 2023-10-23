@@ -210,7 +210,6 @@ public class GetDocumentFieldNamesRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getDocumentFieldNames");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/mailMerge/FieldNames";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

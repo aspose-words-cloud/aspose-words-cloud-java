@@ -91,6 +91,11 @@ public class SectionPageSetupResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.pageSetup != null) {
+            this.pageSetup.validate();
+        }
+
     }
 
     @Override

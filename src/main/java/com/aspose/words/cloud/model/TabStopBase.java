@@ -238,15 +238,12 @@ public abstract class TabStopBase implements ModelIfc {
         if (this.alignment == null) {
             throw new ApiException(400, "Property Alignment in TabStopBase is required.");
         }
-
         if (this.leader == null) {
             throw new ApiException(400, "Property Leader in TabStopBase is required.");
         }
-
         if (this.position == null) {
             throw new ApiException(400, "Property Position in TabStopBase is required.");
         }
-
     }
 
     @Override

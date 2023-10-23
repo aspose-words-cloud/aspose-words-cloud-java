@@ -97,6 +97,15 @@ public class StoryChildNodes implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.childNodes != null) {
+            for (ModelIfc elementChildNodes in this.childNodes) {
+                if (elementChildNodes != null) {
+                    elementChildNodes.validate();
+                }
+            }
+        }
+
     }
 
     @Override

@@ -157,6 +157,12 @@ public class Error implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.innerError != null) {
+            this.innerError.validate();
+        }
+
+
     }
 
     @Override

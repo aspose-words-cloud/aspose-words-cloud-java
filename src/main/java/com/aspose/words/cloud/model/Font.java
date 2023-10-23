@@ -1527,6 +1527,61 @@ public class Font extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.border != null) {
+            this.border.validate();
+        }
+
+
+
+        if (this.color != null) {
+            this.color.validate();
+        }
+
+
+
+
+
+
+
+
+        if (this.highlightColor != null) {
+            this.highlightColor.validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (this.underlineColor != null) {
+            this.underlineColor.validate();
+        }
+
     }
 
     @Override

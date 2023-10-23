@@ -280,14 +280,30 @@ public class Document implements ModelIfc {
         if (this.isEncrypted == null) {
             throw new ApiException(400, "Property IsEncrypted in Document is required.");
         }
-
         if (this.isSigned == null) {
             throw new ApiException(400, "Property IsSigned in Document is required.");
         }
-
         if (this.sourceFormat == null) {
             throw new ApiException(400, "Property SourceFormat in Document is required.");
         }
+
+        if (this.links != null) {
+            for (ModelIfc elementLinks in this.links) {
+                if (elementLinks != null) {
+                    elementLinks.validate();
+                }
+            }
+        }
+
+
+
+        if (this.documentProperties != null) {
+            this.documentProperties.validate();
+        }
+
+
+
+
 
     }
 

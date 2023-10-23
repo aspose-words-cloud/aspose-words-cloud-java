@@ -164,7 +164,6 @@ public class DocumentEntry extends BaseEntry {
         if (this.importFormatMode == null) {
             throw new ApiException(400, "Property ImportFormatMode in DocumentEntry is required.");
         }
-
     }
 
     @Override

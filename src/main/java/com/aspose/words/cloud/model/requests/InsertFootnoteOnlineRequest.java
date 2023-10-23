@@ -252,13 +252,27 @@ public class InsertFootnoteOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertFootnoteOnline");
         }
 
-
         // verify the required parameter 'FootnoteDto' is set
         if (getFootnoteDto() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FootnoteDto' when calling insertFootnoteOnline");
         }
+        if (getFootnoteDto() != null) {
+            getFootnoteDto().validate();
+        }
 
-        getFootnoteDto().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

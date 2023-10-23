@@ -231,13 +231,25 @@ public class OptimizeDocumentOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling optimizeDocumentOnline");
         }
 
-
         // verify the required parameter 'Options' is set
         if (getOptions() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Options' when calling optimizeDocumentOnline");
         }
+        if (getOptions() != null) {
+            getOptions().validate();
+        }
 
-        getOptions().validate();
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

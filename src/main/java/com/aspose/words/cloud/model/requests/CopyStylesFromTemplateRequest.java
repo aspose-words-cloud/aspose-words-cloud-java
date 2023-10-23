@@ -273,12 +273,10 @@ public class CopyStylesFromTemplateRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling copyStylesFromTemplate");
         }
 
-
         // verify the required parameter 'TemplateName' is set
         if (getTemplateName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TemplateName' when calling copyStylesFromTemplate");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/styles/copy_from";

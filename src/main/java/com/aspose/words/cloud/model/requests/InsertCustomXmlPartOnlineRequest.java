@@ -231,13 +231,25 @@ public class InsertCustomXmlPartOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertCustomXmlPartOnline");
         }
 
-
         // verify the required parameter 'CustomXmlPart' is set
         if (getCustomXmlPart() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CustomXmlPart' when calling insertCustomXmlPartOnline");
         }
+        if (getCustomXmlPart() != null) {
+            getCustomXmlPart().validate();
+        }
 
-        getCustomXmlPart().validate();
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

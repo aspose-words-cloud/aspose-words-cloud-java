@@ -96,7 +96,6 @@ public class XmlDataLoadOptions implements ModelIfc {
         if (this.alwaysGenerateRootObject == null) {
             throw new ApiException(400, "Property AlwaysGenerateRootObject in XmlDataLoadOptions is required.");
         }
-
     }
 
     @Override

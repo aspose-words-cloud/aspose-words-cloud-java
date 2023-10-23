@@ -252,18 +252,15 @@ public class DeleteRunOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling deleteRunOnline");
         }
 
-
         // verify the required parameter 'ParagraphPath' is set
         if (getParagraphPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphPath' when calling deleteRunOnline");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling deleteRunOnline");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/online/delete/{paragraphPath}/runs/{index}";

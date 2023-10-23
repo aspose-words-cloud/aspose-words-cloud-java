@@ -231,13 +231,25 @@ public class InsertPageNumbersOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertPageNumbersOnline");
         }
 
-
         // verify the required parameter 'PageNumber' is set
         if (getPageNumber() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'PageNumber' when calling insertPageNumbersOnline");
         }
+        if (getPageNumber() != null) {
+            getPageNumber().validate();
+        }
 
-        getPageNumber().validate();
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

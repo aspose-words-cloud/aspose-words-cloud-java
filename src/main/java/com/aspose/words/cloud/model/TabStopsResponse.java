@@ -100,6 +100,15 @@ public class TabStopsResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.tabStops != null) {
+            for (ModelIfc elementTabStops in this.tabStops) {
+                if (elementTabStops != null) {
+                    elementTabStops.validate();
+                }
+            }
+        }
+
     }
 
     @Override

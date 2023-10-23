@@ -97,6 +97,15 @@ public class FilesList implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.value != null) {
+            for (ModelIfc elementValue in this.value) {
+                if (elementValue != null) {
+                    elementValue.validate();
+                }
+            }
+        }
+
     }
 
     @Override

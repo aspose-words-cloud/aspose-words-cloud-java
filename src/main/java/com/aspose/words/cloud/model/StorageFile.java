@@ -183,11 +183,9 @@ public class StorageFile implements ModelIfc {
         if (this.isFolder == null) {
             throw new ApiException(400, "Property IsFolder in StorageFile is required.");
         }
-
         if (this.size == null) {
             throw new ApiException(400, "Property Size in StorageFile is required.");
         }
-
     }
 
     @Override

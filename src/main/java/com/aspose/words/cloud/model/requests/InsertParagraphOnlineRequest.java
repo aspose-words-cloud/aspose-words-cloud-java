@@ -273,13 +273,29 @@ public class InsertParagraphOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertParagraphOnline");
         }
 
-
         // verify the required parameter 'Paragraph' is set
         if (getParagraph() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Paragraph' when calling insertParagraphOnline");
         }
+        if (getParagraph() != null) {
+            getParagraph().validate();
+        }
 
-        getParagraph().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

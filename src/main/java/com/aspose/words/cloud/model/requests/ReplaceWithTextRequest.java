@@ -273,19 +273,32 @@ public class ReplaceWithTextRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling replaceWithText");
         }
 
-
         // verify the required parameter 'RangeStartIdentifier' is set
         if (getRangeStartIdentifier() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'RangeStartIdentifier' when calling replaceWithText");
         }
 
-
         // verify the required parameter 'RangeText' is set
         if (getRangeText() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'RangeText' when calling replaceWithText");
         }
+        if (getRangeText() != null) {
+            getRangeText().validate();
+        }
 
-        getRangeText().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

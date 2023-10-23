@@ -189,12 +189,10 @@ public class GetHeaderFooterOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getHeaderFooterOnline");
         }
 
-
         // verify the required parameter 'HeaderFooterIndex' is set
         if (getHeaderFooterIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'HeaderFooterIndex' when calling getHeaderFooterOnline");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/online/get/headersfooters/{headerFooterIndex}";

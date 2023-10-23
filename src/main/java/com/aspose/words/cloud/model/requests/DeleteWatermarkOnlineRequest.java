@@ -210,7 +210,6 @@ public class DeleteWatermarkOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling deleteWatermarkOnline");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/online/post/watermarks/deleteLast";
         localVarPath = localVarPath.replaceAll("//", "/");

@@ -210,14 +210,26 @@ public abstract class CommentBase implements ModelIfc {
         if (this.author == null) {
             throw new ApiException(400, "Property Author in CommentBase is required.");
         }
-
         if (this.initial == null) {
             throw new ApiException(400, "Property Initial in CommentBase is required.");
         }
-
         if (this.text == null) {
             throw new ApiException(400, "Property Text in CommentBase is required.");
         }
+
+        if (this.rangeStart != null) {
+            this.rangeStart.validate();
+        }
+
+
+
+        if (this.rangeEnd != null) {
+            this.rangeEnd.validate();
+        }
+
+
+
+
 
     }
 

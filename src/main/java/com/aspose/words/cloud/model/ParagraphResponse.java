@@ -91,6 +91,11 @@ public class ParagraphResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.paragraph != null) {
+            this.paragraph.validate();
+        }
+
     }
 
     @Override

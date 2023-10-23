@@ -566,6 +566,21 @@ public abstract class SaveOptionsData implements ModelIfc {
             throw new ApiException(400, "Property FileName in SaveOptionsData is required.");
         }
 
+        if (this.customTimeZoneInfoData != null) {
+            this.customTimeZoneInfoData.validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     @Override

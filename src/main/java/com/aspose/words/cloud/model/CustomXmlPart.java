@@ -118,7 +118,6 @@ public class CustomXmlPart extends CustomXmlPartLink {
         if (this.data == null) {
             throw new ApiException(400, "Property Data in CustomXmlPart is required.");
         }
-
     }
 
     @Override

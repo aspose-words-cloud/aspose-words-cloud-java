@@ -114,7 +114,6 @@ public class ErrorDetails implements ModelIfc {
         if (this.errorDateTime == null) {
             throw new ApiException(400, "Property ErrorDateTime in ErrorDetails is required.");
         }
-
     }
 
     @Override

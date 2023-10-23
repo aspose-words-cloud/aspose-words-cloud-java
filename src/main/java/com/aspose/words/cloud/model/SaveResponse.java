@@ -90,6 +90,11 @@ public class SaveResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.saveResult != null) {
+            this.saveResult.validate();
+        }
+
     }
 
     @Override

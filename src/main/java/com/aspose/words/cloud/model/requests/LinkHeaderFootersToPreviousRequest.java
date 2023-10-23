@@ -294,12 +294,10 @@ public class LinkHeaderFootersToPreviousRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling linkHeaderFootersToPrevious");
         }
 
-
         // verify the required parameter 'SectionIndex' is set
         if (getSectionIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SectionIndex' when calling linkHeaderFootersToPrevious");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}/link";

@@ -126,7 +126,6 @@ public class CreateDocumentRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FileName' when calling createDocument");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/create";
         localVarPath = localVarPath.replaceAll("//", "/");

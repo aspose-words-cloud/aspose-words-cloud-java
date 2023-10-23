@@ -232,6 +232,18 @@ public class Shading implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.backgroundPatternColor != null) {
+            this.backgroundPatternColor.validate();
+        }
+
+
+
+        if (this.foregroundPatternColor != null) {
+            this.foregroundPatternColor.validate();
+        }
+
+
     }
 
     @Override

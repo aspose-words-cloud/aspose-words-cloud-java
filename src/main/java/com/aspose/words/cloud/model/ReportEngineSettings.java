@@ -263,6 +263,25 @@ public class ReportEngineSettings implements ModelIfc {
             throw new ApiException(400, "Property DataSourceType in ReportEngineSettings is required.");
         }
 
+        if (this.csvDataLoadOptions != null) {
+            this.csvDataLoadOptions.validate();
+        }
+
+
+
+
+
+        if (this.jsonDataLoadOptions != null) {
+            this.jsonDataLoadOptions.validate();
+        }
+
+
+
+
+        if (this.xmlDataLoadOptions != null) {
+            this.xmlDataLoadOptions.validate();
+        }
+
     }
 
     @Override

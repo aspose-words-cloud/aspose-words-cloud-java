@@ -472,6 +472,23 @@ public class FieldOptions implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.currentUser != null) {
+            this.currentUser.validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     @Override

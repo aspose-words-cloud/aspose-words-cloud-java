@@ -93,7 +93,6 @@ public class TabStop extends TabStopBase {
         if (this.isClear == null) {
             throw new ApiException(400, "Property IsClear in TabStop is required.");
         }
-
     }
 
     @Override

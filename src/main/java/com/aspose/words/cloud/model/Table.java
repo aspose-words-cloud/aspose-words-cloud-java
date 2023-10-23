@@ -122,6 +122,21 @@ public class Table extends NodeLink {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.tableRowList != null) {
+            for (ModelIfc elementTableRowList in this.tableRowList) {
+                if (elementTableRowList != null) {
+                    elementTableRowList.validate();
+                }
+            }
+        }
+
+
+
+        if (this.tableProperties != null) {
+            this.tableProperties.validate();
+        }
+
     }
 
     @Override

@@ -91,6 +91,11 @@ public class HyperlinksResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.hyperlinks != null) {
+            this.hyperlinks.validate();
+        }
+
     }
 
     @Override

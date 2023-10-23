@@ -333,6 +333,14 @@ public class OfficeMathObject extends OfficeMathLink {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.content != null) {
+            this.content.validate();
+        }
+
+
+
+
     }
 
     @Override

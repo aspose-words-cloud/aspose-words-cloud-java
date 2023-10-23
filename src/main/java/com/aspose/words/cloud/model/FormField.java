@@ -285,7 +285,6 @@ public abstract class FormField extends NodeLink {
         if (this.name == null) {
             throw new ApiException(400, "Property Name in FormField is required.");
         }
-
     }
 
     @Override

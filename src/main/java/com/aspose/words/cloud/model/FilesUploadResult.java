@@ -129,6 +129,16 @@ public class FilesUploadResult implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.errors != null) {
+            for (ModelIfc elementErrors in this.errors) {
+                if (elementErrors != null) {
+                    elementErrors.validate();
+                }
+            }
+        }
+
+
     }
 
     @Override

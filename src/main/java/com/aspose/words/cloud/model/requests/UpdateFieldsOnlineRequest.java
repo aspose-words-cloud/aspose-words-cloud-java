@@ -168,7 +168,6 @@ public class UpdateFieldsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling updateFieldsOnline");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/online/put/updateFields";
         localVarPath = localVarPath.replaceAll("//", "/");

@@ -114,7 +114,6 @@ public class TableRowInsert implements ModelIfc {
         if (this.columnsCount == null) {
             throw new ApiException(400, "Property ColumnsCount in TableRowInsert is required.");
         }
-
     }
 
     @Override

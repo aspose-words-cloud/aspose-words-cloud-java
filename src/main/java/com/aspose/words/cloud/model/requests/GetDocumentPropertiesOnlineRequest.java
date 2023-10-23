@@ -147,7 +147,6 @@ public class GetDocumentPropertiesOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getDocumentPropertiesOnline");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/online/get/documentProperties";
         localVarPath = localVarPath.replaceAll("//", "/");

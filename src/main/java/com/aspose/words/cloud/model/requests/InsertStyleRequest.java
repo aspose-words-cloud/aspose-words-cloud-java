@@ -273,13 +273,29 @@ public class InsertStyleRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertStyle");
         }
 
-
         // verify the required parameter 'StyleInsert' is set
         if (getStyleInsert() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleInsert' when calling insertStyle");
         }
+        if (getStyleInsert() != null) {
+            getStyleInsert().validate();
+        }
 
-        getStyleInsert().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

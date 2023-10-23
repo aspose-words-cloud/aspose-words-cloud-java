@@ -252,7 +252,6 @@ public class DeleteMacrosRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling deleteMacros");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/macros";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

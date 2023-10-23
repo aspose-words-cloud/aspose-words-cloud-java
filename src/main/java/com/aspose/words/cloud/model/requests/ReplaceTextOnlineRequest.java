@@ -231,13 +231,25 @@ public class ReplaceTextOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling replaceTextOnline");
         }
 
-
         // verify the required parameter 'ReplaceText' is set
         if (getReplaceText() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ReplaceText' when calling replaceTextOnline");
         }
+        if (getReplaceText() != null) {
+            getReplaceText().validate();
+        }
 
-        getReplaceText().validate();
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

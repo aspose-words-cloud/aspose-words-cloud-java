@@ -128,12 +128,10 @@ public class UploadFileRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FileContent' when calling uploadFile");
         }
 
-
         // verify the required parameter 'Path' is set
         if (getPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Path' when calling uploadFile");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/storage/file/{path}";

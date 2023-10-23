@@ -180,6 +180,12 @@ public class ApiError implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.innerError != null) {
+            this.innerError.validate();
+        }
+
+
     }
 
     @Override

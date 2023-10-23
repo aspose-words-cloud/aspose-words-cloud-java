@@ -99,6 +99,15 @@ public class HeaderFooterLinkCollection extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.list != null) {
+            for (ModelIfc elementList in this.list) {
+                if (elementList != null) {
+                    elementList.validate();
+                }
+            }
+        }
+
     }
 
     @Override

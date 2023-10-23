@@ -231,13 +231,25 @@ public class AppendDocumentOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling appendDocumentOnline");
         }
 
-
         // verify the required parameter 'DocumentList' is set
         if (getDocumentList() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DocumentList' when calling appendDocumentOnline");
         }
+        if (getDocumentList() != null) {
+            getDocumentList().validate();
+        }
 
-        getDocumentList().validate();
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

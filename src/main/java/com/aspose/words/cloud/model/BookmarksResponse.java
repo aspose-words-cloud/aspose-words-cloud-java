@@ -91,6 +91,11 @@ public class BookmarksResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.bookmarks != null) {
+            this.bookmarks.validate();
+        }
+
     }
 
     @Override

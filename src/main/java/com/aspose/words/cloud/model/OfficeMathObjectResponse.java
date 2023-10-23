@@ -91,6 +91,11 @@ public class OfficeMathObjectResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.officeMathObject != null) {
+            this.officeMathObject.validate();
+        }
+
     }
 
     @Override

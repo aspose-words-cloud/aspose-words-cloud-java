@@ -210,7 +210,6 @@ public class GetStructuredDocumentTagsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getStructuredDocumentTags");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/sdt";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

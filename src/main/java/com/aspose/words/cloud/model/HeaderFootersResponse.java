@@ -91,6 +91,11 @@ public class HeaderFootersResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.headerFooters != null) {
+            this.headerFooters.validate();
+        }
+
     }
 
     @Override

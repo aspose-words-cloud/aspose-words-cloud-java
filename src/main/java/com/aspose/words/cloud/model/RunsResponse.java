@@ -91,6 +91,11 @@ public class RunsResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.runs != null) {
+            this.runs.validate();
+        }
+
     }
 
     @Override

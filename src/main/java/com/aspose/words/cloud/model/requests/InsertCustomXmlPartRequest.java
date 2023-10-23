@@ -273,13 +273,29 @@ public class InsertCustomXmlPartRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertCustomXmlPart");
         }
 
-
         // verify the required parameter 'CustomXmlPart' is set
         if (getCustomXmlPart() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CustomXmlPart' when calling insertCustomXmlPart");
         }
+        if (getCustomXmlPart() != null) {
+            getCustomXmlPart().validate();
+        }
 
-        getCustomXmlPart().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

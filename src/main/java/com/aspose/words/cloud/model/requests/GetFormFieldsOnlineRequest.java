@@ -168,7 +168,6 @@ public class GetFormFieldsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getFormFieldsOnline");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/online/get/{nodePath}/formfields";
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());

@@ -162,7 +162,6 @@ public class StyleInsert implements ModelIfc {
         if (this.styleType == null) {
             throw new ApiException(400, "Property StyleType in StyleInsert is required.");
         }
-
     }
 
     @Override

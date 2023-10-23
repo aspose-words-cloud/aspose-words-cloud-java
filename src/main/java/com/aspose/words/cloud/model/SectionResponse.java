@@ -91,6 +91,11 @@ public class SectionResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.section != null) {
+            this.section.validate();
+        }
+
     }
 
     @Override

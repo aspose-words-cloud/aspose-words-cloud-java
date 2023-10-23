@@ -88,6 +88,11 @@ public class LinkElement implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.link != null) {
+            this.link.validate();
+        }
+
     }
 
     @Override

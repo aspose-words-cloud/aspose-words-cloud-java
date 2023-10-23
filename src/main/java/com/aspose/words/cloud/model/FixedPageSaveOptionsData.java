@@ -331,6 +331,15 @@ public abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.metafileRenderingOptions != null) {
+            this.metafileRenderingOptions.validate();
+        }
+
+
+
+
+
     }
 
     @Override

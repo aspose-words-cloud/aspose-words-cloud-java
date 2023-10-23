@@ -99,6 +99,15 @@ public class Hyperlinks extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.hyperlinkList != null) {
+            for (ModelIfc elementHyperlinkList in this.hyperlinkList) {
+                if (elementHyperlinkList != null) {
+                    elementHyperlinkList.validate();
+                }
+            }
+        }
+
     }
 
     @Override

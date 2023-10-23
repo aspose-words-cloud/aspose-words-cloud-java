@@ -143,6 +143,27 @@ public class SaveResult implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.destDocument != null) {
+            this.destDocument.validate();
+        }
+
+
+
+        if (this.sourceDocument != null) {
+            this.sourceDocument.validate();
+        }
+
+
+
+        if (this.additionalItems != null) {
+            for (ModelIfc elementAdditionalItems in this.additionalItems) {
+                if (elementAdditionalItems != null) {
+                    elementAdditionalItems.validate();
+                }
+            }
+        }
+
     }
 
     @Override

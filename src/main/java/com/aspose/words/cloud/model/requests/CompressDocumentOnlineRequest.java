@@ -189,13 +189,21 @@ public class CompressDocumentOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling compressDocumentOnline");
         }
 
-
         // verify the required parameter 'CompressOptions' is set
         if (getCompressOptions() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CompressOptions' when calling compressDocumentOnline");
         }
+        if (getCompressOptions() != null) {
+            getCompressOptions().validate();
+        }
 
-        getCompressOptions().validate();
+
+
+
+
+
+
+
 
 
         // create path and map variables

@@ -189,12 +189,10 @@ public class GetDocumentDrawingObjectImageDataOnlineRequest implements RequestIf
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getDocumentDrawingObjectImageDataOnline");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getDocumentDrawingObjectImageDataOnline");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/online/get/{nodePath}/drawingObjects/{index}/imageData";

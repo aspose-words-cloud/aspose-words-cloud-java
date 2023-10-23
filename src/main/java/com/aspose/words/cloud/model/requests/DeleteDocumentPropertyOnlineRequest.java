@@ -231,12 +231,10 @@ public class DeleteDocumentPropertyOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling deleteDocumentPropertyOnline");
         }
 
-
         // verify the required parameter 'PropertyName' is set
         if (getPropertyName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'PropertyName' when calling deleteDocumentPropertyOnline");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/online/delete/documentProperties/{propertyName}";

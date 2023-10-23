@@ -1097,6 +1097,49 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.digitalSignatureDetails != null) {
+            this.digitalSignatureDetails.validate();
+        }
+
+
+
+
+        if (this.downsampleOptions != null) {
+            this.downsampleOptions.validate();
+        }
+
+
+
+
+
+        if (this.encryptionDetails != null) {
+            this.encryptionDetails.validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+        if (this.outlineOptions != null) {
+            this.outlineOptions.validate();
+        }
+
+
+
+
+
+
+
+
+
+
     }
 
     @Override

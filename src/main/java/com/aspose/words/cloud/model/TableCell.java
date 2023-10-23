@@ -99,6 +99,15 @@ public class TableCell extends NodeLink {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.childNodes != null) {
+            for (ModelIfc elementChildNodes in this.childNodes) {
+                if (elementChildNodes != null) {
+                    elementChildNodes.validate();
+                }
+            }
+        }
+
     }
 
     @Override

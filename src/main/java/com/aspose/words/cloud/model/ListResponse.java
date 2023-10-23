@@ -91,6 +91,11 @@ public class ListResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.list != null) {
+            this.list.validate();
+        }
+
     }
 
     @Override

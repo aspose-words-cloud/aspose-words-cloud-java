@@ -210,12 +210,10 @@ public class GetRunsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getRuns");
         }
 
-
         // verify the required parameter 'ParagraphPath' is set
         if (getParagraphPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphPath' when calling getRuns");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs";

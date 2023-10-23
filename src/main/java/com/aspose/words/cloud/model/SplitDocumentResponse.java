@@ -91,6 +91,11 @@ public class SplitDocumentResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.splitResult != null) {
+            this.splitResult.validate();
+        }
+
     }
 
     @Override

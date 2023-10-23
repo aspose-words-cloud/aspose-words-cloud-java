@@ -315,19 +315,36 @@ public class UpdateParagraphFormatRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateParagraphFormat");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateParagraphFormat");
         }
 
-
         // verify the required parameter 'ParagraphFormatDto' is set
         if (getParagraphFormatDto() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphFormatDto' when calling updateParagraphFormat");
         }
+        if (getParagraphFormatDto() != null) {
+            getParagraphFormatDto().validate();
+        }
 
-        getParagraphFormatDto().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

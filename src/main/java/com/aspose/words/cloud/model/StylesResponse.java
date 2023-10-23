@@ -100,6 +100,15 @@ public class StylesResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.styles != null) {
+            for (ModelIfc elementStyles in this.styles) {
+                if (elementStyles != null) {
+                    elementStyles.validate();
+                }
+            }
+        }
+
     }
 
     @Override

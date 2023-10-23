@@ -210,12 +210,10 @@ public class SearchRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling search");
         }
 
-
         // verify the required parameter 'Pattern' is set
         if (getPattern() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Pattern' when calling search");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/search";

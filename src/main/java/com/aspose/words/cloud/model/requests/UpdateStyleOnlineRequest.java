@@ -252,19 +252,30 @@ public class UpdateStyleOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling updateStyleOnline");
         }
 
-
         // verify the required parameter 'StyleName' is set
         if (getStyleName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleName' when calling updateStyleOnline");
         }
 
-
         // verify the required parameter 'StyleUpdate' is set
         if (getStyleUpdate() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleUpdate' when calling updateStyleOnline");
         }
+        if (getStyleUpdate() != null) {
+            getStyleUpdate().validate();
+        }
 
-        getStyleUpdate().validate();
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

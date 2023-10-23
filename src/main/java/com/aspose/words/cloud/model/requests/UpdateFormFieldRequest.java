@@ -315,19 +315,36 @@ public class UpdateFormFieldRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateFormField");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateFormField");
         }
 
-
         // verify the required parameter 'FormField' is set
         if (getFormField() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FormField' when calling updateFormField");
         }
+        if (getFormField() != null) {
+            getFormField().validate();
+        }
 
-        getFormField().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

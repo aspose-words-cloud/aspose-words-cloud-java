@@ -189,7 +189,6 @@ public class GetStylesRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getStyles");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/styles";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

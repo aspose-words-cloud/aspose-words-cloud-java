@@ -231,6 +231,20 @@ public class Footnote extends FootnoteLink {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.position != null) {
+            this.position.validate();
+        }
+
+
+
+
+
+
+        if (this.content != null) {
+            this.content.validate();
+        }
+
     }
 
     @Override

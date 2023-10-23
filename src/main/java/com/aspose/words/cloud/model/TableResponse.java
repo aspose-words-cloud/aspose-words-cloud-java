@@ -91,6 +91,11 @@ public class TableResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.table != null) {
+            this.table.validate();
+        }
+
     }
 
     @Override

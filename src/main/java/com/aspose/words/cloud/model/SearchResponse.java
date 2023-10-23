@@ -114,6 +114,11 @@ public class SearchResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.searchResults != null) {
+            this.searchResults.validate();
+        }
+
     }
 
     @Override

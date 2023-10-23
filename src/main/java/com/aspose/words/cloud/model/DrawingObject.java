@@ -463,6 +463,34 @@ public class DrawingObject extends DrawingObjectLink {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.renderLinks != null) {
+            for (ModelIfc elementRenderLinks in this.renderLinks) {
+                if (elementRenderLinks != null) {
+                    elementRenderLinks.validate();
+                }
+            }
+        }
+
+
+
+
+
+        if (this.oleDataLink != null) {
+            this.oleDataLink.validate();
+        }
+
+
+
+        if (this.imageDataLink != null) {
+            this.imageDataLink.validate();
+        }
+
+
+
+
+
+
     }
 
     @Override

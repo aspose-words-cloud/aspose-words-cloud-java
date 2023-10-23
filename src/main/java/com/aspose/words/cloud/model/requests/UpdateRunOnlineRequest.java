@@ -273,25 +273,37 @@ public class UpdateRunOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling updateRunOnline");
         }
 
-
         // verify the required parameter 'ParagraphPath' is set
         if (getParagraphPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphPath' when calling updateRunOnline");
         }
-
 
         // verify the required parameter 'Run' is set
         if (getRun() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Run' when calling updateRunOnline");
         }
 
-        getRun().validate();
-
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateRunOnline");
         }
+        if (getRun() != null) {
+            getRun().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

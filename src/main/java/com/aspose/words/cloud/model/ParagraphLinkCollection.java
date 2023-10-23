@@ -99,6 +99,15 @@ public class ParagraphLinkCollection extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.paragraphLinkList != null) {
+            for (ModelIfc elementParagraphLinkList in this.paragraphLinkList) {
+                if (elementParagraphLinkList != null) {
+                    elementParagraphLinkList.validate();
+                }
+            }
+        }
+
     }
 
     @Override

@@ -114,11 +114,9 @@ public class FootnotesStatData implements ModelIfc {
         if (this.paragraphCount == null) {
             throw new ApiException(400, "Property ParagraphCount in FootnotesStatData is required.");
         }
-
         if (this.wordCount == null) {
             throw new ApiException(400, "Property WordCount in FootnotesStatData is required.");
         }
-
     }
 
     @Override

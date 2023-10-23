@@ -99,6 +99,15 @@ public class SearchResultsCollection extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.resultsList != null) {
+            for (ModelIfc elementResultsList in this.resultsList) {
+                if (elementResultsList != null) {
+                    elementResultsList.validate();
+                }
+            }
+        }
+
     }
 
     @Override

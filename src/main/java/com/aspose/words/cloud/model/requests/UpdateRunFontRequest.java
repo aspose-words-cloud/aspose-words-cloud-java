@@ -315,25 +315,39 @@ public class UpdateRunFontRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling updateRunFont");
         }
 
-
         // verify the required parameter 'ParagraphPath' is set
         if (getParagraphPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphPath' when calling updateRunFont");
         }
-
 
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateRunFont");
         }
 
-
         // verify the required parameter 'FontDto' is set
         if (getFontDto() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FontDto' when calling updateRunFont");
         }
+        if (getFontDto() != null) {
+            getFontDto().validate();
+        }
 
-        getFontDto().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

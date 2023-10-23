@@ -168,12 +168,10 @@ public class GetBookmarkByNameOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getBookmarkByNameOnline");
         }
 
-
         // verify the required parameter 'BookmarkName' is set
         if (getBookmarkName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BookmarkName' when calling getBookmarkByNameOnline");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/online/get/bookmarks/{bookmarkName}";

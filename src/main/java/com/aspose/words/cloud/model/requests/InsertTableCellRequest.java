@@ -294,19 +294,34 @@ public class InsertTableCellRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertTableCell");
         }
 
-
         // verify the required parameter 'TableRowPath' is set
         if (getTableRowPath() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TableRowPath' when calling insertTableCell");
         }
 
-
         // verify the required parameter 'Cell' is set
         if (getCell() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Cell' when calling insertTableCell");
         }
+        if (getCell() != null) {
+            getCell().validate();
+        }
 
-        getCell().validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

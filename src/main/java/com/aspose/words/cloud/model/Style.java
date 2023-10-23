@@ -810,22 +810,32 @@ public class Style extends LinkElement {
         if (this.builtIn == null) {
             throw new ApiException(400, "Property BuiltIn in Style is required.");
         }
-
         if (this.isQuickStyle == null) {
             throw new ApiException(400, "Property IsQuickStyle in Style is required.");
         }
-
         if (this.type == null) {
             throw new ApiException(400, "Property Type in Style is required.");
         }
-
         if (this.isHeading == null) {
             throw new ApiException(400, "Property IsHeading in Style is required.");
         }
-
         if (this.styleIdentifier == null) {
             throw new ApiException(400, "Property StyleIdentifier in Style is required.");
         }
+
+        if (this.font != null) {
+            this.font.validate();
+        }
+
+
+
+
+
+
+
+
+
+
 
     }
 

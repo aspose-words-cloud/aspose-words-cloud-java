@@ -252,7 +252,6 @@ public class DeleteCommentsRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling deleteComments");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/comments";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

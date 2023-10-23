@@ -114,11 +114,9 @@ public class WatermarkText implements ModelIfc {
         if (this.rotationAngle == null) {
             throw new ApiException(400, "Property RotationAngle in WatermarkText is required.");
         }
-
         if (this.text == null) {
             throw new ApiException(400, "Property Text in WatermarkText is required.");
         }
-
     }
 
     @Override

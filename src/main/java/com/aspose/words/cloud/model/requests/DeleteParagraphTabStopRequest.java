@@ -273,18 +273,15 @@ public class DeleteParagraphTabStopRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling deleteParagraphTabStop");
         }
 
-
         // verify the required parameter 'Position' is set
         if (getPosition() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Position' when calling deleteParagraphTabStop");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling deleteParagraphTabStop");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstop";

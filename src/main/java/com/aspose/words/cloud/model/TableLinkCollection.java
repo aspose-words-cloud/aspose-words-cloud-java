@@ -99,6 +99,15 @@ public class TableLinkCollection extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.tableLinkList != null) {
+            for (ModelIfc elementTableLinkList in this.tableLinkList) {
+                if (elementTableLinkList != null) {
+                    elementTableLinkList.validate();
+                }
+            }
+        }
+
     }
 
     @Override

@@ -183,11 +183,9 @@ public class PageNumber implements ModelIfc {
         if (this.isTop == null) {
             throw new ApiException(400, "Property IsTop in PageNumber is required.");
         }
-
         if (this.setPageNumberOnFirstPage == null) {
             throw new ApiException(400, "Property SetPageNumberOnFirstPage in PageNumber is required.");
         }
-
     }
 
     @Override

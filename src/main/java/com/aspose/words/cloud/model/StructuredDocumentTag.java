@@ -923,6 +923,38 @@ public class StructuredDocumentTag extends NodeLink {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.listItems != null) {
+            for (ModelIfc elementListItems in this.listItems) {
+                if (elementListItems != null) {
+                    elementListItems.validate();
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     @Override

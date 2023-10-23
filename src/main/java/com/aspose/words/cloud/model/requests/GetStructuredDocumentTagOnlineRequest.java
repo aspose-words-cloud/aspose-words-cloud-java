@@ -189,12 +189,10 @@ public class GetStructuredDocumentTagOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getStructuredDocumentTagOnline");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getStructuredDocumentTagOnline");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/online/get/{nodePath}/sdt/{index}";

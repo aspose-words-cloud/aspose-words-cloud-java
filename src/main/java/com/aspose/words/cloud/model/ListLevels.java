@@ -100,6 +100,15 @@ public class ListLevels extends LinkElement {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.listLevel != null) {
+            for (ModelIfc elementListLevel in this.listLevel) {
+                if (elementListLevel != null) {
+                    elementListLevel.validate();
+                }
+            }
+        }
+
     }
 
     @Override

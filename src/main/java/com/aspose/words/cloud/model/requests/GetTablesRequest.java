@@ -210,7 +210,6 @@ public class GetTablesRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getTables");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());

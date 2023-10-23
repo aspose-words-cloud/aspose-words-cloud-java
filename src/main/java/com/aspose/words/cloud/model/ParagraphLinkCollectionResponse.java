@@ -91,6 +91,11 @@ public class ParagraphLinkCollectionResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.paragraphs != null) {
+            this.paragraphs.validate();
+        }
+
     }
 
     @Override

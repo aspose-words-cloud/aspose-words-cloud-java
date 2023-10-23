@@ -111,6 +111,17 @@ public class ModificationOperationResult implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+
+        if (this.dest != null) {
+            this.dest.validate();
+        }
+
+
+
+        if (this.source != null) {
+            this.source.validate();
+        }
+
     }
 
     @Override

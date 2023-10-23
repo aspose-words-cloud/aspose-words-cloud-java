@@ -210,7 +210,6 @@ public class DeleteMacrosOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling deleteMacrosOnline");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/online/delete/macros";
         localVarPath = localVarPath.replaceAll("//", "/");

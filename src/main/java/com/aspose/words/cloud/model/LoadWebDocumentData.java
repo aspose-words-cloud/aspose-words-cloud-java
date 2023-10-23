@@ -115,6 +115,11 @@ public class LoadWebDocumentData implements ModelIfc {
             throw new ApiException(400, "Property LoadingDocumentUrl in LoadWebDocumentData is required.");
         }
 
+        if (this.saveOptions != null) {
+            this.saveOptions.validate();
+        }
+
+
     }
 
     @Override

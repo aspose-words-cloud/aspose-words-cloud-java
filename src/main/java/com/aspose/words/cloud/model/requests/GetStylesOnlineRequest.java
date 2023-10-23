@@ -147,7 +147,6 @@ public class GetStylesOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getStylesOnline");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/online/get/styles";
         localVarPath = localVarPath.replaceAll("//", "/");

@@ -231,13 +231,25 @@ public class InsertListOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertListOnline");
         }
 
-
         // verify the required parameter 'ListInsert' is set
         if (getListInsert() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListInsert' when calling insertListOnline");
         }
+        if (getListInsert() != null) {
+            getListInsert().validate();
+        }
 
-        getListInsert().validate();
+
+
+
+
+
+
+
+
+
+
+
 
 
         // create path and map variables

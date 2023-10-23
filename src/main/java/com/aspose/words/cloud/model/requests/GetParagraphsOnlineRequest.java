@@ -168,7 +168,6 @@ public class GetParagraphsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getParagraphsOnline");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/online/get/{nodePath}/paragraphs";
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());

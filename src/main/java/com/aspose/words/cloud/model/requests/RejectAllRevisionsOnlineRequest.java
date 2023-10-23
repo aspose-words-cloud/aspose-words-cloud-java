@@ -168,7 +168,6 @@ public class RejectAllRevisionsOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling rejectAllRevisionsOnline");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/online/put/revisions/rejectAll";
         localVarPath = localVarPath.replaceAll("//", "/");

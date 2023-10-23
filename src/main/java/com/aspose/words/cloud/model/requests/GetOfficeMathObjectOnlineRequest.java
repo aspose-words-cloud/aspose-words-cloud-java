@@ -189,12 +189,10 @@ public class GetOfficeMathObjectOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling getOfficeMathObjectOnline");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling getOfficeMathObjectOnline");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/online/get/{nodePath}/OfficeMathObjects/{index}";

@@ -91,6 +91,11 @@ public class CommentsResponse extends WordsResponse {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.comments != null) {
+            this.comments.validate();
+        }
+
     }
 
     @Override

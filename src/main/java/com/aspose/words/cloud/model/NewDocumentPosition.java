@@ -114,7 +114,6 @@ public class NewDocumentPosition implements ModelIfc {
         if (this.nodeId == null) {
             throw new ApiException(400, "Property NodeId in NewDocumentPosition is required.");
         }
-
     }
 
     @Override

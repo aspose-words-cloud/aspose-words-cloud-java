@@ -139,7 +139,6 @@ public class FormFieldCheckbox extends FormField {
         if (this.checked == null) {
             throw new ApiException(400, "Property Checked in FormFieldCheckbox is required.");
         }
-
     }
 
     @Override

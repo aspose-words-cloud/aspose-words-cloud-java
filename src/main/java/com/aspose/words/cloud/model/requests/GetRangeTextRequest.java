@@ -231,12 +231,10 @@ public class GetRangeTextRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling getRangeText");
         }
 
-
         // verify the required parameter 'RangeStartIdentifier' is set
         if (getRangeStartIdentifier() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'RangeStartIdentifier' when calling getRangeText");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";

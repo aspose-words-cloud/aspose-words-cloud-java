@@ -189,7 +189,6 @@ public class GetDocumentRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DocumentName' when calling getDocument");
         }
 
-
         // create path and map variables
         String localVarPath = "/words/{documentName}";
         localVarPath = apiClient.addParameterToPath(localVarPath, "documentName", getDocumentName());

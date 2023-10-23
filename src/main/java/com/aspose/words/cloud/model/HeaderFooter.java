@@ -145,6 +145,27 @@ public class HeaderFooter extends HeaderFooterLink {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.childNodes != null) {
+            for (ModelIfc elementChildNodes in this.childNodes) {
+                if (elementChildNodes != null) {
+                    elementChildNodes.validate();
+                }
+            }
+        }
+
+
+
+        if (this.paragraphs != null) {
+            this.paragraphs.validate();
+        }
+
+
+
+        if (this.drawingObjects != null) {
+            this.drawingObjects.validate();
+        }
+
     }
 
     @Override

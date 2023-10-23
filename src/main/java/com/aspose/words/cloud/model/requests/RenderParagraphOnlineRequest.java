@@ -252,18 +252,15 @@ public class RenderParagraphOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling renderParagraphOnline");
         }
 
-
         // verify the required parameter 'Format' is set
         if (getFormat() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling renderParagraphOnline");
         }
 
-
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling renderParagraphOnline");
         }
-
 
         // create path and map variables
         String localVarPath = "/words/online/get/{nodePath}/paragraphs/{index}/render";

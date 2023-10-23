@@ -231,6 +231,27 @@ public class Comment extends CommentLink {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.rangeStart != null) {
+            this.rangeStart.validate();
+        }
+
+
+
+        if (this.rangeEnd != null) {
+            this.rangeEnd.validate();
+        }
+
+
+
+
+
+
+
+        if (this.content != null) {
+            this.content.validate();
+        }
+
     }
 
     @Override
