@@ -288,7 +288,7 @@ public class Document implements ModelIfc {
         }
 
         if (this.links != null) {
-            for (ModelIfc elementLinks in this.links) {
+            for (ModelIfc elementLinks : this.links) {
                 if (elementLinks != null) {
                     elementLinks.validate();
                 }

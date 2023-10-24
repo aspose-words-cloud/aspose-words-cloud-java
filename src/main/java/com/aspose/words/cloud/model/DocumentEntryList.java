@@ -134,7 +134,7 @@ public class DocumentEntryList extends BaseEntryList {
         }
 
         if (this.documentEntries != null) {
-            for (ModelIfc elementDocumentEntries in this.documentEntries) {
+            for (ModelIfc elementDocumentEntries : this.documentEntries) {
                 if (elementDocumentEntries != null) {
                     elementDocumentEntries.validate();
                 }

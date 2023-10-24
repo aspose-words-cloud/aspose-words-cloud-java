@@ -209,7 +209,7 @@ public class DocumentStatData implements ModelIfc {
 
 
         if (this.pageStatData != null) {
-            for (ModelIfc elementPageStatData in this.pageStatData) {
+            for (ModelIfc elementPageStatData : this.pageStatData) {
                 if (elementPageStatData != null) {
                     elementPageStatData.validate();
                 }

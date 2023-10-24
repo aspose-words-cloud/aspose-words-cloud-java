@@ -102,7 +102,7 @@ public class ListLevels extends LinkElement {
         super.validate();
 
         if (this.listLevel != null) {
-            for (ModelIfc elementListLevel in this.listLevel) {
+            for (ModelIfc elementListLevel : this.listLevel) {
                 if (elementListLevel != null) {
                     elementListLevel.validate();
                 }

@@ -147,7 +147,7 @@ public class InfoResponse extends WordsResponse {
         super.validate();
 
         if (this.additionalInfo != null) {
-            for (ModelIfc elementAdditionalInfo in this.additionalInfo) {
+            for (ModelIfc elementAdditionalInfo : this.additionalInfo) {
                 if (elementAdditionalInfo != null) {
                     elementAdditionalInfo.validate();
                 }

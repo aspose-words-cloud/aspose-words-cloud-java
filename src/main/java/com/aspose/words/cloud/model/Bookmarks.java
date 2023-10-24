@@ -101,7 +101,7 @@ public class Bookmarks extends LinkElement {
         super.validate();
 
         if (this.bookmarkList != null) {
-            for (ModelIfc elementBookmarkList in this.bookmarkList) {
+            for (ModelIfc elementBookmarkList : this.bookmarkList) {
                 if (elementBookmarkList != null) {
                     elementBookmarkList.validate();
                 }

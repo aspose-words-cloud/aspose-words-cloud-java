@@ -157,7 +157,7 @@ public class SaveResult implements ModelIfc {
 
 
         if (this.additionalItems != null) {
-            for (ModelIfc elementAdditionalItems in this.additionalItems) {
+            for (ModelIfc elementAdditionalItems : this.additionalItems) {
                 if (elementAdditionalItems != null) {
                     elementAdditionalItems.validate();
                 }

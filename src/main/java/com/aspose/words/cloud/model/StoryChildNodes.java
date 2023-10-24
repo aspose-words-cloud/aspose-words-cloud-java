@@ -99,7 +99,7 @@ public class StoryChildNodes implements ModelIfc {
     public void validate() throws ApiException {
 
         if (this.childNodes != null) {
-            for (ModelIfc elementChildNodes in this.childNodes) {
+            for (ModelIfc elementChildNodes : this.childNodes) {
                 if (elementChildNodes != null) {
                     elementChildNodes.validate();
                 }

@@ -465,7 +465,7 @@ public class DrawingObject extends DrawingObjectLink {
         super.validate();
 
         if (this.renderLinks != null) {
-            for (ModelIfc elementRenderLinks in this.renderLinks) {
+            for (ModelIfc elementRenderLinks : this.renderLinks) {
                 if (elementRenderLinks != null) {
                     elementRenderLinks.validate();
                 }

@@ -131,7 +131,7 @@ public class FilesUploadResult implements ModelIfc {
     public void validate() throws ApiException {
 
         if (this.errors != null) {
-            for (ModelIfc elementErrors in this.errors) {
+            for (ModelIfc elementErrors : this.errors) {
                 if (elementErrors != null) {
                     elementErrors.validate();
                 }

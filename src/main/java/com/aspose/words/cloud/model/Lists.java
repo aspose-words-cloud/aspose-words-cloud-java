@@ -101,7 +101,7 @@ public class Lists extends LinkElement {
         super.validate();
 
         if (this.listInfo != null) {
-            for (ModelIfc elementListInfo in this.listInfo) {
+            for (ModelIfc elementListInfo : this.listInfo) {
                 if (elementListInfo != null) {
                     elementListInfo.validate();
                 }

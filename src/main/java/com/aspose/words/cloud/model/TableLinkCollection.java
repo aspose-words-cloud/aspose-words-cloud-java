@@ -101,7 +101,7 @@ public class TableLinkCollection extends LinkElement {
         super.validate();
 
         if (this.tableLinkList != null) {
-            for (ModelIfc elementTableLinkList in this.tableLinkList) {
+            for (ModelIfc elementTableLinkList : this.tableLinkList) {
                 if (elementTableLinkList != null) {
                     elementTableLinkList.validate();
                 }

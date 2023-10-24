@@ -102,7 +102,7 @@ public class StylesResponse extends WordsResponse {
         super.validate();
 
         if (this.styles != null) {
-            for (ModelIfc elementStyles in this.styles) {
+            for (ModelIfc elementStyles : this.styles) {
                 if (elementStyles != null) {
                     elementStyles.validate();
                 }

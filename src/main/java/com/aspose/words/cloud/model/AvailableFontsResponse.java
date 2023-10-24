@@ -165,7 +165,7 @@ public class AvailableFontsResponse extends WordsResponse {
         super.validate();
 
         if (this.additionalFonts != null) {
-            for (ModelIfc elementAdditionalFonts in this.additionalFonts) {
+            for (ModelIfc elementAdditionalFonts : this.additionalFonts) {
                 if (elementAdditionalFonts != null) {
                     elementAdditionalFonts.validate();
                 }
@@ -175,7 +175,7 @@ public class AvailableFontsResponse extends WordsResponse {
 
 
         if (this.customFonts != null) {
-            for (ModelIfc elementCustomFonts in this.customFonts) {
+            for (ModelIfc elementCustomFonts : this.customFonts) {
                 if (elementCustomFonts != null) {
                     elementCustomFonts.validate();
                 }
@@ -185,7 +185,7 @@ public class AvailableFontsResponse extends WordsResponse {
 
 
         if (this.systemFonts != null) {
-            for (ModelIfc elementSystemFonts in this.systemFonts) {
+            for (ModelIfc elementSystemFonts : this.systemFonts) {
                 if (elementSystemFonts != null) {
                     elementSystemFonts.validate();
                 }

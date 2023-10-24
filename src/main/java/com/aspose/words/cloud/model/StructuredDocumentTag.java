@@ -925,7 +925,7 @@ public class StructuredDocumentTag extends NodeLink {
         super.validate();
 
         if (this.listItems != null) {
-            for (ModelIfc elementListItems in this.listItems) {
+            for (ModelIfc elementListItems : this.listItems) {
                 if (elementListItems != null) {
                     elementListItems.validate();
                 }

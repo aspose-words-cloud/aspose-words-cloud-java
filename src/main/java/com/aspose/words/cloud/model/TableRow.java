@@ -124,7 +124,7 @@ public class TableRow extends NodeLink {
         super.validate();
 
         if (this.tableCellList != null) {
-            for (ModelIfc elementTableCellList in this.tableCellList) {
+            for (ModelIfc elementTableCellList : this.tableCellList) {
                 if (elementTableCellList != null) {
                     elementTableCellList.validate();
                 }

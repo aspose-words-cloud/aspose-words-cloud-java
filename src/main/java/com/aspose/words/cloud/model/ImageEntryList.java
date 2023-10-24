@@ -132,7 +132,7 @@ public class ImageEntryList extends BaseEntryList {
         super.validate();
 
         if (this.imageEntries != null) {
-            for (ModelIfc elementImageEntries in this.imageEntries) {
+            for (ModelIfc elementImageEntries : this.imageEntries) {
                 if (elementImageEntries != null) {
                     elementImageEntries.validate();
                 }

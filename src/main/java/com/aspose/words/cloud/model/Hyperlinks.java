@@ -101,7 +101,7 @@ public class Hyperlinks extends LinkElement {
         super.validate();
 
         if (this.hyperlinkList != null) {
-            for (ModelIfc elementHyperlinkList in this.hyperlinkList) {
+            for (ModelIfc elementHyperlinkList : this.hyperlinkList) {
                 if (elementHyperlinkList != null) {
                     elementHyperlinkList.validate();
                 }

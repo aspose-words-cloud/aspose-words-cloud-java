@@ -101,7 +101,7 @@ public class DocumentProperties extends LinkElement {
         super.validate();
 
         if (this.list != null) {
-            for (ModelIfc elementList in this.list) {
+            for (ModelIfc elementList : this.list) {
                 if (elementList != null) {
                     elementList.validate();
                 }

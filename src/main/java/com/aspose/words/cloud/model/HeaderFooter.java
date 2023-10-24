@@ -147,7 +147,7 @@ public class HeaderFooter extends HeaderFooterLink {
         super.validate();
 
         if (this.childNodes != null) {
-            for (ModelIfc elementChildNodes in this.childNodes) {
+            for (ModelIfc elementChildNodes : this.childNodes) {
                 if (elementChildNodes != null) {
                     elementChildNodes.validate();
                 }

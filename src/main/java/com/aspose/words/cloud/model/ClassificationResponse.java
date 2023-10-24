@@ -151,7 +151,7 @@ public class ClassificationResponse extends WordsResponse {
         }
 
         if (this.bestResults != null) {
-            for (ModelIfc elementBestResults in this.bestResults) {
+            for (ModelIfc elementBestResults : this.bestResults) {
                 if (elementBestResults != null) {
                     elementBestResults.validate();
                 }

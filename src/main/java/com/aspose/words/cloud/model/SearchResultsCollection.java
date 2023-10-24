@@ -101,7 +101,7 @@ public class SearchResultsCollection extends LinkElement {
         super.validate();
 
         if (this.resultsList != null) {
-            for (ModelIfc elementResultsList in this.resultsList) {
+            for (ModelIfc elementResultsList : this.resultsList) {
                 if (elementResultsList != null) {
                     elementResultsList.validate();
                 }

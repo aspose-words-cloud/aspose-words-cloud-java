@@ -101,7 +101,7 @@ public class CustomXmlPartsCollection extends LinkElement {
         super.validate();
 
         if (this.customXmlPartsList != null) {
-            for (ModelIfc elementCustomXmlPartsList in this.customXmlPartsList) {
+            for (ModelIfc elementCustomXmlPartsList : this.customXmlPartsList) {
                 if (elementCustomXmlPartsList != null) {
                     elementCustomXmlPartsList.validate();
                 }

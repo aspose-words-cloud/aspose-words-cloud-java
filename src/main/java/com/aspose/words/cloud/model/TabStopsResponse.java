@@ -102,7 +102,7 @@ public class TabStopsResponse extends WordsResponse {
         super.validate();
 
         if (this.tabStops != null) {
-            for (ModelIfc elementTabStops in this.tabStops) {
+            for (ModelIfc elementTabStops : this.tabStops) {
                 if (elementTabStops != null) {
                     elementTabStops.validate();
                 }

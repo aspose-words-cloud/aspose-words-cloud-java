@@ -157,7 +157,7 @@ public class SplitDocumentResult implements ModelIfc {
 
 
         if (this.pages != null) {
-            for (ModelIfc elementPages in this.pages) {
+            for (ModelIfc elementPages : this.pages) {
                 if (elementPages != null) {
                     elementPages.validate();
                 }

@@ -101,7 +101,7 @@ public class SectionLinkCollection extends LinkElement {
         super.validate();
 
         if (this.sectionLinkList != null) {
-            for (ModelIfc elementSectionLinkList in this.sectionLinkList) {
+            for (ModelIfc elementSectionLinkList : this.sectionLinkList) {
                 if (elementSectionLinkList != null) {
                     elementSectionLinkList.validate();
                 }

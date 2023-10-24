@@ -101,7 +101,7 @@ public class CommentsCollection extends LinkElement {
         super.validate();
 
         if (this.commentList != null) {
-            for (ModelIfc elementCommentList in this.commentList) {
+            for (ModelIfc elementCommentList : this.commentList) {
                 if (elementCommentList != null) {
                     elementCommentList.validate();
                 }

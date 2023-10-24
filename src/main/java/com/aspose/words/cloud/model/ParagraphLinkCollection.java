@@ -101,7 +101,7 @@ public class ParagraphLinkCollection extends LinkElement {
         super.validate();
 
         if (this.paragraphLinkList != null) {
-            for (ModelIfc elementParagraphLinkList in this.paragraphLinkList) {
+            for (ModelIfc elementParagraphLinkList : this.paragraphLinkList) {
                 if (elementParagraphLinkList != null) {
                     elementParagraphLinkList.validate();
                 }

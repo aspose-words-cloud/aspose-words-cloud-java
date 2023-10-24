@@ -215,7 +215,7 @@ public class OutlineOptionsData implements ModelIfc {
     public void validate() throws ApiException {
 
         if (this.bookmarksOutlineLevels != null) {
-            for (ModelIfc elementBookmarksOutlineLevels in this.bookmarksOutlineLevels) {
+            for (ModelIfc elementBookmarksOutlineLevels : this.bookmarksOutlineLevels) {
                 if (elementBookmarksOutlineLevels != null) {
                     elementBookmarksOutlineLevels.validate();
                 }
