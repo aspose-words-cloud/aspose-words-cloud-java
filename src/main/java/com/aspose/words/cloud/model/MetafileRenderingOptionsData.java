@@ -151,6 +151,9 @@ public class MetafileRenderingOptionsData implements ModelIfc {
     @SerializedName("EmulateRenderingToSizeOnPage")
     protected Boolean emulateRenderingToSizeOnPage;
 
+    @SerializedName("EmulateRenderingToSizeOnPageResolution")
+    protected Integer emulateRenderingToSizeOnPageResolution;
+
     @SerializedName("RenderingMode")
     protected RenderingModeEnum renderingMode;
 
@@ -216,6 +219,27 @@ public class MetafileRenderingOptionsData implements ModelIfc {
 
 
     /**
+     * Gets or sets the resolution in pixels per inch for the emulation of metafile rendering to the size on page.
+     * This option is used only when EmulateRenderingToSizeOnPage is set to true.The default value is 96. This is a default display resolution. I.e. metafile rendering will emulate the display of
+     * the metafile in MS Word with a 100% zoom factor.
+    * @return emulateRenderingToSizeOnPageResolution
+    **/
+    @ApiModelProperty(value = "Gets or sets the resolution in pixels per inch for the emulation of metafile rendering to the size on page. This option is used only when EmulateRenderingToSizeOnPage is set to true.The default value is 96. This is a default display resolution. I.e. metafile rendering will emulate the display of the metafile in MS Word with a 100% zoom factor.")
+    public Integer getEmulateRenderingToSizeOnPageResolution() {
+        return emulateRenderingToSizeOnPageResolution;
+    }
+
+    public MetafileRenderingOptionsData emulateRenderingToSizeOnPageResolution(Integer emulateRenderingToSizeOnPageResolution) {
+        this.emulateRenderingToSizeOnPageResolution = emulateRenderingToSizeOnPageResolution;
+        return this;
+    }
+
+    public void setEmulateRenderingToSizeOnPageResolution(Integer emulateRenderingToSizeOnPageResolution) {
+        this.emulateRenderingToSizeOnPageResolution = emulateRenderingToSizeOnPageResolution;
+    }
+
+
+    /**
      * Gets or sets the option that controls how metafile images should be rendered.
     * @return renderingMode
     **/
@@ -257,6 +281,7 @@ public class MetafileRenderingOptionsData implements ModelIfc {
         this.emfPlusDualRenderingMode = null;
         this.emulateRasterOperations = null;
         this.emulateRenderingToSizeOnPage = null;
+        this.emulateRenderingToSizeOnPageResolution = null;
         this.renderingMode = null;
         this.useEmfEmbeddedToWmf = null;
     }
@@ -293,13 +318,14 @@ public class MetafileRenderingOptionsData implements ModelIfc {
             Objects.equals(this.emfPlusDualRenderingMode, metafileRenderingOptionsData.emfPlusDualRenderingMode) &&
             Objects.equals(this.emulateRasterOperations, metafileRenderingOptionsData.emulateRasterOperations) &&
             Objects.equals(this.emulateRenderingToSizeOnPage, metafileRenderingOptionsData.emulateRenderingToSizeOnPage) &&
+            Objects.equals(this.emulateRenderingToSizeOnPageResolution, metafileRenderingOptionsData.emulateRenderingToSizeOnPageResolution) &&
             Objects.equals(this.renderingMode, metafileRenderingOptionsData.renderingMode) &&
             Objects.equals(this.useEmfEmbeddedToWmf, metafileRenderingOptionsData.useEmfEmbeddedToWmf);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emfPlusDualRenderingMode, emulateRasterOperations, emulateRenderingToSizeOnPage, renderingMode, useEmfEmbeddedToWmf);
+    return Objects.hash(emfPlusDualRenderingMode, emulateRasterOperations, emulateRenderingToSizeOnPage, emulateRenderingToSizeOnPageResolution, renderingMode, useEmfEmbeddedToWmf);
   }
 
   @Override
@@ -309,6 +335,7 @@ public class MetafileRenderingOptionsData implements ModelIfc {
     sb.append("    emfPlusDualRenderingMode: ").append(toIndentedString(getEmfPlusDualRenderingMode())).append("\n");
     sb.append("    emulateRasterOperations: ").append(toIndentedString(getEmulateRasterOperations())).append("\n");
     sb.append("    emulateRenderingToSizeOnPage: ").append(toIndentedString(getEmulateRenderingToSizeOnPage())).append("\n");
+    sb.append("    emulateRenderingToSizeOnPageResolution: ").append(toIndentedString(getEmulateRenderingToSizeOnPageResolution())).append("\n");
     sb.append("    renderingMode: ").append(toIndentedString(getRenderingMode())).append("\n");
     sb.append("    useEmfEmbeddedToWmf: ").append(toIndentedString(getUseEmfEmbeddedToWmf())).append("\n");
     sb.append("}");
