@@ -27,6 +27,7 @@
 
 package com.aspose.words.cloud.model;
 
+import com.aspose.words.cloud.ApiException;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
