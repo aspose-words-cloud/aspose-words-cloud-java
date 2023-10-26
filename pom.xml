@@ -242,7 +242,7 @@
             <distributionManagement>
                 <repository>
                     <id>aspose-cloud-s3-repo-ci</id>
-                    <url>s3://data.repository.aspose.cloud/repo</url>
+                    <url>s3://data.repository.aspose.cloud/java/repo/</url>
                 </repository>
             </distributionManagement>
         </profile>
