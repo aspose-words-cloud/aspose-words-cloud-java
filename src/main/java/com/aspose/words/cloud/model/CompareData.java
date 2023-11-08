@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -171,6 +172,29 @@ public class CompareData implements ModelIfc {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.author == null) {
+            throw new ApiException(400, "Property Author in CompareData is required.");
+        }
+        if (this.comparingWithDocument == null) {
+            throw new ApiException(400, "Property ComparingWithDocument in CompareData is required.");
+        }
+
+        if (this.compareOptions != null) {
+            this.compareOptions.validate();
+        }
+
+
+
+
     }
 
     @Override

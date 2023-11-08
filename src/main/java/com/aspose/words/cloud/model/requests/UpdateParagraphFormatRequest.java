@@ -324,6 +324,28 @@ public class UpdateParagraphFormatRequest implements RequestIfc {
         if (getParagraphFormatDto() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphFormatDto' when calling updateParagraphFormat");
         }
+        if (getParagraphFormatDto() != null) {
+            getParagraphFormatDto().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format";

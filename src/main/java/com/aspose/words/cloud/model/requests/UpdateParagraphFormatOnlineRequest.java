@@ -282,6 +282,26 @@ public class UpdateParagraphFormatOnlineRequest implements RequestIfc {
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateParagraphFormatOnline");
         }
+        if (getParagraphFormatDto() != null) {
+            getParagraphFormatDto().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/{nodePath}/paragraphs/{index}/format";

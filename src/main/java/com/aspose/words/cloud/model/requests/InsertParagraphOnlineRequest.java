@@ -277,6 +277,26 @@ public class InsertParagraphOnlineRequest implements RequestIfc {
         if (getParagraph() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Paragraph' when calling insertParagraphOnline");
         }
+        if (getParagraph() != null) {
+            getParagraph().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/{nodePath}/paragraphs";

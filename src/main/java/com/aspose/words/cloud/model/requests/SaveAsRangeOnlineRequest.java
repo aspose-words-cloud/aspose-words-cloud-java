@@ -219,6 +219,18 @@ public class SaveAsRangeOnlineRequest implements RequestIfc {
         if (getDocumentParameters() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DocumentParameters' when calling saveAsRangeOnline");
         }
+        if (getDocumentParameters() != null) {
+            getDocumentParameters().validate();
+        }
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs";

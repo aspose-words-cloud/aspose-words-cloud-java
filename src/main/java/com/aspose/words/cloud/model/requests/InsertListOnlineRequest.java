@@ -235,6 +235,22 @@ public class InsertListOnlineRequest implements RequestIfc {
         if (getListInsert() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListInsert' when calling insertListOnline");
         }
+        if (getListInsert() != null) {
+            getListInsert().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/lists";

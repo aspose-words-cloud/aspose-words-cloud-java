@@ -193,6 +193,18 @@ public class SaveAsOnlineRequest implements RequestIfc {
         if (getSaveOptionsData() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SaveOptionsData' when calling saveAsOnline");
         }
+        if (getSaveOptionsData() != null) {
+            getSaveOptionsData().validate();
+        }
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/saveAs";

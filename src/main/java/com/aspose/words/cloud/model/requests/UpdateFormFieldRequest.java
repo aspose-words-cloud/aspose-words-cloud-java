@@ -324,6 +324,28 @@ public class UpdateFormFieldRequest implements RequestIfc {
         if (getFormField() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FormField' when calling updateFormField");
         }
+        if (getFormField() != null) {
+            getFormField().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields/{index}";

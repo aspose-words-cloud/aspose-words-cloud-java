@@ -282,6 +282,26 @@ public class UpdateTablePropertiesOnlineRequest implements RequestIfc {
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateTablePropertiesOnline");
         }
+        if (getProperties() != null) {
+            getProperties().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/{nodePath}/tables/{index}/properties";

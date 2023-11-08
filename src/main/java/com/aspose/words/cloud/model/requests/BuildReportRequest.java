@@ -261,6 +261,22 @@ public class BuildReportRequest implements RequestIfc {
         if (getReportEngineSettings() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ReportEngineSettings' when calling buildReport");
         }
+        if (getReportEngineSettings() != null) {
+            getReportEngineSettings().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/buildReport";

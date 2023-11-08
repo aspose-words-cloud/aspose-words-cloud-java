@@ -282,6 +282,26 @@ public class UpdateBorderOnlineRequest implements RequestIfc {
         if (getBorderType() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BorderType' when calling updateBorderOnline");
         }
+        if (getBorderProperties() != null) {
+            getBorderProperties().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/{nodePath}/borders/{borderType}";

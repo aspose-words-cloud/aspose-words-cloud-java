@@ -261,6 +261,22 @@ public class ApplyStyleToDocumentElementOnlineRequest implements RequestIfc {
         if (getStyleApply() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleApply' when calling applyStyleToDocumentElementOnline");
         }
+        if (getStyleApply() != null) {
+            getStyleApply().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/{styledNodePath}/style";

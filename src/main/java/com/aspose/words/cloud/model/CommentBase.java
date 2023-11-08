@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -198,6 +199,45 @@ public abstract class CommentBase implements ModelIfc {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.rangeStart == null) {
+            throw new ApiException(400, "Property RangeStart in CommentBase is required.");
+        }
+        if (this.rangeEnd == null) {
+            throw new ApiException(400, "Property RangeEnd in CommentBase is required.");
+        }
+        if (this.author == null) {
+            throw new ApiException(400, "Property Author in CommentBase is required.");
+        }
+        if (this.initial == null) {
+            throw new ApiException(400, "Property Initial in CommentBase is required.");
+        }
+        if (this.text == null) {
+            throw new ApiException(400, "Property Text in CommentBase is required.");
+        }
+
+        if (this.rangeStart != null) {
+            this.rangeStart.validate();
+        }
+
+
+
+        if (this.rangeEnd != null) {
+            this.rangeEnd.validate();
+        }
+
+
+
+
+
     }
 
     @Override

@@ -329,6 +329,26 @@ public class UpdateTableRowFormatRequest implements RequestIfc {
         if (getFormat() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Format' when calling updateTableRowFormat");
         }
+        if (getFormat() != null) {
+            getFormat().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat";

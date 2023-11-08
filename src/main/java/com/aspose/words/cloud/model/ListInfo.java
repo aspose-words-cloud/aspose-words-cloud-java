@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -225,6 +226,42 @@ public class ListInfo extends LinkElement {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+        if (this.listId == null) {
+            throw new ApiException(400, "Property ListId in ListInfo is required.");
+        }
+        if (this.isMultiLevel == null) {
+            throw new ApiException(400, "Property IsMultiLevel in ListInfo is required.");
+        }
+        if (this.isRestartAtEachSection == null) {
+            throw new ApiException(400, "Property IsRestartAtEachSection in ListInfo is required.");
+        }
+        if (this.isListStyleDefinition == null) {
+            throw new ApiException(400, "Property IsListStyleDefinition in ListInfo is required.");
+        }
+        if (this.isListStyleReference == null) {
+            throw new ApiException(400, "Property IsListStyleReference in ListInfo is required.");
+        }
+
+        if (this.style != null) {
+            this.style.validate();
+        }
+
+
+
+        if (this.listLevels != null) {
+            this.listLevels.validate();
+        }
+
     }
 
     @Override

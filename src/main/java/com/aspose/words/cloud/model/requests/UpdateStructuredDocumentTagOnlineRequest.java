@@ -282,6 +282,26 @@ public class UpdateStructuredDocumentTagOnlineRequest implements RequestIfc {
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateStructuredDocumentTagOnline");
         }
+        if (getStructuredDocumentTag() != null) {
+            getStructuredDocumentTag().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/{nodePath}/sdt/{index}";

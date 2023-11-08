@@ -282,6 +282,26 @@ public class UpdateFootnoteOnlineRequest implements RequestIfc {
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateFootnoteOnline");
         }
+        if (getFootnoteDto() != null) {
+            getFootnoteDto().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/{nodePath}/footnotes/{index}";

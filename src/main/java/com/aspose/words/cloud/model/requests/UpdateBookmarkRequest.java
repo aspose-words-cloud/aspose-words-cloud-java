@@ -303,6 +303,26 @@ public class UpdateBookmarkRequest implements RequestIfc {
         if (getBookmarkData() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'BookmarkData' when calling updateBookmark");
         }
+        if (getBookmarkData() != null) {
+            getBookmarkData().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/bookmarks/{bookmarkName}";

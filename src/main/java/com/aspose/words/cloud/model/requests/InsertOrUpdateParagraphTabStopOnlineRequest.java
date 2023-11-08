@@ -240,6 +240,22 @@ public class InsertOrUpdateParagraphTabStopOnlineRequest implements RequestIfc {
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling insertOrUpdateParagraphTabStopOnline");
         }
+        if (getTabStopInsertDto() != null) {
+            getTabStopInsertDto().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/{nodePath}/paragraphs/{index}/tabstops";

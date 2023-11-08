@@ -298,6 +298,28 @@ public class InsertTableRequest implements RequestIfc {
         if (getTable() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Table' when calling insertTable");
         }
+        if (getTable() != null) {
+            getTable().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables";

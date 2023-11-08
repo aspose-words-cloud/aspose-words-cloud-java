@@ -235,6 +235,22 @@ public class InsertCustomXmlPartOnlineRequest implements RequestIfc {
         if (getCustomXmlPart() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CustomXmlPart' when calling insertCustomXmlPartOnline");
         }
+        if (getCustomXmlPart() != null) {
+            getCustomXmlPart().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/customXmlParts";

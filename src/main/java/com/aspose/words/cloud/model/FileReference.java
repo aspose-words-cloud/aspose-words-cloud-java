@@ -27,6 +27,7 @@
 
 package com.aspose.words.cloud.model;
 
+import com.aspose.words.cloud.ApiException;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -93,5 +94,14 @@ public class FileReference implements ModelIfc {
         if ("Request".equals(this.source)) {
             resultFilesContent.add(this);
         }
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    public void validate() throws ApiException {
+        // Do nothing
     }
 }

@@ -261,6 +261,22 @@ public class SaveAsRangeRequest implements RequestIfc {
         if (getDocumentParameters() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DocumentParameters' when calling saveAsRange");
         }
+        if (getDocumentParameters() != null) {
+            getDocumentParameters().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs";

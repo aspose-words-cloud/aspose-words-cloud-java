@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -103,6 +104,25 @@ public class ReplaceTextResponse extends WordsResponse {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+        if (this.matches == null) {
+            throw new ApiException(400, "Property Matches in ReplaceTextResponse is required.");
+        }
+
+        if (this.documentLink != null) {
+            this.documentLink.validate();
+        }
+
+
     }
 
     @Override

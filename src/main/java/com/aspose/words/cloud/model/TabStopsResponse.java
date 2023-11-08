@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -90,6 +91,25 @@ public class TabStopsResponse extends WordsResponse {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+
+        if (this.tabStops != null) {
+            for (ModelIfc elementTabStops : this.tabStops) {
+                if (elementTabStops != null) {
+                    elementTabStops.validate();
+                }
+            }
+        }
+
     }
 
     @Override

@@ -261,6 +261,22 @@ public class UpdateSectionPageSetupOnlineRequest implements RequestIfc {
         if (getPageSetup() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'PageSetup' when calling updateSectionPageSetupOnline");
         }
+        if (getPageSetup() != null) {
+            getPageSetup().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/sections/{sectionIndex}/pageSetup";

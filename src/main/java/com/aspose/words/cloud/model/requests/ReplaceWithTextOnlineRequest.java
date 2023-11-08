@@ -240,6 +240,20 @@ public class ReplaceWithTextOnlineRequest implements RequestIfc {
         if (getRangeText() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'RangeText' when calling replaceWithTextOnline");
         }
+        if (getRangeText() != null) {
+            getRangeText().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/range/{rangeStartIdentifier}/{rangeEndIdentifier}";

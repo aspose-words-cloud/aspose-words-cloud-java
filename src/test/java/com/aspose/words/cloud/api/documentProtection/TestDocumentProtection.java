@@ -96,7 +96,8 @@ public class TestDocumentProtection  extends TestCase
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         ProtectionRequest requestProtectionRequest = new ProtectionRequest();
-        requestProtectionRequest.setNewPassword("123");
+        requestProtectionRequest.setPassword("123");
+        requestProtectionRequest.setProtectionType("ReadOnly");
 
         ProtectDocumentOnlineRequest request = new ProtectDocumentOnlineRequest(
             requestDocument,

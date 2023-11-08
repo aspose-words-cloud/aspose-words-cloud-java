@@ -329,6 +329,26 @@ public class UpdateRunFontRequest implements RequestIfc {
         if (getFontDto() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FontDto' when calling updateRunFont");
         }
+        if (getFontDto() != null) {
+            getFontDto().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font";

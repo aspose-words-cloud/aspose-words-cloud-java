@@ -319,6 +319,30 @@ public class InsertFieldRequest implements RequestIfc {
         if (getField() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Field' when calling insertField");
         }
+        if (getField() != null) {
+            getField().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields";
