@@ -4771,6 +4771,149 @@ public class WordsApi implements EncryptorFactory {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteOfficeMathObjectsValidateBeforeCall(DeleteOfficeMathObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes all office math objects from the document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteOfficeMathObjects(DeleteOfficeMathObjectsRequest request) throws ApiException, MessagingException, IOException {
+        try {
+    deleteOfficeMathObjectsWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+    deleteOfficeMathObjectsWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes all office math objects from the document.
+     * @param request Request object
+     * @return ApiResponse< void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteOfficeMathObjectsWithHttpInfo(DeleteOfficeMathObjectsRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteOfficeMathObjectsValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Removes all office math objects from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteOfficeMathObjectsAsync(DeleteOfficeMathObjectsRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteOfficeMathObjectsValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteOfficeMathObjectsOnlineValidateBeforeCall(DeleteOfficeMathObjectsOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Removes all office math objects from the document.
+     * @param request Request object
+     * @return Map<String, byte[]>
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Map<String, byte[]> deleteOfficeMathObjectsOnline(DeleteOfficeMathObjectsOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< Map<String, byte[]> > resp = deleteOfficeMathObjectsOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< Map<String, byte[]> > resp = deleteOfficeMathObjectsOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes all office math objects from the document.
+     * @param request Request object
+     * @return ApiResponse< Map<String, byte[]> >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Map<String, byte[]> > deleteOfficeMathObjectsOnlineWithHttpInfo(DeleteOfficeMathObjectsOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = deleteOfficeMathObjectsOnlineValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Removes all office math objects from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteOfficeMathObjectsOnlineAsync(DeleteOfficeMathObjectsOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteOfficeMathObjectsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteParagraphValidateBeforeCall(DeleteParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
