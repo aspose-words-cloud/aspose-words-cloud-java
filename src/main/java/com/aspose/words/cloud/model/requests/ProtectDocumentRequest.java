@@ -47,9 +47,9 @@ public class ProtectDocumentRequest implements RequestIfc {
     private String name;
 
     /*
-     * Protection request.
+     * Use ProtectionRequestV2 model to provide protection options.
      */
-    private ProtectionRequest protectionRequest;
+    private ProtectionRequestBase protectionRequest;
 
     /*
      * Original document folder.
@@ -85,7 +85,7 @@ public class ProtectDocumentRequest implements RequestIfc {
      * Initializes a new instance of the ProtectDocumentRequest class.
      *
      * @param String name The filename of the input document.
-     * @param ProtectionRequest protectionRequest Protection request.
+     * @param ProtectionRequestBase protectionRequest Use ProtectionRequestV2 model to provide protection options.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -93,7 +93,7 @@ public class ProtectDocumentRequest implements RequestIfc {
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public ProtectDocumentRequest(String name, ProtectionRequest protectionRequest, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName) {
+    public ProtectDocumentRequest(String name, ProtectionRequestBase protectionRequest, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName) {
         this.name = name;
         this.protectionRequest = protectionRequest;
         this.folder = folder;
@@ -119,16 +119,16 @@ public class ProtectDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets Protection request.
+     * Gets Use ProtectionRequestV2 model to provide protection options.
      */
-    public ProtectionRequest getProtectionRequest() {
+    public ProtectionRequestBase getProtectionRequest() {
         return this.protectionRequest;
     }
 
     /*
-     * Sets Protection request.
+     * Sets Use ProtectionRequestV2 model to provide protection options.
      */
-    public void setProtectionRequest(ProtectionRequest value) {
+    public void setProtectionRequest(ProtectionRequestBase value) {
         this.protectionRequest = value;
     }
 

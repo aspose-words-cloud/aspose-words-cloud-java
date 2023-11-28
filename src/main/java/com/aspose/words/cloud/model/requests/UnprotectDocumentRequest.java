@@ -47,11 +47,6 @@ public class UnprotectDocumentRequest implements RequestIfc {
     private String name;
 
     /*
-     * Protection request.
-     */
-    private ProtectionRequest protectionRequest;
-
-    /*
      * Original document folder.
      */
     private String folder;
@@ -85,7 +80,6 @@ public class UnprotectDocumentRequest implements RequestIfc {
      * Initializes a new instance of the UnprotectDocumentRequest class.
      *
      * @param String name The filename of the input document.
-     * @param ProtectionRequest protectionRequest Protection request.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -93,9 +87,8 @@ public class UnprotectDocumentRequest implements RequestIfc {
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public UnprotectDocumentRequest(String name, ProtectionRequest protectionRequest, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName) {
+    public UnprotectDocumentRequest(String name, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName) {
         this.name = name;
-        this.protectionRequest = protectionRequest;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -116,20 +109,6 @@ public class UnprotectDocumentRequest implements RequestIfc {
      */
     public void setName(String value) {
         this.name = value;
-    }
-
-    /*
-     * Gets Protection request.
-     */
-    public ProtectionRequest getProtectionRequest() {
-        return this.protectionRequest;
-    }
-
-    /*
-     * Sets Protection request.
-     */
-    public void setProtectionRequest(ProtectionRequest value) {
-        this.protectionRequest = value;
     }
 
     /*
@@ -231,27 +210,6 @@ public class UnprotectDocumentRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling unprotectDocument");
         }
 
-        // verify the required parameter 'ProtectionRequest' is set
-        if (getProtectionRequest() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ProtectionRequest' when calling unprotectDocument");
-        }
-        if (getProtectionRequest() != null) {
-            getProtectionRequest().validate();
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // create path and map variables
         String localVarPath = "/words/{name}/protection";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
@@ -270,9 +228,6 @@ public class UnprotectDocumentRequest implements RequestIfc {
 
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (getProtectionRequest() != null) {
-            localVarFormParams.put("ProtectionRequest", getProtectionRequest());
-        }
 
         if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

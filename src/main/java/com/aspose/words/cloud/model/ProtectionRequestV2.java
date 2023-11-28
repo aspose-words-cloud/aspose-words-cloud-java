@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ProtectionData.java">
+ * <copyright company="Aspose" file="ProtectionRequestV2.java">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -44,12 +44,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Container for the data about protection of the document.
+ * Request on changing of protection.
  */
-@ApiModel(description = "Container for the data about protection of the document.")
-public class ProtectionData implements ModelIfc {
+@ApiModel(description = "Request on changing of protection.")
+public class ProtectionRequestV2 extends ProtectionRequestBase {
     /**
-     * Gets or sets type of the protection.
+     * Gets or sets the new type of the document protection.
      */
     @JsonAdapter(ProtectionTypeEnum.Adapter.class)
     public enum ProtectionTypeEnum {
@@ -97,18 +97,41 @@ public class ProtectionData implements ModelIfc {
         }
     }
 
+    @SerializedName("ProtectionPassword")
+    protected String protectionPassword;
+
     @SerializedName("ProtectionType")
     protected ProtectionTypeEnum protectionType;
     /**
-     * Gets or sets type of the protection.
+     * Gets or sets the new password for the document protection.
+     * This property is required, but empty value is allowed.
+    * @return protectionPassword
+    **/
+    @ApiModelProperty(value = "Gets or sets the new password for the document protection. This property is required, but empty value is allowed.")
+    public String getProtectionPassword() {
+        return protectionPassword;
+    }
+
+    public ProtectionRequestV2 protectionPassword(String protectionPassword) {
+        this.protectionPassword = protectionPassword;
+        return this;
+    }
+
+    public void setProtectionPassword(String protectionPassword) {
+        this.protectionPassword = protectionPassword;
+    }
+
+
+    /**
+     * Gets or sets the new type of the document protection.
     * @return protectionType
     **/
-    @ApiModelProperty(value = "Gets or sets type of the protection.")
+    @ApiModelProperty(value = "Gets or sets the new type of the document protection.")
     public ProtectionTypeEnum getProtectionType() {
         return protectionType;
     }
 
-    public ProtectionData protectionType(ProtectionTypeEnum protectionType) {
+    public ProtectionRequestV2 protectionType(ProtectionTypeEnum protectionType) {
         this.protectionType = protectionType;
         return this;
     }
@@ -118,7 +141,9 @@ public class ProtectionData implements ModelIfc {
     }
 
 
-    public ProtectionData() {
+    public ProtectionRequestV2() {
+        super();
+        this.protectionPassword = null;
         this.protectionType = null;
     }
 
@@ -138,8 +163,12 @@ public class ProtectionData implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
+        super.validate();
+        if (this.protectionPassword == null) {
+            throw new ApiException(400, "Property ProtectionPassword in ProtectionRequestV2 is required.");
+        }
         if (this.protectionType == null) {
-            throw new ApiException(400, "Property ProtectionType in ProtectionData is required.");
+            throw new ApiException(400, "Property ProtectionType in ProtectionRequestV2 is required.");
         }
     }
 
@@ -152,20 +181,23 @@ public class ProtectionData implements ModelIfc {
             return false;
         }
 
-        ProtectionData protectionData = (ProtectionData) o;
+        ProtectionRequestV2 protectionRequestV2 = (ProtectionRequestV2) o;
         return
-            Objects.equals(this.protectionType, protectionData.protectionType);
+            Objects.equals(this.protectionPassword, protectionRequestV2.protectionPassword) &&
+            Objects.equals(this.protectionType, protectionRequestV2.protectionType) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(protectionType);
+    return Objects.hash(protectionPassword, protectionType, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProtectionData {\n");
+    sb.append("class ProtectionRequestV2 {\n");
+    sb.append("    protectionPassword: ").append(toIndentedString(getProtectionPassword())).append("\n");
     sb.append("    protectionType: ").append(toIndentedString(getProtectionType())).append("\n");
     sb.append("}");
     return sb.toString();
