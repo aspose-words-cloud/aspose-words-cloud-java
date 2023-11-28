@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ProtectionRequest.java">
+ * <copyright company="Aspose" file="ProtectionRequestBase.java">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -45,81 +45,11 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Request on changing of protection.
- * @deprecated ProtectionRequest is deprecated and remains for backwards compatibility only.
  */
 @ApiModel(description = "Request on changing of protection.")
-@Deprecated
-public class ProtectionRequest extends ProtectionRequestBase {
-    @SerializedName("NewPassword")
-    protected String newPassword;
+public abstract class ProtectionRequestBase implements ModelIfc {
 
-    @SerializedName("Password")
-    protected String password;
-
-    @SerializedName("ProtectionType")
-    protected String protectionType;
-    /**
-     * Gets or sets the new password.
-    * @return newPassword
-    **/
-    @ApiModelProperty(value = "Gets or sets the new password.")
-    public String getNewPassword() {
-        return newPassword;
-    }
-
-    public ProtectionRequest newPassword(String newPassword) {
-        this.newPassword = newPassword;
-        return this;
-    }
-
-    public void setNewPassword(String newPassword) {
-        this.newPassword = newPassword;
-    }
-
-
-    /**
-     * Gets or sets the current password.
-    * @return password
-    **/
-    @ApiModelProperty(value = "Gets or sets the current password.")
-    public String getPassword() {
-        return password;
-    }
-
-    public ProtectionRequest password(String password) {
-        this.password = password;
-        return this;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
-    /**
-     * Gets or sets the new type of protection.
-    * @return protectionType
-    **/
-    @ApiModelProperty(value = "Gets or sets the new type of protection.")
-    public String getProtectionType() {
-        return protectionType;
-    }
-
-    public ProtectionRequest protectionType(String protectionType) {
-        this.protectionType = protectionType;
-        return this;
-    }
-
-    public void setProtectionType(String protectionType) {
-        this.protectionType = protectionType;
-    }
-
-
-    public ProtectionRequest() {
-        super();
-        this.newPassword = null;
-        this.password = null;
-        this.protectionType = null;
+    public ProtectionRequestBase() {
     }
 
     /*
@@ -138,10 +68,6 @@ public class ProtectionRequest extends ProtectionRequestBase {
      */
     @Override
     public void validate() throws ApiException {
-        super.validate();
-        if (this.password == null) {
-            throw new ApiException(400, "Property Password in ProtectionRequest is required.");
-        }
     }
 
     @Override
@@ -153,26 +79,18 @@ public class ProtectionRequest extends ProtectionRequestBase {
             return false;
         }
 
-        ProtectionRequest protectionRequest = (ProtectionRequest) o;
-        return
-            Objects.equals(this.newPassword, protectionRequest.newPassword) &&
-            Objects.equals(this.password, protectionRequest.password) &&
-            Objects.equals(this.protectionType, protectionRequest.protectionType) &&
-            super.equals(o);
+        return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newPassword, password, protectionType, super.hashCode());
+    return Objects.hash();
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProtectionRequest {\n");
-    sb.append("    newPassword: ").append(toIndentedString(getNewPassword())).append("\n");
-    sb.append("    password: ").append(toIndentedString(getPassword())).append("\n");
-    sb.append("    protectionType: ").append(toIndentedString(getProtectionType())).append("\n");
+    sb.append("class ProtectionRequestBase {\n");
     sb.append("}");
     return sb.toString();
   }

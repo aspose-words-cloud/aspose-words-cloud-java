@@ -582,6 +582,7 @@ public class JSON {
                 put("ProtectionData, _", com.aspose.words.cloud.model.ProtectionData.class);
                 put("ProtectionDataResponse, _", com.aspose.words.cloud.model.ProtectionDataResponse.class);
                 put("ProtectionRequest, _", com.aspose.words.cloud.model.ProtectionRequest.class);
+                put("ProtectionRequestV2, _", com.aspose.words.cloud.model.ProtectionRequestV2.class);
                 put("PsSaveOptionsData, _", com.aspose.words.cloud.model.PsSaveOptionsData.class);
                 put("PublicKeyResponse, _", com.aspose.words.cloud.model.PublicKeyResponse.class);
                 put("RangeDocument, _", com.aspose.words.cloud.model.RangeDocument.class);

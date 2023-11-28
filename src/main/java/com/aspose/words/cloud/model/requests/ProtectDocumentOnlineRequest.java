@@ -47,9 +47,9 @@ public class ProtectDocumentOnlineRequest implements RequestIfc {
     private byte[] document;
 
     /*
-     * Protection request.
+     * Use ProtectionRequestV2 model to provide protection options.
      */
-    private ProtectionRequest protectionRequest;
+    private ProtectionRequestBase protectionRequest;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -75,13 +75,13 @@ public class ProtectDocumentOnlineRequest implements RequestIfc {
      * Initializes a new instance of the ProtectDocumentOnlineRequest class.
      *
      * @param byte[] document The document.
-     * @param ProtectionRequest protectionRequest Protection request.
+     * @param ProtectionRequestBase protectionRequest Use ProtectionRequestV2 model to provide protection options.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public ProtectDocumentOnlineRequest(byte[] document, ProtectionRequest protectionRequest, String loadEncoding, String password, String encryptedPassword, String destFileName) {
+    public ProtectDocumentOnlineRequest(byte[] document, ProtectionRequestBase protectionRequest, String loadEncoding, String password, String encryptedPassword, String destFileName) {
         this.document = document;
         this.protectionRequest = protectionRequest;
         this.loadEncoding = loadEncoding;
@@ -105,16 +105,16 @@ public class ProtectDocumentOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets Protection request.
+     * Gets Use ProtectionRequestV2 model to provide protection options.
      */
-    public ProtectionRequest getProtectionRequest() {
+    public ProtectionRequestBase getProtectionRequest() {
         return this.protectionRequest;
     }
 
     /*
-     * Sets Protection request.
+     * Sets Use ProtectionRequestV2 model to provide protection options.
      */
-    public void setProtectionRequest(ProtectionRequest value) {
+    public void setProtectionRequest(ProtectionRequestBase value) {
         this.protectionRequest = value;
     }
 

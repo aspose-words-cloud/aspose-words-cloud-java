@@ -18686,7 +18686,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Adds protection to the document.
+     * Changes the document protection. The previous protection will be overwritten if it exist.
      * @param request Request object
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -18708,7 +18708,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Adds protection to the document.
+     * Changes the document protection. The previous protection will be overwritten if it exist.
      * @param request Request object
      * @return ApiResponse< ProtectionDataResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -18720,7 +18720,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Adds protection to the document. (asynchronously)
+     * Changes the document protection. The previous protection will be overwritten if it exist. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -18759,7 +18759,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Adds protection to the document.
+     * Changes the document protection. The previous protection will be overwritten if it exist.
      * @param request Request object
      * @return ProtectDocumentOnlineResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -18781,7 +18781,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Adds protection to the document.
+     * Changes the document protection. The previous protection will be overwritten if it exist.
      * @param request Request object
      * @return ApiResponse< ProtectDocumentOnlineResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -18793,7 +18793,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Adds protection to the document. (asynchronously)
+     * Changes the document protection. The previous protection will be overwritten if it exist. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
