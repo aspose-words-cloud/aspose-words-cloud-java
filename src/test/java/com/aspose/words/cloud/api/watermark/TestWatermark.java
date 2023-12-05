@@ -131,7 +131,7 @@ public class TestWatermark  extends TestCase
             remoteImagePath
         );
 
-        FileReference requestWatermarkDataImage = new FileReference(remoteDataFolder + "/" + remoteFileName);
+        FileReference requestWatermarkDataImage = new FileReference(remoteImagePath);
         WatermarkDataImage requestWatermarkData = new WatermarkDataImage();
         requestWatermarkData.setImage(requestWatermarkDataImage);
 
@@ -160,7 +160,7 @@ public class TestWatermark  extends TestCase
     public void testInsertWatermarkImageOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
-        byte[] requestWatermarkDataImageStream = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        byte[] requestWatermarkDataImageStream = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
         FileReference requestWatermarkDataImage = new FileReference(requestWatermarkDataImageStream);
         WatermarkDataImage requestWatermarkData = new WatermarkDataImage();
         requestWatermarkData.setImage(requestWatermarkDataImage);
