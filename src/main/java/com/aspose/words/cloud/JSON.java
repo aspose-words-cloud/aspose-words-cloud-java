@@ -657,6 +657,8 @@ public class JSON {
                 put("TiffSaveOptionsData, _", com.aspose.words.cloud.model.TiffSaveOptionsData.class);
                 put("TimeZoneInfoData, _", com.aspose.words.cloud.model.TimeZoneInfoData.class);
                 put("UserInformation, _", com.aspose.words.cloud.model.UserInformation.class);
+                put("WatermarkDataImage, _", com.aspose.words.cloud.model.WatermarkDataImage.class);
+                put("WatermarkDataText, _", com.aspose.words.cloud.model.WatermarkDataText.class);
                 put("WatermarkText, _", com.aspose.words.cloud.model.WatermarkText.class);
                 put("WordMLSaveOptionsData, _", com.aspose.words.cloud.model.WordMLSaveOptionsData.class);
                 put("WordsApiErrorResponse, _", com.aspose.words.cloud.model.WordsApiErrorResponse.class);

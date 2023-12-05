@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="CompareDocumentOnlineRequest.java">
+ * <copyright company="Aspose" file="InsertWatermarkOnlineRequest.java">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -38,18 +38,18 @@ import java.lang.reflect.Type;
 import java.util.*;
 
 /*
- * Request model for compareDocumentOnline operation.
+ * Request model for insertWatermarkOnline operation.
  */
-public class CompareDocumentOnlineRequest implements RequestIfc {
+public class InsertWatermarkOnlineRequest implements RequestIfc {
     /*
      * The document.
      */
     private byte[] document;
 
     /*
-     * Compare data.
+     * The watermark data.
      */
-    private CompareData compareData;
+    private WatermarkDataBase watermarkData;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -72,29 +72,36 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
     private String destFileName;
 
     /*
-     * encrypted password for the second document.
+     * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    private String encryptedPassword2;
+    private String revisionAuthor;
 
     /*
-     * Initializes a new instance of the CompareDocumentOnlineRequest class.
+     * The date and time to use for revisions.
+     */
+    private String revisionDateTime;
+
+    /*
+     * Initializes a new instance of the InsertWatermarkOnlineRequest class.
      *
      * @param byte[] document The document.
-     * @param CompareData compareData Compare data.
+     * @param WatermarkDataBase watermarkData The watermark data.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param String encryptedPassword2 encrypted password for the second document.
+     * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     * @param String revisionDateTime The date and time to use for revisions.
      */
-    public CompareDocumentOnlineRequest(byte[] document, CompareData compareData, String loadEncoding, String password, String encryptedPassword, String destFileName, String encryptedPassword2) {
+    public InsertWatermarkOnlineRequest(byte[] document, WatermarkDataBase watermarkData, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.document = document;
-        this.compareData = compareData;
+        this.watermarkData = watermarkData;
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
         this.destFileName = destFileName;
-        this.encryptedPassword2 = encryptedPassword2;
+        this.revisionAuthor = revisionAuthor;
+        this.revisionDateTime = revisionDateTime;
     }
 
     /*
@@ -112,17 +119,17 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets Compare data.
+     * Gets The watermark data.
      */
-    public CompareData getCompareData() {
-        return this.compareData;
+    public WatermarkDataBase getWatermarkData() {
+        return this.watermarkData;
     }
 
     /*
-     * Sets Compare data.
+     * Sets The watermark data.
      */
-    public void setCompareData(CompareData value) {
-        this.compareData = value;
+    public void setWatermarkData(WatermarkDataBase value) {
+        this.watermarkData = value;
     }
 
     /*
@@ -182,17 +189,31 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets encrypted password for the second document.
+     * Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public String getEncryptedPassword2() {
-        return this.encryptedPassword2;
+    public String getRevisionAuthor() {
+        return this.revisionAuthor;
     }
 
     /*
-     * Sets encrypted password for the second document.
+     * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public void setEncryptedPassword2(String value) {
-        this.encryptedPassword2 = value;
+    public void setRevisionAuthor(String value) {
+        this.revisionAuthor = value;
+    }
+
+    /*
+     * Gets The date and time to use for revisions.
+     */
+    public String getRevisionDateTime() {
+        return this.revisionDateTime;
+    }
+
+    /*
+     * Sets The date and time to use for revisions.
+     */
+    public void setRevisionDateTime(String value) {
+        this.revisionDateTime = value;
     }
 
 
@@ -207,16 +228,18 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
     public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
         // verify the required parameter 'Document' is set
         if (getDocument() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling compareDocumentOnline");
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertWatermarkOnline");
         }
 
-        // verify the required parameter 'CompareData' is set
-        if (getCompareData() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CompareData' when calling compareDocumentOnline");
+        // verify the required parameter 'WatermarkData' is set
+        if (getWatermarkData() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'WatermarkData' when calling insertWatermarkOnline");
         }
-        if (getCompareData() != null) {
-            getCompareData().validate();
+        if (getWatermarkData() != null) {
+            getWatermarkData().validate();
         }
+
+
 
 
 
@@ -230,7 +253,7 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
 
 
         // create path and map variables
-        String localVarPath = "/words/online/put/compareDocument";
+        String localVarPath = "/words/online/post/watermarks/insert";
         localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -239,7 +262,8 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
-        apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword2", getEncryptedPassword2());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
+        apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -249,9 +273,9 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
             localVarFormParams.put("Document", getDocument());
         }
 
-        if (getCompareData() != null) {
-            getCompareData().getFilesContent(localFilesContentParams);
-            localVarFormParams.put("CompareData", getCompareData());
+        if (getWatermarkData() != null) {
+            getWatermarkData().getFilesContent(localFilesContentParams);
+            localVarFormParams.put("WatermarkData", getWatermarkData());
         }
 
         if (progressListener != null) {
@@ -276,9 +300,9 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
      * @param response Response instance
      */
     @Override
-    public CompareDocumentOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+    public InsertWatermarkOnlineResponse deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
         MimeMultipart multipart = apiClient.getMultipartFromResponse(response);
-        return new CompareDocumentOnlineResponse(
+        return new InsertWatermarkOnlineResponse(
             (DocumentResponse) apiClient.parseModel(apiClient.findBodyPartInMultipart("Model", multipart), DocumentResponse.class),
             apiClient.parseFilesCollection(apiClient.findBodyPartInMultipart("Document", multipart))
         );

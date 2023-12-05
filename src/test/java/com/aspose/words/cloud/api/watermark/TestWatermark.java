@@ -55,10 +55,136 @@ public class TestWatermark  extends TestCase
     }
 
     /*
-     * Test for adding watermark image.
+     * Test for adding watermark text.
+     */
+    @Test
+    public void testInsertWatermarkText() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestInsertWatermarkText.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        WatermarkDataText requestWatermarkData = new WatermarkDataText();
+        requestWatermarkData.setText("watermark text");
+
+        InsertWatermarkRequest request = new InsertWatermarkRequest(
+            remoteFileName,
+            requestWatermarkData,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null,
+            TestInitializer.RemoteTestOut + "/" + remoteFileName,
+            null,
+            null
+        );
+
+        DocumentResponse result = TestInitializer.wordsApi.insertWatermark(request);
+        assertNotNull(result);
+        assertNotNull(result.getDocument());
+    }
+
+    /*
+     * Test for adding watermark text online.
+     */
+    @Test
+    public void testInsertWatermarkTextOnline() throws ApiException, MessagingException, IOException
+    {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        WatermarkDataText requestWatermarkData = new WatermarkDataText();
+        requestWatermarkData.setText("watermark text");
+
+        InsertWatermarkOnlineRequest request = new InsertWatermarkOnlineRequest(
+            requestDocument,
+            requestWatermarkData,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertWatermarkOnlineResponse result = TestInitializer.wordsApi.insertWatermarkOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for adding watermark text.
      */
     @Test
     public void testInsertWatermarkImage() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestInsertWatermarkImage.docx";
+        String remoteImagePath = remoteDataFolder + "/TestInsertWatermarkImage.png";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png"),
+            remoteImagePath
+        );
+
+        FileReference requestWatermarkDataImage = new FileReference(remoteDataFolder + "/" + remoteFileName);
+        WatermarkDataImage requestWatermarkData = new WatermarkDataImage();
+        requestWatermarkData.setImage(requestWatermarkDataImage);
+
+        InsertWatermarkRequest request = new InsertWatermarkRequest(
+            remoteFileName,
+            requestWatermarkData,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null,
+            TestInitializer.RemoteTestOut + "/" + remoteFileName,
+            null,
+            null
+        );
+
+        DocumentResponse result = TestInitializer.wordsApi.insertWatermark(request);
+        assertNotNull(result);
+        assertNotNull(result.getDocument());
+    }
+
+    /*
+     * Test for adding watermark text online.
+     */
+    @Test
+    public void testInsertWatermarkImageOnline() throws ApiException, MessagingException, IOException
+    {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        byte[] requestWatermarkDataImageStream = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        FileReference requestWatermarkDataImage = new FileReference(requestWatermarkDataImageStream);
+        WatermarkDataImage requestWatermarkData = new WatermarkDataImage();
+        requestWatermarkData.setImage(requestWatermarkDataImage);
+
+        InsertWatermarkOnlineRequest request = new InsertWatermarkOnlineRequest(
+            requestDocument,
+            requestWatermarkData,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        InsertWatermarkOnlineResponse result = TestInitializer.wordsApi.insertWatermarkOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for adding watermark image.
+     */
+    @Test
+    public void testInsertWatermarkImageDeprecated() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertWatermarkImage.docx";
         String remoteImagePath = remoteDataFolder + "/TestInsertWatermarkImage.png";
@@ -97,7 +223,7 @@ public class TestWatermark  extends TestCase
      * Test for adding watermark image online.
      */
     @Test
-    public void testInsertWatermarkImageOnline() throws ApiException, MessagingException, IOException
+    public void testInsertWatermarkImageDeprecatedOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         byte[] requestImageFile = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath());
@@ -122,7 +248,7 @@ public class TestWatermark  extends TestCase
      * Test for adding watermark text.
      */
     @Test
-    public void testInsertWatermarkText() throws ApiException, MessagingException, IOException
+    public void testInsertWatermarkTextDeprecated() throws ApiException, MessagingException, IOException
     {
         String remoteFileName = "TestInsertWatermarkText.docx";
 
@@ -158,7 +284,7 @@ public class TestWatermark  extends TestCase
      * Test for adding watermark text online.
      */
     @Test
-    public void testInsertWatermarkTextOnline() throws ApiException, MessagingException, IOException
+    public void testInsertWatermarkTextDeprecatedOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         WatermarkText requestWatermarkText = new WatermarkText();

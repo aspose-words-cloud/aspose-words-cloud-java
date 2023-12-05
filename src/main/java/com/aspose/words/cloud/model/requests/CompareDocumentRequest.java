@@ -295,6 +295,7 @@ public class CompareDocumentRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getCompareData() != null) {
+            getCompareData().getFilesContent(localFilesContentParams);
             localVarFormParams.put("CompareData", getCompareData());
         }
 
