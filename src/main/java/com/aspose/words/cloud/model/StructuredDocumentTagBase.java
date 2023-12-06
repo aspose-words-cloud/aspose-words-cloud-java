@@ -242,7 +242,7 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
     protected Boolean multiline;
 
     @SerializedName("Color")
-    protected String color;
+    protected XmlColor color;
 
     @SerializedName("StyleName")
     protected String styleName;
@@ -516,16 +516,16 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
     * @return color
     **/
     @ApiModelProperty(value = "Gets or sets the color of the structured document tag.")
-    public String getColor() {
+    public XmlColor getColor() {
         return color;
     }
 
-    public StructuredDocumentTagBase color(String color) {
+    public StructuredDocumentTagBase color(XmlColor color) {
         this.color = color;
         return this;
     }
 
-    public void setColor(String color) {
+    public void setColor(XmlColor color) {
         this.color = color;
     }
 
@@ -787,6 +787,11 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
 
 
 
+
+
+        if (this.color != null) {
+            this.color.validate();
+        }
 
 
 

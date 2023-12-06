@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="WatermarkText.java">
+ * <copyright company="Aspose" file="WatermarkDataBase.java">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -45,57 +45,11 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Class for insert watermark text request building.
- * @deprecated This model will be removed in the future.
  */
 @ApiModel(description = "Class for insert watermark text request building.")
-@Deprecated
-public class WatermarkText implements ModelIfc {
-    @SerializedName("RotationAngle")
-    protected Double rotationAngle;
+public abstract class WatermarkDataBase implements ModelIfc {
 
-    @SerializedName("Text")
-    protected String text;
-    /**
-     * Gets or sets the watermark rotation angle.
-    * @return rotationAngle
-    **/
-    @ApiModelProperty(value = "Gets or sets the watermark rotation angle.")
-    public Double getRotationAngle() {
-        return rotationAngle;
-    }
-
-    public WatermarkText rotationAngle(Double rotationAngle) {
-        this.rotationAngle = rotationAngle;
-        return this;
-    }
-
-    public void setRotationAngle(Double rotationAngle) {
-        this.rotationAngle = rotationAngle;
-    }
-
-
-    /**
-     * Gets or sets the watermark text.
-    * @return text
-    **/
-    @ApiModelProperty(value = "Gets or sets the watermark text.")
-    public String getText() {
-        return text;
-    }
-
-    public WatermarkText text(String text) {
-        this.text = text;
-        return this;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-
-    public WatermarkText() {
-        this.rotationAngle = null;
-        this.text = null;
+    public WatermarkDataBase() {
     }
 
     /*
@@ -114,12 +68,6 @@ public class WatermarkText implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
-        if (this.rotationAngle == null) {
-            throw new ApiException(400, "Property RotationAngle in WatermarkText is required.");
-        }
-        if (this.text == null) {
-            throw new ApiException(400, "Property Text in WatermarkText is required.");
-        }
     }
 
     @Override
@@ -131,23 +79,18 @@ public class WatermarkText implements ModelIfc {
             return false;
         }
 
-        WatermarkText watermarkText = (WatermarkText) o;
-        return
-            Objects.equals(this.rotationAngle, watermarkText.rotationAngle) &&
-            Objects.equals(this.text, watermarkText.text);
+        return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rotationAngle, text);
+    return Objects.hash();
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WatermarkText {\n");
-    sb.append("    rotationAngle: ").append(toIndentedString(getRotationAngle())).append("\n");
-    sb.append("    text: ").append(toIndentedString(getText())).append("\n");
+    sb.append("class WatermarkDataBase {\n");
     sb.append("}");
     return sb.toString();
   }

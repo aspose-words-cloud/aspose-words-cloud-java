@@ -17963,17 +17963,92 @@ public class WordsApi implements EncryptorFactory {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertWatermarkValidateBeforeCall(InsertWatermarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Insert a watermark to the document.
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public DocumentResponse insertWatermark(InsertWatermarkRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< DocumentResponse > resp = insertWatermarkWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< DocumentResponse > resp = insertWatermarkWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Insert a watermark to the document.
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< DocumentResponse > insertWatermarkWithHttpInfo(InsertWatermarkRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = insertWatermarkValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Insert a watermark to the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertWatermarkAsync(InsertWatermarkRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertWatermarkValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertWatermarkImageValidateBeforeCall(InsertWatermarkImageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
      * Inserts a new watermark image to the document.
+     * @deprecated This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
+    @Deprecated
     public DocumentResponse insertWatermarkImage(InsertWatermarkImageRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = insertWatermarkImageWithHttpInfo(request);
@@ -18042,11 +18117,13 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Inserts a new watermark image to the document.
+     * @deprecated This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.
      * @param request Request object
      * @return InsertWatermarkImageOnlineResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
+    @Deprecated
     public InsertWatermarkImageOnlineResponse insertWatermarkImageOnline(InsertWatermarkImageOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertWatermarkImageOnlineResponse > resp = insertWatermarkImageOnlineWithHttpInfo(request);
@@ -18109,17 +18186,92 @@ public class WordsApi implements EncryptorFactory {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertWatermarkOnlineValidateBeforeCall(InsertWatermarkOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Insert a watermark to the document.
+     * @param request Request object
+     * @return InsertWatermarkOnlineResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public InsertWatermarkOnlineResponse insertWatermarkOnline(InsertWatermarkOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< InsertWatermarkOnlineResponse > resp = insertWatermarkOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< InsertWatermarkOnlineResponse > resp = insertWatermarkOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Insert a watermark to the document.
+     * @param request Request object
+     * @return ApiResponse< InsertWatermarkOnlineResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< InsertWatermarkOnlineResponse > insertWatermarkOnlineWithHttpInfo(InsertWatermarkOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = insertWatermarkOnlineValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Insert a watermark to the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertWatermarkOnlineAsync(InsertWatermarkOnlineRequest request, final ApiCallback< InsertWatermarkOnlineResponse > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertWatermarkOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertWatermarkTextValidateBeforeCall(InsertWatermarkTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
      * Inserts a new watermark text to the document.
+     * @deprecated This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
+    @Deprecated
     public DocumentResponse insertWatermarkText(InsertWatermarkTextRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = insertWatermarkTextWithHttpInfo(request);
@@ -18188,11 +18340,13 @@ public class WordsApi implements EncryptorFactory {
 
     /**
      * Inserts a new watermark text to the document.
+     * @deprecated This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.
      * @param request Request object
      * @return InsertWatermarkTextOnlineResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
+    @Deprecated
     public InsertWatermarkTextOnlineResponse insertWatermarkTextOnline(InsertWatermarkTextOnlineRequest request) throws ApiException, MessagingException, IOException {
         try {
             ApiResponse< InsertWatermarkTextOnlineResponse > resp = insertWatermarkTextOnlineWithHttpInfo(request);
