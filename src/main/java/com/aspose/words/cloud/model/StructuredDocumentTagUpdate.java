@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -59,6 +60,16 @@ public class StructuredDocumentTagUpdate extends StructuredDocumentTag {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
     }
 
     @Override
@@ -99,8 +110,6 @@ public class StructuredDocumentTagUpdate extends StructuredDocumentTag {
     sb.append("    styleName: ").append(toIndentedString(getStyleName())).append("\n");
     sb.append("    calendarType: ").append(toIndentedString(getCalendarType())).append("\n");
     sb.append("    isTemporary: ").append(toIndentedString(getIsTemporary())).append("\n");
-    sb.append("    level: ").append(toIndentedString(getLevel())).append("\n");
-    sb.append("    sdtType: ").append(toIndentedString(getSdtType())).append("\n");
     sb.append("    placeholderName: ").append(toIndentedString(getPlaceholderName())).append("\n");
     sb.append("    lockContentControl: ").append(toIndentedString(getLockContentControl())).append("\n");
     sb.append("    lockContents: ").append(toIndentedString(getLockContents())).append("\n");
@@ -108,6 +117,8 @@ public class StructuredDocumentTagUpdate extends StructuredDocumentTag {
     sb.append("    tag: ").append(toIndentedString(getTag())).append("\n");
     sb.append("    id: ").append(toIndentedString(getId())).append("\n");
     sb.append("    wordOpenXML: ").append(toIndentedString(getWordOpenXML())).append("\n");
+    sb.append("    level: ").append(toIndentedString(getLevel())).append("\n");
+    sb.append("    sdtType: ").append(toIndentedString(getSdtType())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -303,6 +303,26 @@ public class InsertTableCellRequest implements RequestIfc {
         if (getCell() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Cell' when calling insertTableCell");
         }
+        if (getCell() != null) {
+            getCell().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tableRowPath}/cells";

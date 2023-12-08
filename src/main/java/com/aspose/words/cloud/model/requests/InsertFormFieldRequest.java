@@ -319,6 +319,30 @@ public class InsertFormFieldRequest implements RequestIfc {
         if (getFormField() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FormField' when calling insertFormField");
         }
+        if (getFormField() != null) {
+            getFormField().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields";

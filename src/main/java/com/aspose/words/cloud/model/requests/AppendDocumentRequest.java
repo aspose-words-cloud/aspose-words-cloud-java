@@ -277,6 +277,26 @@ public class AppendDocumentRequest implements RequestIfc {
         if (getDocumentList() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DocumentList' when calling appendDocument");
         }
+        if (getDocumentList() != null) {
+            getDocumentList().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/appendDocument";

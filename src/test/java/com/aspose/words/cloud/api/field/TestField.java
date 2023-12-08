@@ -408,6 +408,8 @@ public class TestField  extends TestCase
         PageNumber requestPageNumber = new PageNumber();
         requestPageNumber.setAlignment("center");
         requestPageNumber.setFormat("{PAGE} of {NUMPAGES}");
+        requestPageNumber.setIsTop(true);
+        requestPageNumber.setSetPageNumberOnFirstPage(true);
 
         InsertPageNumbersRequest request = new InsertPageNumbersRequest(
             remoteFileName,
@@ -440,6 +442,8 @@ public class TestField  extends TestCase
         PageNumber requestPageNumber = new PageNumber();
         requestPageNumber.setAlignment("center");
         requestPageNumber.setFormat("{PAGE} of {NUMPAGES}");
+        requestPageNumber.setIsTop(true);
+        requestPageNumber.setSetPageNumberOnFirstPage(true);
 
         InsertPageNumbersOnlineRequest request = new InsertPageNumbersOnlineRequest(
             requestDocument,

@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -226,6 +227,24 @@ public abstract class TabStopBase implements ModelIfc {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.alignment == null) {
+            throw new ApiException(400, "Property Alignment in TabStopBase is required.");
+        }
+        if (this.leader == null) {
+            throw new ApiException(400, "Property Leader in TabStopBase is required.");
+        }
+        if (this.position == null) {
+            throw new ApiException(400, "Property Position in TabStopBase is required.");
+        }
     }
 
     @Override

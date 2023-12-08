@@ -193,6 +193,18 @@ public class CompressDocumentOnlineRequest implements RequestIfc {
         if (getCompressOptions() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CompressOptions' when calling compressDocumentOnline");
         }
+        if (getCompressOptions() != null) {
+            getCompressOptions().validate();
+        }
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/compress";

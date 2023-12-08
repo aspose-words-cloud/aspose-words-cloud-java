@@ -235,6 +235,22 @@ public class CopyStyleOnlineRequest implements RequestIfc {
         if (getStyleCopy() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleCopy' when calling copyStyleOnline");
         }
+        if (getStyleCopy() != null) {
+            getStyleCopy().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/styles/copy";

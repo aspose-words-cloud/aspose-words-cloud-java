@@ -282,6 +282,26 @@ public class InsertDrawingObjectOnlineRequest implements RequestIfc {
         if (getImageFile() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ImageFile' when calling insertDrawingObjectOnline");
         }
+        if (getDrawingObject() != null) {
+            getDrawingObject().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/{nodePath}/drawingObjects";

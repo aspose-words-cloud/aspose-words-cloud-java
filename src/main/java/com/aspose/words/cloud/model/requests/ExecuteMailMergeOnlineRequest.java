@@ -193,6 +193,16 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
         if (getData() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Data' when calling executeMailMergeOnline");
         }
+        if (getOptions() != null) {
+            getOptions().validate();
+        }
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/MailMerge";

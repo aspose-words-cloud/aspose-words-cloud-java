@@ -235,6 +235,22 @@ public class InsertCommentOnlineRequest implements RequestIfc {
         if (getComment() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Comment' when calling insertCommentOnline");
         }
+        if (getComment() != null) {
+            getComment().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/comments";

@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -58,6 +59,9 @@ public class CompareData implements ModelIfc {
 
     @SerializedName("DateTime")
     protected OffsetDateTime dateTime;
+
+    @SerializedName("FileReference")
+    protected FileReference fileReference;
 
     @SerializedName("ResultDocumentFormat")
     protected String resultDocumentFormat;
@@ -104,15 +108,18 @@ public class CompareData implements ModelIfc {
     * @return comparingWithDocument
     **/
     @ApiModelProperty(value = "Gets or sets the path to document to compare at the server.")
+    @Deprecated
     public String getComparingWithDocument() {
         return comparingWithDocument;
     }
 
+    @Deprecated
     public CompareData comparingWithDocument(String comparingWithDocument) {
         this.comparingWithDocument = comparingWithDocument;
         return this;
     }
 
+    @Deprecated
     public void setComparingWithDocument(String comparingWithDocument) {
         this.comparingWithDocument = comparingWithDocument;
     }
@@ -134,6 +141,25 @@ public class CompareData implements ModelIfc {
 
     public void setDateTime(OffsetDateTime dateTime) {
         this.dateTime = dateTime;
+    }
+
+
+    /**
+     * Gets or sets the file reference.
+    * @return fileReference
+    **/
+    @ApiModelProperty(value = "Gets or sets the file reference.")
+    public FileReference getFileReference() {
+        return fileReference;
+    }
+
+    public CompareData fileReference(FileReference fileReference) {
+        this.fileReference = fileReference;
+        return this;
+    }
+
+    public void setFileReference(FileReference fileReference) {
+        this.fileReference = fileReference;
     }
 
 
@@ -161,6 +187,7 @@ public class CompareData implements ModelIfc {
         this.compareOptions = null;
         this.comparingWithDocument = null;
         this.dateTime = null;
+        this.fileReference = null;
         this.resultDocumentFormat = null;
     }
 
@@ -171,6 +198,40 @@ public class CompareData implements ModelIfc {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
+        if (this.fileReference != null) {
+            this.fileReference.getFilesContent(resultFilesContent);
+        }
+
+
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.author == null) {
+            throw new ApiException(400, "Property Author in CompareData is required.");
+        }
+        if (this.fileReference == null) {
+            throw new ApiException(400, "Property FileReference in CompareData is required.");
+        }
+
+        if (this.compareOptions != null) {
+            this.compareOptions.validate();
+        }
+
+
+
+
+
+        if (this.fileReference != null) {
+            this.fileReference.validate();
+        }
+
+
     }
 
     @Override
@@ -188,12 +249,13 @@ public class CompareData implements ModelIfc {
             Objects.equals(this.compareOptions, compareData.compareOptions) &&
             Objects.equals(this.comparingWithDocument, compareData.comparingWithDocument) &&
             Objects.equals(this.dateTime, compareData.dateTime) &&
+            Objects.equals(this.fileReference, compareData.fileReference) &&
             Objects.equals(this.resultDocumentFormat, compareData.resultDocumentFormat);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, compareOptions, comparingWithDocument, dateTime, resultDocumentFormat);
+    return Objects.hash(author, compareOptions, comparingWithDocument, dateTime, fileReference, resultDocumentFormat);
   }
 
   @Override
@@ -204,6 +266,7 @@ public class CompareData implements ModelIfc {
     sb.append("    compareOptions: ").append(toIndentedString(getCompareOptions())).append("\n");
     sb.append("    comparingWithDocument: ").append(toIndentedString(getComparingWithDocument())).append("\n");
     sb.append("    dateTime: ").append(toIndentedString(getDateTime())).append("\n");
+    sb.append("    fileReference: ").append(toIndentedString(getFileReference())).append("\n");
     sb.append("    resultDocumentFormat: ").append(toIndentedString(getResultDocumentFormat())).append("\n");
     sb.append("}");
     return sb.toString();

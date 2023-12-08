@@ -256,6 +256,24 @@ public class InsertFootnoteOnlineRequest implements RequestIfc {
         if (getFootnoteDto() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FootnoteDto' when calling insertFootnoteOnline");
         }
+        if (getFootnoteDto() != null) {
+            getFootnoteDto().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/{nodePath}/footnotes";

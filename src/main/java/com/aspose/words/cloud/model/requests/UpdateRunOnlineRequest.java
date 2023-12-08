@@ -287,6 +287,24 @@ public class UpdateRunOnlineRequest implements RequestIfc {
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateRunOnline");
         }
+        if (getRun() != null) {
+            getRun().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/{paragraphPath}/runs/{index}";

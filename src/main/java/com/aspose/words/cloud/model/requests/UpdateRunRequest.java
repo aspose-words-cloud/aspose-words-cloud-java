@@ -329,6 +329,26 @@ public class UpdateRunRequest implements RequestIfc {
         if (getRun() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Run' when calling updateRun");
         }
+        if (getRun() != null) {
+            getRun().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}";

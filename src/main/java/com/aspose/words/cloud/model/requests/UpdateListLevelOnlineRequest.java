@@ -287,6 +287,24 @@ public class UpdateListLevelOnlineRequest implements RequestIfc {
         if (getListLevel() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListLevel' when calling updateListLevelOnline");
         }
+        if (getListUpdate() != null) {
+            getListUpdate().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/lists/{listId}/listLevels/{listLevel}";

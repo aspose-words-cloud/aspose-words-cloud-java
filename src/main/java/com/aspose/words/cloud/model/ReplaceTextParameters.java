@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -171,6 +172,30 @@ public class ReplaceTextParameters implements ModelIfc {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.isMatchCase == null) {
+            throw new ApiException(400, "Property IsMatchCase in ReplaceTextParameters is required.");
+        }
+        if (this.isMatchWholeWord == null) {
+            throw new ApiException(400, "Property IsMatchWholeWord in ReplaceTextParameters is required.");
+        }
+        if (this.isOldValueRegex == null) {
+            throw new ApiException(400, "Property IsOldValueRegex in ReplaceTextParameters is required.");
+        }
+        if (this.newValue == null) {
+            throw new ApiException(400, "Property NewValue in ReplaceTextParameters is required.");
+        }
+        if (this.oldValue == null) {
+            throw new ApiException(400, "Property OldValue in ReplaceTextParameters is required.");
+        }
     }
 
     @Override

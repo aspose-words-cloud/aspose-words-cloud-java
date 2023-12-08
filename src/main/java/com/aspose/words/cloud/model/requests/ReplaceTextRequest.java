@@ -277,6 +277,26 @@ public class ReplaceTextRequest implements RequestIfc {
         if (getReplaceText() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ReplaceText' when calling replaceText");
         }
+        if (getReplaceText() != null) {
+            getReplaceText().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/replaceText";

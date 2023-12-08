@@ -350,6 +350,32 @@ public class UpdateDrawingObjectRequest implements RequestIfc {
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateDrawingObject");
         }
+        if (getDrawingObject() != null) {
+            getDrawingObject().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}";

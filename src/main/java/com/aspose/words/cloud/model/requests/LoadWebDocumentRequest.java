@@ -104,6 +104,12 @@ public class LoadWebDocumentRequest implements RequestIfc {
         if (getData() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Data' when calling loadWebDocument");
         }
+        if (getData() != null) {
+            getData().validate();
+        }
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/loadWebDocument";

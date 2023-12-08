@@ -261,6 +261,22 @@ public class UpdateStyleOnlineRequest implements RequestIfc {
         if (getStyleUpdate() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleUpdate' when calling updateStyleOnline");
         }
+        if (getStyleUpdate() != null) {
+            getStyleUpdate().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/styles/{styleName}/update";

@@ -256,6 +256,24 @@ public class InsertTableOnlineRequest implements RequestIfc {
         if (getTable() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Table' when calling insertTableOnline");
         }
+        if (getTable() != null) {
+            getTable().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/{nodePath}/tables";

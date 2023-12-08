@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="DocumentPropertyBase.java">
+ * <copyright company="Aspose" file="WatermarkDataBase.java">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -43,33 +44,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Words document property DTO base class.
+ * Class for insert watermark text request building.
  */
-@ApiModel(description = "Words document property DTO base class.")
-public abstract class DocumentPropertyBase implements ModelIfc {
-    @SerializedName("Value")
-    protected String value;
-    /**
-     * Gets or sets the value of the document property.
-    * @return value
-    **/
-    @ApiModelProperty(value = "Gets or sets the value of the document property.")
-    public String getValue() {
-        return value;
-    }
+@ApiModel(description = "Class for insert watermark text request building.")
+public abstract class WatermarkDataBase implements ModelIfc {
 
-    public DocumentPropertyBase value(String value) {
-        this.value = value;
-        return this;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-
-    public DocumentPropertyBase() {
-        this.value = null;
+    public WatermarkDataBase() {
     }
 
     /*
@@ -81,6 +61,15 @@ public abstract class DocumentPropertyBase implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -90,21 +79,18 @@ public abstract class DocumentPropertyBase implements ModelIfc {
             return false;
         }
 
-        DocumentPropertyBase documentPropertyBase = (DocumentPropertyBase) o;
-        return
-            Objects.equals(this.value, documentPropertyBase.value);
+        return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+    return Objects.hash();
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPropertyBase {\n");
-    sb.append("    value: ").append(toIndentedString(getValue())).append("\n");
+    sb.append("class WatermarkDataBase {\n");
     sb.append("}");
     return sb.toString();
   }

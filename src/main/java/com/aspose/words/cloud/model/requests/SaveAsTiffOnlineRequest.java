@@ -550,6 +550,52 @@ public class SaveAsTiffOnlineRequest implements RequestIfc {
         if (getSaveOptions() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SaveOptions' when calling saveAsTiffOnline");
         }
+        if (getSaveOptions() != null) {
+            getSaveOptions().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/saveAs/tiff";

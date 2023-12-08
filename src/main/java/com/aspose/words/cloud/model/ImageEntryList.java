@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -117,6 +118,28 @@ public class ImageEntryList extends BaseEntryList {
         if (this.imageEntries != null) {
             for (ModelIfc element : this.imageEntries) {
                 element.getFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+        if (this.imageEntries == null) {
+            throw new ApiException(400, "Property ImageEntries in ImageEntryList is required.");
+        }
+
+        if (this.imageEntries != null) {
+            for (ModelIfc elementImageEntries : this.imageEntries) {
+                if (elementImageEntries != null) {
+                    elementImageEntries.validate();
+                }
             }
         }
 

@@ -52,11 +52,6 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
     private CompareData compareData;
 
     /*
-     * The comparing document.
-     */
-    private byte[] comparingDocument;
-
-    /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String loadEncoding;
@@ -86,17 +81,15 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
      *
      * @param byte[] document The document.
      * @param CompareData compareData Compare data.
-     * @param byte[] comparingDocument The comparing document.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String encryptedPassword2 encrypted password for the second document.
      */
-    public CompareDocumentOnlineRequest(byte[] document, CompareData compareData, byte[] comparingDocument, String loadEncoding, String password, String encryptedPassword, String destFileName, String encryptedPassword2) {
+    public CompareDocumentOnlineRequest(byte[] document, CompareData compareData, String loadEncoding, String password, String encryptedPassword, String destFileName, String encryptedPassword2) {
         this.document = document;
         this.compareData = compareData;
-        this.comparingDocument = comparingDocument;
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
@@ -130,20 +123,6 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
      */
     public void setCompareData(CompareData value) {
         this.compareData = value;
-    }
-
-    /*
-     * Gets The comparing document.
-     */
-    public byte[] getComparingDocument() {
-        return this.comparingDocument;
-    }
-
-    /*
-     * Sets The comparing document.
-     */
-    public void setComparingDocument(byte[] value) {
-        this.comparingDocument = value;
     }
 
     /*
@@ -235,6 +214,20 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
         if (getCompareData() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CompareData' when calling compareDocumentOnline");
         }
+        if (getCompareData() != null) {
+            getCompareData().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/compareDocument";
@@ -257,11 +250,8 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
         }
 
         if (getCompareData() != null) {
+            getCompareData().getFilesContent(localFilesContentParams);
             localVarFormParams.put("CompareData", getCompareData());
-        }
-
-        if (getComparingDocument() != null) {
-            localVarFormParams.put("ComparingDocument", getComparingDocument());
         }
 
         if (progressListener != null) {

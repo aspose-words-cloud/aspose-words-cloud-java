@@ -256,6 +256,24 @@ public class InsertStructuredDocumentTagOnlineRequest implements RequestIfc {
         if (getStructuredDocumentTag() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StructuredDocumentTag' when calling insertStructuredDocumentTagOnline");
         }
+        if (getStructuredDocumentTag() != null) {
+            getStructuredDocumentTag().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/{nodePath}/sdt";

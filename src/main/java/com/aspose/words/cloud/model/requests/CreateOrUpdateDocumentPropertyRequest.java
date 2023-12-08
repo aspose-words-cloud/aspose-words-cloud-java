@@ -303,6 +303,26 @@ public class CreateOrUpdateDocumentPropertyRequest implements RequestIfc {
         if (getProperty() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Property' when calling createOrUpdateDocumentProperty");
         }
+        if (getProperty() != null) {
+            getProperty().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/documentProperties/{propertyName}";

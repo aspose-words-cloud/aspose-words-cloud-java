@@ -235,6 +235,22 @@ public class InsertPageNumbersOnlineRequest implements RequestIfc {
         if (getPageNumber() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'PageNumber' when calling insertPageNumbersOnline");
         }
+        if (getPageNumber() != null) {
+            getPageNumber().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/PageNumbers";

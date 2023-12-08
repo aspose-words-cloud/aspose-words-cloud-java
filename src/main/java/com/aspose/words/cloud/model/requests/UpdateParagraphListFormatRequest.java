@@ -324,6 +324,28 @@ public class UpdateParagraphListFormatRequest implements RequestIfc {
         if (getListFormatDto() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListFormatDto' when calling updateParagraphListFormat");
         }
+        if (getListFormatDto() != null) {
+            getListFormatDto().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";

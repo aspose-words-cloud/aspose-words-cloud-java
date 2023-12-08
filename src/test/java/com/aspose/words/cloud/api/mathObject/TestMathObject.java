@@ -382,4 +382,53 @@ public class TestMathObject  extends TestCase
 
         TestInitializer.wordsApi.deleteOfficeMathObject(request);
     }
+
+    /*
+     * Test for deleting math objects.
+     */
+    @Test
+    public void testDeleteOfficeMathObjects() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestDeleteOfficeMathObject.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        DeleteOfficeMathObjectsRequest request = new DeleteOfficeMathObjectsRequest(
+            remoteFileName,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        TestInitializer.wordsApi.deleteOfficeMathObjects(request);
+    }
+
+    /*
+     * Test for deleting math objects online.
+     */
+    @Test
+    public void testDeleteOfficeMathObjectsOnline() throws ApiException, MessagingException, IOException
+    {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        DeleteOfficeMathObjectsOnlineRequest request = new DeleteOfficeMathObjectsOnlineRequest(
+            requestDocument,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        Map<String, byte[]> result = TestInitializer.wordsApi.deleteOfficeMathObjectsOnline(request);
+        assertNotNull(result);
+    }
 }

@@ -74,10 +74,11 @@ public class TestCompareDocument  extends TestCase
             remoteFolder + "/" + remoteName2
         );
 
+        FileReference requestCompareDataFileReference = new FileReference(remoteFolder + "/" + remoteName2);
         CompareData requestCompareData = new CompareData();
         requestCompareData.setAuthor("author");
-        requestCompareData.setComparingWithDocument(remoteFolder + "/" + remoteName2);
         requestCompareData.setDateTime(OffsetDateTime.of(2015, 10, 26, 0, 0, 0, 0, ZoneOffset.UTC));
+        requestCompareData.setFileReference(requestCompareDataFileReference);
 
         CompareDocumentRequest request = new CompareDocumentRequest(
             remoteName1,
@@ -113,15 +114,15 @@ public class TestCompareDocument  extends TestCase
         );
 
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/" + localName1).toAbsolutePath());
+        FileReference requestCompareDataFileReference = new FileReference(remoteFolder + "/" + remoteName2);
         CompareData requestCompareData = new CompareData();
         requestCompareData.setAuthor("author");
-        requestCompareData.setComparingWithDocument(remoteFolder + "/" + remoteName2);
         requestCompareData.setDateTime(OffsetDateTime.of(2015, 10, 26, 0, 0, 0, 0, ZoneOffset.UTC));
+        requestCompareData.setFileReference(requestCompareDataFileReference);
 
         CompareDocumentOnlineRequest request = new CompareDocumentOnlineRequest(
             requestDocument,
             requestCompareData,
-            null,
             null,
             null,
             null,
@@ -149,16 +150,16 @@ public class TestCompareDocument  extends TestCase
         );
 
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/" + localName1).toAbsolutePath());
+        byte[] requestCompareDataFileReferenceStream = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/" + localName2).toAbsolutePath());
+        FileReference requestCompareDataFileReference = new FileReference(requestCompareDataFileReferenceStream);
         CompareData requestCompareData = new CompareData();
         requestCompareData.setAuthor("author");
-        requestCompareData.setComparingWithDocument(remoteFolder + "/" + remoteName2);
         requestCompareData.setDateTime(OffsetDateTime.of(2015, 10, 26, 0, 0, 0, 0, ZoneOffset.UTC));
+        requestCompareData.setFileReference(requestCompareDataFileReference);
 
-        byte[] requestComparingDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/" + localName2).toAbsolutePath());
         CompareDocumentOnlineRequest request = new CompareDocumentOnlineRequest(
             requestDocument,
             requestCompareData,
-            requestComparingDocument,
             null,
             null,
             null,

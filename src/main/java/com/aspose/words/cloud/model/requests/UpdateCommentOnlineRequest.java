@@ -261,6 +261,22 @@ public class UpdateCommentOnlineRequest implements RequestIfc {
         if (getComment() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Comment' when calling updateCommentOnline");
         }
+        if (getComment() != null) {
+            getComment().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/comments/{commentIndex}";

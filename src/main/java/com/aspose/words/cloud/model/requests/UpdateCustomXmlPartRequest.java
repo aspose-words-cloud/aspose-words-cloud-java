@@ -303,6 +303,26 @@ public class UpdateCustomXmlPartRequest implements RequestIfc {
         if (getCustomXmlPart() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CustomXmlPart' when calling updateCustomXmlPart");
         }
+        if (getCustomXmlPart() != null) {
+            getCustomXmlPart().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/customXmlParts/{customXmlPartIndex}";

@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -545,6 +546,57 @@ public class ListLevel extends LinkElement {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+        if (this.startAt == null) {
+            throw new ApiException(400, "Property StartAt in ListLevel is required.");
+        }
+        if (this.numberStyle == null) {
+            throw new ApiException(400, "Property NumberStyle in ListLevel is required.");
+        }
+        if (this.alignment == null) {
+            throw new ApiException(400, "Property Alignment in ListLevel is required.");
+        }
+        if (this.isLegal == null) {
+            throw new ApiException(400, "Property IsLegal in ListLevel is required.");
+        }
+        if (this.restartAfterLevel == null) {
+            throw new ApiException(400, "Property RestartAfterLevel in ListLevel is required.");
+        }
+        if (this.trailingCharacter == null) {
+            throw new ApiException(400, "Property TrailingCharacter in ListLevel is required.");
+        }
+        if (this.tabPosition == null) {
+            throw new ApiException(400, "Property TabPosition in ListLevel is required.");
+        }
+        if (this.numberPosition == null) {
+            throw new ApiException(400, "Property NumberPosition in ListLevel is required.");
+        }
+        if (this.textPosition == null) {
+            throw new ApiException(400, "Property TextPosition in ListLevel is required.");
+        }
+
+        if (this.font != null) {
+            this.font.validate();
+        }
+
+
+
+
+
+
+        if (this.linkedStyle != null) {
+            this.linkedStyle.validate();
+        }
+
     }
 
     @Override

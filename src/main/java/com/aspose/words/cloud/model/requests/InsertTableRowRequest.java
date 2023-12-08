@@ -303,6 +303,26 @@ public class InsertTableRowRequest implements RequestIfc {
         if (getRow() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Row' when calling insertTableRow");
         }
+        if (getRow() != null) {
+            getRow().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows";

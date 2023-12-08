@@ -324,6 +324,28 @@ public class UpdateFootnoteRequest implements RequestIfc {
         if (getFootnoteDto() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'FootnoteDto' when calling updateFootnote");
         }
+        if (getFootnoteDto() != null) {
+            getFootnoteDto().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}";

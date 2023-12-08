@@ -47,11 +47,6 @@ public class UnprotectDocumentOnlineRequest implements RequestIfc {
     private byte[] document;
 
     /*
-     * Protection request.
-     */
-    private ProtectionRequest protectionRequest;
-
-    /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String loadEncoding;
@@ -75,15 +70,13 @@ public class UnprotectDocumentOnlineRequest implements RequestIfc {
      * Initializes a new instance of the UnprotectDocumentOnlineRequest class.
      *
      * @param byte[] document The document.
-     * @param ProtectionRequest protectionRequest Protection request.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public UnprotectDocumentOnlineRequest(byte[] document, ProtectionRequest protectionRequest, String loadEncoding, String password, String encryptedPassword, String destFileName) {
+    public UnprotectDocumentOnlineRequest(byte[] document, String loadEncoding, String password, String encryptedPassword, String destFileName) {
         this.document = document;
-        this.protectionRequest = protectionRequest;
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
@@ -102,20 +95,6 @@ public class UnprotectDocumentOnlineRequest implements RequestIfc {
      */
     public void setDocument(byte[] value) {
         this.document = value;
-    }
-
-    /*
-     * Gets Protection request.
-     */
-    public ProtectionRequest getProtectionRequest() {
-        return this.protectionRequest;
-    }
-
-    /*
-     * Sets Protection request.
-     */
-    public void setProtectionRequest(ProtectionRequest value) {
-        this.protectionRequest = value;
     }
 
     /*
@@ -189,11 +168,6 @@ public class UnprotectDocumentOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling unprotectDocumentOnline");
         }
 
-        // verify the required parameter 'ProtectionRequest' is set
-        if (getProtectionRequest() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ProtectionRequest' when calling unprotectDocumentOnline");
-        }
-
         // create path and map variables
         String localVarPath = "/words/online/delete/protection";
         localVarPath = localVarPath.replaceAll("//", "/");
@@ -211,10 +185,6 @@ public class UnprotectDocumentOnlineRequest implements RequestIfc {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getDocument() != null) {
             localVarFormParams.put("Document", getDocument());
-        }
-
-        if (getProtectionRequest() != null) {
-            localVarFormParams.put("ProtectionRequest", getProtectionRequest());
         }
 
         if (progressListener != null) {

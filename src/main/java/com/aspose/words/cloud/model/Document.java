@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -268,6 +269,43 @@ public class Document implements ModelIfc {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.isEncrypted == null) {
+            throw new ApiException(400, "Property IsEncrypted in Document is required.");
+        }
+        if (this.isSigned == null) {
+            throw new ApiException(400, "Property IsSigned in Document is required.");
+        }
+        if (this.sourceFormat == null) {
+            throw new ApiException(400, "Property SourceFormat in Document is required.");
+        }
+
+        if (this.links != null) {
+            for (ModelIfc elementLinks : this.links) {
+                if (elementLinks != null) {
+                    elementLinks.validate();
+                }
+            }
+        }
+
+
+
+        if (this.documentProperties != null) {
+            this.documentProperties.validate();
+        }
+
+
+
+
+
     }
 
     @Override

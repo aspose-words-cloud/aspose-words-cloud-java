@@ -582,6 +582,7 @@ public class JSON {
                 put("ProtectionData, _", com.aspose.words.cloud.model.ProtectionData.class);
                 put("ProtectionDataResponse, _", com.aspose.words.cloud.model.ProtectionDataResponse.class);
                 put("ProtectionRequest, _", com.aspose.words.cloud.model.ProtectionRequest.class);
+                put("ProtectionRequestV2, _", com.aspose.words.cloud.model.ProtectionRequestV2.class);
                 put("PsSaveOptionsData, _", com.aspose.words.cloud.model.PsSaveOptionsData.class);
                 put("PublicKeyResponse, _", com.aspose.words.cloud.model.PublicKeyResponse.class);
                 put("RangeDocument, _", com.aspose.words.cloud.model.RangeDocument.class);
@@ -656,6 +657,8 @@ public class JSON {
                 put("TiffSaveOptionsData, _", com.aspose.words.cloud.model.TiffSaveOptionsData.class);
                 put("TimeZoneInfoData, _", com.aspose.words.cloud.model.TimeZoneInfoData.class);
                 put("UserInformation, _", com.aspose.words.cloud.model.UserInformation.class);
+                put("WatermarkDataImage, _", com.aspose.words.cloud.model.WatermarkDataImage.class);
+                put("WatermarkDataText, _", com.aspose.words.cloud.model.WatermarkDataText.class);
                 put("WatermarkText, _", com.aspose.words.cloud.model.WatermarkText.class);
                 put("WordMLSaveOptionsData, _", com.aspose.words.cloud.model.WordMLSaveOptionsData.class);
                 put("WordsApiErrorResponse, _", com.aspose.words.cloud.model.WordsApiErrorResponse.class);

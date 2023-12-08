@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -46,10 +47,30 @@ import io.swagger.annotations.ApiModelProperty;
  * Words document property DTO for create or update.
  */
 @ApiModel(description = "Words document property DTO for create or update.")
-public class DocumentPropertyCreateOrUpdate extends DocumentPropertyBase {
+public class DocumentPropertyCreateOrUpdate implements ModelIfc {
+    @SerializedName("Value")
+    protected String value;
+    /**
+     * Gets or sets the value of the document property.
+    * @return value
+    **/
+    @ApiModelProperty(value = "Gets or sets the value of the document property.")
+    public String getValue() {
+        return value;
+    }
+
+    public DocumentPropertyCreateOrUpdate value(String value) {
+        this.value = value;
+        return this;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
 
     public DocumentPropertyCreateOrUpdate() {
-        super();
+        this.value = null;
     }
 
     /*
@@ -61,6 +82,18 @@ public class DocumentPropertyCreateOrUpdate extends DocumentPropertyBase {
     public void getFilesContent(List<FileReference> resultFilesContent) {
     }
 
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.value == null) {
+            throw new ApiException(400, "Property Value in DocumentPropertyCreateOrUpdate is required.");
+        }
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -70,12 +103,14 @@ public class DocumentPropertyCreateOrUpdate extends DocumentPropertyBase {
             return false;
         }
 
-        return super.equals(o);
+        DocumentPropertyCreateOrUpdate documentPropertyCreateOrUpdate = (DocumentPropertyCreateOrUpdate) o;
+        return
+            Objects.equals(this.value, documentPropertyCreateOrUpdate.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return Objects.hash(value);
   }
 
   @Override

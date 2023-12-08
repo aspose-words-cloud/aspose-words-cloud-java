@@ -235,6 +235,22 @@ public class InsertStyleOnlineRequest implements RequestIfc {
         if (getStyleInsert() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'StyleInsert' when calling insertStyleOnline");
         }
+        if (getStyleInsert() != null) {
+            getStyleInsert().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/post/styles/insert";

@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -44,9 +45,11 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Request on changing of protection.
+ * @deprecated ProtectionRequest is deprecated and remains for backwards compatibility only.
  */
 @ApiModel(description = "Request on changing of protection.")
-public class ProtectionRequest implements ModelIfc {
+@Deprecated
+public class ProtectionRequest extends ProtectionRequestBase {
     @SerializedName("NewPassword")
     protected String newPassword;
 
@@ -113,6 +116,7 @@ public class ProtectionRequest implements ModelIfc {
 
 
     public ProtectionRequest() {
+        super();
         this.newPassword = null;
         this.password = null;
         this.protectionType = null;
@@ -125,6 +129,19 @@ public class ProtectionRequest implements ModelIfc {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        super.validate();
+        if (this.password == null) {
+            throw new ApiException(400, "Property Password in ProtectionRequest is required.");
+        }
     }
 
     @Override
@@ -140,12 +157,13 @@ public class ProtectionRequest implements ModelIfc {
         return
             Objects.equals(this.newPassword, protectionRequest.newPassword) &&
             Objects.equals(this.password, protectionRequest.password) &&
-            Objects.equals(this.protectionType, protectionRequest.protectionType);
+            Objects.equals(this.protectionType, protectionRequest.protectionType) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newPassword, password, protectionType);
+    return Objects.hash(newPassword, password, protectionType, super.hashCode());
   }
 
   @Override

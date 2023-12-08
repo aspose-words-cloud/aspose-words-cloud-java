@@ -13,6 +13,27 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 23.12
+
+- Properties Name, Text, StartRange, EndRange marked as required for InsertBookmark operation.
+- Implemented DeleteOfficeMathObjects operation to delete all office math objects from document.
+- Parameter ProtectionRequest was removed from the UnprotectDocument operation. Now removing protection from a document does not require a password.
+- Model ProtectionRequest marked as deprecated, please use ProtectionRequestV2 instead for perform ProtectDocument operation. To change the password or protection type of protected document, the old password is no required.
+
+
+## Enhancements in Version 23.11
+
+- Support of required properties in models.
+- Property StyleName marked as required for InsertStyle operation.
+- Property StyleName marked as required for CopyStyle operation.
+- Property StyleName marked as required for ApplyStyleToDocumentElement operation.
+- Properties SdtType and Level marked as required for InsertStructuredDocumentTag operation.
+- Property Text marked as required for InsertParagraphoperation.
+- Property Value marked as required for CreateOrUpdateDocumentProperty operation.
+- Property NewValue marked as required for ReplaceText operation.
+- Property Text marked as required for ReplaceWithText operation.
+
+
 ## Enhancements in Version 23.9
 
 - Support for class inheritance in responses from the server.
@@ -296,7 +317,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>23.10.0</version>
+        <version>23.12.0</version>
     </dependency>
 </dependencies>
 ```

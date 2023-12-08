@@ -277,6 +277,26 @@ public class InsertListRequest implements RequestIfc {
         if (getListInsert() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ListInsert' when calling insertList");
         }
+        if (getListInsert() != null) {
+            getListInsert().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/lists";

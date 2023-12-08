@@ -287,6 +287,24 @@ public class UpdateRunFontOnlineRequest implements RequestIfc {
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateRunFontOnline");
         }
+        if (getFontDto() != null) {
+            getFontDto().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/online/put/{paragraphPath}/runs/{index}/font";

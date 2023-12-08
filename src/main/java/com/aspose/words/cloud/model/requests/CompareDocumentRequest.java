@@ -256,6 +256,24 @@ public class CompareDocumentRequest implements RequestIfc {
         if (getCompareData() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'CompareData' when calling compareDocument");
         }
+        if (getCompareData() != null) {
+            getCompareData().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/compareDocument";
@@ -277,6 +295,7 @@ public class CompareDocumentRequest implements RequestIfc {
         List<FileReference> localFilesContentParams = new ArrayList<FileReference>();
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         if (getCompareData() != null) {
+            getCompareData().getFilesContent(localFilesContentParams);
             localVarFormParams.put("CompareData", getCompareData());
         }
 

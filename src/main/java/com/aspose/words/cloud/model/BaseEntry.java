@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -81,6 +82,23 @@ public abstract class BaseEntry implements ModelIfc {
     public void getFilesContent(List<FileReference> resultFilesContent) {
         if (this.fileReference != null) {
             this.fileReference.getFilesContent(resultFilesContent);
+        }
+
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.fileReference == null) {
+            throw new ApiException(400, "Property FileReference in BaseEntry is required.");
+        }
+
+        if (this.fileReference != null) {
+            this.fileReference.validate();
         }
 
     }

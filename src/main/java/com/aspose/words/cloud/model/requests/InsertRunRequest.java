@@ -324,6 +324,28 @@ public class InsertRunRequest implements RequestIfc {
         if (getRun() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Run' when calling insertRun");
         }
+        if (getRun() != null) {
+            getRun().validate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs";

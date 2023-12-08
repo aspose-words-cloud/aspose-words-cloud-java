@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -47,23 +48,72 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container for the data about protection of the document.")
 public class ProtectionData implements ModelIfc {
+    /**
+     * Gets or sets type of the protection.
+     */
+    @JsonAdapter(ProtectionTypeEnum.Adapter.class)
+    public enum ProtectionTypeEnum {
+        ALLOWONLYREVISIONS("AllowOnlyRevisions"),
+        ALLOWONLYCOMMENTS("AllowOnlyComments"),
+        ALLOWONLYFORMFIELDS("AllowOnlyFormFields"),
+        READONLY("ReadOnly"),
+        NOPROTECTION("NoProtection");
+
+        private String value;
+
+        ProtectionTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ProtectionTypeEnum fromValue(String text) {
+            for (ProtectionTypeEnum b : ProtectionTypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< ProtectionTypeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ProtectionTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ProtectionTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ProtectionTypeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("ProtectionType")
-    protected String protectionType;
+    protected ProtectionTypeEnum protectionType;
     /**
      * Gets or sets type of the protection.
     * @return protectionType
     **/
     @ApiModelProperty(value = "Gets or sets type of the protection.")
-    public String getProtectionType() {
+    public ProtectionTypeEnum getProtectionType() {
         return protectionType;
     }
 
-    public ProtectionData protectionType(String protectionType) {
+    public ProtectionData protectionType(ProtectionTypeEnum protectionType) {
         this.protectionType = protectionType;
         return this;
     }
 
-    public void setProtectionType(String protectionType) {
+    public void setProtectionType(ProtectionTypeEnum protectionType) {
         this.protectionType = protectionType;
     }
 
@@ -79,6 +129,18 @@ public class ProtectionData implements ModelIfc {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.protectionType == null) {
+            throw new ApiException(400, "Property ProtectionType in ProtectionData is required.");
+        }
     }
 
     @Override
