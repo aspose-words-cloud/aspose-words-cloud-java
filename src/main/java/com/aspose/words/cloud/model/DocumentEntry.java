@@ -105,15 +105,18 @@ public class DocumentEntry extends BaseEntry {
     * @return encryptedPassword
     **/
     @ApiModelProperty(value = "Gets or sets document password encrypted on API public key. The default value is null (the document has no password).")
+    @Deprecated
     public String getEncryptedPassword() {
         return encryptedPassword;
     }
 
+    @Deprecated
     public DocumentEntry encryptedPassword(String encryptedPassword) {
         this.encryptedPassword = encryptedPassword;
         return this;
     }
 
+    @Deprecated
     public void setEncryptedPassword(String encryptedPassword) {
         this.encryptedPassword = encryptedPassword;
     }

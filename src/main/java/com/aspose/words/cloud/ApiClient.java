@@ -827,7 +827,14 @@ public class ApiClient {
         RequestBody reqBody = null;
         if (HttpMethod.permitsRequestBody(method)) {
             String contentType = headerParams.get("Content-Type");
-            int partsCount = formParams.size() + filesContentParams.size();
+            int partsCount = formParams.size();
+            for (FileReference fileReference : filesContentParams) {
+                fileReference.encryptPassword(this);
+                if ("Request".equals(fileReference.getSource())) {
+                    partsCount = partsCount + 1;
+                }
+            }
+
             if ("application/x-www-form-urlencoded".equals(contentType)) {
                 reqBody = buildRequestBodyFormEncoding(formParams);
             }
@@ -974,9 +981,11 @@ public class ApiClient {
                 Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
                 mpBuilder.addPart(partHeaders, serialize(param.getValue()));
             }
-            for (FileReference param : fileParams) {
-                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getReference() + "\"");
-                mpBuilder.addPart(partHeaders, RequestBody.create(MediaType.parse("application/octet-stream"), param.getContent()));
+            for (FileReference fileRef : fileParams) {
+                if ("Request".equals(fileRef.getSource())) {
+                    Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + fileRef.getReference() + "\"");
+                    mpBuilder.addPart(partHeaders, RequestBody.create(MediaType.parse("application/octet-stream"), fileRef.getContent()));
+                }
             }
         }
         return mpBuilder.build();

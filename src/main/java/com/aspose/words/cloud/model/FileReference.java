@@ -28,6 +28,7 @@
 package com.aspose.words.cloud.model;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.ApiClient;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -44,7 +45,13 @@ public class FileReference implements ModelIfc {
     @SerializedName("Reference")
     private String reference;
 
-    private byte[] content;
+    @SerializedName("Password")
+    private String password;
+
+    @SerializedName("EncryptedPassword")
+    private String encryptedPassword;
+
+    private transient byte[] content;
 
     /**
      * Gets file source.
@@ -72,16 +79,18 @@ public class FileReference implements ModelIfc {
         return content;
     }
 
-    public FileReference(String remoteFilePath) {
+    public FileReference(String remoteFilePath, String password = null) {
         this.source = "Storage";
         this.reference = remoteFilePath;
         this.content = null;
+        this.password = password;
     }
 
-    public FileReference(byte[] localFileContent) {
+    public FileReference(byte[] localFileContent, String password = null) {
         this.source = "Request";
         this.reference = java.util.UUID.randomUUID().toString();
         this.content = localFileContent;
+        this.password = password;
     }
 
     /*
@@ -91,9 +100,7 @@ public class FileReference implements ModelIfc {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
-        if ("Request".equals(this.source)) {
-            resultFilesContent.add(this);
-        }
+        resultFilesContent.add(this);
     }
 
     /*
@@ -103,5 +110,16 @@ public class FileReference implements ModelIfc {
      */
     public void validate() throws ApiException {
         // Do nothing
+    }
+
+    /*
+     * Encrypt password
+     */
+    public void encryptPassword(ApiClient apiClient) throws ApiException, IOException {
+        if (this.password != null)
+        {
+            this.encryptedPassword = apiClient.encrypt(this.password);
+            this.password = null;
+        }
     }
 }
