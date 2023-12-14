@@ -129,8 +129,7 @@ public class FileReference implements ModelIfc {
      * Encrypt password
      */
     public void encryptPassword(ApiClient apiClient) throws ApiException, IOException {
-        if (this.password != null)
-        {
+        if (this.password != null) {
             this.encryptedPassword = apiClient.encrypt(this.password);
             this.password = null;
         }
