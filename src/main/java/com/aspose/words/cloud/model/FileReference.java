@@ -32,6 +32,7 @@ import com.aspose.words.cloud.ApiClient;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.List;
 
 /*
@@ -79,14 +80,26 @@ public class FileReference implements ModelIfc {
         return content;
     }
 
-    public FileReference(String remoteFilePath, String password = null) {
+    public FileReference(String remoteFilePath) {
+        this.source = "Storage";
+        this.reference = remoteFilePath;
+        this.content = null;
+    }
+
+    public FileReference(byte[] localFileContent) {
+        this.source = "Request";
+        this.reference = java.util.UUID.randomUUID().toString();
+        this.content = localFileContent;
+    }
+
+    public FileReference(String remoteFilePath, String password) {
         this.source = "Storage";
         this.reference = remoteFilePath;
         this.content = null;
         this.password = password;
     }
 
-    public FileReference(byte[] localFileContent, String password = null) {
+    public FileReference(byte[] localFileContent, String password) {
         this.source = "Request";
         this.reference = java.util.UUID.randomUUID().toString();
         this.content = localFileContent;
