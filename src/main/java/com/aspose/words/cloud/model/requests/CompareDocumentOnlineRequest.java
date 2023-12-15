@@ -72,11 +72,6 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
     private String destFileName;
 
     /*
-     * encrypted password for the second document.
-     */
-    private String encryptedPassword2;
-
-    /*
      * Initializes a new instance of the CompareDocumentOnlineRequest class.
      *
      * @param byte[] document The document.
@@ -85,16 +80,14 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param String encryptedPassword2 encrypted password for the second document.
      */
-    public CompareDocumentOnlineRequest(byte[] document, CompareData compareData, String loadEncoding, String password, String encryptedPassword, String destFileName, String encryptedPassword2) {
+    public CompareDocumentOnlineRequest(byte[] document, CompareData compareData, String loadEncoding, String password, String encryptedPassword, String destFileName) {
         this.document = document;
         this.compareData = compareData;
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
         this.destFileName = destFileName;
-        this.encryptedPassword2 = encryptedPassword2;
     }
 
     /*
@@ -181,20 +174,6 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
         this.destFileName = value;
     }
 
-    /*
-     * Gets encrypted password for the second document.
-     */
-    public String getEncryptedPassword2() {
-        return this.encryptedPassword2;
-    }
-
-    /*
-     * Sets encrypted password for the second document.
-     */
-    public void setEncryptedPassword2(String value) {
-        this.encryptedPassword2 = value;
-    }
-
 
     /*
      * Creates the http request based on this request model.
@@ -227,8 +206,6 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
 
 
 
-
-
         // create path and map variables
         String localVarPath = "/words/online/put/compareDocument";
         localVarPath = localVarPath.replaceAll("//", "/");
@@ -239,7 +216,6 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
-        apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword2", getEncryptedPassword2());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
