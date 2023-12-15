@@ -1233,7 +1233,7 @@ public class ApiClient {
      * Encrypt string to base64-encoded string
      */
     public String encrypt(String data) throws ApiException, IOException {
-        if (data != null && !data.isEmpty()) {
+        if (data == null || data.isEmpty()) {
             return null;
         }
 
