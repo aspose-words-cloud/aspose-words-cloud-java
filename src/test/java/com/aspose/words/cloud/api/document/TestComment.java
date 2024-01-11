@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestComment.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -163,11 +163,11 @@ public class TestComment  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        NewDocumentPosition requestCommentRangeStart = new NewDocumentPosition();
+        PositionInsideNode requestCommentRangeStart = new PositionInsideNode();
         requestCommentRangeStart.setNodeId("0.3.0.3");
         requestCommentRangeStart.setOffset(0);
 
-        NewDocumentPosition requestCommentRangeEnd = new NewDocumentPosition();
+        PositionInsideNode requestCommentRangeEnd = new PositionInsideNode();
         requestCommentRangeEnd.setNodeId("0.3.0.3");
         requestCommentRangeEnd.setOffset(0);
 
@@ -207,11 +207,11 @@ public class TestComment  extends TestCase
     public void testInsertCommentOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
-        NewDocumentPosition requestCommentRangeStart = new NewDocumentPosition();
+        PositionInsideNode requestCommentRangeStart = new PositionInsideNode();
         requestCommentRangeStart.setNodeId("0.3.0.3");
         requestCommentRangeStart.setOffset(0);
 
-        NewDocumentPosition requestCommentRangeEnd = new NewDocumentPosition();
+        PositionInsideNode requestCommentRangeEnd = new PositionInsideNode();
         requestCommentRangeEnd.setNodeId("0.3.0.3");
         requestCommentRangeEnd.setOffset(0);
 
@@ -250,11 +250,11 @@ public class TestComment  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        NewDocumentPosition requestCommentRangeStart = new NewDocumentPosition();
+        PositionInsideNode requestCommentRangeStart = new PositionInsideNode();
         requestCommentRangeStart.setNodeId("0.3.0");
         requestCommentRangeStart.setOffset(0);
 
-        NewDocumentPosition requestCommentRangeEnd = new NewDocumentPosition();
+        PositionInsideNode requestCommentRangeEnd = new PositionInsideNode();
         requestCommentRangeEnd.setNodeId("0.3.0");
         requestCommentRangeEnd.setOffset(0);
 
@@ -295,11 +295,11 @@ public class TestComment  extends TestCase
     public void testUpdateCommentOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
-        NewDocumentPosition requestCommentRangeStart = new NewDocumentPosition();
+        PositionInsideNode requestCommentRangeStart = new PositionInsideNode();
         requestCommentRangeStart.setNodeId("0.3.0");
         requestCommentRangeStart.setOffset(0);
 
-        NewDocumentPosition requestCommentRangeEnd = new NewDocumentPosition();
+        PositionInsideNode requestCommentRangeEnd = new PositionInsideNode();
         requestCommentRangeEnd.setNodeId("0.3.0");
         requestCommentRangeEnd.setOffset(0);
 

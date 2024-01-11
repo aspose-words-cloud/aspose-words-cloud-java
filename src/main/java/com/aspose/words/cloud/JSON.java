@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="JSON.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -548,7 +548,6 @@ public class JSON {
                 put("MetafileRenderingOptionsData, _", com.aspose.words.cloud.model.MetafileRenderingOptionsData.class);
                 put("MhtmlSaveOptionsData, _", com.aspose.words.cloud.model.MhtmlSaveOptionsData.class);
                 put("ModificationOperationResult, _", com.aspose.words.cloud.model.ModificationOperationResult.class);
-                put("NewDocumentPosition, _", com.aspose.words.cloud.model.NewDocumentPosition.class);
                 put("NodeLink, _", com.aspose.words.cloud.model.NodeLink.class);
                 put("OdtSaveOptionsData, _", com.aspose.words.cloud.model.OdtSaveOptionsData.class);
                 put("OfficeMathLink, _", com.aspose.words.cloud.model.OfficeMathLink.class);
@@ -578,6 +577,9 @@ public class JSON {
                 put("PdfEncryptionDetailsData, _", com.aspose.words.cloud.model.PdfEncryptionDetailsData.class);
                 put("PdfSaveOptionsData, _", com.aspose.words.cloud.model.PdfSaveOptionsData.class);
                 put("PngSaveOptionsData, _", com.aspose.words.cloud.model.PngSaveOptionsData.class);
+                put("PositionAfterNode, _", com.aspose.words.cloud.model.PositionAfterNode.class);
+                put("PositionBeforeNode, _", com.aspose.words.cloud.model.PositionBeforeNode.class);
+                put("PositionInsideNode, _", com.aspose.words.cloud.model.PositionInsideNode.class);
                 put("PreferredWidth, _", com.aspose.words.cloud.model.PreferredWidth.class);
                 put("ProtectionData, _", com.aspose.words.cloud.model.ProtectionData.class);
                 put("ProtectionDataResponse, _", com.aspose.words.cloud.model.ProtectionDataResponse.class);

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TableInsert.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -52,7 +52,7 @@ public class TableInsert implements ModelIfc {
     protected Integer columnsCount;
 
     @SerializedName("Position")
-    protected NewDocumentPosition position;
+    protected Position position;
 
     @SerializedName("RowsCount")
     protected Integer rowsCount;
@@ -76,20 +76,20 @@ public class TableInsert implements ModelIfc {
 
 
     /**
-     * Gets or sets the position to insert the table. The table will be inserted before the specified position.
+     * Gets or sets the position to insert the table. The table will be inserted using the specified position.
     * @return position
     **/
-    @ApiModelProperty(value = "Gets or sets the position to insert the table. The table will be inserted before the specified position.")
-    public NewDocumentPosition getPosition() {
+    @ApiModelProperty(value = "Gets or sets the position to insert the table. The table will be inserted using the specified position.")
+    public Position getPosition() {
         return position;
     }
 
-    public TableInsert position(NewDocumentPosition position) {
+    public TableInsert position(Position position) {
         this.position = position;
         return this;
     }
 
-    public void setPosition(NewDocumentPosition position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 

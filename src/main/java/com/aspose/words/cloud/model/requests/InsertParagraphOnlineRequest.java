@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertParagraphOnlineRequest.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -87,11 +87,6 @@ public class InsertParagraphOnlineRequest implements RequestIfc {
     private String revisionDateTime;
 
     /*
-     * The index of the node. A new paragraph will be inserted before the node with the specified index.
-     */
-    private String insertBeforeNode;
-
-    /*
      * Initializes a new instance of the InsertParagraphOnlineRequest class.
      *
      * @param byte[] document The document.
@@ -103,9 +98,8 @@ public class InsertParagraphOnlineRequest implements RequestIfc {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String insertBeforeNode The index of the node. A new paragraph will be inserted before the node with the specified index.
      */
-    public InsertParagraphOnlineRequest(byte[] document, ParagraphInsert paragraph, String nodePath, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime, String insertBeforeNode) {
+    public InsertParagraphOnlineRequest(byte[] document, ParagraphInsert paragraph, String nodePath, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.document = document;
         this.paragraph = paragraph;
         this.nodePath = nodePath;
@@ -115,7 +109,6 @@ public class InsertParagraphOnlineRequest implements RequestIfc {
         this.destFileName = destFileName;
         this.revisionAuthor = revisionAuthor;
         this.revisionDateTime = revisionDateTime;
-        this.insertBeforeNode = insertBeforeNode;
     }
 
     /*
@@ -244,20 +237,6 @@ public class InsertParagraphOnlineRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
-    /*
-     * Gets The index of the node. A new paragraph will be inserted before the node with the specified index.
-     */
-    public String getInsertBeforeNode() {
-        return this.insertBeforeNode;
-    }
-
-    /*
-     * Sets The index of the node. A new paragraph will be inserted before the node with the specified index.
-     */
-    public void setInsertBeforeNode(String value) {
-        this.insertBeforeNode = value;
-    }
-
 
     /*
      * Creates the http request based on this request model.
@@ -296,8 +275,6 @@ public class InsertParagraphOnlineRequest implements RequestIfc {
 
 
 
-
-
         // create path and map variables
         String localVarPath = "/words/online/post/{nodePath}/paragraphs";
         localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
@@ -311,7 +288,6 @@ public class InsertParagraphOnlineRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
         apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
         apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());
-        apiClient.addParameterToQuery(localVarQueryParams, "insertBeforeNode", getInsertBeforeNode());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 

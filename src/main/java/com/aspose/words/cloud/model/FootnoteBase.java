@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="FootnoteBase.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -95,7 +95,7 @@ public abstract class FootnoteBase implements ModelIfc {
     }
 
     @SerializedName("Position")
-    protected NewDocumentPosition position;
+    protected Position position;
 
     @SerializedName("FootnoteType")
     protected FootnoteTypeEnum footnoteType;
@@ -106,20 +106,20 @@ public abstract class FootnoteBase implements ModelIfc {
     @SerializedName("Text")
     protected String text;
     /**
-     * Gets or sets the link to comment range start node.
+     * Gets or sets the link to range start node.
     * @return position
     **/
-    @ApiModelProperty(value = "Gets or sets the link to comment range start node.")
-    public NewDocumentPosition getPosition() {
+    @ApiModelProperty(value = "Gets or sets the link to range start node.")
+    public Position getPosition() {
         return position;
     }
 
-    public FootnoteBase position(NewDocumentPosition position) {
+    public FootnoteBase position(Position position) {
         this.position = position;
         return this;
     }
 
-    public void setPosition(NewDocumentPosition position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 

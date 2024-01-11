@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="FieldInsert.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,9 +48,30 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Field for insert.")
 public class FieldInsert extends FieldBase {
+    @SerializedName("Position")
+    protected Position position;
+    /**
+     * Gets or sets the position of the node that will be used to determine the placement of a new field.
+    * @return position
+    **/
+    @ApiModelProperty(value = "Gets or sets the position of the node that will be used to determine the placement of a new field.")
+    public Position getPosition() {
+        return position;
+    }
+
+    public FieldInsert position(Position position) {
+        this.position = position;
+        return this;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
 
     public FieldInsert() {
         super();
+        this.position = null;
     }
 
     /*
@@ -70,6 +91,11 @@ public class FieldInsert extends FieldBase {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.position != null) {
+            this.position.validate();
+        }
+
     }
 
     @Override
@@ -81,12 +107,15 @@ public class FieldInsert extends FieldBase {
             return false;
         }
 
-        return super.equals(o);
+        FieldInsert fieldInsert = (FieldInsert) o;
+        return
+            Objects.equals(this.position, fieldInsert.position) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return Objects.hash(position, super.hashCode());
   }
 
   @Override
@@ -95,6 +124,7 @@ public class FieldInsert extends FieldBase {
     sb.append("class FieldInsert {\n");
     sb.append("    localeId: ").append(toIndentedString(getLocaleId())).append("\n");
     sb.append("    fieldCode: ").append(toIndentedString(getFieldCode())).append("\n");
+    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
     sb.append("}");
     return sb.toString();
   }

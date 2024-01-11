@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestBookmark.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -323,11 +323,11 @@ public class TestBookmark  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        NewDocumentPosition requestBookmarkStartRange = new NewDocumentPosition();
+        PositionInsideNode requestBookmarkStartRange = new PositionInsideNode();
         requestBookmarkStartRange.setNodeId("0.0.0.0");
         requestBookmarkStartRange.setOffset(0);
 
-        NewDocumentPosition requestBookmarkEndRange = new NewDocumentPosition();
+        PositionInsideNode requestBookmarkEndRange = new PositionInsideNode();
         requestBookmarkEndRange.setNodeId("0.0.0.0");
         requestBookmarkEndRange.setOffset(0);
 
@@ -361,11 +361,11 @@ public class TestBookmark  extends TestCase
     public void testInsertBookmarkOnline() throws ApiException, MessagingException, IOException
     {
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
-        NewDocumentPosition requestBookmarkStartRange = new NewDocumentPosition();
+        PositionInsideNode requestBookmarkStartRange = new PositionInsideNode();
         requestBookmarkStartRange.setNodeId("0.0.0.0");
         requestBookmarkStartRange.setOffset(0);
 
-        NewDocumentPosition requestBookmarkEndRange = new NewDocumentPosition();
+        PositionInsideNode requestBookmarkEndRange = new PositionInsideNode();
         requestBookmarkEndRange.setNodeId("0.0.0.0");
         requestBookmarkEndRange.setOffset(0);
 

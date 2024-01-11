@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="StructuredDocumentTagInsert.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -163,6 +163,9 @@ public class StructuredDocumentTagInsert extends StructuredDocumentTagBase {
 
     @SerializedName("SdtType")
     protected SdtTypeEnum sdtType;
+
+    @SerializedName("Position")
+    protected Position position;
     /**
      * Gets or sets the level at which this SDT occurs in the document tree.
     * @return level
@@ -201,10 +204,30 @@ public class StructuredDocumentTagInsert extends StructuredDocumentTagBase {
     }
 
 
+    /**
+     * Gets or sets the position of the node that will be used to determine the placement of a new node.
+    * @return position
+    **/
+    @ApiModelProperty(value = "Gets or sets the position of the node that will be used to determine the placement of a new node.")
+    public Position getPosition() {
+        return position;
+    }
+
+    public StructuredDocumentTagInsert position(Position position) {
+        this.position = position;
+        return this;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+
     public StructuredDocumentTagInsert() {
         super();
         this.level = null;
         this.sdtType = null;
+        this.position = null;
     }
 
     /*
@@ -230,6 +253,11 @@ public class StructuredDocumentTagInsert extends StructuredDocumentTagBase {
         if (this.sdtType == null) {
             throw new ApiException(400, "Property SdtType in StructuredDocumentTagInsert is required.");
         }
+
+        if (this.position != null) {
+            this.position.validate();
+        }
+
     }
 
     @Override
@@ -245,12 +273,13 @@ public class StructuredDocumentTagInsert extends StructuredDocumentTagBase {
         return
             Objects.equals(this.level, structuredDocumentTagInsert.level) &&
             Objects.equals(this.sdtType, structuredDocumentTagInsert.sdtType) &&
+            Objects.equals(this.position, structuredDocumentTagInsert.position) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(level, sdtType, super.hashCode());
+    return Objects.hash(level, sdtType, position, super.hashCode());
   }
 
   @Override
@@ -283,6 +312,7 @@ public class StructuredDocumentTagInsert extends StructuredDocumentTagBase {
     sb.append("    wordOpenXML: ").append(toIndentedString(getWordOpenXML())).append("\n");
     sb.append("    level: ").append(toIndentedString(getLevel())).append("\n");
     sb.append("    sdtType: ").append(toIndentedString(getSdtType())).append("\n");
+    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
     sb.append("}");
     return sb.toString();
   }

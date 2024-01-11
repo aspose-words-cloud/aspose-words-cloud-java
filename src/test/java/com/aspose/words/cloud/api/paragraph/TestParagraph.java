@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestParagraph.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -458,7 +458,6 @@ public class TestParagraph  extends TestCase
             null,
             null,
             null,
-            null,
             null
         );
 
@@ -482,7 +481,6 @@ public class TestParagraph  extends TestCase
             requestDocument,
             requestParagraph,
             "sections/0",
-            null,
             null,
             null,
             null,
@@ -516,7 +514,6 @@ public class TestParagraph  extends TestCase
             requestParagraph,
             null,
             remoteDataFolder,
-            null,
             null,
             null,
             null,
