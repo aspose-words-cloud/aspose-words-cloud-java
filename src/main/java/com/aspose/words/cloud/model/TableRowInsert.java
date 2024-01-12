@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TableRowInsert.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -51,6 +51,9 @@ public class TableRowInsert implements ModelIfc {
     @SerializedName("ColumnsCount")
     protected Integer columnsCount;
 
+    @SerializedName("ExistingRowPosition")
+    protected Position existingRowPosition;
+
     @SerializedName("InsertAfter")
     protected Integer insertAfter;
     /**
@@ -73,19 +76,41 @@ public class TableRowInsert implements ModelIfc {
 
 
     /**
+     * Gets or sets the position of the table row that will be used to determine the placement of a new row.
+    * @return existingRowPosition
+    **/
+    @ApiModelProperty(value = "Gets or sets the position of the table row that will be used to determine the placement of a new row.")
+    public Position getExistingRowPosition() {
+        return existingRowPosition;
+    }
+
+    public TableRowInsert existingRowPosition(Position existingRowPosition) {
+        this.existingRowPosition = existingRowPosition;
+        return this;
+    }
+
+    public void setExistingRowPosition(Position existingRowPosition) {
+        this.existingRowPosition = existingRowPosition;
+    }
+
+
+    /**
      * Gets or sets table row will be inserted after row with specified 0-based index.
     * @return insertAfter
     **/
     @ApiModelProperty(value = "Gets or sets table row will be inserted after row with specified 0-based index.")
+    @Deprecated
     public Integer getInsertAfter() {
         return insertAfter;
     }
 
+    @Deprecated
     public TableRowInsert insertAfter(Integer insertAfter) {
         this.insertAfter = insertAfter;
         return this;
     }
 
+    @Deprecated
     public void setInsertAfter(Integer insertAfter) {
         this.insertAfter = insertAfter;
     }
@@ -93,6 +118,7 @@ public class TableRowInsert implements ModelIfc {
 
     public TableRowInsert() {
         this.columnsCount = null;
+        this.existingRowPosition = null;
         this.insertAfter = null;
     }
 
@@ -115,6 +141,12 @@ public class TableRowInsert implements ModelIfc {
         if (this.columnsCount == null) {
             throw new ApiException(400, "Property ColumnsCount in TableRowInsert is required.");
         }
+
+        if (this.existingRowPosition != null) {
+            this.existingRowPosition.validate();
+        }
+
+
     }
 
     @Override
@@ -129,12 +161,13 @@ public class TableRowInsert implements ModelIfc {
         TableRowInsert tableRowInsert = (TableRowInsert) o;
         return
             Objects.equals(this.columnsCount, tableRowInsert.columnsCount) &&
+            Objects.equals(this.existingRowPosition, tableRowInsert.existingRowPosition) &&
             Objects.equals(this.insertAfter, tableRowInsert.insertAfter);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(columnsCount, insertAfter);
+    return Objects.hash(columnsCount, existingRowPosition, insertAfter);
   }
 
   @Override
@@ -142,6 +175,7 @@ public class TableRowInsert implements ModelIfc {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableRowInsert {\n");
     sb.append("    columnsCount: ").append(toIndentedString(getColumnsCount())).append("\n");
+    sb.append("    existingRowPosition: ").append(toIndentedString(getExistingRowPosition())).append("\n");
     sb.append("    insertAfter: ").append(toIndentedString(getInsertAfter())).append("\n");
     sb.append("}");
     return sb.toString();

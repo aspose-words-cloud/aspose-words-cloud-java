@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestRun.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -136,10 +136,9 @@ public class TestRun  extends TestCase
 
         InsertRunRequest request = new InsertRunRequest(
             remoteFileName,
-            "paragraphs/1",
             requestRun,
+            "paragraphs/1",
             remoteDataFolder,
-            null,
             null,
             null,
             null,
@@ -168,9 +167,8 @@ public class TestRun  extends TestCase
 
         InsertRunOnlineRequest request = new InsertRunOnlineRequest(
             requestDocument,
-            "paragraphs/1",
             requestRun,
-            null,
+            "paragraphs/1",
             null,
             null,
             null,

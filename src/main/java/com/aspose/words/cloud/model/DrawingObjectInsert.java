@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DrawingObjectInsert.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -206,7 +206,7 @@ public class DrawingObjectInsert implements ModelIfc {
     }
 
     @SerializedName("Position")
-    protected NewDocumentPosition position;
+    protected Position position;
 
     @SerializedName("RelativeHorizontalPosition")
     protected RelativeHorizontalPositionEnum relativeHorizontalPosition;
@@ -229,20 +229,20 @@ public class DrawingObjectInsert implements ModelIfc {
     @SerializedName("WrapType")
     protected WrapTypeEnum wrapType;
     /**
-     * Gets or sets the position, before which the DrawingObject will be inserted.
+     * Gets or sets the position, where the DrawingObject will be inserted.
     * @return position
     **/
-    @ApiModelProperty(value = "Gets or sets the position, before which the DrawingObject will be inserted.")
-    public NewDocumentPosition getPosition() {
+    @ApiModelProperty(value = "Gets or sets the position, where the DrawingObject will be inserted.")
+    public Position getPosition() {
         return position;
     }
 
-    public DrawingObjectInsert position(NewDocumentPosition position) {
+    public DrawingObjectInsert position(Position position) {
         this.position = position;
         return this;
     }
 
-    public void setPosition(NewDocumentPosition position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 

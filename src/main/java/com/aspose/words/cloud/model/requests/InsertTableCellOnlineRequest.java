@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableCellOnlineRequest.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,14 +47,14 @@ public class InsertTableCellOnlineRequest implements RequestIfc {
     private byte[] document;
 
     /*
-     * The path to the table row in the document tree.
-     */
-    private String tableRowPath;
-
-    /*
      * Table cell parameters.
      */
     private TableCellInsert cell;
+
+    /*
+     * The path to the table row in the document tree.
+     */
+    private String tableRowPath;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -90,8 +90,8 @@ public class InsertTableCellOnlineRequest implements RequestIfc {
      * Initializes a new instance of the InsertTableCellOnlineRequest class.
      *
      * @param byte[] document The document.
-     * @param String tableRowPath The path to the table row in the document tree.
      * @param TableCellInsert cell Table cell parameters.
+     * @param String tableRowPath The path to the table row in the document tree.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
@@ -99,10 +99,10 @@ public class InsertTableCellOnlineRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertTableCellOnlineRequest(byte[] document, String tableRowPath, TableCellInsert cell, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public InsertTableCellOnlineRequest(byte[] document, TableCellInsert cell, String tableRowPath, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.document = document;
-        this.tableRowPath = tableRowPath;
         this.cell = cell;
+        this.tableRowPath = tableRowPath;
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
@@ -126,20 +126,6 @@ public class InsertTableCellOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets The path to the table row in the document tree.
-     */
-    public String getTableRowPath() {
-        return this.tableRowPath;
-    }
-
-    /*
-     * Sets The path to the table row in the document tree.
-     */
-    public void setTableRowPath(String value) {
-        this.tableRowPath = value;
-    }
-
-    /*
      * Gets Table cell parameters.
      */
     public TableCellInsert getCell() {
@@ -151,6 +137,20 @@ public class InsertTableCellOnlineRequest implements RequestIfc {
      */
     public void setCell(TableCellInsert value) {
         this.cell = value;
+    }
+
+    /*
+     * Gets The path to the table row in the document tree.
+     */
+    public String getTableRowPath() {
+        return this.tableRowPath;
+    }
+
+    /*
+     * Sets The path to the table row in the document tree.
+     */
+    public void setTableRowPath(String value) {
+        this.tableRowPath = value;
     }
 
     /*
@@ -252,11 +252,6 @@ public class InsertTableCellOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertTableCellOnline");
         }
 
-        // verify the required parameter 'TableRowPath' is set
-        if (getTableRowPath() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TableRowPath' when calling insertTableCellOnline");
-        }
-
         // verify the required parameter 'Cell' is set
         if (getCell() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Cell' when calling insertTableCellOnline");
@@ -264,6 +259,8 @@ public class InsertTableCellOnlineRequest implements RequestIfc {
         if (getCell() != null) {
             getCell().validate();
         }
+
+
 
 
 

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RunInsert.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,9 +48,30 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Run element for insert.")
 public class RunInsert extends RunBase {
+    @SerializedName("Position")
+    protected Position position;
+    /**
+     * Gets or sets the position of the node that will be used to determine the placement of a new run.
+    * @return position
+    **/
+    @ApiModelProperty(value = "Gets or sets the position of the node that will be used to determine the placement of a new run.")
+    public Position getPosition() {
+        return position;
+    }
+
+    public RunInsert position(Position position) {
+        this.position = position;
+        return this;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
 
     public RunInsert() {
         super();
+        this.position = null;
     }
 
     /*
@@ -70,6 +91,11 @@ public class RunInsert extends RunBase {
     @Override
     public void validate() throws ApiException {
         super.validate();
+
+        if (this.position != null) {
+            this.position.validate();
+        }
+
     }
 
     @Override
@@ -81,12 +107,15 @@ public class RunInsert extends RunBase {
             return false;
         }
 
-        return super.equals(o);
+        RunInsert runInsert = (RunInsert) o;
+        return
+            Objects.equals(this.position, runInsert.position) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return Objects.hash(position, super.hashCode());
   }
 
   @Override
@@ -94,6 +123,7 @@ public class RunInsert extends RunBase {
     StringBuilder sb = new StringBuilder();
     sb.append("class RunInsert {\n");
     sb.append("    text: ").append(toIndentedString(getText())).append("\n");
+    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
     sb.append("}");
     return sb.toString();
   }

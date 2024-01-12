@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ParagraphInsert.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -50,6 +50,9 @@ import io.swagger.annotations.ApiModelProperty;
 public class ParagraphInsert implements ModelIfc {
     @SerializedName("Text")
     protected String text;
+
+    @SerializedName("Position")
+    protected Position position;
     /**
      * Gets or sets the paragraph's text.
     * @return text
@@ -69,8 +72,28 @@ public class ParagraphInsert implements ModelIfc {
     }
 
 
+    /**
+     * Gets or sets the position of the node that will be used to determine the placement of a new paragraph.
+    * @return position
+    **/
+    @ApiModelProperty(value = "Gets or sets the position of the node that will be used to determine the placement of a new paragraph.")
+    public Position getPosition() {
+        return position;
+    }
+
+    public ParagraphInsert position(Position position) {
+        this.position = position;
+        return this;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+
     public ParagraphInsert() {
         this.text = null;
+        this.position = null;
     }
 
     /*
@@ -92,6 +115,11 @@ public class ParagraphInsert implements ModelIfc {
         if (this.text == null) {
             throw new ApiException(400, "Property Text in ParagraphInsert is required.");
         }
+
+        if (this.position != null) {
+            this.position.validate();
+        }
+
     }
 
     @Override
@@ -105,12 +133,13 @@ public class ParagraphInsert implements ModelIfc {
 
         ParagraphInsert paragraphInsert = (ParagraphInsert) o;
         return
-            Objects.equals(this.text, paragraphInsert.text);
+            Objects.equals(this.text, paragraphInsert.text) &&
+            Objects.equals(this.position, paragraphInsert.position);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text);
+    return Objects.hash(text, position);
   }
 
   @Override
@@ -118,6 +147,7 @@ public class ParagraphInsert implements ModelIfc {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphInsert {\n");
     sb.append("    text: ").append(toIndentedString(getText())).append("\n");
+    sb.append("    position: ").append(toIndentedString(getPosition())).append("\n");
     sb.append("}");
     return sb.toString();
   }

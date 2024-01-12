@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="BookmarkInsert.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -55,10 +55,10 @@ public class BookmarkInsert implements ModelIfc {
     protected String text;
 
     @SerializedName("StartRange")
-    protected NewDocumentPosition startRange;
+    protected Position startRange;
 
     @SerializedName("EndRange")
-    protected NewDocumentPosition endRange;
+    protected Position endRange;
     /**
      * Gets or sets the name of the bookmark.
     * @return name
@@ -102,16 +102,16 @@ public class BookmarkInsert implements ModelIfc {
     * @return startRange
     **/
     @ApiModelProperty(value = "Gets or sets the link to start bookmark node.")
-    public NewDocumentPosition getStartRange() {
+    public Position getStartRange() {
         return startRange;
     }
 
-    public BookmarkInsert startRange(NewDocumentPosition startRange) {
+    public BookmarkInsert startRange(Position startRange) {
         this.startRange = startRange;
         return this;
     }
 
-    public void setStartRange(NewDocumentPosition startRange) {
+    public void setStartRange(Position startRange) {
         this.startRange = startRange;
     }
 
@@ -121,16 +121,16 @@ public class BookmarkInsert implements ModelIfc {
     * @return endRange
     **/
     @ApiModelProperty(value = "Gets or sets the link to end bookmark node.")
-    public NewDocumentPosition getEndRange() {
+    public Position getEndRange() {
         return endRange;
     }
 
-    public BookmarkInsert endRange(NewDocumentPosition endRange) {
+    public BookmarkInsert endRange(Position endRange) {
         this.endRange = endRange;
         return this;
     }
 
-    public void setEndRange(NewDocumentPosition endRange) {
+    public void setEndRange(Position endRange) {
         this.endRange = endRange;
     }
 

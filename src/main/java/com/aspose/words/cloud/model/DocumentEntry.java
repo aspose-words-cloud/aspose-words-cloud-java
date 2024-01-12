@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DocumentEntry.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -105,15 +105,18 @@ public class DocumentEntry extends BaseEntry {
     * @return encryptedPassword
     **/
     @ApiModelProperty(value = "Gets or sets document password encrypted on API public key. The default value is null (the document has no password).")
+    @Deprecated
     public String getEncryptedPassword() {
         return encryptedPassword;
     }
 
+    @Deprecated
     public DocumentEntry encryptedPassword(String encryptedPassword) {
         this.encryptedPassword = encryptedPassword;
         return this;
     }
 
+    @Deprecated
     public void setEncryptedPassword(String encryptedPassword) {
         this.encryptedPassword = encryptedPassword;
     }

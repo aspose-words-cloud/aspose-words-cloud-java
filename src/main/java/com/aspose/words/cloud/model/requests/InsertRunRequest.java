@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertRunRequest.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,14 +47,14 @@ public class InsertRunRequest implements RequestIfc {
     private String name;
 
     /*
-     * The path to the paragraph in the document tree.
-     */
-    private String paragraphPath;
-
-    /*
      * Run data.
      */
     private RunInsert run;
+
+    /*
+     * The path to the paragraph in the document tree.
+     */
+    private String paragraphPath;
 
     /*
      * Original document folder.
@@ -97,16 +97,11 @@ public class InsertRunRequest implements RequestIfc {
     private String revisionDateTime;
 
     /*
-     * The index of the node. A new Run object will be inserted before the node with the specified node Id.
-     */
-    private String insertBeforeNode;
-
-    /*
      * Initializes a new instance of the InsertRunRequest class.
      *
      * @param String name The filename of the input document.
-     * @param String paragraphPath The path to the paragraph in the document tree.
      * @param RunInsert run Run data.
+     * @param String paragraphPath The path to the paragraph in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -115,12 +110,11 @@ public class InsertRunRequest implements RequestIfc {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String insertBeforeNode The index of the node. A new Run object will be inserted before the node with the specified node Id.
      */
-    public InsertRunRequest(String name, String paragraphPath, RunInsert run, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime, String insertBeforeNode) {
+    public InsertRunRequest(String name, RunInsert run, String paragraphPath, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.paragraphPath = paragraphPath;
         this.run = run;
+        this.paragraphPath = paragraphPath;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -129,7 +123,6 @@ public class InsertRunRequest implements RequestIfc {
         this.destFileName = destFileName;
         this.revisionAuthor = revisionAuthor;
         this.revisionDateTime = revisionDateTime;
-        this.insertBeforeNode = insertBeforeNode;
     }
 
     /*
@@ -147,20 +140,6 @@ public class InsertRunRequest implements RequestIfc {
     }
 
     /*
-     * Gets The path to the paragraph in the document tree.
-     */
-    public String getParagraphPath() {
-        return this.paragraphPath;
-    }
-
-    /*
-     * Sets The path to the paragraph in the document tree.
-     */
-    public void setParagraphPath(String value) {
-        this.paragraphPath = value;
-    }
-
-    /*
      * Gets Run data.
      */
     public RunInsert getRun() {
@@ -172,6 +151,20 @@ public class InsertRunRequest implements RequestIfc {
      */
     public void setRun(RunInsert value) {
         this.run = value;
+    }
+
+    /*
+     * Gets The path to the paragraph in the document tree.
+     */
+    public String getParagraphPath() {
+        return this.paragraphPath;
+    }
+
+    /*
+     * Sets The path to the paragraph in the document tree.
+     */
+    public void setParagraphPath(String value) {
+        this.paragraphPath = value;
     }
 
     /*
@@ -286,20 +279,6 @@ public class InsertRunRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
-    /*
-     * Gets The index of the node. A new Run object will be inserted before the node with the specified node Id.
-     */
-    public String getInsertBeforeNode() {
-        return this.insertBeforeNode;
-    }
-
-    /*
-     * Sets The index of the node. A new Run object will be inserted before the node with the specified node Id.
-     */
-    public void setInsertBeforeNode(String value) {
-        this.insertBeforeNode = value;
-    }
-
 
     /*
      * Creates the http request based on this request model.
@@ -313,11 +292,6 @@ public class InsertRunRequest implements RequestIfc {
         // verify the required parameter 'Name' is set
         if (getName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertRun");
-        }
-
-        // verify the required parameter 'ParagraphPath' is set
-        if (getParagraphPath() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ParagraphPath' when calling insertRun");
         }
 
         // verify the required parameter 'Run' is set
@@ -363,7 +337,6 @@ public class InsertRunRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
         apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
         apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());
-        apiClient.addParameterToQuery(localVarQueryParams, "insertBeforeNode", getInsertBeforeNode());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 

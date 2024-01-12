@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestTable.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -735,8 +735,8 @@ public class TestTable  extends TestCase
 
         InsertTableRowRequest request = new InsertTableRowRequest(
             remoteFileName,
-            "sections/0/tables/2",
             requestRow,
+            "sections/0/tables/2",
             remoteDataFolder,
             null,
             null,
@@ -766,8 +766,8 @@ public class TestTable  extends TestCase
 
         InsertTableRowOnlineRequest request = new InsertTableRowOnlineRequest(
             requestDocument,
-            "sections/0/tables/2",
             requestRow,
+            "sections/0/tables/2",
             null,
             null,
             null,
@@ -1022,8 +1022,8 @@ public class TestTable  extends TestCase
 
         InsertTableCellRequest request = new InsertTableCellRequest(
             remoteFileName,
-            "sections/0/tables/2/rows/0",
             requestCell,
+            "sections/0/tables/2/rows/0",
             remoteDataFolder,
             null,
             null,
@@ -1051,8 +1051,8 @@ public class TestTable  extends TestCase
 
         InsertTableCellOnlineRequest request = new InsertTableCellOnlineRequest(
             requestDocument,
-            "sections/0/tables/2/rows/0",
             requestCell,
+            "sections/0/tables/2/rows/0",
             null,
             null,
             null,

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableRowOnlineRequest.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,14 +47,14 @@ public class InsertTableRowOnlineRequest implements RequestIfc {
     private byte[] document;
 
     /*
-     * The path to the table in the document tree.
-     */
-    private String tablePath;
-
-    /*
      * Table row parameters.
      */
     private TableRowInsert row;
+
+    /*
+     * The path to the table in the document tree.
+     */
+    private String nodePath;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -90,8 +90,8 @@ public class InsertTableRowOnlineRequest implements RequestIfc {
      * Initializes a new instance of the InsertTableRowOnlineRequest class.
      *
      * @param byte[] document The document.
-     * @param String tablePath The path to the table in the document tree.
      * @param TableRowInsert row Table row parameters.
+     * @param String nodePath The path to the table in the document tree.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
@@ -99,10 +99,10 @@ public class InsertTableRowOnlineRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertTableRowOnlineRequest(byte[] document, String tablePath, TableRowInsert row, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public InsertTableRowOnlineRequest(byte[] document, TableRowInsert row, String nodePath, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.document = document;
-        this.tablePath = tablePath;
         this.row = row;
+        this.nodePath = nodePath;
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
@@ -126,20 +126,6 @@ public class InsertTableRowOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets The path to the table in the document tree.
-     */
-    public String getTablePath() {
-        return this.tablePath;
-    }
-
-    /*
-     * Sets The path to the table in the document tree.
-     */
-    public void setTablePath(String value) {
-        this.tablePath = value;
-    }
-
-    /*
      * Gets Table row parameters.
      */
     public TableRowInsert getRow() {
@@ -151,6 +137,20 @@ public class InsertTableRowOnlineRequest implements RequestIfc {
      */
     public void setRow(TableRowInsert value) {
         this.row = value;
+    }
+
+    /*
+     * Gets The path to the table in the document tree.
+     */
+    public String getNodePath() {
+        return this.nodePath;
+    }
+
+    /*
+     * Sets The path to the table in the document tree.
+     */
+    public void setNodePath(String value) {
+        this.nodePath = value;
     }
 
     /*
@@ -252,11 +252,6 @@ public class InsertTableRowOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Document' when calling insertTableRowOnline");
         }
 
-        // verify the required parameter 'TablePath' is set
-        if (getTablePath() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TablePath' when calling insertTableRowOnline");
-        }
-
         // verify the required parameter 'Row' is set
         if (getRow() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Row' when calling insertTableRowOnline");
@@ -278,9 +273,11 @@ public class InsertTableRowOnlineRequest implements RequestIfc {
 
 
 
+
+
         // create path and map variables
-        String localVarPath = "/words/online/post/{tablePath}/rows";
-        localVarPath = apiClient.addParameterToPath(localVarPath, "tablePath", getTablePath());
+        String localVarPath = "/words/online/post/{nodePath}/rows";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "nodePath", getNodePath());
         localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();

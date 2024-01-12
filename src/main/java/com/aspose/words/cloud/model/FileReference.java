@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="FileReference.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,9 +28,11 @@
 package com.aspose.words.cloud.model;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.ApiClient;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.List;
 
 /*
@@ -44,7 +46,13 @@ public class FileReference implements ModelIfc {
     @SerializedName("Reference")
     private String reference;
 
-    private byte[] content;
+    @SerializedName("Password")
+    private String password;
+
+    @SerializedName("EncryptedPassword")
+    private String encryptedPassword;
+
+    private transient byte[] content;
 
     /**
      * Gets file source.
@@ -84,6 +92,20 @@ public class FileReference implements ModelIfc {
         this.content = localFileContent;
     }
 
+    public FileReference(String remoteFilePath, String password) {
+        this.source = "Storage";
+        this.reference = remoteFilePath;
+        this.content = null;
+        this.password = password;
+    }
+
+    public FileReference(byte[] localFileContent, String password) {
+        this.source = "Request";
+        this.reference = java.util.UUID.randomUUID().toString();
+        this.content = localFileContent;
+        this.password = password;
+    }
+
     /*
      * Gets files content.
      *
@@ -91,9 +113,7 @@ public class FileReference implements ModelIfc {
      */
     @Override
     public void getFilesContent(List<FileReference> resultFilesContent) {
-        if ("Request".equals(this.source)) {
-            resultFilesContent.add(this);
-        }
+        resultFilesContent.add(this);
     }
 
     /*
@@ -103,5 +123,15 @@ public class FileReference implements ModelIfc {
      */
     public void validate() throws ApiException {
         // Do nothing
+    }
+
+    /*
+     * Encrypt password
+     */
+    public void encryptPassword(ApiClient apiClient) throws ApiException, IOException {
+        if (this.password != null) {
+            this.encryptedPassword = apiClient.encrypt(this.password);
+            this.password = null;
+        }
     }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="NewDocumentPosition.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="PositionBeforeNode.java">
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,56 +44,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * DTO container with a new position in the document tree.
+ * Describes the location of the node before specified node.
  */
-@ApiModel(description = "DTO container with a new position in the document tree.")
-public class NewDocumentPosition implements ModelIfc {
-    @SerializedName("NodeId")
-    protected String nodeId;
+@ApiModel(description = "Describes the location of the node before specified node.")
+public class PositionBeforeNode extends Position {
 
-    @SerializedName("Offset")
-    protected Integer offset;
-    /**
-     * Gets or sets the node id.
-    * @return nodeId
-    **/
-    @ApiModelProperty(value = "Gets or sets the node id.")
-    public String getNodeId() {
-        return nodeId;
-    }
-
-    public NewDocumentPosition nodeId(String nodeId) {
-        this.nodeId = nodeId;
-        return this;
-    }
-
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
-    }
-
-
-    /**
-     * Gets or sets the offset in the node.
-    * @return offset
-    **/
-    @ApiModelProperty(value = "Gets or sets the offset in the node.")
-    public Integer getOffset() {
-        return offset;
-    }
-
-    public NewDocumentPosition offset(Integer offset) {
-        this.offset = offset;
-        return this;
-    }
-
-    public void setOffset(Integer offset) {
-        this.offset = offset;
-    }
-
-
-    public NewDocumentPosition() {
-        this.nodeId = null;
-        this.offset = null;
+    public PositionBeforeNode() {
+        super();
+        this.type = "Before";
     }
 
     /*
@@ -112,9 +70,7 @@ public class NewDocumentPosition implements ModelIfc {
      */
     @Override
     public void validate() throws ApiException {
-        if (this.nodeId == null) {
-            throw new ApiException(400, "Property NodeId in NewDocumentPosition is required.");
-        }
+        super.validate();
     }
 
     @Override
@@ -126,23 +82,20 @@ public class NewDocumentPosition implements ModelIfc {
             return false;
         }
 
-        NewDocumentPosition newDocumentPosition = (NewDocumentPosition) o;
-        return
-            Objects.equals(this.nodeId, newDocumentPosition.nodeId) &&
-            Objects.equals(this.offset, newDocumentPosition.offset);
+        return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodeId, offset);
+    return Objects.hash(super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NewDocumentPosition {\n");
+    sb.append("class PositionBeforeNode {\n");
     sb.append("    nodeId: ").append(toIndentedString(getNodeId())).append("\n");
-    sb.append("    offset: ").append(toIndentedString(getOffset())).append("\n");
+    sb.append("    type: ").append(toIndentedString(getType())).append("\n");
     sb.append("}");
     return sb.toString();
   }

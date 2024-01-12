@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestCompareDocument.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -88,8 +88,7 @@ public class TestCompareDocument  extends TestCase
             null,
             null,
             null,
-            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc",
-            null
+            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
         );
 
         DocumentResponse result = TestInitializer.wordsApi.compareDocument(request);
@@ -126,8 +125,7 @@ public class TestCompareDocument  extends TestCase
             null,
             null,
             null,
-            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc",
-            null
+            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
         );
 
         CompareDocumentOnlineResponse result = TestInitializer.wordsApi.compareDocumentOnline(request);
@@ -163,11 +161,52 @@ public class TestCompareDocument  extends TestCase
             null,
             null,
             null,
-            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc",
-            null
+            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
         );
 
         CompareDocumentOnlineResponse result = TestInitializer.wordsApi.compareDocumentOnline(request);
         assertNotNull(result);
+    }
+
+    /*
+     * Test for document comparison with password protection.
+     */
+    @Test
+    public void testCompareDocumentWithPassword() throws ApiException, MessagingException, IOException
+    {
+        String localName = "DocWithPassword.docx";
+        String remoteName1 = "TestCompareDocument1.docx";
+        String remoteName2 = "TestCompareDocument2.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, "Common/" + localName),
+            remoteFolder + "/" + remoteName1
+        );
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, "Common/" + localName),
+            remoteFolder + "/" + remoteName2
+        );
+
+        FileReference requestCompareDataFileReference = new FileReference(remoteFolder + "/" + remoteName2, "12345");
+        CompareData requestCompareData = new CompareData();
+        requestCompareData.setAuthor("author");
+        requestCompareData.setDateTime(OffsetDateTime.of(2015, 10, 26, 0, 0, 0, 0, ZoneOffset.UTC));
+        requestCompareData.setFileReference(requestCompareDataFileReference);
+
+        CompareDocumentRequest request = new CompareDocumentRequest(
+            remoteName1,
+            requestCompareData,
+            remoteFolder,
+            null,
+            null,
+            "12345",
+            null,
+            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.docx"
+        );
+
+        DocumentResponse result = TestInitializer.wordsApi.compareDocument(request);
+        assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestCompareDocumentOut.docx", result.getDocument().getFileName());
     }
 }

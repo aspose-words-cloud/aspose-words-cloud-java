@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableCellRequest.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,14 +47,14 @@ public class InsertTableCellRequest implements RequestIfc {
     private String name;
 
     /*
-     * The path to the table row in the document tree.
-     */
-    private String tableRowPath;
-
-    /*
      * Table cell parameters.
      */
     private TableCellInsert cell;
+
+    /*
+     * The path to the table row in the document tree.
+     */
+    private String tableRowPath;
 
     /*
      * Original document folder.
@@ -100,8 +100,8 @@ public class InsertTableCellRequest implements RequestIfc {
      * Initializes a new instance of the InsertTableCellRequest class.
      *
      * @param String name The filename of the input document.
-     * @param String tableRowPath The path to the table row in the document tree.
      * @param TableCellInsert cell Table cell parameters.
+     * @param String tableRowPath The path to the table row in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -111,10 +111,10 @@ public class InsertTableCellRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertTableCellRequest(String name, String tableRowPath, TableCellInsert cell, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public InsertTableCellRequest(String name, TableCellInsert cell, String tableRowPath, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.tableRowPath = tableRowPath;
         this.cell = cell;
+        this.tableRowPath = tableRowPath;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -140,20 +140,6 @@ public class InsertTableCellRequest implements RequestIfc {
     }
 
     /*
-     * Gets The path to the table row in the document tree.
-     */
-    public String getTableRowPath() {
-        return this.tableRowPath;
-    }
-
-    /*
-     * Sets The path to the table row in the document tree.
-     */
-    public void setTableRowPath(String value) {
-        this.tableRowPath = value;
-    }
-
-    /*
      * Gets Table cell parameters.
      */
     public TableCellInsert getCell() {
@@ -165,6 +151,20 @@ public class InsertTableCellRequest implements RequestIfc {
      */
     public void setCell(TableCellInsert value) {
         this.cell = value;
+    }
+
+    /*
+     * Gets The path to the table row in the document tree.
+     */
+    public String getTableRowPath() {
+        return this.tableRowPath;
+    }
+
+    /*
+     * Sets The path to the table row in the document tree.
+     */
+    public void setTableRowPath(String value) {
+        this.tableRowPath = value;
     }
 
     /*
@@ -294,11 +294,6 @@ public class InsertTableCellRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling insertTableCell");
         }
 
-        // verify the required parameter 'TableRowPath' is set
-        if (getTableRowPath() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'TableRowPath' when calling insertTableCell");
-        }
-
         // verify the required parameter 'Cell' is set
         if (getCell() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Cell' when calling insertTableCell");
@@ -306,6 +301,8 @@ public class InsertTableCellRequest implements RequestIfc {
         if (getCell() != null) {
             getCell().validate();
         }
+
+
 
 
 

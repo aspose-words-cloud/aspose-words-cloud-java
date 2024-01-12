@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ApiClient.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -59,7 +59,7 @@ public class ApiClient {
     private String apiVersion = "v4.0";
     private String baseUrl = "https://api.aspose.cloud";
     private String basePath = baseUrl + "/" + apiVersion;
-    private String clientVersion = "23.12";
+    private String clientVersion = "24.1";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -827,7 +827,14 @@ public class ApiClient {
         RequestBody reqBody = null;
         if (HttpMethod.permitsRequestBody(method)) {
             String contentType = headerParams.get("Content-Type");
-            int partsCount = formParams.size() + filesContentParams.size();
+            int partsCount = formParams.size();
+            for (FileReference fileReference : filesContentParams) {
+                fileReference.encryptPassword(this);
+                if ("Request".equals(fileReference.getSource())) {
+                    partsCount = partsCount + 1;
+                }
+            }
+
             if ("application/x-www-form-urlencoded".equals(contentType)) {
                 reqBody = buildRequestBodyFormEncoding(formParams);
             }
@@ -974,9 +981,11 @@ public class ApiClient {
                 Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
                 mpBuilder.addPart(partHeaders, serialize(param.getValue()));
             }
-            for (FileReference param : fileParams) {
-                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getReference() + "\"");
-                mpBuilder.addPart(partHeaders, RequestBody.create(MediaType.parse("application/octet-stream"), param.getContent()));
+            for (FileReference fileRef : fileParams) {
+                if ("Request".equals(fileRef.getSource())) {
+                    Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + fileRef.getReference() + "\"");
+                    mpBuilder.addPart(partHeaders, RequestBody.create(MediaType.parse("application/octet-stream"), fileRef.getContent()));
+                }
             }
         }
         return mpBuilder.build();
@@ -1224,7 +1233,7 @@ public class ApiClient {
      * Encrypt string to base64-encoded string
      */
     public String encrypt(String data) throws ApiException, IOException {
-        if (data != null && !data.isEmpty()) {
+        if (data == null || data.isEmpty()) {
             return null;
         }
 

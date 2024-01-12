@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TestField.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -248,7 +248,6 @@ public class TestField  extends TestCase
             null,
             null,
             null,
-            null,
             null
         );
 
@@ -273,7 +272,6 @@ public class TestField  extends TestCase
             requestDocument,
             requestField,
             "sections/0/paragraphs/0",
-            null,
             null,
             null,
             null,
@@ -308,7 +306,6 @@ public class TestField  extends TestCase
             requestField,
             null,
             remoteDataFolder,
-            null,
             null,
             null,
             null,

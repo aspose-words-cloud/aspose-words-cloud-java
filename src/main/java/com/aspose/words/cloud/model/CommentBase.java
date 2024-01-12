@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CommentBase.java">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -49,10 +49,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Comment.")
 public abstract class CommentBase implements ModelIfc {
     @SerializedName("RangeStart")
-    protected NewDocumentPosition rangeStart;
+    protected PositionInsideNode rangeStart;
 
     @SerializedName("RangeEnd")
-    protected NewDocumentPosition rangeEnd;
+    protected PositionInsideNode rangeEnd;
 
     @SerializedName("Author")
     protected String author;
@@ -70,16 +70,16 @@ public abstract class CommentBase implements ModelIfc {
     * @return rangeStart
     **/
     @ApiModelProperty(value = "Gets or sets the link to comment range start node.")
-    public NewDocumentPosition getRangeStart() {
+    public PositionInsideNode getRangeStart() {
         return rangeStart;
     }
 
-    public CommentBase rangeStart(NewDocumentPosition rangeStart) {
+    public CommentBase rangeStart(PositionInsideNode rangeStart) {
         this.rangeStart = rangeStart;
         return this;
     }
 
-    public void setRangeStart(NewDocumentPosition rangeStart) {
+    public void setRangeStart(PositionInsideNode rangeStart) {
         this.rangeStart = rangeStart;
     }
 
@@ -89,16 +89,16 @@ public abstract class CommentBase implements ModelIfc {
     * @return rangeEnd
     **/
     @ApiModelProperty(value = "Gets or sets the link to comment range end node.")
-    public NewDocumentPosition getRangeEnd() {
+    public PositionInsideNode getRangeEnd() {
         return rangeEnd;
     }
 
-    public CommentBase rangeEnd(NewDocumentPosition rangeEnd) {
+    public CommentBase rangeEnd(PositionInsideNode rangeEnd) {
         this.rangeEnd = rangeEnd;
         return this;
     }
 
-    public void setRangeEnd(NewDocumentPosition rangeEnd) {
+    public void setRangeEnd(PositionInsideNode rangeEnd) {
         this.rangeEnd = rangeEnd;
     }
 
