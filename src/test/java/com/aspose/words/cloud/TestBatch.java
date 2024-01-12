@@ -73,7 +73,7 @@ public void testBatch() throws ApiException, MessagingException, IOException {
         ParagraphInsert request3body = new ParagraphInsert();
         request3body.setText("This is a new paragraph for your document");
         BatchPartRequest request3 = new BatchPartRequest(
-                new InsertParagraphRequest(remoteName, request3body, "sections/0", remoteFolder, null, null, null, null, null, null, null, null)
+                new InsertParagraphRequest(remoteName, request3body, "sections/0", remoteFolder, null, null, null, null, null, null, null)
         );
 
         BatchPartRequest request4 = new BatchPartRequest(
