@@ -53,8 +53,8 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
      */
     @JsonAdapter(AppearanceEnum.Adapter.class)
     public enum AppearanceEnum {
-        DEFAULT("Default"),
         BOUNDINGBOX("BoundingBox"),
+        DEFAULT("Default"),
         TAGS("Tags"),
         HIDDEN("Hidden");
 

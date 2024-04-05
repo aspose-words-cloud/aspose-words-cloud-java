@@ -204,6 +204,57 @@ public class TestSection  extends TestCase
     }
 
     /*
+     * Test for merge a section with the next one.
+     */
+    @Test
+    public void testMergeWithNext() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestMergeWithNext.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, "DocumentElements/Sections/Source.docx"),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        MergeWithNextRequest request = new MergeWithNextRequest(
+            remoteFileName,
+            0,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        TestInitializer.wordsApi.mergeWithNext(request);
+    }
+
+    /*
+     * Test for merge a section with the next one online.
+     */
+    @Test
+    public void testMergeWithNextOnline() throws ApiException, MessagingException, IOException
+    {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "DocumentElements/Sections/Source.docx").toAbsolutePath());
+        MergeWithNextOnlineRequest request = new MergeWithNextOnlineRequest(
+            requestDocument,
+            0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        Map<String, byte[]> result = TestInitializer.wordsApi.mergeWithNextOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for insertion a section.
      */
     @Test

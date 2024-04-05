@@ -18552,6 +18552,149 @@ public class WordsApi implements EncryptorFactory {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call mergeWithNextValidateBeforeCall(MergeWithNextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Merge the section with the next one.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void mergeWithNext(MergeWithNextRequest request) throws ApiException, MessagingException, IOException {
+        try {
+    mergeWithNextWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+    mergeWithNextWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Merge the section with the next one.
+     * @param request Request object
+     * @return ApiResponse< void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > mergeWithNextWithHttpInfo(MergeWithNextRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = mergeWithNextValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Merge the section with the next one. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call mergeWithNextAsync(MergeWithNextRequest request, final ApiCallback< Void > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = mergeWithNextValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call mergeWithNextOnlineValidateBeforeCall(MergeWithNextOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Merge the section with the next one.
+     * @param request Request object
+     * @return Map<String, byte[]>
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Map<String, byte[]> mergeWithNextOnline(MergeWithNextOnlineRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< Map<String, byte[]> > resp = mergeWithNextOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< Map<String, byte[]> > resp = mergeWithNextOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Merge the section with the next one.
+     * @param request Request object
+     * @return ApiResponse< Map<String, byte[]> >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Map<String, byte[]> > mergeWithNextOnlineWithHttpInfo(MergeWithNextOnlineRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = mergeWithNextOnlineValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Merge the section with the next one. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call mergeWithNextOnlineAsync(MergeWithNextOnlineRequest request, final ApiCallback< Map<String, byte[]> > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = mergeWithNextOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call moveFileValidateBeforeCall(MoveFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
