@@ -228,6 +228,9 @@ public class DrawingObjectInsert implements ModelIfc {
 
     @SerializedName("WrapType")
     protected WrapTypeEnum wrapType;
+
+    @SerializedName("AspectRatioLocked")
+    protected Boolean aspectRatioLocked;
     /**
      * Gets or sets the position, where the DrawingObject will be inserted.
     * @return position
@@ -380,6 +383,25 @@ public class DrawingObjectInsert implements ModelIfc {
     }
 
 
+    /**
+     * Gets or sets a value indicating whether AspectRatioLocked option on or off.
+    * @return aspectRatioLocked
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether AspectRatioLocked option on or off.")
+    public Boolean getAspectRatioLocked() {
+        return aspectRatioLocked;
+    }
+
+    public DrawingObjectInsert aspectRatioLocked(Boolean aspectRatioLocked) {
+        this.aspectRatioLocked = aspectRatioLocked;
+        return this;
+    }
+
+    public void setAspectRatioLocked(Boolean aspectRatioLocked) {
+        this.aspectRatioLocked = aspectRatioLocked;
+    }
+
+
     public DrawingObjectInsert() {
         this.position = null;
         this.relativeHorizontalPosition = null;
@@ -389,6 +411,7 @@ public class DrawingObjectInsert implements ModelIfc {
         this.width = null;
         this.height = null;
         this.wrapType = null;
+        this.aspectRatioLocked = null;
     }
 
     /*
@@ -440,6 +463,7 @@ public class DrawingObjectInsert implements ModelIfc {
 
 
 
+
     }
 
     @Override
@@ -460,12 +484,13 @@ public class DrawingObjectInsert implements ModelIfc {
             Objects.equals(this.top, drawingObjectInsert.top) &&
             Objects.equals(this.width, drawingObjectInsert.width) &&
             Objects.equals(this.height, drawingObjectInsert.height) &&
-            Objects.equals(this.wrapType, drawingObjectInsert.wrapType);
+            Objects.equals(this.wrapType, drawingObjectInsert.wrapType) &&
+            Objects.equals(this.aspectRatioLocked, drawingObjectInsert.aspectRatioLocked);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(position, relativeHorizontalPosition, left, relativeVerticalPosition, top, width, height, wrapType);
+    return Objects.hash(position, relativeHorizontalPosition, left, relativeVerticalPosition, top, width, height, wrapType, aspectRatioLocked);
   }
 
   @Override
@@ -480,6 +505,7 @@ public class DrawingObjectInsert implements ModelIfc {
     sb.append("    width: ").append(toIndentedString(getWidth())).append("\n");
     sb.append("    height: ").append(toIndentedString(getHeight())).append("\n");
     sb.append("    wrapType: ").append(toIndentedString(getWrapType())).append("\n");
+    sb.append("    aspectRatioLocked: ").append(toIndentedString(getAspectRatioLocked())).append("\n");
     sb.append("}");
     return sb.toString();
   }
