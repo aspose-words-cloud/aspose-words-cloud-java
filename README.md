@@ -13,6 +13,12 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 24.4
+
+- Added the 'MergeWithNext' method to merge a section with the next one.
+- Added the 'LockAspectRatio' propperty for DrawingObjectInsert and DrawingObjectUpdate methods.
+
+
 ## Enhancements in Version 24.3
 
 - Added support for 'RemoveEmptyCells' option for the 'Cleanup' parameter in the insert 'MailMerge' API method.
@@ -333,7 +339,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>24.3.0</version>
+        <version>24.4.0</version>
     </dependency>
 </dependencies>
 ```

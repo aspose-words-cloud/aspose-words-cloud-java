@@ -225,6 +225,9 @@ public class DrawingObjectUpdate implements ModelIfc {
 
     @SerializedName("WrapType")
     protected WrapTypeEnum wrapType;
+
+    @SerializedName("AspectRatioLocked")
+    protected Boolean aspectRatioLocked;
     /**
      * Gets or sets the relative horizontal position, from which the distance to the image is measured.
     * @return relativeHorizontalPosition
@@ -358,6 +361,25 @@ public class DrawingObjectUpdate implements ModelIfc {
     }
 
 
+    /**
+     * Gets or sets a value indicating whether AspectRatioLocked option on or off.
+    * @return aspectRatioLocked
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether AspectRatioLocked option on or off.")
+    public Boolean getAspectRatioLocked() {
+        return aspectRatioLocked;
+    }
+
+    public DrawingObjectUpdate aspectRatioLocked(Boolean aspectRatioLocked) {
+        this.aspectRatioLocked = aspectRatioLocked;
+        return this;
+    }
+
+    public void setAspectRatioLocked(Boolean aspectRatioLocked) {
+        this.aspectRatioLocked = aspectRatioLocked;
+    }
+
+
     public DrawingObjectUpdate() {
         this.relativeHorizontalPosition = null;
         this.left = null;
@@ -366,6 +388,7 @@ public class DrawingObjectUpdate implements ModelIfc {
         this.width = null;
         this.height = null;
         this.wrapType = null;
+        this.aspectRatioLocked = null;
     }
 
     /*
@@ -403,12 +426,13 @@ public class DrawingObjectUpdate implements ModelIfc {
             Objects.equals(this.top, drawingObjectUpdate.top) &&
             Objects.equals(this.width, drawingObjectUpdate.width) &&
             Objects.equals(this.height, drawingObjectUpdate.height) &&
-            Objects.equals(this.wrapType, drawingObjectUpdate.wrapType);
+            Objects.equals(this.wrapType, drawingObjectUpdate.wrapType) &&
+            Objects.equals(this.aspectRatioLocked, drawingObjectUpdate.aspectRatioLocked);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(relativeHorizontalPosition, left, relativeVerticalPosition, top, width, height, wrapType);
+    return Objects.hash(relativeHorizontalPosition, left, relativeVerticalPosition, top, width, height, wrapType, aspectRatioLocked);
   }
 
   @Override
@@ -422,6 +446,7 @@ public class DrawingObjectUpdate implements ModelIfc {
     sb.append("    width: ").append(toIndentedString(getWidth())).append("\n");
     sb.append("    height: ").append(toIndentedString(getHeight())).append("\n");
     sb.append("    wrapType: ").append(toIndentedString(getWrapType())).append("\n");
+    sb.append("    aspectRatioLocked: ").append(toIndentedString(getAspectRatioLocked())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -576,8 +576,8 @@ public class TableProperties extends LinkElement {
      */
     @JsonAdapter(TextWrappingEnum.Adapter.class)
     public enum TextWrappingEnum {
-        DEFAULT("Default"),
         NONE("None"),
+        DEFAULT("Default"),
         AROUND("Around");
 
         private String value;
