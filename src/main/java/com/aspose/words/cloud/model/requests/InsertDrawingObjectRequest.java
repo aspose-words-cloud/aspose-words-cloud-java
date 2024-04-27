@@ -52,14 +52,19 @@ public class InsertDrawingObjectRequest implements RequestIfc {
     private DrawingObjectInsert drawingObject;
 
     /*
+     * The path to the node in the document tree.
+     */
+    private String nodePath;
+
+    /*
      * File with image.
      */
     private byte[] imageFile;
 
     /*
-     * The path to the node in the document tree.
+     * The link to the image.
      */
-    private String nodePath;
+    private String url;
 
     /*
      * Original document folder.
@@ -106,8 +111,9 @@ public class InsertDrawingObjectRequest implements RequestIfc {
      *
      * @param String name The filename of the input document.
      * @param DrawingObjectInsert drawingObject Drawing object parameters.
-     * @param byte[] imageFile File with image.
      * @param String nodePath The path to the node in the document tree.
+     * @param byte[] imageFile File with image.
+     * @param String url The link to the image.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -117,11 +123,12 @@ public class InsertDrawingObjectRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertDrawingObjectRequest(String name, DrawingObjectInsert drawingObject, byte[] imageFile, String nodePath, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public InsertDrawingObjectRequest(String name, DrawingObjectInsert drawingObject, String nodePath, byte[] imageFile, String url, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
         this.drawingObject = drawingObject;
-        this.imageFile = imageFile;
         this.nodePath = nodePath;
+        this.imageFile = imageFile;
+        this.url = url;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -161,6 +168,20 @@ public class InsertDrawingObjectRequest implements RequestIfc {
     }
 
     /*
+     * Gets The path to the node in the document tree.
+     */
+    public String getNodePath() {
+        return this.nodePath;
+    }
+
+    /*
+     * Sets The path to the node in the document tree.
+     */
+    public void setNodePath(String value) {
+        this.nodePath = value;
+    }
+
+    /*
      * Gets File with image.
      */
     public byte[] getImageFile() {
@@ -175,17 +196,17 @@ public class InsertDrawingObjectRequest implements RequestIfc {
     }
 
     /*
-     * Gets The path to the node in the document tree.
+     * Gets The link to the image.
      */
-    public String getNodePath() {
-        return this.nodePath;
+    public String getUrl() {
+        return this.url;
     }
 
     /*
-     * Sets The path to the node in the document tree.
+     * Sets The link to the image.
      */
-    public void setNodePath(String value) {
-        this.nodePath = value;
+    public void setUrl(String value) {
+        this.url = value;
     }
 
     /*
@@ -319,14 +340,11 @@ public class InsertDrawingObjectRequest implements RequestIfc {
         if (getDrawingObject() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DrawingObject' when calling insertDrawingObject");
         }
-
-        // verify the required parameter 'ImageFile' is set
-        if (getImageFile() == null) {
-            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ImageFile' when calling insertDrawingObject");
-        }
         if (getDrawingObject() != null) {
             getDrawingObject().validate();
         }
+
+
 
 
 
@@ -357,6 +375,7 @@ public class InsertDrawingObjectRequest implements RequestIfc {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "url", getUrl());
         apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
         apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
