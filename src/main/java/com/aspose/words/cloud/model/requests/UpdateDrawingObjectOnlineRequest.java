@@ -52,6 +52,11 @@ public class UpdateDrawingObjectOnlineRequest implements RequestIfc {
     private DrawingObjectUpdate drawingObject;
 
     /*
+     * File with image.
+     */
+    private byte[] imageFile;
+
+    /*
      * Object index.
      */
     private Integer index;
@@ -60,16 +65,6 @@ public class UpdateDrawingObjectOnlineRequest implements RequestIfc {
      * The path to the node in the document tree.
      */
     private String nodePath;
-
-    /*
-     * File with image.
-     */
-    private byte[] imageFile;
-
-    /*
-     * The link to the image.
-     */
-    private String url;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -106,10 +101,9 @@ public class UpdateDrawingObjectOnlineRequest implements RequestIfc {
      *
      * @param byte[] document The document.
      * @param DrawingObjectUpdate drawingObject Drawing object parameters.
+     * @param byte[] imageFile File with image.
      * @param Integer index Object index.
      * @param String nodePath The path to the node in the document tree.
-     * @param byte[] imageFile File with image.
-     * @param String url The link to the image.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
@@ -117,13 +111,12 @@ public class UpdateDrawingObjectOnlineRequest implements RequestIfc {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateDrawingObjectOnlineRequest(byte[] document, DrawingObjectUpdate drawingObject, Integer index, String nodePath, byte[] imageFile, String url, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateDrawingObjectOnlineRequest(byte[] document, DrawingObjectUpdate drawingObject, byte[] imageFile, Integer index, String nodePath, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.document = document;
         this.drawingObject = drawingObject;
+        this.imageFile = imageFile;
         this.index = index;
         this.nodePath = nodePath;
-        this.imageFile = imageFile;
-        this.url = url;
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
@@ -161,6 +154,20 @@ public class UpdateDrawingObjectOnlineRequest implements RequestIfc {
     }
 
     /*
+     * Gets File with image.
+     */
+    public byte[] getImageFile() {
+        return this.imageFile;
+    }
+
+    /*
+     * Sets File with image.
+     */
+    public void setImageFile(byte[] value) {
+        this.imageFile = value;
+    }
+
+    /*
      * Gets Object index.
      */
     public Integer getIndex() {
@@ -186,34 +193,6 @@ public class UpdateDrawingObjectOnlineRequest implements RequestIfc {
      */
     public void setNodePath(String value) {
         this.nodePath = value;
-    }
-
-    /*
-     * Gets File with image.
-     */
-    public byte[] getImageFile() {
-        return this.imageFile;
-    }
-
-    /*
-     * Sets File with image.
-     */
-    public void setImageFile(byte[] value) {
-        this.imageFile = value;
-    }
-
-    /*
-     * Gets The link to the image.
-     */
-    public String getUrl() {
-        return this.url;
-    }
-
-    /*
-     * Sets The link to the image.
-     */
-    public void setUrl(String value) {
-        this.url = value;
     }
 
     /*
@@ -320,6 +299,11 @@ public class UpdateDrawingObjectOnlineRequest implements RequestIfc {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DrawingObject' when calling updateDrawingObjectOnline");
         }
 
+        // verify the required parameter 'ImageFile' is set
+        if (getImageFile() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'ImageFile' when calling updateDrawingObjectOnline");
+        }
+
         // verify the required parameter 'Index' is set
         if (getIndex() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Index' when calling updateDrawingObjectOnline");
@@ -327,8 +311,6 @@ public class UpdateDrawingObjectOnlineRequest implements RequestIfc {
         if (getDrawingObject() != null) {
             getDrawingObject().validate();
         }
-
-
 
 
 
@@ -357,7 +339,6 @@ public class UpdateDrawingObjectOnlineRequest implements RequestIfc {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        apiClient.addParameterToQuery(localVarQueryParams, "url", getUrl());
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());

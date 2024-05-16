@@ -467,9 +467,8 @@ public class TestDrawingObjects  extends TestCase
         InsertDrawingObjectRequest request = new InsertDrawingObjectRequest(
             remoteFileName,
             requestDrawingObject,
-            "",
             requestImageFile,
-            null,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -504,9 +503,8 @@ public class TestDrawingObjects  extends TestCase
         InsertDrawingObjectOnlineRequest request = new InsertDrawingObjectOnlineRequest(
             requestDocument,
             requestDrawingObject,
-            "",
             requestImageFile,
-            null,
+            "",
             null,
             null,
             null,
@@ -545,51 +543,8 @@ public class TestDrawingObjects  extends TestCase
         InsertDrawingObjectRequest request = new InsertDrawingObjectRequest(
             remoteFileName,
             requestDrawingObject,
-            null,
             requestImageFile,
             null,
-            remoteDataFolder,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        );
-
-        DrawingObjectResponse result = TestInitializer.wordsApi.insertDrawingObject(request);
-        assertNotNull(result);
-    }
-
-    /*
-     * Test for adding a link to a drawing object.
-     */
-    @Test
-    public void testInsertDrawingObjectLink() throws ApiException, MessagingException, IOException
-    {
-        String remoteFileName = "TestInsetDrawingObject.docx";
-
-        TestInitializer.UploadFile(
-            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
-            remoteDataFolder + "/" + remoteFileName
-        );
-
-        DrawingObjectInsert requestDrawingObject = new DrawingObjectInsert();
-        requestDrawingObject.setHeight((double)0);
-        requestDrawingObject.setLeft((double)0);
-        requestDrawingObject.setTop((double)0);
-        requestDrawingObject.setWidth((double)0);
-        requestDrawingObject.setRelativeHorizontalPosition(DrawingObjectInsert.RelativeHorizontalPositionEnum.MARGIN);
-        requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
-        requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
-
-        InsertDrawingObjectRequest request = new InsertDrawingObjectRequest(
-            remoteFileName,
-            requestDrawingObject,
-            "",
-            null,
-            "https://products.aspose.com/words/static/img/aspose_words_cloud-for-net.png",
             remoteDataFolder,
             null,
             null,
@@ -707,10 +662,9 @@ public class TestDrawingObjects  extends TestCase
         UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(
             remoteFileName,
             requestDrawingObject,
+            requestImageFile,
             0,
             "",
-            requestImageFile,
-            null,
             remoteDataFolder,
             null,
             null,
@@ -739,10 +693,9 @@ public class TestDrawingObjects  extends TestCase
         UpdateDrawingObjectOnlineRequest request = new UpdateDrawingObjectOnlineRequest(
             requestDocument,
             requestDrawingObject,
+            requestImageFile,
             0,
             "",
-            requestImageFile,
-            null,
             null,
             null,
             null,
@@ -775,47 +728,9 @@ public class TestDrawingObjects  extends TestCase
         UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(
             remoteFileName,
             requestDrawingObject,
-            0,
-            null,
             requestImageFile,
-            null,
-            remoteDataFolder,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        );
-
-        DrawingObjectResponse result = TestInitializer.wordsApi.updateDrawingObject(request);
-        assertNotNull(result);
-    }
-
-    /*
-     * Test for updating drawing object to a link to it.
-     */
-    @Test
-    public void testUpdateDrawingObjectLink() throws ApiException, MessagingException, IOException
-    {
-        String remoteFileName = "TestUpdateDrawingObjectLink.docx";
-
-        TestInitializer.UploadFile(
-            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
-            remoteDataFolder + "/" + remoteFileName
-        );
-
-        DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
-        requestDrawingObject.setLeft((double)0);
-
-        UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(
-            remoteFileName,
-            requestDrawingObject,
             0,
-            "",
             null,
-            "https://products.aspose.com/words/static/img/aspose_words_cloud-for-net.png",
             remoteDataFolder,
             null,
             null,
