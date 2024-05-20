@@ -69,7 +69,7 @@ public class TestExecuteMailMerge  extends TestCase
             requestTemplate,
             requestData,
             null,
-            null,
+            true,
             null,
             null
         );
@@ -102,7 +102,7 @@ public class TestExecuteMailMerge  extends TestCase
             null,
             null,
             null,
-            false,
+            true,
             null,
             null,
             null,
