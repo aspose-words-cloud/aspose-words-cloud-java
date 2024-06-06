@@ -296,7 +296,7 @@ public class TestRange  extends TestCase
 
         TranslateNodeIdResponse result = TestInitializer.wordsApi.translateNodeId(request);
         assertNotNull(result);
-        assertEquals("sections/0/body/paragraphs/0", result.getText());
+        assertEquals("sections/0/body/paragraphs/0", result.getPath());
     }
 
     /*
