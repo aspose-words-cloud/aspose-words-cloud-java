@@ -287,7 +287,7 @@ public class TestRange  extends TestCase
         TranslateNodeIdRequest request = new TranslateNodeIdRequest(
             remoteFileName,
             "id0.0.0",
-            null,
+            remoteDataFolder,
             null,
             null,
             null,
