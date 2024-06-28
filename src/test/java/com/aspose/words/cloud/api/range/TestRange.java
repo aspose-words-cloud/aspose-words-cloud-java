@@ -270,4 +270,51 @@ public class TestRange  extends TestCase
         ReplaceWithTextOnlineResponse result = TestInitializer.wordsApi.replaceWithTextOnline(request);
         assertNotNull(result);
     }
+
+    /*
+     * Test to translate node id to node path.
+     */
+    @Test
+    public void testTranslateNodeId() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestTranslateNodeId.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        TranslateNodeIdRequest request = new TranslateNodeIdRequest(
+            remoteFileName,
+            "id0.0.0",
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null
+        );
+
+        TranslateNodeIdResponse result = TestInitializer.wordsApi.translateNodeId(request);
+        assertNotNull(result);
+        assertEquals("sections/0/body/paragraphs/0", result.getPath());
+    }
+
+    /*
+     * Test to translate node id to node path online.
+     */
+    @Test
+    public void testTranslateNodeIdOnline() throws ApiException, MessagingException, IOException
+    {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        TranslateNodeIdOnlineRequest request = new TranslateNodeIdOnlineRequest(
+            requestDocument,
+            "id0.0.0",
+            null,
+            null,
+            null
+        );
+
+        TranslateNodeIdResponse result = TestInitializer.wordsApi.translateNodeIdOnline(request);
+        assertNotNull(result);
+    }
 }
