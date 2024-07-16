@@ -73,7 +73,8 @@ public class Document implements ModelIfc {
         PDF("Pdf"),
         XPS("Xps"),
         TIFF("Tiff"),
-        SVG("Svg");
+        SVG("Svg"),
+        AZW3("Azw3");
 
         private String value;
 

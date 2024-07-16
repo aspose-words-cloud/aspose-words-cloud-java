@@ -415,6 +415,7 @@ public class JSON {
             {
                 put("ApiError, _", com.aspose.words.cloud.model.ApiError.class);
                 put("AvailableFontsResponse, _", com.aspose.words.cloud.model.AvailableFontsResponse.class);
+                put("Azw3SaveOptionsData, _", com.aspose.words.cloud.model.Azw3SaveOptionsData.class);
                 put("BmpSaveOptionsData, _", com.aspose.words.cloud.model.BmpSaveOptionsData.class);
                 put("Bookmark, _", com.aspose.words.cloud.model.Bookmark.class);
                 put("BookmarkData, _", com.aspose.words.cloud.model.BookmarkData.class);
