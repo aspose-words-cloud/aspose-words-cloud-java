@@ -82,6 +82,7 @@ public class TestFootnote  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -107,6 +108,7 @@ public class TestFootnote  extends TestCase
             requestDocument,
             requestFootnoteDto,
             "",
+            null,
             null,
             null,
             null,
@@ -147,6 +149,7 @@ public class TestFootnote  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -181,6 +184,7 @@ public class TestFootnote  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -198,6 +202,7 @@ public class TestFootnote  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -234,6 +239,7 @@ public class TestFootnote  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -260,6 +266,7 @@ public class TestFootnote  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -281,6 +288,7 @@ public class TestFootnote  extends TestCase
         GetFootnotesOnlineRequest request = new GetFootnotesOnlineRequest(
             requestDocument,
             "",
+            null,
             null,
             null,
             null
@@ -307,6 +315,7 @@ public class TestFootnote  extends TestCase
             remoteFileName,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -342,6 +351,7 @@ public class TestFootnote  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -362,6 +372,7 @@ public class TestFootnote  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null,
             null
@@ -389,6 +400,7 @@ public class TestFootnote  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -429,6 +441,7 @@ public class TestFootnote  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -453,6 +466,7 @@ public class TestFootnote  extends TestCase
             requestFootnoteDto,
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -487,6 +501,7 @@ public class TestFootnote  extends TestCase
             requestFootnoteDto,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,

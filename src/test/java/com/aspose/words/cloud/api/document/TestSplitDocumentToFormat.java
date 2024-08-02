@@ -75,6 +75,7 @@ public class TestSplitDocumentToFormat  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/TestSplitDocument.text",
             1,
             2,
@@ -99,6 +100,7 @@ public class TestSplitDocumentToFormat  extends TestCase
         SplitDocumentOnlineRequest request = new SplitDocumentOnlineRequest(
             requestDocument,
             "text",
+            null,
             null,
             null,
             null,

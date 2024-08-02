@@ -75,6 +75,7 @@ public class TestHeaderFooter  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -95,6 +96,7 @@ public class TestHeaderFooter  extends TestCase
         GetHeaderFootersOnlineRequest request = new GetHeaderFootersOnlineRequest(
             requestDocument,
             "",
+            null,
             null,
             null,
             null,
@@ -126,6 +128,7 @@ public class TestHeaderFooter  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -147,6 +150,7 @@ public class TestHeaderFooter  extends TestCase
         GetHeaderFooterOnlineRequest request = new GetHeaderFooterOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null,
             null,
@@ -179,6 +183,7 @@ public class TestHeaderFooter  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -201,6 +206,7 @@ public class TestHeaderFooter  extends TestCase
             requestDocument,
             0,
             0,
+            null,
             null,
             null,
             null,
@@ -235,6 +241,7 @@ public class TestHeaderFooter  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -252,6 +259,7 @@ public class TestHeaderFooter  extends TestCase
             requestDocument,
             "",
             0,
+            null,
             null,
             null,
             null,
@@ -288,6 +296,7 @@ public class TestHeaderFooter  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -304,6 +313,7 @@ public class TestHeaderFooter  extends TestCase
         DeleteHeadersFootersOnlineRequest request = new DeleteHeadersFootersOnlineRequest(
             requestDocument,
             "",
+            null,
             null,
             null,
             null,
@@ -341,6 +351,7 @@ public class TestHeaderFooter  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -359,6 +370,7 @@ public class TestHeaderFooter  extends TestCase
             requestDocument,
             "",
             "FooterEven",
+            null,
             null,
             null,
             null,

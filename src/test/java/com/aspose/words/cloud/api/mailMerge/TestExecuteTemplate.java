@@ -82,6 +82,7 @@ public class TestExecuteTemplate  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName
         );
 

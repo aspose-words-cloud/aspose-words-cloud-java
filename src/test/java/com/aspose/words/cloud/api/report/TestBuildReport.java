@@ -111,6 +111,7 @@ public class TestBuildReport  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 

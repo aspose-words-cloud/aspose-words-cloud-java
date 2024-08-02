@@ -62,6 +62,11 @@ public class GetDocumentStatisticsOnlineRequest implements RequestIfc {
     private String encryptedPassword;
 
     /*
+     * The value indicates whether OpenType support is on.
+     */
+    private Boolean openTypeSupport;
+
+    /*
      * The flag indicating whether to include comments from the WordCount. The default value is "false".
      */
     private Boolean includeComments;
@@ -83,15 +88,17 @@ public class GetDocumentStatisticsOnlineRequest implements RequestIfc {
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     * @param Boolean openTypeSupport The value indicates whether OpenType support is on.
      * @param Boolean includeComments The flag indicating whether to include comments from the WordCount. The default value is "false".
      * @param Boolean includeFootnotes The flag indicating whether to include footnotes from the WordCount. The default value is "false".
      * @param Boolean includeTextInShapes The flag indicating whether to include shape's text from the WordCount. The default value is "false".
      */
-    public GetDocumentStatisticsOnlineRequest(byte[] document, String loadEncoding, String password, String encryptedPassword, Boolean includeComments, Boolean includeFootnotes, Boolean includeTextInShapes) {
+    public GetDocumentStatisticsOnlineRequest(byte[] document, String loadEncoding, String password, String encryptedPassword, Boolean openTypeSupport, Boolean includeComments, Boolean includeFootnotes, Boolean includeTextInShapes) {
         this.document = document;
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
+        this.openTypeSupport = openTypeSupport;
         this.includeComments = includeComments;
         this.includeFootnotes = includeFootnotes;
         this.includeTextInShapes = includeTextInShapes;
@@ -151,6 +158,20 @@ public class GetDocumentStatisticsOnlineRequest implements RequestIfc {
      */
     public void setEncryptedPassword(String value) {
         this.encryptedPassword = value;
+    }
+
+    /*
+     * Gets The value indicates whether OpenType support is on.
+     */
+    public Boolean getOpenTypeSupport() {
+        return this.openTypeSupport;
+    }
+
+    /*
+     * Sets The value indicates whether OpenType support is on.
+     */
+    public void setOpenTypeSupport(Boolean value) {
+        this.openTypeSupport = value;
     }
 
     /*
@@ -219,6 +240,7 @@ public class GetDocumentStatisticsOnlineRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "openTypeSupport", getOpenTypeSupport());
         apiClient.addParameterToQuery(localVarQueryParams, "includeComments", getIncludeComments());
         apiClient.addParameterToQuery(localVarQueryParams, "includeFootnotes", getIncludeFootnotes());
         apiClient.addParameterToQuery(localVarQueryParams, "includeTextInShapes", getIncludeTextInShapes());

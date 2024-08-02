@@ -78,6 +78,7 @@ public class TestCompressDocument  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -100,6 +101,7 @@ public class TestCompressDocument  extends TestCase
         CompressDocumentOnlineRequest request = new CompressDocumentOnlineRequest(
             requestDocument,
             requestCompressOptions,
+            null,
             null,
             null,
             null,

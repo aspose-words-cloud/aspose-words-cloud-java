@@ -62,6 +62,11 @@ public class ClassifyDocumentOnlineRequest implements RequestIfc {
     private String encryptedPassword;
 
     /*
+     * The value indicates whether OpenType support is on.
+     */
+    private Boolean openTypeSupport;
+
+    /*
      * The number of the best classes to return.
      */
     private String bestClassesCount;
@@ -78,14 +83,16 @@ public class ClassifyDocumentOnlineRequest implements RequestIfc {
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     * @param Boolean openTypeSupport The value indicates whether OpenType support is on.
      * @param String bestClassesCount The number of the best classes to return.
      * @param String taxonomy The taxonomy to use.
      */
-    public ClassifyDocumentOnlineRequest(byte[] document, String loadEncoding, String password, String encryptedPassword, String bestClassesCount, String taxonomy) {
+    public ClassifyDocumentOnlineRequest(byte[] document, String loadEncoding, String password, String encryptedPassword, Boolean openTypeSupport, String bestClassesCount, String taxonomy) {
         this.document = document;
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
+        this.openTypeSupport = openTypeSupport;
         this.bestClassesCount = bestClassesCount;
         this.taxonomy = taxonomy;
     }
@@ -147,6 +154,20 @@ public class ClassifyDocumentOnlineRequest implements RequestIfc {
     }
 
     /*
+     * Gets The value indicates whether OpenType support is on.
+     */
+    public Boolean getOpenTypeSupport() {
+        return this.openTypeSupport;
+    }
+
+    /*
+     * Sets The value indicates whether OpenType support is on.
+     */
+    public void setOpenTypeSupport(Boolean value) {
+        this.openTypeSupport = value;
+    }
+
+    /*
      * Gets The number of the best classes to return.
      */
     public String getBestClassesCount() {
@@ -198,6 +219,7 @@ public class ClassifyDocumentOnlineRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "openTypeSupport", getOpenTypeSupport());
         apiClient.addParameterToQuery(localVarQueryParams, "bestClassesCount", getBestClassesCount());
         apiClient.addParameterToQuery(localVarQueryParams, "taxonomy", getTaxonomy());
 

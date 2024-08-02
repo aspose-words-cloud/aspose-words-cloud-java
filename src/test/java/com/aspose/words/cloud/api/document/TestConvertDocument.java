@@ -79,6 +79,7 @@ public class TestConvertDocument  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -106,6 +107,7 @@ public class TestConvertDocument  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -130,6 +132,7 @@ public class TestConvertDocument  extends TestCase
         SaveAsOnlineRequest request = new SaveAsOnlineRequest(
             requestDocument,
             requestSaveOptionsData,
+            null,
             null,
             null,
             null,
@@ -165,6 +168,7 @@ public class TestConvertDocument  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -195,6 +199,7 @@ public class TestConvertDocument  extends TestCase
             remoteName,
             requestSaveOptions,
             remoteFolder,
+            null,
             null,
             null,
             null,
@@ -260,6 +265,7 @@ public class TestConvertDocument  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -277,6 +283,7 @@ public class TestConvertDocument  extends TestCase
         ConvertDocumentRequest request = new ConvertDocumentRequest(
             requestDocument,
             "pdf",
+            null,
             null,
             null,
             null,

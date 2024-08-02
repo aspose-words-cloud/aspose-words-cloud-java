@@ -82,6 +82,7 @@ public class TestRun  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -106,6 +107,7 @@ public class TestRun  extends TestCase
             "paragraphs/1",
             requestRun,
             0,
+            null,
             null,
             null,
             null,
@@ -145,6 +147,7 @@ public class TestRun  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -169,6 +172,7 @@ public class TestRun  extends TestCase
             requestDocument,
             requestRun,
             "paragraphs/1",
+            null,
             null,
             null,
             null,
@@ -205,6 +209,7 @@ public class TestRun  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -222,6 +227,7 @@ public class TestRun  extends TestCase
             requestDocument,
             "paragraphs/1",
             0,
+            null,
             null,
             null,
             null,

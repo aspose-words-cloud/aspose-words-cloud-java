@@ -76,6 +76,7 @@ public class TestDocumentStatistics  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -94,6 +95,7 @@ public class TestDocumentStatistics  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentStatisticsOnlineRequest request = new GetDocumentStatisticsOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null,

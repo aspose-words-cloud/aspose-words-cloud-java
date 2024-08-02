@@ -77,6 +77,11 @@ public class SaveAsTiffRequest implements RequestIfc {
     private String encryptedPassword;
 
     /*
+     * The value indicates whether OpenType support is on.
+     */
+    private Boolean openTypeSupport;
+
+    /*
      * The flag indicating whether to use antialiasing.
      */
     private Boolean useAntiAliasing;
@@ -176,6 +181,7 @@ public class SaveAsTiffRequest implements RequestIfc {
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     * @param Boolean openTypeSupport The value indicates whether OpenType support is on.
      * @param Boolean useAntiAliasing The flag indicating whether to use antialiasing.
      * @param Boolean useHighQualityRendering The flag indicating whether to use high quality.
      * @param Double imageBrightness The level of brightness for the generated images.
@@ -195,7 +201,7 @@ public class SaveAsTiffRequest implements RequestIfc {
      * @param Boolean zipOutput The flag indicating whether to ZIP the output.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public SaveAsTiffRequest(String name, TiffSaveOptionsData saveOptions, String folder, String storage, String loadEncoding, String password, String encryptedPassword, Boolean useAntiAliasing, Boolean useHighQualityRendering, Double imageBrightness, String imageColorMode, Double imageContrast, String numeralFormat, Integer pageCount, Integer pageIndex, String paperColor, String pixelFormat, Double resolution, Double scale, String tiffCompression, String dmlRenderingMode, String dmlEffectsRenderingMode, String tiffBinarizationMethod, Boolean zipOutput, String fontsLocation) {
+    public SaveAsTiffRequest(String name, TiffSaveOptionsData saveOptions, String folder, String storage, String loadEncoding, String password, String encryptedPassword, Boolean openTypeSupport, Boolean useAntiAliasing, Boolean useHighQualityRendering, Double imageBrightness, String imageColorMode, Double imageContrast, String numeralFormat, Integer pageCount, Integer pageIndex, String paperColor, String pixelFormat, Double resolution, Double scale, String tiffCompression, String dmlRenderingMode, String dmlEffectsRenderingMode, String tiffBinarizationMethod, Boolean zipOutput, String fontsLocation) {
         this.name = name;
         this.saveOptions = saveOptions;
         this.folder = folder;
@@ -203,6 +209,7 @@ public class SaveAsTiffRequest implements RequestIfc {
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
+        this.openTypeSupport = openTypeSupport;
         this.useAntiAliasing = useAntiAliasing;
         this.useHighQualityRendering = useHighQualityRendering;
         this.imageBrightness = imageBrightness;
@@ -319,6 +326,20 @@ public class SaveAsTiffRequest implements RequestIfc {
      */
     public void setEncryptedPassword(String value) {
         this.encryptedPassword = value;
+    }
+
+    /*
+     * Gets The value indicates whether OpenType support is on.
+     */
+    public Boolean getOpenTypeSupport() {
+        return this.openTypeSupport;
+    }
+
+    /*
+     * Sets The value indicates whether OpenType support is on.
+     */
+    public void setOpenTypeSupport(Boolean value) {
+        this.openTypeSupport = value;
     }
 
     /*
@@ -643,6 +664,8 @@ public class SaveAsTiffRequest implements RequestIfc {
 
 
 
+
+
         // create path and map variables
         String localVarPath = "/words/{name}/saveAs/tiff";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
@@ -655,6 +678,7 @@ public class SaveAsTiffRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "openTypeSupport", getOpenTypeSupport());
         apiClient.addParameterToQuery(localVarQueryParams, "useAntiAliasing", getUseAntiAliasing());
         apiClient.addParameterToQuery(localVarQueryParams, "useHighQualityRendering", getUseHighQualityRendering());
         apiClient.addParameterToQuery(localVarQueryParams, "imageBrightness", getImageBrightness());

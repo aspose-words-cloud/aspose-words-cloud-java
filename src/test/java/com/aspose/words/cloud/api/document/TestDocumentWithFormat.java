@@ -76,6 +76,7 @@ public class TestDocumentWithFormat  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -100,6 +101,7 @@ public class TestDocumentWithFormat  extends TestCase
             remoteFileName,
             "text",
             remoteDataFolder,
+            null,
             null,
             null,
             null,

@@ -77,6 +77,11 @@ public class UpdateTableCellFormatOnlineRequest implements RequestIfc {
     private String encryptedPassword;
 
     /*
+     * The value indicates whether OpenType support is on.
+     */
+    private Boolean openTypeSupport;
+
+    /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     private String destFileName;
@@ -101,11 +106,12 @@ public class UpdateTableCellFormatOnlineRequest implements RequestIfc {
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     * @param Boolean openTypeSupport The value indicates whether OpenType support is on.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateTableCellFormatOnlineRequest(byte[] document, String tableRowPath, TableCellFormat format, Integer index, String loadEncoding, String password, String encryptedPassword, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateTableCellFormatOnlineRequest(byte[] document, String tableRowPath, TableCellFormat format, Integer index, String loadEncoding, String password, String encryptedPassword, Boolean openTypeSupport, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.document = document;
         this.tableRowPath = tableRowPath;
         this.format = format;
@@ -113,6 +119,7 @@ public class UpdateTableCellFormatOnlineRequest implements RequestIfc {
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
+        this.openTypeSupport = openTypeSupport;
         this.destFileName = destFileName;
         this.revisionAuthor = revisionAuthor;
         this.revisionDateTime = revisionDateTime;
@@ -217,6 +224,20 @@ public class UpdateTableCellFormatOnlineRequest implements RequestIfc {
     }
 
     /*
+     * Gets The value indicates whether OpenType support is on.
+     */
+    public Boolean getOpenTypeSupport() {
+        return this.openTypeSupport;
+    }
+
+    /*
+     * Sets The value indicates whether OpenType support is on.
+     */
+    public void setOpenTypeSupport(Boolean value) {
+        this.openTypeSupport = value;
+    }
+
+    /*
      * Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     public String getDestFileName() {
@@ -306,6 +327,8 @@ public class UpdateTableCellFormatOnlineRequest implements RequestIfc {
 
 
 
+
+
         // create path and map variables
         String localVarPath = "/words/online/put/{tableRowPath}/cells/{index}/cellformat";
         localVarPath = apiClient.addParameterToPath(localVarPath, "tableRowPath", getTableRowPath());
@@ -317,6 +340,7 @@ public class UpdateTableCellFormatOnlineRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "openTypeSupport", getOpenTypeSupport());
         apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
         apiClient.addParameterToQuery(localVarQueryParams, "revisionAuthor", getRevisionAuthor());
         apiClient.addParameterToQuery(localVarQueryParams, "revisionDateTime", getRevisionDateTime());

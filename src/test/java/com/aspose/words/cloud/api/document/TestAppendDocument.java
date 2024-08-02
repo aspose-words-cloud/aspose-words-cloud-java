@@ -86,6 +86,7 @@ public class TestAppendDocument  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -119,6 +120,7 @@ public class TestAppendDocument  extends TestCase
         AppendDocumentOnlineRequest request = new AppendDocumentOnlineRequest(
             requestDocument,
             requestDocumentList,
+            null,
             null,
             null,
             null,

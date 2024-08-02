@@ -73,6 +73,7 @@ public class TestDocumentProperties  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -95,6 +96,7 @@ public class TestDocumentProperties  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetDocumentPropertiesOnlineRequest request = new GetDocumentPropertiesOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null
@@ -124,6 +126,7 @@ public class TestDocumentProperties  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -144,6 +147,7 @@ public class TestDocumentProperties  extends TestCase
         GetDocumentPropertyOnlineRequest request = new GetDocumentPropertyOnlineRequest(
             requestDocument,
             "Author",
+            null,
             null,
             null,
             null
@@ -174,6 +178,7 @@ public class TestDocumentProperties  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -192,6 +197,7 @@ public class TestDocumentProperties  extends TestCase
         DeleteDocumentPropertyOnlineRequest request = new DeleteDocumentPropertyOnlineRequest(
             requestDocument,
             "testProp",
+            null,
             null,
             null,
             null,
@@ -229,6 +235,7 @@ public class TestDocumentProperties  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -255,6 +262,7 @@ public class TestDocumentProperties  extends TestCase
             requestDocument,
             "AsposeAuthor",
             requestProperty,
+            null,
             null,
             null,
             null,
