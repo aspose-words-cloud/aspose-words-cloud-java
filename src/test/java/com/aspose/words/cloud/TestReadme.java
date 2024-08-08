@@ -74,7 +74,7 @@ public void testReadmeCode() throws ApiException, MessagingException, IOExceptio
         UploadFileRequest uploadRequest = new UploadFileRequest(Files.readAllBytes(Paths.get(localPath)), remotePath, null);
         wordsApi.uploadFile(uploadRequest);
 
-        DeleteWatermarkRequest request = new DeleteWatermarkRequest(remoteName, remoteFolder, null, null, null, null, null, null, null);
+        DeleteWatermarkRequest request = new DeleteWatermarkRequest(remoteName, remoteFolder, null, null, null, null, null, null, null, null);
         DocumentResponse result = wordsApi.deleteWatermark(request);
 
         // End README example
