@@ -101,6 +101,9 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("FitToViewPort")
     protected Boolean fitToViewPort;
 
+    @SerializedName("MaxImageResolution")
+    protected Integer maxImageResolution;
+
     @SerializedName("ResourcesFolder")
     protected String resourcesFolder;
 
@@ -147,6 +150,27 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
 
     public void setFitToViewPort(Boolean fitToViewPort) {
         this.fitToViewPort = fitToViewPort;
+    }
+
+
+    /**
+     * Gets or sets a value in pixels per inch that limits resolution of exported raster images.
+     * If the value of this property is non-zero, it limits resolution of exported raster images.
+     * That is, higher-resolution images are resampled down to the limit and lower-resolution images are exported as is.
+    * @return maxImageResolution
+    **/
+    @ApiModelProperty(value = "Gets or sets a value in pixels per inch that limits resolution of exported raster images. If the value of this property is non-zero, it limits resolution of exported raster images. That is, higher-resolution images are resampled down to the limit and lower-resolution images are exported as is.")
+    public Integer getMaxImageResolution() {
+        return maxImageResolution;
+    }
+
+    public SvgSaveOptionsData maxImageResolution(Integer maxImageResolution) {
+        this.maxImageResolution = maxImageResolution;
+        return this;
+    }
+
+    public void setMaxImageResolution(Integer maxImageResolution) {
+        this.maxImageResolution = maxImageResolution;
     }
 
 
@@ -230,6 +254,7 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
         super();
         this.exportEmbeddedImages = null;
         this.fitToViewPort = null;
+        this.maxImageResolution = null;
         this.resourcesFolder = null;
         this.resourcesFolderAlias = null;
         this.showPageBorder = null;
@@ -269,6 +294,7 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
         return
             Objects.equals(this.exportEmbeddedImages, svgSaveOptionsData.exportEmbeddedImages) &&
             Objects.equals(this.fitToViewPort, svgSaveOptionsData.fitToViewPort) &&
+            Objects.equals(this.maxImageResolution, svgSaveOptionsData.maxImageResolution) &&
             Objects.equals(this.resourcesFolder, svgSaveOptionsData.resourcesFolder) &&
             Objects.equals(this.resourcesFolderAlias, svgSaveOptionsData.resourcesFolderAlias) &&
             Objects.equals(this.showPageBorder, svgSaveOptionsData.showPageBorder) &&
@@ -278,7 +304,7 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(exportEmbeddedImages, fitToViewPort, resourcesFolder, resourcesFolderAlias, showPageBorder, textOutputMode, super.hashCode());
+    return Objects.hash(exportEmbeddedImages, fitToViewPort, maxImageResolution, resourcesFolder, resourcesFolderAlias, showPageBorder, textOutputMode, super.hashCode());
   }
 
   @Override
@@ -306,6 +332,7 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
     sb.append("    exportEmbeddedImages: ").append(toIndentedString(getExportEmbeddedImages())).append("\n");
     sb.append("    fitToViewPort: ").append(toIndentedString(getFitToViewPort())).append("\n");
+    sb.append("    maxImageResolution: ").append(toIndentedString(getMaxImageResolution())).append("\n");
     sb.append("    resourcesFolder: ").append(toIndentedString(getResourcesFolder())).append("\n");
     sb.append("    resourcesFolderAlias: ").append(toIndentedString(getResourcesFolderAlias())).append("\n");
     sb.append("    showPageBorder: ").append(toIndentedString(getShowPageBorder())).append("\n");
