@@ -74,6 +74,7 @@ public class TestStructuredDocumentTag  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -91,6 +92,7 @@ public class TestStructuredDocumentTag  extends TestCase
         GetStructuredDocumentTagsOnlineRequest request = new GetStructuredDocumentTagsOnlineRequest(
             requestDocument,
             "sections/0/body/paragraphs/0",
+            null,
             null,
             null,
             null
@@ -121,6 +123,7 @@ public class TestStructuredDocumentTag  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -139,6 +142,7 @@ public class TestStructuredDocumentTag  extends TestCase
             requestDocument,
             0,
             "sections/0/body/paragraphs/0",
+            null,
             null,
             null,
             null
@@ -176,6 +180,7 @@ public class TestStructuredDocumentTag  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -198,6 +203,7 @@ public class TestStructuredDocumentTag  extends TestCase
             requestDocument,
             requestStructuredDocumentTag,
             "sections/0/body/paragraphs/0",
+            null,
             null,
             null,
             null,
@@ -234,6 +240,7 @@ public class TestStructuredDocumentTag  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -251,6 +258,7 @@ public class TestStructuredDocumentTag  extends TestCase
             requestDocument,
             0,
             "sections/0/body/paragraphs/0",
+            null,
             null,
             null,
             null,
@@ -303,6 +311,7 @@ public class TestStructuredDocumentTag  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -337,6 +346,7 @@ public class TestStructuredDocumentTag  extends TestCase
             requestStructuredDocumentTag,
             0,
             "sections/0/body/paragraphs/0",
+            null,
             null,
             null,
             null,

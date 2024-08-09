@@ -18,5 +18,5 @@ wordsApi.uploadFile(uploadFileRequest);
 
 // Calls AcceptAllRevisions method for document in cloud.
 String myVar3 = fileName;
-AcceptAllRevisionsRequest request = new AcceptAllRevisionsRequest(myVar3, null, null, null, null, null, null);
+AcceptAllRevisionsRequest request = new AcceptAllRevisionsRequest(myVar3, null, null, null, null, null, null, null);
 wordsApi.acceptAllRevisions(request);

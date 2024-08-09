@@ -72,6 +72,11 @@ public class RenderPageOnlineRequest implements RequestIfc {
     private String encryptedPassword;
 
     /*
+     * The value indicates whether OpenType support is on.
+     */
+    private Boolean openTypeSupport;
+
+    /*
      * Folder in filestorage with custom fonts.
      */
     private String fontsLocation;
@@ -85,15 +90,17 @@ public class RenderPageOnlineRequest implements RequestIfc {
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     * @param Boolean openTypeSupport The value indicates whether OpenType support is on.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public RenderPageOnlineRequest(byte[] document, Integer pageIndex, String format, String loadEncoding, String password, String encryptedPassword, String fontsLocation) {
+    public RenderPageOnlineRequest(byte[] document, Integer pageIndex, String format, String loadEncoding, String password, String encryptedPassword, Boolean openTypeSupport, String fontsLocation) {
         this.document = document;
         this.pageIndex = pageIndex;
         this.format = format;
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
+        this.openTypeSupport = openTypeSupport;
         this.fontsLocation = fontsLocation;
     }
 
@@ -182,6 +189,20 @@ public class RenderPageOnlineRequest implements RequestIfc {
     }
 
     /*
+     * Gets The value indicates whether OpenType support is on.
+     */
+    public Boolean getOpenTypeSupport() {
+        return this.openTypeSupport;
+    }
+
+    /*
+     * Sets The value indicates whether OpenType support is on.
+     */
+    public void setOpenTypeSupport(Boolean value) {
+        this.openTypeSupport = value;
+    }
+
+    /*
      * Gets Folder in filestorage with custom fonts.
      */
     public String getFontsLocation() {
@@ -231,6 +252,7 @@ public class RenderPageOnlineRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "openTypeSupport", getOpenTypeSupport());
         apiClient.addParameterToQuery(localVarQueryParams, "fontsLocation", getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();

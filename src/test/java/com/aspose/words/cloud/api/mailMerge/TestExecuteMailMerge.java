@@ -102,6 +102,7 @@ public class TestExecuteMailMerge  extends TestCase
             null,
             null,
             null,
+            null,
             true,
             null,
             null,

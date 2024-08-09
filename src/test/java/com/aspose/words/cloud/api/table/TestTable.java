@@ -74,6 +74,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -95,6 +96,7 @@ public class TestTable  extends TestCase
         GetTablesOnlineRequest request = new GetTablesOnlineRequest(
             requestDocument,
             "",
+            null,
             null,
             null,
             null
@@ -121,6 +123,7 @@ public class TestTable  extends TestCase
             remoteFileName,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -156,6 +159,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -179,6 +183,7 @@ public class TestTable  extends TestCase
             requestDocument,
             1,
             "",
+            null,
             null,
             null,
             null
@@ -206,6 +211,7 @@ public class TestTable  extends TestCase
             1,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -245,6 +251,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -262,6 +269,7 @@ public class TestTable  extends TestCase
             requestDocument,
             1,
             "",
+            null,
             null,
             null,
             null,
@@ -292,6 +300,7 @@ public class TestTable  extends TestCase
             1,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -332,6 +341,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -359,6 +369,7 @@ public class TestTable  extends TestCase
             requestDocument,
             requestTable,
             "",
+            null,
             null,
             null,
             null,
@@ -399,6 +410,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -432,6 +444,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -452,6 +465,7 @@ public class TestTable  extends TestCase
             requestDocument,
             1,
             "",
+            null,
             null,
             null,
             null
@@ -479,6 +493,7 @@ public class TestTable  extends TestCase
             1,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -524,6 +539,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -556,6 +572,7 @@ public class TestTable  extends TestCase
             requestProperties,
             1,
             "",
+            null,
             null,
             null,
             null,
@@ -601,6 +618,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -634,6 +652,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -655,6 +674,7 @@ public class TestTable  extends TestCase
             requestDocument,
             "tables/1",
             0,
+            null,
             null,
             null,
             null
@@ -688,6 +708,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -705,6 +726,7 @@ public class TestTable  extends TestCase
             requestDocument,
             "tables/1",
             0,
+            null,
             null,
             null,
             null,
@@ -744,6 +766,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -768,6 +791,7 @@ public class TestTable  extends TestCase
             requestDocument,
             requestRow,
             "sections/0/tables/2",
+            null,
             null,
             null,
             null,
@@ -801,6 +825,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -821,6 +846,7 @@ public class TestTable  extends TestCase
             requestDocument,
             "sections/0/tables/2",
             0,
+            null,
             null,
             null,
             null
@@ -861,6 +887,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -895,6 +922,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -923,6 +951,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -943,6 +972,7 @@ public class TestTable  extends TestCase
             requestDocument,
             "sections/0/tables/2/rows/0",
             0,
+            null,
             null,
             null,
             null
@@ -976,6 +1006,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -993,6 +1024,7 @@ public class TestTable  extends TestCase
             requestDocument,
             "sections/0/tables/2/rows/0",
             0,
+            null,
             null,
             null,
             null,
@@ -1031,6 +1063,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -1053,6 +1086,7 @@ public class TestTable  extends TestCase
             requestDocument,
             requestCell,
             "sections/0/tables/2/rows/0",
+            null,
             null,
             null,
             null,
@@ -1086,6 +1120,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -1106,6 +1141,7 @@ public class TestTable  extends TestCase
             requestDocument,
             "sections/0/tables/2/rows/0",
             0,
+            null,
             null,
             null,
             null
@@ -1146,6 +1182,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -1175,6 +1212,7 @@ public class TestTable  extends TestCase
             "sections/0/tables/2/rows/0",
             requestFormat,
             0,
+            null,
             null,
             null,
             null,
@@ -1211,6 +1249,7 @@ public class TestTable  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -1230,6 +1269,7 @@ public class TestTable  extends TestCase
             "png",
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -1260,6 +1300,7 @@ public class TestTable  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,

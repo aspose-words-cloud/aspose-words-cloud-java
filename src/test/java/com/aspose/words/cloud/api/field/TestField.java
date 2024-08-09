@@ -76,6 +76,7 @@ public class TestField  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -97,6 +98,7 @@ public class TestField  extends TestCase
         GetFieldsOnlineRequest request = new GetFieldsOnlineRequest(
             requestDocument,
             "sections/0",
+            null,
             null,
             null,
             null
@@ -124,6 +126,7 @@ public class TestField  extends TestCase
             remoteFileName,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -160,6 +163,7 @@ public class TestField  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -180,6 +184,7 @@ public class TestField  extends TestCase
             requestDocument,
             0,
             "sections/0/paragraphs/0",
+            null,
             null,
             null,
             null
@@ -208,6 +213,7 @@ public class TestField  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -248,6 +254,7 @@ public class TestField  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -272,6 +279,7 @@ public class TestField  extends TestCase
             requestDocument,
             requestField,
             "sections/0/paragraphs/0",
+            null,
             null,
             null,
             null,
@@ -306,6 +314,7 @@ public class TestField  extends TestCase
             requestField,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -351,6 +360,7 @@ public class TestField  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -376,6 +386,7 @@ public class TestField  extends TestCase
             requestField,
             0,
             "sections/0/paragraphs/0",
+            null,
             null,
             null,
             null,
@@ -416,6 +427,7 @@ public class TestField  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName,
             null,
             null
@@ -445,6 +457,7 @@ public class TestField  extends TestCase
         InsertPageNumbersOnlineRequest request = new InsertPageNumbersOnlineRequest(
             requestDocument,
             requestPageNumber,
+            null,
             null,
             null,
             null,
@@ -482,6 +495,7 @@ public class TestField  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -499,6 +513,7 @@ public class TestField  extends TestCase
             requestDocument,
             0,
             "sections/0/paragraphs/0",
+            null,
             null,
             null,
             null,
@@ -536,6 +551,7 @@ public class TestField  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -560,6 +576,7 @@ public class TestField  extends TestCase
             remoteFileName,
             "paragraphs/0",
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -596,6 +613,7 @@ public class TestField  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -620,6 +638,7 @@ public class TestField  extends TestCase
             remoteFileName,
             "sections/0",
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -656,6 +675,7 @@ public class TestField  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -680,6 +700,7 @@ public class TestField  extends TestCase
             remoteFileName,
             "sections/0/paragraphs/0",
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -716,6 +737,7 @@ public class TestField  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -734,6 +756,7 @@ public class TestField  extends TestCase
         DeleteFieldsOnlineRequest request = new DeleteFieldsOnlineRequest(
             requestDocument,
             "",
+            null,
             null,
             null,
             null,
@@ -767,6 +790,7 @@ public class TestField  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -787,6 +811,7 @@ public class TestField  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         UpdateFieldsOnlineRequest request = new UpdateFieldsOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null,

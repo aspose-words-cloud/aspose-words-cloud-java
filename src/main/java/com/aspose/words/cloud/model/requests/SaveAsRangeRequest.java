@@ -87,6 +87,11 @@ public class SaveAsRangeRequest implements RequestIfc {
     private String encryptedPassword;
 
     /*
+     * The value indicates whether OpenType support is on.
+     */
+    private Boolean openTypeSupport;
+
+    /*
      * Initializes a new instance of the SaveAsRangeRequest class.
      *
      * @param String name The filename of the input document.
@@ -98,8 +103,9 @@ public class SaveAsRangeRequest implements RequestIfc {
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     * @param Boolean openTypeSupport The value indicates whether OpenType support is on.
      */
-    public SaveAsRangeRequest(String name, String rangeStartIdentifier, RangeDocument documentParameters, String rangeEndIdentifier, String folder, String storage, String loadEncoding, String password, String encryptedPassword) {
+    public SaveAsRangeRequest(String name, String rangeStartIdentifier, RangeDocument documentParameters, String rangeEndIdentifier, String folder, String storage, String loadEncoding, String password, String encryptedPassword, Boolean openTypeSupport) {
         this.name = name;
         this.rangeStartIdentifier = rangeStartIdentifier;
         this.documentParameters = documentParameters;
@@ -109,6 +115,7 @@ public class SaveAsRangeRequest implements RequestIfc {
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
+        this.openTypeSupport = openTypeSupport;
     }
 
     /*
@@ -237,6 +244,20 @@ public class SaveAsRangeRequest implements RequestIfc {
         this.encryptedPassword = value;
     }
 
+    /*
+     * Gets The value indicates whether OpenType support is on.
+     */
+    public Boolean getOpenTypeSupport() {
+        return this.openTypeSupport;
+    }
+
+    /*
+     * Sets The value indicates whether OpenType support is on.
+     */
+    public void setOpenTypeSupport(Boolean value) {
+        this.openTypeSupport = value;
+    }
+
 
     /*
      * Creates the http request based on this request model.
@@ -278,6 +299,8 @@ public class SaveAsRangeRequest implements RequestIfc {
 
 
 
+
+
         // create path and map variables
         String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
@@ -292,6 +315,7 @@ public class SaveAsRangeRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "openTypeSupport", getOpenTypeSupport());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 

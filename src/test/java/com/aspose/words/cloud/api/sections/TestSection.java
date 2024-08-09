@@ -74,6 +74,7 @@ public class TestSection  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -95,6 +96,7 @@ public class TestSection  extends TestCase
         GetSectionOnlineRequest request = new GetSectionOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null,
             null
@@ -123,6 +125,7 @@ public class TestSection  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -143,6 +146,7 @@ public class TestSection  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetSectionsOnlineRequest request = new GetSectionsOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null
@@ -175,6 +179,7 @@ public class TestSection  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -191,6 +196,7 @@ public class TestSection  extends TestCase
         DeleteSectionOnlineRequest request = new DeleteSectionOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null,
             null,
@@ -226,6 +232,7 @@ public class TestSection  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -242,6 +249,7 @@ public class TestSection  extends TestCase
         MergeWithNextOnlineRequest request = new MergeWithNextOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null,
             null,
@@ -277,6 +285,7 @@ public class TestSection  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -293,6 +302,7 @@ public class TestSection  extends TestCase
         InsertSectionOnlineRequest request = new InsertSectionOnlineRequest(
             requestDocument,
             0,
+            null,
             null,
             null,
             null,
@@ -322,6 +332,7 @@ public class TestSection  extends TestCase
             remoteFileName,
             1,
             remoteDataFolder,
+            null,
             null,
             null,
             null,

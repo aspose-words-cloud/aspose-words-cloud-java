@@ -74,6 +74,7 @@ public class TestMathObject  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -95,6 +96,7 @@ public class TestMathObject  extends TestCase
         GetOfficeMathObjectsOnlineRequest request = new GetOfficeMathObjectsOnlineRequest(
             requestDocument,
             "",
+            null,
             null,
             null,
             null
@@ -121,6 +123,7 @@ public class TestMathObject  extends TestCase
             remoteFileName,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -156,6 +159,7 @@ public class TestMathObject  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -176,6 +180,7 @@ public class TestMathObject  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null,
             null
@@ -203,6 +208,7 @@ public class TestMathObject  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -239,6 +245,7 @@ public class TestMathObject  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -258,6 +265,7 @@ public class TestMathObject  extends TestCase
             "png",
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -288,6 +296,7 @@ public class TestMathObject  extends TestCase
             0,
             null,
             remoteDataFolder,
+            null,
             null,
             null,
             null,
@@ -324,6 +333,7 @@ public class TestMathObject  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -341,6 +351,7 @@ public class TestMathObject  extends TestCase
             requestDocument,
             0,
             "",
+            null,
             null,
             null,
             null,
@@ -377,6 +388,7 @@ public class TestMathObject  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -405,6 +417,7 @@ public class TestMathObject  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -420,6 +433,7 @@ public class TestMathObject  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteOfficeMathObjectsOnlineRequest request = new DeleteOfficeMathObjectsOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null,

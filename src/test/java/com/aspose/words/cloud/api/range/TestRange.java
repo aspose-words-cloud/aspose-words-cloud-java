@@ -75,6 +75,7 @@ public class TestRange  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -94,6 +95,7 @@ public class TestRange  extends TestCase
             requestDocument,
             "id0.0.0",
             "id0.0.1",
+            null,
             null,
             null,
             null
@@ -125,6 +127,7 @@ public class TestRange  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -143,6 +146,7 @@ public class TestRange  extends TestCase
             requestDocument,
             "id0.0.0",
             "id0.0.1",
+            null,
             null,
             null,
             null,
@@ -178,6 +182,7 @@ public class TestRange  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -202,6 +207,7 @@ public class TestRange  extends TestCase
             "id0.0.0",
             requestDocumentParameters,
             "id0.0.1",
+            null,
             null,
             null,
             null
@@ -237,6 +243,7 @@ public class TestRange  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -261,6 +268,7 @@ public class TestRange  extends TestCase
             "id0.0.0",
             requestRangeText,
             "id0.0.1",
+            null,
             null,
             null,
             null,
@@ -291,6 +299,7 @@ public class TestRange  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -309,6 +318,7 @@ public class TestRange  extends TestCase
         TranslateNodeIdOnlineRequest request = new TranslateNodeIdOnlineRequest(
             requestDocument,
             "id0.0.0",
+            null,
             null,
             null,
             null

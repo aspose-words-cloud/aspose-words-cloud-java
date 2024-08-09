@@ -13,9 +13,15 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 24.8
+
+- Added the support of OpenType standard. It is usefull for languages required advanced typography.
+
+
 ## Enhancements in Version 24.7
 
 - Added support for azw3 (Amazon Kindle Format) documents.
+- Added 'MaxImageResolution' property for SvgSaveOptionsData class.
 
 
 ## Enhancements in Version 24.6
@@ -354,7 +360,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>24.7.0</version>
+        <version>24.8.0</version>
     </dependency>
 </dependencies>
 ```

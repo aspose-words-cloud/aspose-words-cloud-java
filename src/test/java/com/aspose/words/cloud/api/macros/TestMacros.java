@@ -76,6 +76,7 @@ public class TestMacros  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -91,6 +92,7 @@ public class TestMacros  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         DeleteMacrosOnlineRequest request = new DeleteMacrosOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null,

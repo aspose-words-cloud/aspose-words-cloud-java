@@ -77,6 +77,11 @@ public class SplitDocumentRequest implements RequestIfc {
     private String encryptedPassword;
 
     /*
+     * The value indicates whether OpenType support is on.
+     */
+    private Boolean openTypeSupport;
+
+    /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     private String destFileName;
@@ -111,13 +116,14 @@ public class SplitDocumentRequest implements RequestIfc {
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+     * @param Boolean openTypeSupport The value indicates whether OpenType support is on.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param Integer from The start page.
      * @param Integer to The end page.
      * @param Boolean zipOutput The flag indicating whether to ZIP the output.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public SplitDocumentRequest(String name, String format, String folder, String storage, String loadEncoding, String password, String encryptedPassword, String destFileName, Integer from, Integer to, Boolean zipOutput, String fontsLocation) {
+    public SplitDocumentRequest(String name, String format, String folder, String storage, String loadEncoding, String password, String encryptedPassword, Boolean openTypeSupport, String destFileName, Integer from, Integer to, Boolean zipOutput, String fontsLocation) {
         this.name = name;
         this.format = format;
         this.folder = folder;
@@ -125,6 +131,7 @@ public class SplitDocumentRequest implements RequestIfc {
         this.loadEncoding = loadEncoding;
         this.password = password;
         this.encryptedPassword = encryptedPassword;
+        this.openTypeSupport = openTypeSupport;
         this.destFileName = destFileName;
         this.from = from;
         this.to = to;
@@ -231,6 +238,20 @@ public class SplitDocumentRequest implements RequestIfc {
     }
 
     /*
+     * Gets The value indicates whether OpenType support is on.
+     */
+    public Boolean getOpenTypeSupport() {
+        return this.openTypeSupport;
+    }
+
+    /*
+     * Sets The value indicates whether OpenType support is on.
+     */
+    public void setOpenTypeSupport(Boolean value) {
+        this.openTypeSupport = value;
+    }
+
+    /*
      * Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     public String getDestFileName() {
@@ -333,6 +354,7 @@ public class SplitDocumentRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
         apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "openTypeSupport", getOpenTypeSupport());
         apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
         apiClient.addParameterToQuery(localVarQueryParams, "from", getFrom());
         apiClient.addParameterToQuery(localVarQueryParams, "to", getTo());

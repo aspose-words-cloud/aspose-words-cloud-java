@@ -73,6 +73,7 @@ public class TestLists  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -93,6 +94,7 @@ public class TestLists  extends TestCase
         byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
         GetListsOnlineRequest request = new GetListsOnlineRequest(
             requestDocument,
+            null,
             null,
             null,
             null
@@ -122,6 +124,7 @@ public class TestLists  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -141,6 +144,7 @@ public class TestLists  extends TestCase
         GetListOnlineRequest request = new GetListOnlineRequest(
             requestDocument,
             1,
+            null,
             null,
             null,
             null
@@ -177,6 +181,7 @@ public class TestLists  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -198,6 +203,7 @@ public class TestLists  extends TestCase
             requestDocument,
             1,
             requestListUpdate,
+            null,
             null,
             null,
             null,
@@ -241,6 +247,7 @@ public class TestLists  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -263,6 +270,7 @@ public class TestLists  extends TestCase
             1,
             requestListUpdate,
             1,
+            null,
             null,
             null,
             null,
@@ -306,6 +314,7 @@ public class TestLists  extends TestCase
             null,
             null,
             null,
+            null,
             null
         );
 
@@ -328,6 +337,7 @@ public class TestLists  extends TestCase
         InsertListOnlineRequest request = new InsertListOnlineRequest(
             requestDocument,
             requestListInsert,
+            null,
             null,
             null,
             null,
