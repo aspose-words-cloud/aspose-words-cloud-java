@@ -1159,8 +1159,7 @@ public class ApiClient {
      */
     public MimeMultipart getMultipartFromResponse(Response response) throws ApiException {
         try {
-            InputStream in = response.body().byteStream();
-            ByteArrayDataSource dataSource = new ByteArrayDataSource(in, "multipart/mixed");
+            ByteArrayDataSource dataSource = new ByteArrayDataSource(response.body().bytes(), "multipart/mixed");
             return new MimeMultipart(dataSource);
         }
         catch (IOException | MessagingException e) {
