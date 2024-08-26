@@ -33,9 +33,9 @@ import com.aspose.words.cloud.model.requests.*;
 import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.Response;
 import java.io.IOException;
-import javax.mail.BodyPart;
+import jakarta.mail.BodyPart;
 import javax.crypto.Cipher;
-import javax.mail.MessagingException;
+import jakarta.mail.MessagingException;
 import java.lang.reflect.Type;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -24698,7 +24698,7 @@ public class WordsApi implements EncryptorFactory {
             @Override
             public Object deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
                 try {
-                    javax.mail.internet.MimeMultipart multipart = apiClient.deserialize(response, javax.mail.internet.MimeMultipart.class);
+                    jakarta.mail.internet.MimeMultipart multipart = apiClient.deserialize(response, jakarta.mail.internet.MimeMultipart.class);
                     Object[] result = new Object[multipart.getCount()];
                     for (int i = 0; i < result.length; i++) {
                         BodyPart part = multipart.getBodyPart(i);
@@ -24715,7 +24715,7 @@ public class WordsApi implements EncryptorFactory {
 
                     return result;
                 }
-                catch (javax.mail.MessagingException e) {
+                catch (jakarta.mail.MessagingException e) {
                     throw new ApiException(e);
                 }
             }

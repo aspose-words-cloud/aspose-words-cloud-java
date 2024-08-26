@@ -41,7 +41,7 @@ import org.junit.Test;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import javax.mail.MessagingException;
+import jakarta.mail.MessagingException;
 
 public class TestUrlEncode  extends TestCase {
     private String testFolder = "DocumentElements/Bookmarks";
