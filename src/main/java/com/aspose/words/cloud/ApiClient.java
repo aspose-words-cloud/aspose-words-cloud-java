@@ -628,8 +628,7 @@ public class ApiClient {
 
         if (returnType.equals(MimeMultipart.class)) {
             try {
-                InputStream in = response.body().byteStream();
-                ByteArrayDataSource dataSource = new ByteArrayDataSource(in, "multipart/mixed");
+                ByteArrayDataSource dataSource = new ByteArrayDataSource(response.body().bytes(), "multipart/mixed");
                 return (T) new MimeMultipart(dataSource);
             }
             catch (IOException | MessagingException e) {
@@ -720,19 +719,13 @@ public class ApiClient {
      * @throws ApiException If fail to execute the call
      */
     public <T> ApiResponse<T> execute(Call call, RequestIfc request) throws ApiException {
-        Response response = null;
         try {
-            response = call.execute();
+            Response response = call.execute();
             T data = handleResponse(request, response);
             return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
         }
         catch (IOException e) {
             throw new ApiException(e);
-        }
-        finally { 
-            if (response != null) {
-                response.close();
-            }
         }
     }
 
@@ -1019,7 +1012,6 @@ public class ApiClient {
      @throws ApiException If authorization is failed
      */
     public void requestToken() throws ApiException {
-        Response response = null;
         try {
             RequestBody requestBody = new FormEncodingBuilder()
                     .addEncoded("grant_type", "client_credentials")
@@ -1034,17 +1026,12 @@ public class ApiClient {
                     .addHeader("Content-Type", " application/x-www-form-urlencoded")
                     .build();
 
-            response = httpClient.newCall(request).execute();
+            Response response = httpClient.newCall(request).execute();
             GetAccessTokenResult result = json.deserialize(response.body().string(), GetAccessTokenResult.class);
             setAccessToken(result.access_token);
         }
         catch (Exception ex) {
             throw new ApiException(ex);
-        }
-        finally { 
-            if (response != null) {
-                response.close();
-            }
         }
     }
 
