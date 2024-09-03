@@ -53,6 +53,9 @@ public class XamlFlowSaveOptionsData extends SaveOptionsData {
 
     @SerializedName("ImagesFolderAlias")
     protected String imagesFolderAlias;
+
+    @SerializedName("ReplaceBackslashWithYenSign")
+    protected Boolean replaceBackslashWithYenSign;
     /**
      * Gets or sets the physical folder where images are saved when exporting.
     * @return imagesFolder
@@ -91,10 +94,34 @@ public class XamlFlowSaveOptionsData extends SaveOptionsData {
     }
 
 
+    /**
+     * Gets or sets the flag that indicates whether backslash characters should be replaced with yen signs.
+     * Default value is false.
+     * By default, Aspose.Words mimics MS Word's behavior and doesn't replace backslash characters with yen signs in
+     * generated HTML documents. However, previous versions of Aspose.Words performed such replacements in certain
+     * scenarios. This flag enables backward compatibility with previous versions of Aspose.Words.
+    * @return replaceBackslashWithYenSign
+    **/
+    @ApiModelProperty(value = "Gets or sets the flag that indicates whether backslash characters should be replaced with yen signs. Default value is false. By default, Aspose.Words mimics MS Word's behavior and doesn't replace backslash characters with yen signs in generated HTML documents. However, previous versions of Aspose.Words performed such replacements in certain scenarios. This flag enables backward compatibility with previous versions of Aspose.Words.")
+    public Boolean getReplaceBackslashWithYenSign() {
+        return replaceBackslashWithYenSign;
+    }
+
+    public XamlFlowSaveOptionsData replaceBackslashWithYenSign(Boolean replaceBackslashWithYenSign) {
+        this.replaceBackslashWithYenSign = replaceBackslashWithYenSign;
+        return this;
+    }
+
+    public void setReplaceBackslashWithYenSign(Boolean replaceBackslashWithYenSign) {
+        this.replaceBackslashWithYenSign = replaceBackslashWithYenSign;
+    }
+
+
     public XamlFlowSaveOptionsData() {
         super();
         this.imagesFolder = null;
         this.imagesFolderAlias = null;
+        this.replaceBackslashWithYenSign = null;
         this.saveFormat = "xamlflow";
     }
 
@@ -130,12 +157,13 @@ public class XamlFlowSaveOptionsData extends SaveOptionsData {
         return
             Objects.equals(this.imagesFolder, xamlFlowSaveOptionsData.imagesFolder) &&
             Objects.equals(this.imagesFolderAlias, xamlFlowSaveOptionsData.imagesFolderAlias) &&
+            Objects.equals(this.replaceBackslashWithYenSign, xamlFlowSaveOptionsData.replaceBackslashWithYenSign) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imagesFolder, imagesFolderAlias, super.hashCode());
+    return Objects.hash(imagesFolder, imagesFolderAlias, replaceBackslashWithYenSign, super.hashCode());
   }
 
   @Override
@@ -156,6 +184,7 @@ public class XamlFlowSaveOptionsData extends SaveOptionsData {
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
     sb.append("    imagesFolder: ").append(toIndentedString(getImagesFolder())).append("\n");
     sb.append("    imagesFolderAlias: ").append(toIndentedString(getImagesFolderAlias())).append("\n");
+    sb.append("    replaceBackslashWithYenSign: ").append(toIndentedString(getReplaceBackslashWithYenSign())).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();

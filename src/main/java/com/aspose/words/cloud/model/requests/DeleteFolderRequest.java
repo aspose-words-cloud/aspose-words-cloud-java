@@ -164,6 +164,13 @@ public class DeleteFolderRequest implements RequestIfc {
      */
     @Override
     public Object deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        if (response != null) {
+            ResponseBody body = response.body();
+            if (body != null) {
+                body.close();
+            }
+        }
+
         return null;
     }
 }

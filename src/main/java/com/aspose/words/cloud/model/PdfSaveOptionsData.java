@@ -513,6 +513,9 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("UseCoreFonts")
     protected Boolean useCoreFonts;
 
+    @SerializedName("UseSdtTagAsFormFieldName")
+    protected Boolean useSdtTagAsFormFieldName;
+
     @SerializedName("ZoomBehavior")
     protected ZoomBehaviorEnum zoomBehavior;
 
@@ -1014,6 +1017,27 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
     /**
+     * Gets or sets a value indicating whether to use SDT control Tag or Id property as a name of form field in PDF.
+     * The default value is false.When set to false, SDT control Id property is used as a name of form field in PDF.When set to true, SDT control Tag property is used as a name of form field in PDF.If set to true and Tag is empty, Id property will be used as a form field name.If set to true and Tag values are not unique, duplicate Tag values will be altered to build
+     * unique PDF form field names.
+    * @return useSdtTagAsFormFieldName
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to use SDT control Tag or Id property as a name of form field in PDF. The default value is false.When set to false, SDT control Id property is used as a name of form field in PDF.When set to true, SDT control Tag property is used as a name of form field in PDF.If set to true and Tag is empty, Id property will be used as a form field name.If set to true and Tag values are not unique, duplicate Tag values will be altered to build unique PDF form field names.")
+    public Boolean getUseSdtTagAsFormFieldName() {
+        return useSdtTagAsFormFieldName;
+    }
+
+    public PdfSaveOptionsData useSdtTagAsFormFieldName(Boolean useSdtTagAsFormFieldName) {
+        this.useSdtTagAsFormFieldName = useSdtTagAsFormFieldName;
+        return this;
+    }
+
+    public void setUseSdtTagAsFormFieldName(Boolean useSdtTagAsFormFieldName) {
+        this.useSdtTagAsFormFieldName = useSdtTagAsFormFieldName;
+    }
+
+
+    /**
      * Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.
     * @return zoomBehavior
     **/
@@ -1078,6 +1102,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         this.textCompression = null;
         this.useBookFoldPrintingSettings = null;
         this.useCoreFonts = null;
+        this.useSdtTagAsFormFieldName = null;
         this.zoomBehavior = null;
         this.zoomFactor = null;
         this.saveFormat = "pdf";
@@ -1143,6 +1168,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
 
+
     }
 
     @Override
@@ -1181,6 +1207,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
             Objects.equals(this.textCompression, pdfSaveOptionsData.textCompression) &&
             Objects.equals(this.useBookFoldPrintingSettings, pdfSaveOptionsData.useBookFoldPrintingSettings) &&
             Objects.equals(this.useCoreFonts, pdfSaveOptionsData.useCoreFonts) &&
+            Objects.equals(this.useSdtTagAsFormFieldName, pdfSaveOptionsData.useSdtTagAsFormFieldName) &&
             Objects.equals(this.zoomBehavior, pdfSaveOptionsData.zoomBehavior) &&
             Objects.equals(this.zoomFactor, pdfSaveOptionsData.zoomFactor) &&
             super.equals(o);
@@ -1188,7 +1215,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cacheBackgroundGraphics, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedAttachments, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor, super.hashCode());
+    return Objects.hash(cacheBackgroundGraphics, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedAttachments, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, useSdtTagAsFormFieldName, zoomBehavior, zoomFactor, super.hashCode());
   }
 
   @Override
@@ -1239,6 +1266,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    textCompression: ").append(toIndentedString(getTextCompression())).append("\n");
     sb.append("    useBookFoldPrintingSettings: ").append(toIndentedString(getUseBookFoldPrintingSettings())).append("\n");
     sb.append("    useCoreFonts: ").append(toIndentedString(getUseCoreFonts())).append("\n");
+    sb.append("    useSdtTagAsFormFieldName: ").append(toIndentedString(getUseSdtTagAsFormFieldName())).append("\n");
     sb.append("    zoomBehavior: ").append(toIndentedString(getZoomBehavior())).append("\n");
     sb.append("    zoomFactor: ").append(toIndentedString(getZoomFactor())).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");

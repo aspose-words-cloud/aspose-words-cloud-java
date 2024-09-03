@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="XamlFlowPackSaveOptionsData.java">
+ * <copyright company="Aspose" file="DigitalSignatureDetails.java">
  *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -44,14 +44,56 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Container class for xamlflow_pack save options.
+ * Container class for details of digital signature.
  */
-@ApiModel(description = "Container class for xamlflow_pack save options.")
-public class XamlFlowPackSaveOptionsData extends XamlFlowSaveOptionsData {
+@ApiModel(description = "Container class for details of digital signature.")
+public class DigitalSignatureDetails implements ModelIfc {
+    @SerializedName("CertificateFilename")
+    protected String certificateFilename;
 
-    public XamlFlowPackSaveOptionsData() {
-        super();
-        this.saveFormat = "xamlflow_pack";
+    @SerializedName("SignOptions")
+    protected SignOptions signOptions;
+    /**
+     * Gets or sets the certificate's filename using for signing.
+    * @return certificateFilename
+    **/
+    @ApiModelProperty(value = "Gets or sets the certificate's filename using for signing.")
+    public String getCertificateFilename() {
+        return certificateFilename;
+    }
+
+    public DigitalSignatureDetails certificateFilename(String certificateFilename) {
+        this.certificateFilename = certificateFilename;
+        return this;
+    }
+
+    public void setCertificateFilename(String certificateFilename) {
+        this.certificateFilename = certificateFilename;
+    }
+
+
+    /**
+     * Gets or sets signing options.
+    * @return signOptions
+    **/
+    @ApiModelProperty(value = "Gets or sets signing options.")
+    public SignOptions getSignOptions() {
+        return signOptions;
+    }
+
+    public DigitalSignatureDetails signOptions(SignOptions signOptions) {
+        this.signOptions = signOptions;
+        return this;
+    }
+
+    public void setSignOptions(SignOptions signOptions) {
+        this.signOptions = signOptions;
+    }
+
+
+    public DigitalSignatureDetails() {
+        this.certificateFilename = null;
+        this.signOptions = null;
     }
 
     /*
@@ -70,7 +112,11 @@ public class XamlFlowPackSaveOptionsData extends XamlFlowSaveOptionsData {
      */
     @Override
     public void validate() throws ApiException {
-        super.validate();
+
+        if (this.signOptions != null) {
+            this.signOptions.validate();
+        }
+
     }
 
     @Override
@@ -82,34 +128,23 @@ public class XamlFlowPackSaveOptionsData extends XamlFlowSaveOptionsData {
             return false;
         }
 
-        return super.equals(o);
+        DigitalSignatureDetails digitalSignatureDetails = (DigitalSignatureDetails) o;
+        return
+            Objects.equals(this.certificateFilename, digitalSignatureDetails.certificateFilename) &&
+            Objects.equals(this.signOptions, digitalSignatureDetails.signOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return Objects.hash(certificateFilename, signOptions);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class XamlFlowPackSaveOptionsData {\n");
-    sb.append("    allowEmbeddingPostScriptFonts: ").append(toIndentedString(getAllowEmbeddingPostScriptFonts())).append("\n");
-    sb.append("    customTimeZoneInfoData: ").append(toIndentedString(getCustomTimeZoneInfoData())).append("\n");
-    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(getDml3DEffectsRenderingMode())).append("\n");
-    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(getDmlEffectsRenderingMode())).append("\n");
-    sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
-    sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
-    sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
-    sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
-    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
-    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(getUpdateLastSavedTimeProperty())).append("\n");
-    sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
-    sb.append("    imagesFolder: ").append(toIndentedString(getImagesFolder())).append("\n");
-    sb.append("    imagesFolderAlias: ").append(toIndentedString(getImagesFolderAlias())).append("\n");
-    sb.append("    replaceBackslashWithYenSign: ").append(toIndentedString(getReplaceBackslashWithYenSign())).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
+    sb.append("class DigitalSignatureDetails {\n");
+    sb.append("    certificateFilename: ").append(toIndentedString(getCertificateFilename())).append("\n");
+    sb.append("    signOptions: ").append(toIndentedString(getSignOptions())).append("\n");
     sb.append("}");
     return sb.toString();
   }

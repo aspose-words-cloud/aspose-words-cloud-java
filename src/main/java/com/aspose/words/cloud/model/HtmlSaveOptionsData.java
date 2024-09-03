@@ -529,6 +529,9 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     @SerializedName("PrettyFormat")
     protected Boolean prettyFormat;
 
+    @SerializedName("ReplaceBackslashWithYenSign")
+    protected Boolean replaceBackslashWithYenSign;
+
     @SerializedName("ResolveFontNames")
     protected Boolean resolveFontNames;
 
@@ -1185,6 +1188,29 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
 
 
     /**
+     * Gets or sets the flag that indicates whether backslash characters should be replaced with yen signs.
+     * Default value is false.
+     * By default, Aspose.Words mimics MS Word's behavior and doesn't replace backslash characters with yen signs in
+     * generated HTML documents. However, previous versions of Aspose.Words performed such replacements in certain
+     * scenarios. This flag enables backward compatibility with previous versions of Aspose.Words.
+    * @return replaceBackslashWithYenSign
+    **/
+    @ApiModelProperty(value = "Gets or sets the flag that indicates whether backslash characters should be replaced with yen signs. Default value is false. By default, Aspose.Words mimics MS Word's behavior and doesn't replace backslash characters with yen signs in generated HTML documents. However, previous versions of Aspose.Words performed such replacements in certain scenarios. This flag enables backward compatibility with previous versions of Aspose.Words.")
+    public Boolean getReplaceBackslashWithYenSign() {
+        return replaceBackslashWithYenSign;
+    }
+
+    public HtmlSaveOptionsData replaceBackslashWithYenSign(Boolean replaceBackslashWithYenSign) {
+        this.replaceBackslashWithYenSign = replaceBackslashWithYenSign;
+        return this;
+    }
+
+    public void setReplaceBackslashWithYenSign(Boolean replaceBackslashWithYenSign) {
+        this.replaceBackslashWithYenSign = replaceBackslashWithYenSign;
+    }
+
+
+    /**
      * Gets or sets a value indicating whether font family names used in the document are resolved and substituted according to FontSettings when being written into HTML-based formats.
      * The default value is false.
     * @return resolveFontNames
@@ -1315,6 +1341,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         this.metafileFormat = null;
         this.officeMathOutputMode = null;
         this.prettyFormat = null;
+        this.replaceBackslashWithYenSign = null;
         this.resolveFontNames = null;
         this.resourceFolder = null;
         this.resourceFolderAlias = null;
@@ -1386,6 +1413,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
             Objects.equals(this.metafileFormat, htmlSaveOptionsData.metafileFormat) &&
             Objects.equals(this.officeMathOutputMode, htmlSaveOptionsData.officeMathOutputMode) &&
             Objects.equals(this.prettyFormat, htmlSaveOptionsData.prettyFormat) &&
+            Objects.equals(this.replaceBackslashWithYenSign, htmlSaveOptionsData.replaceBackslashWithYenSign) &&
             Objects.equals(this.resolveFontNames, htmlSaveOptionsData.resolveFontNames) &&
             Objects.equals(this.resourceFolder, htmlSaveOptionsData.resourceFolder) &&
             Objects.equals(this.resourceFolderAlias, htmlSaveOptionsData.resourceFolderAlias) &&
@@ -1396,7 +1424,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowNegativeIndent, cssClassNamePrefix, cssStyleSheetFileName, cssStyleSheetType, documentSplitCriteria, documentSplitHeadingLevel, encoding, exportDocumentProperties, exportDropDownFormFieldAsText, exportFontResources, exportFontsAsBase64, exportHeadersFootersMode, exportImagesAsBase64, exportLanguageInformation, exportListLabels, exportOriginalUrlForLinkedImages, exportPageMargins, exportPageSetup, exportRelativeFontSize, exportRoundtripInformation, exportTextInputFormFieldAsText, exportTocPageNumbers, exportXhtmlTransitional, fontResourcesSubsettingSizeThreshold, fontsFolder, fontsFolderAlias, htmlVersion, imageResolution, imagesFolder, imagesFolderAlias, metafileFormat, officeMathOutputMode, prettyFormat, resolveFontNames, resourceFolder, resourceFolderAlias, scaleImageToShapeSize, tableWidthOutputMode, super.hashCode());
+    return Objects.hash(allowNegativeIndent, cssClassNamePrefix, cssStyleSheetFileName, cssStyleSheetType, documentSplitCriteria, documentSplitHeadingLevel, encoding, exportDocumentProperties, exportDropDownFormFieldAsText, exportFontResources, exportFontsAsBase64, exportHeadersFootersMode, exportImagesAsBase64, exportLanguageInformation, exportListLabels, exportOriginalUrlForLinkedImages, exportPageMargins, exportPageSetup, exportRelativeFontSize, exportRoundtripInformation, exportTextInputFormFieldAsText, exportTocPageNumbers, exportXhtmlTransitional, fontResourcesSubsettingSizeThreshold, fontsFolder, fontsFolderAlias, htmlVersion, imageResolution, imagesFolder, imagesFolderAlias, metafileFormat, officeMathOutputMode, prettyFormat, replaceBackslashWithYenSign, resolveFontNames, resourceFolder, resourceFolderAlias, scaleImageToShapeSize, tableWidthOutputMode, super.hashCode());
   }
 
   @Override
@@ -1448,6 +1476,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     sb.append("    metafileFormat: ").append(toIndentedString(getMetafileFormat())).append("\n");
     sb.append("    officeMathOutputMode: ").append(toIndentedString(getOfficeMathOutputMode())).append("\n");
     sb.append("    prettyFormat: ").append(toIndentedString(getPrettyFormat())).append("\n");
+    sb.append("    replaceBackslashWithYenSign: ").append(toIndentedString(getReplaceBackslashWithYenSign())).append("\n");
     sb.append("    resolveFontNames: ").append(toIndentedString(getResolveFontNames())).append("\n");
     sb.append("    resourceFolder: ").append(toIndentedString(getResourceFolder())).append("\n");
     sb.append("    resourceFolderAlias: ").append(toIndentedString(getResourceFolderAlias())).append("\n");
