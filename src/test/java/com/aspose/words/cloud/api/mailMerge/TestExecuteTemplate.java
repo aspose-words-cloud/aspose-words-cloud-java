@@ -83,6 +83,7 @@ public class TestExecuteTemplate  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName
         );
 
@@ -106,6 +107,7 @@ public class TestExecuteTemplate  extends TestCase
         ExecuteMailMergeOnlineRequest request = new ExecuteMailMergeOnlineRequest(
             requestTemplate,
             requestData,
+            null,
             null,
             null,
             null,

@@ -62,6 +62,11 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
     private Boolean withRegions;
 
     /*
+     * The flag indicating whether fields in whole document are updated while executing of a mail merge with regions.
+     */
+    private Boolean mergeWholeDocument;
+
+    /*
      * The cleanup options.
      */
     private String cleanup;
@@ -78,14 +83,16 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
      * @param byte[] data File with mailmerge data.
      * @param FieldOptions options Field options.
      * @param Boolean withRegions The flag indicating whether to execute Mail Merge operation with regions.
+     * @param Boolean mergeWholeDocument The flag indicating whether fields in whole document are updated while executing of a mail merge with regions.
      * @param String cleanup The cleanup options.
      * @param String documentFileName The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
-    public ExecuteMailMergeOnlineRequest(byte[] template, byte[] data, FieldOptions options, Boolean withRegions, String cleanup, String documentFileName) {
+    public ExecuteMailMergeOnlineRequest(byte[] template, byte[] data, FieldOptions options, Boolean withRegions, Boolean mergeWholeDocument, String cleanup, String documentFileName) {
         this.template = template;
         this.data = data;
         this.options = options;
         this.withRegions = withRegions;
+        this.mergeWholeDocument = mergeWholeDocument;
         this.cleanup = cleanup;
         this.documentFileName = documentFileName;
     }
@@ -147,6 +154,20 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
     }
 
     /*
+     * Gets The flag indicating whether fields in whole document are updated while executing of a mail merge with regions.
+     */
+    public Boolean getMergeWholeDocument() {
+        return this.mergeWholeDocument;
+    }
+
+    /*
+     * Sets The flag indicating whether fields in whole document are updated while executing of a mail merge with regions.
+     */
+    public void setMergeWholeDocument(Boolean value) {
+        this.mergeWholeDocument = value;
+    }
+
+    /*
      * Gets The cleanup options.
      */
     public String getCleanup() {
@@ -204,6 +225,8 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
 
 
 
+
+
         // create path and map variables
         String localVarPath = "/words/MailMerge";
         localVarPath = localVarPath.replaceAll("//", "/");
@@ -211,6 +234,7 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         apiClient.addParameterToQuery(localVarQueryParams, "withRegions", getWithRegions());
+        apiClient.addParameterToQuery(localVarQueryParams, "mergeWholeDocument", getMergeWholeDocument());
         apiClient.addParameterToQuery(localVarQueryParams, "cleanup", getCleanup());
         apiClient.addParameterToQuery(localVarQueryParams, "documentFileName", getDocumentFileName());
 

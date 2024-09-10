@@ -616,6 +616,8 @@ public class JSON {
                 put("SectionPageSetupResponse, _", com.aspose.words.cloud.model.SectionPageSetupResponse.class);
                 put("SectionResponse, _", com.aspose.words.cloud.model.SectionResponse.class);
                 put("Shading, _", com.aspose.words.cloud.model.Shading.class);
+                put("Signature, _", com.aspose.words.cloud.model.Signature.class);
+                put("SignatureCollectionResponse, _", com.aspose.words.cloud.model.SignatureCollectionResponse.class);
                 put("SignOptions, _", com.aspose.words.cloud.model.SignOptions.class);
                 put("SplitDocumentResponse, _", com.aspose.words.cloud.model.SplitDocumentResponse.class);
                 put("SplitDocumentResult, _", com.aspose.words.cloud.model.SplitDocumentResult.class);

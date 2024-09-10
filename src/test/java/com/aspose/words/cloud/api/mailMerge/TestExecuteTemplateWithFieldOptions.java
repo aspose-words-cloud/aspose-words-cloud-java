@@ -89,6 +89,7 @@ public class TestExecuteTemplateWithFieldOptions  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName
         );
 
@@ -119,6 +120,7 @@ public class TestExecuteTemplateWithFieldOptions  extends TestCase
             requestTemplate,
             requestData,
             requestOptions,
+            null,
             null,
             null,
             null
