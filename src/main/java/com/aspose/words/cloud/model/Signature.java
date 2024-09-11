@@ -109,7 +109,7 @@ public class Signature implements ModelIfc {
     protected SignatureTypeEnum signatureType;
 
     @SerializedName("SignatureValue")
-    protected byte[] signatureValue;
+    protected String signatureValue;
 
     @SerializedName("SignTime")
     protected OffsetDateTime signTime;
@@ -193,20 +193,20 @@ public class Signature implements ModelIfc {
 
 
     /**
-     * Gets or sets an array of bytes representing a signature value.
+     * Gets or sets an array of bytes representing a signature value as base64 string.
     * @return signatureValue
     **/
-    @ApiModelProperty(value = "Gets or sets an array of bytes representing a signature value.")
-    public byte[] getSignatureValue() {
+    @ApiModelProperty(value = "Gets or sets an array of bytes representing a signature value as base64 string.")
+    public String getSignatureValue() {
         return signatureValue;
     }
 
-    public Signature signatureValue(byte[] signatureValue) {
+    public Signature signatureValue(String signatureValue) {
         this.signatureValue = signatureValue;
         return this;
     }
 
-    public void setSignatureValue(byte[] signatureValue) {
+    public void setSignatureValue(String signatureValue) {
         this.signatureValue = signatureValue;
     }
 
@@ -301,14 +301,14 @@ public class Signature implements ModelIfc {
             Objects.equals(this.issuerName, signature.issuerName) &&
             Objects.equals(this.isValid, signature.isValid) &&
             Objects.equals(this.signatureType, signature.signatureType) &&
-            Arrays.equals(this.signatureValue, signature.signatureValue) &&
+            Objects.equals(this.signatureValue, signature.signatureValue) &&
             Objects.equals(this.signTime, signature.signTime) &&
             Objects.equals(this.subjectName, signature.subjectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comments, issuerName, isValid, signatureType, Arrays.hashCode(signatureValue), signTime, subjectName);
+    return Objects.hash(comments, issuerName, isValid, signatureType, signatureValue, signTime, subjectName);
   }
 
   @Override
