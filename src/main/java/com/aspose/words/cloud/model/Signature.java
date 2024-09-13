@@ -49,53 +49,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "The REST response with a document signature collection. This response is returned by the Service when handling any \"https://api.aspose.cloud/v4.0/words/Test.doc/signatures\" REST API requests.")
 public class Signature implements ModelIfc {
-    /**
-     * Gets or sets the type of the digital signature.
-     */
-    @JsonAdapter(SignatureTypeEnum.Adapter.class)
-    public enum SignatureTypeEnum {
-        UNKNOWN("Unknown"),
-        CRYPTOAPI("CryptoApi"),
-        XMLDSIG("XmlDsig");
-
-        private String value;
-
-        SignatureTypeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static SignatureTypeEnum fromValue(String text) {
-            for (SignatureTypeEnum b : SignatureTypeEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter< SignatureTypeEnum > {
-            @Override
-            public void write(final JsonWriter jsonWriter, final SignatureTypeEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public SignatureTypeEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return SignatureTypeEnum.fromValue(String.valueOf(value));
-            }
-        }
-    }
-
     @SerializedName("Comments")
     protected String comments;
 
@@ -106,7 +59,7 @@ public class Signature implements ModelIfc {
     protected Boolean isValid;
 
     @SerializedName("SignatureType")
-    protected SignatureTypeEnum signatureType;
+    protected String signatureType;
 
     @SerializedName("SignatureValue")
     protected String signatureValue;
@@ -178,16 +131,16 @@ public class Signature implements ModelIfc {
     * @return signatureType
     **/
     @ApiModelProperty(value = "Gets or sets the type of the digital signature.")
-    public SignatureTypeEnum getSignatureType() {
+    public String getSignatureType() {
         return signatureType;
     }
 
-    public Signature signatureType(SignatureTypeEnum signatureType) {
+    public Signature signatureType(String signatureType) {
         this.signatureType = signatureType;
         return this;
     }
 
-    public void setSignatureType(SignatureTypeEnum signatureType) {
+    public void setSignatureType(String signatureType) {
         this.signatureType = signatureType;
     }
 
@@ -277,9 +230,6 @@ public class Signature implements ModelIfc {
     public void validate() throws ApiException {
         if (this.isValid == null) {
             throw new ApiException(400, "Property IsValid in Signature is required.");
-        }
-        if (this.signatureType == null) {
-            throw new ApiException(400, "Property SignatureType in Signature is required.");
         }
         if (this.signTime == null) {
             throw new ApiException(400, "Property SignTime in Signature is required.");
