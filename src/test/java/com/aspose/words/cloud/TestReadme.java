@@ -30,7 +30,7 @@ package com.aspose.words.cloud;
 import org.junit.Test;
 import junit.framework.TestCase;
 import java.io.IOException;
-import javax.mail.MessagingException;
+import jakarta.mail.MessagingException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;

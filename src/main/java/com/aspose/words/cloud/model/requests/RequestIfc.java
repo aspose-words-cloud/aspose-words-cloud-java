@@ -28,7 +28,7 @@
 package com.aspose.words.cloud.model.requests;
 
 import com.aspose.words.cloud.*;
-import javax.mail.MessagingException;
+import jakarta.mail.MessagingException;
 import com.squareup.okhttp.*;
 import java.io.*;
 import java.lang.reflect.Type;

@@ -449,6 +449,7 @@ public class JSON {
                 put("CustomXmlPartsCollection, _", com.aspose.words.cloud.model.CustomXmlPartsCollection.class);
                 put("CustomXmlPartsResponse, _", com.aspose.words.cloud.model.CustomXmlPartsResponse.class);
                 put("CustomXmlPartUpdate, _", com.aspose.words.cloud.model.CustomXmlPartUpdate.class);
+                put("DigitalSignatureDetails, _", com.aspose.words.cloud.model.DigitalSignatureDetails.class);
                 put("DocmSaveOptionsData, _", com.aspose.words.cloud.model.DocmSaveOptionsData.class);
                 put("DocSaveOptionsData, _", com.aspose.words.cloud.model.DocSaveOptionsData.class);
                 put("Document, _", com.aspose.words.cloud.model.Document.class);
@@ -615,6 +616,9 @@ public class JSON {
                 put("SectionPageSetupResponse, _", com.aspose.words.cloud.model.SectionPageSetupResponse.class);
                 put("SectionResponse, _", com.aspose.words.cloud.model.SectionResponse.class);
                 put("Shading, _", com.aspose.words.cloud.model.Shading.class);
+                put("Signature, _", com.aspose.words.cloud.model.Signature.class);
+                put("SignatureCollectionResponse, _", com.aspose.words.cloud.model.SignatureCollectionResponse.class);
+                put("SignOptions, _", com.aspose.words.cloud.model.SignOptions.class);
                 put("SplitDocumentResponse, _", com.aspose.words.cloud.model.SplitDocumentResponse.class);
                 put("SplitDocumentResult, _", com.aspose.words.cloud.model.SplitDocumentResult.class);
                 put("StatDataResponse, _", com.aspose.words.cloud.model.StatDataResponse.class);

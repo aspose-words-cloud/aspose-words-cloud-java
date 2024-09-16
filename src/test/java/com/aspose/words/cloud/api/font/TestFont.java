@@ -35,7 +35,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.IOException;
-import javax.mail.MessagingException;
+import jakarta.mail.MessagingException;
 import java.nio.file.*;
 import java.util.*;
 

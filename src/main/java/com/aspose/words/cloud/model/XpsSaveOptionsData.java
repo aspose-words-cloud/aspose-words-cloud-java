@@ -51,6 +51,9 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("BookmarksOutlineLevel")
     protected Integer bookmarksOutlineLevel;
 
+    @SerializedName("DigitalSignatureDetails")
+    protected DigitalSignatureDetails digitalSignatureDetails;
+
     @SerializedName("HeadingsOutlineLevels")
     protected Integer headingsOutlineLevels;
 
@@ -75,6 +78,25 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
 
     public void setBookmarksOutlineLevel(Integer bookmarksOutlineLevel) {
         this.bookmarksOutlineLevel = bookmarksOutlineLevel;
+    }
+
+
+    /**
+     * Gets or sets the details for signing the output document.
+    * @return digitalSignatureDetails
+    **/
+    @ApiModelProperty(value = "Gets or sets the details for signing the output document.")
+    public DigitalSignatureDetails getDigitalSignatureDetails() {
+        return digitalSignatureDetails;
+    }
+
+    public XpsSaveOptionsData digitalSignatureDetails(DigitalSignatureDetails digitalSignatureDetails) {
+        this.digitalSignatureDetails = digitalSignatureDetails;
+        return this;
+    }
+
+    public void setDigitalSignatureDetails(DigitalSignatureDetails digitalSignatureDetails) {
+        this.digitalSignatureDetails = digitalSignatureDetails;
     }
 
 
@@ -138,6 +160,7 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     public XpsSaveOptionsData() {
         super();
         this.bookmarksOutlineLevel = null;
+        this.digitalSignatureDetails = null;
         this.headingsOutlineLevels = null;
         this.outlineOptions = null;
         this.useBookFoldPrintingSettings = null;
@@ -162,6 +185,13 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     public void validate() throws ApiException {
         super.validate();
 
+        if (this.digitalSignatureDetails != null) {
+            this.digitalSignatureDetails.validate();
+        }
+
+
+
+
         if (this.outlineOptions != null) {
             this.outlineOptions.validate();
         }
@@ -182,6 +212,7 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
         XpsSaveOptionsData xpsSaveOptionsData = (XpsSaveOptionsData) o;
         return
             Objects.equals(this.bookmarksOutlineLevel, xpsSaveOptionsData.bookmarksOutlineLevel) &&
+            Objects.equals(this.digitalSignatureDetails, xpsSaveOptionsData.digitalSignatureDetails) &&
             Objects.equals(this.headingsOutlineLevels, xpsSaveOptionsData.headingsOutlineLevels) &&
             Objects.equals(this.outlineOptions, xpsSaveOptionsData.outlineOptions) &&
             Objects.equals(this.useBookFoldPrintingSettings, xpsSaveOptionsData.useBookFoldPrintingSettings) &&
@@ -190,7 +221,7 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bookmarksOutlineLevel, headingsOutlineLevels, outlineOptions, useBookFoldPrintingSettings, super.hashCode());
+    return Objects.hash(bookmarksOutlineLevel, digitalSignatureDetails, headingsOutlineLevels, outlineOptions, useBookFoldPrintingSettings, super.hashCode());
   }
 
   @Override
@@ -217,6 +248,7 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
     sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
     sb.append("    bookmarksOutlineLevel: ").append(toIndentedString(getBookmarksOutlineLevel())).append("\n");
+    sb.append("    digitalSignatureDetails: ").append(toIndentedString(getDigitalSignatureDetails())).append("\n");
     sb.append("    headingsOutlineLevels: ").append(toIndentedString(getHeadingsOutlineLevels())).append("\n");
     sb.append("    outlineOptions: ").append(toIndentedString(getOutlineOptions())).append("\n");
     sb.append("    useBookFoldPrintingSettings: ").append(toIndentedString(getUseBookFoldPrintingSettings())).append("\n");

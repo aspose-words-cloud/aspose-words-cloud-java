@@ -108,6 +108,7 @@ public class XamlFlowPackSaveOptionsData extends XamlFlowSaveOptionsData {
     sb.append("    zipOutput: ").append(toIndentedString(getZipOutput())).append("\n");
     sb.append("    imagesFolder: ").append(toIndentedString(getImagesFolder())).append("\n");
     sb.append("    imagesFolderAlias: ").append(toIndentedString(getImagesFolderAlias())).append("\n");
+    sb.append("    replaceBackslashWithYenSign: ").append(toIndentedString(getReplaceBackslashWithYenSign())).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();

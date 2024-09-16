@@ -39,10 +39,10 @@ import org.threeten.bp.OffsetDateTime;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
-import javax.mail.BodyPart;
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMultipart;
-import javax.mail.util.ByteArrayDataSource;
+import jakarta.mail.BodyPart;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMultipart;
+import jakarta.mail.util.ByteArrayDataSource;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.net.URLConnection;
@@ -59,7 +59,7 @@ public class ApiClient {
     private String apiVersion = "v4.0";
     private String baseUrl = "https://api.aspose.cloud";
     private String basePath = baseUrl + "/" + apiVersion;
-    private String clientVersion = "24.8";
+    private String clientVersion = "24.9";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -628,8 +628,7 @@ public class ApiClient {
 
         if (returnType.equals(MimeMultipart.class)) {
             try {
-                InputStream in = response.body().byteStream();
-                ByteArrayDataSource dataSource = new ByteArrayDataSource(in, "multipart/mixed");
+                ByteArrayDataSource dataSource = new ByteArrayDataSource(response.body().bytes(), "multipart/mixed");
                 return (T) new MimeMultipart(dataSource);
             }
             catch (IOException | MessagingException e) {
@@ -1160,8 +1159,7 @@ public class ApiClient {
      */
     public MimeMultipart getMultipartFromResponse(Response response) throws ApiException {
         try {
-            InputStream in = response.body().byteStream();
-            ByteArrayDataSource dataSource = new ByteArrayDataSource(in, "multipart/mixed");
+            ByteArrayDataSource dataSource = new ByteArrayDataSource(response.body().bytes(), "multipart/mixed");
             return new MimeMultipart(dataSource);
         }
         catch (IOException | MessagingException e) {

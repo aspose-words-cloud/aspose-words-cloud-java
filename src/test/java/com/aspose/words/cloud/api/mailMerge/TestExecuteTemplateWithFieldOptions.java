@@ -35,7 +35,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.IOException;
-import javax.mail.MessagingException;
+import jakarta.mail.MessagingException;
 import java.nio.file.*;
 import java.util.*;
 
@@ -89,6 +89,7 @@ public class TestExecuteTemplateWithFieldOptions  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName
         );
 
@@ -119,6 +120,7 @@ public class TestExecuteTemplateWithFieldOptions  extends TestCase
             requestTemplate,
             requestData,
             requestOptions,
+            null,
             null,
             null,
             null

@@ -35,7 +35,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import org.threeten.bp.*;
 import java.io.IOException;
-import javax.mail.MessagingException;
+import jakarta.mail.MessagingException;
 import java.nio.file.*;
 import java.util.*;
 
@@ -83,6 +83,7 @@ public class TestExecuteTemplate  extends TestCase
             null,
             null,
             null,
+            null,
             TestInitializer.RemoteTestOut + "/" + remoteFileName
         );
 
@@ -106,6 +107,7 @@ public class TestExecuteTemplate  extends TestCase
         ExecuteMailMergeOnlineRequest request = new ExecuteMailMergeOnlineRequest(
             requestTemplate,
             requestData,
+            null,
             null,
             null,
             null,

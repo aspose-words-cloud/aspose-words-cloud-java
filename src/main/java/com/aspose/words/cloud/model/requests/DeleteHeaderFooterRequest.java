@@ -31,8 +31,8 @@ import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.responses.*;
 import com.squareup.okhttp.*;
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMultipart;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMultipart;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -372,6 +372,13 @@ public class DeleteHeaderFooterRequest implements RequestIfc {
      */
     @Override
     public Object deserializeResponse(ApiClient apiClient, Response response) throws ApiException, MessagingException, IOException {
+        if (response != null) {
+            ResponseBody body = response.body();
+            if (body != null) {
+                body.close();
+            }
+        }
+
         return null;
     }
 }
