@@ -188,7 +188,7 @@ public class TestRevisions  extends TestCase
         RevisionsResponse result = TestInitializer.wordsApi.getAllRevisions(request);
         assertNotNull(result);
         assertNotNull(result.getRevisions());
-        assertEquals(6, result.getRevisions().size());
+        assertEquals(6, result.getRevisions().getRevisions().size());
     }
 
     /*
@@ -208,8 +208,7 @@ public class TestRevisions  extends TestCase
 
         RevisionsResponse result = TestInitializer.wordsApi.getAllRevisionsOnline(request);
         assertNotNull(result);
-        assertNotNull(result.getDocument());
-        assertNotNull(result.getModel());
-        assertNotNull(result.getModel().getRevisions());
+        assertNotNull(result.getRevisions());
+        assertEquals(6, result.getRevisions().getRevisions().size());
     }
 }
