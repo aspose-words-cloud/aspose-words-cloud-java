@@ -45,7 +45,7 @@ import java.util.*;
 public class TestRevisions  extends TestCase
 {
     private String remoteDataFolder = TestInitializer.RemoteTestFolder + "/DocumentActions/Revisions";
-    private String localFile = "Common/test_multi_pages.docx";
+    private String localFile = "DocumentElements/Revisions/TestRevisions.doc";
 
 
     @Override
@@ -160,5 +160,55 @@ public class TestRevisions  extends TestCase
         assertNotNull(result.getModel());
         assertNotNull(result.getModel().getResult());
         assertNotNull(result.getModel().getResult().getDest());
+    }
+
+    /*
+     * Test for getting revisions from document.
+     */
+    @Test
+    public void testGetAllRevisions() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestAcceptAllRevisions.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        GetAllRevisionsRequest request = new GetAllRevisionsRequest(
+            remoteFileName,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+        RevisionsResponse result = TestInitializer.wordsApi.getAllRevisions(request);
+        assertNotNull(result);
+        assertNotNull(result.getRevisions());
+        assertEquals(6, result.getRevisions().getRevisions().size());
+    }
+
+    /*
+     * Test for getting revisions online from document.
+     */
+    @Test
+    public void testGetAllRevisionsOnline() throws ApiException, MessagingException, IOException
+    {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        GetAllRevisionsOnlineRequest request = new GetAllRevisionsOnlineRequest(
+            requestDocument,
+            null,
+            null,
+            null,
+            null
+        );
+
+        RevisionsResponse result = TestInitializer.wordsApi.getAllRevisionsOnline(request);
+        assertNotNull(result);
+        assertNotNull(result.getRevisions());
+        assertEquals(6, result.getRevisions().getRevisions().size());
     }
 }
