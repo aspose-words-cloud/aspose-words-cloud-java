@@ -45,7 +45,7 @@ import java.util.*;
 public class TestRevisions  extends TestCase
 {
     private String remoteDataFolder = TestInitializer.RemoteTestFolder + "/DocumentActions/Revisions";
-    private String localFile = "Common/test_multi_pages.docx";
+    private String localFile = "DocumentElements/Revisions/TestRevisions.doc";
 
 
     @Override
