@@ -29,12 +29,12 @@ node('words-linux') {
             withCredentials([usernamePassword(credentialsId: params.credentialsId, passwordVariable: 'ClientSecret', usernameVariable: 'ClientId')]) {
 			  sh 'git checkout release'
               sh 'mkdir -p Settings'
-              sh 'echo "{\\"ClientId\\": \\"$ClientId\\",\\"ClientSecret\\": \\"$ClientSecret\\", \\"BaseUrl\\": \\"https://auckland-words-cloud-staging.dynabic.com\\"}" > Settings/servercreds.json'
+              sh 'echo "{\\"ClientId\\": \\"$ClientId\\",\\"ClientSecret\\": \\"$ClientSecret\\", \\"BaseUrl\\": \\"https://api-qa.aspose.cloud\\"}" > Settings/servercreds.json'
 			  sh "git config user.email \"jenkins.aspose@gmail.com\""
 			  sh "git config user.name \"jenkins\""
            }
 		   	withCredentials([usernamePassword(credentialsId: params.releaseCredentialsId, passwordVariable: 'mavenPass', usernameVariable: 'mavenUser')]) {
-					sh 'echo "<settings xmlns=\\"http://maven.apache.org/SETTINGS/1.0.0\\" \\n xmlns:xsi=\\"http://www.w3.org/2001/XMLSchema-instance\\" \\n xsi:schemaLocation=\\"http://maven.apache.org/SETTINGS/1.0.0\\"> \\n<servers> \\n <server> \\n<id>params.serverToDeploy</id>\\n<username>${mavenUser}</username>\\n<password>${mavenPass}</password>\\n</server>\\n</servers>\\n</settings>" > wordsSettings.xml'
+					sh 'echo "<settings xmlns=\\"http://maven.apache.org/SETTINGS/1.0.0\\" \\n xmlns:xsi=\\"http://www.w3.org/2001/XMLSchema-instance\\" \\n xsi:schemaLocation=\\"http://maven.apache.org/SETTINGS/1.0.0\\"> \\n<servers> \\n <server> \\n<id>aspose-cloud-s3-repo-ci</id>\\n<username>${mavenUser}</username>\\n<password>${mavenPass}</password>\\n</server>\\n</servers>\\n</settings>" > wordsSettings.xml'
 				}
 			}
 		}
@@ -49,7 +49,7 @@ node('words-linux') {
 								sh 'echo "{\\"ClientId\\": \\"$ClientId\\",\\"ClientSecret\\": \\"$ClientSecret\\", \\"BaseUrl\\": \\"$testServerUrl\\"}" > Settings/servercreds.json'
 							}
 							sh 'cat wordsSettings.xml'
-							sh "mvn --settings wordsSettings.xml deploy -Dmaven.javadoc.skip=true -DcheckModificationExcludeList=wordsSettings.xml,Settings/servercreds.json params.serverToDeploy"
+							sh "mvn --settings wordsSettings.xml deploy -Dmaven.javadoc.skip=true -DcheckModificationExcludeList=wordsSettings.xml,Settings/servercreds.json"
 						}
 					}
 				}
