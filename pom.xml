@@ -214,12 +214,12 @@
         </plugins>
     </build>
 	
-	<repositories>
+	<distributionManagment>
 		<repository>
 			<id>aspose-cloud-s3-repo-ci</id>
 			<url>s3://data.repository.aspose.cloud/java/repo/</url>
-        </repository>
-	</repositories>
+		</repository>
+	</distributionManagment>
 
     <profiles>
         <profile>
