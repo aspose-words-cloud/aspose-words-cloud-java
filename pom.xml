@@ -213,17 +213,15 @@
             </plugin>
         </plugins>
     </build>
+	
+	<repositories>
+		<repository>
+			<id>aspose-cloud-s3-repo-ci</id>
+			<url>s3://data.repository.aspose.cloud/java/repo/</url>
+        </repository>
+	</repositories>
 
     <profiles>
-        <profile>
-            <id>production-repository</id>
-            <distributionManagement>
-                <repository>
-                    <id>aspose-cloud-s3-repo-ci</id>
-                    <url>s3://data.repository.aspose.cloud/java/repo/</url>
-                </repository>
-            </distributionManagement>
-        </profile>
         <profile>
             <id>sign-artifacts</id>
             <build>
