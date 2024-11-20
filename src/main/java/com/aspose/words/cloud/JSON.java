@@ -595,7 +595,10 @@ public class JSON {
                 put("ReplaceTextParameters, _", com.aspose.words.cloud.model.ReplaceTextParameters.class);
                 put("ReplaceTextResponse, _", com.aspose.words.cloud.model.ReplaceTextResponse.class);
                 put("ReportEngineSettings, _", com.aspose.words.cloud.model.ReportEngineSettings.class);
+                put("Revision, _", com.aspose.words.cloud.model.Revision.class);
+                put("RevisionCollection, _", com.aspose.words.cloud.model.RevisionCollection.class);
                 put("RevisionsModificationResponse, _", com.aspose.words.cloud.model.RevisionsModificationResponse.class);
+                put("RevisionsResponse, _", com.aspose.words.cloud.model.RevisionsResponse.class);
                 put("RtfSaveOptionsData, _", com.aspose.words.cloud.model.RtfSaveOptionsData.class);
                 put("Run, _", com.aspose.words.cloud.model.Run.class);
                 put("RunInsert, _", com.aspose.words.cloud.model.RunInsert.class);

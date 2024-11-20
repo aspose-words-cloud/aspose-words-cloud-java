@@ -81,7 +81,7 @@ public class TestDocumentProperties  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getDocumentProperties());
         assertNotNull(result.getDocumentProperties().getList());
-        assertEquals(24, result.getDocumentProperties().getList().size());
+        assertEquals(27, result.getDocumentProperties().getList().size());
         assertNotNull(result.getDocumentProperties().getList().get(0));
         assertEquals("Author", result.getDocumentProperties().getList().get(0).getName());
         assertEquals("", result.getDocumentProperties().getList().get(0).getValue());
