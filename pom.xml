@@ -30,6 +30,13 @@
             <organizationUrl>https://www.aspose.cloud/</organizationUrl>
         </developer>
     </developers>
+	
+	<distributionManagment>
+		<repository>
+			<id>aspose-cloud-s3-repo-ci</id>
+			<url>s3://data.repository.aspose.cloud/java/repo/</url>
+		</repository>
+	</distributionManagment>
 
     <build>
 		<extensions>
@@ -213,37 +220,6 @@
             </plugin>
         </plugins>
     </build>
-	
-	<distributionManagment>
-		<repository>
-			<id>aspose-cloud-s3-repo-ci</id>
-			<url>s3://data.repository.aspose.cloud/java/repo/</url>
-		</repository>
-	</distributionManagment>
-
-    <profiles>
-        <profile>
-            <id>sign-artifacts</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
     <dependencies>
         <dependency>
