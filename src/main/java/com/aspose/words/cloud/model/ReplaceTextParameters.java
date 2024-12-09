@@ -48,6 +48,9 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Class for document replace text request building.")
 public class ReplaceTextParameters implements ModelIfc {
+    @SerializedName("ApplySuperscript")
+    protected Boolean applySuperscript;
+
     @SerializedName("IsMatchCase")
     protected Boolean isMatchCase;
 
@@ -62,6 +65,25 @@ public class ReplaceTextParameters implements ModelIfc {
 
     @SerializedName("OldValue")
     protected String oldValue;
+    /**
+     * Gets or sets a value indicating whether apply superscript to font or not.
+    * @return applySuperscript
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether apply superscript to font or not.")
+    public Boolean getApplySuperscript() {
+        return applySuperscript;
+    }
+
+    public ReplaceTextParameters applySuperscript(Boolean applySuperscript) {
+        this.applySuperscript = applySuperscript;
+        return this;
+    }
+
+    public void setApplySuperscript(Boolean applySuperscript) {
+        this.applySuperscript = applySuperscript;
+    }
+
+
     /**
      * Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
     * @return isMatchCase
@@ -158,6 +180,7 @@ public class ReplaceTextParameters implements ModelIfc {
 
 
     public ReplaceTextParameters() {
+        this.applySuperscript = null;
         this.isMatchCase = null;
         this.isMatchWholeWord = null;
         this.isOldValueRegex = null;
@@ -209,6 +232,7 @@ public class ReplaceTextParameters implements ModelIfc {
 
         ReplaceTextParameters replaceTextParameters = (ReplaceTextParameters) o;
         return
+            Objects.equals(this.applySuperscript, replaceTextParameters.applySuperscript) &&
             Objects.equals(this.isMatchCase, replaceTextParameters.isMatchCase) &&
             Objects.equals(this.isMatchWholeWord, replaceTextParameters.isMatchWholeWord) &&
             Objects.equals(this.isOldValueRegex, replaceTextParameters.isOldValueRegex) &&
@@ -218,13 +242,14 @@ public class ReplaceTextParameters implements ModelIfc {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isMatchCase, isMatchWholeWord, isOldValueRegex, newValue, oldValue);
+    return Objects.hash(applySuperscript, isMatchCase, isMatchWholeWord, isOldValueRegex, newValue, oldValue);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReplaceTextParameters {\n");
+    sb.append("    applySuperscript: ").append(toIndentedString(getApplySuperscript())).append("\n");
     sb.append("    isMatchCase: ").append(toIndentedString(getIsMatchCase())).append("\n");
     sb.append("    isMatchWholeWord: ").append(toIndentedString(getIsMatchWholeWord())).append("\n");
     sb.append("    isOldValueRegex: ").append(toIndentedString(getIsOldValueRegex())).append("\n");

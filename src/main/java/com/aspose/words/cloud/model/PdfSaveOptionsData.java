@@ -504,6 +504,9 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("PreserveFormFields")
     protected Boolean preserveFormFields;
 
+    @SerializedName("RenderChoiceFormFieldBorder")
+    protected Boolean renderChoiceFormFieldBorder;
+
     @SerializedName("TextCompression")
     protected TextCompressionEnum textCompression;
 
@@ -960,6 +963,27 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
     /**
+     * Gets or sets a value indicating whether to render PDF choice form field border.
+     * PDF choice form fields are used for export of SDT Combo Box Content Control, SDT Drop-Down List Content
+     * Control and legacy Drop-Down Form Field when PreserveFormFields option is enabled.The default value is true.
+    * @return renderChoiceFormFieldBorder
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to render PDF choice form field border. PDF choice form fields are used for export of SDT Combo Box Content Control, SDT Drop-Down List Content Control and legacy Drop-Down Form Field when PreserveFormFields option is enabled.The default value is true.")
+    public Boolean getRenderChoiceFormFieldBorder() {
+        return renderChoiceFormFieldBorder;
+    }
+
+    public PdfSaveOptionsData renderChoiceFormFieldBorder(Boolean renderChoiceFormFieldBorder) {
+        this.renderChoiceFormFieldBorder = renderChoiceFormFieldBorder;
+        return this;
+    }
+
+    public void setRenderChoiceFormFieldBorder(Boolean renderChoiceFormFieldBorder) {
+        this.renderChoiceFormFieldBorder = renderChoiceFormFieldBorder;
+    }
+
+
+    /**
      * Gets or sets the compression type to be used for all textual content in the document.
     * @return textCompression
     **/
@@ -1099,6 +1123,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         this.pageMode = null;
         this.preblendImages = null;
         this.preserveFormFields = null;
+        this.renderChoiceFormFieldBorder = null;
         this.textCompression = null;
         this.useBookFoldPrintingSettings = null;
         this.useCoreFonts = null;
@@ -1169,6 +1194,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
 
+
     }
 
     @Override
@@ -1204,6 +1230,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
             Objects.equals(this.pageMode, pdfSaveOptionsData.pageMode) &&
             Objects.equals(this.preblendImages, pdfSaveOptionsData.preblendImages) &&
             Objects.equals(this.preserveFormFields, pdfSaveOptionsData.preserveFormFields) &&
+            Objects.equals(this.renderChoiceFormFieldBorder, pdfSaveOptionsData.renderChoiceFormFieldBorder) &&
             Objects.equals(this.textCompression, pdfSaveOptionsData.textCompression) &&
             Objects.equals(this.useBookFoldPrintingSettings, pdfSaveOptionsData.useBookFoldPrintingSettings) &&
             Objects.equals(this.useCoreFonts, pdfSaveOptionsData.useCoreFonts) &&
@@ -1215,7 +1242,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cacheBackgroundGraphics, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedAttachments, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, useSdtTagAsFormFieldName, zoomBehavior, zoomFactor, super.hashCode());
+    return Objects.hash(cacheBackgroundGraphics, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedAttachments, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, renderChoiceFormFieldBorder, textCompression, useBookFoldPrintingSettings, useCoreFonts, useSdtTagAsFormFieldName, zoomBehavior, zoomFactor, super.hashCode());
   }
 
   @Override
@@ -1263,6 +1290,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    pageMode: ").append(toIndentedString(getPageMode())).append("\n");
     sb.append("    preblendImages: ").append(toIndentedString(getPreblendImages())).append("\n");
     sb.append("    preserveFormFields: ").append(toIndentedString(getPreserveFormFields())).append("\n");
+    sb.append("    renderChoiceFormFieldBorder: ").append(toIndentedString(getRenderChoiceFormFieldBorder())).append("\n");
     sb.append("    textCompression: ").append(toIndentedString(getTextCompression())).append("\n");
     sb.append("    useBookFoldPrintingSettings: ").append(toIndentedString(getUseBookFoldPrintingSettings())).append("\n");
     sb.append("    useCoreFonts: ").append(toIndentedString(getUseCoreFonts())).append("\n");
