@@ -13,6 +13,11 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 25.2
+
+- Added 'IdPrefix' property for HtmlFixedSaveOptionsData and SvgSaveOptionsData class.
+
+
 ## Enhancements in Version 24.12
 
 - Added 'RenderChoiceFormFieldBorder' property for PdfSaveOptionsData class.

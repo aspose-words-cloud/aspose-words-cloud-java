@@ -101,6 +101,9 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("FitToViewPort")
     protected Boolean fitToViewPort;
 
+    @SerializedName("IdPrefix")
+    protected String idPrefix;
+
     @SerializedName("MaxImageResolution")
     protected Integer maxImageResolution;
 
@@ -150,6 +153,28 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
 
     public void setFitToViewPort(Boolean fitToViewPort) {
         this.fitToViewPort = fitToViewPort;
+    }
+
+
+    /**
+     * Gets or sets specifies a prefix that is prepended to all generated element IDs in the output document.
+     * Default value is null and no prefix is prepended.
+     * If the prefix is specified, it can contain only letters, digits, underscores, and hyphens,
+     * and must start with a letter.
+    * @return idPrefix
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies a prefix that is prepended to all generated element IDs in the output document. Default value is null and no prefix is prepended. If the prefix is specified, it can contain only letters, digits, underscores, and hyphens, and must start with a letter.")
+    public String getIdPrefix() {
+        return idPrefix;
+    }
+
+    public SvgSaveOptionsData idPrefix(String idPrefix) {
+        this.idPrefix = idPrefix;
+        return this;
+    }
+
+    public void setIdPrefix(String idPrefix) {
+        this.idPrefix = idPrefix;
     }
 
 
@@ -254,6 +279,7 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
         super();
         this.exportEmbeddedImages = null;
         this.fitToViewPort = null;
+        this.idPrefix = null;
         this.maxImageResolution = null;
         this.resourcesFolder = null;
         this.resourcesFolderAlias = null;
@@ -294,6 +320,7 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
         return
             Objects.equals(this.exportEmbeddedImages, svgSaveOptionsData.exportEmbeddedImages) &&
             Objects.equals(this.fitToViewPort, svgSaveOptionsData.fitToViewPort) &&
+            Objects.equals(this.idPrefix, svgSaveOptionsData.idPrefix) &&
             Objects.equals(this.maxImageResolution, svgSaveOptionsData.maxImageResolution) &&
             Objects.equals(this.resourcesFolder, svgSaveOptionsData.resourcesFolder) &&
             Objects.equals(this.resourcesFolderAlias, svgSaveOptionsData.resourcesFolderAlias) &&
@@ -304,7 +331,7 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(exportEmbeddedImages, fitToViewPort, maxImageResolution, resourcesFolder, resourcesFolderAlias, showPageBorder, textOutputMode, super.hashCode());
+    return Objects.hash(exportEmbeddedImages, fitToViewPort, idPrefix, maxImageResolution, resourcesFolder, resourcesFolderAlias, showPageBorder, textOutputMode, super.hashCode());
   }
 
   @Override
@@ -332,6 +359,7 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
     sb.append("    exportEmbeddedImages: ").append(toIndentedString(getExportEmbeddedImages())).append("\n");
     sb.append("    fitToViewPort: ").append(toIndentedString(getFitToViewPort())).append("\n");
+    sb.append("    idPrefix: ").append(toIndentedString(getIdPrefix())).append("\n");
     sb.append("    maxImageResolution: ").append(toIndentedString(getMaxImageResolution())).append("\n");
     sb.append("    resourcesFolder: ").append(toIndentedString(getResourcesFolder())).append("\n");
     sb.append("    resourcesFolderAlias: ").append(toIndentedString(getResourcesFolderAlias())).append("\n");
