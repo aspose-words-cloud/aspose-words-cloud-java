@@ -163,6 +163,9 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     @SerializedName("FontFormat")
     protected FontFormatEnum fontFormat;
 
+    @SerializedName("IdPrefix")
+    protected String idPrefix;
+
     @SerializedName("PageHorizontalAlignment")
     protected PageHorizontalAlignmentEnum pageHorizontalAlignment;
 
@@ -318,6 +321,28 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
 
 
     /**
+     * Gets or sets a prefix that is prepended to all generated element IDs in the output document.
+     * Default value is null and no prefix is prepended.
+     * If the prefix is specified, it can contain only letters, digits, underscores, and hyphens,
+     * and must start with a letter.
+    * @return idPrefix
+    **/
+    @ApiModelProperty(value = "Gets or sets a prefix that is prepended to all generated element IDs in the output document. Default value is null and no prefix is prepended. If the prefix is specified, it can contain only letters, digits, underscores, and hyphens, and must start with a letter.")
+    public String getIdPrefix() {
+        return idPrefix;
+    }
+
+    public HtmlFixedSaveOptionsData idPrefix(String idPrefix) {
+        this.idPrefix = idPrefix;
+        return this;
+    }
+
+    public void setIdPrefix(String idPrefix) {
+        this.idPrefix = idPrefix;
+    }
+
+
+    /**
      * Gets or sets the horizontal alignment of pages in the HTML document.
      * The default value is HtmlFixedHorizontalPageAlignment.Center.
     * @return pageHorizontalAlignment
@@ -467,6 +492,7 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         this.exportEmbeddedImages = null;
         this.exportFormFields = null;
         this.fontFormat = null;
+        this.idPrefix = null;
         this.pageHorizontalAlignment = null;
         this.pageMargins = null;
         this.resourcesFolder = null;
@@ -514,6 +540,7 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
             Objects.equals(this.exportEmbeddedImages, htmlFixedSaveOptionsData.exportEmbeddedImages) &&
             Objects.equals(this.exportFormFields, htmlFixedSaveOptionsData.exportFormFields) &&
             Objects.equals(this.fontFormat, htmlFixedSaveOptionsData.fontFormat) &&
+            Objects.equals(this.idPrefix, htmlFixedSaveOptionsData.idPrefix) &&
             Objects.equals(this.pageHorizontalAlignment, htmlFixedSaveOptionsData.pageHorizontalAlignment) &&
             Objects.equals(this.pageMargins, htmlFixedSaveOptionsData.pageMargins) &&
             Objects.equals(this.resourcesFolder, htmlFixedSaveOptionsData.resourcesFolder) &&
@@ -526,7 +553,7 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cssClassNamesPrefix, encoding, exportEmbeddedCss, exportEmbeddedFonts, exportEmbeddedImages, exportFormFields, fontFormat, pageHorizontalAlignment, pageMargins, resourcesFolder, resourcesFolderAlias, saveFontFaceCssSeparately, showPageBorder, useTargetMachineFonts, super.hashCode());
+    return Objects.hash(cssClassNamesPrefix, encoding, exportEmbeddedCss, exportEmbeddedFonts, exportEmbeddedImages, exportFormFields, fontFormat, idPrefix, pageHorizontalAlignment, pageMargins, resourcesFolder, resourcesFolderAlias, saveFontFaceCssSeparately, showPageBorder, useTargetMachineFonts, super.hashCode());
   }
 
   @Override
@@ -559,6 +586,7 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    exportEmbeddedImages: ").append(toIndentedString(getExportEmbeddedImages())).append("\n");
     sb.append("    exportFormFields: ").append(toIndentedString(getExportFormFields())).append("\n");
     sb.append("    fontFormat: ").append(toIndentedString(getFontFormat())).append("\n");
+    sb.append("    idPrefix: ").append(toIndentedString(getIdPrefix())).append("\n");
     sb.append("    pageHorizontalAlignment: ").append(toIndentedString(getPageHorizontalAlignment())).append("\n");
     sb.append("    pageMargins: ").append(toIndentedString(getPageMargins())).append("\n");
     sb.append("    resourcesFolder: ").append(toIndentedString(getResourcesFolder())).append("\n");
