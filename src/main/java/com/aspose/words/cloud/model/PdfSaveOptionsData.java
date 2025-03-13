@@ -59,7 +59,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         PDFA1B("PdfA1b"),
         PDFA2A("PdfA2a"),
         PDFA2U("PdfA2u"),
+        PDFA3A("PdfA3a"),
+        PDFA3U("PdfA3u"),
         PDFA4("PdfA4"),
+        PDFA4F("PdfA4f"),
         PDFA4UA2("PdfA4Ua2"),
         PDFUA1("PdfUa1"),
         PDFUA2("PdfUa2");
@@ -674,15 +677,18 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     * @return embedAttachments
     **/
     @ApiModelProperty(value = "Gets or sets a value determining whether or not to embed attachments to the PDF document. Default value is false and attachments are not embedded. When the value is true attachments are embedded to the PDF document. Embedding attachments is not supported when saving to PDF/A and PDF/UA compliance. false value will be used automatically. Embedding attachments is not supported when encryption is enabled. false value will be used automatically.")
+    @Deprecated
     public Boolean getEmbedAttachments() {
         return embedAttachments;
     }
 
+    @Deprecated
     public PdfSaveOptionsData embedAttachments(Boolean embedAttachments) {
         this.embedAttachments = embedAttachments;
         return this;
     }
 
+    @Deprecated
     public void setEmbedAttachments(Boolean embedAttachments) {
         this.embedAttachments = embedAttachments;
     }
