@@ -49,6 +49,52 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "DTO container with compare documents options.")
 public class CompareOptions implements ModelIfc {
     /**
+     * Gets or sets the option indicating whether changes are tracked by character or by word.
+     */
+    @JsonAdapter(GranularityEnum.Adapter.class)
+    public enum GranularityEnum {
+        CHARLEVEL("CharLevel"),
+        WORDLEVEL("WordLevel");
+
+        private String value;
+
+        GranularityEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static GranularityEnum fromValue(String text) {
+            for (GranularityEnum b : GranularityEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< GranularityEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final GranularityEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public GranularityEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return GranularityEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
      * Gets or sets the option that controls which document shall be used as a target during comparison.
      */
     @JsonAdapter(TargetEnum.Adapter.class)
@@ -97,6 +143,9 @@ public class CompareOptions implements ModelIfc {
     @SerializedName("AcceptAllRevisionsBeforeComparison")
     protected Boolean acceptAllRevisionsBeforeComparison;
 
+    @SerializedName("Granularity")
+    protected GranularityEnum granularity;
+
     @SerializedName("IgnoreCaseChanges")
     protected Boolean ignoreCaseChanges;
 
@@ -139,6 +188,25 @@ public class CompareOptions implements ModelIfc {
 
     public void setAcceptAllRevisionsBeforeComparison(Boolean acceptAllRevisionsBeforeComparison) {
         this.acceptAllRevisionsBeforeComparison = acceptAllRevisionsBeforeComparison;
+    }
+
+
+    /**
+     * Gets or sets the option indicating whether changes are tracked by character or by word.
+    * @return granularity
+    **/
+    @ApiModelProperty(value = "Gets or sets the option indicating whether changes are tracked by character or by word.")
+    public GranularityEnum getGranularity() {
+        return granularity;
+    }
+
+    public CompareOptions granularity(GranularityEnum granularity) {
+        this.granularity = granularity;
+        return this;
+    }
+
+    public void setGranularity(GranularityEnum granularity) {
+        this.granularity = granularity;
     }
 
 
@@ -315,6 +383,7 @@ public class CompareOptions implements ModelIfc {
 
     public CompareOptions() {
         this.acceptAllRevisionsBeforeComparison = null;
+        this.granularity = null;
         this.ignoreCaseChanges = null;
         this.ignoreComments = null;
         this.ignoreFields = null;
@@ -356,6 +425,7 @@ public class CompareOptions implements ModelIfc {
         CompareOptions compareOptions = (CompareOptions) o;
         return
             Objects.equals(this.acceptAllRevisionsBeforeComparison, compareOptions.acceptAllRevisionsBeforeComparison) &&
+            Objects.equals(this.granularity, compareOptions.granularity) &&
             Objects.equals(this.ignoreCaseChanges, compareOptions.ignoreCaseChanges) &&
             Objects.equals(this.ignoreComments, compareOptions.ignoreComments) &&
             Objects.equals(this.ignoreFields, compareOptions.ignoreFields) &&
@@ -369,7 +439,7 @@ public class CompareOptions implements ModelIfc {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptAllRevisionsBeforeComparison, ignoreCaseChanges, ignoreComments, ignoreFields, ignoreFootnotes, ignoreFormatting, ignoreHeadersAndFooters, ignoreTables, ignoreTextboxes, target);
+    return Objects.hash(acceptAllRevisionsBeforeComparison, granularity, ignoreCaseChanges, ignoreComments, ignoreFields, ignoreFootnotes, ignoreFormatting, ignoreHeadersAndFooters, ignoreTables, ignoreTextboxes, target);
   }
 
   @Override
@@ -377,6 +447,7 @@ public class CompareOptions implements ModelIfc {
     StringBuilder sb = new StringBuilder();
     sb.append("class CompareOptions {\n");
     sb.append("    acceptAllRevisionsBeforeComparison: ").append(toIndentedString(getAcceptAllRevisionsBeforeComparison())).append("\n");
+    sb.append("    granularity: ").append(toIndentedString(getGranularity())).append("\n");
     sb.append("    ignoreCaseChanges: ").append(toIndentedString(getIgnoreCaseChanges())).append("\n");
     sb.append("    ignoreComments: ").append(toIndentedString(getIgnoreComments())).append("\n");
     sb.append("    ignoreFields: ").append(toIndentedString(getIgnoreFields())).append("\n");
