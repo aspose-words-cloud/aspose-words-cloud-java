@@ -365,6 +365,8 @@ public class PageSetup extends LinkElement {
         PAPER10X14("Paper10x14"),
         PAPER11X17("Paper11x17"),
         NUMBER10ENVELOPE("Number10Envelope"),
+        JISB4("JisB4"),
+        JISB5("JisB5"),
         CUSTOM("Custom");
 
         private String value;
