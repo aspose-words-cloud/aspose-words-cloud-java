@@ -261,6 +261,9 @@ public abstract class SaveOptionsData implements ModelIfc {
     @SerializedName("ImlRenderingMode")
     protected ImlRenderingModeEnum imlRenderingMode;
 
+    @SerializedName("UpdateAmbiguousTextFont")
+    protected Boolean updateAmbiguousTextFont;
+
     @SerializedName("UpdateCreatedTimeProperty")
     protected Boolean updateCreatedTimeProperty;
 
@@ -422,6 +425,25 @@ public abstract class SaveOptionsData implements ModelIfc {
 
 
     /**
+     * Gets or sets a value indicating whether the font attributes will be changed according to the character code being used.
+    * @return updateAmbiguousTextFont
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the font attributes will be changed according to the character code being used.")
+    public Boolean getUpdateAmbiguousTextFont() {
+        return updateAmbiguousTextFont;
+    }
+
+    public SaveOptionsData updateAmbiguousTextFont(Boolean updateAmbiguousTextFont) {
+        this.updateAmbiguousTextFont = updateAmbiguousTextFont;
+        return this;
+    }
+
+    public void setUpdateAmbiguousTextFont(Boolean updateAmbiguousTextFont) {
+        this.updateAmbiguousTextFont = updateAmbiguousTextFont;
+    }
+
+
+    /**
      * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving.
      * Default value is false.
     * @return updateCreatedTimeProperty
@@ -539,6 +561,7 @@ public abstract class SaveOptionsData implements ModelIfc {
         this.dmlRenderingMode = null;
         this.fileName = null;
         this.imlRenderingMode = null;
+        this.updateAmbiguousTextFont = null;
         this.updateCreatedTimeProperty = null;
         this.updateFields = null;
         this.updateLastPrintedProperty = null;
@@ -582,6 +605,7 @@ public abstract class SaveOptionsData implements ModelIfc {
 
 
 
+
     }
 
     @Override
@@ -602,6 +626,7 @@ public abstract class SaveOptionsData implements ModelIfc {
             Objects.equals(this.dmlRenderingMode, saveOptionsData.dmlRenderingMode) &&
             Objects.equals(this.fileName, saveOptionsData.fileName) &&
             Objects.equals(this.imlRenderingMode, saveOptionsData.imlRenderingMode) &&
+            Objects.equals(this.updateAmbiguousTextFont, saveOptionsData.updateAmbiguousTextFont) &&
             Objects.equals(this.updateCreatedTimeProperty, saveOptionsData.updateCreatedTimeProperty) &&
             Objects.equals(this.updateFields, saveOptionsData.updateFields) &&
             Objects.equals(this.updateLastPrintedProperty, saveOptionsData.updateLastPrintedProperty) &&
@@ -612,7 +637,7 @@ public abstract class SaveOptionsData implements ModelIfc {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowEmbeddingPostScriptFonts, customTimeZoneInfoData, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, imlRenderingMode, updateCreatedTimeProperty, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, zipOutput, saveFormat);
+    return Objects.hash(allowEmbeddingPostScriptFonts, customTimeZoneInfoData, dml3DEffectsRenderingMode, dmlEffectsRenderingMode, dmlRenderingMode, fileName, imlRenderingMode, updateAmbiguousTextFont, updateCreatedTimeProperty, updateFields, updateLastPrintedProperty, updateLastSavedTimeProperty, zipOutput, saveFormat);
   }
 
   @Override
@@ -626,6 +651,7 @@ public abstract class SaveOptionsData implements ModelIfc {
     sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
     sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
     sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateAmbiguousTextFont: ").append(toIndentedString(getUpdateAmbiguousTextFont())).append("\n");
     sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");

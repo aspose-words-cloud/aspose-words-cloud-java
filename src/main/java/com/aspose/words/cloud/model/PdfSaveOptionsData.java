@@ -49,6 +49,56 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for pdf save options.")
 public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     /**
+     * Gets or sets a value determining how attachments are embedded to the PDF document.
+     * Default value is None and attachments are not embedded.
+     * PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files.
+     * None value will be used automatically.
+     */
+    @JsonAdapter(AttachmentsEmbeddingModeEnum.Adapter.class)
+    public enum AttachmentsEmbeddingModeEnum {
+        NONE("None"),
+        ANNOTATIONS("Annotations"),
+        DOCUMENTEMBEDDEDFILES("DocumentEmbeddedFiles");
+
+        private String value;
+
+        AttachmentsEmbeddingModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static AttachmentsEmbeddingModeEnum fromValue(String text) {
+            for (AttachmentsEmbeddingModeEnum b : AttachmentsEmbeddingModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< AttachmentsEmbeddingModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final AttachmentsEmbeddingModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public AttachmentsEmbeddingModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return AttachmentsEmbeddingModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
      * Gets or sets the PDF standards compliance level for output documents.
      */
     @JsonAdapter(ComplianceEnum.Adapter.class)
@@ -441,6 +491,9 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         }
     }
 
+    @SerializedName("AttachmentsEmbeddingMode")
+    protected AttachmentsEmbeddingModeEnum attachmentsEmbeddingMode;
+
     @SerializedName("CacheBackgroundGraphics")
     protected Boolean cacheBackgroundGraphics;
 
@@ -527,6 +580,28 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     @SerializedName("ZoomFactor")
     protected Integer zoomFactor;
+    /**
+     * Gets or sets a value determining how attachments are embedded to the PDF document.
+     * Default value is None and attachments are not embedded.
+     * PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files.
+     * None value will be used automatically.
+    * @return attachmentsEmbeddingMode
+    **/
+    @ApiModelProperty(value = "Gets or sets a value determining how attachments are embedded to the PDF document. Default value is None and attachments are not embedded. PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files. None value will be used automatically.")
+    public AttachmentsEmbeddingModeEnum getAttachmentsEmbeddingMode() {
+        return attachmentsEmbeddingMode;
+    }
+
+    public PdfSaveOptionsData attachmentsEmbeddingMode(AttachmentsEmbeddingModeEnum attachmentsEmbeddingMode) {
+        this.attachmentsEmbeddingMode = attachmentsEmbeddingMode;
+        return this;
+    }
+
+    public void setAttachmentsEmbeddingMode(AttachmentsEmbeddingModeEnum attachmentsEmbeddingMode) {
+        this.attachmentsEmbeddingMode = attachmentsEmbeddingMode;
+    }
+
+
     /**
      * Gets or sets a value determining whether or not to cache graphics placed in document's background.
      * Default value is true and background graphics are written to the PDF document as an xObject. When the value is false background graphics are not cached. Some shapes are not supported for caching(shapes with fields, bookmarks, HRefs). Document background graphic is various shapes, charts, images placed in the footer or header,
@@ -1107,6 +1182,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     public PdfSaveOptionsData() {
         super();
+        this.attachmentsEmbeddingMode = null;
         this.cacheBackgroundGraphics = null;
         this.compliance = null;
         this.createNoteHyperlinks = null;
@@ -1214,6 +1290,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
         PdfSaveOptionsData pdfSaveOptionsData = (PdfSaveOptionsData) o;
         return
+            Objects.equals(this.attachmentsEmbeddingMode, pdfSaveOptionsData.attachmentsEmbeddingMode) &&
             Objects.equals(this.cacheBackgroundGraphics, pdfSaveOptionsData.cacheBackgroundGraphics) &&
             Objects.equals(this.compliance, pdfSaveOptionsData.compliance) &&
             Objects.equals(this.createNoteHyperlinks, pdfSaveOptionsData.createNoteHyperlinks) &&
@@ -1248,7 +1325,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cacheBackgroundGraphics, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedAttachments, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, renderChoiceFormFieldBorder, textCompression, useBookFoldPrintingSettings, useCoreFonts, useSdtTagAsFormFieldName, zoomBehavior, zoomFactor, super.hashCode());
+    return Objects.hash(attachmentsEmbeddingMode, cacheBackgroundGraphics, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedAttachments, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, renderChoiceFormFieldBorder, textCompression, useBookFoldPrintingSettings, useCoreFonts, useSdtTagAsFormFieldName, zoomBehavior, zoomFactor, super.hashCode());
   }
 
   @Override
@@ -1262,6 +1339,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    dmlRenderingMode: ").append(toIndentedString(getDmlRenderingMode())).append("\n");
     sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
     sb.append("    imlRenderingMode: ").append(toIndentedString(getImlRenderingMode())).append("\n");
+    sb.append("    updateAmbiguousTextFont: ").append(toIndentedString(getUpdateAmbiguousTextFont())).append("\n");
     sb.append("    updateCreatedTimeProperty: ").append(toIndentedString(getUpdateCreatedTimeProperty())).append("\n");
     sb.append("    updateFields: ").append(toIndentedString(getUpdateFields())).append("\n");
     sb.append("    updateLastPrintedProperty: ").append(toIndentedString(getUpdateLastPrintedProperty())).append("\n");
@@ -1274,6 +1352,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    optimizeOutput: ").append(toIndentedString(getOptimizeOutput())).append("\n");
     sb.append("    pageCount: ").append(toIndentedString(getPageCount())).append("\n");
     sb.append("    pageIndex: ").append(toIndentedString(getPageIndex())).append("\n");
+    sb.append("    attachmentsEmbeddingMode: ").append(toIndentedString(getAttachmentsEmbeddingMode())).append("\n");
     sb.append("    cacheBackgroundGraphics: ").append(toIndentedString(getCacheBackgroundGraphics())).append("\n");
     sb.append("    compliance: ").append(toIndentedString(getCompliance())).append("\n");
     sb.append("    createNoteHyperlinks: ").append(toIndentedString(getCreateNoteHyperlinks())).append("\n");
