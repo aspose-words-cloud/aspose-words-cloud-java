@@ -433,6 +433,8 @@ public class JSON {
                 put("Comment, _", com.aspose.words.cloud.model.Comment.class);
                 put("CommentInsert, _", com.aspose.words.cloud.model.CommentInsert.class);
                 put("CommentLink, _", com.aspose.words.cloud.model.CommentLink.class);
+                put("CommentRangeEnd, _", com.aspose.words.cloud.model.CommentRangeEnd.class);
+                put("CommentRangeStart, _", com.aspose.words.cloud.model.CommentRangeStart.class);
                 put("CommentResponse, _", com.aspose.words.cloud.model.CommentResponse.class);
                 put("CommentsCollection, _", com.aspose.words.cloud.model.CommentsCollection.class);
                 put("CommentsResponse, _", com.aspose.words.cloud.model.CommentsResponse.class);
@@ -509,11 +511,14 @@ public class JSON {
                 put("FootnotesStatData, _", com.aspose.words.cloud.model.FootnotesStatData.class);
                 put("FootnoteUpdate, _", com.aspose.words.cloud.model.FootnoteUpdate.class);
                 put("FormFieldCheckbox, _", com.aspose.words.cloud.model.FormFieldCheckbox.class);
+                put("FormFieldCheckboxLink, _", com.aspose.words.cloud.model.FormFieldCheckboxLink.class);
                 put("FormFieldCollection, _", com.aspose.words.cloud.model.FormFieldCollection.class);
                 put("FormFieldDropDown, _", com.aspose.words.cloud.model.FormFieldDropDown.class);
+                put("FormFieldDropDownLink, _", com.aspose.words.cloud.model.FormFieldDropDownLink.class);
                 put("FormFieldResponse, _", com.aspose.words.cloud.model.FormFieldResponse.class);
                 put("FormFieldsResponse, _", com.aspose.words.cloud.model.FormFieldsResponse.class);
                 put("FormFieldTextInput, _", com.aspose.words.cloud.model.FormFieldTextInput.class);
+                put("FormFieldTextInputLink, _", com.aspose.words.cloud.model.FormFieldTextInputLink.class);
                 put("GifSaveOptionsData, _", com.aspose.words.cloud.model.GifSaveOptionsData.class);
                 put("HeaderFooter, _", com.aspose.words.cloud.model.HeaderFooter.class);
                 put("HeaderFooterLink, _", com.aspose.words.cloud.model.HeaderFooterLink.class);
