@@ -13,6 +13,12 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 25.5
+
+- Added data models support for classes 'CommentRangeStart', 'CommentRangeEnd'.
+- Added data models support for classes 'FormFieldCheckboxLink', 'FormFieldDropDownLink', 'FormFieldTextInputLink'.
+
+
 ## Enhancements in Version 25.4
 
 - Added 'AttachmentsEmbeddingMode' property for PdfSaveOptionsData class.
@@ -393,7 +399,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>25.4.0</version>
+        <version>25.5.0</version>
     </dependency>
 </dependencies>
 ```
