@@ -529,6 +529,9 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     @SerializedName("PrettyFormat")
     protected Boolean prettyFormat;
 
+    @SerializedName("RemoveJavaScriptFromLinks")
+    protected Boolean removeJavaScriptFromLinks;
+
     @SerializedName("ReplaceBackslashWithYenSign")
     protected Boolean replaceBackslashWithYenSign;
 
@@ -1188,6 +1191,28 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
 
 
     /**
+     * Gets or sets the flag that indicates whether JavaScript will be removed from links.
+     * Default is false.
+     * If this option is enabled, all links containing JavaScript (e.g., links with "javascript:" in the href attribute)
+     * will be replaced with "javascript:void(0)". This can help prevent potential security risks, such as XSS attacks.
+    * @return removeJavaScriptFromLinks
+    **/
+    @ApiModelProperty(value = "Gets or sets the flag that indicates whether JavaScript will be removed from links. Default is false. If this option is enabled, all links containing JavaScript (e.g., links with \"javascript:\" in the href attribute) will be replaced with \"javascript:void(0)\". This can help prevent potential security risks, such as XSS attacks.")
+    public Boolean getRemoveJavaScriptFromLinks() {
+        return removeJavaScriptFromLinks;
+    }
+
+    public HtmlSaveOptionsData removeJavaScriptFromLinks(Boolean removeJavaScriptFromLinks) {
+        this.removeJavaScriptFromLinks = removeJavaScriptFromLinks;
+        return this;
+    }
+
+    public void setRemoveJavaScriptFromLinks(Boolean removeJavaScriptFromLinks) {
+        this.removeJavaScriptFromLinks = removeJavaScriptFromLinks;
+    }
+
+
+    /**
      * Gets or sets the flag that indicates whether backslash characters should be replaced with yen signs.
      * Default value is false.
      * By default, Aspose.Words mimics MS Word's behavior and doesn't replace backslash characters with yen signs in
@@ -1341,6 +1366,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         this.metafileFormat = null;
         this.officeMathOutputMode = null;
         this.prettyFormat = null;
+        this.removeJavaScriptFromLinks = null;
         this.replaceBackslashWithYenSign = null;
         this.resolveFontNames = null;
         this.resourceFolder = null;
@@ -1413,6 +1439,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
             Objects.equals(this.metafileFormat, htmlSaveOptionsData.metafileFormat) &&
             Objects.equals(this.officeMathOutputMode, htmlSaveOptionsData.officeMathOutputMode) &&
             Objects.equals(this.prettyFormat, htmlSaveOptionsData.prettyFormat) &&
+            Objects.equals(this.removeJavaScriptFromLinks, htmlSaveOptionsData.removeJavaScriptFromLinks) &&
             Objects.equals(this.replaceBackslashWithYenSign, htmlSaveOptionsData.replaceBackslashWithYenSign) &&
             Objects.equals(this.resolveFontNames, htmlSaveOptionsData.resolveFontNames) &&
             Objects.equals(this.resourceFolder, htmlSaveOptionsData.resourceFolder) &&
@@ -1424,7 +1451,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowNegativeIndent, cssClassNamePrefix, cssStyleSheetFileName, cssStyleSheetType, documentSplitCriteria, documentSplitHeadingLevel, encoding, exportDocumentProperties, exportDropDownFormFieldAsText, exportFontResources, exportFontsAsBase64, exportHeadersFootersMode, exportImagesAsBase64, exportLanguageInformation, exportListLabels, exportOriginalUrlForLinkedImages, exportPageMargins, exportPageSetup, exportRelativeFontSize, exportRoundtripInformation, exportTextInputFormFieldAsText, exportTocPageNumbers, exportXhtmlTransitional, fontResourcesSubsettingSizeThreshold, fontsFolder, fontsFolderAlias, htmlVersion, imageResolution, imagesFolder, imagesFolderAlias, metafileFormat, officeMathOutputMode, prettyFormat, replaceBackslashWithYenSign, resolveFontNames, resourceFolder, resourceFolderAlias, scaleImageToShapeSize, tableWidthOutputMode, super.hashCode());
+    return Objects.hash(allowNegativeIndent, cssClassNamePrefix, cssStyleSheetFileName, cssStyleSheetType, documentSplitCriteria, documentSplitHeadingLevel, encoding, exportDocumentProperties, exportDropDownFormFieldAsText, exportFontResources, exportFontsAsBase64, exportHeadersFootersMode, exportImagesAsBase64, exportLanguageInformation, exportListLabels, exportOriginalUrlForLinkedImages, exportPageMargins, exportPageSetup, exportRelativeFontSize, exportRoundtripInformation, exportTextInputFormFieldAsText, exportTocPageNumbers, exportXhtmlTransitional, fontResourcesSubsettingSizeThreshold, fontsFolder, fontsFolderAlias, htmlVersion, imageResolution, imagesFolder, imagesFolderAlias, metafileFormat, officeMathOutputMode, prettyFormat, removeJavaScriptFromLinks, replaceBackslashWithYenSign, resolveFontNames, resourceFolder, resourceFolderAlias, scaleImageToShapeSize, tableWidthOutputMode, super.hashCode());
   }
 
   @Override
@@ -1477,6 +1504,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     sb.append("    metafileFormat: ").append(toIndentedString(getMetafileFormat())).append("\n");
     sb.append("    officeMathOutputMode: ").append(toIndentedString(getOfficeMathOutputMode())).append("\n");
     sb.append("    prettyFormat: ").append(toIndentedString(getPrettyFormat())).append("\n");
+    sb.append("    removeJavaScriptFromLinks: ").append(toIndentedString(getRemoveJavaScriptFromLinks())).append("\n");
     sb.append("    replaceBackslashWithYenSign: ").append(toIndentedString(getReplaceBackslashWithYenSign())).append("\n");
     sb.append("    resolveFontNames: ").append(toIndentedString(getResolveFontNames())).append("\n");
     sb.append("    resourceFolder: ").append(toIndentedString(getResourceFolder())).append("\n");

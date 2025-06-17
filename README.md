@@ -16,6 +16,7 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 ## Enhancements in Version 25.6
 
 - Added support for SVG images format in Watermark API.
+- Added 'RemoveJavaScriptFromLinks' property for HtmlSaveOptionsData class.
 
 
 ## Enhancements in Version 25.5
@@ -404,7 +405,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>25.5.0</version>
+        <version>25.6.0</version>
     </dependency>
 </dependencies>
 ```
