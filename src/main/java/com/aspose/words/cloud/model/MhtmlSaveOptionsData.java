@@ -165,6 +165,7 @@ public class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
     sb.append("    metafileFormat: ").append(toIndentedString(getMetafileFormat())).append("\n");
     sb.append("    officeMathOutputMode: ").append(toIndentedString(getOfficeMathOutputMode())).append("\n");
     sb.append("    prettyFormat: ").append(toIndentedString(getPrettyFormat())).append("\n");
+    sb.append("    removeJavaScriptFromLinks: ").append(toIndentedString(getRemoveJavaScriptFromLinks())).append("\n");
     sb.append("    replaceBackslashWithYenSign: ").append(toIndentedString(getReplaceBackslashWithYenSign())).append("\n");
     sb.append("    resolveFontNames: ").append(toIndentedString(getResolveFontNames())).append("\n");
     sb.append("    resourceFolder: ").append(toIndentedString(getResourceFolder())).append("\n");
