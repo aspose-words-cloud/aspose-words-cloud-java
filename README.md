@@ -13,6 +13,10 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 25.8
+
+
+
 ## Enhancements in Version 25.6
 
 - Added support for SVG images format in Watermark API.
@@ -405,7 +409,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>25.7.0</version>
+        <version>25.8.0</version>
     </dependency>
 </dependencies>
 ```
