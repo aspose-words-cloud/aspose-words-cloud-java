@@ -409,7 +409,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>25.8.0</version>
+        <version>25.9.0</version>
     </dependency>
 </dependencies>
 ```
