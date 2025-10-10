@@ -78,4 +78,28 @@ public class TestLoadWebDocument  extends TestCase
         assertNotNull(result.getSaveResult().getDestDocument());
         assertEquals("google.doc", result.getSaveResult().getDestDocument().getHref());
     }
+
+    /*
+     * Test for loading web document online.
+     */
+    @Test
+    public void testLoadWebDocumentOnline() throws ApiException, MessagingException, IOException
+    {
+        DocSaveOptionsData requestDataSaveOptions = new DocSaveOptionsData();
+        requestDataSaveOptions.setFileName("google.doc");
+        requestDataSaveOptions.setDmlEffectsRenderingMode(DocSaveOptionsData.DmlEffectsRenderingModeEnum.NONE);
+        requestDataSaveOptions.setDmlRenderingMode(DocSaveOptionsData.DmlRenderingModeEnum.DRAWINGML);
+        requestDataSaveOptions.setZipOutput(false);
+
+        LoadWebDocumentData requestData = new LoadWebDocumentData();
+        requestData.setLoadingDocumentUrl("http://google.com");
+        requestData.setSaveOptions(requestDataSaveOptions);
+
+        LoadWebDocumentOnlineRequest request = new LoadWebDocumentOnlineRequest(
+            requestData
+        );
+
+        LoadWebDocumentOnlineResponse result = TestInitializer.wordsApi.loadWebDocumentOnline(request);
+        assertNotNull(result);
+    }
 }
