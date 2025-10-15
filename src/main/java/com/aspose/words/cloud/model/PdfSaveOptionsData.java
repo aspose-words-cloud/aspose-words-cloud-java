@@ -580,6 +580,9 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     @SerializedName("ZoomFactor")
     protected Integer zoomFactor;
+
+    @SerializedName("ExportFloatingShapesAsInlineTag")
+    protected Boolean exportFloatingShapesAsInlineTag;
     /**
      * Gets or sets a value determining how attachments are embedded to the PDF document.
      * Default value is None and attachments are not embedded.
@@ -1180,6 +1183,28 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
 
+    /**
+     * Gets or sets a value determining whether floating shapes are exported as inline tags in the document structure.
+     * Default value is false and floating shapes will be exported as block-level tags,
+     * placed after the paragraph in which they are anchored. When the value is true floating shapes will be exported as inline tags,
+     * placed within the paragraph where they are anchored. This value is ignored when ExportDocumentStructure is false.
+    * @return exportFloatingShapesAsInlineTag
+    **/
+    @ApiModelProperty(value = "Gets or sets a value determining whether floating shapes are exported as inline tags in the document structure. Default value is false and floating shapes will be exported as block-level tags, placed after the paragraph in which they are anchored. When the value is true floating shapes will be exported as inline tags, placed within the paragraph where they are anchored. This value is ignored when ExportDocumentStructure is false.")
+    public Boolean getExportFloatingShapesAsInlineTag() {
+        return exportFloatingShapesAsInlineTag;
+    }
+
+    public PdfSaveOptionsData exportFloatingShapesAsInlineTag(Boolean exportFloatingShapesAsInlineTag) {
+        this.exportFloatingShapesAsInlineTag = exportFloatingShapesAsInlineTag;
+        return this;
+    }
+
+    public void setExportFloatingShapesAsInlineTag(Boolean exportFloatingShapesAsInlineTag) {
+        this.exportFloatingShapesAsInlineTag = exportFloatingShapesAsInlineTag;
+    }
+
+
     public PdfSaveOptionsData() {
         super();
         this.attachmentsEmbeddingMode = null;
@@ -1212,6 +1237,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         this.useSdtTagAsFormFieldName = null;
         this.zoomBehavior = null;
         this.zoomFactor = null;
+        this.exportFloatingShapesAsInlineTag = null;
         this.saveFormat = "pdf";
     }
 
@@ -1277,6 +1303,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
 
+
     }
 
     @Override
@@ -1320,12 +1347,13 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
             Objects.equals(this.useSdtTagAsFormFieldName, pdfSaveOptionsData.useSdtTagAsFormFieldName) &&
             Objects.equals(this.zoomBehavior, pdfSaveOptionsData.zoomBehavior) &&
             Objects.equals(this.zoomFactor, pdfSaveOptionsData.zoomFactor) &&
+            Objects.equals(this.exportFloatingShapesAsInlineTag, pdfSaveOptionsData.exportFloatingShapesAsInlineTag) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachmentsEmbeddingMode, cacheBackgroundGraphics, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedAttachments, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, renderChoiceFormFieldBorder, textCompression, useBookFoldPrintingSettings, useCoreFonts, useSdtTagAsFormFieldName, zoomBehavior, zoomFactor, super.hashCode());
+    return Objects.hash(attachmentsEmbeddingMode, cacheBackgroundGraphics, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedAttachments, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, renderChoiceFormFieldBorder, textCompression, useBookFoldPrintingSettings, useCoreFonts, useSdtTagAsFormFieldName, zoomBehavior, zoomFactor, exportFloatingShapesAsInlineTag, super.hashCode());
   }
 
   @Override
@@ -1382,6 +1410,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    useSdtTagAsFormFieldName: ").append(toIndentedString(getUseSdtTagAsFormFieldName())).append("\n");
     sb.append("    zoomBehavior: ").append(toIndentedString(getZoomBehavior())).append("\n");
     sb.append("    zoomFactor: ").append(toIndentedString(getZoomFactor())).append("\n");
+    sb.append("    exportFloatingShapesAsInlineTag: ").append(toIndentedString(getExportFloatingShapesAsInlineTag())).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
