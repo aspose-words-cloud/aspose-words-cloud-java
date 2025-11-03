@@ -54,10 +54,10 @@ public class CompressOptions implements ModelIfc {
     @SerializedName("ImagesReduceSizeFactor")
     protected Integer imagesReduceSizeFactor;
     /**
-     * Gets or sets the quality level of images from 0 to 100. Default value is 75.
+     * Gets or sets the quality level of images from 0 to 100. The default value is 75.
     * @return imagesQuality
     **/
-    @ApiModelProperty(value = "Gets or sets the quality level of images from 0 to 100. Default value is 75.")
+    @ApiModelProperty(value = "Gets or sets the quality level of images from 0 to 100. The default value is 75.")
     public Integer getImagesQuality() {
         return imagesQuality;
     }
@@ -75,10 +75,10 @@ public class CompressOptions implements ModelIfc {
     /**
      * Gets or sets the resize factor of images.
      * This value determines how many times the size of the images in the document will be reduced.
-     * The parameter value must be greater than 1 for resizing. Default value is 1 and has no effect on images size.
+     * The parameter value must be greater than 1 for resizing. The default value is 1 and has no effect on images size.
     * @return imagesReduceSizeFactor
     **/
-    @ApiModelProperty(value = "Gets or sets the resize factor of images. This value determines how many times the size of the images in the document will be reduced. The parameter value must be greater than 1 for resizing. Default value is 1 and has no effect on images size.")
+    @ApiModelProperty(value = "Gets or sets the resize factor of images. This value determines how many times the size of the images in the document will be reduced. The parameter value must be greater than 1 for resizing. The default value is 1 and has no effect on images size.")
     public Integer getImagesReduceSizeFactor() {
         return imagesReduceSizeFactor;
     }

@@ -73,7 +73,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Accepts all revisions in the document.
+     * Accepts all the revisions in the document.
      * @param request Request object
      * @return RevisionsModificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -95,7 +95,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Accepts all revisions in the document.
+     * Accepts all the revisions in the document.
      * @param request Request object
      * @return ApiResponse< RevisionsModificationResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -107,7 +107,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Accepts all revisions in the document. (asynchronously)
+     * Accepts all the revisions in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -146,7 +146,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Accepts all revisions in the document.
+     * Accepts all the revisions in the document.
      * @param request Request object
      * @return AcceptAllRevisionsOnlineResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -168,7 +168,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Accepts all revisions in the document.
+     * Accepts all the revisions in the document.
      * @param request Request object
      * @return ApiResponse< AcceptAllRevisionsOnlineResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -180,7 +180,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Accepts all revisions in the document. (asynchronously)
+     * Accepts all the revisions in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -12496,7 +12496,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Get assymetric public key.
+     * Get asymmetric public key.
      * @param request Request object
      * @return PublicKeyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12518,7 +12518,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Get assymetric public key.
+     * Get asymmetric public key.
      * @param request Request object
      * @return ApiResponse< PublicKeyResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12530,7 +12530,7 @@ public class WordsApi implements EncryptorFactory {
     }
 
     /**
-     * Get assymetric public key. (asynchronously)
+     * Get asymmetric public key. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

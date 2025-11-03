@@ -89,10 +89,10 @@ public class Signature implements ModelIfc {
 
 
     /**
-     * Gets or sets the subject distinguished name of the certificate isuuer.
+     * Gets or sets the subject distinguished name of the certificate issuer.
     * @return issuerName
     **/
-    @ApiModelProperty(value = "Gets or sets the subject distinguished name of the certificate isuuer.")
+    @ApiModelProperty(value = "Gets or sets the subject distinguished name of the certificate issuer.")
     public String getIssuerName() {
         return issuerName;
     }

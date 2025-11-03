@@ -47,12 +47,12 @@ public class BuildReportOnlineRequest implements RequestIfc {
     private byte[] template;
 
     /*
-     * A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
+     * A string providing data to populate the specified template. The string must be of one of the following types: xml, json, csv.
      */
     private String data;
 
     /*
-     * An object providing a settings of report engine.
+     * An object providing settings of a report engine.
      */
     private ReportEngineSettings reportEngineSettings;
 
@@ -65,8 +65,8 @@ public class BuildReportOnlineRequest implements RequestIfc {
      * Initializes a new instance of the BuildReportOnlineRequest class.
      *
      * @param byte[] template File with template.
-     * @param String data A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
-     * @param ReportEngineSettings reportEngineSettings An object providing a settings of report engine.
+     * @param String data A string providing data to populate the specified template. The string must be of one of the following types: xml, json, csv.
+     * @param ReportEngineSettings reportEngineSettings An object providing settings of a report engine.
      * @param String documentFileName The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
     public BuildReportOnlineRequest(byte[] template, String data, ReportEngineSettings reportEngineSettings, String documentFileName) {
@@ -91,28 +91,28 @@ public class BuildReportOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
+     * Gets A string providing data to populate the specified template. The string must be of one of the following types: xml, json, csv.
      */
     public String getData() {
         return this.data;
     }
 
     /*
-     * Sets A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
+     * Sets A string providing data to populate the specified template. The string must be of one of the following types: xml, json, csv.
      */
     public void setData(String value) {
         this.data = value;
     }
 
     /*
-     * Gets An object providing a settings of report engine.
+     * Gets An object providing settings of a report engine.
      */
     public ReportEngineSettings getReportEngineSettings() {
         return this.reportEngineSettings;
     }
 
     /*
-     * Sets An object providing a settings of report engine.
+     * Sets An object providing settings of a report engine.
      */
     public void setReportEngineSettings(ReportEngineSettings value) {
         this.reportEngineSettings = value;

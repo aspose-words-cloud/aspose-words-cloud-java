@@ -50,7 +50,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     /**
      * Gets or sets a value that specifies how OfficeMath will be written to the output file.
-     * Default value is Text.
+     * The default value is Text.
      */
     @JsonAdapter(OfficeMathExportModeEnum.Adapter.class)
     public enum OfficeMathExportModeEnum {
@@ -151,10 +151,10 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
 
     /**
      * Gets or sets a value that specifies how OfficeMath will be written to the output file.
-     * Default value is Text.
+     * The default value is Text.
     * @return officeMathExportMode
     **/
-    @ApiModelProperty(value = "Gets or sets a value that specifies how OfficeMath will be written to the output file. Default value is Text.")
+    @ApiModelProperty(value = "Gets or sets a value that specifies how OfficeMath will be written to the output file. The default value is Text.")
     public OfficeMathExportModeEnum getOfficeMathExportMode() {
         return officeMathExportMode;
     }

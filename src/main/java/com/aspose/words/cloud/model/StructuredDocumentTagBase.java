@@ -98,9 +98,9 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
 
     /**
      * Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store.
-     * Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
-     * Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-     * For all other SDT types exception will occur.
+     * The default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
+     * Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+     * For all other SDT types, an exception will occur.
      */
     @JsonAdapter(DateStorageFormatEnum.Adapter.class)
     public enum DateStorageFormatEnum {
@@ -149,8 +149,8 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
 
     /**
      * Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
-     * Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-     * For all other SDT types exception will occur.
+     * Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+     * For all other SDT types, an exception will occur.
      */
     @JsonAdapter(CalendarTypeEnum.Adapter.class)
     public enum CalendarTypeEnum {
@@ -275,11 +275,11 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
     protected String wordOpenXML;
     /**
      * Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT.
-     * Accessing this property will only work for Aspose.Words.Markup.SdtType.ComboBox or Aspose.Words.Markup.SdtType.DropDownList SDT types.
-     * For all other SDT types exception will occur.
+     * Accessing this property will work only for Aspose.Words.Markup.SdtType.ComboBox or Aspose.Words.Markup.SdtType.DropDownList SDT types.
+     * For all other SDT types, an exception will occur.
     * @return listItems
     **/
-    @ApiModelProperty(value = "Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT. Accessing this property will only work for Aspose.Words.Markup.SdtType.ComboBox or Aspose.Words.Markup.SdtType.DropDownList SDT types. For all other SDT types exception will occur.")
+    @ApiModelProperty(value = "Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT. Accessing this property will work only for Aspose.Words.Markup.SdtType.ComboBox or Aspose.Words.Markup.SdtType.DropDownList SDT types. For all other SDT types, an exception will occur.")
     public List<StructuredDocumentTagListItem> getListItems() {
         return listItems;
     }
@@ -305,11 +305,11 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
 
     /**
      * Gets or sets a value indicating whether current state of the Checkbox SDT. Default value for this property.
-     * Accessing this property will only work for Aspose.Words.Markup.SdtType.Checkbox SDT types.
-     * For all other SDT types exception will occur.
+     * Accessing this property will work only for Aspose.Words.Markup.SdtType.Checkbox SDT types.
+     * For all other SDT types, an exception will occur.
     * @return checked
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether current state of the Checkbox SDT. Default value for this property. Accessing this property will only work for Aspose.Words.Markup.SdtType.Checkbox SDT types. For all other SDT types exception will occur.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether current state of the Checkbox SDT. Default value for this property. Accessing this property will work only for Aspose.Words.Markup.SdtType.Checkbox SDT types. For all other SDT types, an exception will occur.")
     public Boolean getChecked() {
         return checked;
     }
@@ -345,11 +345,11 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
 
     /**
      * Gets or sets the language format for the date displayed in this SDT.
-     * Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-     * For all other SDT types exception will occur.
+     * Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+     * For all other SDT types, an exception will occur.
     * @return dateDisplayLocale
     **/
-    @ApiModelProperty(value = "Gets or sets the language format for the date displayed in this SDT. Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.")
+    @ApiModelProperty(value = "Gets or sets the language format for the date displayed in this SDT. Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types, an exception will occur.")
     public Integer getDateDisplayLocale() {
         return dateDisplayLocale;
     }
@@ -366,11 +366,11 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
 
     /**
      * Gets or sets String that represents the format in which dates are displayed. Can not be null. The dates for English (U.S.) is "mm/dd/yyyy".
-     * Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-     * For all other SDT types exception will occur.
+     * Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+     * For all other SDT types, an exception will occur.
     * @return dateDisplayFormat
     **/
-    @ApiModelProperty(value = "Gets or sets String that represents the format in which dates are displayed. Can not be null. The dates for English (U.S.) is \"mm/dd/yyyy\". Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.")
+    @ApiModelProperty(value = "Gets or sets String that represents the format in which dates are displayed. Can not be null. The dates for English (U.S.) is \"mm/dd/yyyy\". Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types, an exception will occur.")
     public String getDateDisplayFormat() {
         return dateDisplayFormat;
     }
@@ -387,11 +387,11 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
 
     /**
      * Gets or sets the full date and time last entered into this SDT.
-     * Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-     * For all other SDT types exception will occur.
+     * Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+     * For all other SDT types, an exception will occur.
     * @return fullDate
     **/
-    @ApiModelProperty(value = "Gets or sets the full date and time last entered into this SDT. Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.")
+    @ApiModelProperty(value = "Gets or sets the full date and time last entered into this SDT. Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types, an exception will occur.")
     public OffsetDateTime getFullDate() {
         return fullDate;
     }
@@ -427,12 +427,12 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
 
     /**
      * Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store.
-     * Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
-     * Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-     * For all other SDT types exception will occur.
+     * The default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
+     * Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+     * For all other SDT types, an exception will occur.
     * @return dateStorageFormat
     **/
-    @ApiModelProperty(value = "Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store. Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime. Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.")
+    @ApiModelProperty(value = "Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store. The default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime. Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types, an exception will occur.")
     public DateStorageFormatEnum getDateStorageFormat() {
         return dateStorageFormat;
     }
@@ -449,12 +449,12 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
 
     /**
      * Gets or sets type of building block for this SDT. Can not be null.
-     * Accessing this property will only work for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types.
+     * Accessing this property will work only for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types.
      * It is read-only for SDT of the document part type.
-     * For all other SDT types exception will occur.
+     * For all other SDT types, an exception will occur.
     * @return buildingBlockGallery
     **/
-    @ApiModelProperty(value = "Gets or sets type of building block for this SDT. Can not be null. Accessing this property will only work for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types. It is read-only for SDT of the document part type. For all other SDT types exception will occur.")
+    @ApiModelProperty(value = "Gets or sets type of building block for this SDT. Can not be null. Accessing this property will work only for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types. It is read-only for SDT of the document part type. For all other SDT types, an exception will occur.")
     public String getBuildingBlockGallery() {
         return buildingBlockGallery;
     }
@@ -471,11 +471,11 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
 
     /**
      * Gets or sets category of building block for this SDT node. Can not be null.
-     * Accessing this property will only work for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types.
-     * It is read-only for SDT of the document part type. For all other SDT types exception will occur.
+     * Accessing this property will work only for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types.
+     * It is read-only for SDT of the document part type. For all other SDT types, an exception will occur.
     * @return buildingBlockCategory
     **/
-    @ApiModelProperty(value = "Gets or sets category of building block for this SDT node. Can not be null. Accessing this property will only work for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types. It is read-only for SDT of the document part type. For all other SDT types exception will occur.")
+    @ApiModelProperty(value = "Gets or sets category of building block for this SDT node. Can not be null. Accessing this property will work only for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types. It is read-only for SDT of the document part type. For all other SDT types, an exception will occur.")
     public String getBuildingBlockCategory() {
         return buildingBlockCategory;
     }
@@ -492,11 +492,11 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
 
     /**
      * Gets or sets a value indicating whether this SDT allows multiple lines of text.
-     * Accessing this property will only work for Aspose.Words.Markup.SdtType.RichText and Aspose.Words.Markup.SdtType.PlainText SDT type.
-     * For all other SDT types exception will occur.
+     * Accessing this property will work only for Aspose.Words.Markup.SdtType.RichText and Aspose.Words.Markup.SdtType.PlainText SDT type.
+     * For all other SDT types, an exception will occur.
     * @return multiline
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether this SDT allows multiple lines of text. Accessing this property will only work for Aspose.Words.Markup.SdtType.RichText and Aspose.Words.Markup.SdtType.PlainText SDT type. For all other SDT types exception will occur.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this SDT allows multiple lines of text. Accessing this property will work only for Aspose.Words.Markup.SdtType.RichText and Aspose.Words.Markup.SdtType.PlainText SDT type. For all other SDT types, an exception will occur.")
     public Boolean getMultiline() {
         return multiline;
     }
@@ -551,11 +551,11 @@ public abstract class StructuredDocumentTagBase extends NodeLink {
 
     /**
      * Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
-     * Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-     * For all other SDT types exception will occur.
+     * Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+     * For all other SDT types, an exception will occur.
     * @return calendarType
     **/
-    @ApiModelProperty(value = "Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default. Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.")
+    @ApiModelProperty(value = "Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default. Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types, an exception will occur.")
     public CalendarTypeEnum getCalendarType() {
         return calendarType;
     }
