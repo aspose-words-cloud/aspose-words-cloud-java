@@ -84,7 +84,7 @@ public class TestFolder  extends TestCase
         DeleteFolderRequest request = new DeleteFolderRequest(
             testDeleteFolder,
             null,
-            null
+            true
         );
 
         TestInitializer.wordsApi.deleteFolder(request);
