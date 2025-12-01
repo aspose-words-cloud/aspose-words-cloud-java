@@ -153,10 +153,10 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
     protected TiffCompressionEnum tiffCompression;
     /**
      * Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering.
-     * Default value is 128.
+     * The default value is 128.
     * @return thresholdForFloydSteinbergDithering
     **/
-    @ApiModelProperty(value = "Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering. Default value is 128.")
+    @ApiModelProperty(value = "Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering. The default value is 128.")
     public Integer getThresholdForFloydSteinbergDithering() {
         return thresholdForFloydSteinbergDithering;
     }

@@ -445,10 +445,10 @@ public abstract class SaveOptionsData implements ModelIfc {
 
     /**
      * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving.
-     * Default value is false.
+     * The default value is false.
     * @return updateCreatedTimeProperty
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving. Default value is false.")
+    @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving. The default value is false.")
     public Boolean getUpdateCreatedTimeProperty() {
         return updateCreatedTimeProperty;
     }

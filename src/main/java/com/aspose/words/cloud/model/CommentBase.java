@@ -105,10 +105,10 @@ public abstract class CommentBase implements ModelIfc {
 
     /**
      * Gets or sets the author name for a comment.
-     * Cannot be null.Default is empty string.
+     * Cannot be null.Default is an empty string.
     * @return author
     **/
-    @ApiModelProperty(value = "Gets or sets the author name for a comment. Cannot be null.Default is empty string.")
+    @ApiModelProperty(value = "Gets or sets the author name for a comment. Cannot be null.Default is an empty string.")
     public String getAuthor() {
         return author;
     }
@@ -125,10 +125,10 @@ public abstract class CommentBase implements ModelIfc {
 
     /**
      * Gets or sets the initials of the user associated with a specific comment.
-     * Cannot be null.Default is empty string.
+     * Cannot be null.Default is an empty string.
     * @return initial
     **/
-    @ApiModelProperty(value = "Gets or sets the initials of the user associated with a specific comment. Cannot be null.Default is empty string.")
+    @ApiModelProperty(value = "Gets or sets the initials of the user associated with a specific comment. Cannot be null.Default is an empty string.")
     public String getInitial() {
         return initial;
     }

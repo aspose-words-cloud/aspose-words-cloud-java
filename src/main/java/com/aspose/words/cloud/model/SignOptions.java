@@ -66,10 +66,10 @@ public class SignOptions implements ModelIfc {
     @SerializedName("SignTime")
     protected OffsetDateTime signTime;
     /**
-     * Gets or sets comments on the digital signature. Default value is empty string.
+     * Gets or sets comments on the digital signature. The default value is an empty string.
     * @return comments
     **/
-    @ApiModelProperty(value = "Gets or sets comments on the digital signature. Default value is empty string.")
+    @ApiModelProperty(value = "Gets or sets comments on the digital signature. The default value is an empty string.")
     public String getComments() {
         return comments;
     }
@@ -85,10 +85,10 @@ public class SignOptions implements ModelIfc {
 
 
     /**
-     * Gets or sets the password to decrypt source document. Default value is empty string.
+     * Gets or sets the password to decrypt source document. The default value is an empty string.
     * @return decryptionPassword
     **/
-    @ApiModelProperty(value = "Gets or sets the password to decrypt source document. Default value is empty string.")
+    @ApiModelProperty(value = "Gets or sets the password to decrypt source document. The default value is an empty string.")
     public String getDecryptionPassword() {
         return decryptionPassword;
     }
@@ -104,10 +104,10 @@ public class SignOptions implements ModelIfc {
 
 
     /**
-     * Gets or sets the class Guid of the signature cryptography provider. Default value is Empty (all zeroes) Guid.
+     * Gets or sets the class Guid of the signature cryptography provider. The default value is Empty (all zeroes) Guid.
     * @return providerId
     **/
-    @ApiModelProperty(value = "Gets or sets the class Guid of the signature cryptography provider. Default value is Empty (all zeroes) Guid.")
+    @ApiModelProperty(value = "Gets or sets the class Guid of the signature cryptography provider. The default value is Empty (all zeroes) Guid.")
     public String getProviderId() {
         return providerId;
     }
@@ -123,10 +123,10 @@ public class SignOptions implements ModelIfc {
 
 
     /**
-     * Gets or sets user defined signature line Guid. Default value is Empty (all zeroes) Guid.
+     * Gets or sets user defined signature line Guid. The default value is Empty (all zeroes) Guid.
     * @return signatureLineId
     **/
-    @ApiModelProperty(value = "Gets or sets user defined signature line Guid. Default value is Empty (all zeroes) Guid.")
+    @ApiModelProperty(value = "Gets or sets user defined signature line Guid. The default value is Empty (all zeroes) Guid.")
     public String getSignatureLineId() {
         return signatureLineId;
     }
@@ -142,10 +142,10 @@ public class SignOptions implements ModelIfc {
 
 
     /**
-     * Gets or sets the image that will be shown in associated SignatureLine. Default value is empty string.
+     * Gets or sets the image that will be shown in associated SignatureLine. The default value is an empty string.
     * @return signatureLineImageFilename
     **/
-    @ApiModelProperty(value = "Gets or sets the image that will be shown in associated SignatureLine. Default value is empty string.")
+    @ApiModelProperty(value = "Gets or sets the image that will be shown in associated SignatureLine. The default value is an empty string.")
     public String getSignatureLineImageFilename() {
         return signatureLineImageFilename;
     }
@@ -161,10 +161,10 @@ public class SignOptions implements ModelIfc {
 
 
     /**
-     * Gets or sets the date of signing. Default value is current time (Now).
+     * Gets or sets the date of signing. The default value is current time (Now).
     * @return signTime
     **/
-    @ApiModelProperty(value = "Gets or sets the date of signing. Default value is current time (Now).")
+    @ApiModelProperty(value = "Gets or sets the date of signing. The default value is current time (Now).")
     public OffsetDateTime getSignTime() {
         return signTime;
     }

@@ -48,11 +48,61 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for text save options.")
 public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
+    /**
+     * Gets or sets a value that specifies how OfficeMath will be written to the output file.
+     * The default value is Text.
+     */
+    @JsonAdapter(OfficeMathExportModeEnum.Adapter.class)
+    public enum OfficeMathExportModeEnum {
+        TEXT("Text"),
+        LATEX("Latex");
+
+        private String value;
+
+        OfficeMathExportModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static OfficeMathExportModeEnum fromValue(String text) {
+            for (OfficeMathExportModeEnum b : OfficeMathExportModeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< OfficeMathExportModeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final OfficeMathExportModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public OfficeMathExportModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return OfficeMathExportModeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("AddBidiMarks")
     protected Boolean addBidiMarks;
 
     @SerializedName("MaxCharactersPerLine")
     protected Integer maxCharactersPerLine;
+
+    @SerializedName("OfficeMathExportMode")
+    protected OfficeMathExportModeEnum officeMathExportMode;
 
     @SerializedName("PreserveTableLayout")
     protected Boolean preserveTableLayout;
@@ -100,6 +150,26 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
 
 
     /**
+     * Gets or sets a value that specifies how OfficeMath will be written to the output file.
+     * The default value is Text.
+    * @return officeMathExportMode
+    **/
+    @ApiModelProperty(value = "Gets or sets a value that specifies how OfficeMath will be written to the output file. The default value is Text.")
+    public OfficeMathExportModeEnum getOfficeMathExportMode() {
+        return officeMathExportMode;
+    }
+
+    public TextSaveOptionsData officeMathExportMode(OfficeMathExportModeEnum officeMathExportMode) {
+        this.officeMathExportMode = officeMathExportMode;
+        return this;
+    }
+
+    public void setOfficeMathExportMode(OfficeMathExportModeEnum officeMathExportMode) {
+        this.officeMathExportMode = officeMathExportMode;
+    }
+
+
+    /**
      * Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
     * @return preserveTableLayout
     **/
@@ -141,6 +211,7 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
         super();
         this.addBidiMarks = null;
         this.maxCharactersPerLine = null;
+        this.officeMathExportMode = null;
         this.preserveTableLayout = null;
         this.simplifyListLabels = null;
         this.saveFormat = "txt";
@@ -181,6 +252,7 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
         return
             Objects.equals(this.addBidiMarks, textSaveOptionsData.addBidiMarks) &&
             Objects.equals(this.maxCharactersPerLine, textSaveOptionsData.maxCharactersPerLine) &&
+            Objects.equals(this.officeMathExportMode, textSaveOptionsData.officeMathExportMode) &&
             Objects.equals(this.preserveTableLayout, textSaveOptionsData.preserveTableLayout) &&
             Objects.equals(this.simplifyListLabels, textSaveOptionsData.simplifyListLabels) &&
             super.equals(o);
@@ -188,7 +260,7 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addBidiMarks, maxCharactersPerLine, preserveTableLayout, simplifyListLabels, super.hashCode());
+    return Objects.hash(addBidiMarks, maxCharactersPerLine, officeMathExportMode, preserveTableLayout, simplifyListLabels, super.hashCode());
   }
 
   @Override
@@ -214,6 +286,7 @@ public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     sb.append("    paragraphBreak: ").append(toIndentedString(getParagraphBreak())).append("\n");
     sb.append("    addBidiMarks: ").append(toIndentedString(getAddBidiMarks())).append("\n");
     sb.append("    maxCharactersPerLine: ").append(toIndentedString(getMaxCharactersPerLine())).append("\n");
+    sb.append("    officeMathExportMode: ").append(toIndentedString(getOfficeMathExportMode())).append("\n");
     sb.append("    preserveTableLayout: ").append(toIndentedString(getPreserveTableLayout())).append("\n");
     sb.append("    simplifyListLabels: ").append(toIndentedString(getSimplifyListLabels())).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");

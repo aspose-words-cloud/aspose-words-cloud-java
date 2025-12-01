@@ -286,10 +286,10 @@ public class ListLevel extends LinkElement {
     protected Style linkedStyle;
     /**
      * Gets or sets the starting number for this list level.
-     * Default value is 1.
+     * The default value is 1.
     * @return startAt
     **/
-    @ApiModelProperty(value = "Gets or sets the starting number for this list level. Default value is 1.")
+    @ApiModelProperty(value = "Gets or sets the starting number for this list level. The default value is 1.")
     public Integer getStartAt() {
         return startAt;
     }

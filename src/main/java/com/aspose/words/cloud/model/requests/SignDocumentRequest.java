@@ -47,7 +47,7 @@ public class SignDocumentRequest implements RequestIfc {
     private String name;
 
     /*
-     * certifate file path.
+     * certificate file path.
      */
     private String certificatePath;
 
@@ -95,7 +95,7 @@ public class SignDocumentRequest implements RequestIfc {
      * Initializes a new instance of the SignDocumentRequest class.
      *
      * @param String name Name of the document to sign.
-     * @param String certificatePath certifate file path.
+     * @param String certificatePath certificate file path.
      * @param String certificatePassword certificate password.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -133,14 +133,14 @@ public class SignDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets certifate file path.
+     * Gets certificate file path.
      */
     public String getCertificatePath() {
         return this.certificatePath;
     }
 
     /*
-     * Sets certifate file path.
+     * Sets certificate file path.
      */
     public void setCertificatePath(String value) {
         this.certificatePath = value;

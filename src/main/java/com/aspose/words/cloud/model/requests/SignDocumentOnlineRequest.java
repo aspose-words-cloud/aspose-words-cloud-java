@@ -47,7 +47,7 @@ public class SignDocumentOnlineRequest implements RequestIfc {
     private byte[] document;
 
     /*
-     * certifate file path.
+     * certificate file path.
      */
     private String certificatePath;
 
@@ -85,7 +85,7 @@ public class SignDocumentOnlineRequest implements RequestIfc {
      * Initializes a new instance of the SignDocumentOnlineRequest class.
      *
      * @param byte[] document The document.
-     * @param String certificatePath certifate file path.
+     * @param String certificatePath certificate file path.
      * @param String certificatePassword certificate password.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
@@ -119,14 +119,14 @@ public class SignDocumentOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets certifate file path.
+     * Gets certificate file path.
      */
     public String getCertificatePath() {
         return this.certificatePath;
     }
 
     /*
-     * Sets certifate file path.
+     * Sets certificate file path.
      */
     public void setCertificatePath(String value) {
         this.certificatePath = value;

@@ -184,10 +184,10 @@ public class FieldOptions implements ModelIfc {
     @SerializedName("BuiltInTemplatesPaths")
     protected List<String> builtInTemplatesPaths;
     /**
-     * Gets or sets Curren tUser.
+     * Gets or sets Current User.
     * @return currentUser
     **/
-    @ApiModelProperty(value = "Gets or sets Curren tUser.")
+    @ApiModelProperty(value = "Gets or sets Current User.")
     public UserInformation getCurrentUser() {
         return currentUser;
     }

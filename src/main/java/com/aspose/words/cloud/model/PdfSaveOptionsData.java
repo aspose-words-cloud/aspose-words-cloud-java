@@ -50,7 +50,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     /**
      * Gets or sets a value determining how attachments are embedded to the PDF document.
-     * Default value is None and attachments are not embedded.
+     * The default value is None and attachments are not embedded.
      * PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files.
      * None value will be used automatically.
      */
@@ -580,14 +580,17 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     @SerializedName("ZoomFactor")
     protected Integer zoomFactor;
+
+    @SerializedName("ExportFloatingShapesAsInlineTag")
+    protected Boolean exportFloatingShapesAsInlineTag;
     /**
      * Gets or sets a value determining how attachments are embedded to the PDF document.
-     * Default value is None and attachments are not embedded.
+     * The default value is None and attachments are not embedded.
      * PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files.
      * None value will be used automatically.
     * @return attachmentsEmbeddingMode
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining how attachments are embedded to the PDF document. Default value is None and attachments are not embedded. PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files. None value will be used automatically.")
+    @ApiModelProperty(value = "Gets or sets a value determining how attachments are embedded to the PDF document. The default value is None and attachments are not embedded. PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files. None value will be used automatically.")
     public AttachmentsEmbeddingModeEnum getAttachmentsEmbeddingMode() {
         return attachmentsEmbeddingMode;
     }
@@ -604,11 +607,11 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     /**
      * Gets or sets a value determining whether or not to cache graphics placed in document's background.
-     * Default value is true and background graphics are written to the PDF document as an xObject. When the value is false background graphics are not cached. Some shapes are not supported for caching(shapes with fields, bookmarks, HRefs). Document background graphic is various shapes, charts, images placed in the footer or header,
+     * The default value is true and background graphics are written to the PDF document as an xObject. When the value is false background graphics are not cached. Some shapes are not supported for caching(shapes with fields, bookmarks, HRefs). Document background graphic is various shapes, charts, images placed in the footer or header,
      * well as background and border of a page.
     * @return cacheBackgroundGraphics
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining whether or not to cache graphics placed in document's background. Default value is true and background graphics are written to the PDF document as an xObject. When the value is false background graphics are not cached. Some shapes are not supported for caching(shapes with fields, bookmarks, HRefs). Document background graphic is various shapes, charts, images placed in the footer or header, well as background and border of a page.")
+    @ApiModelProperty(value = "Gets or sets a value determining whether or not to cache graphics placed in document's background. The default value is true and background graphics are written to the PDF document as an xObject. When the value is false background graphics are not cached. Some shapes are not supported for caching(shapes with fields, bookmarks, HRefs). Document background graphic is various shapes, charts, images placed in the footer or header, well as background and border of a page.")
     public Boolean getCacheBackgroundGraphics() {
         return cacheBackgroundGraphics;
     }
@@ -744,14 +747,14 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     /**
      * Gets or sets a value determining whether or not to embed attachments to the PDF document.
-     * Default value is false and attachments are not embedded.
+     * The default value is false and attachments are not embedded.
      * When the value is true attachments are embedded to the PDF document.
      * Embedding attachments is not supported when saving to PDF/A and PDF/UA compliance.
      * false value will be used automatically.
      * Embedding attachments is not supported when encryption is enabled. false value will be used automatically.
     * @return embedAttachments
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining whether or not to embed attachments to the PDF document. Default value is false and attachments are not embedded. When the value is true attachments are embedded to the PDF document. Embedding attachments is not supported when saving to PDF/A and PDF/UA compliance. false value will be used automatically. Embedding attachments is not supported when encryption is enabled. false value will be used automatically.")
+    @ApiModelProperty(value = "Gets or sets a value determining whether or not to embed attachments to the PDF document. The default value is false and attachments are not embedded. When the value is true attachments are embedded to the PDF document. Embedding attachments is not supported when saving to PDF/A and PDF/UA compliance. false value will be used automatically. Embedding attachments is not supported when encryption is enabled. false value will be used automatically.")
     @Deprecated
     public Boolean getEmbedAttachments() {
         return embedAttachments;
@@ -828,12 +831,12 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     /**
      * Gets or sets a value determining whether or not to create a "Span" tag in the document structure to export the text language.
-     * Default value is false and "Lang" attribute is attached to a marked-content sequence in a page content stream.
+     * The default value is false and "Lang" attribute is attached to a marked-content sequence in a page content stream.
      * When the value is true "Span" tag is created for the text with non-default language and "Lang" attribute is attached to this tag.
      * This value is ignored when Aspose.Words.Saving.PdfSaveOptions.ExportDocumentStructure is false.
     * @return exportLanguageToSpanTag
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining whether or not to create a \"Span\" tag in the document structure to export the text language. Default value is false and \"Lang\" attribute is attached to a marked-content sequence in a page content stream. When the value is true \"Span\" tag is created for the text with non-default language and \"Lang\" attribute is attached to this tag. This value is ignored when Aspose.Words.Saving.PdfSaveOptions.ExportDocumentStructure is false.")
+    @ApiModelProperty(value = "Gets or sets a value determining whether or not to create a \"Span\" tag in the document structure to export the text language. The default value is false and \"Lang\" attribute is attached to a marked-content sequence in a page content stream. When the value is true \"Span\" tag is created for the text with non-default language and \"Lang\" attribute is attached to this tag. This value is ignored when Aspose.Words.Saving.PdfSaveOptions.ExportDocumentStructure is false.")
     public Boolean getExportLanguageToSpanTag() {
         return exportLanguageToSpanTag;
     }
@@ -1180,6 +1183,28 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
 
+    /**
+     * Gets or sets a value determining whether floating shapes are exported as inline tags in the document structure.
+     * The default value is false and floating shapes will be exported as block-level tags,
+     * placed after the paragraph in which they are anchored. When the value is true floating shapes will be exported as inline tags,
+     * placed within the paragraph where they are anchored. This value is ignored when ExportDocumentStructure is false.
+    * @return exportFloatingShapesAsInlineTag
+    **/
+    @ApiModelProperty(value = "Gets or sets a value determining whether floating shapes are exported as inline tags in the document structure. The default value is false and floating shapes will be exported as block-level tags, placed after the paragraph in which they are anchored. When the value is true floating shapes will be exported as inline tags, placed within the paragraph where they are anchored. This value is ignored when ExportDocumentStructure is false.")
+    public Boolean getExportFloatingShapesAsInlineTag() {
+        return exportFloatingShapesAsInlineTag;
+    }
+
+    public PdfSaveOptionsData exportFloatingShapesAsInlineTag(Boolean exportFloatingShapesAsInlineTag) {
+        this.exportFloatingShapesAsInlineTag = exportFloatingShapesAsInlineTag;
+        return this;
+    }
+
+    public void setExportFloatingShapesAsInlineTag(Boolean exportFloatingShapesAsInlineTag) {
+        this.exportFloatingShapesAsInlineTag = exportFloatingShapesAsInlineTag;
+    }
+
+
     public PdfSaveOptionsData() {
         super();
         this.attachmentsEmbeddingMode = null;
@@ -1212,6 +1237,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         this.useSdtTagAsFormFieldName = null;
         this.zoomBehavior = null;
         this.zoomFactor = null;
+        this.exportFloatingShapesAsInlineTag = null;
         this.saveFormat = "pdf";
     }
 
@@ -1277,6 +1303,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
 
+
     }
 
     @Override
@@ -1320,12 +1347,13 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
             Objects.equals(this.useSdtTagAsFormFieldName, pdfSaveOptionsData.useSdtTagAsFormFieldName) &&
             Objects.equals(this.zoomBehavior, pdfSaveOptionsData.zoomBehavior) &&
             Objects.equals(this.zoomFactor, pdfSaveOptionsData.zoomFactor) &&
+            Objects.equals(this.exportFloatingShapesAsInlineTag, pdfSaveOptionsData.exportFloatingShapesAsInlineTag) &&
             super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachmentsEmbeddingMode, cacheBackgroundGraphics, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedAttachments, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, renderChoiceFormFieldBorder, textCompression, useBookFoldPrintingSettings, useCoreFonts, useSdtTagAsFormFieldName, zoomBehavior, zoomFactor, super.hashCode());
+    return Objects.hash(attachmentsEmbeddingMode, cacheBackgroundGraphics, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedAttachments, embedFullFonts, encryptionDetails, exportDocumentStructure, exportLanguageToSpanTag, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, renderChoiceFormFieldBorder, textCompression, useBookFoldPrintingSettings, useCoreFonts, useSdtTagAsFormFieldName, zoomBehavior, zoomFactor, exportFloatingShapesAsInlineTag, super.hashCode());
   }
 
   @Override
@@ -1382,6 +1410,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    useSdtTagAsFormFieldName: ").append(toIndentedString(getUseSdtTagAsFormFieldName())).append("\n");
     sb.append("    zoomBehavior: ").append(toIndentedString(getZoomBehavior())).append("\n");
     sb.append("    zoomFactor: ").append(toIndentedString(getZoomFactor())).append("\n");
+    sb.append("    exportFloatingShapesAsInlineTag: ").append(toIndentedString(getExportFloatingShapesAsInlineTag())).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(getSaveFormat())).append("\n");
     sb.append("}");
     return sb.toString();
