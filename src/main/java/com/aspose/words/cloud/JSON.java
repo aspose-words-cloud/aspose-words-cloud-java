@@ -428,8 +428,6 @@ public class JSON {
                 put("BorderResponse, _", com.aspose.words.cloud.model.BorderResponse.class);
                 put("BordersCollection, _", com.aspose.words.cloud.model.BordersCollection.class);
                 put("BordersResponse, _", com.aspose.words.cloud.model.BordersResponse.class);
-                put("ClassificationResponse, _", com.aspose.words.cloud.model.ClassificationResponse.class);
-                put("ClassificationResult, _", com.aspose.words.cloud.model.ClassificationResult.class);
                 put("Comment, _", com.aspose.words.cloud.model.Comment.class);
                 put("CommentInsert, _", com.aspose.words.cloud.model.CommentInsert.class);
                 put("CommentLink, _", com.aspose.words.cloud.model.CommentLink.class);

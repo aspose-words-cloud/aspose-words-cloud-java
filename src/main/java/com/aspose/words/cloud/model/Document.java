@@ -123,6 +123,9 @@ public class Document implements ModelIfc {
     @SerializedName("FileName")
     protected String fileName;
 
+    @SerializedName("FileSize")
+    protected Integer fileSize;
+
     @SerializedName("IsEncrypted")
     protected Boolean isEncrypted;
 
@@ -198,6 +201,25 @@ public class Document implements ModelIfc {
 
 
     /**
+     * Gets or sets the file size.
+    * @return fileSize
+    **/
+    @ApiModelProperty(value = "Gets or sets the file size.")
+    public Integer getFileSize() {
+        return fileSize;
+    }
+
+    public Document fileSize(Integer fileSize) {
+        this.fileSize = fileSize;
+        return this;
+    }
+
+    public void setFileSize(Integer fileSize) {
+        this.fileSize = fileSize;
+    }
+
+
+    /**
      * Gets or sets a value indicating whether the document is encrypted and requires a password to open.
     * @return isEncrypted
     **/
@@ -258,6 +280,7 @@ public class Document implements ModelIfc {
         this.links = null;
         this.documentProperties = null;
         this.fileName = null;
+        this.fileSize = null;
         this.isEncrypted = null;
         this.isSigned = null;
         this.sourceFormat = null;
@@ -307,6 +330,7 @@ public class Document implements ModelIfc {
 
 
 
+
     }
 
     @Override
@@ -323,6 +347,7 @@ public class Document implements ModelIfc {
             Objects.equals(this.links, document.links) &&
             Objects.equals(this.documentProperties, document.documentProperties) &&
             Objects.equals(this.fileName, document.fileName) &&
+            Objects.equals(this.fileSize, document.fileSize) &&
             Objects.equals(this.isEncrypted, document.isEncrypted) &&
             Objects.equals(this.isSigned, document.isSigned) &&
             Objects.equals(this.sourceFormat, document.sourceFormat);
@@ -330,7 +355,7 @@ public class Document implements ModelIfc {
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, documentProperties, fileName, isEncrypted, isSigned, sourceFormat);
+    return Objects.hash(links, documentProperties, fileName, fileSize, isEncrypted, isSigned, sourceFormat);
   }
 
   @Override
@@ -340,6 +365,7 @@ public class Document implements ModelIfc {
     sb.append("    links: ").append(toIndentedString(getLinks())).append("\n");
     sb.append("    documentProperties: ").append(toIndentedString(getDocumentProperties())).append("\n");
     sb.append("    fileName: ").append(toIndentedString(getFileName())).append("\n");
+    sb.append("    fileSize: ").append(toIndentedString(getFileSize())).append("\n");
     sb.append("    isEncrypted: ").append(toIndentedString(getIsEncrypted())).append("\n");
     sb.append("    isSigned: ").append(toIndentedString(getIsSigned())).append("\n");
     sb.append("    sourceFormat: ").append(toIndentedString(getSourceFormat())).append("\n");
