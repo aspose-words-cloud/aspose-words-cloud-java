@@ -89,7 +89,8 @@ public class TestCompareDocument  extends TestCase
             null,
             null,
             null,
-            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
+            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc",
+            null
         );
 
         DocumentResponse result = TestInitializer.wordsApi.compareDocument(request);
@@ -127,7 +128,8 @@ public class TestCompareDocument  extends TestCase
             null,
             null,
             null,
-            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
+            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc",
+            null
         );
 
         CompareDocumentOnlineResponse result = TestInitializer.wordsApi.compareDocumentOnline(request);
@@ -164,7 +166,8 @@ public class TestCompareDocument  extends TestCase
             null,
             null,
             null,
-            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc"
+            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.doc",
+            null
         );
 
         CompareDocumentOnlineResponse result = TestInitializer.wordsApi.compareDocumentOnline(request);
@@ -205,7 +208,8 @@ public class TestCompareDocument  extends TestCase
             "12345",
             null,
             null,
-            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.docx"
+            TestInitializer.RemoteTestOut + "/TestCompareDocumentOut.docx",
+            null
         );
 
         DocumentResponse result = TestInitializer.wordsApi.compareDocument(request);

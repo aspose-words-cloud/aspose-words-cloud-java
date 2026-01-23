@@ -77,6 +77,11 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
     private String destFileName;
 
     /*
+     * Folder in filestorage with custom fonts.
+     */
+    private String fontsLocation;
+
+    /*
      * Initializes a new instance of the CompareDocumentOnlineRequest class.
      *
      * @param byte[] document The document.
@@ -86,8 +91,9 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
      * @param Boolean openTypeSupport The value indicates whether OpenType support is on.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public CompareDocumentOnlineRequest(byte[] document, CompareData compareData, String loadEncoding, String password, String encryptedPassword, Boolean openTypeSupport, String destFileName) {
+    public CompareDocumentOnlineRequest(byte[] document, CompareData compareData, String loadEncoding, String password, String encryptedPassword, Boolean openTypeSupport, String destFileName, String fontsLocation) {
         this.document = document;
         this.compareData = compareData;
         this.loadEncoding = loadEncoding;
@@ -95,6 +101,7 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
         this.encryptedPassword = encryptedPassword;
         this.openTypeSupport = openTypeSupport;
         this.destFileName = destFileName;
+        this.fontsLocation = fontsLocation;
     }
 
     /*
@@ -195,6 +202,20 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
         this.destFileName = value;
     }
 
+    /*
+     * Gets Folder in filestorage with custom fonts.
+     */
+    public String getFontsLocation() {
+        return this.fontsLocation;
+    }
+
+    /*
+     * Sets Folder in filestorage with custom fonts.
+     */
+    public void setFontsLocation(String value) {
+        this.fontsLocation = value;
+    }
+
 
     /*
      * Creates the http request based on this request model.
@@ -229,6 +250,8 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
 
 
 
+
+
         // create path and map variables
         String localVarPath = "/words/online/put/compareDocument";
         localVarPath = localVarPath.replaceAll("//", "/");
@@ -240,6 +263,7 @@ public class CompareDocumentOnlineRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "openTypeSupport", getOpenTypeSupport());
         apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
+        apiClient.addParameterToQuery(localVarQueryParams, "fontsLocation", getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
