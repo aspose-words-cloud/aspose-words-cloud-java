@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CompareDocumentRequest.java">
- *   Copyright (c) 2025 Aspose.Words for Cloud
+ *   Copyright (c) 2026 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -87,6 +87,11 @@ public class CompareDocumentRequest implements RequestIfc {
     private String destFileName;
 
     /*
+     * Folder in filestorage with custom fonts.
+     */
+    private String fontsLocation;
+
+    /*
      * Initializes a new instance of the CompareDocumentRequest class.
      *
      * @param String name The filename of the input document.
@@ -98,8 +103,9 @@ public class CompareDocumentRequest implements RequestIfc {
      * @param String encryptedPassword Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
      * @param Boolean openTypeSupport The value indicates whether OpenType support is on.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public CompareDocumentRequest(String name, CompareData compareData, String folder, String storage, String loadEncoding, String password, String encryptedPassword, Boolean openTypeSupport, String destFileName) {
+    public CompareDocumentRequest(String name, CompareData compareData, String folder, String storage, String loadEncoding, String password, String encryptedPassword, Boolean openTypeSupport, String destFileName, String fontsLocation) {
         this.name = name;
         this.compareData = compareData;
         this.folder = folder;
@@ -109,6 +115,7 @@ public class CompareDocumentRequest implements RequestIfc {
         this.encryptedPassword = encryptedPassword;
         this.openTypeSupport = openTypeSupport;
         this.destFileName = destFileName;
+        this.fontsLocation = fontsLocation;
     }
 
     /*
@@ -237,6 +244,20 @@ public class CompareDocumentRequest implements RequestIfc {
         this.destFileName = value;
     }
 
+    /*
+     * Gets Folder in filestorage with custom fonts.
+     */
+    public String getFontsLocation() {
+        return this.fontsLocation;
+    }
+
+    /*
+     * Sets Folder in filestorage with custom fonts.
+     */
+    public void setFontsLocation(String value) {
+        this.fontsLocation = value;
+    }
+
 
     /*
      * Creates the http request based on this request model.
@@ -275,6 +296,8 @@ public class CompareDocumentRequest implements RequestIfc {
 
 
 
+
+
         // create path and map variables
         String localVarPath = "/words/{name}/compareDocument";
         localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
@@ -289,6 +312,7 @@ public class CompareDocumentRequest implements RequestIfc {
         apiClient.addParameterToQuery(localVarQueryParams, "encryptedPassword", getEncryptedPassword());
         apiClient.addParameterToQuery(localVarQueryParams, "openTypeSupport", getOpenTypeSupport());
         apiClient.addParameterToQuery(localVarQueryParams, "destFileName", getDestFileName());
+        apiClient.addParameterToQuery(localVarQueryParams, "fontsLocation", getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
