@@ -450,6 +450,7 @@ public class JSON {
                 put("CustomXmlPartsResponse, _", com.aspose.words.cloud.model.CustomXmlPartsResponse.class);
                 put("CustomXmlPartUpdate, _", com.aspose.words.cloud.model.CustomXmlPartUpdate.class);
                 put("DigitalSignatureDetails, _", com.aspose.words.cloud.model.DigitalSignatureDetails.class);
+                put("DoclingSaveOptionsData, _", com.aspose.words.cloud.model.DoclingSaveOptionsData.class);
                 put("DocmSaveOptionsData, _", com.aspose.words.cloud.model.DocmSaveOptionsData.class);
                 put("DocSaveOptionsData, _", com.aspose.words.cloud.model.DocSaveOptionsData.class);
                 put("Document, _", com.aspose.words.cloud.model.Document.class);
