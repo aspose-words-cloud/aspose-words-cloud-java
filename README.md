@@ -13,6 +13,11 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 26.3
+
+- Various stability and performance improvements.
+
+
 ## Enhancements in Version 26.2
 
 - Implemented ability to save documents as Docling JSON format.
@@ -430,7 +435,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>26.2.0</version>
+        <version>26.3.0</version>
     </dependency>
 </dependencies>
 ```
@@ -463,7 +468,7 @@ Add this dependency to your project's POM:
 
 ## Licensing
 
-All Aspose.Words Cloud SDKs, helper scripts and templates are licensed under [MIT License](https://github.com/aspose-words-cloud/aspose-words-cloud-java/blob/master/LICENSE). 
+All Aspose.Words Cloud SDKs, helper scripts and templates are licensed under [MIT License](https://github.com/aspose-words-cloud/Aspose.Words-Cloud-SDK-for-Java/blob/master/LICENSE). 
 
 ## Contact Us
 Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://forum.aspose.cloud/c/words).

@@ -4,13 +4,13 @@
     <artifactId>aspose-words-cloud</artifactId>
     <packaging>jar</packaging>
     <name>AsposeWordsCloud</name>
-    <version>26.2.0</version>
+    <version>26.3.0</version>
     <url>https://www.aspose.cloud/</url>
     <description>Aspose Words Java SDK</description>
     <scm>
-        <connection>scm:git:https://WordsCloud:${env.gitPass}@github.com/aspose-words-cloud/aspose-words-cloud-java.git</connection>
-        <developerConnection>scm:git:https://WordsCloud:${env.gitPass}@github.com/aspose-words-cloud/aspose-words-cloud-java.git</developerConnection>
-        <url>https://github.com/aspose-words-cloud/aspose-words-cloud-java</url>
+        <connection>scm:git:https://WordsCloud:${env.gitPass}@github.com/aspose-words-cloud/Aspose.Words-Cloud-SDK-for-Java.git</connection>
+        <developerConnection>scm:git:https://WordsCloud:${env.gitPass}@github.com/aspose-words-cloud/Aspose.Words-Cloud-SDK-for-Java.git</developerConnection>
+        <url>https://github.com/aspose-words-cloud/Aspose.Words-Cloud-SDK-for-Java.git</url>
       <tag>HEAD</tag>
   </scm>
 

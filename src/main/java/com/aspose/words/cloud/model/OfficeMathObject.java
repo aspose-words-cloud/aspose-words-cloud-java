@@ -180,7 +180,8 @@ public class OfficeMathObject extends OfficeMathLink {
         PRESUBSUPERSCRIPT("PreSubSuperscript"),
         SUBSCRIPT("Subscript"),
         SUBSUPERSCRIPT("SubSuperscript"),
-        SUPERCRIPT("Supercript");
+        SUPERSCRIPT("Superscript"),
+        NONE("None");
 
         private String value;
 
