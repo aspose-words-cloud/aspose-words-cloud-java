@@ -91,6 +91,43 @@ public class TestSplitDocumentToFormat  extends TestCase
     }
 
     /*
+     * Test for document splitting job.
+     */
+    @Test
+    public void testSplitDocumentJob() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestSplitDocument.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        SplitDocumentJobRequest request = new SplitDocumentJobRequest(
+            remoteFileName,
+            "text",
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null,
+            null,
+            TestInitializer.RemoteTestOut + "/TestSplitDocument.text",
+            1,
+            2,
+            null,
+            null
+        );
+
+       JobHandler< SplitDocumentResponse > jobHandler = TestInitializer.wordsApi.splitDocumentJob(request);
+       SplitDocumentResponse result = jobHandler.waitResult(3000L);
+        assertNotNull(result);
+        assertNotNull(result.getSplitResult());
+        assertNotNull(result.getSplitResult().getPages());
+        assertEquals(2, result.getSplitResult().getPages().size());
+    }
+
+    /*
      * Test for document splitting online.
      */
     @Test
@@ -112,6 +149,32 @@ public class TestSplitDocumentToFormat  extends TestCase
         );
 
         SplitDocumentOnlineResponse result = TestInitializer.wordsApi.splitDocumentOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for document splitting online job.
+     */
+    @Test
+    public void testSplitDocumentOnlineJob() throws ApiException, MessagingException, IOException
+    {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        SplitDocumentOnlineJobRequest request = new SplitDocumentOnlineJobRequest(
+            requestDocument,
+            "text",
+            null,
+            null,
+            null,
+            null,
+            TestInitializer.RemoteTestOut + "/TestSplitDocument.text",
+            1,
+            2,
+            null,
+            null
+        );
+
+       JobHandler< SplitDocumentOnlineResponse > jobHandler = TestInitializer.wordsApi.splitDocumentOnlineJob(request);
+       SplitDocumentOnlineResponse result = jobHandler.waitResult(3000L);
         assertNotNull(result);
     }
 }

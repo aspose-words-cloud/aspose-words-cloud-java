@@ -90,6 +90,14 @@ public class CreateFolderRequest implements RequestIfc {
         this.storageName = value;
     }
 
+    /*
+     * Returns the original request for the current operation.
+     */
+    @Override
+    public RequestIfc getOriginalRequest() {
+        return this;
+    }
+
 
     /*
      * Creates the http request based on this request model.

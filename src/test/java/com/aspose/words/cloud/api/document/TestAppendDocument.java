@@ -99,6 +99,51 @@ public class TestAppendDocument  extends TestCase
     }
 
     /*
+     * Test for appending document job.
+     */
+    @Test
+    public void testAppendDocumentJob() throws ApiException, MessagingException, IOException
+    {
+        String remoteFileName = "TestAppendDocument.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        FileReference requestDocumentListDocumentEntries0FileReference = new FileReference(remoteDataFolder + "/" + remoteFileName);
+        DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
+        requestDocumentListDocumentEntries0.setFileReference(requestDocumentListDocumentEntries0FileReference);
+        requestDocumentListDocumentEntries0.setImportFormatMode(DocumentEntry.ImportFormatModeEnum.KEEPSOURCEFORMATTING);
+
+        ArrayList<DocumentEntry> requestDocumentListDocumentEntries = new ArrayList<DocumentEntry>();
+        requestDocumentListDocumentEntries.add(requestDocumentListDocumentEntries0);
+
+        DocumentEntryList requestDocumentList = new DocumentEntryList();
+        requestDocumentList.setDocumentEntries(requestDocumentListDocumentEntries);
+
+        AppendDocumentJobRequest request = new AppendDocumentJobRequest(
+            remoteFileName,
+            requestDocumentList,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null,
+            null,
+            TestInitializer.RemoteTestOut + "/" + remoteFileName,
+            null,
+            null
+        );
+
+       JobHandler< DocumentResponse > jobHandler = TestInitializer.wordsApi.appendDocumentJob(request);
+       DocumentResponse result = jobHandler.waitResult(3000L);
+        assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestAppendDocument.docx", result.getDocument().getFileName());
+    }
+
+    /*
      * Test for appending document online.
      */
     @Test
@@ -130,6 +175,42 @@ public class TestAppendDocument  extends TestCase
         );
 
         AppendDocumentOnlineResponse result = TestInitializer.wordsApi.appendDocumentOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for appending document online job.
+     */
+    @Test
+    public void testAppendDocumentOnlineJob() throws ApiException, MessagingException, IOException
+    {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        byte[] requestDocumentListDocumentEntries0FileReferenceStream = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath());
+        FileReference requestDocumentListDocumentEntries0FileReference = new FileReference(requestDocumentListDocumentEntries0FileReferenceStream);
+        DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
+        requestDocumentListDocumentEntries0.setFileReference(requestDocumentListDocumentEntries0FileReference);
+        requestDocumentListDocumentEntries0.setImportFormatMode(DocumentEntry.ImportFormatModeEnum.KEEPSOURCEFORMATTING);
+
+        ArrayList<DocumentEntry> requestDocumentListDocumentEntries = new ArrayList<DocumentEntry>();
+        requestDocumentListDocumentEntries.add(requestDocumentListDocumentEntries0);
+
+        DocumentEntryList requestDocumentList = new DocumentEntryList();
+        requestDocumentList.setDocumentEntries(requestDocumentListDocumentEntries);
+
+        AppendDocumentOnlineJobRequest request = new AppendDocumentOnlineJobRequest(
+            requestDocument,
+            requestDocumentList,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+       JobHandler< AppendDocumentOnlineResponse > jobHandler = TestInitializer.wordsApi.appendDocumentOnlineJob(request);
+       AppendDocumentOnlineResponse result = jobHandler.waitResult(3000L);
         assertNotNull(result);
     }
 }

@@ -534,6 +534,7 @@ public class JSON {
                 put("ImageEntryList, _", com.aspose.words.cloud.model.ImageEntryList.class);
                 put("InfoAdditionalItem, _", com.aspose.words.cloud.model.InfoAdditionalItem.class);
                 put("InfoResponse, _", com.aspose.words.cloud.model.InfoResponse.class);
+                put("JobInfo, _", com.aspose.words.cloud.model.JobInfo.class);
                 put("JpegSaveOptionsData, _", com.aspose.words.cloud.model.JpegSaveOptionsData.class);
                 put("JsonDataLoadOptions, _", com.aspose.words.cloud.model.JsonDataLoadOptions.class);
                 put("Link, _", com.aspose.words.cloud.model.Link.class);

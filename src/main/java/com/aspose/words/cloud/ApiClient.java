@@ -1087,6 +1087,38 @@ public class ApiClient {
     }
 
     /**
+     * Get job result.
+     */
+    public MimeMultipart callJobResult(String jobId) throws ApiException, IOException {
+        try {
+            return callJobResultInternal(jobId);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == this.getNotAuthCode()) {
+                this.requestToken();
+                return callJobResultInternal(jobId);
+            }
+
+            throw ex;
+        }
+    }
+
+    /**
+     * Parse JobInfo from response part.
+     */
+    public JobInfo deserializeJobInfoPart(BodyPart bodyPart) throws ApiException {
+        try {
+            return (JobInfo) this.parseModel(bodyPart, JobInfo.class);
+        }
+        catch (IOException ex) {
+            throw new ApiException(ex);
+        }
+        catch (MessagingException ex) {
+            throw new ApiException(ex);
+        }
+    }
+
+    /**
      * Parse model from online response.
      */
     public Object parseModel(BodyPart bodyPart, Type returnType) throws IOException, MessagingException {
@@ -1228,6 +1260,59 @@ public class ApiClient {
     }
 
     /**
+     * Parse HTTP response part.
+     */
+    public Object parseHttpResponsePart(RequestIfc apiRequest, BodyPart bodyPart) throws IOException, MessagingException, ApiException {
+        try {
+            ByteArrayOutputStream buffer = bodyPartToArray(bodyPart);
+            String stringData = buffer.toString("UTF-8");
+            int lastSplitIndex = stringData.indexOf("\r\n");
+            String statusLine = stringData.substring(0, lastSplitIndex);
+            String[] statusLineParts = statusLine.split("\\s+", 3);
+            if (statusLineParts.length < 2 || !statusLineParts[0].startsWith("HTTP/")) {
+                throw new ApiException(400, "Invalid response format.");
+            }
+
+            Integer responseCode = Integer.parseInt(statusLineParts[1]);
+            Headers.Builder headersBuilder = new Headers.Builder();
+            while (true) {
+                int splitIndex = stringData.indexOf("\r\n", lastSplitIndex + 2);
+                String headerStr = stringData.substring(lastSplitIndex + 2, splitIndex);
+                lastSplitIndex = splitIndex;
+
+                if (headerStr.isEmpty()) {
+                    break;
+                }
+
+                headersBuilder.add(headerStr);
+            }
+
+            ResponseBody responseBody = null;
+            Headers headers = headersBuilder.build();
+            byte[] rawBody = buffer.toByteArray();
+            if (rawBody.length != lastSplitIndex + 2) {
+                byte[] responseBytes = new byte[rawBody.length - (lastSplitIndex + 2)];
+                System.arraycopy(rawBody, lastSplitIndex + 2, responseBytes, 0, responseBytes.length);
+                responseBody = ResponseBody.create(MediaType.parse(headers.get("Content-Type")), responseBytes);
+            }
+
+            Request sysRequest = apiRequest.buildHttpRequest(this, null, null, false);
+            Response response = new Response.Builder().request(sysRequest).protocol(Protocol.HTTP_1_1).code(responseCode).headers(headers).body(responseBody).build();
+            if (response.isSuccessful()) {
+                return apiRequest.deserializeResponse(this, response);
+            }
+
+            return null;
+        }
+        catch (ApiException e) {
+            throw e;
+        }
+        catch (Exception e) {
+            throw new ApiException(400, "Invalid response format.");
+        }
+    }
+
+    /**
      * Encrypt string to base64-encoded string
      */
     public String encrypt(String data) throws ApiException, IOException {
@@ -1284,6 +1369,26 @@ public class ApiClient {
             requestToken();
         }
         headerParams.put("Authorization", "Bearer " + accessToken);
+    }
+
+    /**
+     * Get job result.
+     */
+    private MimeMultipart callJobResultInternal(String jobId) throws ApiException, IOException {
+        List<Pair> queryParams = new ArrayList<>();
+        queryParams.addAll(this.parameterToPair("id", jobId));
+        Request request = this.buildRequest("/words/job", "GET", queryParams, new ArrayList<>(), new HashMap<String, String>(), new HashMap<String, Object>(), new ArrayList<FileReference>(), true, null);
+        Response response = this.buildCall(request).execute();
+        if (!response.isSuccessful()) {
+            String respBody = null;
+            if (response.body() != null) {
+                respBody = response.body().string();
+            }
+
+            throw new ApiException(response.message(), response.code(), response.headers().toMultimap(), respBody);
+        }
+
+        return this.deserialize(response, MimeMultipart.class);
     }
 
 

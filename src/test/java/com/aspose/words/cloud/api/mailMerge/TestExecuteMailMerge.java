@@ -80,6 +80,32 @@ public class TestExecuteMailMerge  extends TestCase
     }
 
     /*
+     * Test for executing mail merge online job.
+     */
+    @Test
+    public void testExecuteMailMergeOnlineJob() throws ApiException, MessagingException, IOException
+    {
+        String localDocumentFile = "SampleExecuteTemplate.docx";
+        String localDataFile = "SampleExecuteTemplateData.txt";
+
+        byte[] requestTemplate = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDocumentFile).toAbsolutePath());
+        byte[] requestData = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDataFile).toAbsolutePath());
+        ExecuteMailMergeOnlineJobRequest request = new ExecuteMailMergeOnlineJobRequest(
+            requestTemplate,
+            requestData,
+            null,
+            true,
+            null,
+            null,
+            null
+        );
+
+       JobHandler< byte[] > jobHandler = TestInitializer.wordsApi.executeMailMergeOnlineJob(request);
+       byte[] result = jobHandler.waitResult(3000L);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for executing mail merge.
      */
     @Test
@@ -113,6 +139,46 @@ public class TestExecuteMailMerge  extends TestCase
         );
 
         DocumentResponse result = TestInitializer.wordsApi.executeMailMerge(request);
+        assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestExecuteMailMerge.docx", result.getDocument().getFileName());
+    }
+
+    /*
+     * Test for executing mail merge job.
+     */
+    @Test
+    public void testExecuteMailMergeJob() throws ApiException, MessagingException, IOException
+    {
+        String localDocumentFile = "SampleExecuteTemplate.docx";
+        String remoteFileName = "TestExecuteMailMerge.docx";
+        String localDataFile = new String(Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/SampleMailMergeTemplateData.txt")), "utf8");
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, mailMergeFolder + "/" + localDocumentFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        ExecuteMailMergeJobRequest request = new ExecuteMailMergeJobRequest(
+            remoteFileName,
+            localDataFile,
+            null,
+            remoteDataFolder,
+            null,
+            null,
+            null,
+            null,
+            null,
+            true,
+            null,
+            null,
+            null,
+            null,
+            TestInitializer.RemoteTestOut + "/" + remoteFileName
+        );
+
+       JobHandler< DocumentResponse > jobHandler = TestInitializer.wordsApi.executeMailMergeJob(request);
+       DocumentResponse result = jobHandler.waitResult(3000L);
         assertNotNull(result);
         assertNotNull(result.getDocument());
         assertEquals("TestExecuteMailMerge.docx", result.getDocument().getFileName());

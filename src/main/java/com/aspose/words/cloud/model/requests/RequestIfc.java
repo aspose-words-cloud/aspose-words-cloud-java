@@ -38,6 +38,11 @@ import java.lang.reflect.Type;
  */
 public interface RequestIfc {
     /*
+     * Returns the original request for the current operation.
+     */
+    public RequestIfc getOriginalRequest();
+
+    /*
      * Creates the http request based on this request model.
      *
      * @param apiClient ApiClient instance
