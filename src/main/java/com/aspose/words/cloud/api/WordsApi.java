@@ -287,6 +287,99 @@ public class WordsApi implements EncryptorFactory {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call appendDocumentJobValidateBeforeCall(AppendDocumentJobRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Appends documents to the original document.
+     * @param request Request object
+     * @return JobInfo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public JobHandler< DocumentResponse > appendDocumentJob(AppendDocumentJobRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< JobInfo > resp = appendDocumentJobWithHttpInfo(request);
+            return new JobHandler< DocumentResponse >(apiClient, request.getOriginalRequest(), resp.getData());
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< JobInfo > resp = appendDocumentJobWithHttpInfo(request);
+                return new JobHandler< DocumentResponse >(apiClient, request.getOriginalRequest(), resp.getData());
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Appends documents to the original document.
+     * @param request Request object
+     * @return ApiResponse< JobHandler< DocumentResponse > >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< JobInfo > appendDocumentJobWithHttpInfo(AppendDocumentJobRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = appendDocumentJobValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Appends documents to the original document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call appendDocumentJobAsync(AppendDocumentJobRequest request, final ApiCallback< JobHandler< DocumentResponse > > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = appendDocumentJobValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, new ApiCallback< JobInfo >() {
+            @Override
+            public void onFailure(ApiException e, int statusCode, Map responseHeaders) {
+                callback.onFailure(e, statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onSuccess(JobInfo result, int statusCode, Map responseHeaders) {
+                callback.onSuccess(new JobHandler< DocumentResponse >(apiClient, request.getOriginalRequest(), result), statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onUploadProgress(long bytesWritten, long contentLength, boolean done) {
+                callback.onUploadProgress(bytesWritten, contentLength, done);
+            }
+
+            @Override
+            public void onDownloadProgress(long bytesRead, long contentLength, boolean done) {
+                callback.onDownloadProgress(bytesRead, contentLength, done);
+            }
+        });
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call appendDocumentOnlineValidateBeforeCall(AppendDocumentOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
@@ -356,6 +449,99 @@ public class WordsApi implements EncryptorFactory {
 
         com.squareup.okhttp.Call call = appendDocumentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
         apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call appendDocumentOnlineJobValidateBeforeCall(AppendDocumentOnlineJobRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Appends documents to the original document.
+     * @param request Request object
+     * @return JobInfo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public JobHandler< AppendDocumentOnlineResponse > appendDocumentOnlineJob(AppendDocumentOnlineJobRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< JobInfo > resp = appendDocumentOnlineJobWithHttpInfo(request);
+            return new JobHandler< AppendDocumentOnlineResponse >(apiClient, request.getOriginalRequest(), resp.getData());
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< JobInfo > resp = appendDocumentOnlineJobWithHttpInfo(request);
+                return new JobHandler< AppendDocumentOnlineResponse >(apiClient, request.getOriginalRequest(), resp.getData());
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Appends documents to the original document.
+     * @param request Request object
+     * @return ApiResponse< JobHandler< AppendDocumentOnlineResponse > >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< JobInfo > appendDocumentOnlineJobWithHttpInfo(AppendDocumentOnlineJobRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = appendDocumentOnlineJobValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Appends documents to the original document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call appendDocumentOnlineJobAsync(AppendDocumentOnlineJobRequest request, final ApiCallback< JobHandler< AppendDocumentOnlineResponse > > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = appendDocumentOnlineJobValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, new ApiCallback< JobInfo >() {
+            @Override
+            public void onFailure(ApiException e, int statusCode, Map responseHeaders) {
+                callback.onFailure(e, statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onSuccess(JobInfo result, int statusCode, Map responseHeaders) {
+                callback.onSuccess(new JobHandler< AppendDocumentOnlineResponse >(apiClient, request.getOriginalRequest(), result), statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onUploadProgress(long bytesWritten, long contentLength, boolean done) {
+                callback.onUploadProgress(bytesWritten, contentLength, done);
+            }
+
+            @Override
+            public void onDownloadProgress(long bytesRead, long contentLength, boolean done) {
+                callback.onDownloadProgress(bytesRead, contentLength, done);
+            }
+        });
         return call;
     }
 
@@ -1019,6 +1205,99 @@ public class WordsApi implements EncryptorFactory {
 
         com.squareup.okhttp.Call call = convertDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
         apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentJobValidateBeforeCall(ConvertDocumentJobRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Converts a document on a local drive to the specified format.
+     * @param request Request object
+     * @return JobInfo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public JobHandler< byte[] > convertDocumentJob(ConvertDocumentJobRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< JobInfo > resp = convertDocumentJobWithHttpInfo(request);
+            return new JobHandler< byte[] >(apiClient, request.getOriginalRequest(), resp.getData());
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< JobInfo > resp = convertDocumentJobWithHttpInfo(request);
+                return new JobHandler< byte[] >(apiClient, request.getOriginalRequest(), resp.getData());
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Converts a document on a local drive to the specified format.
+     * @param request Request object
+     * @return ApiResponse< JobHandler< byte[] > >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< JobInfo > convertDocumentJobWithHttpInfo(ConvertDocumentJobRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = convertDocumentJobValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Converts a document on a local drive to the specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentJobAsync(ConvertDocumentJobRequest request, final ApiCallback< JobHandler< byte[] > > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentJobValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, new ApiCallback< JobInfo >() {
+            @Override
+            public void onFailure(ApiException e, int statusCode, Map responseHeaders) {
+                callback.onFailure(e, statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onSuccess(JobInfo result, int statusCode, Map responseHeaders) {
+                callback.onSuccess(new JobHandler< byte[] >(apiClient, request.getOriginalRequest(), result), statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onUploadProgress(long bytesWritten, long contentLength, boolean done) {
+                callback.onUploadProgress(bytesWritten, contentLength, done);
+            }
+
+            @Override
+            public void onDownloadProgress(long bytesRead, long contentLength, boolean done) {
+                callback.onDownloadProgress(bytesRead, contentLength, done);
+            }
+        });
         return call;
     }
 
@@ -6280,6 +6559,99 @@ public class WordsApi implements EncryptorFactory {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call executeMailMergeJobValidateBeforeCall(ExecuteMailMergeJobRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Executes a Mail Merge operation.
+     * @param request Request object
+     * @return JobInfo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public JobHandler< DocumentResponse > executeMailMergeJob(ExecuteMailMergeJobRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< JobInfo > resp = executeMailMergeJobWithHttpInfo(request);
+            return new JobHandler< DocumentResponse >(apiClient, request.getOriginalRequest(), resp.getData());
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< JobInfo > resp = executeMailMergeJobWithHttpInfo(request);
+                return new JobHandler< DocumentResponse >(apiClient, request.getOriginalRequest(), resp.getData());
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Executes a Mail Merge operation.
+     * @param request Request object
+     * @return ApiResponse< JobHandler< DocumentResponse > >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< JobInfo > executeMailMergeJobWithHttpInfo(ExecuteMailMergeJobRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = executeMailMergeJobValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Executes a Mail Merge operation. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call executeMailMergeJobAsync(ExecuteMailMergeJobRequest request, final ApiCallback< JobHandler< DocumentResponse > > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = executeMailMergeJobValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, new ApiCallback< JobInfo >() {
+            @Override
+            public void onFailure(ApiException e, int statusCode, Map responseHeaders) {
+                callback.onFailure(e, statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onSuccess(JobInfo result, int statusCode, Map responseHeaders) {
+                callback.onSuccess(new JobHandler< DocumentResponse >(apiClient, request.getOriginalRequest(), result), statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onUploadProgress(long bytesWritten, long contentLength, boolean done) {
+                callback.onUploadProgress(bytesWritten, contentLength, done);
+            }
+
+            @Override
+            public void onDownloadProgress(long bytesRead, long contentLength, boolean done) {
+                callback.onDownloadProgress(bytesRead, contentLength, done);
+            }
+        });
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call executeMailMergeOnlineValidateBeforeCall(ExecuteMailMergeOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
@@ -6349,6 +6721,99 @@ public class WordsApi implements EncryptorFactory {
 
         com.squareup.okhttp.Call call = executeMailMergeOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
         apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call executeMailMergeOnlineJobValidateBeforeCall(ExecuteMailMergeOnlineJobRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Executes a Mail Merge operation online.
+     * @param request Request object
+     * @return JobInfo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public JobHandler< byte[] > executeMailMergeOnlineJob(ExecuteMailMergeOnlineJobRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< JobInfo > resp = executeMailMergeOnlineJobWithHttpInfo(request);
+            return new JobHandler< byte[] >(apiClient, request.getOriginalRequest(), resp.getData());
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< JobInfo > resp = executeMailMergeOnlineJobWithHttpInfo(request);
+                return new JobHandler< byte[] >(apiClient, request.getOriginalRequest(), resp.getData());
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Executes a Mail Merge operation online.
+     * @param request Request object
+     * @return ApiResponse< JobHandler< byte[] > >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< JobInfo > executeMailMergeOnlineJobWithHttpInfo(ExecuteMailMergeOnlineJobRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = executeMailMergeOnlineJobValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Executes a Mail Merge operation online. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call executeMailMergeOnlineJobAsync(ExecuteMailMergeOnlineJobRequest request, final ApiCallback< JobHandler< byte[] > > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = executeMailMergeOnlineJobValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, new ApiCallback< JobInfo >() {
+            @Override
+            public void onFailure(ApiException e, int statusCode, Map responseHeaders) {
+                callback.onFailure(e, statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onSuccess(JobInfo result, int statusCode, Map responseHeaders) {
+                callback.onSuccess(new JobHandler< byte[] >(apiClient, request.getOriginalRequest(), result), statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onUploadProgress(long bytesWritten, long contentLength, boolean done) {
+                callback.onUploadProgress(bytesWritten, contentLength, done);
+            }
+
+            @Override
+            public void onDownloadProgress(long bytesRead, long contentLength, boolean done) {
+                callback.onDownloadProgress(bytesRead, contentLength, done);
+            }
+        });
         return call;
     }
 
@@ -21607,6 +22072,99 @@ public class WordsApi implements EncryptorFactory {
     }
 
     @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call splitDocumentJobValidateBeforeCall(SplitDocumentJobRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Splits a document into parts and saves them in the specified format.
+     * @param request Request object
+     * @return JobInfo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public JobHandler< SplitDocumentResponse > splitDocumentJob(SplitDocumentJobRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< JobInfo > resp = splitDocumentJobWithHttpInfo(request);
+            return new JobHandler< SplitDocumentResponse >(apiClient, request.getOriginalRequest(), resp.getData());
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< JobInfo > resp = splitDocumentJobWithHttpInfo(request);
+                return new JobHandler< SplitDocumentResponse >(apiClient, request.getOriginalRequest(), resp.getData());
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Splits a document into parts and saves them in the specified format.
+     * @param request Request object
+     * @return ApiResponse< JobHandler< SplitDocumentResponse > >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< JobInfo > splitDocumentJobWithHttpInfo(SplitDocumentJobRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = splitDocumentJobValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Splits a document into parts and saves them in the specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call splitDocumentJobAsync(SplitDocumentJobRequest request, final ApiCallback< JobHandler< SplitDocumentResponse > > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = splitDocumentJobValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, new ApiCallback< JobInfo >() {
+            @Override
+            public void onFailure(ApiException e, int statusCode, Map responseHeaders) {
+                callback.onFailure(e, statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onSuccess(JobInfo result, int statusCode, Map responseHeaders) {
+                callback.onSuccess(new JobHandler< SplitDocumentResponse >(apiClient, request.getOriginalRequest(), result), statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onUploadProgress(long bytesWritten, long contentLength, boolean done) {
+                callback.onUploadProgress(bytesWritten, contentLength, done);
+            }
+
+            @Override
+            public void onDownloadProgress(long bytesRead, long contentLength, boolean done) {
+                callback.onDownloadProgress(bytesRead, contentLength, done);
+            }
+        });
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call splitDocumentOnlineValidateBeforeCall(SplitDocumentOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
@@ -21676,6 +22234,99 @@ public class WordsApi implements EncryptorFactory {
 
         com.squareup.okhttp.Call call = splitDocumentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
         apiClient.executeAsync(call, request, callback);
+        return call;
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call splitDocumentOnlineJobValidateBeforeCall(SplitDocumentOnlineJobRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
+    }
+
+    /**
+     * Splits a document into parts and saves them in the specified format.
+     * @param request Request object
+     * @return JobInfo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public JobHandler< SplitDocumentOnlineResponse > splitDocumentOnlineJob(SplitDocumentOnlineJobRequest request) throws ApiException, MessagingException, IOException {
+        try {
+            ApiResponse< JobInfo > resp = splitDocumentOnlineJobWithHttpInfo(request);
+            return new JobHandler< SplitDocumentOnlineResponse >(apiClient, request.getOriginalRequest(), resp.getData());
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
+                apiClient.requestToken();
+                ApiResponse< JobInfo > resp = splitDocumentOnlineJobWithHttpInfo(request);
+                return new JobHandler< SplitDocumentOnlineResponse >(apiClient, request.getOriginalRequest(), resp.getData());
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Splits a document into parts and saves them in the specified format.
+     * @param request Request object
+     * @return ApiResponse< JobHandler< SplitDocumentOnlineResponse > >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< JobInfo > splitDocumentOnlineJobWithHttpInfo(SplitDocumentOnlineJobRequest request) throws ApiException, MessagingException, IOException {
+        com.squareup.okhttp.Call call = splitDocumentOnlineJobValidateBeforeCall(request, null, null);
+        return apiClient.execute(call, request);
+    }
+
+    /**
+     * Splits a document into parts and saves them in the specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call splitDocumentOnlineJobAsync(SplitDocumentOnlineJobRequest request, final ApiCallback< JobHandler< SplitDocumentOnlineResponse > > callback) throws ApiException, MessagingException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = splitDocumentOnlineJobValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, request, new ApiCallback< JobInfo >() {
+            @Override
+            public void onFailure(ApiException e, int statusCode, Map responseHeaders) {
+                callback.onFailure(e, statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onSuccess(JobInfo result, int statusCode, Map responseHeaders) {
+                callback.onSuccess(new JobHandler< SplitDocumentOnlineResponse >(apiClient, request.getOriginalRequest(), result), statusCode, responseHeaders);
+            }
+
+            @Override
+            public void onUploadProgress(long bytesWritten, long contentLength, boolean done) {
+                callback.onUploadProgress(bytesWritten, contentLength, done);
+            }
+
+            @Override
+            public void onDownloadProgress(long bytesRead, long contentLength, boolean done) {
+                callback.onDownloadProgress(bytesRead, contentLength, done);
+            }
+        });
         return call;
     }
 
@@ -25128,6 +25779,11 @@ public class WordsApi implements EncryptorFactory {
         com.squareup.okhttp.Request req = apiClient.buildBatchRequest(requests, displayIntermediateResults);
         com.squareup.okhttp.Call call = apiClient.buildCall(req);
         RequestIfc internalRequest = new RequestIfc() {
+            @Override
+            public RequestIfc getOriginalRequest() {
+                return this;
+            }
+
             @Override
             public com.squareup.okhttp.Request buildHttpRequest(ApiClient apiClient, ProgressResponseBody.ProgressListener progressListener, ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
                 throw new ApiException();

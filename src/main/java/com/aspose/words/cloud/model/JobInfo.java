@@ -1,0 +1,234 @@
+/*
+ * --------------------------------------------------------------------------------
+ * <copyright company="Aspose" file="JobInfo.java">
+ *   Copyright (c) 2026 Aspose.Words for Cloud
+ * </copyright>
+ * <summary>
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ * 
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ * 
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ * </summary>
+ * --------------------------------------------------------------------------------
+ */
+
+package com.aspose.words.cloud.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.model.*;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+/**
+ * The REST response with a job result.
+ */
+@ApiModel(description = "The REST response with a job result.")
+public class JobInfo implements ModelIfc {
+    /**
+     * Gets or sets the job status.
+     */
+    @JsonAdapter(StatusEnum.Adapter.class)
+    public enum StatusEnum {
+        UNKNOWN("Unknown"),
+        QUEUED("Queued"),
+        PROCESSING("Processing"),
+        SUCCEDED("Succeded"),
+        FAILED("Failed");
+
+        private String value;
+
+        StatusEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StatusEnum fromValue(String text) {
+            for (StatusEnum b : StatusEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< StatusEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return StatusEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    @SerializedName("JobId")
+    protected String jobId;
+
+    @SerializedName("Message")
+    protected String message;
+
+    @SerializedName("Status")
+    protected StatusEnum status;
+    /**
+     * Gets or sets the job id.
+    * @return jobId
+    **/
+    @ApiModelProperty(value = "Gets or sets the job id.")
+    public String getJobId() {
+        return jobId;
+    }
+
+    public JobInfo jobId(String jobId) {
+        this.jobId = jobId;
+        return this;
+    }
+
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
+    }
+
+
+    /**
+     * Gets or sets the job message.
+    * @return message
+    **/
+    @ApiModelProperty(value = "Gets or sets the job message.")
+    public String getMessage() {
+        return message;
+    }
+
+    public JobInfo message(String message) {
+        this.message = message;
+        return this;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+
+    /**
+     * Gets or sets the job status.
+    * @return status
+    **/
+    @ApiModelProperty(value = "Gets or sets the job status.")
+    public StatusEnum getStatus() {
+        return status;
+    }
+
+    public JobInfo status(StatusEnum status) {
+        this.status = status;
+        return this;
+    }
+
+    public void setStatus(StatusEnum status) {
+        this.status = status;
+    }
+
+
+    public JobInfo() {
+        this.jobId = null;
+        this.message = null;
+        this.status = null;
+    }
+
+    /*
+     * Gets files content.
+     *
+     * @param resultFilesContent List<FileReference> instance.
+     */
+    @Override
+    public void getFilesContent(List<FileReference> resultFilesContent) {
+    }
+
+    /*
+     * Validate required properties.
+     *
+     * @throws ApiException If fails to validate required properties.
+     */
+    @Override
+    public void validate() throws ApiException {
+        if (this.status == null) {
+            throw new ApiException(400, "Property Status in JobInfo is required.");
+        }
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        JobInfo jobInfo = (JobInfo) o;
+        return
+            Objects.equals(this.jobId, jobInfo.jobId) &&
+            Objects.equals(this.message, jobInfo.message) &&
+            Objects.equals(this.status, jobInfo.status);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(jobId, message, status);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class JobInfo {\n");
+    sb.append("    jobId: ").append(toIndentedString(getJobId())).append("\n");
+    sb.append("    message: ").append(toIndentedString(getMessage())).append("\n");
+    sb.append("    status: ").append(toIndentedString(getStatus())).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}

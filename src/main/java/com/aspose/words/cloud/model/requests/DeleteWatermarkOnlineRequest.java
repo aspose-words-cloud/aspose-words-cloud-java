@@ -216,6 +216,14 @@ public class DeleteWatermarkOnlineRequest implements RequestIfc {
         this.revisionDateTime = value;
     }
 
+    /*
+     * Returns the original request for the current operation.
+     */
+    @Override
+    public RequestIfc getOriginalRequest() {
+        return this;
+    }
+
 
     /*
      * Creates the http request based on this request model.

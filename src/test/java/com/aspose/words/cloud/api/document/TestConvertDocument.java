@@ -296,4 +296,29 @@ public class TestConvertDocument  extends TestCase
         byte[] result = TestInitializer.wordsApi.convertDocument(request);
         assertNotNull(result);
     }
+
+    /*
+     * A test for ConvertDocument as a job.
+     */
+    @Test
+    public void testConvertDocumentJob() throws ApiException, MessagingException, IOException
+    {
+        byte[] requestDocument = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFolder + "/test_uploadfile.docx").toAbsolutePath());
+        ConvertDocumentJobRequest request = new ConvertDocumentJobRequest(
+            requestDocument,
+            "pdf",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
+
+       JobHandler< byte[] > jobHandler = TestInitializer.wordsApi.convertDocumentJob(request);
+       byte[] result = jobHandler.waitResult(3000L);
+        assertNotNull(result);
+    }
 }
