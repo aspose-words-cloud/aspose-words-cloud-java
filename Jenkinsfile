@@ -59,6 +59,7 @@ def runtests(directory)
             }            
         } finally {
 			deleteDir()
+			cleanWs()
         }
     }
 }
